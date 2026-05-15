@@ -530,22 +530,62 @@
 <!-- ═══════════════════════════════════════════════ -->
 <!-- AUTH GATE — Login screen (shown by default)    -->
 <!-- ═══════════════════════════════════════════════ -->
-<div id="auth-gate" style="display:flex; justify-content:center; align-items:center; min-height:100vh; background:#0b0d11; font-family:'IBM Plex Sans',sans-serif;">
-  <div style="background:#13161c; border:1px solid #222730; border-radius:8px; padding:48px 40px; max-width:420px; width:90%;">
-    <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#00d68f; letter-spacing:0.15em; text-transform:uppercase; border:1px solid rgba(0,214,143,0.3); padding:4px 10px; border-radius:3px; display:inline-block; margin-bottom:20px;">GBS Insider Club</div>
-    <h2 style="color:#fff; margin-bottom:6px; font-size:24px; font-weight:700;">How AI Works</h2>
-    <p style="color:#8a94a8; margin-bottom:28px; font-size:14px; line-height:1.6;">Enter your credentials to access the field guide.</p>
-    <input id="auth-email" type="email" placeholder="Email address" 
-      style="width:100%; padding:11px 14px; margin-bottom:12px; background:#1a1e26; border:1px solid #2a3040; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box;"
-      onkeydown="if(event.key==='Enter')document.getElementById('auth-pass').focus()">
-    <input id="auth-pass" type="password" placeholder="Password" 
-      style="width:100%; padding:11px 14px; margin-bottom:20px; background:#1a1e26; border:1px solid #2a3040; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box;"
-      onkeydown="if(event.key==='Enter')doLogin()">
-    <button onclick="doLogin()" id="auth-btn"
-      style="width:100%; padding:11px; background:#00d68f; border:none; border-radius:5px; color:#0b0d11; font-weight:600; font-size:14px; font-family:inherit; cursor:pointer; transition:opacity 0.15s;"
-      onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Sign In</button>
-    <p id="auth-error" style="color:#ff4d6a; margin-top:14px; font-size:13px; display:none; line-height:1.5;"></p>
-    <p style="color:#55606e; margin-top:20px; font-size:11px; text-align:center;">Access is by invitation only. Contact your administrator if you need an account.</p>
+<div id="auth-gate" style="display:flex; justify-content:center; align-items:center; min-height:100vh; background:#05080f; font-family:'IBM Plex Sans',sans-serif;">
+
+  <!-- Background subtle grid -->
+  <div style="position:fixed; inset:0; background-image:radial-gradient(circle at 20% 50%, rgba(184,148,56,0.04) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(0,214,143,0.03) 0%, transparent 50%); pointer-events:none;"></div>
+
+  <div style="position:relative; width:90%; max-width:460px;">
+
+    <!-- Logo area -->
+    <div style="text-align:center; margin-bottom:32px;">
+      <div style="display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <!-- Arrow icon matching brand -->
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="4" fill="rgba(184,148,56,0.15)" stroke="rgba(184,148,56,0.4)" stroke-width="1"/>
+          <path d="M8 22 L16 8 L20 14 L26 8" stroke="#b89438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M22 8 L26 8 L26 12" stroke="#b89438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <div>
+          <span style="color:#ffffff; font-size:22px; font-weight:800; letter-spacing:0.02em;">GBS</span>
+          <span style="color:#b89438; font-size:22px; font-weight:300; letter-spacing:0.02em;"> INSIDER CLUB</span>
+        </div>
+      </div>
+      <div style="color:#55606e; font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Insights · Strategies · Growth</div>
+    </div>
+
+    <!-- Card -->
+    <div style="background:#0d1117; border:1px solid #1e2530; border-radius:10px; padding:40px 36px; box-shadow:0 24px 64px rgba(0,0,0,0.6);">
+
+      <!-- Divider line gold -->
+      <div style="height:2px; background:linear-gradient(90deg, #b89438, rgba(184,148,56,0.2), transparent); margin-bottom:28px; border-radius:2px;"></div>
+
+      <h2 style="color:#ffffff; font-size:20px; font-weight:700; margin-bottom:6px;">AI Field Guide</h2>
+      <p style="color:#55606e; font-size:13px; line-height:1.6; margin-bottom:28px;">Member access only. Enter your credentials below.</p>
+
+      <label style="display:block; font-size:11px; color:#8a94a8; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Email</label>
+      <input id="auth-email" type="email" placeholder="your@email.com"
+        style="width:100%; padding:11px 14px; margin-bottom:16px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
+        onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'"
+        onkeydown="if(event.key==='Enter')document.getElementById('auth-pass').focus()">
+
+      <label style="display:block; font-size:11px; color:#8a94a8; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Password</label>
+      <input id="auth-pass" type="password" placeholder="••••••••"
+        style="width:100%; padding:11px 14px; margin-bottom:24px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
+        onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'"
+        onkeydown="if(event.key==='Enter')doLogin()">
+
+      <button onclick="doLogin()" id="auth-btn"
+        style="width:100%; padding:12px; background:linear-gradient(135deg, #b89438, #d4a843); border:none; border-radius:5px; color:#05080f; font-weight:700; font-size:14px; font-family:inherit; cursor:pointer; letter-spacing:0.05em; transition:opacity 0.15s;"
+        onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Access the Guide →</button>
+
+      <p id="auth-error" style="color:#ff4d6a; margin-top:14px; font-size:13px; display:none; line-height:1.5; text-align:center;"></p>
+
+      <p style="color:#2a3040; margin-top:24px; font-size:11px; text-align:center; line-height:1.6;">Access by invitation only.<br>Contact your GBS Insider Club administrator to request access.</p>
+    </div>
+
+    <!-- Footer -->
+    <p style="color:#2a3040; font-size:10px; text-align:center; margin-top:20px; letter-spacing:0.05em;">© 2026 GBS INSIDER CLUB · REAL TALK. REAL IMPACT. REAL GROWTH.</p>
   </div>
 </div>
 
@@ -555,7 +595,14 @@
 <div id="app-content" style="display:none;">
 
 <div class="topbar">
-  <div class="topbar-logo">AI Education</div>
+  <div class="topbar-logo" style="display:flex; align-items:center; gap:8px;">
+    <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <rect width="32" height="32" rx="4" fill="rgba(184,148,56,0.15)" stroke="rgba(184,148,56,0.4)" stroke-width="1"/>
+      <path d="M8 22 L16 8 L20 14 L26 8" stroke="#b89438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M22 8 L26 8 L26 12" stroke="#b89438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <span style="color:#b89438; font-weight:700; letter-spacing:0.05em;">GBS</span><span style="color:#8a94a8; font-weight:300;"> INSIDER CLUB</span>
+  </div>
   <div class="topbar-title">How AI Works — A Complete Field Guide</div>
   <div class="tier-legend">
     <span class="tier-legend-item"><span class="tier-dot core"></span>Beginner</span>
@@ -8594,19 +8641,74 @@ Diagnose:
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function() {
-  // ── CONFIG: Replace these two values ──
-  const SUPABASE_URL  = 'https://wgdcfgknnentriqlajqe.supabase.co';
-  const SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
-  // ──────────────────────────────────────
+  // ── CONFIG ──────────────────────────────────────
+  const SUPABASE_URL  = 'YOUR_SUPABASE_URL';
+  const SUPABASE_KEY  = 'YOUR_SUPABASE_ANON_KEY';
+  // ────────────────────────────────────────────────
 
-  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const sb      = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   const gate    = document.getElementById('auth-gate');
   const content = document.getElementById('app-content');
   const errEl   = document.getElementById('auth-error');
 
-  function showApp() {
+  // ── TIER SYSTEM ──────────────────────────────────
+  // free  = Beginner chapters only (default if no tier set)
+  // paid  = Full access, all 36 chapters
+  // ────────────────────────────────────────────────
+
+  function applyFreeTier() {
+    // Hide Advanced and Expert sidebar items
+    document.querySelectorAll('.sidebar-item').forEach(item => {
+      if (item.querySelector('.tier-applied') || item.querySelector('.tier-deep')) {
+        item.style.opacity = '0.35';
+        item.style.pointerEvents = 'none';
+        item.title = 'Upgrade to access this chapter';
+      }
+    });
+
+    // Hide Advanced and Expert chapter sections in main content
+    document.querySelectorAll('.section').forEach(section => {
+      const h2 = section.querySelector('h2');
+      if (!h2) return;
+      if (section.querySelector('.tier-badge.tier-applied') || section.querySelector('.tier-badge.tier-deep')) {
+        section.style.display = 'none';
+      }
+    });
+
+    // Show upgrade banner (bottom right, persistent)
+    const banner = document.createElement('div');
+    banner.id = 'upgrade-banner';
+    banner.innerHTML = `
+      <div style="position:fixed; bottom:24px; right:24px; background:#0d1117; border:1px solid #b89438; border-radius:8px; padding:20px 22px; max-width:290px; z-index:9999; box-shadow:0 8px 40px rgba(0,0,0,0.5); font-family:'IBM Plex Sans',sans-serif;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <div style="height:2px; width:20px; background:#b89438; border-radius:2px;"></div>
+          <span style="font-size:10px; color:#b89438; font-family:'IBM Plex Mono',monospace; letter-spacing:0.12em; text-transform:uppercase; font-weight:600;">Free Member</span>
+        </div>
+        <p style="color:#ced4e0; font-size:13px; line-height:1.65; margin-bottom:14px;">You're viewing the <strong style="color:#fff;">Beginner chapters</strong>. Upgrade to unlock all 36 chapters including Advanced, Expert, and the full Practitioner's Playbook.</p>
+        <a href="mailto:jkentarom@gmail.com?subject=Upgrade%20GBS%20Insider%20Club%20Access&body=Hi%2C%20I'd%20like%20to%20upgrade%20my%20access%20to%20the%20full%20AI%20Field%20Guide."
+          style="display:block; text-align:center; background:linear-gradient(135deg,#b89438,#d4a843); color:#05080f; font-weight:700; font-size:13px; padding:9px 16px; border-radius:5px; text-decoration:none; letter-spacing:0.03em;">Upgrade Access →</a>
+        <button onclick="document.getElementById('upgrade-banner').style.display='none'" style="position:absolute; top:10px; right:12px; background:none; border:none; color:#55606e; font-size:16px; cursor:pointer; padding:0; line-height:1;">×</button>
+      </div>`;
+    document.body.appendChild(banner);
+
+    // Also show locked indicator in sidebar header
+    const sidebarGroups = document.querySelectorAll('.sidebar-group-label');
+    sidebarGroups.forEach(g => {
+      if (g.textContent.includes('Advanced') || g.textContent.includes('Expert') || 
+          g.textContent.includes('Part') || g.textContent.includes('Practitioner')) {
+        g.innerHTML += ' <span style="font-size:9px; color:#b89438; margin-left:4px;">🔒</span>';
+      }
+    });
+  }
+
+  function showApp(tier) {
     gate.style.display = 'none';
     content.style.display = 'block';
+    // Apply restrictions after content renders
+    if (!tier || tier === 'free') {
+      requestAnimationFrame(() => applyFreeTier());
+    }
+    // paid/admin = full access, nothing to restrict
   }
 
   function showError(msg) {
@@ -8614,20 +8716,26 @@ Diagnose:
     errEl.style.display = 'block';
   }
 
-  // Check existing session on page load
+  // ── SESSION CHECK ON LOAD ────────────────────────
   sb.auth.getSession().then(({ data: { session } }) => {
-    if (session) showApp();
+    if (session) {
+      const tier = session.user?.user_metadata?.tier || 'free';
+      showApp(tier);
+    }
   });
 
-  // Listen for auth state changes (handles token refresh, logout)
+  // ── AUTH STATE LISTENER ──────────────────────────
   sb.auth.onAuthStateChange((event, session) => {
     if (event === 'SIGNED_OUT') {
       content.style.display = 'none';
       gate.style.display = 'flex';
+      // Remove upgrade banner if present
+      const b = document.getElementById('upgrade-banner');
+      if (b) b.remove();
     }
   });
 
-  // Login handler (called by button and Enter key)
+  // ── LOGIN HANDLER ────────────────────────────────
   window.doLogin = async function() {
     const email = document.getElementById('auth-email').value.trim();
     const pass  = document.getElementById('auth-pass').value;
@@ -8639,24 +8747,26 @@ Diagnose:
     btn.disabled = true;
     errEl.style.display = 'none';
 
-    const { error } = await sb.auth.signInWithPassword({ email, password: pass });
+    const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
 
-    btn.textContent = 'Sign In';
+    btn.textContent = 'Access the Guide →';
     btn.disabled = false;
 
     if (error) {
-      showError(error.message === 'Invalid login credentials' 
-        ? 'Invalid email or password.' 
+      showError(error.message === 'Invalid login credentials'
+        ? 'Invalid email or password. Please try again.'
         : error.message);
     } else {
-      showApp();
+      const tier = data.user?.user_metadata?.tier || 'free';
+      showApp(tier);
     }
   };
 
-  // Add logout function (can be called from a button in the guide)
+  // ── LOGOUT HANDLER ───────────────────────────────
   window.doLogout = async function() {
     await sb.auth.signOut();
   };
+
 })();
 </script>
 
