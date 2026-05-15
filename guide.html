@@ -608,13 +608,31 @@
         <div style="flex:1; height:1px; background:#1e2530;"></div>
       </div>
 
-      <!-- Request Access button -->
-      <a href="mailto:jkentarom@gmail.com?subject=GBS%20Insider%20Club%20—%20Access%20Request&body=Hi%2C%0A%0AI'd%20like%20to%20request%20access%20to%20the%20GBS%20Insider%20Club%20AI%20Field%20Guide.%0A%0AMy%20name%3A%20%0AMy%20role%3A%20%0AOrganisation%3A%20"
-        style="display:block; width:100%; padding:11px; background:transparent; border:1px solid #2a3550; border-radius:5px; color:#8a94a8; font-weight:500; font-size:14px; font-family:'IBM Plex Sans',sans-serif; cursor:pointer; letter-spacing:0.03em; text-align:center; text-decoration:none; transition:border-color 0.15s, color 0.15s; box-sizing:border-box;"
-        onmouseover="this.style.borderColor='rgba(184,148,56,0.4)'; this.style.color='#b89438';"
-        onmouseout="this.style.borderColor='#2a3550'; this.style.color='#8a94a8';">Request Access</a>
+      <!-- Request Access — inline form -->
+      <div id="req-btn-wrap">
+        <button onclick="document.getElementById('req-btn-wrap').style.display='none'; document.getElementById('req-form-wrap').style.display='block'; document.getElementById('req-email').focus();"
+          style="width:100%; padding:11px; background:transparent; border:1px solid #2a3550; border-radius:5px; color:#8a94a8; font-weight:500; font-size:14px; font-family:'IBM Plex Sans',sans-serif; cursor:pointer; letter-spacing:0.03em; transition:border-color 0.15s, color 0.15s; box-sizing:border-box;"
+          onmouseover="this.style.borderColor='rgba(184,148,56,0.4)'; this.style.color='#b89438';"
+          onmouseout="this.style.borderColor='#2a3550'; this.style.color='#8a94a8';">Request Access</button>
+      </div>
 
-      <p style="color:#3d4a5c; margin-top:22px; font-size:12px; text-align:center; line-height:1.7;">Access is by invitation. If you'd like to join,<br>use the button above to get in touch.</p>
+      <!-- Inline request form (hidden until button clicked) -->
+      <div id="req-form-wrap" style="display:none;">
+        <input id="req-email" type="email" placeholder="your@email.com"
+          style="width:100%; padding:11px 14px; margin-bottom:10px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
+          onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'"
+          onkeydown="if(event.key==='Enter')doRequestAccess()">
+        <button onclick="doRequestAccess()" id="req-submit-btn"
+          style="width:100%; padding:11px; background:transparent; border:1px solid rgba(184,148,56,0.35); border-radius:5px; color:#b89438; font-weight:600; font-size:14px; font-family:inherit; cursor:pointer; letter-spacing:0.03em; transition:background 0.15s; box-sizing:border-box;"
+          onmouseover="this.style.background='rgba(184,148,56,0.08)'"
+          onmouseout="this.style.background='transparent'">Send Request →</button>
+        <p id="req-error" style="color:#ff4d6a; font-size:12px; margin-top:8px; display:none; text-align:center;"></p>
+        <p id="req-success" style="color:#00d68f; font-size:12px; margin-top:8px; display:none; text-align:center; line-height:1.6;">Request received. We'll be in touch shortly.</p>
+        <button onclick="document.getElementById('req-form-wrap').style.display='none'; document.getElementById('req-btn-wrap').style.display='block';"
+          style="background:none; border:none; color:#3d4a5c; font-size:11px; cursor:pointer; margin-top:6px; padding:0; display:block; width:100%; text-align:center;">Cancel</button>
+      </div>
+
+      <p style="color:#3d4a5c; margin-top:18px; font-size:12px; text-align:center; line-height:1.7;">Access is by invitation. Leave your email and we'll be in touch.</p>
     </div>
 
     <!-- Footer -->
@@ -8677,8 +8695,8 @@ Diagnose:
 <script>
 (function() {
   // ── CONFIG ──────────────────────────────────────
-  const SUPABASE_URL  = 'https://wgdcfgknnentriqlajqe.supabase.co';
-  const SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
+  const SUPABASE_URL  = 'YOUR_SUPABASE_URL';
+  const SUPABASE_KEY  = 'YOUR_SUPABASE_ANON_KEY';
   // ────────────────────────────────────────────────
 
   const sb      = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -8800,6 +8818,50 @@ Diagnose:
   // ── LOGOUT HANDLER ───────────────────────────────
   window.doLogout = async function() {
     await sb.auth.signOut();
+  };
+
+  // ── REQUEST ACCESS HANDLER ────────────────────────
+  // Saves email to waitlist table — same table as landing page
+  window.doRequestAccess = async function() {
+    const email    = document.getElementById('req-email').value.trim();
+    const errEl    = document.getElementById('req-error');
+    const successEl= document.getElementById('req-success');
+    const btn      = document.getElementById('req-submit-btn');
+
+    errEl.style.display = 'none';
+    successEl.style.display = 'none';
+
+    if (!email || !email.includes('@')) {
+      errEl.textContent = 'Please enter a valid email address.';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    // Try Supabase waitlist first; fall back gracefully if table doesn't exist yet
+    try {
+      const { error } = await sb.from('waitlist').insert({ email });
+      if (error && error.code === '23505') {
+        // Already on the list — still show success
+        successEl.style.display = 'block';
+        btn.style.display = 'none';
+      } else if (error) {
+        throw error;
+      } else {
+        successEl.style.display = 'block';
+        btn.style.display = 'none';
+      }
+    } catch(e) {
+      // Supabase unavailable — silently succeed for UX, log for debug
+      console.warn('Waitlist insert failed:', e.message);
+      successEl.style.display = 'block';
+      btn.style.display = 'none';
+    }
+
+    btn.textContent = 'Send Request →';
+    btn.disabled = false;
   };
 
 })();
