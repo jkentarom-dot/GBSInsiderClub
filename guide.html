@@ -575,7 +575,7 @@
     </style>
 
     <!-- Card -->
-    <div style="background:#0d1117; border:1px solid #1e2530; border-radius:10px; padding:40px 36px; box-shadow:0 24px 64px rgba(0,0,0,0.6);">
+    <div id="auth-gate-card" style="background:#0d1117; border:1px solid #1e2530; border-radius:10px; padding:40px 36px; box-shadow:0 24px 64px rgba(0,0,0,0.6);">
 
       <!-- Divider line gold -->
       <div style="height:2px; background:linear-gradient(90deg, #b89438, rgba(184,148,56,0.2), transparent); margin-bottom:28px; border-radius:2px;"></div>
@@ -8695,8 +8695,8 @@ Diagnose:
 <script>
 (function() {
   // ── CONFIG ──────────────────────────────────────
-  const SUPABASE_URL  = 'https://wgdcfgknnentriqlajqe.supabase.co';
-  const SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
+  const SUPABASE_URL  = 'YOUR_SUPABASE_URL';
+  const SUPABASE_KEY  = 'YOUR_SUPABASE_ANON_KEY';
   // ────────────────────────────────────────────────
 
   const sb      = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -8770,12 +8770,95 @@ Diagnose:
   }
 
   // ── SESSION CHECK ON LOAD ────────────────────────
-  sb.auth.getSession().then(({ data: { session } }) => {
-    if (session) {
-      const tier = session.user?.user_metadata?.tier || 'free';
+  // First check for invite token in URL (email invite flow)
+  const hash = window.location.hash;
+  const urlParams = new URLSearchParams(hash.replace('#', '?'));
+  const accessToken = urlParams.get('access_token');
+  const tokenType   = urlParams.get('type');
+
+  if (accessToken && tokenType === 'invite') {
+    // User arrived via invite email — show password setup form
+    sb.auth.setSession({ access_token: accessToken, refresh_token: urlParams.get('refresh_token') || '' })
+      .then(({ data, error }) => {
+        if (error || !data?.user) {
+          showError('Invalid or expired invite link. Please request a new one.');
+          return;
+        }
+        const userEmail = data.user.email || '';
+        // Replace login card with password setup UI
+        document.getElementById('auth-gate-card').innerHTML = `
+          <div style="height:2px; background:linear-gradient(90deg, #b89438, rgba(184,148,56,0.2), transparent); margin-bottom:28px; border-radius:2px;"></div>
+          <div style="text-align:center; margin-bottom:24px;">
+            <div style="width:48px; height:48px; border-radius:50%; background:rgba(0,214,143,0.1); border:1px solid rgba(0,214,143,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00d68f" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2 style="color:#ffffff; font-size:20px; font-weight:700; margin-bottom:6px;">Welcome to GBS Insider Club</h2>
+            <p style="color:#8a94a8; font-size:14px; line-height:1.6;">Your account is ready. Set a password to get started.</p>
+          </div>
+          <label style="display:block; font-size:11px; color:#8a94a8; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Email</label>
+          <input type="email" value="${userEmail}" readonly
+            style="width:100%; padding:11px 14px; margin-bottom:16px; background:#0d1117; border:1px solid #1e2a38; border-radius:5px; color:#55606e; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; cursor:not-allowed;">
+          <label style="display:block; font-size:11px; color:#8a94a8; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Choose a Password</label>
+          <input id="new-pass" type="password" placeholder="Minimum 8 characters"
+            style="width:100%; padding:11px 14px; margin-bottom:16px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'"
+            onkeydown="if(event.key==='Enter')document.getElementById('new-pass-confirm').focus()">
+          <label style="display:block; font-size:11px; color:#8a94a8; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Confirm Password</label>
+          <input id="new-pass-confirm" type="password" placeholder="Repeat your password"
+            style="width:100%; padding:11px 14px; margin-bottom:24px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'"
+            onkeydown="if(event.key==='Enter')doSetPassword()">
+          <button onclick="doSetPassword()" id="set-pass-btn"
+            style="width:100%; padding:12px; background:linear-gradient(135deg, #b89438, #d4a843); border:none; border-radius:5px; color:#05080f; font-weight:700; font-size:14px; font-family:inherit; cursor:pointer; letter-spacing:0.05em; transition:opacity 0.15s;"
+            onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Set Password &amp; Enter →</button>
+          <p id="set-pass-error" style="color:#ff4d6a; margin-top:12px; font-size:13px; display:none; text-align:center;"></p>
+        `;
+        // Clear the invite token from URL cleanly
+        history.replaceState(null, '', window.location.pathname);
+      });
+  } else {
+    // Normal session check
+    sb.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        const tier = session.user?.user_metadata?.tier || 'free';
+        showApp(tier);
+      }
+    });
+  }
+
+  // ── SET PASSWORD HANDLER (invite flow) ───────────
+  window.doSetPassword = async function() {
+    const pass    = document.getElementById('new-pass').value;
+    const confirm = document.getElementById('new-pass-confirm').value;
+    const errEl2  = document.getElementById('set-pass-error');
+    const btn     = document.getElementById('set-pass-btn');
+
+    errEl2.style.display = 'none';
+
+    if (pass.length < 8) {
+      errEl2.textContent = 'Password must be at least 8 characters.';
+      errEl2.style.display = 'block'; return;
+    }
+    if (pass !== confirm) {
+      errEl2.textContent = 'Passwords do not match.';
+      errEl2.style.display = 'block'; return;
+    }
+
+    btn.textContent = 'Setting up your account...';
+    btn.disabled = true;
+
+    const { data, error } = await sb.auth.updateUser({ password: pass });
+
+    if (error) {
+      errEl2.textContent = error.message;
+      errEl2.style.display = 'block';
+      btn.textContent = 'Set Password & Enter →';
+      btn.disabled = false;
+    } else {
+      const tier = data.user?.user_metadata?.tier || 'free';
       showApp(tier);
     }
-  });
+  };
 
   // ── AUTH STATE LISTENER ──────────────────────────
   sb.auth.onAuthStateChange((event, session) => {

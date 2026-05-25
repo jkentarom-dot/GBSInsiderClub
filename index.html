@@ -193,12 +193,12 @@
   .pillars-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 56px; }
 
   .pillars-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
+    display: grid; grid-template-columns: repeat(5, 1fr);
     gap: 1px; background: var(--border2);
     border: 1px solid var(--border2); border-radius: 10px; overflow: hidden;
   }
   .pillar {
-    background: var(--navy2); padding: 36px 32px;
+    background: var(--navy2); padding: 24px 20px;
     display: flex; flex-direction: column; transition: background 0.2s;
   }
   .pillar:hover { background: var(--navy3); }
@@ -504,14 +504,16 @@
 <section class="section" id="pillars">
   <div class="section-inner">
 
-    <div class="section-split" style="margin-bottom:72px;">
+    <!-- Header row -->
+    <div class="section-split" style="margin-bottom:64px;">
       <div>
         <div class="tag"><div class="tag-line"></div><div class="tag-text">What's Inside</div></div>
-        <h2 class="section-h2">Both sides of<br>the <em>equation</em></h2>
+        <h2 class="section-h2">10 pillars.<br><em>145 topics.</em><br>One map.</h2>
         <div class="section-body">
           <p>Corporations run GBS centres for cost, quality, scale — and the data and innovation advantages that centralisation makes possible.</p>
           <p>Employees get breadth, international exposure, and fast growth — if they understand how to navigate the environment.</p>
           <p>The content here covers both sides: what the organisation needs from you, and how you use it to build something real for yourself.</p>
+          <p style="margin-top:14px; color:var(--gold); font-size:14px;">AI sits at the centre — it touches every pillar.</p>
         </div>
       </div>
       <div class="photo-frame" style="height:420px;">
@@ -519,55 +521,256 @@
       </div>
     </div>
 
-    <!-- Pillars grid -->
-    <div class="pillars-grid">
+    <!-- Curriculum Wheel SVG -->
+    <div style="margin-bottom:72px; text-align:center;">
+      <svg viewBox="0 0 700 700" width="100%" style="max-width:680px; display:inline-block;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="goldGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#d4a843;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#b89438;stop-opacity:1"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Outer decorative ring -->
+        <circle cx="350" cy="350" r="320" fill="none" stroke="rgba(184,148,56,0.08)" stroke-width="1"/>
+        <circle cx="350" cy="350" r="270" fill="none" stroke="rgba(184,148,56,0.05)" stroke-width="1" stroke-dasharray="4 8"/>
+
+        <!-- Spoke lines from centre to each pillar -->
+        <!-- top: GBS Fundamentals 90° -->
+        <line x1="350" y1="230" x2="350" y2="126" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+        <!-- top-right: Operational Excellence 54° -->
+        <line x1="394" y1="244" x2="509" y2="167" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+        <!-- right: Digital & Tech 18° -->
+        <line x1="419" y1="281" x2="589" y2="243" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+        <!-- right-low: Stakeholder 342° = -18° -->
+        <line x1="419" y1="319" x2="589" y2="357" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+        <!-- bottom-right: Career 306° = -54° -->
+        <line x1="394" y1="356" x2="509" y2="433" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+        <!-- bottom-right-2: Total Rewards 270° -->
+        <line x1="350" y1="370" x2="350" y2="474" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+        <!-- bottom-left: Leadership 234° -->
+        <line x1="306" y1="356" x2="191" y2="433" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+        <!-- left: Projects 198° -->
+        <line x1="281" y1="319" x2="111" y2="357" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+        <!-- left-top: Compliance 162° -->
+        <line x1="281" y1="281" x2="111" y2="243" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+        <!-- top-left: Transition 126° -->
+        <line x1="306" y1="244" x2="191" y2="167" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
+
+        <!-- ── PILLAR NODES (r=220 from centre 350,350) ── -->
+        <!-- 1. GBS Fundamentals — top (90°) -->
+        <a href="pillar-1-gbs-fundamentals.html" style="cursor:pointer;">
+          <circle cx="350" cy="100" r="58" fill="rgba(184,148,56,0.12)" stroke="rgba(184,148,56,0.5)" stroke-width="1.5"/>
+          <text x="350" y="92" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.5">GBS</text>
+          <text x="350" y="104" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.5">FUNDAMENTALS</text>
+          <text x="350" y="118" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">15 topics</text>
+        </a>
+
+        <!-- 2. Operational Excellence — top-right (54°) -->
+        <a href="pillar-2-operational-excellence.html" style="cursor:pointer;">
+          <circle cx="528" cy="145" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
+          <text x="528" y="135" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">OPERATIONAL</text>
+          <text x="528" y="148" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">EXCELLENCE</text>
+          <text x="528" y="161" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">28 topics</text>
+        </a>
+
+        <!-- 3. Digital & Technology — right (18°) -->
+        <a href="pillar-3-digital-technology.html" style="cursor:pointer;">
+          <circle cx="612" cy="300" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
+          <text x="612" y="287" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">DIGITAL &amp;</text>
+          <text x="612" y="300" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">TECHNOLOGY</text>
+          <text x="612" y="313" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">SKILLS</text>
+          <text x="612" y="327" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">18 topics</text>
+        </a>
+
+        <!-- 4. Stakeholder & Communication — right-low (342°) -->
+        <a href="pillar-4-stakeholder-communication.html" style="cursor:pointer;">
+          <circle cx="612" cy="400" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
+          <text x="612" y="390" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">STAKEHOLDER</text>
+          <text x="612" y="403" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">COMMUNICATION</text>
+          <text x="612" y="418" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">11 topics</text>
+        </a>
+
+        <!-- 5. Career & Performance — bottom-right (306°) -->
+        <a href="pillar-5-career-performance.html" style="cursor:pointer;">
+          <circle cx="528" cy="555" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
+          <text x="528" y="545" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">CAREER &amp;</text>
+          <text x="528" y="558" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">PERFORMANCE</text>
+          <text x="528" y="571" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">13 topics</text>
+        </a>
+
+        <!-- 6. Total Rewards — bottom (270°) -->
+        <a href="pillar-6-total-rewards.html" style="cursor:pointer;">
+          <circle cx="350" cy="600" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
+          <text x="350" y="590" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">TOTAL</text>
+          <text x="350" y="603" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">REWARDS</text>
+          <text x="350" y="617" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">8 topics</text>
+        </a>
+
+        <!-- 7. Leadership & People Mgmt — bottom-left (234°) -->
+        <a href="pillar-7-leadership-people.html" style="cursor:pointer;">
+          <circle cx="172" cy="555" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
+          <text x="172" y="545" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">LEADERSHIP &amp;</text>
+          <text x="172" y="558" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">PEOPLE MGMT</text>
+          <text x="172" y="571" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">17 topics</text>
+        </a>
+
+        <!-- 8. Projects & Transformation — left (198°) -->
+        <a href="pillar-8-projects-transformation.html" style="cursor:pointer;">
+          <circle cx="88" cy="400" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
+          <text x="88" y="387" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">PROJECTS &amp;</text>
+          <text x="88" y="400" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">TRANSFOR-</text>
+          <text x="88" y="413" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">MATION</text>
+          <text x="88" y="427" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">14 topics</text>
+        </a>
+
+        <!-- 9. Compliance & Risk — left-top (162°) -->
+        <a href="pillar-9-compliance-risk.html" style="cursor:pointer;">
+          <circle cx="88" cy="300" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
+          <text x="88" y="290" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">COMPLIANCE</text>
+          <text x="88" y="303" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">&amp; RISK</text>
+          <text x="88" y="317" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">12 topics</text>
+        </a>
+
+        <!-- 10. GBS Transition — top-left (126°) -->
+        <a href="pillar-10-gbs-transition.html" style="cursor:pointer;">
+          <circle cx="172" cy="145" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
+          <text x="172" y="132" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">GBS</text>
+          <text x="172" y="145" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">TRANSITION</text>
+          <text x="172" y="158" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">(MIGRATION)</text>
+          <text x="172" y="172" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">9 topics</text>
+        </a>
+
+        <!-- ── AI FIELD GUIDE — centre ── -->
+        <a href="guide.html" style="cursor:pointer;">
+          <circle cx="350" cy="350" r="80" fill="rgba(184,148,56,0.15)" stroke="url(#goldGrad)" stroke-width="2"/>
+          <circle cx="350" cy="350" r="88" fill="none" stroke="rgba(184,148,56,0.12)" stroke-width="1" stroke-dasharray="4 6"/>
+          <text x="350" y="335" text-anchor="middle" fill="#ffffff" font-family="Cormorant Garamond,serif" font-size="15" font-weight="600" letter-spacing="0.5">AI FIELD</text>
+          <text x="350" y="353" text-anchor="middle" fill="#ffffff" font-family="Cormorant Garamond,serif" font-size="15" font-weight="600" letter-spacing="0.5">GUIDE</text>
+          <text x="350" y="370" text-anchor="middle" fill="#00d68f" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="1">● LIVE NOW</text>
+          <text x="350" y="384" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Mono,monospace" font-size="8">36 chapters</text>
+        </a>
+
+        <!-- hover prompt -->
+        <text x="350" y="660" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1">CLICK ANY PILLAR TO EXPLORE</text>
+      </svg>
+    </div>
+
+    <!-- 10-pillar grid -->
+    <div class="pillars-grid" style="grid-template-columns: repeat(5, 1fr);">
 
       <div class="pillar">
         <div class="pillar-num">01</div>
-        <div class="pillar-title">AI &amp; the Future of GBS</div>
-        <div class="pillar-desc">How AI works, what it means for your function, and how to deploy it without burning budget. 36 chapters. Built for GBS leaders, not developers.</div>
+        <div class="pillar-title">GBS Fundamentals</div>
+        <div class="pillar-desc">Models, governance, metrics, and strategy. The foundation everything else builds on.</div>
         <div class="pillar-foot">
-          <span class="badge-live">Live Now</span>
-          <a href="guide.html" class="pillar-link">Read →</a>
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-1-gbs-fundamentals.html" class="pillar-link">Explore →</a>
         </div>
       </div>
 
       <div class="pillar">
         <div class="pillar-num">02</div>
-        <div class="pillar-title">Career Progression</div>
-        <div class="pillar-desc">Where the real leverage points are. How to move faster than the typical corporate timeline inside a large multinational GBS environment.</div>
-        <div class="pillar-foot"><span class="badge-soon">Coming Soon</span></div>
+        <div class="pillar-title">Operational Excellence</div>
+        <div class="pillar-desc">Process management, CI, service quality, and operational controls — as practised, not as taught.</div>
+        <div class="pillar-foot">
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-2-operational-excellence.html" class="pillar-link">Explore →</a>
+        </div>
       </div>
 
       <div class="pillar">
         <div class="pillar-num">03</div>
-        <div class="pillar-title">Process &amp; Performance</div>
-        <div class="pillar-desc">Lean, automation, continuous improvement — as practised in real GBS environments. Not as sold in consulting proposals.</div>
-        <div class="pillar-foot"><span class="badge-soon">Coming Soon</span></div>
+        <div class="pillar-title">Digital &amp; Technology Skills</div>
+        <div class="pillar-desc">Data, ERP, automation, AI — the tech stack every GBS professional needs to understand.</div>
+        <div class="pillar-foot">
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-3-digital-technology.html" class="pillar-link">Explore →</a>
+        </div>
       </div>
 
       <div class="pillar">
         <div class="pillar-num">04</div>
-        <div class="pillar-title">Stakeholder &amp; Executive Presence</div>
-        <div class="pillar-desc">Communicate up, across, and into the business. The skill gap most GBS professionals don't address until it's already cost them something.</div>
-        <div class="pillar-foot"><span class="badge-soon">Coming Soon</span></div>
+        <div class="pillar-title">Stakeholder &amp; Communication</div>
+        <div class="pillar-desc">Communication, relationship management, influence, and negotiation in a matrix organisation.</div>
+        <div class="pillar-foot">
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-4-stakeholder-communication.html" class="pillar-link">Explore →</a>
+        </div>
       </div>
 
       <div class="pillar">
         <div class="pillar-num">05</div>
-        <div class="pillar-title">GBS &amp; SSC Architecture</div>
-        <div class="pillar-desc">Service delivery model design, governance, and the decisions that separate mature GBS operations from perpetual cost centres.</div>
-        <div class="pillar-foot"><span class="badge-soon">Coming Soon</span></div>
+        <div class="pillar-title">Career &amp; Performance</div>
+        <div class="pillar-desc">Performance loops, career strategy, and personal branding. How to move — and be seen moving.</div>
+        <div class="pillar-foot">
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-5-career-performance.html" class="pillar-link">Explore →</a>
+        </div>
       </div>
 
       <div class="pillar">
         <div class="pillar-num">06</div>
-        <div class="pillar-title">Promotion &amp; Visibility</div>
-        <div class="pillar-desc">Why strong performers get passed over, and what the ones who moved up did differently. Building visibility where it counts.</div>
-        <div class="pillar-foot"><span class="badge-soon">Coming Soon</span></div>
+        <div class="pillar-title">Total Rewards</div>
+        <div class="pillar-desc">Compensation, benefits, market intelligence, and global mobility. Know what you're worth — and why.</div>
+        <div class="pillar-foot">
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-6-total-rewards.html" class="pillar-link">Explore →</a>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">07</div>
+        <div class="pillar-title">Leadership &amp; People Mgmt</div>
+        <div class="pillar-desc">From first-time manager to strategic leader. Team operations, performance management, and org design.</div>
+        <div class="pillar-foot">
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-7-leadership-people.html" class="pillar-link">Explore →</a>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">08</div>
+        <div class="pillar-title">Projects &amp; Transformation</div>
+        <div class="pillar-desc">Project management, execution methodologies, change management, and stakeholder value delivery.</div>
+        <div class="pillar-foot">
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-8-projects-transformation.html" class="pillar-link">Explore →</a>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">09</div>
+        <div class="pillar-title">Compliance &amp; Risk</div>
+        <div class="pillar-desc">Risk management, regulatory controls, GDPR, SOX, and emerging risks including AI governance.</div>
+        <div class="pillar-foot">
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-9-compliance-risk.html" class="pillar-link">Explore →</a>
+        </div>
+      </div>
+
+      <div class="pillar" style="border:1px solid rgba(184,148,56,0.3); background:rgba(184,148,56,0.06);">
+        <div class="pillar-num" style="color:rgba(0,214,143,0.5);">10</div>
+        <div class="pillar-title">GBS Transition (Migration)</div>
+        <div class="pillar-desc">Transition strategy, knowledge transfer, and stabilisation. Everything you need to migrate successfully.</div>
+        <div class="pillar-foot">
+          <span class="badge-soon">In Development</span>
+          <a href="pillar-10-gbs-transition.html" class="pillar-link">Explore →</a>
+        </div>
       </div>
 
     </div>
+
+    <!-- AI Field Guide callout -->
+    <div style="margin-top:24px; padding:24px 32px; background:rgba(0,214,143,0.06); border:1px solid rgba(0,214,143,0.2); border-radius:8px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:#00d68f; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:6px;">● Live Now</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:#fff; margin-bottom:4px;">AI Field Guide — 36 Chapters</div>
+        <div style="font-size:14px; color:var(--text2);">How AI works, what it means for GBS, and how to use it. The one pillar that connects everything else.</div>
+      </div>
+      <a href="guide.html" class="btn-primary" style="white-space:nowrap;">Access the Guide →</a>
+    </div>
+
   </div>
 </section>
 
@@ -730,9 +933,9 @@
 <script>
 (function() {
   const SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
+  const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
 
-  if (SUPABASE_KEY === 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo') {
+  if (SUPABASE_KEY === 'YOUR_SUPABASE_ANON_KEY') {
     window.submitCapture = function() {
       const email = document.getElementById('capture-email').value.trim();
       const errEl = document.getElementById('capture-error');
