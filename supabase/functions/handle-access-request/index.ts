@@ -3,14 +3,19 @@ import { crypto } from 'https://deno.land/std@0.177.0/crypto/mod.ts'
 
 const SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co'
 const SERVICE_KEY  = Deno.env.get('SERVICE_KEY')!
-const SMTP_HOST    = 'mail.privateemail.com'
-const SMTP_FROM    = 'julian.magata@gbsinsiderclub.com'
-const JULIAN_EMAIL = 'julian.magata@gbsinsiderclub.com'
 const SITE_URL     = 'https://gbsinsiderclub.com'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
+
+async function sendEmail(payload: object) {
+  return fetch(`${SUPABASE_URL}/functions/v1/send-email`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SERVICE_KEY}` },
+    body: JSON.stringify(payload),
+  });
 }
 
 Deno.serve(async (req) => {
@@ -26,7 +31,7 @@ Deno.serve(async (req) => {
     }
 
     const tier = tier_requested || 'free'
-    const sb = createClient(SUPABASE_URL, SERVICE_KEY)
+    const sb   = createClient(SUPABASE_URL, SERVICE_KEY)
 
     // Check for duplicate
     const { data: existing } = await sb
@@ -52,15 +57,15 @@ Deno.serve(async (req) => {
           .map(b => b.toString(16).padStart(2, '0')).join('')
       : null
 
-    // Insert into access_requests
+    // Insert record
     const { data: record, error: insertError } = await sb
       .from('access_requests')
       .insert({
         email, first_name, last_name, company: company || null,
         tier_requested: tier,
-        status: tier === 'free' ? 'approved' : 'pending',
+        status:      tier === 'free' ? 'approved' : 'pending',
         approved_by: tier === 'free' ? 'auto' : null,
-        source: source || 'guide',
+        source:      source || 'guide',
         approval_token,
         approved_at: tier === 'free' ? new Date().toISOString() : null,
       })
@@ -70,15 +75,13 @@ Deno.serve(async (req) => {
     if (insertError) throw insertError
 
     if (tier === 'free') {
-      // Auto-invite via Supabase Auth
+      // Auto-invite
       const { error: inviteError } = await sb.auth.admin.inviteUserByEmail(email, {
         data: { tier: 'free', first_name, last_name },
         redirectTo: `${SITE_URL}/index.html`,
       })
-
       if (inviteError) throw inviteError
 
-      // Update invite_sent_at
       await sb.from('access_requests')
         .update({ invite_sent_at: new Date().toISOString(), tier_granted: 'free' })
         .eq('id', record.id)
@@ -89,37 +92,13 @@ Deno.serve(async (req) => {
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
 
     } else {
-      // Paid tier — email Julian with 1-click approve link
-      const approveUrl = `${SUPABASE_URL}/functions/v1/approve-paid-user?token=${approval_token}`
+      // Paid — send notification email to Julian with 1-click approve
+      const approve_url = `${SUPABASE_URL}/functions/v1/approve-paid-user?token=${approval_token}`
 
-      const emailBody = `
-New paid access request:
-
-Name:    ${first_name} ${last_name}
-Email:   ${email}
-Company: ${company || '—'}
-Tier:    ${tier}
-Source:  ${source || 'guide'}
-Time:    ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Warsaw' })}
-
-1-CLICK APPROVE:
-${approveUrl}
-
-This link is single-use and grants immediate access.
-      `.trim()
-
-      // Use Supabase's built-in SMTP (configured in your project)
-      await fetch(`${SUPABASE_URL}/functions/v1/notify-waitlist`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${SERVICE_KEY}`,
-        },
-        body: JSON.stringify({
-          to: JULIAN_EMAIL,
-          subject: `[GBS Insider Club] Paid access request — ${first_name} ${last_name}`,
-          body: emailBody,
-        }),
+      await sendEmail({
+        type: 'paid_request_notification',
+        first_name, last_name, email, company,
+        approve_url,
       })
 
       return new Response(JSON.stringify({
