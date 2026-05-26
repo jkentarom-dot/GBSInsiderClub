@@ -219,39 +219,6 @@
   .host-section { padding: 100px 56px; border-top: 1px solid var(--border2); background: var(--navy2); }
   .host-inner { max-width: 1380px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 
-  /* ── CAPTURE ── */
-  .capture { padding: 120px 56px; border-top: 1px solid var(--border2); position: relative; overflow: hidden; }
-  .capture::before {
-    content: ''; position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 900px; height: 500px;
-    background: radial-gradient(ellipse, rgba(184,148,56,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .capture-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; text-align: center; }
-  .capture-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 4vw, 64px); font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 16px; }
-  .capture-h2 em { font-style: italic; color: var(--gold-light); }
-  .capture-sub { font-size: 16px; color: var(--text2); line-height: 1.8; margin-bottom: 40px; }
-  .capture-form { max-width: 500px; margin: 0 auto 16px; }
-  .capture-row { display: flex; gap: 10px; margin-bottom: 10px; }
-  .capture-input {
-    width: 100%; padding: 14px 18px; background: var(--navy2);
-    border: 1px solid rgba(184,148,56,0.25);
-    border-radius: 4px; color: var(--text); font-size: 15px;
-    font-family: inherit; outline: none; transition: border-color 0.2s;
-    box-sizing: border-box;
-  }
-  .capture-input::placeholder { color: var(--text3); }
-  .capture-input:focus { border-color: rgba(184,148,56,0.5); }
-  .capture-btn {
-    width: 100%; padding: 16px 28px; background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    border: none; border-radius: 4px; color: var(--navy);
-    font-weight: 700; font-size: 13px; letter-spacing: 0.06em;
-    font-family: inherit; cursor: pointer; white-space: nowrap; transition: opacity 0.2s;
-  }
-  .capture-btn:hover { opacity: 0.88; }
-  .capture-note { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text3); letter-spacing: 0.08em; }
-  #capture-success { display: none; background: rgba(0,214,143,0.08); border: 1px solid rgba(0,214,143,0.2); border-radius: 4px; padding: 16px 24px; color: var(--green); font-size: 14px; text-align: center; margin: 0 auto 16px; max-width: 500px; }
 
   /* ── FOOTER ── */
   .footer { padding: 40px 56px; border-top: 1px solid var(--border2); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
@@ -277,8 +244,6 @@
     .topbar-nav { display: none; }
     .hero-copy, .section, .svg-section, .pillars-section, .host-section, .capture, .footer { padding-left: 24px; padding-right: 24px; }
     .pillars-grid { grid-template-columns: 1fr; }
-    .capture-form { flex-direction: column; }
-    .capture-input { border-right: 1px solid rgba(184,148,56,0.25); border-bottom: none; border-radius: 4px 4px 0 0; }
     .capture-btn { border-radius: 0 0 4px 4px; }
   }
 </style>
@@ -300,7 +265,7 @@
     <a href="#pillars">What's Inside</a>
     <a href="#for-you">Who It's For</a>
     <a href="#host">About</a>
-    <a href="#join">Join</a>
+    <a href="guide.html">Join</a>
     <a href="guide.html" class="btn-guide">AI Field Guide →</a>
   </div>
 </nav>
@@ -328,7 +293,7 @@
     </p>
 
     <div class="hero-btns">
-      <a href="#join" class="btn-primary">
+      <a href="guide.html" class="btn-primary">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Get Early Access
       </a>
@@ -900,40 +865,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- EMAIL CAPTURE                                     -->
 <!-- ══════════════════════════════════════════════════ -->
-<section class="capture" id="join">
-  <div class="capture-inner">
-    <div class="tag" style="justify-content:center; margin-bottom:24px;">
-      <div class="tag-line"></div>
-      <div class="tag-text">Join the Club</div>
-      <div class="tag-line"></div>
-    </div>
-    <h2 class="capture-h2">Get notified when<br><em>new content drops</em></h2>
-    <p class="capture-sub">Leave your email. I'll reach out when a new pillar, guide, or resource is ready — one message, when it's worth your time.</p>
 
-    <div id="capture-form-fields" class="capture-form">
-      <div class="capture-row">
-        <input type="text" id="capture-first" class="capture-input" placeholder="First name"
-          onfocus="this.style.borderColor='rgba(184,148,56,0.5)'" onblur="this.style.borderColor='rgba(184,148,56,0.25)'">
-        <input type="text" id="capture-last" class="capture-input" placeholder="Last name"
-          onfocus="this.style.borderColor='rgba(184,148,56,0.5)'" onblur="this.style.borderColor='rgba(184,148,56,0.25)'">
-      </div>
-      <input type="email" id="capture-email" class="capture-input" placeholder="your@email.com"
-        style="margin-bottom:10px;"
-        onkeydown="if(event.key==='Enter')submitCapture()"
-        onfocus="this.style.borderColor='rgba(184,148,56,0.5)'" onblur="this.style.borderColor='rgba(184,148,56,0.25)'">
-      <input type="text" id="capture-company" class="capture-input" placeholder="Company (optional)"
-        style="margin-bottom:14px;"
-        onkeydown="if(event.key==='Enter')submitCapture()"
-        onfocus="this.style.borderColor='rgba(184,148,56,0.5)'" onblur="this.style.borderColor='rgba(184,148,56,0.25)'">
-      <button class="capture-btn" onclick="submitCapture()">Notify Me →</button>
-    </div>
-
-    <div id="capture-success" style="display:none; color:var(--green); font-size:15px; margin-top:16px; text-align:center; line-height:1.6;">You're in. We'll reach out when the next pillar is ready.</div>
-    <div id="capture-error" style="display:none; color:#ff4d6a; font-size:13px; margin-top:10px; text-align:center;"></div>
-
-    <p class="capture-note" style="margin-top:20px;">Already a member? <a href="guide.html" style="color:var(--gold); text-decoration:none;">Sign in to access the guide →</a></p>
-  </div>
-</section>
 
 <!-- ── FOOTER ── -->
 <footer class="footer">
@@ -944,54 +876,7 @@
 
 <!-- ── SUPABASE ── -->
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-(function() {
-  const SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
 
-  window.submitCapture = async function() {
-    const firstName = document.getElementById('capture-first').value.trim();
-    const lastName  = document.getElementById('capture-last').value.trim();
-    const email     = document.getElementById('capture-email').value.trim();
-    const company   = document.getElementById('capture-company')?.value.trim() || null;
-    const errEl     = document.getElementById('capture-error');
-    const successEl = document.getElementById('capture-success');
-    const btn       = document.querySelector('.capture-btn');
-
-    errEl.style.display = 'none';
-
-    if (!firstName) { errEl.textContent = 'Please enter your first name.'; errEl.style.display = 'block'; return; }
-    if (!lastName)  { errEl.textContent = 'Please enter your last name.';  errEl.style.display = 'block'; return; }
-    if (!email || !email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
-
-    btn.textContent = 'Saving...';
-    btn.disabled = true;
-
-    const res = await fetch(`${SUPABASE_URL}/functions/v1/handle-waitlist`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-      },
-      body: JSON.stringify({ email, first_name: firstName, last_name: lastName, company }),
-    });
-
-    const data = await res.json();
-    btn.textContent = 'Notify Me →';
-    btn.disabled = false;
-
-    if (data.success) {
-      successEl.textContent = data.message || "You’re in. We’ll reach out when the next pillar is ready.";
-      successEl.style.display = 'block';
-      document.getElementById('capture-form-fields').style.display = 'none';
-    } else {
-      errEl.textContent = data.error || 'Something went wrong. Please try again.';
-      errEl.style.display = 'block';
-    }
-  };
-})();
-</script>
 
 </body>
 </html>
