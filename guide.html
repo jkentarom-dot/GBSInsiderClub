@@ -591,9 +591,14 @@
 
       <label style="display:block; font-size:11px; color:#8a94a8; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Password</label>
       <input id="auth-pass" type="password" placeholder="••••••••"
-        style="width:100%; padding:11px 14px; margin-bottom:24px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
+        style="width:100%; padding:11px 14px; margin-bottom:8px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
         onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'"
         onkeydown="if(event.key==='Enter')doLogin()">
+
+      <div style="text-align:right; margin-bottom:20px;">
+        <button onclick="doForgotPassword()" style="background:none; border:none; color:#8a94a8; font-size:12px; cursor:pointer; padding:0; font-family:inherit; letter-spacing:0.02em; transition:color 0.15s;"
+          onmouseover="this.style.color='#b89438'" onmouseout="this.style.color='#8a94a8'">Forgot password?</button>
+      </div>
 
       <button onclick="doLogin()" id="auth-btn"
         style="width:100%; padding:12px; background:linear-gradient(135deg, #b89438, #d4a843); border:none; border-radius:5px; color:#05080f; font-weight:700; font-size:14px; font-family:inherit; cursor:pointer; letter-spacing:0.05em; transition:opacity 0.15s;"
@@ -608,9 +613,9 @@
         <div style="flex:1; height:1px; background:#1e2530;"></div>
       </div>
 
-      <!-- Request Access — inline form -->
+      <!-- Request Access — full form -->
       <div id="req-btn-wrap">
-        <button onclick="document.getElementById('req-btn-wrap').style.display='none'; document.getElementById('req-form-wrap').style.display='block'; document.getElementById('req-email').focus();"
+        <button onclick="document.getElementById('req-btn-wrap').style.display='none'; document.getElementById('req-form-wrap').style.display='block'; document.getElementById('req-first').focus();"
           style="width:100%; padding:11px; background:transparent; border:1px solid #2a3550; border-radius:5px; color:#8a94a8; font-weight:500; font-size:14px; font-family:'IBM Plex Sans',sans-serif; cursor:pointer; letter-spacing:0.03em; transition:border-color 0.15s, color 0.15s; box-sizing:border-box;"
           onmouseover="this.style.borderColor='rgba(184,148,56,0.4)'; this.style.color='#b89438';"
           onmouseout="this.style.borderColor='#2a3550'; this.style.color='#8a94a8';">Request Access</button>
@@ -618,15 +623,50 @@
 
       <!-- Inline request form (hidden until button clicked) -->
       <div id="req-form-wrap" style="display:none;">
+
+        <!-- First + Last name row -->
+        <div style="display:flex; gap:8px; margin-bottom:10px;">
+          <input id="req-first" type="text" placeholder="First name"
+            style="flex:1; padding:11px 14px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'">
+          <input id="req-last" type="text" placeholder="Last name"
+            style="flex:1; padding:11px 14px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'">
+        </div>
+
+        <!-- Email -->
         <input id="req-email" type="email" placeholder="your@email.com"
           style="width:100%; padding:11px 14px; margin-bottom:10px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
-          onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'"
-          onkeydown="if(event.key==='Enter')doRequestAccess()">
+          onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'">
+
+        <!-- Company (optional) -->
+        <input id="req-company" type="text" placeholder="Company (optional)"
+          style="width:100%; padding:11px 14px; margin-bottom:10px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
+          onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'">
+
+        <!-- Tier selector -->
+        <div style="display:flex; gap:8px; margin-bottom:14px;">
+          <label id="tier-free-label" style="flex:1; display:flex; align-items:center; gap:8px; padding:10px 12px; border:1px solid #b89438; border-radius:5px; cursor:pointer; background:rgba(184,148,56,0.06); transition:all 0.15s;">
+            <input type="radio" name="req-tier" id="tier-free" value="free" checked style="accent-color:#b89438;">
+            <span style="font-size:13px; color:#ced4e0; font-family:inherit;">
+              <strong style="display:block; color:#fff; font-size:12px; letter-spacing:0.04em;">FREE</strong>
+              <span style="color:#8a94a8; font-size:11px;">Beginner chapters</span>
+            </span>
+          </label>
+          <label id="tier-paid-label" style="flex:1; display:flex; align-items:center; gap:8px; padding:10px 12px; border:1px solid #2a3040; border-radius:5px; cursor:pointer; transition:all 0.15s;">
+            <input type="radio" name="req-tier" id="tier-paid" value="paid" style="accent-color:#b89438;">
+            <span style="font-size:13px; color:#ced4e0; font-family:inherit;">
+              <strong style="display:block; color:#fff; font-size:12px; letter-spacing:0.04em;">FULL ACCESS</strong>
+              <span style="color:#8a94a8; font-size:11px;">All 36 chapters</span>
+            </span>
+          </label>
+        </div>
+
         <button onclick="doRequestAccess()" id="req-submit-btn"
           style="width:100%; padding:11px; background:transparent; border:1px solid rgba(184,148,56,0.35); border-radius:5px; color:#b89438; font-weight:600; font-size:14px; font-family:inherit; cursor:pointer; letter-spacing:0.03em; transition:background 0.15s; box-sizing:border-box;"
           onmouseover="this.style.background='rgba(184,148,56,0.08)'"
           onmouseout="this.style.background='transparent'">Send Request →</button>
-        <p id="req-error" style="color:#ff4d6a; font-size:12px; margin-top:8px; display:none; text-align:center;"></p>
+        <p id="req-error" style="color:#ff4d6a; font-size:12px; margin-top:8px; display:none; text-align:center; line-height:1.5;"></p>
         <p id="req-success" style="color:#00d68f; font-size:12px; margin-top:8px; display:none; text-align:center; line-height:1.6;">Request received. We'll be in touch shortly.</p>
         <button onclick="document.getElementById('req-form-wrap').style.display='none'; document.getElementById('req-btn-wrap').style.display='block';"
           style="background:none; border:none; color:#3d4a5c; font-size:11px; cursor:pointer; margin-top:6px; padding:0; display:block; width:100%; text-align:center;">Cancel</button>
@@ -8903,48 +8943,119 @@ Diagnose:
     await sb.auth.signOut();
   };
 
+  // ── TIER RADIO VISUAL TOGGLE ────────────────────
+  document.querySelectorAll('input[name="req-tier"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const freeLabel = document.getElementById('tier-free-label');
+      const paidLabel = document.getElementById('tier-paid-label');
+      if (this.value === 'free') {
+        freeLabel.style.border = '1px solid #b89438';
+        freeLabel.style.background = 'rgba(184,148,56,0.06)';
+        paidLabel.style.border = '1px solid #2a3040';
+        paidLabel.style.background = 'transparent';
+      } else {
+        paidLabel.style.border = '1px solid #b89438';
+        paidLabel.style.background = 'rgba(184,148,56,0.06)';
+        freeLabel.style.border = '1px solid #2a3040';
+        freeLabel.style.background = 'transparent';
+      }
+    });
+  });
+
+  // ── FORGOT PASSWORD HANDLER ──────────────────────
+  window.doForgotPassword = async function() {
+    const email = document.getElementById('auth-email').value.trim();
+    const errEl2 = document.getElementById('auth-error');
+
+    if (!email || !email.includes('@')) {
+      errEl2.textContent = 'Enter your email address above, then click Forgot password.';
+      errEl2.style.color = '#b89438';
+      errEl2.style.display = 'block';
+      document.getElementById('auth-email').focus();
+      return;
+    }
+
+    errEl2.style.display = 'none';
+    const { error } = await sb.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.href,
+    });
+
+    if (error) {
+      errEl2.style.color = '#ff4d6a';
+      errEl2.textContent = error.message;
+      errEl2.style.display = 'block';
+    } else {
+      errEl2.style.color = '#00d68f';
+      errEl2.textContent = 'Password reset email sent. Check your inbox.';
+      errEl2.style.display = 'block';
+    }
+  };
+
   // ── REQUEST ACCESS HANDLER ────────────────────────
-  // Saves email to waitlist table — same table as landing page
+  // Calls handle-access-request edge function
+  // Free tier: auto-invite via Supabase + notify Julian
+  // Paid tier: email Julian with 1-click approve link
   window.doRequestAccess = async function() {
-    const email    = document.getElementById('req-email').value.trim();
-    const errEl    = document.getElementById('req-error');
-    const successEl= document.getElementById('req-success');
-    const btn      = document.getElementById('req-submit-btn');
+    const firstName = document.getElementById('req-first').value.trim();
+    const lastName  = document.getElementById('req-last').value.trim();
+    const email     = document.getElementById('req-email').value.trim();
+    const company   = document.getElementById('req-company')?.value.trim() || null;
+    const tier      = document.querySelector('input[name="req-tier"]:checked')?.value || 'free';
+    const errEl     = document.getElementById('req-error');
+    const successEl = document.getElementById('req-success');
+    const btn       = document.getElementById('req-submit-btn');
 
     errEl.style.display = 'none';
     successEl.style.display = 'none';
 
-    if (!email || !email.includes('@')) {
-      errEl.textContent = 'Please enter a valid email address.';
-      errEl.style.display = 'block';
-      return;
-    }
+    if (!firstName) { errEl.textContent = 'Please enter your first name.'; errEl.style.display = 'block'; return; }
+    if (!lastName)  { errEl.textContent = 'Please enter your last name.';  errEl.style.display = 'block'; return; }
+    if (!email || !email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
 
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    // Try Supabase waitlist first; fall back gracefully if table doesn't exist yet
     try {
-      const { error } = await sb.from('waitlist').insert({ email });
-      if (error && error.code === '23505') {
-        // Already on the list — still show success
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/handle-access-request`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+        },
+        body: JSON.stringify({ first_name: firstName, last_name: lastName, email, company, tier }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        if (tier === 'free') {
+          successEl.textContent = 'Access granted! Check your email for your invite link.';
+        } else {
+          successEl.textContent = 'Request received. Julian will review and get back to you shortly.';
+        }
         successEl.style.display = 'block';
         btn.style.display = 'none';
-      } else if (error) {
-        throw error;
       } else {
-        successEl.style.display = 'block';
-        btn.style.display = 'none';
+        // Error handling: surface specific known errors
+        const msg = data.error || '';
+        if (msg.includes('already') || msg.includes('exists') || msg.includes('duplicate') || msg.includes('23505')) {
+          errEl.textContent = 'This email has already been registered or requested. Try signing in, or use Forgot password.';
+        } else if (msg.includes('pending') || msg.includes('requested')) {
+          errEl.textContent = 'A request with this email is already pending. Julian will be in touch.';
+        } else {
+          errEl.textContent = msg || 'Something went wrong. Please try again.';
+        }
+        errEl.style.display = 'block';
+        btn.textContent = 'Send Request →';
+        btn.disabled = false;
       }
     } catch(e) {
-      // Supabase unavailable — silently succeed for UX, log for debug
-      console.warn('Waitlist insert failed:', e.message);
-      successEl.style.display = 'block';
-      btn.style.display = 'none';
+      console.warn('Access request failed:', e.message);
+      errEl.textContent = 'Connection error. Please try again.';
+      errEl.style.display = 'block';
+      btn.textContent = 'Send Request →';
+      btn.disabled = false;
     }
-
-    btn.textContent = 'Send Request →';
-    btn.disabled = false;
   };
 
 })();
