@@ -8800,14 +8800,104 @@ Diagnose:
 
   // ── AUTH STATE LISTENER ──────────────────────────
   sb.auth.onAuthStateChange((event, session) => {
+    if (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN') {
+      // Check if user has no password set yet (arrived via invite link)
+      if (event === 'SIGNED_IN' && session?.user?.user_metadata?.needs_password) {
+        showPasswordSetup(session);
+        return;
+      }
+    }
+    if (event === 'SIGNED_IN' && session) {
+      // Check URL hash for invite/recovery token
+      const hash = window.location.hash;
+      if (hash.includes('type=invite') || hash.includes('type=recovery')) {
+        showPasswordSetup(session);
+        return;
+      }
+      const tier = session.user?.user_metadata?.tier || 'free';
+      showApp(tier);
+    }
     if (event === 'SIGNED_OUT') {
       content.style.display = 'none';
       gate.style.display = 'flex';
-      // Remove upgrade banner if present
       const b = document.getElementById('upgrade-banner');
       if (b) b.remove();
+      const ps = document.getElementById('password-setup-overlay');
+      if (ps) ps.remove();
     }
   });
+
+  // ── PASSWORD SETUP SCREEN ────────────────────────
+  function showPasswordSetup(session) {
+    gate.style.display = 'none';
+    content.style.display = 'none';
+
+    const overlay = document.createElement('div');
+    overlay.id = 'password-setup-overlay';
+    overlay.style.cssText = 'position:fixed;inset:0;background:#05080f;display:flex;align-items:center;justify-content:center;z-index:99999;font-family:"IBM Plex Sans",sans-serif;padding:24px;';
+
+    const firstName = session.user?.user_metadata?.first_name || '';
+
+    overlay.innerHTML = `
+      <div style="width:90%;max-width:420px;">
+        <div style="text-align:center;margin-bottom:32px;">
+          <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="4" fill="rgba(184,148,56,0.15)" stroke="rgba(184,148,56,0.4)" stroke-width="1"/><path d="M8 22 L16 8 L20 14 L26 8" stroke="#b89438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M22 8 L26 8 L26 12" stroke="#b89438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            <span style="color:#fff;font-size:20px;font-weight:800;">GBS</span><span style="color:#b89438;font-size:20px;font-weight:300;"> INSIDER CLUB</span>
+          </div>
+        </div>
+        <div style="background:#0d1117;border:1px solid #1e2530;border-radius:10px;padding:40px 36px;box-shadow:0 24px 64px rgba(0,0,0,.6);">
+          <div style="height:2px;background:linear-gradient(90deg,#b89438,rgba(184,148,56,0.2),transparent);margin-bottom:28px;border-radius:2px;"></div>
+          <h2 style="color:#fff;font-size:20px;font-weight:700;margin-bottom:6px;">Welcome${firstName ? ', ' + firstName : ''}.</h2>
+          <p style="color:#55606e;font-size:13px;line-height:1.6;margin-bottom:28px;">Set a password to secure your account. You'll use it every time you sign in.</p>
+          <label style="display:block;font-size:11px;color:#8a94a8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">New Password</label>
+          <input id="setup-pass" type="password" placeholder="At least 8 characters"
+            style="width:100%;padding:11px 14px;margin-bottom:16px;background:#131820;border:1px solid #1e2a38;border-radius:5px;color:#ced4e0;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'">
+          <label style="display:block;font-size:11px;color:#8a94a8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Confirm Password</label>
+          <input id="setup-pass-confirm" type="password" placeholder="Repeat password"
+            style="width:100%;padding:11px 14px;margin-bottom:24px;background:#131820;border:1px solid #1e2a38;border-radius:5px;color:#ced4e0;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'"
+            onkeydown="if(event.key==='Enter')window.doSetupPassword()">
+          <button onclick="window.doSetupPassword()" id="setup-btn"
+            style="width:100%;padding:12px;background:linear-gradient(135deg,#b89438,#d4a843);border:none;border-radius:5px;color:#05080f;font-weight:700;font-size:14px;font-family:inherit;cursor:pointer;letter-spacing:0.05em;transition:opacity 0.15s;"
+            onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">Set Password & Enter →</button>
+          <p id="setup-error" style="color:#ff4d6a;margin-top:14px;font-size:13px;display:none;text-align:center;line-height:1.5;"></p>
+        </div>
+      </div>`;
+
+    document.body.appendChild(overlay);
+    // Clear invite hash from URL
+    history.replaceState(null, '', window.location.pathname);
+  }
+
+  window.doSetupPassword = async function() {
+    const pass    = document.getElementById('setup-pass').value;
+    const confirm = document.getElementById('setup-pass-confirm').value;
+    const errEl   = document.getElementById('setup-error');
+    const btn     = document.getElementById('setup-btn');
+
+    errEl.style.display = 'none';
+    if (pass.length < 8)    { errEl.textContent = 'Password must be at least 8 characters.'; errEl.style.display = 'block'; return; }
+    if (pass !== confirm)   { errEl.textContent = 'Passwords do not match.'; errEl.style.display = 'block'; return; }
+
+    btn.textContent = 'Saving...';
+    btn.disabled = true;
+
+    const { data, error } = await sb.auth.updateUser({ password: pass });
+
+    if (error) {
+      errEl.textContent = error.message;
+      errEl.style.display = 'block';
+      btn.textContent = 'Set Password & Enter →';
+      btn.disabled = false;
+    } else {
+      const overlay = document.getElementById('password-setup-overlay');
+      if (overlay) overlay.remove();
+      const tier = data.user?.user_metadata?.tier || 'free';
+      showApp(tier);
+    }
+  };
 
   // ── LOGIN HANDLER ────────────────────────────────
   window.doLogin = async function() {
