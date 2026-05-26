@@ -46,39 +46,39 @@ Deno.serve(async (req) => {
     return html('Already Approved', `${record.first_name} ${record.last_name} already has access.`, '#b89438')
   }
 
-  // Invite the user with paid tier
-  const { error: inviteError } = await sb.auth.admin.inviteUserByEmail(record.email, {
-    data: { tier: 'paid', first_name: record.first_name, last_name: record.last_name },
-    redirectTo: `${SITE_URL}/index.html`,
-  })
+  // Check if user already exists
+  const { data: { users } } = await sb.auth.admin.listUsers()
+  const existingUser = users?.find(u => u.email === record.email)
 
-  if (inviteError) {
-    return html('Invite Failed', `Could not send invite to ${record.email}. Error: ${inviteError.message}`, '#ff4d6a')
+  if (existingUser) {
+    // Already registered — just upgrade tier, no invite needed
+    await sb.auth.admin.updateUserById(existingUser.id, {
+      user_metadata: { ...existingUser.user_metadata, tier: 'paid' }
+    })
+  } else {
+    // New user — send invite
+    const { error: inviteError } = await sb.auth.admin.inviteUserByEmail(record.email, {
+      data: { tier: 'paid', first_name: record.first_name, last_name: record.last_name },
+      redirectTo: `${SITE_URL}/index.html`,
+    })
+    if (inviteError) {
+      return html('Invite Failed', `Could not send invite to ${record.email}. Error: ${inviteError.message}`, '#ff4d6a')
+    }
   }
 
   // Update record
   await sb.from('access_requests').update({
-    status:          'approved',
-    tier_granted:    'paid',
-    approved_by:     'julian',
-    approved_at:     new Date().toISOString(),
-    invite_sent_at:  new Date().toISOString(),
-    approval_token:  null,  // invalidate token after use
+    status:         'approved',
+    tier_granted:   'paid',
+    approved_by:    'julian',
+    approved_at:    new Date().toISOString(),
+    invite_sent_at: existingUser ? null : new Date().toISOString(),
+    approval_token: null,
   }).eq('id', record.id)
 
-  // Also set tier on existing auth user if they already exist
-  const { data: { users } } = await sb.auth.admin.listUsers()
-  const existing = users?.find(u => u.email === record.email)
-  if (existing) {
-    await sb.auth.admin.updateUserById(existing.id, {
-      user_metadata: { ...existing.user_metadata, tier: 'paid' }
-    })
-  }
+  const msg = existingUser
+    ? `${record.first_name} ${record.last_name} already had an account — their tier has been upgraded to paid. They can sign in now.`
+    : `Invite sent to <strong style="color:#fff">${record.email}</strong>.<br><br>${record.first_name} ${record.last_name} will receive an email to set their password.`
 
-  return html(
-    '✓ Access Granted',
-    `Invite sent to <strong style="color:#fff">${record.email}</strong>.<br><br>
-     ${record.first_name} ${record.last_name} will receive an email to set their password and access the guide.`,
-    '#00d68f'
-  )
+  return html('✓ Access Granted', msg, '#00d68f')
 })
