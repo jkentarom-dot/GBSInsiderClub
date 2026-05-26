@@ -822,6 +822,10 @@
       </div>
       <input type="email" id="capture-email" class="capture-input" placeholder="your@email.com"
         onkeydown="if(event.key==='Enter')submitCapture()">
+      <input type="text" id="capture-company" placeholder="Company (optional)"
+        style="width:100%; padding:13px 16px; margin-bottom:10px; background:#131820; border:1px solid #2a3040; border-radius:6px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; transition:border-color 0.15s;"
+        onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#2a3040'"
+        onkeydown="if(event.key==='Enter')submitCapture()">
       <button class="capture-btn" onclick="submitCapture()">Notify Me →</button>
     </div>
 
@@ -888,7 +892,7 @@
         email,
         first_name: firstName,
         last_name:  lastName,
-        company:    null,
+        company:    document.getElementById('capture-company')?.value.trim() || null,
       }),
     });
 
