@@ -590,6 +590,14 @@
           onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Access the Guide →</button>
 
         <p id="auth-error" style="color:#ff4d6a; margin-top:14px; font-size:13px; display:none; line-height:1.5; text-align:center;"></p>
+
+        <p style="text-align:center; margin-top:16px;">
+          <a onclick="doForgotPassword()" style="color:#55606e; font-size:12px; cursor:pointer; text-decoration:none; transition:color 0.15s;"
+            onmouseover="this.style.color='#b89438'" onmouseout="this.style.color='#55606e'">Forgot your password?</a>
+        </p>
+
+        <!-- Forgot password success -->
+        <p id="forgot-success" style="display:none; color:#00d68f; font-size:12px; text-align:center; margin-top:12px; line-height:1.6;"></p>
       </div>
 
       <!-- ── REQUEST ACCESS PANEL ── -->
@@ -8825,6 +8833,34 @@ Diagnose:
     } else {
       const tier = data.user?.user_metadata?.tier || 'free';
       showApp(tier);
+    }
+  };
+
+  // ── FORGOT PASSWORD ──────────────────────────────
+  window.doForgotPassword = async function() {
+    const email = document.getElementById('auth-email').value.trim();
+    const successEl = document.getElementById('forgot-success');
+    const errEl = document.getElementById('auth-error');
+
+    errEl.style.display = 'none';
+    successEl.style.display = 'none';
+
+    if (!email || !email.includes('@')) {
+      errEl.textContent = 'Enter your email address above, then click Forgot your password.';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    const { error } = await sb.auth.resetPasswordForEmail(email, {
+      redirectTo: 'https://gbsinsiderclub.com/index.html',
+    });
+
+    if (error) {
+      errEl.textContent = error.message;
+      errEl.style.display = 'block';
+    } else {
+      successEl.textContent = `Reset link sent to ${email}. Check your inbox.`;
+      successEl.style.display = 'block';
     }
   };
 
