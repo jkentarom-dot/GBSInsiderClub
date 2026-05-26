@@ -648,7 +648,7 @@
     </h1>
 
     <p class="hero-sub">
-      A members-only knowledge base for <strong>GBS and Shared Services</strong> professionals. Practical, experience-based content on AI, career progression, and operational performance — written by someone who has worked in the role, not advised from outside it.
+      Field-tested intelligence for professionals who run <strong>Global Business Services</strong> and Shared Services. Not theory. Not consulting decks. What actually works — career progression, process performance, and promotion.
     </p>
 
     <div class="hero-actions">
@@ -671,12 +671,12 @@
         <div class="stat-label">Content Pillars</div>
       </div>
       <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Practitioner perspective</div>
+        <div class="stat-num">1</div>
+        <div class="stat-label">No-fluff promise</div>
       </div>
       <div class="stat">
         <div class="stat-num">0</div>
-        <div class="stat-label">Vendor pitch decks</div>
+        <div class="stat-label">Generic advice</div>
       </div>
     </div>
 
@@ -690,7 +690,7 @@
     <div class="section-label-text">What's Inside</div>
   </div>
   <h2 class="section-title">Intelligence built for <em>your</em> world</h2>
-  <p class="section-sub">Six content pillars covering the areas that matter most in GBS and Shared Services careers. The first is live. More are in development.</p>
+  <p class="section-sub">Six content pillars covering every dimension of high-performance GBS and Shared Services careers. One live now. More launching soon.</p>
 
   <div class="pillars">
 
@@ -776,24 +776,24 @@
     <div class="section-label-text">Who It's For</div>
   </div>
   <h2 class="section-title">Built for people who <em>run things</em></h2>
-  <p class="section-sub">Written from the seat of someone doing the job — not a consultant summarising what they observed on a six-week engagement.</p>
+  <p class="section-sub">Not for the consultant. Not for the theorist. For the professional sitting in the actual job, making actual decisions.</p>
 
   <div class="audience-grid">
     <div class="audience-card">
       <div class="audience-role">GBS &amp; SSC Leaders</div>
-      <div class="audience-desc">Running a function, a tower, or a full shared services centre. Dealing with stakeholder pressure, talent gaps, and the constant ask to do more with less. The content is written from that position.</div>
+      <div class="audience-desc">Running a function, a tower, or a full shared services centre. Dealing with stakeholder pressure, talent gaps, and the constant ask to do more with less. The content is written from that seat.</div>
     </div>
     <div class="audience-card">
       <div class="audience-role">Finance &amp; HR Transformation Leads</div>
-      <div class="audience-desc">Driving standardisation, automation, or migration projects. Looking for the strategic and operational playbook — not a vendor's version of how their tool solves everything.</div>
+      <div class="audience-desc">Driving process standardisation, automation, or migration projects. Need the strategic and operational playbook — not a vendor's pitch for why their tool solves everything.</div>
     </div>
     <div class="audience-card">
       <div class="audience-role">High-Potential Managers</div>
-      <div class="audience-desc">Aiming for the next level inside a large corporate or GBS environment. Wanting to understand how decisions get made at the tier above — before being expected to already know.</div>
+      <div class="audience-desc">Aiming for the next level inside a large corporate or GBS environment. Need to understand how the game is played at the tier above — before they're expected to already know.</div>
     </div>
     <div class="audience-card">
       <div class="audience-role">Corporate Functions Moving to GBS</div>
-      <div class="audience-desc">Finance, HR, IT, or Procurement professionals whose work is being centralised or restructured. Want to understand the model, stay relevant, and ideally lead parts of the transition.</div>
+      <div class="audience-desc">Finance, HR, IT, or Procurement professionals whose work is being centralised or restructured. Need to understand the model, stay relevant, and ideally lead parts of the transition.</div>
     </div>
   </div>
 </section>
@@ -809,9 +809,17 @@
     </div>
 
     <h2 class="capture-title">Get notified when<br><em>new content drops</em></h2>
-    <p class="capture-sub">Leave your email and we'll reach out when a new pillar, guide, or resource is ready. That's it — no regular newsletter, no weekly digest.</p>
+    <p class="capture-sub">No newsletters. No weekly digests. One email when something genuinely useful is ready — new pillar, new guide, new resource. Unsubscribe any time.</p>
 
-    <div class="capture-form">
+    <div class="capture-form" id="capture-form-fields">
+      <div style="display:flex; gap:10px; margin-bottom:12px; width:100%;">
+        <input type="text" id="capture-first" placeholder="First name"
+          style="flex:1; padding:13px 16px; background:#131820; border:1px solid #2a3040; border-radius:6px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; transition:border-color 0.15s;"
+          onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#2a3040'">
+        <input type="text" id="capture-last" placeholder="Last name"
+          style="flex:1; padding:13px 16px; background:#131820; border:1px solid #2a3040; border-radius:6px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; transition:border-color 0.15s;"
+          onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#2a3040'">
+      </div>
       <input type="email" id="capture-email" class="capture-input" placeholder="your@email.com"
         onkeydown="if(event.key==='Enter')submitCapture()">
       <button class="capture-btn" onclick="submitCapture()">Notify Me →</button>
@@ -850,44 +858,47 @@
 <script>
 (function() {
   const SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
-  const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
   const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   window.submitCapture = async function() {
-    const email = document.getElementById('capture-email').value.trim();
-    const errEl = document.getElementById('capture-error');
+    const email     = document.getElementById('capture-email').value.trim();
+    const firstName = document.getElementById('capture-first').value.trim();
+    const lastName  = document.getElementById('capture-last').value.trim();
+    const errEl     = document.getElementById('capture-error');
     const successEl = document.getElementById('capture-success');
-    const btn = document.querySelector('.capture-btn');
+    const btn       = document.querySelector('.capture-btn');
 
     errEl.style.display = 'none';
 
-    if (!email || !email.includes('@')) {
-      errEl.textContent = 'Please enter a valid email address.';
-      errEl.style.display = 'block';
-      return;
-    }
+    if (!firstName) { errEl.textContent = 'Please enter your first name.'; errEl.style.display = 'block'; return; }
+    if (!lastName)  { errEl.textContent = 'Please enter your last name.';  errEl.style.display = 'block'; return; }
+    if (!email || !email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
 
     btn.textContent = 'Saving...';
     btn.disabled = true;
 
-    const { error } = await sb.from('waitlist').insert({ email });
+    const { error } = await sb.from('waitlist').insert({
+      email,
+      first_name: firstName,
+      last_name:  lastName,
+    });
 
     btn.textContent = 'Notify Me →';
     btn.disabled = false;
 
     if (error) {
       if (error.code === '23505') {
-        // Duplicate — already signed up
         successEl.textContent = "You're already on the list. We'll be in touch.";
         successEl.style.display = 'block';
-        document.querySelector('.capture-form').style.display = 'none';
+        document.getElementById('capture-form-fields').style.display = 'none';
       } else {
         errEl.textContent = 'Something went wrong. Please try again.';
         errEl.style.display = 'block';
       }
     } else {
       successEl.style.display = 'block';
-      document.querySelector('.capture-form').style.display = 'none';
+      document.getElementById('capture-form-fields').style.display = 'none';
     }
   };
 })();
