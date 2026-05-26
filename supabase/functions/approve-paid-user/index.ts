@@ -1,6 +1,6 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
-const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!
+const SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co'
 const SERVICE_KEY  = Deno.env.get('SERVICE_KEY')!
 const SITE_URL     = 'https://gbsinsiderclub.com'
 
