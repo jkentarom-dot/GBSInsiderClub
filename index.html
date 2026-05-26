@@ -606,13 +606,13 @@
           <div style="display:flex; gap:12px; margin-bottom:16px;">
             <div style="flex:1;">
               <label style="display:block; font-size:11px; color:#8a94a8; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">First Name *</label>
-              <input id="req-first" type="text" placeholder="Julian"
+              <input id="req-first" type="text" placeholder="First name"
                 style="width:100%; padding:11px 14px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
                 onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'">
             </div>
             <div style="flex:1;">
               <label style="display:block; font-size:11px; color:#8a94a8; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Last Name *</label>
-              <input id="req-last" type="text" placeholder="Magata"
+              <input id="req-last" type="text" placeholder="Last name"
                 style="width:100%; padding:11px 14px; background:#131820; border:1px solid #1e2a38; border-radius:5px; color:#ced4e0; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; transition:border-color 0.15s;"
                 onfocus="this.style.borderColor='#b89438'" onblur="this.style.borderColor='#1e2a38'">
             </div>
@@ -8751,8 +8751,8 @@ Diagnose:
           <span style="font-size:10px; color:#b89438; font-family:'IBM Plex Mono',monospace; letter-spacing:0.12em; text-transform:uppercase; font-weight:600;">Free Member</span>
         </div>
         <p style="color:#ced4e0; font-size:13px; line-height:1.65; margin-bottom:14px;">You're viewing the <strong style="color:#fff;">Beginner chapters</strong>. Upgrade to unlock all 36 chapters including Advanced, Expert, and the full Practitioner's Playbook.</p>
-        <a href="mailto:jkentarom@gmail.com?subject=Upgrade%20GBS%20Insider%20Club%20Access&body=Hi%2C%20I'd%20like%20to%20upgrade%20my%20access%20to%20the%20full%20AI%20Field%20Guide."
-          style="display:block; text-align:center; background:linear-gradient(135deg,#b89438,#d4a843); color:#05080f; font-weight:700; font-size:13px; padding:9px 16px; border-radius:5px; text-decoration:none; letter-spacing:0.03em;">Upgrade Access →</a>
+        <a onclick="requestUpgrade()"
+          style="display:block; text-align:center; background:linear-gradient(135deg,#b89438,#d4a843); color:#05080f; font-weight:700; font-size:13px; padding:9px 16px; border-radius:5px; text-decoration:none; letter-spacing:0.03em; cursor:pointer;">Upgrade Access →</a>
         <button onclick="document.getElementById('upgrade-banner').style.display='none'" style="position:absolute; top:10px; right:12px; background:none; border:none; color:#55606e; font-size:16px; cursor:pointer; padding:0; line-height:1;">×</button>
       </div>`;
     document.body.appendChild(banner);
@@ -8826,6 +8826,28 @@ Diagnose:
       const tier = data.user?.user_metadata?.tier || 'free';
       showApp(tier);
     }
+  };
+
+  // ── UPGRADE HANDLER ──────────────────────────────
+  window.requestUpgrade = async function() {
+    // Remove upgrade banner
+    const b = document.getElementById('upgrade-banner');
+    if (b) b.remove();
+    // Sign out and show request form with paid pre-selected
+    await sb.auth.signOut();
+    setTimeout(() => {
+      switchTab('request');
+      // Pre-select Full Access radio
+      const paidRadio = document.querySelector('input[name="req-tier"][value="paid"]');
+      const freeRadio = document.querySelector('input[name="req-tier"][value="free"]');
+      if (paidRadio) {
+        paidRadio.checked = true;
+        paidRadio.closest('label').style.borderColor = '#b89438';
+      }
+      if (freeRadio) {
+        freeRadio.closest('label').style.borderColor = '#1e2a38';
+      }
+    }, 300);
   };
 
   // ── LOGOUT HANDLER ───────────────────────────────
