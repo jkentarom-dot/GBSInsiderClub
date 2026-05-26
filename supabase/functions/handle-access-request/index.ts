@@ -1,7 +1,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import { crypto } from 'https://deno.land/std@0.177.0/crypto/mod.ts'
 
-const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!
+const SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co'
 const SERVICE_KEY  = Deno.env.get('SERVICE_KEY')!
 const SMTP_HOST    = 'mail.privateemail.com'
 const SMTP_FROM    = 'julian.magata@gbsinsiderclub.com'
@@ -35,7 +35,7 @@ Deno.serve(async (req) => {
       .eq('email', email)
       .order('requested_at', { ascending: false })
       .limit(1)
-      .single()
+      .maybeSingle()
 
     if (existing && (existing.status === 'approved' || existing.status === 'pending')) {
       return new Response(JSON.stringify({
