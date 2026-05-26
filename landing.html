@@ -878,27 +878,31 @@
     btn.textContent = 'Saving...';
     btn.disabled = true;
 
-    const { error } = await sb.from('waitlist').insert({
-      email,
-      first_name: firstName,
-      last_name:  lastName,
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/handle-waitlist`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+      },
+      body: JSON.stringify({
+        email,
+        first_name: firstName,
+        last_name:  lastName,
+        company:    null,
+      }),
     });
 
+    const data = await res.json();
     btn.textContent = 'Notify Me →';
     btn.disabled = false;
 
-    if (error) {
-      if (error.code === '23505') {
-        successEl.textContent = "You're already on the list. We'll be in touch.";
-        successEl.style.display = 'block';
-        document.getElementById('capture-form-fields').style.display = 'none';
-      } else {
-        errEl.textContent = 'Something went wrong. Please try again.';
-        errEl.style.display = 'block';
-      }
-    } else {
+    if (data.success) {
+      successEl.textContent = data.message;
       successEl.style.display = 'block';
       document.getElementById('capture-form-fields').style.display = 'none';
+    } else {
+      errEl.textContent = data.error || 'Something went wrong. Please try again.';
+      errEl.style.display = 'block';
     }
   };
 })();
