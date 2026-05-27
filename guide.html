@@ -9022,7 +9022,7 @@ Diagnose:
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${SUPABASE_KEY}`,
         },
-        body: JSON.stringify({ first_name: firstName, last_name: lastName, email, company, tier }),
+        body: JSON.stringify({ first_name: firstName, last_name: lastName, email, company, tier_requested: tier, source: 'guide' }),
       });
 
       const data = await res.json();
