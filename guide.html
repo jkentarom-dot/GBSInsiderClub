@@ -771,6 +771,7 @@
     <a class="sidebar-item" href="#ch35"><span class="sidebar-num">34</span>Finding AI opportunities<span class="tier-badge tier-applied">Advanced</span></a>
     <a class="sidebar-item" href="#ch36"><span class="sidebar-num">35</span>Solution selection &amp; deployment<span class="tier-badge tier-applied">Advanced</span></a>
     <a class="sidebar-item" href="#ch37"><span class="sidebar-num">36</span>Pitfalls &amp; failure modes<span class="tier-badge tier-core">Beginner</span></a>
+    <a class="sidebar-item" href="#ch38"><span class="sidebar-num">37</span>Running AI locally<span class="tier-badge tier-applied">Advanced</span></a>
 
     <div class="sidebar-divider"></div>
     <div class="sidebar-group-label">Appendix</div>
@@ -7735,6 +7736,155 @@ Think step by step before concluding.</code>
         </ul>
       </div>
     </div>
+
+    <!-- ══════════════════════════════════════ -->
+
+    <div class="section" id="ch38">
+      <div class="section-eyebrow">Chapter 37</div>
+      <h2>Running AI Locally — The Local Ecosystem <span class="tier-badge tier-applied">Advanced</span><span class="read-time">~6 min</span></h2>
+      <p class="section-tagline">Not every AI workload belongs in the cloud. When privacy, cost, or sovereignty matter more than frontier capability, local inference is the answer.</p>
+
+      <div class="card">
+        <div class="card-header ch-blue">Why run a model on your own hardware?</div>
+        <p>Every time you send a prompt to a cloud API, your text travels to a data centre you do not control, is processed on hardware you do not own, and may be logged by a company whose data retention policies you are trusting. For most everyday tasks, that is fine. For some tasks, it is not.</p>
+        <p style="margin-top:10px;">Three situations where local inference makes sense:</p>
+        <div class="table-wrap" style="margin-top:10px;">
+          <table>
+            <tr><th>Situation</th><th>Why local wins</th><th>Typical use case</th></tr>
+            <tr>
+              <td><strong>Sensitive data</strong></td>
+              <td>Data never leaves your machine. No API logs, no third-party processing, no Data Processing Agreement (DPA) required.</td>
+              <td>Processing HR files, client contracts, medical notes, financial data under strict confidentiality requirements</td>
+            </tr>
+            <tr>
+              <td><strong>High volume / cost pressure</strong></td>
+              <td>No per-token billing. Once you have the hardware, inference is free. The breakeven vs. API depends on volume and hardware cost — but at scale, local wins decisively.</td>
+              <td>Internal tools processing thousands of documents per day, bulk analysis pipelines, developer tooling with heavy usage</td>
+            </tr>
+            <tr>
+              <td><strong>Air-gapped or offline environments</strong></td>
+              <td>No internet connection required. The model runs entirely on local hardware.</td>
+              <td>Industrial systems, defence, healthcare environments with strict network controls, field deployments</td>
+            </tr>
+          </table>
+        </div>
+        <div class="callout callout-orange" style="margin-top:12px;">
+          <strong>The quality trade-off.</strong> Local models are not frontier models. A 7B or 13B model running on a gaming GPU will not match GPT-4o or Claude Sonnet on complex reasoning tasks. The question is not "which is better" but "is local quality good enough for this specific task?" For many practical tasks — classification, summarisation, extraction, Q&amp;A over known documents — a well-chosen 7B model is entirely adequate.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header ch-green">GGUF — the format that made local AI practical</div>
+        <p>Until 2023, running even a 7-billion-parameter model locally required a high-end workstation with a professional GPU. Most people could not do it. The breakthrough was a file format called <strong>GGUF</strong> (GPT-Generated Unified Format), combined with a technique called <strong>quantisation</strong>.</p>
+        <p style="margin-top:10px;"><strong>What quantisation does:</strong> A standard model stores each weight as a 16-bit or 32-bit floating-point number. Quantisation compresses those numbers to 4-bit or 8-bit integers. The model gets roughly 2–4× smaller — with only a small quality loss. A 7B model that previously needed 14 GB of GPU memory now fits in 4–5 GB.</p>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <tr><th>Quantisation level</th><th>Memory required (7B model)</th><th>Quality vs original</th><th>When to use</th></tr>
+            <tr><td><strong>F16 (full precision)</strong></td><td>~14 GB</td><td>100% — no loss</td><td>When you have the VRAM and want maximum quality</td></tr>
+            <tr><td><strong>Q8_0 (8-bit)</strong></td><td>~7 GB</td><td>~99% — nearly identical</td><td>Best quality/size trade-off for capable GPUs</td></tr>
+            <tr><td><strong>Q4_K_M (4-bit, recommended)</strong></td><td>~4 GB</td><td>~95–97%</td><td>The sweet spot — fits a wide range of consumer hardware, quality is excellent for most tasks</td></tr>
+            <tr><td><strong>Q2_K (2-bit)</strong></td><td>~2.5 GB</td><td>~80–85%</td><td>Very constrained hardware only. Noticeable quality degradation on reasoning tasks.</td></tr>
+          </table>
+        </div>
+        <p style="margin-top:12px;">GGUF files are what you download when you pull a model from Hugging Face for local use. They are self-contained — architecture, weights, and tokeniser bundled into one file.</p>
+        <div class="callout callout-green" style="margin-top:12px;">
+          <strong>Where to find GGUF models.</strong> The primary source is <strong>Hugging Face</strong> (huggingface.co/models — filter by GGUF). For a first model, search for <code>Llama-3.2-3B-Instruct-Q4_K_M.gguf</code> — it runs on most hardware with 4 GB RAM and handles most practical tasks well.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header ch-purple">The local AI toolchain — four tools worth knowing</div>
+        <p>Running a model locally has three layers: the model file (GGUF), the inference engine that runs it, and the interface you use to interact with it. Here are the tools that cover each layer.</p>
+
+        <div class="steps" style="margin-top:12px;">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>llama.cpp — the engine under everything</h4>
+              <p>A C++ library that runs GGUF models efficiently on CPU and GPU, including Apple Silicon. Originally written by Georgi Gerganov in a weekend in early 2023, it became the foundational inference engine for the local AI ecosystem. Most other tools are built on top of it.</p>
+              <p style="margin-top:8px;"><strong>Who uses it directly:</strong> developers building custom inference pipelines, or anyone who wants maximum control. Most non-developers never touch llama.cpp directly — they use tools that wrap it.</p>
+              <p style="margin-top:8px;"><strong>Key capability:</strong> runs on CPUs (slower but requires no GPU) and is highly optimised for Apple M-series chips via Metal acceleration. This is why Macs are disproportionately popular for local AI work.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Ollama — the practical starting point</h4>
+              <p>Ollama wraps llama.cpp with a simple command-line interface and a local REST API, making it usable without any deep technical setup. You install it, run one command, and have a model running locally with an API endpoint identical in structure to OpenAI's.</p>
+              <div class="callout callout-green" style="margin-top:8px;">
+                <code style="font-family:var(--mono); font-size:12px; display:block;">ollama run llama3.2</code>
+                <p style="margin-top:6px; font-size:12px; color:var(--text2);">That single command downloads Llama 3.2 (~2GB) and starts a local model you can chat with immediately — no API key, no account, no cloud.</p>
+              </div>
+              <p style="margin-top:8px;"><strong>Why it matters for enterprises:</strong> Ollama's local API endpoint means you can point any tool that supports OpenAI-compatible APIs — n8n, LangChain, Open WebUI, custom code — directly at a local model. No code changes. Drop-in substitution for cloud models.</p>
+              <p style="margin-top:8px;"><strong>Where it is weak:</strong> single-user, single-machine. Not designed for multi-user serving or production deployments with many concurrent requests. For those scenarios, use vLLM.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>vLLM — production-grade local serving</h4>
+              <p>vLLM (Virtual LLM) is a Python library and server designed for high-throughput inference in production environments — the difference between Ollama and vLLM is roughly the difference between running a local web server for development and running nginx in production.</p>
+              <p style="margin-top:8px;"><strong>What makes it fast:</strong> vLLM uses a technique called <strong>PagedAttention</strong> — it manages GPU memory for the KV cache (see Ch08) the way an operating system manages RAM pages, reducing GPU memory waste significantly and increasing the number of simultaneous requests a single GPU can serve.</p>
+              <p style="margin-top:8px;"><strong>When to use it:</strong> when you need a self-hosted model to handle multiple concurrent users, need batched inference, or are building an internal API gateway serving many teams. Requires a proper Linux server with NVIDIA GPU — not a laptop.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>MLX — Apple Silicon native</h4>
+              <p>MLX is Apple's own machine learning framework, optimised specifically for Apple Silicon (M1, M2, M3, M4 chips). The unique architecture of Apple chips — CPU, GPU, and memory sharing the same unified pool — means models can use up to 128 GB of shared memory on a MacBook Pro M4 Max, far more than the 24 GB available on most consumer NVIDIA GPUs.</p>
+              <p style="margin-top:8px;"><strong>Practical implication:</strong> on Apple Silicon, a 70B model fits in memory on a single machine. That would otherwise require a professional GPU cluster. MLX makes Macs serious local AI workstations — not just for demos, but for real workloads.</p>
+              <p style="margin-top:8px;"><strong>The ecosystem:</strong> Ollama supports Apple Silicon via Metal. The MLX Community on Hugging Face maintains ready-to-run MLX versions of most popular open models.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header ch-yellow">Choosing your path — a decision framework</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Your situation</th><th>Recommended tool</th><th>Notes</th></tr>
+            <tr><td>You want to try a local model with zero setup</td><td><strong>Ollama</strong></td><td>Install, one command, done. Works on Mac, Windows, Linux.</td></tr>
+            <tr><td>You are on a Mac with Apple Silicon</td><td><strong>Ollama + MLX</strong></td><td>Ollama for convenience; MLX for larger models that need unified memory</td></tr>
+            <tr><td>You need a self-hosted API for your team (5–50 users)</td><td><strong>Ollama + Open WebUI (Open WebUI is a free, self-hosted ChatGPT-style interface that runs on top of Ollama)</strong></td><td>Open WebUI provides a ChatGPT-like interface over a local Ollama instance</td></tr>
+            <tr><td>You are building a production API serving many concurrent users</td><td><strong>vLLM</strong></td><td>Requires Linux server with NVIDIA GPU. Significantly more setup but handles load properly.</td></tr>
+            <tr><td>You are fine-tuning a model yourself</td><td><strong>Unsloth + Axolotl</strong></td><td>See Ch16 — these are training tools, not inference tools. After fine-tuning, serve via Ollama or vLLM.</td></tr>
+            <tr><td>You want to experiment with model internals in code</td><td><strong>Hugging Face Transformers + llama.cpp Python bindings</strong></td><td>Full control but requires Python and more configuration</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header ch-red">What can realistically run locally — and what cannot</div>
+        <p>Local inference has hard limits determined by your hardware. The key constraint is always VRAM (GPU memory) or unified memory on Apple Silicon. Here is a practical map:</p>
+        <div class="table-wrap" style="margin-top:10px;">
+          <table>
+            <tr><th>Hardware</th><th>What runs well</th><th>What does not fit</th></tr>
+            <tr><td><strong>Consumer laptop (no dedicated GPU)</strong></td><td>1B–3B models via CPU inference (slow, ~2–5 tokens/sec). Phi-4 Mini, Gemma 2B.</td><td>7B+ models at usable speed</td></tr>
+            <tr><td><strong>Gaming GPU (RTX 4070, 12 GB VRAM)</strong></td><td>7B models at Q4 quantisation (fast). 13B at Q4 (usable). Llama 3.2, Mistral 7B, Gemma 9B.</td><td>70B models (need multiple GPUs)</td></tr>
+            <tr><td><strong>High-end gaming GPU (RTX 4090, 24 GB VRAM)</strong></td><td>7B at full precision. 13B at Q8. 34B at Q4 (usable).</td><td>70B at full quality</td></tr>
+            <tr><td><strong>Apple MacBook Pro M4 Max (128 GB unified)</strong></td><td>70B models at reasonable speed via MLX. Llama 3.1 70B, Qwen 2.5 72B.</td><td>Frontier-class models (400B+)</td></tr>
+            <tr><td><strong>Server GPU (A100 80 GB)</strong></td><td>70B at full precision. Multiple models in parallel. Production-grade serving via vLLM.</td><td>GPT-4-class models (still requires clusters)</td></tr>
+          </table>
+        </div>
+        <div class="callout callout-blue" style="margin-top:12px;">
+          <strong>The practical ceiling in 2026.</strong> For most organisations, the realistic local option is models in the 7B–34B range. These are surprisingly capable — a well-quantised Mistral 7B or Llama 3.2 3B handles classification, extraction, summarisation, and Q&amp;A over documents at quality that meets most business requirements. The gap vs. frontier models is real but narrowing fast. In 2023 it was a chasm. In 2026 it is a meaningful but manageable trade-off.
+        </div>
+      </div>
+
+      <div class="takeaway">
+        <div class="takeaway-title">What you should take away</div>
+        <ul class="bullets">
+          <li>Local AI = your hardware, your data, no API costs — the trade-off is quality ceiling and setup complexity</li>
+          <li>GGUF + quantisation made local AI practical on consumer hardware — a 7B model at Q4 fits in 4 GB VRAM</li>
+          <li>Ollama is the right starting point for individuals and small teams; vLLM is for production multi-user serving</li>
+          <li>Apple Silicon (MLX) is the most accessible path to running large (70B) models on a single machine</li>
+          <li>Local quality is good enough for most extraction, classification, and document Q&amp;A tasks — not for frontier-level reasoning</li>
+        </ul>
+      </div>
+    </div>
+
 
     <!-- ══════════════════════════════════════ -->
     <!-- QUIZ -->
