@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value Creation and Commercial Logic — Pillar 1 | GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #080b10;
+    --surface: #0e1219;
+    --surface-2: #141922;
+    --surface-3: #1b2130;
+    --border: #1e2535;
+    --border-2: #252e40;
+    --teal: #00bfa5;
+    --teal-deep: #009688;
+    --teal-soft: #26c6b5;
+    --teal-glow: rgba(0,191,165,0.12);
+    --gold: #c9a227;
+    --gold-soft: #d4b24a;
+    --gold-bg: rgba(201,162,39,0.10);
+    --text: #ffffff;
+    --text-2: #c8d0de;
+    --text-3: #7a8799;
+    --on-dark: #ffffff;
+    --ruby: #e84560;
+    --amber: #f59e0b;
+    --sky: #38bdf8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-feature-settings: "ss01";
+    background: var(--void);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--surface);
+    border-bottom: 2px solid var(--teal);
+    height: 62px;
+    display: flex; align-items: center;
+    padding: 0 32px; gap: 20px;
+  }
+  .logo-mark { width: 38px; height: 38px; flex-shrink: 0; }
+  .topbar-brand { display: flex; flex-direction: column; line-height: 1.25; }
+  .topbar-brand .brand-name { font-size: 13px; font-weight: 600; color: #fff; letter-spacing: 0.02em; }
+  .topbar-brand .brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.12em; }
+  .topbar-divider { width: 1px; height: 28px; background: var(--border-2); margin: 0 4px; }
+  .topbar-title { font-size: 14px; color: var(--text-2); flex: 1; }
+  .topbar-edition { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ── LAYOUT ── */
+  .layout { display: flex; min-height: calc(100vh - 62px); }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 290px; flex-shrink: 0;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 28px 0;
+    position: sticky; top: 62px;
+    height: calc(100vh - 62px);
+    overflow-y: auto;
+  }
+  .sidebar-group-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em;
+    padding: 0 24px 10px;
+    border-bottom: 1px solid var(--border); margin-bottom: 8px;
+  }
+  .sidebar-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 11px 24px; cursor: pointer; text-decoration: none;
+    transition: background 0.15s;
+  }
+  .sidebar-item:hover { background: var(--surface-2); }
+  .sidebar-item.active { background: var(--teal-glow); border-left: 2px solid var(--teal); padding-left: 22px; }
+  .sidebar-badge {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--surface-3); border: 1px solid var(--border-2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-3); flex-shrink: 0;
+  }
+  .sidebar-item.active .sidebar-badge { background: var(--teal-glow); border-color: var(--teal); color: var(--teal); }
+  .sidebar-item span.nav-label { font-size: 13px; color: var(--text-2); line-height: 1.35; }
+  .sidebar-item.active span.nav-label { color: #fff; }
+  .sidebar-section-nav { padding: 16px 24px 8px; }
+  .sidebar-section-nav .snav-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .snav-item { display: block; font-size: 12px; color: var(--text-3); text-decoration: none; padding: 5px 0 5px 12px; border-left: 1px solid var(--border); margin-bottom: 2px; transition: color 0.15s, border-color 0.15s; }
+  .snav-item:hover { color: var(--teal); border-left-color: var(--teal); }
+
+  /* ── MAIN ── */
+  .main { flex: 1; max-width: 920px; padding: 60px 60px 96px; overflow-x: hidden; }
+
+  /* ── HERO ── */
+  .hero { margin-bottom: 72px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 18px; }
+  .hero h1 { font-size: 46px; font-weight: 300; letter-spacing: -1.1px; line-height: 1.08; color: #fff; margin-bottom: 10px; }
+  .hero h1 .gold-line { color: var(--gold); display: block; }
+  .hero-tagline { font-size: 17px; color: var(--text-2); margin-bottom: 36px; max-width: 600px; line-height: 1.7; }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .stat { display: flex; flex-direction: column; gap: 6px; padding: 24px 28px; background: var(--surface); border-right: 1px solid var(--border); }
+  .stat:last-child { border-right: none; }
+  .stat-number { font-size: 32px; font-weight: 300; letter-spacing: -0.5px; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .stat-label { font-size: 13px; color: var(--text-3); line-height: 1.5; }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 72px; scroll-margin-top: 80px; }
+  .section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px; }
+  .section h2 { font-size: 28px; font-weight: 300; letter-spacing: -0.4px; color: #fff; margin-bottom: 8px; }
+  .section-hook { font-size: 16px; color: var(--text-2); margin-bottom: 32px; font-style: italic; line-height: 1.6; }
+
+  /* ── VALUE CARDS ── */
+  .value-group { margin-bottom: 28px; }
+  .value-group-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    padding: 8px 16px; border-radius: 6px; margin-bottom: 12px; display: inline-block;
+  }
+  .label-hard { background: var(--teal-glow); color: var(--teal); }
+  .label-structural { background: var(--gold-bg); color: var(--gold); }
+  .label-attribution { background: rgba(232,69,96,0.1); color: var(--ruby); }
+
+  .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .value-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .value-card.full-width { grid-column: 1 / -1; }
+  .value-card-title {
+    font-size: 14px; font-weight: 500; color: #fff;
+    margin-bottom: 8px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .value-card-title .vicon {
+    width: 24px; height: 24px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; flex-shrink: 0;
+  }
+  .vi-teal { background: var(--teal-glow); color: var(--teal); }
+  .vi-gold { background: var(--gold-bg); color: var(--gold); }
+  .vi-sky { background: rgba(56,189,248,0.1); color: var(--sky); }
+  .vi-ruby { background: rgba(232,69,96,0.1); color: var(--ruby); }
+
+  .value-card p { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+  .value-card ul { list-style: none; padding: 0; margin-top: 6px; }
+  .value-card ul li {
+    font-size: 14px; color: var(--text-2);
+    padding: 5px 0 5px 18px; position: relative; line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+  }
+  .value-card ul li:last-child { border-bottom: none; }
+  .value-card ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-size: 11px; top: 7px; }
+
+  /* attribution callout */
+  .attribution-box {
+    background: rgba(232,69,96,0.06);
+    border: 1px solid rgba(232,69,96,0.25);
+    border-left: 3px solid var(--ruby);
+    border-radius: 10px; padding: 20px 24px; margin-top: 16px;
+  }
+  .attribution-box .attr-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--ruby); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .attribution-box p { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+
+  /* data monetization callout */
+  .data-box {
+    background: var(--surface-2);
+    border: 1px solid var(--border-2);
+    border-left: 3px solid var(--sky);
+    border-radius: 10px; padding: 20px 24px; margin-top: 16px;
+  }
+  .data-box .data-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--sky); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .data-box p { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+  .data-box ul { list-style: none; padding: 0; margin-top: 10px; }
+  .data-box ul li { font-size: 14px; color: var(--text-2); padding: 5px 0 5px 18px; position: relative; line-height: 1.6; border-bottom: 1px solid var(--border); }
+  .data-box ul li:last-child { border-bottom: none; }
+  .data-box ul li::before { content: "·"; position: absolute; left: 0; color: var(--sky); font-size: 16px; top: 3px; }
+
+  /* ── TCO TABLE ── */
+  .tco-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .tco-header { display: grid; grid-template-columns: 1fr 120px 120px; background: var(--surface-2); border-bottom: 1px solid var(--border-2); }
+  .tco-header div { padding: 11px 18px; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); }
+  .tco-header .h-yes { color: var(--teal); }
+  .tco-header .h-miss { color: var(--ruby); }
+  .tco-row { display: grid; grid-template-columns: 1fr 120px 120px; border-bottom: 1px solid var(--border); }
+  .tco-row:last-child { border-bottom: none; }
+  .tco-row:hover { background: var(--surface-2); }
+  .tco-cost { padding: 13px 18px; font-size: 14px; color: var(--text-2); border-right: 1px solid var(--border); }
+  .tco-cell { padding: 13px 18px; font-size: 13px; display: flex; align-items: center; gap: 8px; border-right: 1px solid var(--border); }
+  .tco-cell:last-child { border-right: none; }
+  .dot-yes { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+  .dot-partial { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+  .dot-no { width: 8px; height: 8px; border-radius: 50%; background: var(--ruby); flex-shrink: 0; }
+  .tco-disclaimer { font-size: 13px; color: var(--text-3); font-style: italic; margin-top: 8px; padding-left: 4px; }
+
+  /* ── PRICING MODELS ── */
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .pricing-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .pricing-card.recommended { border-color: var(--teal); background: var(--surface-3); }
+  .pricing-name { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 6px; }
+  .pricing-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .pricing-pro { font-size: 12px; color: var(--teal); margin-bottom: 4px; }
+  .pricing-con { font-size: 12px; color: var(--ruby); }
+
+  /* ── CFO METRICS ── */
+  .cfo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .cfo-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .cfo-card-header { padding: 14px 20px; font-size: 14px; font-weight: 600; color: #fff; border-bottom: 1px solid var(--border); }
+  .cfo-card-header.payback { background: var(--teal-glow); border-top: 3px solid var(--teal); }
+  .cfo-card-header.roi { background: var(--gold-bg); border-top: 3px solid var(--gold); }
+  .cfo-card-body { padding: 18px 20px; }
+  .cfo-card-body p { font-size: 14px; color: var(--text-2); line-height: 1.65; margin-bottom: 10px; }
+  .cfo-card-body p:last-child { margin-bottom: 0; }
+
+  /* savings distinction */
+  .savings-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+  .savings-card { border-radius: 10px; padding: 18px 20px; }
+  .savings-card.hard { background: var(--teal-glow); border: 1px solid rgba(0,191,165,0.3); }
+  .savings-card.soft { background: var(--gold-bg); border: 1px solid rgba(201,162,39,0.3); }
+  .savings-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .savings-card.hard .savings-title { color: var(--teal); }
+  .savings-card.soft .savings-title { color: var(--gold); }
+  .savings-card ul { list-style: none; padding: 0; }
+  .savings-card ul li { font-size: 13px; color: var(--text-2); padding: 4px 0 4px 16px; position: relative; line-height: 1.5; }
+  .savings-card ul li::before { content: "→"; position: absolute; left: 0; font-size: 11px; top: 6px; }
+  .savings-card.hard ul li::before { color: var(--teal); }
+  .savings-card.soft ul li::before { color: var(--gold); }
+  .savings-note { font-size: 13px; color: var(--text-3); font-style: italic; margin-top: 12px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; line-height: 1.6; }
+
+  /* ── CAREER SECTION ── */
+  .career-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px; }
+  .career-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .career-card-header { padding: 16px 22px; font-size: 14px; font-weight: 600; color: #fff; border-bottom: 1px solid var(--border); }
+  .career-card-header.biz { background: var(--teal-glow); border-top: 3px solid var(--teal); }
+  .career-card-header.process { background: var(--gold-bg); border-top: 3px solid var(--gold); }
+  .career-card-body { padding: 18px 22px; }
+  .career-card-body ul { list-style: none; padding: 0; }
+  .career-card-body ul li {
+    font-size: 14px; color: var(--text);
+    padding: 8px 0 8px 20px; position: relative; line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+  }
+  .career-card-body ul li:last-child { border-bottom: none; }
+  .career-card-body ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-size: 12px; top: 10px; }
+  .career-card-body.process ul li::before { color: var(--gold); }
+
+  .forward-bridge {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--teal); border-radius: 10px;
+    padding: 18px 22px; margin-top: 20px;
+  }
+  .forward-bridge .fb-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .forward-bridge p { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+
+  /* ── INSIGHT BLOCK ── */
+  .insight-block {
+    background: linear-gradient(135deg, var(--gold-bg), transparent);
+    border: 1px solid var(--gold); border-radius: 12px;
+    padding: 28px 32px; margin: 32px 0;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .insight-icon {
+    width: 38px; height: 38px; background: var(--gold-bg);
+    border: 1px solid var(--gold); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; color: var(--gold); flex-shrink: 0;
+  }
+  .insight-body .insight-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 12px; }
+  .insight-body ul { list-style: none; padding: 0; }
+  .insight-body ul li {
+    font-size: 15px; color: var(--text);
+    padding: 8px 0 8px 22px; position: relative; line-height: 1.7;
+    border-bottom: 1px solid rgba(201,162,39,0.15);
+  }
+  .insight-body ul li:last-child { border-bottom: none; }
+  .insight-body ul li::before { content: "→"; position: absolute; left: 0; color: var(--gold); font-size: 12px; top: 10px; }
+
+  /* ── TOOLTIP ── */
+  a.gloss {
+    color: inherit; text-decoration: none;
+    border-bottom: 1px dotted var(--teal);
+    cursor: help; position: relative;
+  }
+  a.gloss:hover { border-bottom-color: var(--teal-soft); }
+  a.gloss .tooltip {
+    display: none; position: absolute;
+    bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+    background: var(--surface-3); border: 1px solid var(--teal);
+    border-radius: 8px; padding: 10px 14px;
+    font-size: 13px; font-weight: 300; color: var(--text-2);
+    line-height: 1.55; width: 260px; z-index: 200;
+    pointer-events: none; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  a.gloss .tooltip::after {
+    content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    border: 6px solid transparent; border-top-color: var(--teal);
+  }
+  a.gloss:hover .tooltip { display: block; }
+
+  /* ── GLOSSARY ── */
+  .glossary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .glossary-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; }
+  .glossary-term { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: var(--teal); flex-shrink: 0; min-width: 80px; }
+  .glossary-def { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: var(--surface-3); border: 1px solid var(--border-2);
+    border-top: 3px solid var(--teal); border-radius: 16px;
+    padding: 44px 48px; margin-top: 64px; text-align: center;
+  }
+  .cta-block h3 { font-size: 24px; font-weight: 300; color: #fff; margin-bottom: 12px; letter-spacing: -0.3px; }
+  .cta-block p { font-size: 15px; color: var(--text-2); margin-bottom: 28px; line-height: 1.65; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--teal); color: var(--void);
+    font-size: 15px; font-weight: 500;
+    padding: 13px 32px; border-radius: 8px; text-decoration: none;
+    transition: background 0.15s;
+  }
+  .cta-btn:hover { background: var(--teal-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .sidebar { display: none; }
+    .main { padding: 36px 24px 80px; max-width: 100%; }
+    .value-grid, .cfo-grid, .career-grid, .pricing-grid, .savings-split { grid-template-columns: 1fr; }
+    .value-card.full-width { grid-column: 1; }
+    .hero h1 { font-size: 34px; }
+    .stats-row { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat:last-child { border-bottom: none; }
+    .glossary-grid { grid-template-columns: 1fr; }
+    .tco-header, .tco-row { grid-template-columns: 1fr 80px 80px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="38" height="38" rx="6" fill="#0e1219"/>
+    <path d="M8 7 L4 7 L4 31 L8 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M30 7 L34 7 L34 31 L30 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <polygon points="9,10 28,19 9,28 14,19" fill="#c9a227"/>
+    <polygon points="14,17 24,19 14,23 17,19" fill="white"/>
+  </svg>
+  <div class="topbar-brand">
+    <span class="brand-name">GBS Insider Club</span>
+    <span class="brand-sub">Field Guide</span>
+  </div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-title">Pillar 1 — GBS Fundamentals</div>
+  <div class="topbar-edition">Cluster 2 of 6</div>
+</header>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-group-label">Pillar 1 · GBS Fundamentals</div>
+    <a href="pillar-1-gbs-operating-models.html" class="sidebar-item">
+      <div class="sidebar-badge">1</div>
+      <span class="nav-label">GBS Operating Models</span>
+    </a>
+    <a href="#" class="sidebar-item active">
+      <div class="sidebar-badge">2</div>
+      <span class="nav-label">Value Creation and Commercial Logic</span>
+    </a>
+    <a href="#" class="sidebar-item">
+      <div class="sidebar-badge">3</div>
+      <span class="nav-label">Organizational Structure and Governance</span>
+    </a>
+    <a href="#" class="sidebar-item">
+      <div class="sidebar-badge">4</div>
+      <span class="nav-label">Contracts and Service Agreements</span>
+    </a>
+    <a href="#" class="sidebar-item">
+      <div class="sidebar-badge">5</div>
+      <span class="nav-label">Performance Measurement</span>
+    </a>
+    <a href="#" class="sidebar-item">
+      <div class="sidebar-badge">6</div>
+      <span class="nav-label">Location Strategy and Hub Design</span>
+    </a>
+    <div style="margin-top:16px;border-top:1px solid var(--border);padding-top:16px;">
+      <a href="glossary.html" class="sidebar-item">
+        <div class="sidebar-badge" style="color:var(--gold);border-color:var(--gold);">G</div>
+        <span class="nav-label">Glossary</span>
+      </a>
+    </div>
+    <div class="sidebar-section-nav">
+      <div class="snav-label">On this page</div>
+      <a href="#value-full" class="snav-item">The full value picture</a>
+      <a href="#tco" class="snav-item">TCO and Cost-to-Serve</a>
+      <a href="#cfo" class="snav-item">The CFO conversation</a>
+      <a href="#career" class="snav-item">What this means for you</a>
+      <a href="#glossary-c2" class="snav-item">Glossary</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="eyebrow">Pillar 1 · GBS Fundamentals · Cluster 2</div>
+      <h1>Value Creation and Commercial Logic
+        <span class="gold-line">GBS delivers more than cost reduction. Most of it goes uncredited.</span>
+      </h1>
+      <p class="hero-tagline">Cost reduction gets the business case approved. Everything else is what makes GBS genuinely strategic — and almost none of it appears in a P&L line.</p>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-number">41%</span>
+          <span class="stat-label">of companies believe their shared services create tangible value (BCG, 2024)</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">20–40%</span>
+          <span class="stat-label">typical cost reduction when GBS is implemented well (KPMG, 2024)</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">$2.3M</span>
+          <span class="stat-label">average annual savings per 100 FTEs moved to shared services (Emergen, 2024)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: Full value picture -->
+    <section class="section" id="value-full">
+      <div class="section-eyebrow">Section 1</div>
+      <h2>The full value picture</h2>
+      <p class="section-hook">The 41% figure is not evidence that GBS fails to create value. It is evidence that GBS fails to capture and communicate the value it creates.</p>
+
+      <div class="value-group">
+        <div class="value-group-label label-hard">Hard Value — measurable, but rarely attributed to GBS</div>
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="value-card-title"><div class="vicon vi-teal">$</div>Contract and License Consolidation</div>
+            <p>Technology vendors, software providers, and professional services firms price differently when negotiating with ten country entities versus one central team.</p>
+            <ul>
+              <li>Volume leverage reduces unit cost before a single process is touched</li>
+              <li>ERP licenses, audit fees, banking fees — all compress at scale</li>
+              <li>Savings are real but rarely traced back to the GBS team that created them</li>
+            </ul>
+          </div>
+          <div class="value-card">
+            <div class="value-card-title"><div class="vicon vi-teal">↩</div>Duplicate Payment Recovery</div>
+            <p><a class="gloss" href="glossary.html#g-ap">AP<span class="tooltip">Accounts Payable — the process of managing, validating, and paying supplier invoices</span></a> centralization almost always surfaces duplicate payments — some dating back years before the transition.</p>
+            <ul>
+              <li>Recoverable amounts are rarely trivial</li>
+              <li>Pre-transition duplicates surface during AP normalization</li>
+              <li>Requires systematic matching logic — a natural GBS process control</li>
+            </ul>
+          </div>
+          <div class="value-card">
+            <div class="value-card-title"><div class="vicon vi-sky">✓</div>Avoided Penalties and Tax Exposure</div>
+            <p>Standardized processes and documented controls reduce the risk of missed deadlines, late filings, and regulatory breaches.</p>
+            <ul>
+              <li>The cost of a penalty never incurred does not appear in any savings report</li>
+              <li>Transfer pricing consistency improves when one team owns the process</li>
+              <li>Statutory deadlines managed centrally have lower miss rates</li>
+            </ul>
+          </div>
+          <div class="value-card">
+            <div class="value-card-title"><div class="vicon vi-sky">⊕</div>Audit and Compliance Quality</div>
+            <p>External auditors work faster and at lower cost when processes are documented, consistent, and operated by a single team with clear controls.</p>
+            <ul>
+              <li>Audit preparation time drops significantly post-centralization</li>
+              <li>Control deficiencies reduce — one team, one standard, one audit trail</li>
+              <li>Balance sheets and P&L are cleaner when postings follow standardized rules</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-group">
+        <div class="value-group-label label-structural">Structural Value — harder to quantify, almost never captured</div>
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="value-card-title"><div class="vicon vi-gold">⇡</div>System Upgrades and ERP Implementations</div>
+            <p>When ten country teams run the same process differently across different system configurations, an <a class="gloss" href="glossary.html#g-erp">ERP<span class="tooltip">Enterprise Resource Planning — integrated platform managing finance, HR, procurement, and supply chain across the organization</span></a> upgrade is a multi-year program.</p>
+            <ul>
+              <li>One GBS running a standardized process means a controlled rollout</li>
+              <li>Testing scope, data migration, and training all compress significantly</li>
+              <li>The upgrade cost difference between fragmented and centralized delivery is substantial — and almost never attributed to GBS</li>
+            </ul>
+          </div>
+          <div class="value-card">
+            <div class="value-card-title"><div class="vicon vi-gold">◈</div>Master Data Quality</div>
+            <p>Vendor records, customer data, cost centers, material codes. When scattered across entities, nobody owns them. When centralized, governance becomes possible.</p>
+            <ul>
+              <li>Data ownership fragmentation is the norm — procurement, finance, and operations each own part of a vendor record, none own all of it</li>
+              <li>Centralization does not automatically fix MDM — but it makes fixing it possible</li>
+              <li>The downstream value: fewer errors, faster processing, more reliable reporting</li>
+            </ul>
+          </div>
+          <div class="value-card">
+            <div class="value-card-title"><div class="vicon vi-gold">≡</div>Process Documentation and Knowledge Retention</div>
+            <p>Before centralization, process knowledge lives in individuals. It is siloed, fragmented, undocumented, and outdated.</p>
+            <ul>
+              <li>A functioning GBS makes knowledge explicit, transferable, and auditable</li>
+              <li>When someone leaves a fragmented operation, the process often leaves with them</li>
+              <li>Documented <a class="gloss" href="glossary.html#g-sop">SOPs<span class="tooltip">Standard Operating Procedures — written documentation of how a process should be executed, including steps, inputs, and expected outputs</span></a> and <a class="gloss" href="glossary.html#g-dtp">DTPs<span class="tooltip">Desktop Training Procedures — step-by-step task-level documentation, more granular than an SOP</span></a> are institutional resilience — the value is invisible until you need them</li>
+            </ul>
+          </div>
+          <div class="value-card">
+            <div class="value-card-title"><div class="vicon vi-gold">◎</div>Decision-Quality Data and Insights</div>
+            <p>When the GBS produces consistent, timely, and accurate data, leadership makes better decisions. That causal link is real — and almost impossible to attribute.</p>
+            <ul>
+              <li>Consolidated reporting replaces fragmented country spreadsheets</li>
+              <li>Insights shared with business leaders are only possible when someone owns the data</li>
+              <li>52% of organizations are already moving GBS toward decision support and business partnering (SSON, 2026)</li>
+            </ul>
+          </div>
+          <div class="value-card full-width">
+            <div class="value-card-title"><div class="vicon vi-gold">⬡</div>Talent Pipeline for the Business</div>
+            <p>A well-run GBS is one of the best sources of future finance and operations leaders. Associates who rotate through multiple processes, geographies, and functions build breadth that is rare in functional silos.</p>
+            <ul>
+              <li>Cross-functional exposure at scale is a GBS structural advantage — not available in country-level roles</li>
+              <li>Organizations that treat GBS as a leadership development engine see measurable retention and promotion rates above average</li>
+              <li>This pipeline value never appears in the business case. It should.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="attribution-box">
+        <div class="attr-label">The attribution problem</div>
+        <p>Only 41% of companies believe their shared services create tangible value (BCG, 2024). That is not because the value does not exist. It is because most of it never gets traced back to a P&L line. The GBS does not get credit for the audit that went smoothly, the ERP upgrade that stayed on schedule, or the duplicate payment recovered three years after transition. It gets measured on cost per <a class="gloss" href="glossary.html#g-fte">FTE<span class="tooltip">Full-Time Equivalent — unit measuring workforce capacity. 1.0 FTE equals one full-time employee working standard hours.</span></a> and <a class="gloss" href="glossary.html#g-sla">SLA<span class="tooltip">Service Level Agreement — contractual performance standard defining response time, accuracy, and availability.</span></a> attainment — then asked why it is not a strategic partner.</p>
+      </div>
+
+      <div class="data-box">
+        <div class="data-label">On data monetization — an honest assessment</div>
+        <p>Data monetization in GBS is discussed more than it is practiced. The structural reason: most business data has no single owner.</p>
+        <ul>
+          <li>A vendor master record is needed by procurement (sourcing), finance (payment fields), and the business (product delivery context). Each party owns part of it. Nobody owns all of it.</li>
+          <li>The same fragmentation applies to customer records, product data, and fixed assets — each touched by multiple functions with different data needs.</li>
+          <li>Until master data ownership is resolved, monetization remains theoretical.</li>
+          <li>The practical value of good data in GBS is not in selling it — it is in making it accurate, consistent, and usable for the business that already owns it. That is where the real return is.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TCO and Cost-to-Serve -->
+    <section class="section" id="tco">
+      <div class="section-eyebrow">Section 2</div>
+      <h2><a class="gloss" href="glossary.html#g-tco">TCO<span class="tooltip">Total Cost of Ownership — the full cost of delivering a service, including direct and indirect costs, not just visible headcount.</span></a> and Cost-to-Serve — how costs are actually measured</h2>
+      <p class="section-hook">Most GBS business cases compare total cost before centralization to total cost after. That is TCO done correctly. The discipline is in what you include.</p>
+
+      <div class="tco-wrap">
+        <div class="tco-header">
+          <div>Cost layer</div>
+          <div class="h-yes">Often included</div>
+          <div class="h-miss">Often missed</div>
+        </div>
+        <div class="tco-row">
+          <div class="tco-cost">Labor — <a class="gloss" href="glossary.html#g-fte">FTE<span class="tooltip">Full-Time Equivalent — 1.0 FTE equals one full-time employee at standard hours.</span></a> cost by location</div>
+          <div class="tco-cell"><div class="dot-yes"></div>Yes</div>
+          <div class="tco-cell"><div class="dot-no"></div>Shadow labor — business unit time spent managing GBS queries</div>
+        </div>
+        <div class="tco-row">
+          <div class="tco-cost">Technology and licenses</div>
+          <div class="tco-cell"><div class="dot-partial"></div>Partially</div>
+          <div class="tco-cell"><div class="dot-no"></div>Cost of maintaining legacy systems during and after transition</div>
+        </div>
+        <div class="tco-row">
+          <div class="tco-cost">Infrastructure and facilities</div>
+          <div class="tco-cell"><div class="dot-yes"></div>Yes</div>
+          <div class="tco-cell"><div class="dot-no"></div>Stranded costs in country after migration</div>
+        </div>
+        <div class="tco-row">
+          <div class="tco-cost">Management and governance overhead</div>
+          <div class="tco-cell"><div class="dot-no"></div>Rarely</div>
+          <div class="tco-cell"><div class="dot-no"></div>Cost of SLA management, escalation handling, performance reporting</div>
+        </div>
+        <div class="tco-row">
+          <div class="tco-cost">Error and rework cost</div>
+          <div class="tco-cell"><div class="dot-no"></div>Rarely</div>
+          <div class="tco-cell"><div class="dot-no"></div>Cost of exceptions, corrections, and reprocessing</div>
+        </div>
+        <div class="tco-row">
+          <div class="tco-cost">Transition cost (one-time)</div>
+          <div class="tco-cell"><div class="dot-yes"></div>Yes</div>
+          <div class="tco-cell"><div class="dot-no"></div>Post-transition stabilization cost — often underestimated</div>
+        </div>
+      </div>
+      <p class="tco-disclaimer">A TCO comparison that only captures the visible costs will overstate the business case. The missed items above typically add 15–25% to the real cost on both sides of the comparison.</p>
+
+      <div style="margin-top:28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:14px;">How GBS costs are charged back to the business</div>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-name">No charge</div>
+            <div class="pricing-desc">GBS costs treated as a corporate overhead — not allocated to divisions at all.</div>
+            <div class="pricing-pro">+ Simple, no internal friction</div>
+            <div class="pricing-con">— No cost visibility, no demand management incentive</div>
+          </div>
+          <div class="pricing-card recommended">
+            <div class="pricing-name">Allocation key</div>
+            <div class="pricing-desc">Costs distributed across divisions using a proxy driver — revenue share, headcount, or transaction volume. Most common in practice.</div>
+            <div class="pricing-pro">+ Simple, low admin overhead, broadly accepted</div>
+            <div class="pricing-con">— Less precise, does not reflect actual consumption</div>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-name">Cost-to-Serve (transaction-based)</div>
+            <div class="pricing-desc">Divisions charged per unit of service — per invoice processed, per payroll run, per ticket. Creates transparency and behavioral incentives.</div>
+            <div class="pricing-pro">+ Accurate, drives demand discipline</div>
+            <div class="pricing-con">— High admin overhead, can trigger "do it myself" behavior</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--text-3);font-style:italic;margin-top:10px;">Source: Gartner, Five Shared Services Pricing Approaches. Neither model is universally correct — the right choice depends on organizational maturity and what behavior the business wants to incentivize.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CFO Conversation -->
+    <section class="section" id="cfo">
+      <div class="section-eyebrow">Section 3</div>
+      <h2>The CFO conversation — what actually lands</h2>
+      <p class="section-hook">Two numbers. A CFO will respond to both. The discipline is in building them honestly.</p>
+
+      <div class="cfo-grid">
+        <div class="cfo-card">
+          <div class="cfo-card-header payback">Payback Period</div>
+          <div class="cfo-card-body">
+            <p>How long until the total investment pays for itself. The primary decision gate for most GBS programs.</p>
+            <p>One client analysis found the payback period for building a captive center was more than double that of outsourcing — over four years versus under two (Auxis/Deloitte, 2024). The model choice affects the payback math significantly.</p>
+            <p>A CFO approving a multi-year transition wants to know when the organization crosses into positive cash territory — not the theoretical run-rate saving in year five.</p>
+          </div>
+        </div>
+        <div class="cfo-card">
+          <div class="cfo-card-header roi">Return on Investment (ROI)</div>
+          <div class="cfo-card-body">
+            <p>Total value generated divided by total investment. The credibility test is what you count as value.</p>
+            <p>Run-rate savings are projections. P&L-realized savings are what finance will accept. The gap between the two is where most business cases lose CFO confidence.</p>
+            <p>A business case built entirely on soft savings will not survive scrutiny. One that ignores soft savings undervalues the program significantly. The skill is knowing which category each benefit belongs in — and being honest with the numbers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="savings-split">
+        <div class="savings-card hard">
+          <div class="savings-title">Hard Savings — hit the P&L</div>
+          <ul>
+            <li>Headcount reduction and redeployment</li>
+            <li>Contract and license consolidation</li>
+            <li>System decommissioning</li>
+            <li>Duplicate payment recovery</li>
+            <li>Facility and infrastructure cost reduction</li>
+          </ul>
+        </div>
+        <div class="savings-card soft">
+          <div class="savings-title">Soft Savings — real but off P&L</div>
+          <ul>
+            <li>Capacity release (same headcount, more output)</li>
+            <li>Avoided penalties and compliance costs</li>
+            <li>Audit cost reduction</li>
+            <li>Error rate reduction and rework avoidance</li>
+            <li>Faster ERP upgrade execution</li>
+          </ul>
+        </div>
+      </div>
+      <div class="savings-note">Hard savings are what finance counts. Soft savings are what leadership feels. A strong business case quantifies both — and is transparent about which is which.</div>
+    </section>
+
+    <!-- INSIGHT BLOCK -->
+    <div class="insight-block">
+      <div class="insight-icon">✦</div>
+      <div class="insight-body">
+        <div class="insight-label">GBS Insider Club Insights</div>
+        <ul>
+          <li>Cost reduction is the entry ticket, not the destination. The organizations that extract genuine value from GBS are the ones that measure what the model makes possible — not just what it costs less.</li>
+          <li>The value that goes uncaptured is not invisible — it is just not on anyone's reporting template. Audit quality, ERP upgrade speed, data governance — these are measurable with the right tracking discipline.</li>
+          <li>The business case conversation with a CFO is won on payback period and realized savings, not on a list of strategic benefits. Build the financial case first. The narrative follows.</li>
+          <li>Most GBS organizations are sitting on a talent pipeline story they have never told. Associates who move through multiple processes and geographies become your best future finance and operations leaders. That story is free to tell and almost never told.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Career -->
+    <section class="section" id="career">
+      <div class="section-eyebrow">Section 4</div>
+      <h2>What this means for your career</h2>
+      <p class="section-hook">Two things matter more than technical competence in the first two years of a GBS career.</p>
+
+      <div class="career-grid">
+        <div class="career-card">
+          <div class="career-card-header biz">Build genuine business understanding</div>
+          <div class="career-card-body">
+            <ul>
+              <li>Most GBS associates know their process well. Far fewer understand the business they are supporting. That gap is the career differentiator.</li>
+              <li>Learn what your business unit actually does to generate revenue — what they sell, who they sell it to, what slows them down</li>
+              <li>Understand what administrative burden your process creates for the business — approvals required, data requests, exceptions, rework loops</li>
+              <li>The less burden you create, the more the business can focus on selling and producing. That connection is the definition of GBS value.</li>
+              <li>Ask questions that go beyond your transaction. "Why does this approval exist?" is a career question, not just a process question.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="career-card">
+          <div class="career-card-header process">Question the "why" of every process</div>
+          <div class="career-card-body process">
+            <ul>
+              <li>GBS organizations regularly keep themselves busy with work that has no clear value for anyone — requirements assumed, approval thresholds unchallenged, reports produced because they always have been</li>
+              <li>Every approval, every report, every workflow step should have a named beneficiary and a clear purpose</li>
+              <li>If you cannot identify who benefits from a process step and how, that is a question worth raising — tactfully, with evidence, not as a complaint</li>
+              <li>The business wants less friction, better data, and fewer hurdles — not more controls nobody asked for</li>
+              <li>Associates who understand the business well enough to identify what is slowing it down — and have the credibility to suggest change — build careers faster than those who only execute</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="forward-bridge">
+        <div class="fb-label">Coming up in Pillar 4 and Pillar 5</div>
+        <p>Knowing what to change is step one. Knowing how to raise it without damaging the relationship is step two. Stakeholder communication and career positioning — how to build credibility, frame improvement ideas, and navigate organizational dynamics — are covered in Pillar 4 (Stakeholder and Communication) and Pillar 5 (Career and Performance).</p>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="section" id="glossary-c2">
+      <div class="section-eyebrow">Glossary</div>
+      <h2>Key terms in this cluster</h2>
+      <p class="section-hook">Additional terms used in this cluster. Full cross-pillar glossary available at the GBS Insider Club Field Guide.</p>
+      <div class="glossary-grid">
+        <div class="glossary-item">
+          <span class="glossary-term">TCO</span>
+          <span class="glossary-def">Total Cost of Ownership — the full cost of delivering a service including direct and indirect costs, not just the visible headcount line</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Cost-to-Serve</span>
+          <span class="glossary-def">Transaction-based pricing model that charges business units per unit of service consumed — per invoice, per ticket, per payroll run</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Run Rate</span>
+          <span class="glossary-def">Annualized projection of savings once a change is fully implemented — a forecast, not a realized P&L saving until confirmed in the accounts</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Hard Savings</span>
+          <span class="glossary-def">Cost reductions that directly reduce the P&L — headcount, contracts, systems. Accepted by finance as realized savings.</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Soft Savings</span>
+          <span class="glossary-def">Real value from efficiency and avoidance that does not directly reduce the P&L — capacity release, avoided penalties, rework reduction</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Allocation Key</span>
+          <span class="glossary-def">A proxy metric — revenue, headcount, or volume — used to distribute shared GBS costs across business units without transaction-level precision</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Payback Period</span>
+          <span class="glossary-def">Time required for total savings to equal total investment. Primary CFO decision metric for GBS business cases.</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">MDM</span>
+          <span class="glossary-def">Master Data Management — governance and maintenance of critical shared data records (vendors, customers, assets) to ensure accuracy and consistency across systems</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h3>Want the full breakdown on video?</h3>
+      <p>Value creation, business case metrics, and the CFO conversation — covered in depth on the GBS Insider Club YouTube channel.</p>
+      <a href="https://youtube.com/@gbsinsiderclub" class="cta-btn" target="_blank">▶ &nbsp; Subscribe on YouTube</a>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
