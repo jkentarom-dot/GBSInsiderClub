@@ -416,6 +416,52 @@
   .pillar-name { font-size: 16px; font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 8px; letter-spacing: -0.1px; }
   .pillar-topics { font-size: 12px; color: var(--text-3); line-height: 1.5; }
 
+  /* AI Guide featured tile */
+  .pillar-tile-guide {
+    grid-column: 1 / -1;
+    background: var(--surface-2);
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+    cursor: pointer;
+    background-image: radial-gradient(ellipse 600px 200px at 80% 50%, var(--teal-glow), transparent);
+  }
+  .pillar-tile-guide:hover { border-color: var(--teal-soft); background-color: var(--surface-3); }
+  .pillar-tile-guide .guide-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    border-radius: 4px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .pillar-tile-guide .guide-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    opacity: 0.9;
+  }
+  .pillar-tile-guide .guide-body { flex: 1; }
+  .pillar-tile-guide .guide-title {
+    font-size: 17px; font-weight: 600; color: #fff;
+    margin-bottom: 4px; letter-spacing: -0.2px;
+  }
+  .pillar-tile-guide .guide-desc {
+    font-size: 13px; color: var(--text-3); line-height: 1.5;
+  }
+  .pillar-tile-guide .guide-cta {
+    font-size: 13px; font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .pillar-tile-guide:hover .guide-cta { color: var(--gold-soft); }
+
   /* hooks preview */
   .hooks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .hook-card {
@@ -855,6 +901,14 @@
       <div class="pillar-name">GBS Transitions</div>
       <div class="pillar-topics">9 topics · Migration, stabilization, setup</div>
     </div>
+    <a href="guide.html" class="pillar-tile-guide">
+      <span class="guide-badge">AI Field Guide</span>
+      <div class="guide-body">
+        <div class="guide-title">AI Literacy for GBS Professionals — 37 Chapters</div>
+        <div class="guide-desc">From prompt engineering to agentic workflows. Everything you need to work with AI in a GBS environment — not as a technologist, but as a practitioner.</div>
+      </div>
+      <span class="guide-cta">Access the Guide →</span>
+    </a>
   </div>
 
   <div class="section-eyebrow" style="margin-bottom:20px;">Questions we answer — every week</div>
