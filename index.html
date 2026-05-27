@@ -3,880 +3,985 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GBS Insider Club — Career intelligence for GBS and Shared Services professionals.">
-<title>GBS Insider Club</title>
+<title>GBS Insider Club — The GBS Career and Performance Coach</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --gold: #b89438; --gold-light: #d4a843; --gold-pale: #e8c96a;
-    --navy: #05080f; --navy2: #0a0e18; --navy3: #0f1520;
-    --border: rgba(184,148,56,0.15); --border2: rgba(184,148,56,0.08);
-    --text: #c8d0dc; --text2: #8a94a8; --text3: #3d4a5c;
-    --green: #00d68f;
+    --void: #080b10;
+    --surface: #0e1219;
+    --surface-2: #141922;
+    --surface-3: #1b2130;
+    --border: #1e2535;
+    --border-2: #252e40;
+    --teal: #1d6aff;
+    --teal-deep: #0050e6;
+    --teal-soft: #5090ff;
+    --teal-glow: rgba(29,106,255,0.14);
+    --gold: #e8b800;
+    --gold-soft: #f0cc30;
+    --gold-bg: rgba(232,184,0,0.12);
+    --text: #ffffff;
+    --text-2: #c8d0de;
+    --text-3: #7a8799;
+    --ruby: #ff2d4e;
+    --amber: #f59e0b;
+    --sky: #38bdf8;
   }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: var(--navy); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; overflow-x: hidden; }
 
-  /* ── TOPBAR ── */
-  .topbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 56px; height: 64px;
-    background: rgba(5,8,15,0.92); backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border2);
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-feature-settings: "ss01";
+    background: var(--void);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+    overflow-x: hidden;
   }
-  .topbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .brand-mark {
-    width: 30px; height: 30px; border: 1px solid rgba(184,148,56,0.4); border-radius: 5px;
-    background: rgba(184,148,56,0.08); display: flex; align-items: center; justify-content: center;
-  }
-  .brand-name { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; }
-  .brand-name span:first-child { color: var(--gold); }
-  .brand-name span:last-child { color: var(--text2); font-weight: 300; }
-  .topbar-nav { display: flex; align-items: center; gap: 32px; }
-  .topbar-nav a { color: var(--text2); text-decoration: none; font-size: 13px; letter-spacing: 0.04em; transition: color 0.2s; }
-  .topbar-nav a:hover { color: var(--gold-light); }
-  .btn-guide {
-    padding: 8px 20px; border: 1px solid var(--border); border-radius: 4px;
-    color: var(--gold-light) !important; font-size: 12px !important;
-    letter-spacing: 0.1em !important; text-transform: uppercase;
-    transition: background 0.2s, border-color 0.2s !important;
-  }
-  .btn-guide:hover { background: rgba(184,148,56,0.08) !important; border-color: rgba(184,148,56,0.4) !important; }
 
-  /* ── HERO ── */
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: 64px;
+    background: rgba(8,11,16,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+    padding: 0 40px; gap: 0;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; flex-shrink: 0; margin-right: auto;
+  }
+  .nav-logo svg { width: 34px; height: 34px; }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .nav-logo-text .n1 { font-size: 13px; font-weight: 600; color: #fff; letter-spacing: 0.02em; }
+  .nav-logo-text .n2 { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.14em; }
+  .nav-links { display: flex; align-items: center; gap: 4px; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400; color: var(--text-3);
+    text-decoration: none; padding: 8px 14px; border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--text-2); background: var(--surface-2); }
+  .nav-cta {
+    margin-left: 16px;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--teal); color: var(--void) !important;
+    font-size: 13px !important; font-weight: 500 !important;
+    padding: 9px 20px !important; border-radius: 8px !important;
+    transition: background 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--teal-deep) !important; }
+
+  /* ─── HERO ─── */
   .hero {
-    position: relative; min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    align-items: stretch; overflow: hidden;
-  }
-
-  /* Left: copy panel */
-  .hero-copy {
-    position: relative; z-index: 2;
+    min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 64px 80px 56px;
-    background: linear-gradient(105deg, var(--navy) 60%, transparent 100%);
-  }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    margin-bottom: 32px;
-    opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards;
-  }
-  .eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
-  .eyebrow-text { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.22em; text-transform: uppercase; }
-
-  .hero-h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(56px, 6vw, 96px);
-    font-weight: 300; line-height: 0.95; color: #fff;
-    margin-bottom: 0;
-    opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
-  }
-  .hero-h1 em { font-style: italic; color: var(--gold-light); }
-  .hero-h1 .ghost { -webkit-text-stroke: 1px rgba(255,255,255,0.2); color: transparent; }
-
-  .hero-sub {
-    font-size: 17px; color: var(--text2); line-height: 1.8;
-    margin-top: 28px; margin-bottom: 40px; max-width: 480px;
-    opacity: 0; animation: fadeUp 0.8s ease 0.35s forwards;
-  }
-  .hero-sub strong { color: var(--text); font-weight: 500; }
-
-  .hero-btns {
-    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
-  }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 15px 32px; background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    color: var(--navy); font-weight: 700; font-size: 13px; letter-spacing: 0.08em;
-    text-transform: uppercase; text-decoration: none; border-radius: 4px;
-    border: none; cursor: pointer; font-family: inherit;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 15px 28px; background: transparent; color: var(--text2);
-    font-size: 13px; letter-spacing: 0.04em; text-decoration: none;
-    border: 1px solid var(--border); border-radius: 4px;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-outline:hover { border-color: rgba(184,148,56,0.4); color: var(--text); }
-
-  /* Stats row */
-  .hero-stats {
-    display: flex; gap: 40px; flex-wrap: wrap;
-    margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border2);
-    opacity: 0; animation: fadeUp 0.8s ease 0.65s forwards;
-  }
-  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 600; color: var(--gold-light); line-height: 1; }
-  .stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 4px; }
-
-  /* Right: photo */
-  .hero-photo {
+    padding: 120px 80px 80px;
     position: relative; overflow: hidden;
-    opacity: 0; animation: fadeIn 1.2s ease 0.4s forwards;
   }
-  .hero-photo img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center;
-    display: block;
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse 800px 600px at 60% 40%, rgba(0,191,165,0.04) 0%, transparent 70%),
+                radial-gradient(ellipse 400px 400px at 20% 80%, rgba(201,162,39,0.03) 0%, transparent 60%);
+    pointer-events: none;
   }
-  /* Dark gradient overlay on left edge so copy panel blends */
-  .hero-photo::before {
-    content: ''; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to right, var(--navy) 0%, transparent 30%);
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--teal); text-transform: uppercase; letter-spacing: 0.16em;
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
   }
-  /* Gold accent line */
-  .hero-photo::after {
-    content: ''; position: absolute; top: 15%; bottom: 15%; left: 0; width: 2px; z-index: 2;
-    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--teal); }
+  .hero h1 {
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 600;
+    letter-spacing: -2.5px;
+    line-height: 0.97;
+    color: #ffffff;
+    margin-bottom: 0;
+    max-width: 800px;
   }
-
-  /* ── SECTION BASE ── */
-  .section { padding: 100px 56px; border-top: 1px solid var(--border2); }
-  .section-inner { max-width: 1380px; margin: 0 auto; }
-  .section-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .section-split.reverse { direction: rtl; }
-  .section-split.reverse > * { direction: ltr; }
-
-  .tag {
+  .hero h1 .line-gold { color: var(--gold); display: block; font-style: normal; }
+  .hero h1 .line-muted { color: var(--text-3); display: block; }
+  .hero-sub {
+    font-size: 18px; font-weight: 300;
+    color: var(--text-2); line-height: 1.65;
+    max-width: 520px; margin-top: 36px; margin-bottom: 44px;
+  }
+  .hero-sub strong { color: #fff; font-weight: 500; }
+  .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
     display: inline-flex; align-items: center; gap: 10px;
-    margin-bottom: 20px;
+    background: var(--teal); color: var(--void);
+    font-size: 15px; font-weight: 500;
+    padding: 14px 32px; border-radius: 8px;
+    text-decoration: none; transition: background 0.15s;
+    border: none; cursor: pointer;
   }
-  .tag-line { width: 20px; height: 1px; background: var(--gold); }
-  .tag-text { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; }
+  .btn-primary:hover { background: var(--teal-deep); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--text-2);
+    font-size: 15px; font-weight: 400;
+    padding: 14px 24px; border-radius: 8px;
+    text-decoration: none; border: 1px solid var(--border-2);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+  .hero-scroll-hint {
+    position: absolute; bottom: 40px; left: 80px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--text-3);
+    text-transform: uppercase; letter-spacing: 0.12em;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-scroll-hint::after { content: ''; width: 24px; height: 1px; background: var(--text-3); }
 
+  /* ─── SECTION GLOBALS ─── */
+  section { padding: 96px 80px; }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--teal); text-transform: uppercase; letter-spacing: 0.14em;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
   .section-h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(38px, 4vw, 58px); font-weight: 300; color: #fff; line-height: 1.05;
-    margin-bottom: 20px;
-  }
-  .section-h2 em { font-style: italic; color: var(--gold-light); }
-
-  .section-body { font-size: 15px; color: var(--text2); line-height: 1.9; }
-  .section-body p + p { margin-top: 14px; }
-
-  /* Photo frame */
-  .photo-frame {
-    position: relative; border-radius: 8px; overflow: hidden;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.6);
-  }
-  .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .photo-frame::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(5,8,15,0.4) 0%, transparent 50%);
-  }
-  /* Gold corner accent */
-  .photo-frame::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 48px; height: 48px; z-index: 2;
-    border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
-    border-radius: 8px 0 0 0;
-  }
-
-  /* ── LARGE SVG SECTIONS ── */
-
-  /* Career path SVG section */
-  .svg-section {
-    padding: 80px 56px; border-top: 1px solid var(--border2);
-    background: var(--navy2);
-  }
-  .svg-section-inner { max-width: 1380px; margin: 0 auto; }
-
-  /* ── PILLARS ── */
-  .pillars-section { padding: 100px 56px; border-top: 1px solid var(--border2); }
-  .pillars-inner { max-width: 1380px; margin: 0 auto; }
-  .pillars-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 56px; }
-
-  .pillars-grid {
-    display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: 1px; background: var(--border2);
-    border: 1px solid var(--border2); border-radius: 10px; overflow: hidden;
-  }
-  .pillar {
-    background: var(--navy2); padding: 24px 20px;
-    display: flex; flex-direction: column; transition: background 0.2s;
-  }
-  .pillar:hover { background: var(--navy3); }
-  .pillar-num {
-    font-family: 'Cormorant Garamond', serif; font-size: 48px;
-    font-weight: 300; color: rgba(184,148,56,0.2); line-height: 1;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 600; letter-spacing: -1.8px;
+    line-height: 1.02; color: #fff;
     margin-bottom: 16px;
   }
-  .pillar-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 12px; line-height: 1.2; }
-  .pillar-desc { font-size: 13.5px; color: var(--text2); line-height: 1.75; flex: 1; }
-  .pillar-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; }
-  .badge-live { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; background: rgba(0,214,143,0.1); color: var(--green); border: 1px solid rgba(0,214,143,0.25); }
-  .badge-soon { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; background: rgba(184,148,56,0.08); color: var(--gold); border: 1px solid var(--border); }
-  .pillar-link { font-size: 12px; color: var(--gold); text-decoration: none; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.05em; transition: color 0.15s; }
-  .pillar-link:hover { color: var(--gold-light); }
-
-  /* ── HOST SECTION ── */
-  .host-section { padding: 100px 56px; border-top: 1px solid var(--border2); background: var(--navy2); }
-  .host-inner { max-width: 1380px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-
-
-  /* ── FOOTER ── */
-  .footer { padding: 40px 56px; border-top: 1px solid var(--border2); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-  .footer-brand { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text3); letter-spacing: 0.1em; }
-  .footer-brand span { color: var(--gold); }
-  .footer-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-photo { height: 60vw; }
-    .hero-photo::before { background: linear-gradient(to bottom, transparent 50%, var(--navy) 100%); }
-    .section-split, .pillars-header, .host-inner { grid-template-columns: 1fr; gap: 48px; }
-    .section-split.reverse { direction: ltr; }
-    .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-h2 .accent { color: var(--gold); }
+  .section-lead {
+    font-size: 17px; color: var(--text-2);
+    max-width: 580px; line-height: 1.7; margin-bottom: 56px;
   }
-  @media (max-width: 768px) {
-    .topbar { padding: 0 24px; }
-    .topbar-nav { display: none; }
-    .hero-copy, .section, .svg-section, .pillars-section, .host-section, .capture, .footer { padding-left: 24px; padding-right: 24px; }
-    .pillars-grid { grid-template-columns: 1fr; }
-    .capture-btn { border-radius: 0 0 4px 4px; }
+
+  /* ─── SECTION 2: WHY ─── */
+  .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 24px;
+  }
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 28px 32px;
+    position: relative; overflow: hidden;
+  }
+  .why-card::before {
+    content: attr(data-num);
+    position: absolute; top: 20px; right: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 48px; font-weight: 600;
+    color: var(--border-2); line-height: 1;
+    user-select: none;
+  }
+  .why-card h3 { font-size: 17px; font-weight: 500; color: #fff; margin-bottom: 10px; }
+  .why-card p { font-size: 14px; color: var(--text-2); line-height: 1.7; }
+  .why-card.featured { border-color: var(--teal); background: var(--surface-3); }
+  .why-card.featured::before { color: var(--teal-glow); }
+  .why-card.full { grid-column: 1 / -1; display: flex; align-items: center; gap: 32px; }
+  .why-card.full .why-quote {
+    font-size: 20px; font-weight: 300; font-style: italic;
+    color: var(--gold); line-height: 1.5; flex: 1;
+    border-left: 3px solid var(--gold); padding-left: 24px;
+  }
+  .why-card.full .why-quote-source {
+    font-size: 13px; color: var(--text-3); font-style: normal;
+    margin-top: 10px; display: block;
+  }
+
+  /* ─── SECTION 3: WHO IT'S FOR ─── */
+  .who-section { background: var(--surface); }
+  .audience-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-bottom: 40px;
+  }
+  .audience-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .audience-card:hover { transform: translateY(-3px); border-color: var(--border-2); }
+  .audience-card-header {
+    padding: 20px 24px; border-bottom: 1px solid var(--border);
+    font-size: 15px; font-weight: 500; color: #fff;
+  }
+  .audience-card-header.primary { border-top: 3px solid var(--teal); background: var(--teal-glow); }
+  .audience-card-header.secondary { border-top: 3px solid var(--gold); background: var(--gold-bg); }
+  .audience-card-header.leader { border-top: 3px solid var(--sky); background: rgba(56,189,248,0.08); }
+  .audience-card-body { padding: 20px 24px; }
+  .audience-card-body ul { list-style: none; padding: 0; }
+  .audience-card-body ul li {
+    font-size: 14px; color: var(--text-2);
+    padding: 6px 0 6px 18px; position: relative;
+    border-bottom: 1px solid var(--border); line-height: 1.55;
+  }
+  .audience-card-body ul li:last-child { border-bottom: none; }
+  .audience-card-body ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-size: 11px; top: 8px; }
+  .audience-card-body.secondary ul li::before { color: var(--gold); }
+  .audience-card-body.leader ul li::before { color: var(--sky); }
+
+  /* recognition bar */
+  .recognition-bar {
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 36px 40px;
+  }
+  .recognition-top {
+    display: flex; align-items: center; gap: 24px; margin-bottom: 32px;
+  }
+  .recognition-avatar {
+    width: 80px; height: 80px; flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--surface-2);
+    border: 1px solid var(--border-2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px; line-height: 1;
+  }
+  .recognition-header-text h3 {
+    font-size: 26px; font-weight: 600; letter-spacing: -0.4px;
+    color: #fff; margin-bottom: 6px;
+  }
+  .recognition-header-text p {
+    font-size: 15px; color: var(--text-3); line-height: 1.5;
+  }
+  .recognition-quotes {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin-bottom: 28px;
+  }
+  .rec-quote {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px;
+    font-size: 16px; font-style: italic;
+    color: var(--text-2); line-height: 1.6;
+    transition: border-color 0.15s, transform 0.15s;
+    position: relative;
+  }
+  .rec-quote::before {
+    content: '"';
+    position: absolute; top: 12px; left: 16px;
+    font-size: 28px; color: var(--teal); opacity: 0.4;
+    font-style: normal; line-height: 1;
+  }
+  .rec-quote:hover { border-color: var(--teal); transform: translateY(-2px); }
+  .recognition-conclusion {
+    font-size: 18px; font-weight: 600; color: #fff;
+    padding-top: 24px; border-top: 1px solid var(--border);
+    letter-spacing: -0.2px;
+  }
+
+  /* why cards — uniform border, featured just uses surface-3 */
+  .why-card { border: 1px solid var(--border); transition: transform 0.15s, border-color 0.15s; }
+  .why-card:hover { transform: translateY(-3px); border-color: var(--border-2); }
+  .why-card.featured { border-color: var(--border-2); background: var(--surface-3); }
+
+  /* ─── SECTION 4: CAREER MAP ─── */
+  .career-map-section {}
+  .career-map-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 48px;
+    margin-bottom: 16px; overflow-x: auto;
+  }
+  .career-map-disclaimer {
+    font-size: 13px; color: var(--text-3); font-style: italic;
+    margin-bottom: 40px; padding-left: 4px;
+  }
+
+  /* axes */
+  .map-axes-label {
+    display: flex; justify-content: space-between;
+    align-items: flex-end; margin-bottom: 8px;
+  }
+  .axis-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .map-grid {
+    display: grid;
+    grid-template-columns: 120px repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 8px; min-width: 700px;
+  }
+  .map-axis-y {
+    grid-column: 1; grid-row: 1 / 5;
+    display: flex; flex-direction: column; justify-content: space-around;
+    align-items: flex-end; padding-right: 16px;
+  }
+  .map-axis-y-label {
+    font-size: 11px; color: var(--text-3); text-align: right; line-height: 1.3;
+    writing-mode: horizontal-tb;
+  }
+
+  /* role nodes */
+  .role-node {
+    border-radius: 10px; padding: 14px 16px;
+    cursor: pointer; transition: transform 0.15s, border-color 0.15s;
+    text-decoration: none; display: block;
+  }
+  .role-node:hover { transform: translateY(-2px); }
+  .role-node .rn-level {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .role-node .rn-title { font-size: 13px; font-weight: 500; color: #fff; line-height: 1.3; margin-bottom: 4px; }
+  .role-node .rn-desc { font-size: 11px; color: var(--text-3); line-height: 1.4; }
+
+  /* node types */
+  .node-entry { background: var(--surface-2); border: 1px solid var(--border); }
+  .node-entry .rn-level { color: var(--teal-soft); }
+  .node-mid { background: var(--surface-3); border: 1px solid var(--teal); }
+  .node-mid .rn-level { color: var(--teal); }
+  .node-senior { background: linear-gradient(135deg, var(--gold-bg), transparent); border: 1px solid var(--gold); }
+  .node-senior .rn-level { color: var(--gold); }
+  .node-expert { background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.3); }
+  .node-expert .rn-level { color: var(--sky); }
+  .node-project { background: rgba(232,69,96,0.06); border: 1px solid rgba(232,69,96,0.25); }
+  .node-project .rn-level { color: var(--ruby); }
+  .node-empty { background: transparent; border: none; }
+
+  /* grid positions */
+  .pos-r1c1 { grid-column: 2; grid-row: 4; }
+  .pos-r1c2 { grid-column: 3; grid-row: 4; }
+  .pos-r2c1 { grid-column: 2; grid-row: 3; }
+  .pos-r2c2 { grid-column: 3; grid-row: 3; }
+  .pos-r2c3 { grid-column: 4; grid-row: 3; }
+  .pos-r3c1 { grid-column: 3; grid-row: 2; }
+  .pos-r3c2 { grid-column: 4; grid-row: 2; }
+  .pos-r4c1 { grid-column: 4; grid-row: 1; }
+  .pos-r4c2 { grid-column: 5; grid-row: 1; }
+  .pos-expert { grid-column: 5; grid-row: 2; }
+  .pos-pm { grid-column: 5; grid-row: 3; }
+  .axis-col { grid-column: 2 / 6; grid-row: 5; padding-top: 8px; }
+
+  .axis-x-row {
+    display: flex; justify-content: space-around;
+    padding: 8px 0 0;
+    border-top: 1px solid var(--border);
+  }
+  .axis-x-item { font-size: 11px; color: var(--text-3); text-align: center; flex: 1; }
+
+  /* map legend */
+  .map-legend {
+    display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-3); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+  /* ─── SECTION 5: WHAT'S INSIDE ─── */
+  .inside-section { background: var(--surface); }
+  .pillars-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 12px; margin-bottom: 48px;
+  }
+  .pillar-tile {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 18px;
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s, transform 0.15s;
+    cursor: pointer;
+  }
+  .pillar-tile:hover { border-color: var(--teal); background: var(--surface-3); transform: translateY(-2px); }
+  .pillar-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px; font-weight: 600;
+    color: var(--border-2); line-height: 1;
+    margin-bottom: 14px;
+  }
+  .pillar-tile:hover .pillar-num { color: rgba(29,106,255,0.3); }
+  .pillar-icon {
+    width: 36px; height: 36px; margin-bottom: 14px;
+    object-fit: contain; display: block;
+    opacity: 0.85;
+  }
+  .pillar-tile:hover .pillar-icon { opacity: 1; }
+  .pillar-name { font-size: 16px; font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 8px; letter-spacing: -0.1px; }
+  .pillar-topics { font-size: 12px; color: var(--text-3); line-height: 1.5; }
+
+  /* hooks preview */
+  .hooks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .hook-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .hook-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+  .hook-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 3px 8px; border-radius: 9999px; margin-bottom: 12px; display: inline-block;
+  }
+  .tag-question { background: var(--teal-glow); color: var(--teal); }
+  .tag-myth { background: rgba(232,69,96,0.1); color: var(--ruby); }
+  .tag-insight { background: var(--gold-bg); color: var(--gold); }
+  .hook-card h4 { font-size: 14px; font-weight: 500; color: #fff; line-height: 1.45; margin-bottom: 8px; }
+  .hook-card p { font-size: 13px; color: var(--text-3); line-height: 1.6; }
+
+  /* ─── SECTION 6: HOW IT WORKS ─── */
+  .how-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden; margin-bottom: 48px;
+  }
+  .step {
+    padding: 32px 28px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    position: relative;
+    transition: background 0.15s;
+  }
+  .step:hover { background: var(--surface-2); }
+  .step:last-child { border-right: none; }
+  .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600; color: var(--teal);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
+  }
+  .step h3 { font-size: 16px; font-weight: 500; color: #fff; margin-bottom: 10px; line-height: 1.3; }
+  .step p { font-size: 13px; color: var(--text-2); line-height: 1.65; }
+
+  /* promise bar */
+  .promise-bar {
+    background: linear-gradient(135deg, var(--gold-bg), transparent);
+    border: 1px solid var(--gold); border-radius: 12px;
+    padding: 32px 40px; margin-bottom: 48px;
+    display: flex; align-items: center; gap: 40px;
+  }
+  .promise-icon {
+    width: 48px; height: 48px; flex-shrink: 0;
+    background: var(--gold-bg); border: 1px solid var(--gold);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .promise-text h3 { font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 6px; }
+  .promise-text p { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+  .promise-text strong { color: var(--gold); font-weight: 500; }
+
+  /* ─── SECTION 7: JOIN ─── */
+  .join-section {
+    text-align: center;
+    background: var(--surface);
+    padding: 120px 80px;
+  }
+  .join-section .section-h2 { max-width: 620px; margin: 0 auto 16px; }
+  .join-section .section-lead { margin: 0 auto 48px; text-align: center; }
+  .join-tiers {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 16px; max-width: 680px; margin: 0 auto 16px;
+  }
+  .tier-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 32px 28px; text-align: left;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .tier-card:hover { transform: translateY(-3px); border-color: var(--border-2); }
+  .tier-card.featured { border-color: var(--teal); background: var(--surface-3); }
+  .tier-name { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .tier-card.featured .tier-name { color: var(--teal); }
+  .tier-price { font-size: 32px; font-weight: 600; letter-spacing: -0.5px; color: #fff; margin-bottom: 6px; }
+  .tier-price span { font-size: 14px; font-weight: 300; color: var(--text-3); }
+  .tier-desc { font-size: 13px; color: var(--text-2); margin-bottom: 20px; line-height: 1.6; }
+  .tier-ul { list-style: none; padding: 0; margin-bottom: 24px; }
+  .tier-ul li { font-size: 13px; color: var(--text-2); padding: 5px 0 5px 18px; position: relative; border-bottom: 1px solid var(--border); line-height: 1.5; }
+  .tier-ul li:last-child { border-bottom: none; }
+  .tier-ul li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-size: 11px; top: 7px; }
+  .tier-btn {
+    display: block; text-align: center; text-decoration: none;
+    padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tier-btn-free { background: var(--surface-3); color: var(--text-2); border: 1px solid var(--border-2); }
+  .tier-btn-free:hover { border-color: var(--teal); color: var(--teal); }
+  .tier-btn-paid { background: var(--teal); color: var(--void); }
+  .tier-btn-paid:hover { background: var(--teal-deep); }
+  .join-note { font-size: 13px; color: var(--text-3); margin-top: 16px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 40px 80px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-brand { font-size: 13px; color: var(--text-3); }
+  .footer-brand strong { color: var(--text-2); font-weight: 500; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 13px; color: var(--text-3); text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: var(--teal); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    section, .hero { padding: 64px 24px; }
+    .hero h1 { font-size: 44px; letter-spacing: -1.5px; }
+    .why-grid, .audience-grid, .hooks-grid { grid-template-columns: 1fr; }
+    .why-card.full { flex-direction: column; gap: 16px; }
+    .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+    .how-steps { grid-template-columns: 1fr 1fr; }
+    .step { border-bottom: 1px solid var(--border); }
+    .join-tiers { grid-template-columns: 1fr; }
+    .promise-bar { flex-direction: column; gap: 16px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    footer { padding: 32px 24px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ── TOPBAR ── -->
-<nav class="topbar">
-  <a href="#" class="topbar-brand">
-    <div class="brand-mark">
-      <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
-        <path d="M8 22 L16 8 L20 14 L26 8" stroke="#b89438" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M22 8 L26 8 L26 12" stroke="#b89438" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="34" height="34" rx="6" fill="#0e1219"/>
+      <path d="M7 6 L3.5 6 L3.5 28 L7 28" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M27 6 L30.5 6 L30.5 28 L27 28" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <polygon points="8,9 26,17 8,25 13,17" fill="#e8b800"/>
+      <polygon points="13,15 22,17 13,21 16,17" fill="white"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="n1">GBS Insider Club</span>
+      <span class="n2">Career Coach</span>
     </div>
-    <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
   </a>
-  <div class="topbar-nav">
-    <a href="#pillars">What's Inside</a>
-    <a href="#for-you">Who It's For</a>
-    <a href="#host">About</a>
-    <a href="guide.html">Join</a>
-    <a href="guide.html" class="btn-guide">AI Field Guide →</a>
+  <div class="nav-links">
+    <a href="#why">Why This Exists</a>
+    <a href="#who">Who It's For</a>
+    <a href="#inside">What's Inside</a>
+    <a href="#how">How It Works</a>
+    <a href="#join" class="nav-cta">Join Today →</a>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!-- HERO                                              -->
-<!-- ══════════════════════════════════════════════════ -->
-<section class="hero">
-  <!-- Copy -->
-  <div class="hero-copy">
-    <div class="eyebrow">
-      <div class="eyebrow-line"></div>
-      <div class="eyebrow-text">GBS &amp; Shared Services</div>
-    </div>
-
-    <h1 class="hero-h1">
-      Know<br>
-      the game.<br>
-      <em>Play it well.</em><br>
-      <span class="ghost">Move up.</span>
-    </h1>
-
-    <p class="hero-sub">
-      GBS centres offer <strong>fast careers, real exposure, and genuine breadth.</strong> But nobody hands you a map when you arrive. This is where that changes.
-    </p>
-
-    <div class="hero-btns">
-      <a href="guide.html" class="btn-primary">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Get Early Access
-      </a>
-      <a href="guide.html" class="btn-outline">AI Field Guide →</a>
-    </div>
-
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">36</div>
-        <div class="stat-label">Chapters live now</div>
-      </div>
-      <div>
-        <div class="stat-num">8</div>
-        <div class="stat-label">Content pillars</div>
-      </div>
-      <div>
-        <div class="stat-num">1</div>
-        <div class="stat-label">Practitioner voice</div>
-      </div>
-    </div>
+<!-- ─── HERO ─── -->
+<section class="hero" id="hero">
+  <div class="hero-eyebrow">The GBS Career and Performance Coach</div>
+  <h1>
+    Know the GBS game.
+    <span class="line-gold">Play it well.</span>
+    <span class="line-muted">Move up.</span>
+  </h1>
+  <p class="hero-sub">
+    GBS centers offer <strong>fast careers, real exposure, and genuine breadth.</strong>
+    But nobody hands you a map when you arrive.
+    <br><br>
+    This is where that changes.
+  </p>
+  <div class="hero-actions">
+    <a href="#join" class="btn-primary">Join Free — No Credit Card</a>
+    <a href="#why" class="btn-ghost">See what's inside →</a>
   </div>
+  <div class="hero-scroll-hint">Scroll to explore</div>
+</section>
 
-  <!-- Photo -->
-  <div class="hero-photo">
-    <img src="hero-office.png" alt="Modern GBS office environment">
+<!-- ─── SECTION 2: WHY ─── -->
+<section id="why">
+  <div class="section-eyebrow">Why This Exists</div>
+  <h2 class="section-h2">Nobody handed you a <span class="accent">career map.</span></h2>
+  <p class="section-lead">Most GBS professionals are talented, motivated, and stuck. Not because they lack ability — because nobody told them how the game works.</p>
+
+  <div class="why-grid">
+    <div class="why-card featured" data-num="01">
+      <h3>You don't know the unwritten rules</h3>
+      <p>How corporations actually make decisions. What gets you promoted versus what keeps you busy. The difference between performing well and being seen to perform well. Nobody teaches this — and it determines everything.</p>
+    </div>
+    <div class="why-card" data-num="02">
+      <h3>You want to earn more but don't know how to ask</h3>
+      <p>Salary progression in GBS is faster when you understand what drives it — skills, visibility, timing, and positioning. Most people wait. The ones who move up act deliberately.</p>
+    </div>
+    <div class="why-card" data-num="03">
+      <h3>Your organization doesn't train you well enough</h3>
+      <p>Most GBS teams are under-invested in capability development. The training exists. The time and structure rarely do. GBS Insider Club fills that gap — organized, actionable, and built for how you actually learn.</p>
+    </div>
+    <div class="why-card" data-num="04">
+      <h3>Your progress depends too much on who you work for</h3>
+      <p>Great managers sponsor talent. Average managers manage it. Most professionals don't get to choose — and career outcomes reflect it. We teach you how to compensate for that gap, regardless of who your manager is.</p>
+    </div>
+    <div class="why-card full" data-num="">
+      <div class="why-quote">
+        "I was lucky. I had good leaders who saw my potential and supported me. That should not be a matter of luck. GBS Insider Club exists to give every professional that same advantage — regardless of who they work for."
+        <span class="why-quote-source">— Julian, Host · GBS Insider Club</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!-- CAREER PATH SVG                                   -->
-<!-- ══════════════════════════════════════════════════ -->
-<div class="svg-section">
-  <div class="svg-section-inner">
+<!-- ─── SECTION 3: WHO ─── -->
+<section id="who" class="who-section">
+  <div class="section-eyebrow">Who It's For</div>
+  <h2 class="section-h2">Built for <span class="accent">GBS professionals</span> at every stage.</h2>
+  <p class="section-lead">Whether you joined last month or lead a team of fifty — if you work in Global Business Services, Shared Services, or a Center of Excellence, this is for you.</p>
 
-    <div class="tag" style="margin-bottom:40px;">
-      <div class="tag-line"></div>
-      <div class="tag-text">The Career Journey</div>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="audience-card-header primary">Early Career — Associates and Senior Associates</div>
+      <div class="audience-card-body">
+        <ul>
+          <li>First job in GBS — understand what you joined and how it works</li>
+          <li>Struggling with expectations — what actually gets you promoted</li>
+          <li>Want to earn more but don't know where to start</li>
+          <li>Looking to move from current role or organization</li>
+          <li>English is not your first language — all content is clear and accessible</li>
+        </ul>
+      </div>
     </div>
-
-    <!-- Disclaimer note -->
-    <p style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text3); letter-spacing:0.08em; margin-bottom:32px;">
-      ∗ &nbsp;Hierarchy and titles vary by organisation. The sequence below reflects common GBS/SSC structures and is indicative, not universal.
-    </p>
-
-    <!-- ── MAIN SVG: Entry → Director (our focus) + matrix fork above ── -->
-    <svg viewBox="0 0 1260 480" width="100%" xmlns="http://www.w3.org/2000/svg" style="display:block; max-width:1260px; margin:0 auto; overflow:visible;">
-      <defs>
-        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-          <path d="M0,0 L0,6 L8,3 z" fill="rgba(184,148,56,0.45)"/>
-        </marker>
-        <marker id="arr-dim" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-          <path d="M0,0 L0,6 L8,3 z" fill="rgba(184,148,56,0.18)"/>
-        </marker>
-        <marker id="arr-dot" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-          <path d="M0,0 L0,6 L8,3 z" fill="rgba(138,148,168,0.3)"/>
-        </marker>
-      </defs>
-
-      <!-- ═══ SECTION LABELS ═══ -->
-      <!-- "Our focus" bracket -->
-      <rect x="30" y="8" width="720" height="28" rx="3" fill="rgba(184,148,56,0.06)" stroke="rgba(184,148,56,0.18)" stroke-width="1"/>
-      <text x="390" y="27" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.2">OUR FOCUS — GBS INSIDER CLUB COVERS THIS RANGE</text>
-
-      <!-- "Beyond Director" label -->
-      <rect x="768" y="8" width="462" height="28" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-      <text x="999" y="27" text-anchor="middle" fill="#c8d0dc" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.2">BEYOND DIRECTOR — MATRIX TERRITORY ∗</text>
-
-      <!-- ═══ HORIZONTAL SPINE (Entry → Director) ═══ -->
-      <line x1="80" y1="190" x2="740" y2="190" stroke="rgba(184,148,56,0.2)" stroke-width="1.5" stroke-dasharray="6 8"/>
-
-      <!-- ─── Stage 1: Entry ─── -->
-      <circle cx="80" cy="190" r="38" fill="rgba(184,148,56,0.07)" stroke="rgba(184,148,56,0.28)" stroke-width="1.5"/>
-      <text x="80" y="184" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="500" letter-spacing="0.5">ENTRY</text>
-      <text x="80" y="199" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="500" letter-spacing="0.5">LEVEL</text>
-      <text x="80" y="248" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">Just arrived.</text>
-      <text x="80" y="265" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">No map.</text>
-      <text x="80" y="300" text-anchor="middle" fill="#5a6a7e" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.5">ASSOCIATE</text>
-
-      <!-- arrow + tip -->
-      <path d="M120 190 L176 190" stroke="rgba(184,148,56,0.3)" stroke-width="1.5" marker-end="url(#arr)"/>
-      <text x="148" y="162" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans,sans-serif" font-size="10" font-style="italic">understand the model</text>
-
-      <!-- ─── Stage 2: Specialist ─── -->
-      <circle cx="228" cy="190" r="38" fill="rgba(184,148,56,0.07)" stroke="rgba(184,148,56,0.25)" stroke-width="1.5"/>
-      <text x="228" y="184" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="500">FINDING</text>
-      <text x="228" y="199" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="500">YOUR FEET</text>
-      <text x="228" y="248" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">Performing.</text>
-      <text x="228" y="265" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">Not moving up.</text>
-      <text x="228" y="300" text-anchor="middle" fill="#5a6a7e" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.5">SPECIALIST</text>
-
-      <path d="M268 190 L324 190" stroke="rgba(184,148,56,0.3)" stroke-width="1.5" marker-end="url(#arr)"/>
-      <text x="296" y="162" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans,sans-serif" font-size="10" font-style="italic">learn the levers</text>
-
-      <!-- ─── Stage 3: Team Lead ─── -->
-      <circle cx="376" cy="190" r="38" fill="rgba(184,148,56,0.09)" stroke="rgba(184,148,56,0.28)" stroke-width="1.5"/>
-      <text x="376" y="184" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="500">FIRST</text>
-      <text x="376" y="199" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="500">LEADERSHIP</text>
-      <text x="376" y="248" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">Leading people.</text>
-      <text x="376" y="265" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">Managing up.</text>
-      <text x="376" y="300" text-anchor="middle" fill="#5a6a7e" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.5">TEAM LEAD</text>
-
-      <path d="M416 190 L466 190" stroke="rgba(184,148,56,0.3)" stroke-width="1.5" marker-end="url(#arr)"/>
-      <text x="441" y="162" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans,sans-serif" font-size="10" font-style="italic">speak the language</text>
-
-      <!-- ─── Stage 4: Manager — HIGHLIGHTED ─── -->
-      <circle cx="524" cy="190" r="46" fill="rgba(184,148,56,0.13)" stroke="rgba(184,148,56,0.5)" stroke-width="2"/>
-      <circle cx="524" cy="190" r="54" fill="none" stroke="rgba(184,148,56,0.1)" stroke-width="1" stroke-dasharray="4 6"/>
-      <text x="524" y="183" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500" letter-spacing="0.5">MANAGER</text>
-      <text x="524" y="200" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500" letter-spacing="0.5">LEVEL</text>
-      <text x="524" y="256" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">Delivery pressure.</text>
-      <text x="524" y="273" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">Customer expectations.</text>
-      <text x="524" y="300" text-anchor="middle" fill="#5a6a7e" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.5">MANAGER · SR MANAGER</text>
-
-      <path d="M572 190 L622 190" stroke="rgba(184,148,56,0.3)" stroke-width="1.5" marker-end="url(#arr)"/>
-      <text x="597" y="162" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans,sans-serif" font-size="10" font-style="italic">build systems</text>
-
-      <!-- ─── Stage 5: Director — OUR TOP ─── -->
-      <circle cx="676" cy="190" r="46" fill="rgba(184,148,56,0.11)" stroke="rgba(184,148,56,0.45)" stroke-width="2"/>
-      <text x="676" y="183" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500" letter-spacing="0.5">DIRECTOR</text>
-      <text x="676" y="200" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500" letter-spacing="0.5">LEVEL</text>
-      <text x="676" y="256" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">Strategy meets</text>
-      <text x="676" y="273" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Sans,sans-serif" font-size="13">execution.</text>
-      <text x="676" y="300" text-anchor="middle" fill="#5a6a7e" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.5">DIRECTOR · HEAD OF</text>
-      <text x="720" y="155" fill="#b89438" font-family="IBM Plex Sans,sans-serif" font-size="18">★</text>
-
-      <!-- ═══ FORK: Above Director — matrix territory ═══ -->
-
-      <line x1="722" y1="190" x2="810" y2="190" stroke="rgba(184,148,56,0.15)" stroke-width="1.5" stroke-dasharray="5 7" marker-end="url(#arr-dim)"/>
-      <text x="766" y="162" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans,sans-serif" font-size="10" font-style="italic">it gets complex here</text>
-
-      <!-- Branch node -->
-      <circle cx="840" cy="190" r="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-      <text x="840" y="194" text-anchor="middle" fill="#6a7a8e" font-family="IBM Plex Mono,monospace" font-size="14" font-weight="500">⋯</text>
-
-      <!-- Fork up: VP / SVP -->
-      <path d="M854 183 Q900 150 940 130" stroke="rgba(184,148,56,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="5 6" marker-end="url(#arr-dim)"/>
-      <rect x="940" y="98" width="148" height="68" rx="5" fill="rgba(184,148,56,0.07)" stroke="rgba(184,148,56,0.22)" stroke-width="1"/>
-      <text x="1014" y="122" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.8">VP / SVP</text>
-      <text x="1014" y="140" text-anchor="middle" fill="#c8d0dc" font-family="IBM Plex Sans,sans-serif" font-size="11">Line management.</text>
-      <text x="1014" y="156" text-anchor="middle" fill="#c8d0dc" font-family="IBM Plex Sans,sans-serif" font-size="11">P&amp;L responsibility.</text>
-
-      <!-- Fork middle: GBS / Site Lead -->
-      <path d="M854 190 L940 190" stroke="rgba(184,148,56,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="5 6" marker-end="url(#arr-dim)"/>
-      <rect x="940" y="162" width="148" height="56" rx="5" fill="rgba(184,148,56,0.07)" stroke="rgba(184,148,56,0.22)" stroke-width="1"/>
-      <text x="1014" y="183" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.8">GBS / SITE LEAD</text>
-      <text x="1014" y="201" text-anchor="middle" fill="#c8d0dc" font-family="IBM Plex Sans,sans-serif" font-size="11">Solid line: centre.</text>
-
-      <!-- Fork down: Process / Capability owners (dotted = matrix) -->
-      <path d="M854 197 Q900 230 940 250" stroke="rgba(138,148,168,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="3 6" marker-end="url(#arr-dot)"/>
-      <rect x="940" y="228" width="148" height="64" rx="5" fill="rgba(255,255,255,0.03)" stroke="rgba(138,148,168,0.2)" stroke-width="1"/>
-      <text x="1014" y="249" text-anchor="middle" fill="#c8d0dc" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.8">PROCESS OWNER</text>
-      <text x="1014" y="266" text-anchor="middle" fill="#c8d0dc" font-family="IBM Plex Sans,sans-serif" font-size="11">Capability / global</text>
-      <text x="1014" y="282" text-anchor="middle" fill="#c8d0dc" font-family="IBM Plex Sans,sans-serif" font-size="11">process. Dotted line.</text>
-
-      <!-- Legend -->
-      <line x1="1105" y1="316" x2="1135" y2="316" stroke="rgba(138,148,168,0.4)" stroke-width="1.5" stroke-dasharray="3 5"/>
-      <text x="1145" y="320" fill="#c8d0dc" font-family="IBM Plex Sans,sans-serif" font-size="10" font-style="italic">= matrix / dotted line</text>
-      <line x1="1105" y1="334" x2="1135" y2="334" stroke="rgba(184,148,56,0.35)" stroke-width="1.5" stroke-dasharray="5 6"/>
-      <text x="1145" y="338" fill="#c8d0dc" font-family="IBM Plex Sans,sans-serif" font-size="10" font-style="italic">= solid line reporting</text>
-
-      <!-- Disclaimer -->
-      <text x="840" y="380" text-anchor="middle" fill="#5a6a7e" font-family="IBM Plex Sans,sans-serif" font-size="11" font-style="italic">∗ VP above or below Director varies by organisation</text>
-
-      <!-- Bottom label -->
-      <text x="390" y="460" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.2">GBS INSIDER CLUB — CONTENT COVERS ENTRY LEVEL THROUGH DIRECTOR</text>
-
-    </svg>
-
+    <div class="audience-card">
+      <div class="audience-card-header secondary">Mid Career — Team Leads and Managers</div>
+      <div class="audience-card-body secondary">
+        <ul>
+          <li>Ready to move from doing to leading — need the frameworks</li>
+          <li>Building credibility with senior stakeholders for the first time</li>
+          <li>Want to understand the commercial logic behind the work you deliver</li>
+          <li>Looking for structured development your organization doesn't provide</li>
+          <li>Preparing for Director or Senior Manager roles</li>
+        </ul>
+      </div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-card-header leader">Leaders — Directors and Above</div>
+      <div class="audience-card-body leader">
+        <ul>
+          <li>Looking for structured content to develop your team</li>
+          <li>Want an external reference to benchmark against best practice</li>
+          <li>Building a GBS or transitioning one — need orientation material</li>
+          <li>Seeking advisory perspective on GBS operating model decisions</li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!-- WHAT'S INSIDE + PHOTO                             -->
-<!-- ══════════════════════════════════════════════════ -->
-<section class="section" id="pillars">
-  <div class="section-inner">
-
-    <!-- Header row -->
-    <div class="section-split" style="margin-bottom:64px;">
-      <div>
-        <div class="tag"><div class="tag-line"></div><div class="tag-text">What's Inside</div></div>
-        <h2 class="section-h2">10 pillars.<br><em>145 topics.</em><br>One map.</h2>
-        <div class="section-body">
-          <p>Corporations run GBS centres for cost, quality, scale — and the data and innovation advantages that centralisation makes possible.</p>
-          <p>Employees get breadth, international exposure, and fast growth — if they understand how to navigate the environment.</p>
-          <p>The content here covers both sides: what the organisation needs from you, and how you use it to build something real for yourself.</p>
-          <p style="margin-top:14px; color:var(--gold); font-size:14px;">AI sits at the centre — it touches every pillar.</p>
-        </div>
-      </div>
-      <div class="photo-frame" style="height:420px;">
-        <img src="section-inside.png" alt="Team reviewing performance data">
+  <div class="recognition-bar">
+    <div class="recognition-top">
+      <div class="recognition-avatar">🤔</div>
+      <div class="recognition-header-text">
+        <h3>Sounds familiar?</h3>
+        <p>You're not alone. These are the questions every GBS professional has — and almost nobody answers directly.</p>
       </div>
     </div>
-
-    <!-- Curriculum Wheel SVG -->
-    <div style="margin-bottom:72px; text-align:center;">
-      <svg viewBox="0 0 700 700" width="100%" style="max-width:680px; display:inline-block;" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="goldGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" style="stop-color:#d4a843;stop-opacity:1"/>
-            <stop offset="100%" style="stop-color:#b89438;stop-opacity:1"/>
-          </radialGradient>
-        </defs>
-
-        <!-- Outer decorative ring -->
-        <circle cx="350" cy="350" r="320" fill="none" stroke="rgba(184,148,56,0.08)" stroke-width="1"/>
-        <circle cx="350" cy="350" r="270" fill="none" stroke="rgba(184,148,56,0.05)" stroke-width="1" stroke-dasharray="4 8"/>
-
-        <!-- Spoke lines from centre to each pillar -->
-        <!-- top: GBS Fundamentals 90° -->
-        <line x1="350" y1="230" x2="350" y2="126" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-        <!-- top-right: Operational Excellence 54° -->
-        <line x1="394" y1="244" x2="509" y2="167" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-        <!-- right: Digital & Tech 18° -->
-        <line x1="419" y1="281" x2="589" y2="243" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-        <!-- right-low: Stakeholder 342° = -18° -->
-        <line x1="419" y1="319" x2="589" y2="357" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-        <!-- bottom-right: Career 306° = -54° -->
-        <line x1="394" y1="356" x2="509" y2="433" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-        <!-- bottom-right-2: Total Rewards 270° -->
-        <line x1="350" y1="370" x2="350" y2="474" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-        <!-- bottom-left: Leadership 234° -->
-        <line x1="306" y1="356" x2="191" y2="433" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-        <!-- left: Projects 198° -->
-        <line x1="281" y1="319" x2="111" y2="357" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-        <!-- left-top: Compliance 162° -->
-        <line x1="281" y1="281" x2="111" y2="243" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-        <!-- top-left: Transition 126° -->
-        <line x1="306" y1="244" x2="191" y2="167" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-
-        <!-- ── PILLAR NODES (r=220 from centre 350,350) ── -->
-        <!-- 1. GBS Fundamentals — top (90°) -->
-        <a href="pillar-1-gbs-fundamentals.html" style="cursor:pointer;">
-          <circle cx="350" cy="100" r="58" fill="rgba(184,148,56,0.12)" stroke="rgba(184,148,56,0.5)" stroke-width="1.5"/>
-          <text x="350" y="92" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.5">GBS</text>
-          <text x="350" y="104" text-anchor="middle" fill="#d4a843" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.5">FUNDAMENTALS</text>
-          <text x="350" y="118" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">15 topics</text>
-        </a>
-
-        <!-- 2. Operational Excellence — top-right (54°) -->
-        <a href="pillar-2-operational-excellence.html" style="cursor:pointer;">
-          <circle cx="528" cy="145" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-          <text x="528" y="135" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">OPERATIONAL</text>
-          <text x="528" y="148" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">EXCELLENCE</text>
-          <text x="528" y="161" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">28 topics</text>
-        </a>
-
-        <!-- 3. Digital & Technology — right (18°) -->
-        <a href="pillar-3-digital-technology.html" style="cursor:pointer;">
-          <circle cx="612" cy="300" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-          <text x="612" y="287" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">DIGITAL &amp;</text>
-          <text x="612" y="300" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">TECHNOLOGY</text>
-          <text x="612" y="313" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">SKILLS</text>
-          <text x="612" y="327" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">18 topics</text>
-        </a>
-
-        <!-- 4. Stakeholder & Communication — right-low (342°) -->
-        <a href="pillar-4-stakeholder-communication.html" style="cursor:pointer;">
-          <circle cx="612" cy="400" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-          <text x="612" y="390" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">STAKEHOLDER</text>
-          <text x="612" y="403" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">COMMUNICATION</text>
-          <text x="612" y="418" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">11 topics</text>
-        </a>
-
-        <!-- 5. Career & Performance — bottom-right (306°) -->
-        <a href="pillar-5-career-performance.html" style="cursor:pointer;">
-          <circle cx="528" cy="555" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-          <text x="528" y="545" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">CAREER &amp;</text>
-          <text x="528" y="558" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">PERFORMANCE</text>
-          <text x="528" y="571" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">13 topics</text>
-        </a>
-
-        <!-- 6. Total Rewards — bottom (270°) -->
-        <a href="pillar-6-total-rewards.html" style="cursor:pointer;">
-          <circle cx="350" cy="600" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-          <text x="350" y="590" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">TOTAL</text>
-          <text x="350" y="603" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">REWARDS</text>
-          <text x="350" y="617" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">8 topics</text>
-        </a>
-
-        <!-- 7. Leadership & People Mgmt — bottom-left (234°) -->
-        <a href="pillar-7-leadership-people.html" style="cursor:pointer;">
-          <circle cx="172" cy="555" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-          <text x="172" y="545" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">LEADERSHIP &amp;</text>
-          <text x="172" y="558" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">PEOPLE MGMT</text>
-          <text x="172" y="571" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">17 topics</text>
-        </a>
-
-        <!-- 8. Projects & Transformation — left (198°) -->
-        <a href="pillar-8-projects-transformation.html" style="cursor:pointer;">
-          <circle cx="88" cy="400" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-          <text x="88" y="387" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">PROJECTS &amp;</text>
-          <text x="88" y="400" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">TRANSFOR-</text>
-          <text x="88" y="413" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">MATION</text>
-          <text x="88" y="427" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">14 topics</text>
-        </a>
-
-        <!-- 9. Compliance & Risk — left-top (162°) -->
-        <a href="pillar-9-compliance-risk.html" style="cursor:pointer;">
-          <circle cx="88" cy="300" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-          <text x="88" y="290" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">COMPLIANCE</text>
-          <text x="88" y="303" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">&amp; RISK</text>
-          <text x="88" y="317" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">12 topics</text>
-        </a>
-
-        <!-- 10. GBS Transition — top-left (126°) -->
-        <a href="pillar-10-gbs-transition.html" style="cursor:pointer;">
-          <circle cx="172" cy="145" r="58" fill="rgba(184,148,56,0.08)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-          <text x="172" y="132" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">GBS</text>
-          <text x="172" y="145" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">TRANSITION</text>
-          <text x="172" y="158" text-anchor="middle" fill="#c8a840" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.3">(MIGRATION)</text>
-          <text x="172" y="172" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="8">9 topics</text>
-        </a>
-
-        <!-- ── AI FIELD GUIDE — centre ── -->
-        <a href="guide.html" style="cursor:pointer;">
-          <circle cx="350" cy="350" r="80" fill="rgba(184,148,56,0.15)" stroke="url(#goldGrad)" stroke-width="2"/>
-          <circle cx="350" cy="350" r="88" fill="none" stroke="rgba(184,148,56,0.12)" stroke-width="1" stroke-dasharray="4 6"/>
-          <text x="350" y="335" text-anchor="middle" fill="#ffffff" font-family="Cormorant Garamond,serif" font-size="15" font-weight="600" letter-spacing="0.5">AI FIELD</text>
-          <text x="350" y="353" text-anchor="middle" fill="#ffffff" font-family="Cormorant Garamond,serif" font-size="15" font-weight="600" letter-spacing="0.5">GUIDE</text>
-          <text x="350" y="370" text-anchor="middle" fill="#00d68f" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="1">● LIVE NOW</text>
-          <text x="350" y="384" text-anchor="middle" fill="#8a94a8" font-family="IBM Plex Mono,monospace" font-size="8">36 chapters</text>
-        </a>
-
-        <!-- hover prompt -->
-        <text x="350" y="660" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1">CLICK ANY PILLAR TO EXPLORE</text>
-      </svg>
+    <div class="recognition-quotes">
+      <div class="rec-quote">I work hard but I'm not getting promoted. What am I missing?</div>
+      <div class="rec-quote">I don't understand why decisions get made the way they do.</div>
+      <div class="rec-quote">My manager doesn't really develop me — and I don't know what to do about it.</div>
+      <div class="rec-quote">I want to move up but I don't know what the next level actually requires.</div>
+      <div class="rec-quote">I don't know how I can earn more money. Nobody ever told me how.</div>
+      <div class="rec-quote">I'm stuck where I am. Should I even stay in this job?</div>
+      <div class="rec-quote">What should I learn and focus on these days to stay relevant?</div>
+      <div class="rec-quote">Will AI replace me — and what do I do if it does?</div>
     </div>
-
-    <!-- 10-pillar grid -->
-    <div class="pillars-grid" style="grid-template-columns: repeat(5, 1fr);">
-
-      <div class="pillar">
-        <div class="pillar-num">01</div>
-        <div class="pillar-title">GBS Fundamentals</div>
-        <div class="pillar-desc">Models, governance, metrics, and strategy. The foundation everything else builds on.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-1-gbs-fundamentals.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">02</div>
-        <div class="pillar-title">Operational Excellence</div>
-        <div class="pillar-desc">Process management, CI, service quality, and operational controls — as practised, not as taught.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-2-operational-excellence.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">03</div>
-        <div class="pillar-title">Digital &amp; Technology Skills</div>
-        <div class="pillar-desc">Data, ERP, automation, AI — the tech stack every GBS professional needs to understand.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-3-digital-technology.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">04</div>
-        <div class="pillar-title">Stakeholder &amp; Communication</div>
-        <div class="pillar-desc">Communication, relationship management, influence, and negotiation in a matrix organisation.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-4-stakeholder-communication.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">05</div>
-        <div class="pillar-title">Career &amp; Performance</div>
-        <div class="pillar-desc">Performance loops, career strategy, and personal branding. How to move — and be seen moving.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-5-career-performance.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">06</div>
-        <div class="pillar-title">Total Rewards</div>
-        <div class="pillar-desc">Compensation, benefits, market intelligence, and global mobility. Know what you're worth — and why.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-6-total-rewards.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">07</div>
-        <div class="pillar-title">Leadership &amp; People Mgmt</div>
-        <div class="pillar-desc">From first-time manager to strategic leader. Team operations, performance management, and org design.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-7-leadership-people.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">08</div>
-        <div class="pillar-title">Projects &amp; Transformation</div>
-        <div class="pillar-desc">Project management, execution methodologies, change management, and stakeholder value delivery.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-8-projects-transformation.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">09</div>
-        <div class="pillar-title">Compliance &amp; Risk</div>
-        <div class="pillar-desc">Risk management, regulatory controls, GDPR, SOX, and emerging risks including AI governance.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-9-compliance-risk.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="pillar" style="border:1px solid rgba(184,148,56,0.3); background:rgba(184,148,56,0.06);">
-        <div class="pillar-num" style="color:rgba(0,214,143,0.5);">10</div>
-        <div class="pillar-title">GBS Transition (Migration)</div>
-        <div class="pillar-desc">Transition strategy, knowledge transfer, and stabilisation. Everything you need to migrate successfully.</div>
-        <div class="pillar-foot">
-          <span class="badge-soon">In Development</span>
-          <a href="pillar-10-gbs-transition.html" class="pillar-link">Explore →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- AI Field Guide callout -->
-    <div style="margin-top:24px; padding:24px 32px; background:rgba(0,214,143,0.06); border:1px solid rgba(0,214,143,0.2); border-radius:8px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
-      <div>
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:#00d68f; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:6px;">● Live Now</div>
-        <div style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:#fff; margin-bottom:4px;">AI Field Guide — 36 Chapters</div>
-        <div style="font-size:14px; color:var(--text2);">How AI works, what it means for GBS, and how to use it. The one pillar that connects everything else.</div>
-      </div>
-      <a href="guide.html" class="btn-primary" style="white-space:nowrap;">Access the Guide →</a>
-    </div>
-
+    <div class="recognition-conclusion">If you recognized yourself in any of these — you're in the right place.</div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!-- WHO IT'S FOR + PHOTO + SVG                       -->
-<!-- ══════════════════════════════════════════════════ -->
-<section class="section" id="for-you" style="background:var(--navy2);">
-  <div class="section-inner">
+<!-- ─── SECTION 4: CAREER MAP ─── -->
+<section id="career-map">
+  <div class="section-eyebrow">Typical Career Progression</div>
+  <h2 class="section-h2">Where can this <span class="accent">take you?</span></h2>
+  <p class="section-lead">GBS careers move along two axes — process expertise and leadership scope. Most roles sit on the diagonal. Some move sideways into specialist or project tracks. All paths are valid.</p>
 
-    <div class="section-split section-split" style="margin-bottom:80px;">
-      <div class="photo-frame" style="height:480px;">
-        <img src="section-who.png" alt="Young professional focused on laptop">
+  <div class="career-map-container">
+    <div class="map-axes-label">
+      <span class="axis-label">↑ Leadership and People Scope</span>
+      <span class="axis-label">Process Expertise and Domain Knowledge →</span>
+    </div>
+    <div class="map-grid">
+      <!-- Y axis labels -->
+      <div class="map-axis-y">
+        <div class="map-axis-y-label">Strategic</div>
+        <div class="map-axis-y-label">Managerial</div>
+        <div class="map-axis-y-label">Operational</div>
+        <div class="map-axis-y-label">Entry</div>
       </div>
-      <div>
-        <div class="tag"><div class="tag-line"></div><div class="tag-text">Who It's For</div></div>
-        <h2 class="section-h2">For people who<br><em>build things</em><br>inside large orgs</h2>
-        <div class="section-body">
-          <p>GBS doesn't reward the loudest person in the room. It rewards the person who makes the system better — simplifies a process, removes friction, builds something that works without them.</p>
-          <p>And the ones who move fastest are those who learn to hold the tension between delivery pressure, customer expectations, and what leadership is actually measuring.</p>
-          <p>That's what the GBS Insider Club is built around.</p>
-        </div>
+
+      <!-- Row 1: Entry level -->
+      <div class="role-node node-entry pos-r1c1">
+        <div class="rn-level">Entry</div>
+        <div class="rn-title">Associate / Analyst</div>
+        <div class="rn-desc">Transaction execution, process learning, SLA delivery</div>
+      </div>
+      <div class="role-node node-entry pos-r1c2">
+        <div class="rn-level">Entry+</div>
+        <div class="rn-title">Senior Associate</div>
+        <div class="rn-desc">Process ownership, exception handling, quality checks</div>
+      </div>
+
+      <!-- Row 2: Operational -->
+      <div class="role-node node-mid pos-r2c1">
+        <div class="rn-level">Operational</div>
+        <div class="rn-title">Team Lead / Supervisor</div>
+        <div class="rn-desc">Small team management, escalation point, reporting</div>
+      </div>
+      <div class="role-node node-mid pos-r2c2">
+        <div class="rn-level">Operational</div>
+        <div class="rn-title">Process Analyst / SME</div>
+        <div class="rn-desc">Process design, improvement initiatives, documentation</div>
+      </div>
+      <div class="role-node node-project pos-r2c3">
+        <div class="rn-level">Lateral · Project</div>
+        <div class="rn-title">Project Coordinator</div>
+        <div class="rn-desc">Transition projects, CI initiatives, system rollouts</div>
+      </div>
+
+      <!-- Row 3: Managerial -->
+      <div class="role-node node-senior pos-r3c1">
+        <div class="rn-level">Managerial</div>
+        <div class="rn-title">Manager / Senior Manager</div>
+        <div class="rn-desc">Team ownership, stakeholder mgmt, performance reporting</div>
+      </div>
+      <div class="role-node node-senior pos-r3c2">
+        <div class="rn-level">Managerial</div>
+        <div class="rn-title">Process Manager / GPO</div>
+        <div class="rn-desc">E2E process governance, global standards, transformation</div>
+      </div>
+      <div class="role-node node-expert pos-expert">
+        <div class="rn-level">Expert Track</div>
+        <div class="rn-title">Domain Expert / CoE Lead</div>
+        <div class="rn-desc">Tax, Treasury, FP&A, Compliance specialist roles</div>
+      </div>
+
+      <!-- Row 4: Strategic -->
+      <div class="role-node node-senior pos-r4c1">
+        <div class="rn-level">Strategic</div>
+        <div class="rn-title">Director / Senior Director</div>
+        <div class="rn-desc">GBS function leadership, C-suite interface, org design</div>
+      </div>
+      <div class="role-node node-senior pos-r4c2">
+        <div class="rn-level">Strategic</div>
+        <div class="rn-title">Head of GBS / VP</div>
+        <div class="rn-desc">Full GBS P&L, operating model, global delivery strategy</div>
       </div>
     </div>
 
-    <!-- Audience SVG — four quadrants -->
-    <svg viewBox="0 0 1100 420" width="100%" xmlns="http://www.w3.org/2000/svg" style="display:block; max-width:1100px; margin:0 auto;">
+    <!-- X axis -->
+    <div class="axis-x-row" style="margin-left:128px; margin-top:12px;">
+      <div class="axis-x-item">Generalist</div>
+      <div class="axis-x-item">Functional</div>
+      <div class="axis-x-item">Multi-process</div>
+      <div class="axis-x-item">Cross-functional</div>
+    </div>
 
-      <!-- Grid lines -->
-      <line x1="550" y1="20" x2="550" y2="400" stroke="rgba(184,148,56,0.1)" stroke-width="1"/>
-      <line x1="20" y1="210" x2="1080" y2="210" stroke="rgba(184,148,56,0.1)" stroke-width="1"/>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--teal);"></div>Core progression path</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--gold);"></div>Senior and strategic roles</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--sky);"></div>Expert specialist track</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--ruby);"></div>Lateral project track</div>
+    </div>
+  </div>
+  <p class="career-map-disclaimer">Role titles and band structures vary significantly across organizations. Some companies use 3-band structures (Junior / Senior / Lead), others use 6+ levels per category. This map shows typical progression patterns, not universal titles.</p>
+</section>
 
-      <!-- Centre label -->
-      <circle cx="550" cy="210" r="28" fill="rgba(184,148,56,0.12)" stroke="rgba(184,148,56,0.3)" stroke-width="1.5"/>
-      <text x="550" y="205" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="8" letter-spacing="0.5">GBS</text>
-      <text x="550" y="218" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="8" letter-spacing="0.5">INSIDER</text>
+<!-- ─── SECTION 5: WHAT'S INSIDE ─── -->
+<section id="inside" class="inside-section">
+  <div class="section-eyebrow">What's Inside</div>
+  <h2 class="section-h2">10 pillars. <span class="accent">145+ topics.</span></h2>
+  <p class="section-lead">Every topic you need to understand GBS, perform at your best, and build a career worth having. Free content every week. No filler.</p>
 
-      <!-- Q1: Top-left — Early career -->
-      <rect x="30" y="30" width="480" height="160" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-      <text x="60" y="68" fill="#ffffff" font-family="Cormorant Garamond,serif" font-size="22" font-weight="600">Early-Career Professionals</text>
-      <text x="60" y="95" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">Just landed in GBS. The environment is more complex</text>
-      <text x="60" y="113" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">than expected. No one explained the model, the</text>
-      <text x="60" y="131" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">politics, or what good actually looks like here.</text>
-      <text x="60" y="160" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.8">ASSOCIATE · ANALYST · SPECIALIST</text>
+  <div class="pillars-grid">
+    <div class="pillar-tile">
+      <div class="pillar-num">01</div>
+      <img class="pillar-icon" src="icons/icon-gbs-fundamentals.png" alt="GBS Fundamentals icon" onerror="this.style.display='none'">
+      <div class="pillar-name">GBS Fundamentals</div>
+      <div class="pillar-topics">15 topics · Models, governance, metrics</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-num">02</div>
+      <img class="pillar-icon" src="icons/icon-operational-excellence.png" alt="Operational Excellence icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Operational Excellence</div>
+      <div class="pillar-topics">28 topics · Lean, Six Sigma, process design</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-num">03</div>
+      <img class="pillar-icon" src="icons/icon-digital-technology.png" alt="Digital and Technology icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Digital and Technology</div>
+      <div class="pillar-topics">18 topics · Automation, AI, ERP, data</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-num">04</div>
+      <img class="pillar-icon" src="icons/icon-stakeholder-comm.png" alt="Stakeholder Communication icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Stakeholder Communication</div>
+      <div class="pillar-topics">11 topics · Influence, presence, reporting</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-num">05</div>
+      <img class="pillar-icon" src="icons/icon-career-performance.png" alt="Career and Performance icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Career and Performance</div>
+      <div class="pillar-topics">13 topics · Promotion, visibility, salary</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-num">06</div>
+      <img class="pillar-icon" src="icons/icon-total-rewards.png" alt="Total Rewards icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Total Rewards</div>
+      <div class="pillar-topics">8 topics · Comp structures, benefits, negotiation</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-num">07</div>
+      <img class="pillar-icon" src="icons/icon-leadership-people.png" alt="Leadership and People icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Leadership and People</div>
+      <div class="pillar-topics">17 topics · Managing teams, talent, culture</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-num">08</div>
+      <img class="pillar-icon" src="icons/icon-projects-transformation.png" alt="Projects and Transformation icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Projects and Transformation</div>
+      <div class="pillar-topics">14 topics · PM methods, change, stakeholders</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-num">09</div>
+      <img class="pillar-icon" src="icons/icon-compliance-risk.png" alt="Compliance and Risk icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Compliance and Risk</div>
+      <div class="pillar-topics">12 topics · Controls, audit, regulatory</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-num">10</div>
+      <img class="pillar-icon" src="icons/icon-gbs-transitions.png" alt="GBS Transitions icon" onerror="this.style.display='none'">
+      <div class="pillar-name">GBS Transitions</div>
+      <div class="pillar-topics">9 topics · Migration, stabilization, setup</div>
+    </div>
+  </div>
 
-      <!-- Q2: Top-right — Managers -->
-      <rect x="590" y="30" width="480" height="160" rx="6" fill="rgba(184,148,56,0.04)" stroke="rgba(184,148,56,0.18)" stroke-width="1"/>
-      <text x="620" y="68" fill="#ffffff" font-family="Cormorant Garamond,serif" font-size="22" font-weight="600">Managers &amp; Team Leads</text>
-      <text x="620" y="95" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">Performing well technically. Not moving up as fast as</text>
-      <text x="620" y="113" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">expected. Learning the corporate language — how to</text>
-      <text x="620" y="131" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">frame things, what leadership actually measures.</text>
-      <text x="620" y="160" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.8">TEAM LEAD · MANAGER · SR MANAGER</text>
-
-      <!-- Q3: Bottom-left — Transformation -->
-      <rect x="30" y="230" width="480" height="160" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(184,148,56,0.12)" stroke-width="1"/>
-      <text x="60" y="268" fill="#ffffff" font-family="Cormorant Garamond,serif" font-size="22" font-weight="600">Transformation Leads</text>
-      <text x="60" y="295" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">Driving standardisation, automation, or migration</text>
-      <text x="60" y="313" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">projects. Need the strategic and operational playbook</text>
-      <text x="60" y="331" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">— not a vendor's pitch for why their tool solves it all.</text>
-      <text x="60" y="368" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.8">FINANCE · HR · IT · PROCUREMENT</text>
-
-      <!-- Q4: Bottom-right — Directors -->
-      <rect x="590" y="230" width="480" height="160" rx="6" fill="rgba(184,148,56,0.04)" stroke="rgba(184,148,56,0.18)" stroke-width="1"/>
-      <text x="620" y="268" fill="#ffffff" font-family="Cormorant Garamond,serif" font-size="22" font-weight="600">Aspiring Directors</text>
-      <text x="620" y="295" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">Career progression in GBS moves fast — if you know</text>
-      <text x="620" y="313" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">the levers. Director-level thinking is about architecture,</text>
-      <text x="620" y="331" fill="#6a7a8e" font-family="IBM Plex Sans,sans-serif" font-size="13">influence, and building systems that work without you.</text>
-      <text x="620" y="368" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.8">HEAD OF · VP · DIRECTOR · GBS LEAD</text>
-
-    </svg>
-
+  <div class="section-eyebrow" style="margin-bottom:20px;">Questions we answer — every week</div>
+  <div class="hooks-grid">
+    <div class="hook-card">
+      <span class="hook-tag tag-question">Career Question</span>
+      <h4>Why did someone less experienced get promoted before me?</h4>
+      <p>Performance gets you considered. Visibility gets you chosen. Most people focus entirely on the wrong one.</p>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-myth">Common Myth</span>
+      <h4>GBS is just a cost center — there's no real career here.</h4>
+      <p>Wrong. The GBS professionals who understand the model build some of the most transferable careers in finance and operations.</p>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-insight">Insider Insight</span>
+      <h4>Your manager's standing in the organization affects your career more than your performance does.</h4>
+      <p>This is not fair. It is also true. Here is what you can do about it.</p>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-question">Career Question</span>
+      <h4>How do I ask for a salary increase without damaging the relationship?</h4>
+      <p>Timing, framing, and evidence. Three things most people get wrong — covered in Pillar 6.</p>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-myth">Common Myth</span>
+      <h4>The best way to progress is to be the best at your current job.</h4>
+      <p>Being excellent at your role is the floor, not the ceiling. What happens above that floor determines where you go.</p>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-insight">Insider Insight</span>
+      <h4>Most process steps in GBS exist because nobody questioned them.</h4>
+      <p>The professional who asks "why does this exist?" and follows through builds credibility faster than anyone around them.</p>
+    </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!-- HOST SECTION                                     -->
-<!-- ══════════════════════════════════════════════════ -->
-<section class="host-section" id="host">
-  <div class="host-inner">
+<!-- ─── SECTION 6: HOW IT WORKS ─── -->
+<section id="how">
+  <div class="section-eyebrow">How It Works</div>
+  <h2 class="section-h2">Learn, apply, <span class="accent">progress.</span></h2>
+  <p class="section-lead">Structured content. No fluff. Built around how GBS professionals actually work and learn.</p>
 
-    <!-- Left: about copy -->
-    <div>
-      <div class="tag"><div class="tag-line"></div><div class="tag-text">About the Host</div></div>
-      <h2 class="section-h2">Built from<br><em>inside</em> the seat</h2>
-      <div class="section-body">
-        <p>I'm Julian — your host. I started in a project to set up Shared Services after an SAP deployment, and worked my way up to Director level on the process and systems side.</p>
-        <p>Not posting invoices — building and improving the environments where that work happens at scale. Leading teams, managing outsourcing providers, navigating corporate structures, and learning — over time — the language and unwritten code that determines who moves and who doesn't.</p>
-        <p>The GBS Insider Club exists to share what took years to accumulate, without the consultant markup.</p>
-      </div>
-
-      <!-- Timeline SVG -->
-      <svg viewBox="0 0 560 80" width="100%" style="margin-top:40px; max-width:560px;" xmlns="http://www.w3.org/2000/svg">
-        <line x1="20" y1="32" x2="540" y2="32" stroke="rgba(184,148,56,0.15)" stroke-width="1"/>
-
-        <circle cx="20" cy="32" r="6" fill="rgba(184,148,56,0.2)" stroke="rgba(184,148,56,0.5)" stroke-width="1.5"/>
-        <text x="20" y="58" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">SAP</text>
-        <text x="20" y="70" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">DEPLOY</text>
-
-        <circle cx="160" cy="32" r="6" fill="rgba(184,148,56,0.2)" stroke="rgba(184,148,56,0.5)" stroke-width="1.5"/>
-        <text x="160" y="58" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">SSC</text>
-        <text x="160" y="70" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">SETUP</text>
-
-        <circle cx="300" cy="32" r="6" fill="rgba(184,148,56,0.2)" stroke="rgba(184,148,56,0.5)" stroke-width="1.5"/>
-        <text x="300" y="58" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">TEAM</text>
-        <text x="300" y="70" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">LEADERSHIP</text>
-
-        <circle cx="420" cy="32" r="6" fill="rgba(184,148,56,0.2)" stroke="rgba(184,148,56,0.5)" stroke-width="1.5"/>
-        <text x="420" y="58" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">OUTSOURCING</text>
-        <text x="420" y="70" text-anchor="middle" fill="#3d4a5c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">MGMT</text>
-
-        <circle cx="540" cy="32" r="8" fill="rgba(184,148,56,0.15)" stroke="rgba(184,148,56,0.6)" stroke-width="2"/>
-        <text x="540" y="14" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">TODAY</text>
-        <text x="540" y="58" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">DIRECTOR</text>
-        <text x="540" y="70" text-anchor="middle" fill="#b89438" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="0.5">LEVEL</text>
-      </svg>
+  <div class="how-steps">
+    <div class="step">
+      <div class="step-num">Step 01</div>
+      <h3>Join free — no friction</h3>
+      <p>Create a free account in under 60 seconds. No credit card. Access foundational content across all 10 pillars immediately.</p>
     </div>
-
-    <!-- Right: photo -->
-    <div class="photo-frame" style="height:520px;">
-      <img src="hero-office.png" alt="Professional GBS environment" style="object-position: right center;">
+    <div class="step">
+      <div class="step-num">Step 02</div>
+      <h3>Follow the curriculum or pick your topic</h3>
+      <p>Work through pillars in sequence for structured progression — or jump straight to the topic most relevant to your current situation.</p>
     </div>
+    <div class="step">
+      <div class="step-num">Step 03</div>
+      <h3>Watch, read, apply</h3>
+      <p>YouTube videos for every topic. Written guides with frameworks and checklists. Templates you can use in your actual job tomorrow.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 04</div>
+      <h3>Track your progression</h3>
+      <p>Follow the career map. Identify your gaps. Get new content every week. Free members get the core curriculum. Members get everything.</p>
+    </div>
+  </div>
 
+  <div class="promise-bar">
+    <div class="promise-icon">◎</div>
+    <div class="promise-text">
+      <h3>The GBS Insider Club Promise</h3>
+      <p>Professionals who understand how GBS works, what is expected at each level, and how to navigate the organizational dynamics around them <strong>progress faster, earn more, and build careers with options.</strong> That is the outcome this platform is designed to deliver — in 6 to 12 months of consistent engagement.</p>
+    </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!-- EMAIL CAPTURE                                     -->
-<!-- ══════════════════════════════════════════════════ -->
+<!-- ─── SECTION 7: JOIN ─── -->
+<section id="join" class="join-section">
+  <div class="section-eyebrow" style="justify-content:center;">Join Today</div>
+  <h2 class="section-h2">Start building the career<br><span class="accent">you actually want.</span></h2>
+  <p class="section-lead">Free access. No credit card. Cancel anytime. The only thing required is the decision to invest in yourself.</p>
 
+  <div class="join-tiers">
+    <div class="tier-card">
+      <div class="tier-name">Insider — Free</div>
+      <div class="tier-price">$0 <span>/ always</span></div>
+      <div class="tier-desc">Core curriculum access. New content every week. No commitment required.</div>
+      <ul class="tier-ul">
+        <li>All 10 pillar foundations</li>
+        <li>Weekly YouTube content</li>
+        <li>GBS Glossary access</li>
+        <li>Career progression map</li>
+        <li>Community access</li>
+      </ul>
+      <a href="guide.html" class="tier-btn tier-btn-free">Get Free Access</a>
+    </div>
+    <div class="tier-card featured">
+      <div class="tier-name">Member — Full Access</div>
+      <div class="tier-price">Coming Soon <span></span></div>
+      <div class="tier-desc">Full depth content, templates, tools, and career frameworks — everything in one place.</div>
+      <ul class="tier-ul">
+        <li>Everything in Free</li>
+        <li>Full AI Field Guide (37 chapters)</li>
+        <li>Templates and frameworks</li>
+        <li>Deep-dive written guides</li>
+        <li>Priority content requests</li>
+      </ul>
+      <a href="guide.html" class="tier-btn tier-btn-paid">Join the Waitlist</a>
+    </div>
+  </div>
+  <p class="join-note">Already a member? <a href="guide.html" style="color:var(--teal);text-decoration:none;">Access the Field Guide →</a></p>
+</section>
 
-<!-- ── FOOTER ── -->
-<footer class="footer">
-  <div class="footer-brand"><span>GBS</span> INSIDER CLUB &nbsp;·&nbsp; © 2026</div>
-  <div class="footer-tag">Insights · Strategies · Growth</div>
-  <div class="footer-brand">Career · Performance · Promotion</div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <strong>GBS Insider Club</strong> · The GBS Career and Performance Coach ·
+    <a href="https://youtube.com/@gbsinsiderclub" style="color:var(--teal);text-decoration:none;">YouTube ↗</a>
+  </div>
+  <div class="footer-links">
+    <a href="#why">Why</a>
+    <a href="#who">Who</a>
+    <a href="#inside">Content</a>
+    <a href="#how">How</a>
+    <a href="guide.html">Field Guide</a>
+    <a href="glossary.html">Glossary</a>
+  </div>
 </footer>
-
-<!-- ── SUPABASE ── -->
-
-
 
 </body>
 </html>
