@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GBS Operating Models — Pillar 1 | GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #080b10;
+    --surface: #0e1219;
+    --surface-2: #141922;
+    --surface-3: #1b2130;
+    --border: #1e2535;
+    --border-2: #252e40;
+    --teal: #00bfa5;
+    --teal-deep: #009688;
+    --teal-soft: #26c6b5;
+    --teal-glow: rgba(0,191,165,0.12);
+    --gold: #c9a227;
+    --gold-soft: #d4b24a;
+    --gold-bg: rgba(201,162,39,0.10);
+    --text: #ffffff;
+    --text-2: #c8d0de;
+    --text-3: #7a8799;
+    --on-dark: #ffffff;
+    --ruby: #e84560;
+    --amber: #f59e0b;
+    --sky: #38bdf8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-feature-settings: "ss01";
+    background: var(--void);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 2px solid var(--teal);
+    height: 62px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    gap: 20px;
+  }
+
+  /* LOGO — SVG replication of uploaded logo */
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .topbar-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+  .topbar-brand .brand-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+  }
+  .topbar-brand .brand-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .topbar-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--border-2);
+    margin: 0 4px;
+  }
+  .topbar-title {
+    font-size: 14px;
+    color: var(--text-2);
+    flex: 1;
+  }
+  .topbar-edition {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── LAYOUT ── */
+  .layout {
+    display: flex;
+    min-height: calc(100vh - 62px);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 290px;
+    flex-shrink: 0;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 28px 0;
+    position: sticky;
+    top: 62px;
+    height: calc(100vh - 62px);
+    overflow-y: auto;
+  }
+  .sidebar-group-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0 24px 10px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 24px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .sidebar-item:hover { background: var(--surface-2); }
+  .sidebar-item.active {
+    background: var(--teal-glow);
+    border-left: 2px solid var(--teal);
+    padding-left: 22px;
+  }
+  .sidebar-badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--surface-3);
+    border: 1px solid var(--border-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-3);
+    flex-shrink: 0;
+  }
+  .sidebar-item.active .sidebar-badge {
+    background: var(--teal-glow);
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+  .sidebar-item span.nav-label {
+    font-size: 13px;
+    color: var(--text-2);
+    line-height: 1.35;
+  }
+  .sidebar-item.active span.nav-label { color: #ffffff; }
+
+  /* ── MAIN ── */
+  .main {
+    flex: 1;
+    max-width: 920px;
+    padding: 60px 60px 96px;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero { margin-bottom: 72px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 46px;
+    font-weight: 300;
+    letter-spacing: -1.1px;
+    line-height: 1.08;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  .hero h1 .gold-line {
+    color: var(--gold);
+    display: block;
+  }
+  .hero-tagline {
+    font-size: 17px;
+    color: var(--text-2);
+    margin-bottom: 36px;
+    max-width: 580px;
+    line-height: 1.7;
+  }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 24px 28px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-number {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-3);
+    line-height: 1.5;
+  }
+
+  /* ── TOOLTIP SYSTEM ── */
+  a.gloss {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--teal);
+    cursor: help;
+    position: relative;
+  }
+  a.gloss:hover { border-bottom-color: var(--teal-soft); }
+  a.gloss .tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-3);
+    border: 1px solid var(--teal);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-2);
+    line-height: 1.55;
+    width: 260px;
+    z-index: 200;
+    pointer-events: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  a.gloss .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--teal);
+  }
+  a.gloss:hover .tooltip { display: block; }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 72px;
+    scroll-margin-top: 80px;
+  }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 10px;
+  }
+  .section h2 {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: -0.4px;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  .section-hook {
+    font-size: 16px;
+    color: var(--text-2);
+    margin-bottom: 32px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── GENERIC CARD ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 16px;
+    letter-spacing: -0.1px;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card ul li {
+    font-size: 15px;
+    color: var(--text);
+    padding: 7px 0 7px 22px;
+    position: relative;
+    line-height: 1.65;
+    border-bottom: 1px solid var(--border);
+  }
+  .card ul li:last-child { border-bottom: none; }
+  .card ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 13px;
+    top: 9px;
+  }
+
+  /* ── EVOLUTION TRACK ── */
+  .evolution-track {
+    display: flex;
+    align-items: stretch;
+    margin: 20px 0 32px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .evo-stage {
+    flex: 1;
+    padding: 24px 22px;
+    background: var(--surface);
+  }
+  .evo-stage.mid { background: var(--surface-3); }
+  .evo-stage + .evo-stage { border-left: 1px solid var(--border); }
+  .evo-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .evo-stage:nth-child(1) .evo-label { color: var(--teal-soft); }
+  .evo-stage:nth-child(2) .evo-label { color: var(--sky); }
+  .evo-stage:nth-child(3) .evo-label { color: var(--gold); }
+  .evo-stage h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  .evo-stage p {
+    font-size: 14px;
+    color: var(--text-2);
+    line-height: 1.6;
+  }
+  .evo-stage ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  .evo-stage ul li {
+    font-size: 13px;
+    color: var(--text-2);
+    padding: 4px 0 4px 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .evo-stage ul li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 16px;
+    top: 2px;
+  }
+
+  /* ── MODEL GRID ── */
+  .model-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .model-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .model-card.featured { border-color: var(--teal); background: var(--surface-3); }
+  .model-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+  .tag-captive { background: var(--teal-glow); color: var(--teal); }
+  .tag-bpo { background: rgba(56,189,248,0.1); color: var(--sky); }
+  .tag-hybrid { background: var(--gold-bg); color: var(--gold); }
+  .model-card h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  .model-card p {
+    font-size: 14px;
+    color: var(--text-2);
+    line-height: 1.65;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .model-card ul { list-style: none; padding: 0; }
+  .model-card ul li {
+    font-size: 14px;
+    color: var(--text);
+    padding: 5px 0 5px 16px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .model-card ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 11px;
+    top: 7px;
+  }
+
+  /* ── TRAFFIC LIGHT GRID ── */
+  .tl-wrap {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .tl-header-row {
+    display: grid;
+    grid-template-columns: 200px repeat(3, 1fr);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border-2);
+  }
+  .tl-header-row div {
+    padding: 12px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-3);
+  }
+  .tl-header-row .h-captive { color: var(--teal); }
+  .tl-header-row .h-bpo { color: var(--sky); }
+  .tl-header-row .h-hybrid { color: var(--gold); }
+
+  .tl-row {
+    display: grid;
+    grid-template-columns: 200px repeat(3, 1fr);
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-row:hover { background: var(--surface-2); }
+
+  .tl-criteria {
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-2);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .tl-cell {
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--text);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.55;
+  }
+  .tl-cell:last-child { border-right: none; }
+  .tl-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .green { background: var(--teal); }
+  .amber { background: var(--amber); }
+  .red { background: var(--ruby); }
+
+  .table-disclaimer {
+    font-size: 13px;
+    color: var(--text-3);
+    font-style: italic;
+    margin-top: 10px;
+    padding-left: 4px;
+    line-height: 1.6;
+  }
+
+  /* ── CAREER GRID ── */
+  .career-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .career-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .career-card-header {
+    padding: 16px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.1px;
+    border-bottom: 1px solid var(--border);
+  }
+  .career-card-header.captive { background: rgba(0,191,165,0.15); border-top: 3px solid var(--teal); }
+  .career-card-header.bpo { background: rgba(56,189,248,0.12); border-top: 3px solid var(--sky); }
+  .career-card-header.coe { background: var(--gold-bg); border-top: 3px solid var(--gold); }
+  .career-card-body { padding: 18px 22px; }
+  .career-card-body ul { list-style: none; padding: 0; }
+  .career-card-body ul li {
+    font-size: 14px;
+    color: var(--text);
+    padding: 8px 0 8px 20px;
+    position: relative;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+  }
+  .career-card-body ul li:last-child { border-bottom: none; }
+  .career-card-body ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 12px;
+    top: 10px;
+  }
+  .career-card-body.bpo ul li::before { color: var(--sky); }
+  .career-card-body.coe ul li::before { color: var(--gold); }
+
+  .disclaimer-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--amber);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+  /* ── INSIGHT BLOCK ── */
+  .insight-block {
+    background: linear-gradient(135deg, var(--gold-bg), transparent);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .insight-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--gold-bg);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .insight-body .insight-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+  .insight-body p {
+    font-size: 15px;
+    color: #ffffff;
+    font-style: italic;
+    line-height: 1.75;
+  }
+  .insight-body ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 14px;
+  }
+  .insight-body ul li {
+    font-size: 15px;
+    color: var(--text);
+    padding: 7px 0 7px 20px;
+    position: relative;
+    line-height: 1.65;
+    border-bottom: 1px solid rgba(201,162,39,0.15);
+  }
+  .insight-body ul li:last-child { border-bottom: none; }
+  .insight-body ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+    top: 9px;
+  }
+
+  /* ── GLOSSARY ── */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .glossary-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .glossary-term {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal);
+    flex-shrink: 0;
+    min-width: 60px;
+  }
+  .glossary-def {
+    font-size: 14px;
+    color: var(--text-2);
+    line-height: 1.6;
+  }
+
+  /* gloss links — handled by tooltip system above */
+
+  /* ── CTA ── */
+  .cta-block {
+    background: var(--surface-3);
+    border: 1px solid var(--border-2);
+    border-top: 3px solid var(--teal);
+    border-radius: 16px;
+    padding: 44px 48px;
+    margin-top: 64px;
+    text-align: center;
+  }
+  .cta-block h3 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #ffffff;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+  .cta-block p {
+    font-size: 15px;
+    color: var(--text-2);
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--teal);
+    color: var(--void);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .cta-btn:hover { background: var(--teal-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .sidebar { display: none; }
+    .main { padding: 36px 24px 80px; max-width: 100%; }
+    .model-grid, .career-grid { grid-template-columns: 1fr; }
+    .tl-header-row, .tl-row { grid-template-columns: 120px repeat(3, 1fr); }
+    .hero h1 { font-size: 34px; }
+    .evolution-track { flex-direction: column; }
+    .evo-stage + .evo-stage { border-left: none; border-top: 1px solid var(--border); }
+    .glossary-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <!-- Logo SVG replicating uploaded mark: dark bg, gold large arrow + white small arrow, square bracket frame -->
+  <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="38" height="38" rx="6" fill="#0e1219"/>
+    <!-- bracket left -->
+    <path d="M8 7 L4 7 L4 31 L8 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- bracket right -->
+    <path d="M30 7 L34 7 L34 31 L30 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- gold large arrow -->
+    <polygon points="9,10 28,19 9,28 14,19" fill="#c9a227"/>
+    <!-- white small arrow -->
+    <polygon points="14,17 24,19 14,23 17,19" fill="white"/>
+  </svg>
+
+  <div class="topbar-brand">
+    <span class="brand-name">GBS Insider Club</span>
+    <span class="brand-sub">Field Guide</span>
+  </div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-title">Pillar 1 — GBS Fundamentals</div>
+  <div class="topbar-edition">Cluster 1 of 6</div>
+</header>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-group-label">Pillar 1 · GBS Fundamentals</div>
+    <a href="#operating-models" class="sidebar-item active">
+      <div class="sidebar-badge">1</div>
+      <span class="nav-label">GBS Operating Models</span>
+    </a>
+    <a href="#" class="sidebar-item">
+      <div class="sidebar-badge">2</div>
+      <span class="nav-label">Value Creation and Commercial Logic</span>
+    </a>
+    <a href="#" class="sidebar-item">
+      <div class="sidebar-badge">3</div>
+      <span class="nav-label">Organizational Structure and Governance</span>
+    </a>
+    <a href="#" class="sidebar-item">
+      <div class="sidebar-badge">4</div>
+      <span class="nav-label">Contracts and Service Agreements</span>
+    </a>
+    <a href="#" class="sidebar-item">
+      <div class="sidebar-badge">5</div>
+      <span class="nav-label">Performance Measurement</span>
+    </a>
+    <a href="#" class="sidebar-item">
+      <div class="sidebar-badge">6</div>
+      <span class="nav-label">Location Strategy and Hub Design</span>
+    </a>
+    <div style="margin-top: 24px; border-top: 1px solid var(--border); padding-top: 16px;">
+      <a href="#glossary" class="sidebar-item">
+        <div class="sidebar-badge" style="color:var(--gold); border-color:var(--gold);">G</div>
+        <span class="nav-label">Glossary</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO -->
+    <div class="hero" id="operating-models">
+      <div class="eyebrow">Pillar 1 · GBS Fundamentals · Cluster 1</div>
+      <h1>GBS Operating Models
+        <span class="gold-line">How the industry is structured — and where you fit.</span>
+      </h1>
+      <p class="hero-tagline">You got the job offer. Now understand what kind of organization you just joined — and what it means for how you work, grow, and get evaluated.</p>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-number">58%</span>
+          <span class="stat-label">of organizations run a hybrid model (SSON, 2025)</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">$172B</span>
+          <span class="stat-label">global shared services market (2024)</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">7,000+</span>
+          <span class="stat-label">captive GBS centers worldwide</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: SSC vs GBS vs CoE -->
+    <section class="section" id="model-types">
+      <div class="section-eyebrow">Section 1</div>
+      <h2><a class="gloss" href="#g-ssc">SSC<span class="tooltip">Shared Services Center — inhouse unit delivering standardized, transactional services to multiple business units</span></a>, <a class="gloss" href="#g-gbs">GBS<span class="tooltip">Global Business Services — evolved SSC; multi-function, strategic delivery model at scale</span></a>, and <a class="gloss" href="#g-coe">CoE<span class="tooltip">Center of Excellence — specialist inhouse unit for complex, judgment-intensive processes like Tax, Treasury, and Audit</span></a> — what is the actual difference?</h2>
+      <p class="section-hook">Three terms. Used interchangeably. None of them mean the same thing.</p>
+
+      <div class="evolution-track">
+        <div class="evo-stage">
+          <div class="evo-label">SSC — Shared Services Center</div>
+          <h4>Standardized, high-volume delivery</h4>
+          <p>Consolidates repetitive, rule-based transactions across business units.</p>
+          <ul>
+            <li>High volume, low variance</li>
+            <li>Typical scope: invoice processing, payroll, data entry, employee admin</li>
+            <li>Efficiency through consolidation — one team instead of ten</li>
+          </ul>
+        </div>
+        <div class="evo-stage mid">
+          <div class="evo-label">GBS — Global Business Services</div>
+          <h4>Multi-function, strategic delivery</h4>
+          <p>Evolved SSC. Adds cross-functional scope, business partnering, and data-driven insight.</p>
+          <ul>
+            <li>Runs the transaction — and analyzes what it means</li>
+            <li>Serves as a strategic partner, not just a cost center</li>
+            <li>Governs multiple functions under one operating model</li>
+          </ul>
+        </div>
+        <div class="evo-stage">
+          <div class="evo-label">CoE — Center of Excellence</div>
+          <h4>Deep expertise, judgment-based</h4>
+          <p>Built around specialized knowledge that cannot be standardized or easily transferred.</p>
+          <ul>
+            <li>Not built for volume — built for judgment and decisional authority</li>
+            <li>Longer knowledge transfer time by design</li>
+            <li>Almost always kept inhouse — the knowledge is the asset</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">What typically lives in a <a class="gloss" href="#g-coe">CoE<span class="tooltip">Center of Excellence — specialist inhouse unit for complex, judgment-intensive processes. Almost always kept inhouse.</span></a>?</div>
+        <ul>
+          <li><strong>Tax</strong> — jurisdiction complexity, regulatory interpretation, cannot be fully standardized</li>
+          <li><strong>Treasury</strong> — cash management, hedging strategy, counterparty risk — requires discretional authority</li>
+          <li><strong>Internal Audit and Controls</strong> — independence from operations is structural, not optional</li>
+          <li><strong>Regulatory Compliance</strong> — evolving rulebooks require specialists, not processors</li>
+          <li><strong><a class="gloss" href="#g-fpa">FP&amp;A<span class="tooltip">Financial Planning and Analysis — budgeting, forecasting, variance analysis, and strategic business performance reporting</span></a></strong> — business partnering, forecasting, decision support</li>
+          <li><strong>Legal Entity Control</strong> — statutory reporting, intercompany, transfer pricing</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Delivery Models -->
+    <section class="section" id="delivery-models">
+      <div class="section-eyebrow">Section 2</div>
+      <h2>Captive, <a class="gloss" href="#g-bpo">BPO<span class="tooltip">Business Process Outsourcing — third-party delivery of business processes on behalf of a client. You work for the BPO; the client evaluates you.</span></a>, and Hybrid — who actually delivers the work?</h2>
+      <p class="section-hook">The model type tells you what gets done. The delivery model tells you who does it — and who signs your paycheck.</p>
+
+      <div class="model-grid">
+        <div class="model-card">
+          <span class="model-tag tag-captive">Captive</span>
+          <h3>Inhouse / Owned</h3>
+          <p>The organization owns and operates the center. You work directly for the company whose processes you support. One reporting line.</p>
+          <ul>
+            <li>Strong institutional knowledge retention</li>
+            <li>Higher setup cost — lower long-term cost</li>
+            <li>Slower to scale</li>
+            <li>Broader career mobility across functions</li>
+          </ul>
+        </div>
+        <div class="model-card featured">
+          <span class="model-tag tag-bpo">BPO</span>
+          <h3>Outsourced</h3>
+          <p>A third-party provider (Accenture, Genpact, Infosys, Capgemini) runs the center on behalf of a client. You work for the <a class="gloss" href="#g-bpo">BPO<span class="tooltip">Business Process Outsourcing — third-party delivery of business processes. You are employed by the BPO, not the client.</span></a> — the client sets your daily reality.</p>
+          <ul>
+            <li>Two bosses in practice: BPO manager + client</li>
+            <li>Fast to scale — pre-trained resources available</li>
+            <li>Typically higher long-term cost (service premium)</li>
+            <li>Stricter performance evaluation culture</li>
+          </ul>
+        </div>
+        <div class="model-card">
+          <span class="model-tag tag-hybrid">Hybrid</span>
+          <h3>Mixed Model</h3>
+          <p>Captive center for critical or complex scope. BPO for volume, language coverage, or regional flexibility. Now the industry default.</p>
+          <ul>
+            <li>58% of organizations operate this way (SSON, 2025)</li>
+            <li>Best balance of control and scale</li>
+            <li>Coordination overhead between teams</li>
+            <li>Your experience depends on which side you sit on</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="insight-block">
+        <div class="insight-icon">✦</div>
+        <div class="insight-body">
+          <div class="insight-label">GBS Insider Club Insights</div>
+          <ul>
+            <li><strong>Keep inhouse what is close to the business</strong> — processes requiring proximity to the business, unique institutional knowledge, language capability, low transaction volume, or significant judgment. These are not built for scale. They are built for depth and accuracy.</li>
+            <li><strong>BPOs are genuinely strong at what they are designed for</strong> — large transactional volumes where scale and operational discipline drive efficiency. Outsourcing partners are good at running well-defined, repetitive processes consistently. That is not a limitation — that is the value proposition.</li>
+            <li><strong>Where the model creates friction</strong> — poorly defined processes, excessive handoffs, weak upstream discipline, and work requiring frequent back-and-forth between inhouse and outsourced teams. Clean boundaries are a prerequisite, not an afterthought.</li>
+            <li><strong>One principle that applies to every model</strong> — a broken process delivered at scale produces bad outcomes at scale. This applies equally to inhouse centers. The business expecting transformation from a center that has not been given the mandate or the tools will be disappointed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Comparison -->
+    <section class="section" id="comparison">
+      <div class="section-eyebrow">Section 3</div>
+      <h2>How the models compare</h2>
+      <p class="section-hook">A directional guide — not a rulebook. Every organization runs this differently.</p>
+
+      <div class="tl-wrap">
+        <div class="tl-header-row">
+          <div>Criteria</div>
+          <div class="h-captive">Captive</div>
+          <div class="h-bpo">BPO</div>
+          <div class="h-hybrid">Hybrid</div>
+        </div>
+
+        <div class="tl-row">
+          <div class="tl-criteria">Who you work for</div>
+          <div class="tl-cell"><div class="tl-dot green"></div>Direct employer equals service owner</div>
+          <div class="tl-cell"><div class="tl-dot amber"></div>BPO employs you — client evaluates you</div>
+          <div class="tl-cell"><div class="tl-dot amber"></div>Depends which side of the model you sit on</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-criteria">Process complexity</div>
+          <div class="tl-cell"><div class="tl-dot green"></div>Higher — more judgment required</div>
+          <div class="tl-cell"><div class="tl-dot amber"></div>Often transactional, scope can be narrow</div>
+          <div class="tl-cell"><div class="tl-dot green"></div>Varies by scope allocation</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-criteria">Speed to scale</div>
+          <div class="tl-cell"><div class="tl-dot red"></div>Slow — hiring, training, infrastructure</div>
+          <div class="tl-cell"><div class="tl-dot green"></div>Fast — pre-trained resources on demand</div>
+          <div class="tl-cell"><div class="tl-dot amber"></div>BPO side scales fast — captive does not</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-criteria">Cost to the business</div>
+          <div class="tl-cell"><div class="tl-dot green"></div>Lower long-term once established</div>
+          <div class="tl-cell"><div class="tl-dot red"></div>Typically higher — service premium built in</div>
+          <div class="tl-cell"><div class="tl-dot amber"></div>Depends on scope split</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-criteria">Career breadth</div>
+          <div class="tl-cell"><div class="tl-dot green"></div>Broader — cross-function mobility accessible</div>
+          <div class="tl-cell"><div class="tl-dot amber"></div>Narrower scope, but multi-client exposure possible</div>
+          <div class="tl-cell"><div class="tl-dot amber"></div>Varies by role</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-criteria">Institutional knowledge</div>
+          <div class="tl-cell"><div class="tl-dot green"></div>High retention inhouse</div>
+          <div class="tl-cell"><div class="tl-dot red"></div>Attrition risk — knowledge leaves with people</div>
+          <div class="tl-cell"><div class="tl-dot amber"></div>Captive side retains — BPO side at risk</div>
+        </div>
+      </div>
+      <p class="table-disclaimer">Green = advantage &nbsp;·&nbsp; Amber = neutral or variable &nbsp;·&nbsp; Red = watch-out &nbsp;·&nbsp; All ratings are directional. Your organization may differ significantly.</p>
+    </section>
+
+    <!-- SECTION 4: Career Guide -->
+    <section class="section" id="career-guide">
+      <div class="section-eyebrow">Section 4</div>
+      <h2>What this means for your career</h2>
+      <p class="section-hook">Directional takeaways based on where you work. Every organization is different — use this as orientation, not a prescription.</p>
+
+      <div class="career-grid">
+        <div class="career-card">
+          <div class="career-card-header captive">Captive / Inhouse Center</div>
+          <div class="career-card-body">
+            <ul>
+              <li>Your organization placed you there because these processes are close to the business — build deep process understanding early</li>
+              <li>Visibility is your responsibility — inhouse environments reward those who make their work seen</li>
+              <li>If you are in a nearshore location, your language skills are a strategic asset — that is why your location was chosen</li>
+              <li>Career progression can be slower — but cross-function moves are more accessible</li>
+            </ul>
+          </div>
+        </div>
+        <div class="career-card">
+          <div class="career-card-header bpo">BPO / Outsourced Center</div>
+          <div class="career-card-body bpo">
+            <ul>
+              <li>Client relationship skills matter as much as technical skills — often more</li>
+              <li>A strong client relationship directly affects your performance ratings</li>
+              <li>Work can be transactional and fragmented — actively seek exposure beyond your lane</li>
+              <li>You may feel less integrated into the client organization — that distance is structural, not personal</li>
+              <li>Performance evaluation tends to be strict — understand how you are being measured, early</li>
+              <li>Find process improvements — it is one of the clearest ways to get recognized</li>
+            </ul>
+          </div>
+        </div>
+        <div class="career-card">
+          <div class="career-card-header coe">Center of Excellence (CoE)</div>
+          <div class="career-card-body coe">
+            <ul>
+              <li>Build domain expertise fast — the organization expects high standards from day one</li>
+              <li>Your decisions carry real weight — processes here require judgment, not just execution</li>
+              <li>Knowledge transfer takes longer here by design — patience is part of the job</li>
+              <li>The inhouse preference is deliberate — your expertise is the asset the organization is protecting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong style="color: var(--amber);">Note:</strong> These are common patterns, not universal rules.
+        Leadership priorities, company culture, and the maturity of your shared services organization all shape the actual experience.
+        Use this as a starting frame — then learn how your specific organization works.
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="section" id="glossary">
+      <div class="section-eyebrow">Glossary</div>
+      <h2>Key terms in this cluster</h2>
+      <p class="section-hook">Every underlined term in this page links here. A full cross-pillar glossary is available in the GBS Insider Club Field Guide.</p>
+
+      <div class="glossary-grid">
+        <div class="glossary-item" id="g-gbs">
+          <span class="glossary-term">GBS</span>
+          <span class="glossary-def">Global Business Services — umbrella model for centralized, multi-function internal service delivery at scale across an organization</span>
+        </div>
+        <div class="glossary-item" id="g-ssc">
+          <span class="glossary-term">SSC</span>
+          <span class="glossary-def">Shared Services Center — inhouse unit delivering standardized, transactional services to multiple business units within one organization</span>
+        </div>
+        <div class="glossary-item" id="g-coe">
+          <span class="glossary-term">CoE</span>
+          <span class="glossary-def">Center of Excellence — specialist inhouse unit for complex, knowledge-intensive, or strategically critical processes requiring expert judgment</span>
+        </div>
+        <div class="glossary-item" id="g-bpo">
+          <span class="glossary-term">BPO</span>
+          <span class="glossary-def">Business Process Outsourcing — third-party delivery of business processes on behalf of a client organization, under a service contract</span>
+        </div>
+        <div class="glossary-item" id="g-sla">
+          <span class="glossary-term">SLA</span>
+          <span class="glossary-def">Service Level Agreement — contractual document defining performance standards, response times, and quality expectations between provider and client</span>
+        </div>
+        <div class="glossary-item" id="g-fpa">
+          <span class="glossary-term">FP&amp;A</span>
+          <span class="glossary-def">Financial Planning and Analysis — function covering budgeting, forecasting, variance analysis, and strategic business performance reporting</span>
+        </div>
+        <div class="glossary-item" id="g-fte">
+          <span class="glossary-term">FTE</span>
+          <span class="glossary-def">Full-Time Equivalent — unit measuring workforce capacity. 1.0 FTE equals one full-time employee working standard hours</span>
+        </div>
+        <div class="glossary-item" id="g-ap">
+          <span class="glossary-term">AP</span>
+          <span class="glossary-def">Accounts Payable — the process of managing, validating, and paying supplier invoices within the finance function</span>
+        </div>
+        <div class="glossary-item" id="g-ar">
+          <span class="glossary-term">AR</span>
+          <span class="glossary-def">Accounts Receivable — the process of managing and collecting payments owed by customers to the organization</span>
+        </div>
+        <div class="glossary-item" id="g-gl">
+          <span class="glossary-term">GL</span>
+          <span class="glossary-def">General Ledger — the master financial record containing all transaction entries across an organization's accounts</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCOPE SIGNPOST -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;margin-bottom:32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">What this cluster covers — and what comes next</div>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:12px;">An operating model has more layers than SSC vs BPO. This cluster covers the first two:</p>
+      <ul style="list-style:none;padding:0;">
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Delivery structure</strong> — SSC, GBS, CoE distinctions</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Sourcing model</strong> — Captive, BPO, Hybrid</li>
+        <li style="font-size:14px;color:var(--text-2);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--text-3);">→</span> <strong style="color:var(--text-2);">Governance and decision rights</strong> — covered in Cluster 3</li>
+        <li style="font-size:14px;color:var(--text-2);padding:6px 0 6px 20px;position:relative;"><span style="position:absolute;left:0;color:var(--text-3);">→</span> <strong style="color:var(--text-2);">Service scope and contract design</strong> — covered in Cluster 4</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h3>Want the full breakdown on video?</h3>
+      <p>GBS operating models covered in depth on the GBS Insider Club YouTube channel — with real examples, frameworks, and career implications.</p>
+      <a href="https://youtube.com/@gbsinsiderclub" class="cta-btn" target="_blank">
+        ▶ &nbsp; Subscribe on YouTube
+      </a>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
