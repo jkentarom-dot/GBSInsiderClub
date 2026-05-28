@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process and Knowledge Management — Pillar 2 | GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #080b10; --surface: #0e1219; --surface-2: #141922; --surface-3: #1b2130;
+    --border: #1e2535; --border-2: #252e40;
+    --teal: #1d6aff; --teal-deep: #0050e6; --teal-soft: #5090ff; --teal-glow: rgba(29,106,255,0.14);
+    --gold: #e8b800; --gold-soft: #f0cc30; --gold-bg: rgba(232,184,0,0.12);
+    --sky: #38bdf8; --text: #ffffff; --text-2: #c8d0de; --text-3: #7a8799;
+    --ruby: #e84560; --amber: #f59e0b;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; font-weight: 300; background: var(--void); color: var(--text); font-size: 16px; line-height: 1.75; }
+
+  .topbar { position: sticky; top: 0; z-index: 100; background: var(--surface); border-bottom: 2px solid var(--teal); height: 62px; display: flex; align-items: center; padding: 0 32px; gap: 20px; }
+  .logo-mark { width: 38px; height: 38px; flex-shrink: 0; }
+  .topbar-brand { display: flex; flex-direction: column; line-height: 1.25; }
+  .topbar-brand .brand-name { font-size: 13px; font-weight: 600; color: #fff; }
+  .topbar-brand .brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.12em; }
+  .topbar-divider { width: 1px; height: 28px; background: var(--border-2); margin: 0 4px; }
+  .topbar-title { font-size: 14px; color: var(--text-2); flex: 1; }
+  .topbar-edition { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .layout { display: flex; min-height: calc(100vh - 62px); }
+  .sidebar { width: 290px; flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--border); padding: 28px 0; position: sticky; top: 62px; height: calc(100vh - 62px); overflow-y: auto; }
+  .sidebar-group-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; padding: 0 24px 10px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
+  .sidebar-item { display: flex; align-items: center; gap: 12px; padding: 11px 24px; text-decoration: none; transition: background 0.15s; }
+  .sidebar-item:hover { background: var(--surface-2); }
+  .sidebar-item.active { background: var(--teal-glow); border-left: 2px solid var(--teal); padding-left: 22px; }
+  .sidebar-badge { width: 22px; height: 22px; border-radius: 50%; background: var(--surface-3); border: 1px solid var(--border-2); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-3); flex-shrink: 0; }
+  .sidebar-item.active .sidebar-badge { background: var(--teal-glow); border-color: var(--teal); color: var(--teal); }
+  .sidebar-item span.nav-label { font-size: 13px; color: var(--text-2); line-height: 1.35; }
+  .sidebar-item.active span.nav-label { color: #fff; }
+  .sidebar-on-page { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px; }
+  .sidebar-on-page-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.14em; padding: 0 24px 8px; }
+  .sidebar-on-page a { display: block; padding: 7px 24px 7px 32px; font-size: 12px; color: var(--text-3); text-decoration: none; transition: color 0.15s; }
+  .sidebar-on-page a:hover { color: var(--text-2); }
+
+  .main { flex: 1; max-width: 920px; padding: 60px 60px 96px; overflow-x: hidden; }
+  .hero { margin-bottom: 72px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 18px; }
+  .hero h1 { font-size: 46px; font-weight: 300; letter-spacing: -1.1px; line-height: 1.08; color: #fff; margin-bottom: 10px; }
+  .hero h1 .gold-line { color: var(--gold); display: block; }
+  .hero-tagline { font-size: 17px; color: var(--text-2); margin-bottom: 36px; max-width: 580px; line-height: 1.7; }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .stat { display: flex; flex-direction: column; gap: 6px; padding: 24px 28px; background: var(--surface); border-right: 1px solid var(--border); }
+  .stat:last-child { border-right: none; }
+  .stat-number { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 600; color: var(--gold); line-height: 1.2; }
+  .stat-label { font-size: 13px; color: var(--text-3); line-height: 1.5; }
+
+  a.gloss { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--teal); cursor: help; position: relative; }
+  a.gloss .tooltip { display: none; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--surface-3); border: 1px solid var(--teal); border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 300; color: var(--text-2); line-height: 1.55; width: 260px; z-index: 200; pointer-events: none; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  a.gloss .tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--teal); }
+  a.gloss:hover .tooltip { display: block; }
+
+  .section { margin-bottom: 72px; scroll-margin-top: 80px; }
+  .section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px; }
+  .section h2 { font-size: 28px; font-weight: 300; letter-spacing: -0.4px; color: #fff; margin-bottom: 8px; }
+  .section-hook { font-size: 16px; color: var(--text-2); margin-bottom: 32px; font-style: italic; line-height: 1.6; }
+
+  /* DOC LAYER DIAGRAM */
+  .doc-pyramid { display: flex; flex-direction: column; gap: 0; margin-bottom: 32px; }
+  .doc-layer { display: flex; align-items: stretch; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 10px; }
+  .doc-layer-badge { width: 120px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 16px; text-align: center; }
+  .doc-layer-badge .layer-num { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 600; line-height: 1; margin-bottom: 6px; }
+  .doc-layer-badge .layer-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+  .doc-layer.l1 .doc-layer-badge { background: var(--teal-glow); border-right: 1px solid var(--teal); }
+  .doc-layer.l1 .doc-layer-badge .layer-num { color: var(--teal); }
+  .doc-layer.l1 .doc-layer-badge .layer-name { color: var(--teal); }
+  .doc-layer.l2 .doc-layer-badge { background: var(--gold-bg); border-right: 1px solid var(--gold); }
+  .doc-layer.l2 .doc-layer-badge .layer-num { color: var(--gold); }
+  .doc-layer.l2 .doc-layer-badge .layer-name { color: var(--gold); }
+  .doc-layer.l3 .doc-layer-badge { background: rgba(56,189,248,0.10); border-right: 1px solid var(--sky); }
+  .doc-layer.l3 .doc-layer-badge .layer-num { color: var(--sky); }
+  .doc-layer.l3 .doc-layer-badge .layer-name { color: var(--sky); }
+  .doc-layer-content { flex: 1; padding: 18px 22px; background: var(--surface-2); }
+  .doc-layer-content h4 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+  .doc-layer-content p { font-size: 13px; color: var(--text-2); line-height: 1.65; margin-bottom: 8px; }
+  .doc-layer-content .example-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; }
+  .doc-layer.l1 .example-tag { color: var(--teal); border: 1px solid var(--teal); background: var(--teal-glow); }
+  .doc-layer.l2 .example-tag { color: var(--gold); border: 1px solid var(--gold); background: var(--gold-bg); }
+  .doc-layer.l3 .example-tag { color: var(--sky); border: 1px solid var(--sky); background: rgba(56,189,248,0.10); }
+
+  /* COMPARISON TABLE */
+  .compare-table { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .ct-head { display: grid; grid-template-columns: 160px 1fr 1fr; background: var(--surface-2); border-bottom: 1px solid var(--border-2); }
+  .ct-head div { padding: 12px 18px; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+  .ct-head .h-sop { color: var(--teal); }
+  .ct-head .h-dtp { color: var(--gold); }
+  .ct-row { display: grid; grid-template-columns: 160px 1fr 1fr; border-bottom: 1px solid var(--border); }
+  .ct-row:last-child { border-bottom: none; }
+  .ct-row:hover { background: var(--surface-2); }
+  .ct-dim { padding: 13px 18px; font-size: 13px; font-weight: 500; color: var(--text-2); border-right: 1px solid var(--border); display: flex; align-items: center; }
+  .ct-cell { padding: 13px 18px; font-size: 13px; color: var(--text-2); border-right: 1px solid var(--border); line-height: 1.55; }
+  .ct-cell:last-child { border-right: none; }
+
+  /* GOVERNANCE CYCLE */
+  .gov-cycle { display: flex; align-items: stretch; gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .gov-step { flex: 1; padding: 20px 16px; background: var(--surface-2); text-align: center; border-right: 1px solid var(--border); position: relative; }
+  .gov-step:last-child { border-right: none; }
+  .gov-step-num { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 600; color: var(--teal); margin-bottom: 8px; }
+  .gov-step h4 { font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 6px; line-height: 1.3; }
+  .gov-step p { font-size: 11px; color: var(--text-3); line-height: 1.5; }
+  .gov-arrow { position: absolute; right: -14px; top: 50%; transform: translateY(-50%); color: var(--teal); font-size: 18px; z-index: 2; background: var(--surface-2); padding: 2px; line-height: 1; }
+
+  /* GPO MODEL CARDS */
+  .gpo-models { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+  .gpo-model { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .gpo-model-header { padding: 12px 18px; font-size: 13px; font-weight: 600; border-bottom: 1px solid var(--border); }
+  .gpo-model-header.biz { border-top: 3px solid var(--sky); color: var(--sky); background: rgba(56,189,248,0.10); }
+  .gpo-model-header.func { border-top: 3px solid var(--teal); color: var(--teal); background: var(--teal-glow); }
+  .gpo-model-header.gbs { border-top: 3px solid var(--gold); color: var(--gold); background: var(--gold-bg); }
+  .gpo-model-header.ent { border-top: 3px solid var(--ruby); color: var(--ruby); background: rgba(232,84,96,0.10); }
+  .gpo-model-body { padding: 14px 18px; }
+  .gpo-model-body ul { list-style: none; padding: 0; }
+  .gpo-model-body ul li { font-size: 12px; color: var(--text-2); padding: 5px 0 5px 16px; position: relative; border-bottom: 1px solid var(--border); line-height: 1.55; }
+  .gpo-model-body ul li:last-child { border-bottom: none; }
+  .gpo-model-header.biz ~ .gpo-model-body ul li::before { content: "·"; position: absolute; left: 0; color: var(--sky); font-size: 18px; top: 1px; }
+  .gpo-model-header.func ~ .gpo-model-body ul li::before { content: "·"; position: absolute; left: 0; color: var(--teal); font-size: 18px; top: 1px; }
+  .gpo-model-header.gbs ~ .gpo-model-body ul li::before { content: "·"; position: absolute; left: 0; color: var(--gold); font-size: 18px; top: 1px; }
+  .gpo-model-header.ent ~ .gpo-model-body ul li::before { content: "·"; position: absolute; left: 0; color: var(--ruby); font-size: 18px; top: 1px; }
+
+  /* GPO ENGAGEMENT CHART — SVG inline */
+  .chart-wrap { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+  .chart-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; }
+
+  /* SERVICE CATALOG */
+  .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .catalog-item { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+  .catalog-item-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .catalog-item h4 { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+  .catalog-item p { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+
+  /* XLA vs SLA */
+  .xla-versus { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .xla-side { padding: 24px 26px; }
+  .xla-side.sla-side { background: var(--surface); border-right: 1px solid var(--border); border-top: 3px solid var(--text-3); }
+  .xla-side.xla-new { background: var(--surface-3); border-top: 3px solid var(--teal); }
+  .xla-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+  .xla-side.sla-side .xla-tag { color: var(--text-3); }
+  .xla-side.xla-new .xla-tag { color: var(--teal); }
+  .xla-side h4 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .xla-side ul { list-style: none; padding: 0; }
+  .xla-side ul li { font-size: 13px; color: var(--text-2); padding: 5px 0 5px 16px; position: relative; border-bottom: 1px solid var(--border); line-height: 1.55; }
+  .xla-side ul li:last-child { border-bottom: none; }
+  .xla-side.sla-side ul li::before { content: "→"; position: absolute; left: 0; color: var(--text-3); font-size: 11px; top: 7px; }
+  .xla-side.xla-new ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-size: 11px; top: 7px; }
+
+  /* INSIGHT */
+  .insight-block { background: linear-gradient(135deg, var(--gold-bg), transparent); border: 1px solid var(--gold); border-radius: 12px; padding: 28px 32px; margin: 32px 0; display: flex; gap: 20px; align-items: flex-start; }
+  .insight-icon { width: 38px; height: 38px; background: var(--gold-bg); border: 1px solid var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; color: var(--gold); flex-shrink: 0; }
+  .insight-body .insight-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 12px; }
+  .insight-body ul { list-style: none; padding: 0; }
+  .insight-body ul li { font-size: 15px; color: var(--text); padding: 7px 0 7px 20px; position: relative; line-height: 1.65; border-bottom: 1px solid rgba(232,184,0,0.15); }
+  .insight-body ul li:last-child { border-bottom: none; }
+  .insight-body ul li::before { content: "→"; position: absolute; left: 0; color: var(--gold); font-size: 12px; top: 9px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--teal); border-radius: 12px; padding: 28px 32px; margin-bottom: 16px; }
+  .card.gold { border-left-color: var(--gold); }
+  .card.amber { border-left-color: var(--amber); }
+  .card-title { font-size: 16px; font-weight: 500; color: #fff; margin-bottom: 16px; }
+  .card ul { list-style: none; padding: 0; }
+  .card ul li { font-size: 15px; color: var(--text); padding: 7px 0 7px 22px; position: relative; line-height: 1.65; border-bottom: 1px solid var(--border); }
+  .card ul li:last-child { border-bottom: none; }
+  .card ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-size: 13px; top: 9px; }
+  .card.gold ul li::before { color: var(--gold); }
+  .card.amber ul li::before { color: var(--amber); }
+
+  .tension-box { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--amber); border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; }
+  .tension-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--amber); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+  .tension-box p { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+  .disclaimer-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--amber); border-radius: 8px; padding: 16px 20px; font-size: 14px; color: var(--text-2); line-height: 1.65; margin-bottom: 16px; }
+
+  /* GLOSSARY */
+  .glossary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .glossary-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; }
+  .glossary-term { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: var(--teal); flex-shrink: 0; min-width: 80px; }
+  .glossary-def { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+
+  /* SOURCES */
+  .sources-block { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-top: 48px; }
+  .sources-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .sources-block ol { padding-left: 20px; }
+  .sources-block ol li { font-size: 12px; color: var(--text-3); line-height: 1.65; padding: 3px 0; }
+  .sources-block ol li a { color: var(--teal); text-decoration: none; border-bottom: 1px dotted var(--teal); }
+
+  .cta-block { background: var(--surface-3); border: 1px solid var(--border-2); border-top: 3px solid var(--teal); border-radius: 16px; padding: 44px 48px; margin-top: 64px; text-align: center; }
+  .cta-block h3 { font-size: 24px; font-weight: 300; color: #fff; margin-bottom: 12px; }
+  .cta-block p { font-size: 15px; color: var(--text-2); margin-bottom: 28px; line-height: 1.65; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--teal); color: var(--void); font-size: 15px; font-weight: 500; padding: 13px 32px; border-radius: 8px; text-decoration: none; }
+
+  @media (max-width: 1024px) {
+    .sidebar { display: none; }
+    .main { padding: 36px 24px 80px; max-width: 100%; }
+    .doc-layer { flex-direction: column; }
+    .doc-layer-badge { width: 100%; flex-direction: row; justify-content: flex-start; gap: 12px; padding: 14px 18px; }
+    .gpo-models, .catalog-grid { grid-template-columns: 1fr; }
+    .xla-versus { grid-template-columns: 1fr; }
+    .xla-side.sla-side { border-right: none; border-bottom: 1px solid var(--border); }
+    .ct-head, .ct-row { grid-template-columns: 100px 1fr 1fr; }
+    .hero h1 { font-size: 34px; }
+    .glossary-grid, .stats-row { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat:last-child { border-bottom: none; }
+    .gov-cycle { flex-direction: column; }
+    .gov-step { border-right: none; border-bottom: 1px solid var(--border); }
+    .gov-arrow { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="38" height="38" rx="6" fill="#0e1219"/>
+    <path d="M8 7 L4 7 L4 31 L8 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M30 7 L34 7 L34 31 L30 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <polygon points="9,10 28,19 9,28 14,19" fill="#e8b800"/>
+    <polygon points="14,17 24,19 14,23 17,19" fill="white"/>
+  </svg>
+  <div class="topbar-brand">
+    <span class="brand-name">GBS Insider Club</span>
+    <span class="brand-sub">Field Guide</span>
+  </div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-title">Pillar 2 — Operational Excellence</div>
+  <div class="topbar-edition">Cluster 1 of 5</div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-group-label">Pillar 2 · Operational Excellence</div>
+    <a href="#process-knowledge" class="sidebar-item active"><div class="sidebar-badge">1</div><span class="nav-label">Process and Knowledge Management</span></a>
+    <a href="pillar-2-cluster-2-service-management.html" class="sidebar-item"><div class="sidebar-badge">2</div><span class="nav-label">Service Management</span></a>
+    <a href="pillar-2-cluster-3-continuous-improvement.html" class="sidebar-item"><div class="sidebar-badge">3</div><span class="nav-label">Continuous Improvement</span></a>
+    <a href="pillar-2-cluster-4-operational-controls.html" class="sidebar-item"><div class="sidebar-badge">4</div><span class="nav-label">Operational Controls</span></a>
+    <a href="pillar-2-cluster-5-personal-productivity.html" class="sidebar-item"><div class="sidebar-badge">5</div><span class="nav-label">Personal Productivity</span></a>
+    <div style="margin-top: 24px; border-top: 1px solid var(--border); padding-top: 16px;">
+      <a href="glossary.html" class="sidebar-item"><div class="sidebar-badge" style="color:var(--gold); border-color:var(--gold);">G</div><span class="nav-label">Glossary</span></a>
+    </div>
+    <div class="sidebar-on-page">
+      <div class="sidebar-on-page-label">On this page</div>
+      <a href="#doc-layers">The three document layers</a>
+      <a href="#sop-vs-dtp">SOP vs DTP — side by side</a>
+      <a href="#governance">Governance: keeping docs alive</a>
+      <a href="#gpo">The Global Process Owner role</a>
+      <a href="#service-catalog">The service catalog</a>
+      <a href="#xla">XLAs — beyond the SLA</a>
+      <a href="#feedback">Feedback and surveys</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="hero" id="process-knowledge">
+      <div class="eyebrow">Pillar 2 · Operational Excellence · Cluster 1</div>
+      <h1>Process and Knowledge Management
+        <span class="gold-line">If it isn't documented, it isn't a process. It's just a habit.</span>
+      </h1>
+      <p class="hero-tagline">Every GBS center runs on documented processes. But how that documentation is structured, maintained, and governed separates the centers that scale from the ones that break when someone leaves.</p>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-number">3</span>
+          <span class="stat-label">document layers in a well-structured GBS: SOP (what), DTP (how), controls (guardrails)</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">Annual</span>
+          <span class="stat-label">minimum review cycle for SOPs and DTPs — more frequently after process changes or audit findings</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">GPO</span>
+          <span class="stat-label">Global Process Owner — the role responsible for keeping process design current, consistent, and improvement-ready</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: DOC LAYERS -->
+    <section class="section" id="doc-layers">
+      <div class="section-eyebrow">Section 1</div>
+      <h2>The three document layers — what they are and how they connect</h2>
+      <p class="section-hook">Most GBS professionals use these documents every day without knowing their names. Understanding the hierarchy helps you know which document to look in — and which one to update.</p>
+
+      <div class="doc-pyramid">
+        <div class="doc-layer l1">
+          <div class="doc-layer-badge">
+            <div class="layer-num">L1</div>
+            <div class="layer-name">SOP</div>
+          </div>
+          <div class="doc-layer-content">
+            <h4>Standard Operating Procedure — the "what and why"</h4>
+            <p>The high-level blueprint for a process. Describes what the process does, who is involved, what goes in, what comes out, which systems are used, and what controls apply. Think of it as the overview a new manager would read to understand the process — not the step-by-step instructions for someone executing it.</p>
+            <p><strong>Contains:</strong> process scope, inputs and outputs, process map (swimlane or flowchart), parties involved, systems used, controls and compliance references, exceptions.</p>
+            <span class="example-tag">Example: AP Invoice Processing SOP</span>
+            <span class="example-tag">Shared with: auditors, new hires, BU stakeholders</span>
+          </div>
+        </div>
+        <div class="doc-layer l2">
+          <div class="doc-layer-badge">
+            <div class="layer-num">L2</div>
+            <div class="layer-name">DTP</div>
+          </div>
+          <div class="doc-layer-content">
+            <h4>Desktop Procedure — the "exactly how"</h4>
+            <p>The step-by-step execution manual. Screenshots, system navigation paths, field-by-field instructions, what to do when errors occur. Written for the person actually performing the task — not for the manager overseeing it. If an SOP is the recipe, the DTP is the photo-by-photo cooking guide.</p>
+            <p><strong>Contains:</strong> numbered steps, screenshots, system navigation, error-handling instructions, keyboard shortcuts, approval routing paths.</p>
+            <span class="example-tag">Example: How to post an invoice in SAP — step 1 to step 24</span>
+            <span class="example-tag">Shared with: processors, new joiners during training</span>
+          </div>
+        </div>
+        <div class="doc-layer l3">
+          <div class="doc-layer-badge">
+            <div class="layer-num">L3</div>
+            <div class="layer-name">Controls</div>
+          </div>
+          <div class="doc-layer-content">
+            <h4>Controls and compliance references — the "guardrails"</h4>
+            <p>The rules that cannot be broken. Segregation of duties requirements, approval thresholds, mandatory two-person sign-offs, regulatory deadlines. These are referenced in the SOP but may also exist as standalone controls documentation — especially in regulated industries or SOX-compliant environments.</p>
+            <p><strong>Contains:</strong> control names and IDs, what triggers each control, who performs the control, evidence required for audit.</p>
+            <span class="example-tag">Example: Four-eyes approval for payments above €50,000</span>
+            <span class="example-tag">Referenced in: SOPs, audit workpapers, risk registers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong style="color: var(--amber);">The real-world gap:</strong> Many organizations have SOPs. Fewer have current DTPs. Almost none have all three layers consistently maintained and linked together. The further from setup you get, the more the documentation drifts from reality — processes change, systems are upgraded, and nobody updates the manual. This is not laziness. It is a governance failure.
+      </div>
+    </section>
+
+    <!-- SECTION 2: SOP VS DTP COMPARE -->
+    <section class="section" id="sop-vs-dtp">
+      <div class="section-eyebrow">Section 2</div>
+      <h2>SOP vs <a class="gloss" href="#g-dtp">DTP<span class="tooltip">Desktop Procedure — a step-by-step execution manual with screenshots, used by the person performing the task. More detailed than an SOP.</span></a> — side by side</h2>
+      <p class="section-hook">The same process has two documents describing it. Here is what belongs in each.</p>
+
+      <div class="compare-table">
+        <div class="ct-head">
+          <div>Dimension</div>
+          <div class="h-sop">SOP — Standard Operating Procedure</div>
+          <div class="h-dtp">DTP — Desktop Procedure</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-dim">Purpose</div>
+          <div class="ct-cell">Describe what the process does and why it exists</div>
+          <div class="ct-cell">Show exactly how to perform each step</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-dim">Audience</div>
+          <div class="ct-cell">Managers, auditors, new hires, BU stakeholders</div>
+          <div class="ct-cell">Processors, analysts, anyone executing the task</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-dim">Level of detail</div>
+          <div class="ct-cell">High-level — process flow, not click-by-click</div>
+          <div class="ct-cell">Granular — step 1 to step N, with screenshots</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-dim">Format</div>
+          <div class="ct-cell">Narrative + process map (swimlane, flowchart)</div>
+          <div class="ct-cell">Numbered steps + screenshots + system navigation paths</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-dim">Shared with</div>
+          <div class="ct-cell">Internal and sometimes external (auditors, clients)</div>
+          <div class="ct-cell">Internal only — operational teams</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-dim">Update trigger</div>
+          <div class="ct-cell">Process scope change, governance redesign, new controls</div>
+          <div class="ct-cell">Any system change, UI update, step modification</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-dim">Owner</div>
+          <div class="ct-cell">Process Owner / GPO</div>
+          <div class="ct-cell">Team Lead / Senior Processor — with GPO approval</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: GOVERNANCE -->
+    <section class="section" id="governance">
+      <div class="section-eyebrow">Section 3</div>
+      <h2>Governance: keeping documentation alive</h2>
+      <p class="section-hook">Documentation that is not maintained becomes a liability — not just an asset. An outdated SOP fails audits. An outdated DTP trains people incorrectly. The governance cycle is what prevents both.</p>
+
+      <div class="gov-cycle">
+        <div class="gov-step">
+          <div class="gov-step-num">01</div>
+          <h4>Review triggered</h4>
+          <p>Annual cycle or event-driven: system change, process redesign, audit finding, new regulation</p>
+          <span class="gov-arrow">›</span>
+        </div>
+        <div class="gov-step">
+          <div class="gov-step-num">02</div>
+          <h4>Team inputs collected</h4>
+          <p>Processors flag what no longer matches reality. The best input comes from the people executing the work daily</p>
+          <span class="gov-arrow">›</span>
+        </div>
+        <div class="gov-step">
+          <div class="gov-step-num">03</div>
+          <h4>Update drafted</h4>
+          <p>Process Owner or Senior Processor drafts changes. Screenshots refreshed. Controls references checked</p>
+          <span class="gov-arrow">›</span>
+        </div>
+        <div class="gov-step">
+          <div class="gov-step-num">04</div>
+          <h4>Reviewed and approved</h4>
+          <p>GPO or Process Owner approves. For controls changes: Compliance or Internal Audit review may be required</p>
+          <span class="gov-arrow">›</span>
+        </div>
+        <div class="gov-step">
+          <div class="gov-step-num">05</div>
+          <h4>Published and trained</h4>
+          <p>Updated document shared with the team. Brief retraining session held. Acknowledgement logged for audit trail</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">What gets checked during an audit</div>
+        <ul>
+          <li><strong>Version control:</strong> is the document dated, versioned, and clearly showing what changed from the prior version?</li>
+          <li><strong>Approval evidence:</strong> is there a signature or system record showing who approved the current version?</li>
+          <li><strong>Training records:</strong> is there evidence that the team was trained on the current version — not an older one?</li>
+          <li><strong>Controls completeness:</strong> does the SOP reference all relevant controls? Are they traceable to the control register?</li>
+          <li><strong>Currency:</strong> does the document reflect how the process actually runs today — including any system changes since the last update?</li>
+        </ul>
+      </div>
+
+      <div class="insight-block">
+        <div class="insight-icon">✦</div>
+        <div class="insight-body">
+          <div class="insight-label">GBS Insider Club Insights</div>
+          <ul>
+            <li><strong>The best input for updating a DTP comes from the people using it every day.</strong> When a process changes, the processors know before the document does. Building a simple feedback mechanism — even a shared comment in the document itself — surfaces gaps faster than any top-down review cycle.</li>
+            <li><strong>An outdated DTP is not a neutral document.</strong> It is actively training new people incorrectly. In a high-turnover GBS environment, an unreviewed DTP from two system upgrades ago becomes the source of the errors that show up in your FPY metrics six months later.</li>
+            <li><strong>SOPs and DTPs should be in the same review cycle as each other — and the same cycle as the SLA review.</strong> If the process changes and the SLA target doesn't, or the SLA changes and the SOP isn't updated to reflect the new service definition, you have a governance gap.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GPO -->
+    <section class="section" id="gpo">
+      <div class="section-eyebrow">Section 4</div>
+      <h2>The <a class="gloss" href="#g-gpo">Global Process Owner<span class="tooltip">GPO — Global Process Owner. Accountable for end-to-end process design, standardization, governance, and improvement across all GBS and business unit touchpoints for a given process.</span></a> — what the role actually is</h2>
+      <p class="section-hook">The GPO title sounds clear. In practice, what it means varies enormously by organization. Here is what the role should do — and the different ways it gets set up.</p>
+
+      <div class="card">
+        <div class="card-title">What a GPO is accountable for — in any model</div>
+        <ul>
+          <li><strong>Process design and standardization:</strong> defining how the process runs globally — the target operating model — and driving harmonization across regions and entities</li>
+          <li><strong>Documentation governance:</strong> ensuring SOPs and DTPs are current, approved, and accessible — the governance cycle described above is the GPO's responsibility to enforce</li>
+          <li><strong>Continuous improvement:</strong> identifying where the process underperforms, sponsoring improvement initiatives, and tracking the outcomes</li>
+          <li><strong>Change management for process changes:</strong> when the process design changes, the GPO owns the communication, retraining, and adoption — not just the updated document</li>
+          <li><strong>Metrics ownership:</strong> defining what KPIs the process should be measured by and ensuring the right data is captured to report them reliably</li>
+          <li><strong>Escalation point:</strong> when operations teams and BU stakeholders disagree about how a process should work, the GPO is the arbiter</li>
+        </ul>
+      </div>
+
+      <p style="font-size:14px; color:var(--text-2); margin-bottom: 16px; line-height: 1.65;">Research by EY across 250+ client interviews identifies four main GPO setup models. Each has different reporting lines, authority levels, and operational intensity. No single model is universally correct — it depends on organizational structure and GBS maturity.</p>
+
+      <div class="gpo-models">
+        <div class="gpo-model">
+          <div class="gpo-model-header biz">Business-unit-centric model</div>
+          <div class="gpo-model-body">
+            <ul>
+              <li>GPO embedded in or reports to a business unit</li>
+              <li>Strong connection to BU priorities and local context</li>
+              <li>Risk: GBS operations teams may not feel the GPO's authority</li>
+              <li>Common in early-stage or decentralized organizations</li>
+              <li>GPO may be part-time, combined with a functional leadership role</li>
+            </ul>
+          </div>
+        </div>
+        <div class="gpo-model">
+          <div class="gpo-model-header func">Function-centric model</div>
+          <div class="gpo-model-body">
+            <ul>
+              <li>GPO sits within the function (Finance GPO inside Group Finance)</li>
+              <li>Strong process expertise and functional credibility</li>
+              <li>Dotted-line relationship to GBS operations teams</li>
+              <li>Works well when the function retains significant process authority</li>
+              <li>Common for F&A and HR processes in mid-maturity organizations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="gpo-model">
+          <div class="gpo-model-header gbs">GBS-centric model</div>
+          <div class="gpo-model-body">
+            <ul>
+              <li>GPO sits within the GBS organization itself</li>
+              <li>Direct authority over GBS operations teams</li>
+              <li>Clear accountability — one owner for design and delivery</li>
+              <li>Requires GPO to maintain strong BU relationships despite reporting into GBS</li>
+              <li>Common in mature, well-established GBS organizations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="gpo-model">
+          <div class="gpo-model-header ent">Enterprise-centric model</div>
+          <div class="gpo-model-body">
+            <ul>
+              <li>GPO reports directly to C-level (CEO, COO, or CFO)</li>
+              <li>Highest authority — can drive standardization across all BUs and GBS</li>
+              <li>Required for true enterprise-wide process harmonization</li>
+              <li>Rare — most common in organizations with strong centralization mandates</li>
+              <li>Best-practice model per Genpact and EY research</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- GPO ENGAGEMENT CHART -->
+      <div class="chart-wrap">
+        <div class="chart-title">GPO engagement vs. change intensity — how the role scales</div>
+        <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <!-- Background -->
+          <rect width="700" height="320" fill="transparent"/>
+          <!-- Axes -->
+          <line x1="60" y1="260" x2="660" y2="260" stroke="#1e2535" stroke-width="1.5"/>
+          <line x1="60" y1="40" x2="60" y2="260" stroke="#1e2535" stroke-width="1.5"/>
+          <!-- Axis labels -->
+          <text x="360" y="295" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1">CHANGE INTENSITY IN ORGANIZATION</text>
+          <text x="20" y="150" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" transform="rotate(-90,20,150)">GPO ENGAGEMENT LEVEL</text>
+          <!-- Grid lines -->
+          <line x1="60" y1="200" x2="660" y2="200" stroke="#1e2535" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <line x1="60" y1="140" x2="660" y2="140" stroke="#1e2535" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <line x1="60" y1="80" x2="660" y2="80" stroke="#1e2535" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <!-- X grid -->
+          <line x1="210" y1="40" x2="210" y2="260" stroke="#1e2535" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <line x1="360" y1="40" x2="360" y2="260" stroke="#1e2535" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <line x1="510" y1="40" x2="510" y2="260" stroke="#1e2535" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <!-- Shaded area under curve -->
+          <path d="M60,240 C150,230 200,200 300,160 C400,120 500,80 660,55 L660,260 L60,260 Z" fill="rgba(29,106,255,0.08)"/>
+          <!-- Main curve -->
+          <path d="M60,240 C150,230 200,200 300,160 C400,120 500,80 660,55" fill="none" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Zone labels -->
+          <rect x="70" y="205" width="130" height="42" rx="5" fill="#0e1219" stroke="#1e2535" stroke-width="1"/>
+          <text x="135" y="222" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Stable operations</text>
+          <text x="135" y="237" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Light governance role</text>
+          <rect x="240" y="155" width="130" height="42" rx="5" fill="#0e1219" stroke="#1d6aff" stroke-width="1"/>
+          <text x="305" y="172" fill="#c8d0de" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Process improvement</text>
+          <text x="305" y="187" fill="#c8d0de" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Active involvement</text>
+          <rect x="510" y="48" width="142" height="42" rx="5" fill="#0e1219" stroke="#e8b800" stroke-width="1"/>
+          <text x="581" y="65" fill="#e8b800" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Transformation /</text>
+          <text x="581" y="80" fill="#e8b800" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">migration: full GPO</text>
+          <!-- X axis labels -->
+          <text x="135" y="275" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">LOW</text>
+          <text x="360" y="275" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">MEDIUM</text>
+          <text x="590" y="275" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">HIGH</text>
+          <!-- Y axis labels -->
+          <text x="55" y="244" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">LOW</text>
+          <text x="55" y="144" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">MED</text>
+          <text x="55" y="84" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">HIGH</text>
+          <!-- Data points -->
+          <circle cx="60" cy="240" r="5" fill="#1d6aff"/>
+          <circle cx="210" cy="195" r="5" fill="#1d6aff"/>
+          <circle cx="360" cy="155" r="5" fill="#1d6aff"/>
+          <circle cx="510" cy="95" r="5" fill="#e8b800"/>
+          <circle cx="660" cy="55" r="5" fill="#e8b800"/>
+        </svg>
+        <p style="font-size:12px; color:var(--text-3); margin-top: 8px; font-style: italic;">GPO engagement is not constant. During stable operations the GPO plays a lighter governance role. During major transformation, migration, or tool deployment, the GPO becomes a central driving force. The intensity of the role follows the change curve.</p>
+      </div>
+
+      <div class="tension-box">
+        <div class="tension-label">The GPO controversy — why the role often underdelivers</div>
+        <p>The GPO title frequently exceeds the authority granted. A GPO who has no solid-line relationship to operational teams, no budget, and no dedicated time (because the role is a part-time addition to another job) cannot drive the standardization and governance the role requires. Research shows that the most effective GPOs have direct accountability to senior leadership — not just a dotted-line relationship to GBS. Without real authority, the GPO becomes a process documentarian rather than a process owner.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SERVICE CATALOG -->
+    <section class="section" id="service-catalog">
+      <div class="section-eyebrow">Section 5</div>
+      <h2>The service catalog — GBS's menu of services</h2>
+      <p class="section-hook">Think of the service catalog as the GBS equivalent of a restaurant menu. It tells stakeholders what is available, what is not, who can order it, and what standard comes with it.</p>
+
+      <div class="card">
+        <div class="card-title">What a service catalog contains</div>
+        <ul>
+          <li><strong>Service name and description:</strong> plain-language explanation of what the service does — not internal process jargon</li>
+          <li><strong>Scope and eligibility:</strong> which business units, entities, or geographies can use this service</li>
+          <li><strong>What is included — and explicitly excluded:</strong> the service boundary. What GBS will do and what remains with the business</li>
+          <li><strong>Inputs required from the business:</strong> what the business must provide for GBS to execute — data formats, approval chains, timing</li>
+          <li><strong>Deliverables and outputs:</strong> what GBS will return — reports, processed transactions, resolved queries</li>
+          <li><strong>Performance standards:</strong> the SLA metrics and targets that apply to this service</li>
+          <li><strong>Escalation and exception handling:</strong> who to contact, and through what channel, when something falls outside standard</li>
+          <li><strong>Cost or allocation model (if applicable):</strong> how the service is charged to the business unit, if a chargeback model is in place</li>
+        </ul>
+      </div>
+
+      <div class="catalog-grid">
+        <div class="catalog-item">
+          <div class="catalog-item-tag">When it matters most</div>
+          <h4>Onboarding new processes</h4>
+          <p>When a new process is migrated to GBS, the service catalog entry sets expectations before anyone starts working. It is the shared reference for what was agreed.</p>
+        </div>
+        <div class="catalog-item">
+          <div class="catalog-item-tag">When it matters most</div>
+          <h4>Managing stakeholder expectations</h4>
+          <p>When a BU asks for something GBS doesn't do, the catalog is the objective reference. "That isn't in our service catalog" is cleaner than "we don't do that."</p>
+        </div>
+        <div class="catalog-item">
+          <div class="catalog-item-tag">When it matters most</div>
+          <h4>Resolving scope conflicts</h4>
+          <p>When GBS and a BU disagree about who is responsible for something, the catalog — combined with the SLA — is the primary evidence. Undocumented scope is always disputed scope.</p>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong style="color: var(--amber);">In practice:</strong> Many GBS organizations do not have a formal, standalone service catalog — the service definition exists as part of the SLA or the transition documentation from when the process was set up. This works until scope creep accumulates, new stakeholders join, or processes are restructured. The service catalog should be reviewed in the same cycle as the SOP — not treated as a one-time setup document.
+      </div>
+    </section>
+
+    <!-- SECTION 6: XLA -->
+    <section class="section" id="xla">
+      <div class="section-eyebrow">Section 6</div>
+      <h2>XLAs — measuring how the service feels, not just how it performs</h2>
+      <p class="section-hook">SLAs measure whether GBS hit its targets. XLAs measure whether the people receiving the service actually had a good experience. These are not the same thing.</p>
+
+      <div class="xla-versus">
+        <div class="xla-side sla-side">
+          <div class="xla-tag">SLA — what we have always measured</div>
+          <h4>Service Level Agreement</h4>
+          <ul>
+            <li>Measures technical performance: response time, accuracy rate, turnaround time</li>
+            <li>Binary — either the target was hit or it wasn't</li>
+            <li>Does not capture how easy the service was to use</li>
+            <li>Does not capture how the business felt about the interaction</li>
+            <li>A ticket answered in 24 hours but unhelpfully is SLA-compliant but experience-poor</li>
+            <li>The floor — necessary but not sufficient</li>
+          </ul>
+        </div>
+        <div class="xla-side xla-new">
+          <div class="xla-tag">XLA — what the experience actually is</div>
+          <h4>Experience Level Agreement</h4>
+          <ul>
+            <li>Measures the end-user's perception: satisfaction, ease of use, emotional response</li>
+            <li>Captured through surveys, sentiment analysis, and structured feedback</li>
+            <li>Surfaces the gaps that KPIs cannot see — effort required, interaction quality</li>
+            <li>Used alongside SLAs, not instead of them</li>
+            <li>Originated in IT service management (ITSM/ITIL4) — now expanding into GBS</li>
+            <li>Still rare in GBS practice — but gaining traction in mature organizations</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- XLA SVG diagram -->
+      <div class="chart-wrap">
+        <div class="chart-title">SLA vs XLA — what each measures</div>
+        <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <!-- SLA box -->
+          <rect x="30" y="30" width="290" height="140" rx="10" fill="#0e1219" stroke="#1e2535" stroke-width="1"/>
+          <rect x="30" y="30" width="290" height="6" rx="3" fill="#7a8799"/>
+          <text x="175" y="58" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" font-weight="600">SLA MEASURES</text>
+          <text x="175" y="82" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Turnaround time hit?</text>
+          <text x="175" y="102" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Error rate within threshold?</text>
+          <text x="175" y="122" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Volume processed on time?</text>
+          <text x="175" y="142" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">SLA compliance %?</text>
+          <text x="175" y="162" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" font-style="italic">Output — did it happen?</text>
+          <!-- Arrow -->
+          <text x="349" y="108" fill="#1d6aff" font-size="28" text-anchor="middle" font-family="Inter">+</text>
+          <!-- XLA box -->
+          <rect x="380" y="30" width="290" height="140" rx="10" fill="#0e1219" stroke="#1d6aff" stroke-width="1.5"/>
+          <rect x="380" y="30" width="290" height="6" rx="3" fill="#1d6aff"/>
+          <text x="525" y="58" fill="#1d6aff" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" font-weight="600">XLA MEASURES</text>
+          <text x="525" y="82" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Was the service easy to use?</text>
+          <text x="525" y="102" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Did the interaction feel helpful?</text>
+          <text x="525" y="122" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Would you recommend GBS?</text>
+          <text x="525" y="142" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Was the outcome what you needed?</text>
+          <text x="525" y="162" fill="#1d6aff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" font-style="italic">Outcome — how did it feel?</text>
+        </svg>
+      </div>
+
+      <div class="card gold">
+        <div class="card-title">XLA in practice — what it looks like when it works</div>
+        <ul>
+          <li>Short pulse surveys sent to service recipients after key interactions — not annual exercises that nobody reads</li>
+          <li>Questions designed around outcomes ("Did this resolve your issue?") not process steps ("How would you rate our response time?")</li>
+          <li>Results shared with the GBS team — not just management — so the people delivering the service understand how it is being received</li>
+          <li>Results used for improvement, not for blame. A low XLA score is a signal to investigate, not a disciplinary trigger</li>
+          <li>Discussed in service review meetings alongside SLA data — giving both the quantitative and qualitative view of performance</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 7: FEEDBACK SURVEYS -->
+    <section class="section" id="feedback">
+      <div class="section-eyebrow">Section 7</div>
+      <h2>Feedback and satisfaction surveys — doing it right</h2>
+      <p class="section-hook">Whether called NPS, CES, or just "the annual survey" — asking for feedback is necessary. How it is designed and used determines whether it builds or damages the service relationship.</p>
+
+      <div class="card">
+        <div class="card-title">What makes a GBS feedback survey useful</div>
+        <ul>
+          <li><strong>Ask what the business actually cares about:</strong> not what is easy for GBS to measure. If the business is frustrated by query resolution quality, asking about turnaround time misses the point</li>
+          <li><strong>Keep it short:</strong> 3–5 focused questions get higher response rates than 20-question forms. The goal is signal, not data volume</li>
+          <li><strong>Make results visible to the team:</strong> sharing results only with management creates a feedback loop that never reaches the people who can act on it. Teams that see their own results improve faster</li>
+          <li><strong>Discuss outcomes — do not just report them:</strong> a survey result that is presented in a meeting and then filed away changes nothing. Outcomes need to become actions with owners and deadlines</li>
+          <li><strong>Design for improvement, not vindication:</strong> a survey designed to prove GBS is performing well will produce results that confirm that — and miss the real gaps. Design it to find the friction</li>
+          <li><strong>Protect the relationship:</strong> surveys can damage the service relationship if used for retaliation, blame, or creating adversarial dynamics between GBS and the business. The survey is a tool for getting better — not for settling scores</li>
+        </ul>
+      </div>
+
+      <div class="insight-block">
+        <div class="insight-icon">✦</div>
+        <div class="insight-body">
+          <div class="insight-label">GBS Insider Club Insights</div>
+          <ul>
+            <li><strong>NPS was designed for B2C customer loyalty — it translates imperfectly to GBS.</strong> Asking an internal finance team "how likely are you to recommend AP processing to a colleague?" is odd. What matters in GBS is effort (how hard was it to get this done?) and outcome (did the service solve the problem?). Customer Effort Score is often more meaningful for internal service contexts than NPS.</li>
+            <li><strong>The survey result is not the insight — the conversation about the survey result is.</strong> A score without a discussion about what drove it produces no action. Build the debrief into the process.</li>
+            <li><strong>If you are a GBS analyst or specialist:</strong> survey results that land on your team are feedback about your work. Treat them as developmental data, not as criticism. The organizations that improve fastest are the ones where front-line teams can hear and act on feedback without it becoming political.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="section" id="glossary">
+      <div class="section-eyebrow">Glossary</div>
+      <h2>Key terms in this cluster</h2>
+      <p class="section-hook">Underlined terms throughout this page link here. Full cross-pillar glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide glossary</a>.</p>
+      <div class="glossary-grid">
+        <div class="glossary-item" id="g-sop"><span class="glossary-term">SOP</span><span class="glossary-def">Standard Operating Procedure — the high-level process blueprint covering scope, inputs, outputs, parties, systems, and controls. Describes what the process does and why. Audience: managers, auditors, new hires.</span></div>
+        <div class="glossary-item" id="g-dtp"><span class="glossary-term">DTP</span><span class="glossary-def">Desktop Procedure — step-by-step execution manual with screenshots and system navigation paths. Describes exactly how to perform each step. Audience: processors and analysts performing the task.</span></div>
+        <div class="glossary-item" id="g-gpo"><span class="glossary-term">GPO</span><span class="glossary-def">Global Process Owner — accountable for end-to-end process design, documentation governance, standardization, and continuous improvement across all GBS and BU touchpoints for a given process.</span></div>
+        <div class="glossary-item" id="g-xla"><span class="glossary-term">XLA</span><span class="glossary-def">Experience Level Agreement — a commitment to measuring and improving how service recipients feel about the service they receive. Complements SLAs by capturing satisfaction, ease of use, and perceived value.</span></div>
+        <div class="glossary-item" id="g-nps"><span class="glossary-term">NPS</span><span class="glossary-def">Net Promoter Score — a loyalty metric measuring how likely users are to recommend a service. Scale 0–10. Promoters (9–10) minus Detractors (0–6) = NPS. Originated in B2C; used in GBS with mixed results.</span></div>
+        <div class="glossary-item" id="g-ces"><span class="glossary-term">CES</span><span class="glossary-def">Customer Effort Score — measures how much effort a user had to expend to get a service delivered or a problem resolved. Often more meaningful than NPS in internal GBS service contexts.</span></div>
+        <div class="glossary-item" id="g-service-catalog"><span class="glossary-term">Service catalog</span><span class="glossary-def">The documented menu of services GBS provides — including scope, inputs required, outputs delivered, eligibility, performance standards, and escalation paths. The primary reference for managing expectations and resolving scope disputes.</span></div>
+        <div class="glossary-item" id="g-e2e"><span class="glossary-term">E2E ownership</span><span class="glossary-def">End-to-end process ownership — accountability for a process from its initial trigger through to its final output, crossing all team and system boundaries. The GPO role is built on this principle.</span></div>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <div class="sources-block" id="sources">
+      <div class="sources-label">Sources and further reading</div>
+      <ol>
+        <li>EY — <a href="https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/services/consulting/documents/ey-report-the-future-of-gpo.pdf" target="_blank">The Future of Global Process Owners: Enabling the Next Wave of GBS (2024)</a></li>
+        <li>Genpact — <a href="https://www.genpact.com/insight/world-class-processes-begin-with-the-right-process-owners" target="_blank">World-Class Processes Start with the Right Global Process Owners</a></li>
+        <li>SSON — <a href="https://www.ssonetwork.com/glossary/global-process-owner-gpo" target="_blank">Global Process Owner (GPO) — Definition and Practice</a></li>
+        <li>LinkedIn / Van den Kieboom — <a href="https://www.linkedin.com/pulse/global-business-services-you-process-owner-problem-van-den-kieboom" target="_blank">Are You a Global Process Owner or a Global Problem Owner?</a></li>
+        <li>Ivanti — <a href="https://www.ivanti.com/blog/experience-level-agreements-xlas" target="_blank">What Are Experience Level Agreements? XLAs vs SLAs</a></li>
+        <li>HappySignals — <a href="https://www.happysignals.com/the-practical-guide-to-experience-level-agreements-xlas" target="_blank">Practical Guide to XLAs: What are IT Experience Level Agreements?</a></li>
+        <li>AGOS Asia — <a href="https://www.agosasia.com/post/beyond-slas-why-experience-level-agreements-xlas-are-the-future-of-gbs-performance" target="_blank">Beyond SLAs: Why XLAs Are the Future of GBS Performance</a></li>
+        <li>BOC Group — <a href="https://www.boc-group.com/en/faq-items/what-is-the-difference-between-process-documentation-and-standard-operating-procedures/" target="_blank">Process Documentation vs. Standard Operating Procedures</a></li>
+        <li>Synfiny Advisors — <a href="https://synfiny.com/the-global-business-services-organization-design-in-more-detail/" target="_blank">The Global Business Services Organization Design in More Detail</a></li>
+        <li>Peeriosity — <a href="https://www.peeriosity.com/shared-services/articles/2019/01/defining-the-responsibilities-of-global-process-owners-gpo/" target="_blank">Defining the Responsibilities of Global Process Owners (GPO)</a></li>
+      </ol>
+    </div>
+
+    <!-- SCOPE SIGNPOST -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;margin-top:48px;margin-bottom:32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">What this cluster covers — and what comes next</div>
+      <ul style="list-style:none;padding:0;">
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Document layers</strong> — SOP (what), DTP (how), controls (guardrails)</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Documentation governance cycle</strong> — review, update, approve, train, repeat</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Global Process Owner</strong> — four setup models, engagement vs. change curve</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Service catalog</strong> — what it contains and when it matters most</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>XLAs</strong> — experience measurement beyond SLA metrics</li>
+        <li style="font-size:14px;color:var(--text-2);padding:6px 0 6px 20px;position:relative;"><span style="position:absolute;left:0;color:var(--text-3);">→</span> <strong style="color:var(--text-2);">Service Management</strong> — ITIL, COBIT, service transitions — <a href="pillar-2-cluster-2-service-management.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">Cluster 2</a></li>
+      </ul>
+    </div>
+
+    <div class="cta-block">
+      <h3>Want the full breakdown on video?</h3>
+      <p>Process and knowledge management in GBS covered in depth on the GBS Insider Club YouTube channel.</p>
+      <a href="https://youtube.com/@gbsinsiderclub" class="cta-btn" target="_blank">&#9654; &nbsp; Subscribe on YouTube</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>
