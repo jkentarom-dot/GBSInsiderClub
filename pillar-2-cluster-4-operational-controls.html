@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operational Controls — Pillar 2 | GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--border:#1e2535;--border-2:#252e40;--teal:#1d6aff;--teal-deep:#0050e6;--teal-soft:#5090ff;--teal-glow:rgba(29,106,255,0.14);--gold:#e8b800;--gold-soft:#f0cc30;--gold-bg:rgba(232,184,0,0.12);--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--ruby:#e84560;--amber:#f59e0b;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;font-weight:300;background:var(--void);color:var(--text);font-size:16px;line-height:1.75;}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:2px solid var(--teal);height:62px;display:flex;align-items:center;padding:0 32px;gap:20px;}
+  .logo-mark{width:38px;height:38px;flex-shrink:0;}
+  .topbar-brand{display:flex;flex-direction:column;line-height:1.25;}
+  .topbar-brand .brand-name{font-size:13px;font-weight:600;color:#fff;}
+  .topbar-brand .brand-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;}
+  .topbar-divider{width:1px;height:28px;background:var(--border-2);margin:0 4px;}
+  .topbar-title{font-size:14px;color:var(--text-2);flex:1;}
+  .topbar-edition{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;}
+  .layout{display:flex;min-height:calc(100vh - 62px);}
+  .sidebar{width:290px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:28px 0;position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;}
+  .sidebar-group-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;padding:0 24px 10px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+  .sidebar-item{display:flex;align-items:center;gap:12px;padding:11px 24px;text-decoration:none;transition:background 0.15s;}
+  .sidebar-item:hover{background:var(--surface-2);}
+  .sidebar-item.active{background:var(--teal-glow);border-left:2px solid var(--teal);padding-left:22px;}
+  .sidebar-badge{width:22px;height:22px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);flex-shrink:0;}
+  .sidebar-item.active .sidebar-badge{background:var(--teal-glow);border-color:var(--teal);color:var(--teal);}
+  .sidebar-item span.nav-label{font-size:13px;color:var(--text-2);line-height:1.35;}
+  .sidebar-item.active span.nav-label{color:#fff;}
+  .sidebar-on-page{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;}
+  .sidebar-on-page-label{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;padding:0 24px 8px;}
+  .sidebar-on-page a{display:block;padding:7px 24px 7px 32px;font-size:12px;color:var(--text-3);text-decoration:none;transition:color 0.15s;}
+  .sidebar-on-page a:hover{color:var(--text-2);}
+  .main{flex:1;max-width:920px;padding:60px 60px 96px;overflow-x:hidden;}
+  .hero{margin-bottom:72px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:18px;}
+  .hero h1{font-size:46px;font-weight:300;letter-spacing:-1.1px;line-height:1.08;color:#fff;margin-bottom:10px;}
+  .hero h1 .gold-line{color:var(--gold);display:block;}
+  .hero-tagline{font-size:17px;color:var(--text-2);margin-bottom:36px;max-width:580px;line-height:1.7;}
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .stat{display:flex;flex-direction:column;gap:6px;padding:24px 28px;background:var(--surface);border-right:1px solid var(--border);}
+  .stat:last-child{border-right:none;}
+  .stat-number{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:var(--gold);line-height:1.2;}
+  .stat-label{font-size:13px;color:var(--text-3);line-height:1.5;}
+  a.gloss{color:inherit;text-decoration:none;border-bottom:1px dotted var(--teal);cursor:help;position:relative;}
+  a.gloss .tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--surface-3);border:1px solid var(--teal);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:300;color:var(--text-2);line-height:1.55;width:260px;z-index:200;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,0.4);}
+  a.gloss .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--teal);}
+  a.gloss:hover .tooltip{display:block;}
+  .section{margin-bottom:72px;scroll-margin-top:80px;}
+  .section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:10px;}
+  .section h2{font-size:28px;font-weight:300;letter-spacing:-0.4px;color:#fff;margin-bottom:8px;}
+  .section-hook{font-size:16px;color:var(--text-2);margin-bottom:32px;font-style:italic;line-height:1.6;}
+  .card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:28px 32px;margin-bottom:16px;}
+  .card.gold{border-left-color:var(--gold);}
+  .card.amber{border-left-color:var(--amber);}
+  .card.ruby{border-left-color:var(--ruby);}
+  .card-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:16px;}
+  .card ul{list-style:none;padding:0;}
+  .card ul li{font-size:15px;color:var(--text);padding:7px 0 7px 22px;position:relative;line-height:1.65;border-bottom:1px solid var(--border);}
+  .card ul li:last-child{border-bottom:none;}
+  .card ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:13px;top:9px;}
+  .card.gold ul li::before{color:var(--gold);}
+  .card.amber ul li::before{color:var(--amber);}
+  .card.ruby ul li::before{color:var(--ruby);}
+  .tension-box{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:10px;padding:20px 24px;margin-bottom:16px;}
+  .tension-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;}
+  .tension-box p{font-size:14px;color:var(--text-2);line-height:1.65;}
+  .disclaimer-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:8px;padding:16px 20px;font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:16px;}
+  .insight-block{background:linear-gradient(135deg,var(--gold-bg),transparent);border:1px solid var(--gold);border-radius:12px;padding:28px 32px;margin:32px 0;display:flex;gap:20px;align-items:flex-start;}
+  .insight-icon{width:38px;height:38px;background:var(--gold-bg);border:1px solid var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--gold);flex-shrink:0;}
+  .insight-body .insight-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:12px;}
+  .insight-body ul{list-style:none;padding:0;}
+  .insight-body ul li{font-size:15px;color:var(--text);padding:7px 0 7px 20px;position:relative;line-height:1.65;border-bottom:1px solid rgba(232,184,0,0.15);}
+  .insight-body ul li:last-child{border-bottom:none;}
+  .insight-body ul li::before{content:"→";position:absolute;left:0;color:var(--gold);font-size:12px;top:9px;}
+
+  /* FOUR EYES DIAGRAM */
+  .four-eyes-diagram{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+  .fe-step{padding:20px 18px;background:var(--surface-2);text-align:center;border-right:1px solid var(--border);position:relative;}
+  .fe-step:last-child{border-right:none;}
+  .fe-icon{font-size:28px;margin-bottom:10px;display:block;}
+  .fe-step h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px;}
+  .fe-step p{font-size:12px;color:var(--text-2);line-height:1.5;}
+  .fe-step:nth-child(1){border-top:3px solid var(--teal);}
+  .fe-step:nth-child(2){border-top:3px solid var(--gold);}
+  .fe-step:nth-child(3){border-top:3px solid var(--ruby);}
+  .fe-step-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;}
+  .fe-step:nth-child(1) .fe-step-label{color:var(--teal);}
+  .fe-step:nth-child(2) .fe-step-label{color:var(--gold);}
+  .fe-step:nth-child(3) .fe-step-label{color:var(--ruby);}
+
+  /* ESCALATION MATRIX */
+  .esc-table{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+  .esc-header{display:grid;grid-template-columns:100px 1fr 1fr 1fr;background:var(--surface-2);border-bottom:1px solid var(--border-2);}
+  .esc-header div{padding:11px 14px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3);}
+  .esc-row{display:grid;grid-template-columns:100px 1fr 1fr 1fr;border-bottom:1px solid var(--border);}
+  .esc-row:last-child{border-bottom:none;}
+  .esc-row:hover{background:var(--surface-2);}
+  .esc-level{padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;border-right:1px solid var(--border);display:flex;align-items:center;}
+  .esc-row:nth-child(2) .esc-level{color:var(--teal);}
+  .esc-row:nth-child(3) .esc-level{color:var(--amber);}
+  .esc-row:nth-child(4) .esc-level{color:var(--ruby);}
+  .esc-cell{padding:12px 14px;font-size:12px;color:var(--text-2);border-right:1px solid var(--border);line-height:1.5;}
+  .esc-cell:last-child{border-right:none;}
+
+  .glossary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .glossary-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;}
+  .glossary-term{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--teal);flex-shrink:0;min-width:80px;}
+  .glossary-def{font-size:14px;color:var(--text-2);line-height:1.6;}
+  .sources-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-top:48px;}
+  .sources-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;}
+  .sources-block ol{padding-left:20px;}
+  .sources-block ol li{font-size:12px;color:var(--text-3);line-height:1.65;padding:3px 0;}
+  .sources-block ol li a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);}
+  .cta-block{background:var(--surface-3);border:1px solid var(--border-2);border-top:3px solid var(--teal);border-radius:16px;padding:44px 48px;margin-top:64px;text-align:center;}
+  .cta-block h3{font-size:24px;font-weight:300;color:#fff;margin-bottom:12px;}
+  .cta-block p{font-size:15px;color:var(--text-2);margin-bottom:28px;line-height:1.65;}
+  .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
+  @media(max-width:1024px){
+    .sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}
+    .four-eyes-diagram{grid-template-columns:1fr;}
+    .fe-step{border-right:none;border-bottom:1px solid var(--border);}
+    .fe-step:last-child{border-bottom:none;}
+    .esc-header,.esc-row{grid-template-columns:80px 1fr 1fr 1fr;}
+    .hero h1{font-size:34px;}
+    .glossary-grid,.stats-row{grid-template-columns:1fr;}
+    .stat{border-right:none;border-bottom:1px solid var(--border);}
+    .stat:last-child{border-bottom:none;}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="38" height="38" rx="6" fill="#0e1219"/>
+    <path d="M8 7 L4 7 L4 31 L8 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M30 7 L34 7 L34 31 L30 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <polygon points="9,10 28,19 9,28 14,19" fill="#e8b800"/>
+    <polygon points="14,17 24,19 14,23 17,19" fill="white"/>
+  </svg>
+  <div class="topbar-brand"><span class="brand-name">GBS Insider Club</span><span class="brand-sub">Field Guide</span></div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-title">Pillar 2 — Operational Excellence</div>
+  <div class="topbar-edition">Cluster 4 of 5</div>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-group-label">Pillar 2 · Operational Excellence</div>
+    <a href="pillar-2-cluster-1-process-knowledge.html" class="sidebar-item"><div class="sidebar-badge">1</div><span class="nav-label">Process and Knowledge Management</span></a>
+    <a href="pillar-2-cluster-2-service-management.html" class="sidebar-item"><div class="sidebar-badge">2</div><span class="nav-label">Service Management</span></a>
+    <a href="pillar-2-cluster-3-continuous-improvement.html" class="sidebar-item"><div class="sidebar-badge">3</div><span class="nav-label">Continuous Improvement</span></a>
+    <a href="#controls" class="sidebar-item active"><div class="sidebar-badge">4</div><span class="nav-label">Operational Controls</span></a>
+    <a href="pillar-2-cluster-5-personal-productivity.html" class="sidebar-item"><div class="sidebar-badge">5</div><span class="nav-label">Personal Productivity</span></a>
+    <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:16px;">
+      <a href="glossary.html" class="sidebar-item"><div class="sidebar-badge" style="color:var(--gold);border-color:var(--gold);">G</div><span class="nav-label">Glossary</span></a>
+    </div>
+    <div class="sidebar-on-page">
+      <div class="sidebar-on-page-label">On this page</div>
+      <a href="#four-eyes">The four-eyes principle</a>
+      <a href="#sod">Segregation of duties</a>
+      <a href="#audit-ready">Audit readiness</a>
+      <a href="#escalation">Handling escalations and volume spikes</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="hero" id="controls">
+      <div class="eyebrow">Pillar 2 · Operational Excellence · Cluster 4</div>
+      <h1>Operational Controls
+        <span class="gold-line">The guardrails that keep GBS honest — and audit-proof.</span>
+      </h1>
+      <p class="hero-tagline">Controls are not bureaucracy. They are the evidence that your organization can be trusted to handle money, data, and decisions correctly — consistently and without supervision. Understanding them early in your career changes how you read every process you work in.</p>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-number">50%</span><span class="stat-label">faster fraud detection in organizations with strong Segregation of Duties controls — Association of Certified Fraud Examiners</span></div>
+        <div class="stat"><span class="stat-number">4 eyes</span><span class="stat-label">The minimum for any high-risk financial transaction — two people, one action, one review. Cannot be bypassed.</span></div>
+        <div class="stat"><span class="stat-number">SOX</span><span class="stat-label">Sarbanes-Oxley Act — the regulation most GBS F&amp;A teams operate under. Section 404 requires documented, tested internal controls.</span></div>
+      </div>
+    </div>
+
+    <section class="section" id="four-eyes">
+      <div class="section-eyebrow">Section 1</div>
+      <h2>The <a class="gloss" href="#g-four-eyes">four-eyes principle<span class="tooltip">A control requiring that a second, independent person reviews and approves any significant action before it is executed. The most widely applied internal control in GBS finance processes.</span></a> — why two people are better than one</h2>
+      <p class="section-hook">The four-eyes principle is the simplest and most universal internal control in GBS. One person acts. A second person, independent of the first, reviews and approves. Neither can complete the transaction alone.</p>
+
+      <div class="four-eyes-diagram">
+        <div class="fe-step">
+          <div class="fe-step-label">Preparer</div>
+          <span class="fe-icon" style="color:var(--teal);">&#9998;</span>
+          <h4>Performs the action</h4>
+          <p>Creates the payment, posts the entry, sets up the vendor, enters the data. Has full access to prepare but cannot approve their own work.</p>
+        </div>
+        <div class="fe-step">
+          <div class="fe-step-label">Reviewer</div>
+          <span class="fe-icon" style="color:var(--gold);">&#128065;</span>
+          <h4>Independent review</h4>
+          <p>A second person — with no role in the preparation — checks the work against policy, supporting documentation, and approval thresholds. Not a rubber stamp: active scrutiny required.</p>
+        </div>
+        <div class="fe-step">
+          <div class="fe-step-label">Result</div>
+          <span class="fe-icon" style="color:var(--ruby);">&#10003;</span>
+          <h4>Approved or rejected</h4>
+          <p>If the reviewer is satisfied: approved, with their ID logged in the system. If not: returned with a reason. Both actions are traceable.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Where four-eyes applies in GBS — common examples</div>
+        <ul>
+          <li><strong>Payment runs:</strong> processor releases invoices for payment → team lead or treasury approves the payment run</li>
+          <li><strong>Vendor setup:</strong> new vendor created in the ERP → independent review confirms bank details, VAT number, and duplicate check before activation</li>
+          <li><strong>Journal entries above threshold:</strong> journal posted by analyst → reviewed and approved by senior accountant or controller</li>
+          <li><strong>Master data changes:</strong> change to payment terms, bank account, or address requires a second sign-off to prevent fraud</li>
+          <li><strong>Credit note issuance:</strong> credit notes above a defined threshold require approval before release to avoid unauthorized revenue reversal</li>
+        </ul>
+      </div>
+
+      <div class="tension-box">
+        <div class="tension-label">The rubber stamp problem</div>
+        <p>The most common failure mode for the four-eyes principle is not bypassing it — it is performing it without actually reviewing. A reviewer who approves based on trust rather than scrutiny provides no protection. Auditors test this by checking whether reviewers can explain what they approved and why. A culture where second reviews are rushed or treated as a formality is a culture where controls exist on paper but not in practice.</p>
+      </div>
+    </section>
+
+    <section class="section" id="sod">
+      <div class="section-eyebrow">Section 2</div>
+      <h2><a class="gloss" href="#g-sod">Segregation of duties<span class="tooltip">SoD — the principle that no single person should have end-to-end control over a critical financial process. Separating create, approve, and release roles prevents fraud and reduces error risk.</span></a> — the architecture behind the four-eyes principle</h2>
+      <p class="section-hook">If the four-eyes principle is the rule, Segregation of Duties (SoD) is the system design that makes it possible. SoD means that no single person controls a complete financial cycle from start to finish.</p>
+
+      <!-- SoD SVG diagram -->
+      <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:24px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Segregation of duties — AP payment cycle example</div>
+        <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <!-- Steps -->
+          <rect x="20" y="30" width="130" height="80" rx="8" fill="#0e1219" stroke="#1d6aff" stroke-width="1.5"/>
+          <text x="85" y="55" fill="#1d6aff" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle" font-weight="600">ROLE A</text>
+          <text x="85" y="73" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Create vendor</text>
+          <text x="85" y="93" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">AP Clerk</text>
+
+          <text x="175" y="74" fill="#1e2535" font-family="Inter,sans-serif" font-size="20" text-anchor="middle">&#x2260;</text>
+
+          <rect x="190" y="30" width="130" height="80" rx="8" fill="#0e1219" stroke="#e8b800" stroke-width="1.5"/>
+          <text x="255" y="55" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle" font-weight="600">ROLE B</text>
+          <text x="255" y="73" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Approve invoice</text>
+          <text x="255" y="93" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">AP Team Lead</text>
+
+          <text x="345" y="74" fill="#1e2535" font-family="Inter,sans-serif" font-size="20" text-anchor="middle">&#x2260;</text>
+
+          <rect x="360" y="30" width="130" height="80" rx="8" fill="#0e1219" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="425" y="55" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle" font-weight="600">ROLE C</text>
+          <text x="425" y="73" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Release payment</text>
+          <text x="425" y="93" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Treasury / Controller</text>
+
+          <text x="515" y="74" fill="#1e2535" font-family="Inter,sans-serif" font-size="20" text-anchor="middle">&#x2260;</text>
+
+          <rect x="530" y="30" width="150" height="80" rx="8" fill="#0e1219" stroke="#f59e0b" stroke-width="1.5"/>
+          <text x="605" y="55" fill="#f59e0b" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle" font-weight="600">ROLE D</text>
+          <text x="605" y="73" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Reconcile &amp; audit</text>
+          <text x="605" y="93" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Senior Accountant</text>
+
+          <!-- ≠ labels -->
+          <text x="175" y="145" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">different people</text>
+          <text x="345" y="145" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">different people</text>
+          <text x="515" y="145" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">different people</text>
+        </svg>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Why SoD matters in GBS — and what breaks it</div>
+        <ul>
+          <li><strong>Why it exists:</strong> if one person can create a vendor, approve an invoice, and release the payment, there is no check. Fraudulent payments become easy. Errors go undetected for months.</li>
+          <li><strong>SOX requirement:</strong> for publicly listed companies, Section 404 of SOX requires documented evidence that SoD is designed correctly and operating effectively — tested annually by internal and external auditors</li>
+          <li><strong>The most common GBS SoD failure:</strong> insufficient headcount. When a small team covers too many roles, individuals end up with conflicting access rights — not by design, but by necessity. Auditors find these and flag them as control deficiencies.</li>
+          <li><strong>Compensating controls:</strong> when true SoD is not possible (too small a team), a compensating control is required — typically a management review of all transactions performed by the conflicted individual</li>
+          <li><strong>System enforcement:</strong> ERP access rights (SAP authorization profiles, Oracle role configuration) should enforce SoD at the system level — not rely on policy alone</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="audit-ready">
+      <div class="section-eyebrow">Section 3</div>
+      <h2>Audit readiness — being "audit ready" every day, not just when auditors arrive</h2>
+      <p class="section-hook">The goal is not to pass audits. The goal is to operate in a way that makes passing audits a byproduct of how you normally work — not a sprint you do once a year.</p>
+
+      <div class="card gold">
+        <div class="card-title">What auditors look for in GBS — the checklist</div>
+        <ul>
+          <li><strong>Control documentation:</strong> every key control documented — what it is, who performs it, when, and what evidence it produces</li>
+          <li><strong>Evidence of execution:</strong> system logs, approval records, review sign-offs — timestamped, traceable, and attached to the transaction or reconciliation they relate to</li>
+          <li><strong>SoD compliance:</strong> access rights matrix showing who can do what, with no unmitigated conflicts</li>
+          <li><strong>Current SOPs:</strong> process documentation that reflects how the process actually runs today — version-controlled and recently approved</li>
+          <li><strong>Training records:</strong> evidence that staff have been trained on current controls — especially after any process or system change</li>
+          <li><strong>Exception handling:</strong> documented process for what happens when a control fails or an exception occurs — and evidence that exceptions were handled correctly</li>
+          <li><strong>Management review evidence:</strong> regular review of key reports, reconciliations, and metrics — signed off and dated</li>
+        </ul>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong style="color:var(--amber);">The daily practice:</strong> Audit readiness is built through habits, not sprints. Attaching evidence at the time of execution (not six months later when auditors ask), maintaining version-controlled documentation, and flagging exceptions immediately — rather than hoping nobody notices — are the daily disciplines that make audit preparation a formality rather than a crisis.
+      </div>
+    </section>
+
+    <section class="section" id="escalation">
+      <div class="section-eyebrow">Section 4</div>
+      <h2>Handling escalations, volume spikes, and SLA breaches</h2>
+      <p class="section-hook">In GBS, things go wrong. Systems fail, volumes spike unexpectedly, team members are absent at exactly the wrong time. How you respond to these events defines your operational maturity — and your professional reputation.</p>
+
+      <div class="esc-table">
+        <div class="esc-header">
+          <div>Level</div>
+          <div>Trigger</div>
+          <div>Who is involved</div>
+          <div>Response timeframe</div>
+        </div>
+        <div class="esc-row">
+          <div class="esc-level" style="color:var(--teal);">L1</div>
+          <div class="esc-cell">SLA at risk — KPI trending below target but not yet breached. Volume higher than planned for the day.</div>
+          <div class="esc-cell">Processor flags to Team Lead. Team Lead monitors and reallocates capacity.</div>
+          <div class="esc-cell">Flagged immediately, resolved within the same business day if possible.</div>
+        </div>
+        <div class="esc-row">
+          <div class="esc-level" style="color:var(--amber);">L2</div>
+          <div class="esc-cell">SLA breach confirmed. Backlog exceeding aging threshold. Stakeholder has raised a complaint.</div>
+          <div class="esc-cell">Team Lead notifies Operations Manager. Stakeholder informed proactively. Recovery plan drafted.</div>
+          <div class="esc-cell">Acknowledgement within 4 hours. Recovery plan within 24 hours.</div>
+        </div>
+        <div class="esc-row">
+          <div class="esc-level" style="color:var(--ruby);">L3</div>
+          <div class="esc-cell">Sustained SLA breach (3+ consecutive periods). System failure impacting processing capacity. Executive-level complaint.</div>
+          <div class="esc-cell">GBS Operations Director involved. Formal incident management process activated. Root cause analysis committed.</div>
+          <div class="esc-cell">Leadership notified same day. Formal RCA delivered within 5 business days.</div>
+        </div>
+      </div>
+
+      <div class="card amber">
+        <div class="card-title">Volume spike response — the practical playbook</div>
+        <ul>
+          <li><strong>Declare it early:</strong> the moment volume is tracking 20%+ above plan, flag it. Do not wait for the backlog to form. Early warning is the single most valuable action.</li>
+          <li><strong>Triage the backlog:</strong> not all items are equal. Aged items near payment deadlines, items with stakeholder escalations, and regulatory filings have priority over standard aging. Sort and prioritize explicitly.</li>
+          <li><strong>Reallocate capacity temporarily:</strong> cross-trained team members from adjacent processes can provide surge support for standardized tasks. This is one reason cross-training is a governance requirement, not optional.</li>
+          <li><strong>Communicate proactively:</strong> stakeholders who find out about a backlog before GBS tells them lose trust permanently. Stakeholders who are told early, with a plan, usually remain constructive.</li>
+          <li><strong>Close the loop:</strong> after recovery, document what happened, what caused it, and what prevents recurrence. Volume spikes that are not analyzed become recurring surprises.</li>
+        </ul>
+      </div>
+
+      <div class="insight-block">
+        <div class="insight-icon">✦</div>
+        <div class="insight-body">
+          <div class="insight-label">GBS Insider Club Insights</div>
+          <ul>
+            <li><strong>Controls are your professional protection, not just the organization's.</strong> When something goes wrong in GBS — a payment is made incorrectly, data is lost, a fraud occurs — the question is: was the control in place and was it followed? If yes, you are protected. If not, you are exposed. Following controls carefully, every time, is not compliance theater — it is career risk management.</li>
+            <li><strong>The worst escalations are the ones that surprise leadership.</strong> An SLA breach that GBS discovered, reported, and had a plan for is manageable. An SLA breach that a business stakeholder raised before GBS leadership knew about it is a trust crisis. The discipline of flagging early — even when you are not certain — is a mark of operational maturity.</li>
+            <li><strong>Being audit-ready every day is easier than you think — and harder than most teams manage.</strong> The daily habits that create audit readiness (attaching evidence at execution time, version-controlling documents, logging exceptions immediately) take about 5 minutes per transaction. The catch-up sprint to recreate evidence from six months ago takes weeks — and sometimes cannot be done at all.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="glossary">
+      <div class="section-eyebrow">Glossary</div>
+      <h2>Key terms in this cluster</h2>
+      <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
+      <div class="glossary-grid">
+        <div class="glossary-item" id="g-four-eyes"><span class="glossary-term">Four-eyes</span><span class="glossary-def">Control principle requiring a second, independent reviewer to approve significant actions before execution. The reviewer must genuinely review — not rubber-stamp. Evidence of both actions must be traceable.</span></div>
+        <div class="glossary-item" id="g-sod"><span class="glossary-term">SoD</span><span class="glossary-def">Segregation of Duties — the design principle that no single person should control an entire financial cycle end-to-end. Separates creation, approval, release, and reconciliation into different roles.</span></div>
+        <div class="glossary-item"><span class="glossary-term">SOX 404</span><span class="glossary-def">Section 404 of the Sarbanes-Oxley Act — requires management of publicly listed companies to assess and document the effectiveness of internal controls over financial reporting annually.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Control deficiency</span><span class="glossary-def">An audit finding indicating that a control is absent, poorly designed, or not operating effectively. A material weakness is a severe control deficiency that could result in a material misstatement of financial statements.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Compensating control</span><span class="glossary-def">An alternative control used when true SoD is not achievable — typically a management review of all transactions performed by a person with conflicting access rights.</span></div>
+        <div class="glossary-item"><span class="glossary-term">RCA</span><span class="glossary-def">Root Cause Analysis — structured investigation to identify why a control failure, SLA breach, or operational incident occurred. Standard output after any L3 escalation.</span></div>
+      </div>
+    </section>
+
+    <div class="sources-block" id="sources">
+      <div class="sources-label">Sources and further reading</div>
+      <ol>
+        <li>Exabeam — <a href="https://www.exabeam.com/explainers/sox-compliance/sox-controls-common-types-examples-implementation-practices/" target="_blank">SOX Controls: Common Types, Examples &amp; Implementation Practices</a></li>
+        <li>SecureEnds — <a href="https://www.securends.com/blog/segregation-of-duties-in-internal-controls/" target="_blank">Segregation of Duties in Internal Controls: Framework and Best Practices</a></li>
+        <li>Ramp — <a href="https://ramp.com/blog/accounts-payable/segregation-of-duties-in-accounts-payable" target="_blank">Segregation of Duties in Accounts Payable Explained</a></li>
+        <li>Zampa Partners — <a href="https://zampapartners.com/insights/the-four-eyes-principle-in-sanctions-monitoring" target="_blank">The Four Eyes Principle in Sanctions Monitoring: An Internal Audit Perspective</a></li>
+        <li>SafePaaS — <a href="https://www.safepaas.com/blog/why-segregation-of-duties-is-critical-for-sox-controls/" target="_blank">Why Segregation of Duties is Critical for SOX Controls</a></li>
+        <li>Pathlock — <a href="https://pathlock.com/learn/internal-controls-for-sox-compliance-a-practical-guide/" target="_blank">Internal Controls for SOX Compliance: A Practical Guide</a></li>
+        <li>ACFE — Association of Certified Fraud Examiners, 2024 Report to the Nations: SoD fraud detection statistics</li>
+      </ol>
+    </div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;margin-top:48px;margin-bottom:32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">What this cluster covers — and what comes next</div>
+      <ul style="list-style:none;padding:0;">
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Four-eyes principle</strong> — the most universal GBS control, with examples</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Segregation of Duties</strong> — design principles, SOX requirements, ERP enforcement</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Audit readiness</strong> — daily habits that make audit prep a formality</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Escalation matrix</strong> — L1/L2/L3 escalation triggers and response frameworks</li>
+        <li style="font-size:14px;color:var(--text-2);padding:6px 0 6px 20px;position:relative;"><span style="position:absolute;left:0;color:var(--text-3);">→</span> <strong style="color:var(--text-2);">Personal Productivity</strong> — Eisenhower Matrix, time blocking, inbox zero — <a href="pillar-2-cluster-5-personal-productivity.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">Cluster 5</a></li>
+      </ul>
+    </div>
+    <div class="cta-block">
+      <h3>Want the full breakdown on video?</h3>
+      <p>GBS operational controls covered in depth on the GBS Insider Club YouTube channel.</p>
+      <a href="https://youtube.com/@gbsinsiderclub" class="cta-btn" target="_blank">&#9654; &nbsp; Subscribe on YouTube</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>
