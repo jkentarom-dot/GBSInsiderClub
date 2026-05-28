@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuous Improvement — Pillar 2 | GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--border:#1e2535;--border-2:#252e40;--teal:#1d6aff;--teal-deep:#0050e6;--teal-soft:#5090ff;--teal-glow:rgba(29,106,255,0.14);--gold:#e8b800;--gold-soft:#f0cc30;--gold-bg:rgba(232,184,0,0.12);--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--ruby:#e84560;--amber:#f59e0b;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;font-weight:300;background:var(--void);color:var(--text);font-size:16px;line-height:1.75;}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:2px solid var(--teal);height:62px;display:flex;align-items:center;padding:0 32px;gap:20px;}
+  .logo-mark{width:38px;height:38px;flex-shrink:0;}
+  .topbar-brand{display:flex;flex-direction:column;line-height:1.25;}
+  .topbar-brand .brand-name{font-size:13px;font-weight:600;color:#fff;}
+  .topbar-brand .brand-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;}
+  .topbar-divider{width:1px;height:28px;background:var(--border-2);margin:0 4px;}
+  .topbar-title{font-size:14px;color:var(--text-2);flex:1;}
+  .topbar-edition{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;}
+  .layout{display:flex;min-height:calc(100vh - 62px);}
+  .sidebar{width:290px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:28px 0;position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;}
+  .sidebar-group-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;padding:0 24px 10px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+  .sidebar-item{display:flex;align-items:center;gap:12px;padding:11px 24px;text-decoration:none;transition:background 0.15s;}
+  .sidebar-item:hover{background:var(--surface-2);}
+  .sidebar-item.active{background:var(--teal-glow);border-left:2px solid var(--teal);padding-left:22px;}
+  .sidebar-badge{width:22px;height:22px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);flex-shrink:0;}
+  .sidebar-item.active .sidebar-badge{background:var(--teal-glow);border-color:var(--teal);color:var(--teal);}
+  .sidebar-item span.nav-label{font-size:13px;color:var(--text-2);line-height:1.35;}
+  .sidebar-item.active span.nav-label{color:#fff;}
+  .sidebar-on-page{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;}
+  .sidebar-on-page-label{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;padding:0 24px 8px;}
+  .sidebar-on-page a{display:block;padding:7px 24px 7px 32px;font-size:12px;color:var(--text-3);text-decoration:none;transition:color 0.15s;}
+  .sidebar-on-page a:hover{color:var(--text-2);}
+  .main{flex:1;max-width:920px;padding:60px 60px 96px;overflow-x:hidden;}
+  .hero{margin-bottom:72px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:18px;}
+  .hero h1{font-size:46px;font-weight:300;letter-spacing:-1.1px;line-height:1.08;color:#fff;margin-bottom:10px;}
+  .hero h1 .gold-line{color:var(--gold);display:block;}
+  .hero-tagline{font-size:17px;color:var(--text-2);margin-bottom:36px;max-width:580px;line-height:1.7;}
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .stat{display:flex;flex-direction:column;gap:6px;padding:24px 28px;background:var(--surface);border-right:1px solid var(--border);}
+  .stat:last-child{border-right:none;}
+  .stat-number{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:var(--gold);line-height:1.2;}
+  .stat-label{font-size:13px;color:var(--text-3);line-height:1.5;}
+  a.gloss{color:inherit;text-decoration:none;border-bottom:1px dotted var(--teal);cursor:help;position:relative;}
+  a.gloss .tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--surface-3);border:1px solid var(--teal);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:300;color:var(--text-2);line-height:1.55;width:260px;z-index:200;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,0.4);}
+  a.gloss .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--teal);}
+  a.gloss:hover .tooltip{display:block;}
+  .section{margin-bottom:72px;scroll-margin-top:80px;}
+  .section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:10px;}
+  .section h2{font-size:28px;font-weight:300;letter-spacing:-0.4px;color:#fff;margin-bottom:8px;}
+  .section-hook{font-size:16px;color:var(--text-2);margin-bottom:32px;font-style:italic;line-height:1.6;}
+  .card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:28px 32px;margin-bottom:16px;}
+  .card.gold{border-left-color:var(--gold);}
+  .card.amber{border-left-color:var(--amber);}
+  .card-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:16px;}
+  .card ul{list-style:none;padding:0;}
+  .card ul li{font-size:15px;color:var(--text);padding:7px 0 7px 22px;position:relative;line-height:1.65;border-bottom:1px solid var(--border);}
+  .card ul li:last-child{border-bottom:none;}
+  .card ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:13px;top:9px;}
+  .card.gold ul li::before{color:var(--gold);}
+  .card.amber ul li::before{color:var(--amber);}
+  .tension-box{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:10px;padding:20px 24px;margin-bottom:16px;}
+  .tension-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;}
+  .tension-box p{font-size:14px;color:var(--text-2);line-height:1.65;}
+  .disclaimer-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:8px;padding:16px 20px;font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:16px;}
+  .insight-block{background:linear-gradient(135deg,var(--gold-bg),transparent);border:1px solid var(--gold);border-radius:12px;padding:28px 32px;margin:32px 0;display:flex;gap:20px;align-items:flex-start;}
+  .insight-icon{width:38px;height:38px;background:var(--gold-bg);border:1px solid var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--gold);flex-shrink:0;}
+  .insight-body .insight-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:12px;}
+  .insight-body ul{list-style:none;padding:0;}
+  .insight-body ul li{font-size:15px;color:var(--text);padding:7px 0 7px 20px;position:relative;line-height:1.65;border-bottom:1px solid rgba(232,184,0,0.15);}
+  .insight-body ul li:last-child{border-bottom:none;}
+  .insight-body ul li::before{content:"→";position:absolute;left:0;color:var(--gold);font-size:12px;top:9px;}
+  .glossary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .glossary-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;}
+  .glossary-term{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--teal);flex-shrink:0;min-width:80px;}
+  .glossary-def{font-size:14px;color:var(--text-2);line-height:1.6;}
+  .sources-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-top:48px;}
+  .sources-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;}
+  .sources-block ol{padding-left:20px;}
+  .sources-block ol li{font-size:12px;color:var(--text-3);line-height:1.65;padding:3px 0;}
+  .sources-block ol li a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);}
+  .cta-block{background:var(--surface-3);border:1px solid var(--border-2);border-top:3px solid var(--teal);border-radius:16px;padding:44px 48px;margin-top:64px;text-align:center;}
+  .cta-block h3{font-size:24px;font-weight:300;color:#fff;margin-bottom:12px;}
+  .cta-block p{font-size:15px;color:var(--text-2);margin-bottom:28px;line-height:1.65;}
+  .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
+
+  /* WASTE GRID */
+  .waste-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}
+  .waste-card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+  .waste-letter{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:var(--ruby);line-height:1;margin-bottom:6px;}
+  .waste-card h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px;}
+  .waste-card p{font-size:12px;color:var(--text-2);line-height:1.6;}
+  .waste-card .gbs-example{font-size:11px;color:var(--teal);margin-top:6px;font-style:italic;}
+
+  /* DMAIC */
+  .dmaic-flow{display:flex;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+  .dmaic-phase{flex:1;padding:20px 14px;text-align:center;border-right:1px solid var(--border);}
+  .dmaic-phase:last-child{border-right:none;}
+  .dmaic-letter{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;line-height:1;margin-bottom:8px;}
+  .dmaic-phase:nth-child(1){background:var(--surface-2);}
+  .dmaic-phase:nth-child(1) .dmaic-letter{color:var(--teal);}
+  .dmaic-phase:nth-child(2){background:var(--surface-2);}
+  .dmaic-phase:nth-child(2) .dmaic-letter{color:var(--sky);}
+  .dmaic-phase:nth-child(3){background:var(--surface-2);}
+  .dmaic-phase:nth-child(3) .dmaic-letter{color:var(--gold);}
+  .dmaic-phase:nth-child(4){background:var(--surface-2);}
+  .dmaic-phase:nth-child(4) .dmaic-letter{color:var(--amber);}
+  .dmaic-phase:nth-child(5){background:var(--surface-3);}
+  .dmaic-phase:nth-child(5) .dmaic-letter{color:var(--ruby);}
+  .dmaic-phase h4{font-size:12px;font-weight:600;color:#fff;margin-bottom:6px;}
+  .dmaic-phase p{font-size:11px;color:var(--text-3);line-height:1.5;}
+  .dmaic-phase .dmaic-example{font-size:11px;color:var(--text-2);margin-top:8px;padding-top:8px;border-top:1px solid var(--border);line-height:1.4;}
+
+  /* BELTS */
+  .belt-row{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+  .belt-item{display:flex;align-items:center;gap:16px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;}
+  .belt-badge{width:44px;height:20px;border-radius:4px;flex-shrink:0;}
+  .belt-badge.yellow{background:#d4a017;}
+  .belt-badge.green{background:#228b22;}
+  .belt-badge.black{background:#1a1a2e;border:2px solid var(--text-3);}
+  .belt-badge.master{background:linear-gradient(135deg,#1a1a2e,#2d2d4a);border:2px solid var(--gold);}
+  .belt-body h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:3px;}
+  .belt-body p{font-size:12px;color:var(--text-2);line-height:1.5;}
+
+  /* SAVINGS */
+  .savings-split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+  .savings-side{padding:22px 24px;}
+  .savings-side.hard{background:var(--surface);border-right:1px solid var(--border);border-top:3px solid var(--teal);}
+  .savings-side.soft{background:var(--surface-3);border-top:3px solid var(--gold);}
+  .savings-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;}
+  .savings-side.hard .savings-tag{color:var(--teal);}
+  .savings-side.soft .savings-tag{color:var(--gold);}
+  .savings-side h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:8px;}
+  .savings-side ul{list-style:none;padding:0;}
+  .savings-side ul li{font-size:13px;color:var(--text-2);padding:5px 0 5px 16px;position:relative;border-bottom:1px solid var(--border);line-height:1.55;}
+  .savings-side ul li:last-child{border-bottom:none;}
+  .savings-side.hard ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:11px;top:7px;}
+  .savings-side.soft ul li::before{content:"→";position:absolute;left:0;color:var(--gold);font-size:11px;top:7px;}
+
+  @media(max-width:1024px){
+    .sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}
+    .waste-grid{grid-template-columns:repeat(2,1fr);}
+    .dmaic-flow{flex-direction:column;}
+    .dmaic-phase{border-right:none;border-bottom:1px solid var(--border);}
+    .dmaic-phase:last-child{border-bottom:none;}
+    .savings-split{grid-template-columns:1fr;}
+    .savings-side.hard{border-right:none;border-bottom:1px solid var(--border);}
+    .hero h1{font-size:34px;}
+    .glossary-grid,.stats-row{grid-template-columns:1fr;}
+    .stat{border-right:none;border-bottom:1px solid var(--border);}
+    .stat:last-child{border-bottom:none;}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="38" height="38" rx="6" fill="#0e1219"/>
+    <path d="M8 7 L4 7 L4 31 L8 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M30 7 L34 7 L34 31 L30 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <polygon points="9,10 28,19 9,28 14,19" fill="#e8b800"/>
+    <polygon points="14,17 24,19 14,23 17,19" fill="white"/>
+  </svg>
+  <div class="topbar-brand"><span class="brand-name">GBS Insider Club</span><span class="brand-sub">Field Guide</span></div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-title">Pillar 2 — Operational Excellence</div>
+  <div class="topbar-edition">Cluster 3 of 5</div>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-group-label">Pillar 2 · Operational Excellence</div>
+    <a href="pillar-2-cluster-1-process-knowledge.html" class="sidebar-item"><div class="sidebar-badge">1</div><span class="nav-label">Process and Knowledge Management</span></a>
+    <a href="pillar-2-cluster-2-service-management.html" class="sidebar-item"><div class="sidebar-badge">2</div><span class="nav-label">Service Management</span></a>
+    <a href="#ci" class="sidebar-item active"><div class="sidebar-badge">3</div><span class="nav-label">Continuous Improvement</span></a>
+    <a href="pillar-2-cluster-4-operational-controls.html" class="sidebar-item"><div class="sidebar-badge">4</div><span class="nav-label">Operational Controls</span></a>
+    <a href="pillar-2-cluster-5-personal-productivity.html" class="sidebar-item"><div class="sidebar-badge">5</div><span class="nav-label">Personal Productivity</span></a>
+    <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:16px;">
+      <a href="glossary.html" class="sidebar-item"><div class="sidebar-badge" style="color:var(--gold);border-color:var(--gold);">G</div><span class="nav-label">Glossary</span></a>
+    </div>
+    <div class="sidebar-on-page">
+      <div class="sidebar-on-page-label">On this page</div>
+      <a href="#lean-six-sigma">Lean vs Six Sigma</a>
+      <a href="#eight-wastes">The 8 wastes — DOWNTIME</a>
+      <a href="#dmaic">DMAIC framework</a>
+      <a href="#belts">The belt system explained</a>
+      <a href="#savings">Hard vs soft savings</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="hero" id="ci">
+      <div class="eyebrow">Pillar 2 · Operational Excellence · Cluster 3</div>
+      <h1>Continuous Improvement
+        <span class="gold-line">The discipline that separates GBS centers that stay efficient from those that drift.</span>
+      </h1>
+      <p class="hero-tagline">Continuous improvement is not a project. It is a culture. Every analyst who spots a repeating error, every team lead who maps a wasteful handoff, every manager who asks "why does this step exist?" is practicing CI — with or without a Six Sigma belt.</p>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-number">8</span><span class="stat-label">categories of waste in the Lean framework — known by the acronym DOWNTIME — visible in every GBS process</span></div>
+        <div class="stat"><span class="stat-number">DMAIC</span><span class="stat-label">Define → Measure → Analyze → Improve → Control — the five-step CI project framework used globally in GBS</span></div>
+        <div class="stat"><span class="stat-number">Hard</span><span class="stat-label">vs Soft savings — the most important distinction in GBS improvement reporting. One hits the P&amp;L, one doesn't.</span></div>
+      </div>
+    </div>
+
+    <section class="section" id="lean-six-sigma">
+      <div class="section-eyebrow">Section 1</div>
+      <h2>Lean vs Six Sigma — what each one does</h2>
+      <p class="section-hook">These two methodologies are often combined into "Lean Six Sigma" — but they target different problems. Understanding each separately helps you pick the right tool.</p>
+
+      <!-- SVG: Lean vs Six Sigma -->
+      <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:24px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Lean vs Six Sigma — two different problems, one combined toolkit</div>
+        <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <!-- Lean -->
+          <rect x="20" y="20" width="300" height="140" rx="10" fill="#0e1219" stroke="#1d6aff" stroke-width="1.5"/>
+          <rect x="20" y="20" width="300" height="5" rx="2" fill="#1d6aff"/>
+          <text x="170" y="44" fill="#1d6aff" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" font-weight="600">LEAN</text>
+          <text x="170" y="62" fill="#c8d0de" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" font-weight="500">Problem: Waste and slowness</text>
+          <text x="170" y="84" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Removes steps that don't add value</text>
+          <text x="170" y="104" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Speeds up flow through a process</text>
+          <text x="170" y="124" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Tools: VSM, 5S, Kaizen, Kanban</text>
+          <text x="170" y="148" fill="#1d6aff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" font-style="italic">GBS example: reduce AP cycle time</text>
+          <!-- + -->
+          <text x="349" y="100" fill="#e8b800" font-size="28" text-anchor="middle" font-weight="300">+</text>
+          <!-- Six Sigma -->
+          <rect x="380" y="20" width="300" height="140" rx="10" fill="#0e1219" stroke="#e8b800" stroke-width="1.5"/>
+          <rect x="380" y="20" width="300" height="5" rx="2" fill="#e8b800"/>
+          <text x="530" y="44" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" font-weight="600">SIX SIGMA</text>
+          <text x="530" y="62" fill="#c8d0de" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" font-weight="500">Problem: Defects and variation</text>
+          <text x="530" y="84" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Reduces errors and inconsistency</text>
+          <text x="530" y="104" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Uses data to find root causes</text>
+          <text x="530" y="124" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Tools: DMAIC, fishbone, control charts</text>
+          <text x="530" y="148" fill="#e8b800" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" font-style="italic">GBS example: reduce invoice error rate</text>
+        </svg>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Why GBS uses both together</div>
+        <ul>
+          <li>A process can be fast and wrong — Lean speeds it up, Six Sigma makes it accurate. You need both.</li>
+          <li>Lean is best when the problem is <em>flow</em>: too many steps, too many handoffs, unnecessary waiting time</li>
+          <li>Six Sigma is best when the problem is <em>quality</em>: recurring errors, variable outputs, defects that keep reappearing</li>
+          <li>Lean Six Sigma combines both: reduce waste AND reduce variation. This is the standard CI toolkit in mature GBS organizations</li>
+          <li>You do not need a belt certification to use these ideas — you need to understand what problem each tool is designed to solve</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="eight-wastes">
+      <div class="section-eyebrow">Section 2</div>
+      <h2>The 8 wastes — <a class="gloss" href="#g-downtime">DOWNTIME<span class="tooltip">Acronym for the 8 wastes: Defects, Overproduction, Waiting, Non-Utilized Talent, Transportation, Inventory, Motion, Extra-Processing.</span></a></h2>
+      <p class="section-hook">Every GBS process contains waste. The 8-waste framework — remembered by the acronym DOWNTIME — gives you a checklist for finding it. Once you know these, you will spot them everywhere.</p>
+
+      <div class="waste-grid">
+        <div class="waste-card">
+          <div class="waste-letter">D</div>
+          <h4>Defects</h4>
+          <p>Errors that require rework, correction, or re-processing. The cost is not just fixing the error — it is the time spent detecting it.</p>
+          <div class="gbs-example">GBS: incorrect invoice data requiring manual correction before posting</div>
+        </div>
+        <div class="waste-card">
+          <div class="waste-letter">O</div>
+          <h4>Overproduction</h4>
+          <p>Producing more than is needed, faster than needed. In services: generating reports nobody reads, processing batches before the downstream team is ready.</p>
+          <div class="gbs-example">GBS: daily report generated but only read monthly</div>
+        </div>
+        <div class="waste-card">
+          <div class="waste-letter">W</div>
+          <h4>Waiting</h4>
+          <p>Time spent idle between steps — waiting for approval, missing data, system access, or the previous step to complete. Often the single largest waste in GBS.</p>
+          <div class="gbs-example">GBS: invoice sitting in queue waiting for 3-way match approval</div>
+        </div>
+        <div class="waste-card">
+          <div class="waste-letter">N</div>
+          <h4>Non-Utilized Talent</h4>
+          <p>Skills, knowledge, and ideas that go unused because people are not empowered to contribute. The eighth waste — added to the original Toyota 7 specifically for service environments.</p>
+          <div class="gbs-example">GBS: analyst with automation skills assigned only to manual data entry</div>
+        </div>
+        <div class="waste-card">
+          <div class="waste-letter">T</div>
+          <h4>Transportation</h4>
+          <p>Moving information, documents, or work items unnecessarily between people, systems, or locations without adding value.</p>
+          <div class="gbs-example">GBS: invoice emailed → printed → scanned → rekeyed into ERP instead of direct upload</div>
+        </div>
+        <div class="waste-card">
+          <div class="waste-letter">I</div>
+          <h4>Inventory</h4>
+          <p>Excess items — documents, tasks, tickets, open items — building up between steps. In GBS, this is your backlog. Work piling up that has not been processed.</p>
+          <div class="gbs-example">GBS: 400 unmatched vendor invoices aging past 30 days</div>
+        </div>
+        <div class="waste-card">
+          <div class="waste-letter">M</div>
+          <h4>Motion</h4>
+          <p>Unnecessary movement by people within a process — clicking through multiple screens, switching between systems, navigating complex interfaces to find one piece of data.</p>
+          <div class="gbs-example">GBS: processor opens 5 systems to verify one transaction</div>
+        </div>
+        <div class="waste-card">
+          <div class="waste-letter">E</div>
+          <h4>Extra-Processing</h4>
+          <p>Doing more work than the customer requires — triple-checking data that only needs one check, producing output in formats nobody uses, over-engineering simple tasks.</p>
+          <div class="gbs-example">GBS: reconciliation checked at every step when a single final check would suffice</div>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong style="color:var(--amber);">The career move:</strong> Most GBS teams focus entirely on output KPIs. The analyst who can walk into a process and identify three types of waste — by name, with examples — demonstrates a level of operational maturity that goes well beyond their job description. You do not need a project to use this framework. You need a process to observe and a vocabulary to describe what you see.
+      </div>
+    </section>
+
+    <section class="section" id="dmaic">
+      <div class="section-eyebrow">Section 3</div>
+      <h2>The <a class="gloss" href="#g-dmaic">DMAIC<span class="tooltip">Define, Measure, Analyze, Improve, Control — the five-phase Six Sigma project framework used for structured improvement initiatives in GBS and other service environments.</span></a> framework — how structured improvement projects work</h2>
+      <p class="section-hook">DMAIC is the backbone of every formal improvement project in GBS. Five phases, each with a purpose. Think of it as a structured way to go from "we have a problem" to "the problem is solved and won't come back."</p>
+
+      <div class="dmaic-flow">
+        <div class="dmaic-phase">
+          <div class="dmaic-letter">D</div>
+          <h4>Define</h4>
+          <p>What is the problem? Who is affected? What does success look like?</p>
+          <div class="dmaic-example"><strong>Tool:</strong> Project charter, SIPOC<br><strong>Output:</strong> Clear problem statement + measurable goal</div>
+        </div>
+        <div class="dmaic-phase">
+          <div class="dmaic-letter">M</div>
+          <h4>Measure</h4>
+          <p>Quantify the current state. How bad is it? How often does it happen?</p>
+          <div class="dmaic-example"><strong>Tool:</strong> Data collection plan, process map<br><strong>Output:</strong> Baseline performance data</div>
+        </div>
+        <div class="dmaic-phase">
+          <div class="dmaic-letter">A</div>
+          <h4>Analyze</h4>
+          <p>Find the root causes. Why is it happening? What are the real drivers?</p>
+          <div class="dmaic-example"><strong>Tool:</strong> 5 Whys, fishbone diagram<br><strong>Output:</strong> Validated root cause list</div>
+        </div>
+        <div class="dmaic-phase">
+          <div class="dmaic-letter">I</div>
+          <h4>Improve</h4>
+          <p>Design and test solutions. Pilot the fix. Measure the impact before full rollout.</p>
+          <div class="dmaic-example"><strong>Tool:</strong> Solution design, pilot run<br><strong>Output:</strong> Tested improvement with evidence</div>
+        </div>
+        <div class="dmaic-phase">
+          <div class="dmaic-letter">C</div>
+          <h4>Control</h4>
+          <p>Lock in the gains. Update the SOP. Monitor to ensure the problem does not return.</p>
+          <div class="dmaic-example"><strong>Tool:</strong> Control charts, updated DTP<br><strong>Output:</strong> Sustained improvement — not a one-time fix</div>
+        </div>
+      </div>
+
+      <div class="card gold">
+        <div class="card-title">DMAIC in a GBS context — worked example</div>
+        <ul>
+          <li><strong>Define:</strong> "Our AP invoice error rate is 8.2%. Target: below 3% within 90 days."</li>
+          <li><strong>Measure:</strong> Pull last 3 months of invoice data. Categorize error types. Confirm the 8.2% baseline is accurate and reproducible.</li>
+          <li><strong>Analyze:</strong> 74% of errors come from manual data entry of paper invoices from 3 vendors. Root cause: no e-invoicing setup with those vendors.</li>
+          <li><strong>Improve:</strong> Onboard the 3 vendors onto e-invoicing portal. Pilot with vendor A for 2 weeks — error rate drops to 0.4% for that subset.</li>
+          <li><strong>Control:</strong> Roll out to all three vendors. Update the DTP. Add a monthly KPI review to detect any future drift. Close the project.</li>
+        </ul>
+      </div>
+
+      <div class="tension-box">
+        <div class="tension-label">A3 and SIPOC — two other tools worth knowing</div>
+        <p><strong>A3 Problem Solving:</strong> a one-page structured problem analysis — named for the A3 paper size. Contains: background, current situation, root cause analysis, proposed solution, implementation plan, and expected outcome. Lightweight DMAIC for smaller problems. Used heavily in Lean environments.</p>
+        <p style="margin-top:10px;"><strong>SIPOC:</strong> Suppliers → Inputs → Process → Outputs → Customers. A high-level process map used in the Define phase to establish scope. Five columns on a page. Answers: what triggers the process, what feeds it, what steps it contains, what it produces, and who receives the output.</p>
+      </div>
+    </section>
+
+    <section class="section" id="belts">
+      <div class="section-eyebrow">Section 4</div>
+      <h2>The Six Sigma belt system — what it actually means for your career</h2>
+      <p class="section-hook">Belts are not mandatory in GBS. But they signal something real: this person can run a structured improvement project, not just describe one.</p>
+
+      <div class="belt-row">
+        <div class="belt-item">
+          <div class="belt-badge yellow"></div>
+          <div class="belt-body">
+            <h4>Yellow Belt — awareness level</h4>
+            <p>Understands the DMAIC framework and the 8 wastes. Can participate in improvement projects as a team member. 1–2 days training. Suitable for all GBS analysts — especially those early in their career.</p>
+          </div>
+        </div>
+        <div class="belt-item">
+          <div class="belt-badge green"></div>
+          <div class="belt-body">
+            <h4>Green Belt — project lead level</h4>
+            <p>Can lead a DMAIC project independently. Has practical experience with data collection, root cause analysis, and solution implementation. 2–4 weeks training + a real project. Highly relevant for GBS team leads, process specialists, and those targeting operational excellence or project management roles.</p>
+          </div>
+        </div>
+        <div class="belt-item">
+          <div class="belt-badge black"></div>
+          <div class="belt-body">
+            <h4>Black Belt — full-time improvement specialist</h4>
+            <p>Leads multiple complex projects simultaneously. Deep statistical analysis, mentors Green Belts, drives CI culture. Typically a dedicated CI role rather than a practitioner add-on. Most GBS organizations have 1–3 Black Belts per major center.</p>
+          </div>
+        </div>
+        <div class="belt-item">
+          <div class="belt-badge master"></div>
+          <div class="belt-body">
+            <h4>Master Black Belt — strategic level</h4>
+            <p>Trains and certifies other belts. Designs the CI program. Rarely seen below regional or global GBS leadership level. Certification route typically takes 2+ years of active project work.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong style="color:var(--amber);">Reality check:</strong> Many GBS professionals practice CI without any belt. The methodology matters more than the badge. That said, a Green Belt certification is a differentiator at the team lead and project manager level — it demonstrates structured thinking, data-driven decision making, and the ability to sustain improvements rather than just identify them.
+      </div>
+    </section>
+
+    <section class="section" id="savings">
+      <div class="section-eyebrow">Section 5</div>
+      <h2>Hard vs soft savings — how GBS proves its impact</h2>
+      <p class="section-hook">This is where improvement initiatives get political. Not all savings are equal. Finance wants to see hard savings. Operations often generates soft savings. Understanding the difference — and how to communicate across it — is a real career skill.</p>
+
+      <div class="savings-split">
+        <div class="savings-side hard">
+          <div class="savings-tag">Hard savings — show up in the P&amp;L</div>
+          <h4>Real money, real accountability</h4>
+          <ul>
+            <li>Headcount reduction — fewer FTEs processing the same volume</li>
+            <li>Vendor cost reduction — renegotiated supplier contracts enabled by better data</li>
+            <li>Late payment penalty elimination — saved by fixing cycle times</li>
+            <li>Error correction cost removal — less rework, less manual intervention</li>
+            <li>Finance can directly trace these to the income statement</li>
+            <li>The gold standard for CI projects — but not always achievable</li>
+          </ul>
+        </div>
+        <div class="savings-side soft">
+          <div class="savings-tag">Soft savings — real but harder to prove</div>
+          <h4>Value exists, but not in the ledger</h4>
+          <ul>
+            <li>Capacity creation — team can absorb more volume without adding headcount</li>
+            <li>Risk avoidance — controls improvement reduces audit exposure</li>
+            <li>Time freed for higher-value work — processors doing analysis instead of rekeying</li>
+            <li>Error prevention — problems not created don't show up as costs</li>
+            <li>Finance may not accept these as savings — but they are real business value</li>
+            <li>Important to document and communicate, even if not in the P&amp;L</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="insight-block">
+        <div class="insight-icon">✦</div>
+        <div class="insight-body">
+          <div class="insight-label">GBS Insider Club Insights</div>
+          <ul>
+            <li><strong>Soft savings are not imaginary — they are just harder to monetize.</strong> When a process improvement frees 2 FTEs' worth of capacity, that capacity either absorbs growth without new hires (real value) or enables those FTEs to work on higher-value activities (real value). The problem is that neither shows up automatically in the P&amp;L. Document capacity reallocation explicitly — track where the freed time went.</li>
+            <li><strong>Hard savings require a signed-off headcount change to be credible.</strong> "We could reduce by 2 FTEs" is not a hard saving until someone's contract ends or a role is eliminated. Finance has heard too many CI project claims that never materialized. Build the change management required to actually capture the saving — not just claim it.</li>
+            <li><strong>Innovation vs CI — know the difference.</strong> CI is about making existing processes run better: faster, more accurately, with less waste. Innovation is about challenging whether the process should exist at all, or redesigning it from scratch. Both create value. Confusing them leads to CI teams running hackathons and innovation teams doing spreadsheet optimization.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="glossary">
+      <div class="section-eyebrow">Glossary</div>
+      <h2>Key terms in this cluster</h2>
+      <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
+      <div class="glossary-grid">
+        <div class="glossary-item"><span class="glossary-term">Lean</span><span class="glossary-def">Methodology focused on eliminating waste and improving flow through a process. Originated in Toyota's production system. In GBS: used to reduce cycle time, handoffs, and non-value-adding steps.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Six Sigma</span><span class="glossary-def">Methodology focused on reducing defects and variation in a process through data-driven root cause analysis. Targets near-perfect quality (3.4 defects per million opportunities).</span></div>
+        <div class="glossary-item" id="g-downtime"><span class="glossary-term">DOWNTIME</span><span class="glossary-def">Acronym for the 8 Lean wastes: Defects, Overproduction, Waiting, Non-Utilized Talent, Transportation, Inventory, Motion, Extra-Processing.</span></div>
+        <div class="glossary-item" id="g-dmaic"><span class="glossary-term">DMAIC</span><span class="glossary-def">Define, Measure, Analyze, Improve, Control — the five-phase Six Sigma project framework for structured improvement initiatives. The standard CI project methodology in GBS.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Kaizen</span><span class="glossary-def">Japanese for "continuous improvement." Refers to both a specific event (a focused 1–5 day improvement workshop) and a broader cultural philosophy of incremental, ongoing improvement driven by front-line teams.</span></div>
+        <div class="glossary-item"><span class="glossary-term">VSM</span><span class="glossary-def">Value Stream Map — a visual representation of every step in a process, showing where value is added and where waste (time, cost, rework) accumulates. Used to design the "future state" process.</span></div>
+        <div class="glossary-item"><span class="glossary-term">SIPOC</span><span class="glossary-def">Suppliers, Inputs, Process, Outputs, Customers — a high-level process scoping tool used in the Define phase of DMAIC. Establishes what feeds the process and what it produces in 5 columns.</span></div>
+        <div class="glossary-item"><span class="glossary-term">A3</span><span class="glossary-def">Structured one-page problem-solving format used in Lean environments. Named after the A3 paper size. Contains: background, current state, root cause, proposed solution, implementation plan, and expected result.</span></div>
+      </div>
+    </section>
+
+    <div class="sources-block" id="sources">
+      <div class="sources-label">Sources and further reading</div>
+      <ol>
+        <li>Learn Lean Sigma — <a href="https://www.learnleansigma.com/guides/8-wastes/" target="_blank">Guide: 8 Wastes of Lean</a></li>
+        <li>GoLeanSixSigma — <a href="https://goleansixsigma.com/8-wastes/" target="_blank">8 Wastes: Identify and Eliminate Waste in Your Workflow</a></li>
+        <li>The Social Cat — <a href="https://thesocialcat.com/guides/lean-six-sigma" target="_blank">The Ultimate Lean Six Sigma Guide (2025)</a></li>
+        <li>SixSigma.us — <a href="https://www.6sigma.us/lean-six-sigma-articles/lean-the-8-wastes/" target="_blank">Lean — The 8 Wastes</a></li>
+        <li>LinkedIn (Abdul Gafoor) — <a href="https://www.linkedin.com/pulse/8-types-wastes-lean-six-sigma-abdul-gafoor" target="_blank">The 8 Types of Wastes in Lean Six Sigma</a></li>
+      </ol>
+    </div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;margin-top:48px;margin-bottom:32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">What this cluster covers — and what comes next</div>
+      <ul style="list-style:none;padding:0;">
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Lean vs Six Sigma</strong> — what each targets and why GBS uses both</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>DOWNTIME wastes</strong> — all 8 with GBS-specific examples</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>DMAIC</strong> — five phases with a worked GBS example</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Belt system</strong> — Yellow through Master Black Belt, career relevance</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Hard vs soft savings</strong> — how to prove GBS impact to Finance</li>
+        <li style="font-size:14px;color:var(--text-2);padding:6px 0 6px 20px;position:relative;"><span style="position:absolute;left:0;color:var(--text-3);">→</span> <strong style="color:var(--text-2);">Operational Controls</strong> — quality, four-eyes, audit readiness — <a href="pillar-2-cluster-4-operational-controls.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">Cluster 4</a></li>
+      </ul>
+    </div>
+    <div class="cta-block">
+      <h3>Want the full breakdown on video?</h3>
+      <p>Lean Six Sigma for GBS professionals — covered in depth on the GBS Insider Club YouTube channel.</p>
+      <a href="https://youtube.com/@gbsinsiderclub" class="cta-btn" target="_blank">&#9654; &nbsp; Subscribe on YouTube</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>
