@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Stack | GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--border:#1e2535;--border-2:#252e40;--teal:#1d6aff;--teal-deep:#0050e6;--teal-soft:#5090ff;--teal-glow:rgba(29,106,255,0.14);--gold:#e8b800;--gold-soft:#f0cc30;--gold-bg:rgba(232,184,0,0.12);--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--ruby:#e84560;--amber:#f59e0b;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-weight:300;background:var(--void);color:var(--text);font-size:16px;line-height:1.75;}
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:2px solid var(--teal);height:62px;display:flex;align-items:center;padding:0 32px;gap:20px;}
+.logo-mark{width:38px;height:38px;flex-shrink:0;}
+.topbar-brand{display:flex;flex-direction:column;line-height:1.25;}
+.topbar-brand .brand-name{font-size:13px;font-weight:600;color:#fff;}
+.topbar-brand .brand-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;}
+.topbar-divider{width:1px;height:28px;background:var(--border-2);margin:0 4px;}
+.topbar-title{font-size:14px;color:var(--text-2);flex:1;}
+.topbar-edition{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;}
+.layout{display:flex;min-height:calc(100vh - 62px);}
+.sidebar{width:290px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:28px 0;position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;}
+.sidebar-group-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;padding:0 24px 10px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+.sidebar-item{display:flex;align-items:center;gap:12px;padding:11px 24px;text-decoration:none;transition:background 0.15s;}
+.sidebar-item:hover{background:var(--surface-2);}
+.sidebar-item.active{background:var(--teal-glow);border-left:2px solid var(--teal);padding-left:22px;}
+.sidebar-badge{width:22px;height:22px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);flex-shrink:0;}
+.sidebar-item.active .sidebar-badge{background:var(--teal-glow);border-color:var(--teal);color:var(--teal);}
+.sidebar-item span.nav-label{font-size:13px;color:var(--text-2);line-height:1.35;}
+.sidebar-item.active span.nav-label{color:#fff;}
+.sidebar-on-page{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;}
+.sidebar-on-page-label{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;padding:0 24px 8px;}
+.sidebar-on-page a{display:block;padding:7px 24px 7px 32px;font-size:12px;color:var(--text-3);text-decoration:none;transition:color 0.15s;}
+.sidebar-on-page a:hover{color:var(--text-2);}
+.main{flex:1;max-width:920px;padding:60px 60px 96px;overflow-x:hidden;}
+.hero{margin-bottom:72px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:18px;}
+.hero h1{font-size:46px;font-weight:300;letter-spacing:-1.1px;line-height:1.08;color:#fff;margin-bottom:10px;}
+.hero h1 .gold-line{color:var(--gold);display:block;}
+.hero-tagline{font-size:17px;color:var(--text-2);margin-bottom:36px;max-width:580px;line-height:1.7;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.stat{display:flex;flex-direction:column;gap:6px;padding:24px 28px;background:var(--surface);border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-number{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:var(--gold);line-height:1.2;}
+.stat-label{font-size:13px;color:var(--text-3);line-height:1.5;}
+a.gloss{color:inherit;text-decoration:none;border-bottom:1px dotted var(--teal);cursor:help;position:relative;}
+a.gloss .tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--surface-3);border:1px solid var(--teal);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:300;color:var(--text-2);line-height:1.55;width:260px;z-index:200;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,0.4);}
+a.gloss .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--teal);}
+a.gloss:hover .tooltip{display:block;}
+.section{margin-bottom:72px;scroll-margin-top:80px;}
+.section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:10px;}
+.section h2{font-size:28px;font-weight:300;letter-spacing:-0.4px;color:#fff;margin-bottom:8px;}
+.section-hook{font-size:16px;color:var(--text-2);margin-bottom:32px;font-style:italic;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:28px 32px;margin-bottom:16px;}
+.card.gold{border-left-color:var(--gold);}.card.amber{border-left-color:var(--amber);}.card.sky{border-left-color:var(--sky);}
+.card-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:16px;}
+.card ul{list-style:none;padding:0;}
+.card ul li{font-size:15px;color:var(--text);padding:7px 0 7px 22px;position:relative;line-height:1.65;border-bottom:1px solid var(--border);}
+.card ul li:last-child{border-bottom:none;}
+.card ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:13px;top:9px;}
+.card.gold ul li::before{color:var(--gold);}.card.amber ul li::before{color:var(--amber);}.card.sky ul li::before{color:var(--sky);}
+.tension-box{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:10px;padding:20px 24px;margin-bottom:16px;}
+.tension-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;}
+.tension-box p{font-size:14px;color:var(--text-2);line-height:1.65;}
+.disclaimer-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:8px;padding:16px 20px;font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:16px;}
+.insight-block{background:linear-gradient(135deg,var(--gold-bg),transparent);border:1px solid var(--gold);border-radius:12px;padding:28px 32px;margin:32px 0;display:flex;gap:20px;align-items:flex-start;}
+.insight-icon{width:38px;height:38px;background:var(--gold-bg);border:1px solid var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--gold);flex-shrink:0;}
+.insight-body .insight-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:12px;}
+.insight-body ul{list-style:none;padding:0;}
+.insight-body ul li{font-size:15px;color:var(--text);padding:7px 0 7px 20px;position:relative;line-height:1.65;border-bottom:1px solid rgba(232,184,0,0.15);}
+.insight-body ul li:last-child{border-bottom:none;}
+.insight-body ul li::before{content:"→";position:absolute;left:0;color:var(--gold);font-size:12px;top:9px;}
+/* FORMULA COMPARE */
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+.formula-side{padding:22px 24px;}
+.formula-side.old{background:var(--surface);border-right:1px solid var(--border);border-top:3px solid var(--text-3);}
+.formula-side.new{background:var(--surface-3);border-top:3px solid var(--teal);}
+.formula-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;}
+.formula-side.old .formula-tag{color:var(--text-3);}
+.formula-side.new .formula-tag{color:var(--teal);}
+.formula-side h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;}
+.formula-side .code-block{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--void);border:1px solid var(--border);border-radius:6px;padding:10px 14px;margin:10px 0;color:var(--teal-soft);overflow-x:auto;}
+.formula-side ul{list-style:none;padding:0;}
+.formula-side ul li{font-size:13px;color:var(--text-2);padding:4px 0 4px 16px;position:relative;line-height:1.55;}
+.formula-side.old ul li::before{content:"→";position:absolute;left:0;color:var(--text-3);font-size:11px;top:6px;}
+.formula-side.new ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:11px;top:6px;}
+/* PIVOT STEPS */
+.pivot-steps{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+.pivot-step{display:flex;gap:16px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;}
+.pivot-num{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;color:var(--teal);flex-shrink:0;min-width:28px;}
+.pivot-body h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:3px;}
+.pivot-body p{font-size:13px;color:var(--text-2);line-height:1.6;}
+/* MDM LAYERS */
+.mdm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.mdm-card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.mdm-header{padding:12px 16px;font-size:13px;font-weight:600;border-bottom:1px solid var(--border);}
+.mdm-header.vendor{border-top:3px solid var(--teal);color:var(--teal);background:var(--teal-glow);}
+.mdm-header.customer{border-top:3px solid var(--gold);color:var(--gold);background:var(--gold-bg);}
+.mdm-header.material{border-top:3px solid var(--sky);color:var(--sky);background:rgba(56,189,248,0.10);}
+.mdm-body{padding:14px 16px;}
+.mdm-body ul{list-style:none;padding:0;}
+.mdm-body ul li{font-size:12px;color:var(--text-2);padding:4px 0 4px 14px;position:relative;border-bottom:1px solid var(--border);line-height:1.55;}
+.mdm-body ul li:last-child{border-bottom:none;}
+.mdm-header.vendor ~ .mdm-body ul li::before{content:"·";position:absolute;left:0;color:var(--teal);font-size:18px;top:0;}
+.mdm-header.customer ~ .mdm-body ul li::before{content:"·";position:absolute;left:0;color:var(--gold);font-size:18px;top:0;}
+.mdm-header.material ~ .mdm-body ul li::before{content:"·";position:absolute;left:0;color:var(--sky);font-size:18px;top:0;}
+/* DASHBOARD PRINCIPLES */
+.dash-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px;}
+.dash-card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
+.dash-num{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600;color:var(--border-2);margin-bottom:8px;}
+.dash-card h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px;}
+.dash-card p{font-size:12px;color:var(--text-2);line-height:1.6;}
+/* AUDIT TRAIL */
+.audit-flow{display:flex;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+.af-step{flex:1;padding:16px 14px;background:var(--surface-2);text-align:center;border-right:1px solid var(--border);}
+.af-step:last-child{border-right:none;}
+.af-step-num{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;margin-bottom:6px;}
+.af-step:nth-child(1) .af-step-num{color:var(--teal);}
+.af-step:nth-child(2) .af-step-num{color:var(--sky);}
+.af-step:nth-child(3) .af-step-num{color:var(--gold);}
+.af-step:nth-child(4) .af-step-num{color:var(--amber);}
+.af-step h4{font-size:12px;font-weight:600;color:#fff;margin-bottom:4px;}
+.af-step p{font-size:11px;color:var(--text-3);line-height:1.5;}
+.glossary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.glossary-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;}
+.glossary-term{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--teal);flex-shrink:0;min-width:80px;}
+.glossary-def{font-size:14px;color:var(--text-2);line-height:1.6;}
+.sources-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-top:48px;}
+.sources-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;}
+.sources-block ol{padding-left:20px;}
+.sources-block ol li{font-size:12px;color:var(--text-3);line-height:1.65;padding:3px 0;}
+.sources-block ol li a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);}
+.cta-block{background:var(--surface-3);border:1px solid var(--border-2);border-top:3px solid var(--teal);border-radius:16px;padding:44px 48px;margin-top:64px;text-align:center;}
+.cta-block h3{font-size:24px;font-weight:300;color:#fff;margin-bottom:12px;}
+.cta-block p{font-size:15px;color:var(--text-2);margin-bottom:28px;line-height:1.65;}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
+@media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="38" height="38" rx="6" fill="#0e1219"/><path d="M8 7 L4 7 L4 31 L8 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 7 L34 7 L34 31 L30 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polygon points="9,10 28,19 9,28 14,19" fill="#e8b800"/><polygon points="14,17 24,19 14,23 17,19" fill="white"/></svg>
+  <div class="topbar-brand"><span class="brand-name">GBS Insider Club</span><span class="brand-sub">Field Guide</span></div>
+  <div class="topbar-divider"></div>
+  <span class="topbar-title">Enterprise Stack</span>
+  <span class="topbar-edition">June 2026</span>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-group-label">Pillar 3 · Digital &amp; Technology Skills</div>
+    <a href="pillar-3-cluster-1-data-analytics.html" class="sidebar-item"><div class="sidebar-badge">1</div><span class="nav-label">Data Strategy and Analytics</span></a>
+    <a href="#stack" class="sidebar-item active"><div class="sidebar-badge">2</div><span class="nav-label">Enterprise Stack</span></a>
+    <a href="pillar-3-cluster-3-automation-ai.html" class="sidebar-item"><div class="sidebar-badge">3</div><span class="nav-label">Automation and AI</span></a>
+    <a href="pillar-3-cluster-4-tech-governance.html" class="sidebar-item"><div class="sidebar-badge">4</div><span class="nav-label">Tech Governance</span></a>
+    <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:16px;">
+      <a href="glossary.html" class="sidebar-item"><div class="sidebar-badge" style="color:var(--gold);border-color:var(--gold);">G</div><span class="nav-label">Glossary</span></a>
+    </div>
+    <div class="sidebar-on-page">
+      <div class="sidebar-on-page-label">On this page</div>
+      <a href="#erp-role">Why ERP is the backbone, not the brain</a>
+      <a href="#sap-oracle">SAP S/4HANA and Oracle Fusion — what GBS needs to know</a>
+      <a href="#ticketing">Ticketing and case management — ServiceNow and Zendesk</a>
+      <a href="#workflow">Jira, Asana, and the project layer</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="hero">
+      <p class="eyebrow">Pillar 3 · Cluster 2</p>
+      <h1>The enterprise stack <span class="gold-line">that runs GBS operations</span></h1>
+      <p class="hero-tagline">ERP systems, ticketing platforms, and workflow tools are the operational backbone of every GBS center. Understanding what they do, why they matter, and where they break is non-negotiable knowledge for any GBS professional.</p>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-number">$78B</span><span class="stat-label">Global ERP market size 2026</span></div>
+<div class="stat"><span class="stat-number">25,000+</span><span class="stat-label">Companies running SAP S/4HANA globally</span></div>
+<div class="stat"><span class="stat-number">60%</span><span class="stat-label">New ERP deployments now cloud-based</span></div>
+
+      </div>
+    </div>
+    <section class="section" id="erp-role">
+      <p class="section-eyebrow">Enterprise Resource Planning</p>
+      <h2>Why ERP is the backbone, not the brain</h2>
+      <p class="section-hook">The value of an ERP is integration across functions, not the features of any single module. That distinction changes how you think about every process you touch.</p>
+      <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Every transaction in a GBS center eventually touches an ERP. Purchase orders, invoices, journal entries, payroll runs, intercompany settlements — they all flow through SAP, Oracle, or Microsoft Dynamics as the system of record. The ERP is not where intelligence lives. It is where data lands, gets validated, and becomes the official version of what happened.</p>
+<p style="margin-bottom:20px;color:var(--text);line-height:1.75;">The real power of an ERP is not any individual module. It is the integration layer — the fact that a purchase order in procurement automatically creates a commitment in finance, triggers a goods receipt in logistics, and updates the cost center budget in real time. When that integration breaks, you get manual reconciliations, duplicate entries, and audit findings. Most GBS process failures trace back to broken ERP integration, not missing features.</p>
+<div class="card teal">
+      <div class="card-title">Core ERP modules relevant to GBS</div>
+      <ul>
+        <li>Finance (FI/CO) — general ledger, accounts payable and receivable, cost center accounting, asset management, and intercompany eliminations</li>
+        <li>Procurement (MM/Purchasing) — purchase requisitions, purchase orders, goods receipt, invoice verification, and vendor master management</li>
+        <li>Human Capital Management (HCM) — payroll processing, time management, organizational management, and benefits administration</li>
+        <li>Sales and Distribution (SD) — order-to-cash, billing, credit management, and revenue recognition</li>
+        <li>Controlling (CO) — internal cost allocation, profit center accounting, product costing, and activity-based costing</li>
+      </ul>
+    </div>
+<div class="insight-block">
+      <div class="insight-icon">IC</div>
+      <div class="insight-body">
+        <div class="insight-label">GBS Insider Club Insights</div>
+        <ul>
+        <li>When someone says "we need a new ERP feature," the first question is always: does the current system already do this, and is the configuration just wrong?</li>
+        <li>Most GBS teams use less than 40% of their ERP's functionality — the gap is training and process design, not software capability</li>
+        <li>The strongest GBS analysts understand the data model behind the screens, not just which buttons to click</li>
+        </ul>
+      </div>
+    </div>
+
+    </section>
+<section class="section" id="sap-oracle">
+      <p class="section-eyebrow">SAP and Oracle</p>
+      <h2>SAP S/4HANA and Oracle Fusion — what GBS needs to know</h2>
+      <p class="section-hook">You do not need to be an ERP consultant. But you need to understand why your leadership cares about the migration timeline and what changes for your daily work.</p>
+      <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">SAP S/4HANA is the successor to SAP ECC (ERP Central Component), built on an in-memory database (HANA) that eliminates the need for aggregate tables and enables real-time reporting. The migration deadline from SAP ECC has been a major driver of enterprise transformation programs globally. For GBS teams, the shift means faster reporting, simplified data models, and new capabilities like embedded analytics — but also significant process re-engineering and retraining.</p>
+<p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Oracle Fusion Cloud ERP takes a cloud-native approach, offering finance, procurement, and project management as SaaS modules. For GBS operations, Oracle's strength is its unified data model across HR (Oracle HCM Cloud) and finance, which reduces reconciliation effort in shared services centers that handle both domains. The trade-off is less customization flexibility compared to on-premise Oracle E-Business Suite.</p>
+<div class="formula-grid">
+      <div class="formula-side old">
+        <div class="formula-tag">SAP S/4HANA</div>
+        <h4>Strengths for GBS</h4>
+        <ul><li>Deep process coverage — hundreds of pre-built business scenarios</li><li>Dominant in European and manufacturing enterprises</li><li>Massive partner ecosystem for implementation and support</li><li>Real-time embedded analytics eliminate batch reporting delays</li></ul>
+      </div>
+      <div class="formula-side new">
+        <div class="formula-tag">Oracle Fusion Cloud</div>
+        <h4>Strengths for GBS</h4>
+        <ul><li>Cloud-native architecture — no on-premise infrastructure burden</li><li>Unified data model across finance and HCM reduces reconciliation</li><li>Quarterly feature updates delivered automatically</li><li>Stronger out-of-box AI and machine learning for anomaly detection</li></ul>
+      </div>
+    </div><div class="tension-box">
+      <div class="tension-label">The migration reality</div>
+      <p>ERP migrations in GBS are rarely about technology. They are about change management, data cleansing, and process standardization. The system goes live in months; the organization takes years to catch up. Every GBS professional should understand that an ERP migration will change their daily work — screen flows, approval hierarchies, reporting logic, and exception handling all shift. Prepare for the disruption, not just the training.</p>
+    </div>
+
+    </section>
+<section class="section" id="ticketing">
+      <p class="section-eyebrow">Service Management Platforms</p>
+      <h2>Ticketing and case management — ServiceNow and Zendesk</h2>
+      <p class="section-hook">If ERP is where transactions live, the ticketing system is where service requests, incidents, and escalations are tracked. In GBS, this is how you prove you delivered.</p>
+      <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">ServiceNow dominates enterprise IT service management (ITSM) and is increasingly used for HR service delivery, finance shared services, and cross-functional workflow automation. Its strength is the platform model — a single system for incident management, request fulfillment, knowledge management, and service-level tracking across multiple GBS functions. For large GBS organizations, ServiceNow often becomes the operational command center.</p>
+<p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Zendesk occupies a different space — lighter, faster to deploy, and oriented toward external customer support or smaller-scale internal help desks. In GBS, Zendesk is more common in organizations with simpler service catalogs or those using it as a bridge while evaluating enterprise-grade platforms. The trade-off is less depth in workflow automation and integration with ERP systems.</p>
+<div class="card teal">
+      <div class="card-title">What GBS professionals need from ticketing systems</div>
+      <ul>
+        <li>SLA tracking with automated escalation — every request needs a clock and an owner</li>
+        <li>Service catalog structure — users should select from a defined menu, not write free-text requests</li>
+        <li>Knowledge base integration — common issues should route to self-service before creating a ticket</li>
+        <li>Reporting and dashboards — ticket volume, resolution time, SLA compliance, and backlog aging</li>
+        <li>Integration with ERP — ticket closure should trigger or validate downstream system actions</li>
+      </ul>
+    </div>
+<div class="card amber">
+      <div class="card-title">Common ticketing failures in GBS</div>
+      <ul>
+        <li>Tickets created but never categorized — makes reporting meaningless and hides demand patterns</li>
+        <li>SLAs defined but not enforced — the clock runs but nobody acts on breaches</li>
+        <li>Knowledge base exists but is never updated — agents re-solve the same issues manually</li>
+        <li>No feedback loop — ticket data never flows back into process improvement</li>
+      </ul>
+    </div>
+
+    </section>
+<section class="section" id="workflow">
+      <p class="section-eyebrow">Workflow and Task Management</p>
+      <h2>Jira, Asana, and the project layer</h2>
+      <p class="section-hook">Not everything belongs in the ERP or the ticketing system. Projects, initiatives, and cross-functional work need their own coordination layer.</p>
+      <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Jira started as a software development tool but has expanded into business project management, particularly for GBS transformation programs, automation initiatives, and continuous improvement projects. Its strength is structured workflows — every task moves through defined statuses with clear ownership, and the board view makes bottlenecks visible. For GBS teams running lean or agile improvement programs, Jira provides the discipline that spreadsheet trackers cannot.</p>
+<p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Asana is positioned as a more accessible alternative — easier to learn, less technical, and better suited for teams that need project coordination without the overhead of sprint planning and developer-oriented workflows. In GBS, Asana works well for managing recurring deliverables (close calendars, audit timelines, onboarding checklists) where the workflow is simpler but consistency matters.</p>
+<div class="card sky">
+      <div class="card-title">Choosing the right tool for the job</div>
+      <ul>
+        <li>Recurring operational tasks with SLA tracking — use the ticketing system (ServiceNow, Zendesk)</li>
+        <li>Transactional processing (invoices, payments, journal entries) — use the ERP directly</li>
+        <li>Transformation projects with sprints and dependencies — use Jira with board and backlog views</li>
+        <li>Cross-functional coordination and task tracking — use Asana or Microsoft Planner for simplicity</li>
+        <li>Ad-hoc requests that need routing and approval — use the ticketing system with a defined catalog</li>
+      </ul>
+    </div>
+<div class="insight-block">
+      <div class="insight-icon">IC</div>
+      <div class="insight-body">
+        <div class="insight-label">GBS Insider Club Insights</div>
+        <ul>
+        <li>The tool is never the problem. The problem is that nobody defined the workflow before choosing the tool.</li>
+        <li>GBS teams that run projects in the same system as operations (e.g., tracking a process redesign in the ticketing queue) always lose visibility — keep project work separate from BAU.</li>
+        <li>If your team uses more than three coordination tools, you have a governance problem, not a tool gap.</li>
+        </ul>
+      </div>
+    </div>
+
+    </section>
+    <section class="section" id="glossary">
+      <p class="section-eyebrow">Reference</p>
+      <h2>Glossary</h2>
+      <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
+      <div class="glossary-grid">
+        <div class="glossary-item"><span class="glossary-term">ERP</span><span class="glossary-def">Enterprise Resource Planning — integrated software that manages core business processes (finance, procurement, HR, supply chain) in a single database. SAP and Oracle are the dominant vendors in GBS environments.</span></div>
+        <div class="glossary-item"><span class="glossary-term">S/4HANA</span><span class="glossary-def">SAP's current-generation ERP suite, built on the HANA in-memory database. Replaces SAP ECC. Supports cloud, on-premise, and hybrid deployment. Migration from ECC is a major transformation driver for GBS organizations.</span></div>
+        <div class="glossary-item"><span class="glossary-term">ITSM</span><span class="glossary-def">IT Service Management — the practice of designing, delivering, managing, and improving IT services. ServiceNow is the dominant platform. Increasingly extended to non-IT shared services (HR, finance) as Enterprise Service Management.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Service catalog</span><span class="glossary-def">A structured menu of services available to requestors, with defined descriptions, SLAs, and fulfillment workflows. Replaces free-text requests with standardized, measurable service delivery.</span></div>
+        <div class="glossary-item"><span class="glossary-term">SLA</span><span class="glossary-def">Service Level Agreement — a documented commitment specifying the expected performance standard (resolution time, accuracy rate, availability) for a defined service. The contractual backbone of GBS service delivery.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Jira</span><span class="glossary-def">Atlassian's project and issue tracking platform. Originally built for software development, now widely used for GBS transformation programs, continuous improvement tracking, and agile project management.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Ticket</span><span class="glossary-def">A recorded service request or incident in a case management system. Contains requestor details, categorization, priority, SLA clock, assignment, resolution notes, and status history.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Master data</span><span class="glossary-def">The reference data that all transactions depend on — vendor records, customer records, GL accounts, cost centers, material numbers. Clean master data is the prerequisite for reliable ERP operations.</span></div>
+      </div>
+    </section>
+    <div class="sources-block" id="sources">
+      <div class="sources-label">Sources and further reading</div>
+      <ol>
+        <li>Mordor Intelligence — ERP Software Market Size and Share Analysis, 2026 forecast</li>
+        <li>6sense Technology Insights — SAP S/4HANA market adoption data, 2026</li>
+        <li>Straits Research — SAP S/4HANA Application Market Size report, 2025</li>
+        <li>Gartner — Magic Quadrant for Cloud ERP for Service-Centric Enterprises, 2025</li>
+        <li>ServiceNow — Enterprise Service Management platform documentation</li>
+        <li>Atlassian — Jira Work Management product documentation</li>
+      </ol>
+    </div>
+  </main>
+</div>
+</body>
+</html>

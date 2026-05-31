@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Execution Methodologies | GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--border:#1e2535;--border-2:#252e40;--teal:#1d6aff;--teal-deep:#0050e6;--teal-soft:#5090ff;--teal-glow:rgba(29,106,255,0.14);--gold:#e8b800;--gold-soft:#f0cc30;--gold-bg:rgba(232,184,0,0.12);--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--ruby:#e84560;--amber:#f59e0b;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-weight:300;background:var(--void);color:var(--text);font-size:16px;line-height:1.75;}
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:2px solid var(--teal);height:62px;display:flex;align-items:center;padding:0 32px;gap:20px;}
+.logo-mark{width:38px;height:38px;flex-shrink:0;}
+.topbar-brand{display:flex;flex-direction:column;line-height:1.25;}
+.topbar-brand .brand-name{font-size:13px;font-weight:600;color:#fff;}
+.topbar-brand .brand-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;}
+.topbar-divider{width:1px;height:28px;background:var(--border-2);margin:0 4px;}
+.topbar-title{font-size:14px;color:var(--text-2);flex:1;}
+.topbar-edition{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;}
+.layout{display:flex;min-height:calc(100vh - 62px);}
+.sidebar{width:290px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:28px 0;position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;}
+.sidebar-group-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;padding:0 24px 10px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+.sidebar-item{display:flex;align-items:center;gap:12px;padding:11px 24px;text-decoration:none;transition:background 0.15s;}
+.sidebar-item:hover{background:var(--surface-2);}
+.sidebar-item.active{background:var(--teal-glow);border-left:2px solid var(--teal);padding-left:22px;}
+.sidebar-badge{width:22px;height:22px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);flex-shrink:0;}
+.sidebar-item.active .sidebar-badge{background:var(--teal-glow);border-color:var(--teal);color:var(--teal);}
+.sidebar-item span.nav-label{font-size:13px;color:var(--text-2);line-height:1.35;}
+.sidebar-item.active span.nav-label{color:#fff;}
+.sidebar-on-page{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;}
+.sidebar-on-page-label{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;padding:0 24px 8px;}
+.sidebar-on-page a{display:block;padding:7px 24px 7px 32px;font-size:12px;color:var(--text-3);text-decoration:none;transition:color 0.15s;}
+.sidebar-on-page a:hover{color:var(--text-2);}
+.main{flex:1;max-width:920px;padding:60px 60px 96px;overflow-x:hidden;}
+.hero{margin-bottom:72px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:18px;}
+.hero h1{font-size:46px;font-weight:300;letter-spacing:-1.1px;line-height:1.08;color:#fff;margin-bottom:10px;}
+.hero h1 .gold-line{color:var(--gold);display:block;}
+.hero-tagline{font-size:17px;color:var(--text-2);margin-bottom:36px;max-width:580px;line-height:1.7;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.stat{display:flex;flex-direction:column;gap:6px;padding:24px 28px;background:var(--surface);border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-number{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:var(--gold);line-height:1.2;}
+.stat-label{font-size:13px;color:var(--text-3);line-height:1.5;}
+a.gloss{color:inherit;text-decoration:none;border-bottom:1px dotted var(--teal);cursor:help;position:relative;}
+a.gloss .tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--surface-3);border:1px solid var(--teal);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:300;color:var(--text-2);line-height:1.55;width:260px;z-index:200;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,0.4);}
+a.gloss .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--teal);}
+a.gloss:hover .tooltip{display:block;}
+.section{margin-bottom:72px;scroll-margin-top:80px;}
+.section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:10px;}
+.section h2{font-size:28px;font-weight:300;letter-spacing:-0.4px;color:#fff;margin-bottom:8px;}
+.section-hook{font-size:16px;color:var(--text-2);margin-bottom:32px;font-style:italic;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:28px 32px;margin-bottom:16px;}
+.card.gold{border-left-color:var(--gold);}.card.amber{border-left-color:var(--amber);}.card.sky{border-left-color:var(--sky);}
+.card-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:16px;}
+.card ul{list-style:none;padding:0;}
+.card ul li{font-size:15px;color:var(--text);padding:7px 0 7px 22px;position:relative;line-height:1.65;border-bottom:1px solid var(--border);}
+.card ul li:last-child{border-bottom:none;}
+.card ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:13px;top:9px;}
+.card.gold ul li::before{color:var(--gold);}.card.amber ul li::before{color:var(--amber);}.card.sky ul li::before{color:var(--sky);}
+.tension-box{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:10px;padding:20px 24px;margin-bottom:16px;}
+.tension-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;}
+.tension-box p{font-size:14px;color:var(--text-2);line-height:1.65;}
+.disclaimer-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:8px;padding:16px 20px;font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:16px;}
+.insight-block{background:linear-gradient(135deg,var(--gold-bg),transparent);border:1px solid var(--gold);border-radius:12px;padding:28px 32px;margin:32px 0;display:flex;gap:20px;align-items:flex-start;}
+.insight-icon{width:38px;height:38px;background:var(--gold-bg);border:1px solid var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--gold);flex-shrink:0;}
+.insight-body .insight-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:12px;}
+.insight-body ul{list-style:none;padding:0;}
+.insight-body ul li{font-size:15px;color:var(--text);padding:7px 0 7px 20px;position:relative;line-height:1.65;border-bottom:1px solid rgba(232,184,0,0.15);}
+.insight-body ul li:last-child{border-bottom:none;}
+.insight-body ul li::before{content:"→";position:absolute;left:0;color:var(--gold);font-size:12px;top:9px;}
+/* FORMULA COMPARE */
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+.formula-side{padding:22px 24px;}
+.formula-side.old{background:var(--surface);border-right:1px solid var(--border);border-top:3px solid var(--text-3);}
+.formula-side.new{background:var(--surface-3);border-top:3px solid var(--teal);}
+.formula-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;}
+.formula-side.old .formula-tag{color:var(--text-3);}
+.formula-side.new .formula-tag{color:var(--teal);}
+.formula-side h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;}
+.formula-side .code-block{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--void);border:1px solid var(--border);border-radius:6px;padding:10px 14px;margin:10px 0;color:var(--teal-soft);overflow-x:auto;}
+.formula-side ul{list-style:none;padding:0;}
+.formula-side ul li{font-size:13px;color:var(--text-2);padding:4px 0 4px 16px;position:relative;line-height:1.55;}
+.formula-side.old ul li::before{content:"→";position:absolute;left:0;color:var(--text-3);font-size:11px;top:6px;}
+.formula-side.new ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:11px;top:6px;}
+/* PIVOT STEPS */
+.pivot-steps{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+.pivot-step{display:flex;gap:16px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;}
+.pivot-num{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;color:var(--teal);flex-shrink:0;min-width:28px;}
+.pivot-body h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:3px;}
+.pivot-body p{font-size:13px;color:var(--text-2);line-height:1.6;}
+/* MDM LAYERS */
+.mdm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.mdm-card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.mdm-header{padding:12px 16px;font-size:13px;font-weight:600;border-bottom:1px solid var(--border);}
+.mdm-header.vendor{border-top:3px solid var(--teal);color:var(--teal);background:var(--teal-glow);}
+.mdm-header.customer{border-top:3px solid var(--gold);color:var(--gold);background:var(--gold-bg);}
+.mdm-header.material{border-top:3px solid var(--sky);color:var(--sky);background:rgba(56,189,248,0.10);}
+.mdm-body{padding:14px 16px;}
+.mdm-body ul{list-style:none;padding:0;}
+.mdm-body ul li{font-size:12px;color:var(--text-2);padding:4px 0 4px 14px;position:relative;border-bottom:1px solid var(--border);line-height:1.55;}
+.mdm-body ul li:last-child{border-bottom:none;}
+.mdm-header.vendor ~ .mdm-body ul li::before{content:"·";position:absolute;left:0;color:var(--teal);font-size:18px;top:0;}
+.mdm-header.customer ~ .mdm-body ul li::before{content:"·";position:absolute;left:0;color:var(--gold);font-size:18px;top:0;}
+.mdm-header.material ~ .mdm-body ul li::before{content:"·";position:absolute;left:0;color:var(--sky);font-size:18px;top:0;}
+/* DASHBOARD PRINCIPLES */
+.dash-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px;}
+.dash-card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
+.dash-num{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600;color:var(--border-2);margin-bottom:8px;}
+.dash-card h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px;}
+.dash-card p{font-size:12px;color:var(--text-2);line-height:1.6;}
+/* AUDIT TRAIL */
+.audit-flow{display:flex;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+.af-step{flex:1;padding:16px 14px;background:var(--surface-2);text-align:center;border-right:1px solid var(--border);}
+.af-step:last-child{border-right:none;}
+.af-step-num{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;margin-bottom:6px;}
+.af-step:nth-child(1) .af-step-num{color:var(--teal);}
+.af-step:nth-child(2) .af-step-num{color:var(--sky);}
+.af-step:nth-child(3) .af-step-num{color:var(--gold);}
+.af-step:nth-child(4) .af-step-num{color:var(--amber);}
+.af-step h4{font-size:12px;font-weight:600;color:#fff;margin-bottom:4px;}
+.af-step p{font-size:11px;color:var(--text-3);line-height:1.5;}
+.glossary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.glossary-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;}
+.glossary-term{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--teal);flex-shrink:0;min-width:80px;}
+.glossary-def{font-size:14px;color:var(--text-2);line-height:1.6;}
+.sources-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-top:48px;}
+.sources-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;}
+.sources-block ol{padding-left:20px;}
+.sources-block ol li{font-size:12px;color:var(--text-3);line-height:1.65;padding:3px 0;}
+.sources-block ol li a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);}
+.cta-block{background:var(--surface-3);border:1px solid var(--border-2);border-top:3px solid var(--teal);border-radius:16px;padding:44px 48px;margin-top:64px;text-align:center;}
+.cta-block h3{font-size:24px;font-weight:300;color:#fff;margin-bottom:12px;}
+.cta-block p{font-size:15px;color:var(--text-2);margin-bottom:28px;line-height:1.65;}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
+@media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="38" height="38" rx="6" fill="#0e1219"/><path d="M8 7 L4 7 L4 31 L8 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 7 L34 7 L34 31 L30 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polygon points="9,10 28,19 9,28 14,19" fill="#e8b800"/><polygon points="14,17 24,19 14,23 17,19" fill="white"/></svg>
+  <div class="topbar-brand"><span class="brand-name">GBS Insider Club</span><span class="brand-sub">Field Guide</span></div>
+  <div class="topbar-divider"></div>
+  <span class="topbar-title">Execution Methodologies</span>
+  <span class="topbar-edition">June 2026</span>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-group-label">Pillar 8 · Projects &amp; Transformation</div>
+    <a href="pillar-8-cluster-1-pm-fundamentals.html" class="sidebar-item"><div class="sidebar-badge">1</div><span class="nav-label">PM Fundamentals</span></a>
+    <a href="#methods" class="sidebar-item active"><div class="sidebar-badge">2</div><span class="nav-label">Execution Methodologies</span></a>
+    <a href="pillar-8-cluster-3-stakeholder-value.html" class="sidebar-item"><div class="sidebar-badge">3</div><span class="nav-label">Stakeholder and Value</span></a>
+    <a href="pillar-8-cluster-4-change-management.html" class="sidebar-item"><div class="sidebar-badge">4</div><span class="nav-label">Change Management</span></a>
+    <a href="pillar-8-cluster-5-sme-participation.html" class="sidebar-item"><div class="sidebar-badge">5</div><span class="nav-label">SME Participation</span></a>
+    <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:16px;">
+      <a href="glossary.html" class="sidebar-item"><div class="sidebar-badge" style="color:var(--gold);border-color:var(--gold);">G</div><span class="nav-label">Glossary</span></a>
+    </div>
+    <div class="sidebar-on-page">
+      <div class="sidebar-on-page-label">On this page</div>
+      <a href="#waterfall-agile">Waterfall vs Agile in a GBS context</a>
+      <a href="#safe">SAFe basics for GBS transformation</a>
+      <a href="#wbs">Work Breakdown Structure and estimation</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="hero">
+      <p class="eyebrow">Pillar 8 · Cluster 2</p>
+      <h1>Execution methodologies <span class="gold-line">in GBS transformation</span></h1>
+      <p class="hero-tagline">Waterfall, Agile, and SAFe are not religious choices. Each has trade-offs that depend on project complexity, stakeholder maturity, and regulatory constraints.</p>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-number">71%</span><span class="stat-label">Of organizations use Agile in some form</span></div>
+<div class="stat"><span class="stat-number">Hybrid</span><span class="stat-label">Most GBS programs blend Waterfall governance with Agile delivery</span></div>
+<div class="stat"><span class="stat-number">SAFe</span><span class="stat-label">Scaled Agile Framework — dominant for large enterprise programs</span></div>
+
+      </div>
+    </div>
+    <section class="section" id="waterfall-agile">
+      <p class="section-eyebrow">Methodology Choice</p>
+      <h2>Waterfall vs Agile in a GBS context</h2>
+      <p class="section-hook">Waterfall works when requirements are fixed and the end state is known. Agile works when requirements evolve and feedback loops are short. Most GBS programs need elements of both.</p>
+      <div class="formula-grid">
+      <div class="formula-side old">
+        <div class="formula-tag">Waterfall</div>
+        <h4>Best for</h4>
+        <ul><li>Regulatory and compliance-driven projects</li><li>Fixed-scope, fixed-budget implementations</li><li>Projects with clear, stable requirements</li><li>External vendor-managed deliverables</li></ul>
+      </div>
+      <div class="formula-side new">
+        <div class="formula-tag">Agile</div>
+        <h4>Best for</h4>
+        <ul><li>Iterative development with evolving requirements</li><li>Internal tool building and process redesign</li><li>Projects needing frequent stakeholder feedback</li><li>Innovation and pilot programs</li></ul>
+      </div>
+    </div>
+    </section>
+<section class="section" id="safe">
+      <p class="section-eyebrow">Scaling Agile</p>
+      <h2>SAFe basics for GBS transformation</h2>
+      <p class="section-hook">When multiple teams work on interconnected deliverables, individual team Agile is not enough. SAFe provides the coordination layer.</p>
+      <div class="card teal">
+      <div class="card-title">SAFe concepts relevant to GBS</div>
+      <ul>
+        <li>Program Increment (PI) — a time-boxed planning period (typically 8-12 weeks) where multiple teams align on shared objectives</li>
+        <li>PI Planning — a structured event where all teams come together to plan the increment, identify dependencies, and commit to objectives</li>
+        <li>Agile Release Train (ART) — a long-lived team of Agile teams that plans, commits, and delivers together in aligned increments</li>
+        <li>Architectural runway — the existing technical foundation that enables near-term features without excessive rework</li>
+      </ul>
+    </div>
+
+    </section>
+<section class="section" id="wbs">
+      <p class="section-eyebrow">Planning Tools</p>
+      <h2>Work Breakdown Structure and estimation</h2>
+      <p class="section-hook">You cannot estimate what you have not decomposed. The WBS breaks ambiguous scope into estimable, assignable, trackable pieces.</p>
+      <div class="card teal">
+      <div class="card-title">WBS best practices</div>
+      <ul>
+        <li>Decompose to the level where work can be estimated with reasonable confidence (typically 1-3 week packages)</li>
+        <li>Use noun phrases, not verb phrases — WBS describes deliverables, not activities</li>
+        <li>Apply the 100% rule — child elements must account for 100% of the parent element, nothing more, nothing less</li>
+        <li>Involve the team — the people who will do the work should help define and estimate the work packages</li>
+        <li>Estimate in ranges — three-point estimation (optimistic, most likely, pessimistic) is more honest and useful than single-point guesses</li>
+      </ul>
+    </div>
+
+    </section>
+    <section class="section" id="glossary">
+      <p class="section-eyebrow">Reference</p>
+      <h2>Glossary</h2>
+      <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
+      <div class="glossary-grid">
+        <div class="glossary-item"><span class="glossary-term">Waterfall</span><span class="glossary-def">Sequential project management methodology where phases (requirements, design, build, test, deploy) are completed in order. Changes are expensive once a phase is complete.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Agile</span><span class="glossary-def">Iterative project delivery methodology emphasizing short cycles (sprints), frequent feedback, and adaptive planning. Originated in software development, now applied across business functions.</span></div>
+        <div class="glossary-item"><span class="glossary-term">SAFe</span><span class="glossary-def">Scaled Agile Framework — a methodology for coordinating Agile practices across multiple teams working on large, complex programs. Common in enterprise GBS transformations.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Sprint</span><span class="glossary-def">A time-boxed iteration (typically 2 weeks) in Agile methodology during which a defined set of work is completed and reviewed.</span></div>
+        <div class="glossary-item"><span class="glossary-term">PI Planning</span><span class="glossary-def">Program Increment Planning — a SAFe ceremony where multiple Agile teams align on objectives, identify dependencies, and commit to delivery for the upcoming increment.</span></div>
+      </div>
+    </section>
+    <div class="sources-block" id="sources">
+      <div class="sources-label">Sources and further reading</div>
+      <ol>
+        <li>PMI — PMBOK Guide, 7th Edition</li>
+        <li>Scaled Agile Inc — SAFe 6.0 Framework documentation</li>
+        <li>VersionOne — State of Agile Report, 2025</li>
+        <li>McKinsey — Agile transformations: why most fail, 2024</li>
+      </ol>
+    </div>
+  </main>
+</div>
+</body>
+</html>
