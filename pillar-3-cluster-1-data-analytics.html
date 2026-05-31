@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Strategy and Analytics — Pillar 3 | GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--border:#1e2535;--border-2:#252e40;--teal:#1d6aff;--teal-deep:#0050e6;--teal-soft:#5090ff;--teal-glow:rgba(29,106,255,0.14);--gold:#e8b800;--gold-soft:#f0cc30;--gold-bg:rgba(232,184,0,0.12);--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--ruby:#e84560;--amber:#f59e0b;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-weight:300;background:var(--void);color:var(--text);font-size:16px;line-height:1.75;}
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:2px solid var(--teal);height:62px;display:flex;align-items:center;padding:0 32px;gap:20px;}
+.logo-mark{width:38px;height:38px;flex-shrink:0;}
+.topbar-brand{display:flex;flex-direction:column;line-height:1.25;}
+.topbar-brand .brand-name{font-size:13px;font-weight:600;color:#fff;}
+.topbar-brand .brand-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;}
+.topbar-divider{width:1px;height:28px;background:var(--border-2);margin:0 4px;}
+.topbar-title{font-size:14px;color:var(--text-2);flex:1;}
+.topbar-edition{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;}
+.layout{display:flex;min-height:calc(100vh - 62px);}
+.sidebar{width:290px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:28px 0;position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;}
+.sidebar-group-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;padding:0 24px 10px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+.sidebar-item{display:flex;align-items:center;gap:12px;padding:11px 24px;text-decoration:none;transition:background 0.15s;}
+.sidebar-item:hover{background:var(--surface-2);}
+.sidebar-item.active{background:var(--teal-glow);border-left:2px solid var(--teal);padding-left:22px;}
+.sidebar-badge{width:22px;height:22px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);flex-shrink:0;}
+.sidebar-item.active .sidebar-badge{background:var(--teal-glow);border-color:var(--teal);color:var(--teal);}
+.sidebar-item span.nav-label{font-size:13px;color:var(--text-2);line-height:1.35;}
+.sidebar-item.active span.nav-label{color:#fff;}
+.sidebar-on-page{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;}
+.sidebar-on-page-label{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;padding:0 24px 8px;}
+.sidebar-on-page a{display:block;padding:7px 24px 7px 32px;font-size:12px;color:var(--text-3);text-decoration:none;transition:color 0.15s;}
+.sidebar-on-page a:hover{color:var(--text-2);}
+.main{flex:1;max-width:920px;padding:60px 60px 96px;overflow-x:hidden;}
+.hero{margin-bottom:72px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:18px;}
+.hero h1{font-size:46px;font-weight:300;letter-spacing:-1.1px;line-height:1.08;color:#fff;margin-bottom:10px;}
+.hero h1 .gold-line{color:var(--gold);display:block;}
+.hero-tagline{font-size:17px;color:var(--text-2);margin-bottom:36px;max-width:580px;line-height:1.7;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.stat{display:flex;flex-direction:column;gap:6px;padding:24px 28px;background:var(--surface);border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-number{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:var(--gold);line-height:1.2;}
+.stat-label{font-size:13px;color:var(--text-3);line-height:1.5;}
+a.gloss{color:inherit;text-decoration:none;border-bottom:1px dotted var(--teal);cursor:help;position:relative;}
+a.gloss .tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--surface-3);border:1px solid var(--teal);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:300;color:var(--text-2);line-height:1.55;width:260px;z-index:200;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,0.4);}
+a.gloss .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--teal);}
+a.gloss:hover .tooltip{display:block;}
+.section{margin-bottom:72px;scroll-margin-top:80px;}
+.section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:10px;}
+.section h2{font-size:28px;font-weight:300;letter-spacing:-0.4px;color:#fff;margin-bottom:8px;}
+.section-hook{font-size:16px;color:var(--text-2);margin-bottom:32px;font-style:italic;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:28px 32px;margin-bottom:16px;}
+.card.gold{border-left-color:var(--gold);}.card.amber{border-left-color:var(--amber);}.card.sky{border-left-color:var(--sky);}
+.card-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:16px;}
+.card ul{list-style:none;padding:0;}
+.card ul li{font-size:15px;color:var(--text);padding:7px 0 7px 22px;position:relative;line-height:1.65;border-bottom:1px solid var(--border);}
+.card ul li:last-child{border-bottom:none;}
+.card ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:13px;top:9px;}
+.card.gold ul li::before{color:var(--gold);}.card.amber ul li::before{color:var(--amber);}.card.sky ul li::before{color:var(--sky);}
+.tension-box{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:10px;padding:20px 24px;margin-bottom:16px;}
+.tension-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;}
+.tension-box p{font-size:14px;color:var(--text-2);line-height:1.65;}
+.disclaimer-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:8px;padding:16px 20px;font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:16px;}
+.insight-block{background:linear-gradient(135deg,var(--gold-bg),transparent);border:1px solid var(--gold);border-radius:12px;padding:28px 32px;margin:32px 0;display:flex;gap:20px;align-items:flex-start;}
+.insight-icon{width:38px;height:38px;background:var(--gold-bg);border:1px solid var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--gold);flex-shrink:0;}
+.insight-body .insight-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:12px;}
+.insight-body ul{list-style:none;padding:0;}
+.insight-body ul li{font-size:15px;color:var(--text);padding:7px 0 7px 20px;position:relative;line-height:1.65;border-bottom:1px solid rgba(232,184,0,0.15);}
+.insight-body ul li:last-child{border-bottom:none;}
+.insight-body ul li::before{content:"→";position:absolute;left:0;color:var(--gold);font-size:12px;top:9px;}
+/* FORMULA COMPARE */
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+.formula-side{padding:22px 24px;}
+.formula-side.old{background:var(--surface);border-right:1px solid var(--border);border-top:3px solid var(--text-3);}
+.formula-side.new{background:var(--surface-3);border-top:3px solid var(--teal);}
+.formula-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;}
+.formula-side.old .formula-tag{color:var(--text-3);}
+.formula-side.new .formula-tag{color:var(--teal);}
+.formula-side h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;}
+.formula-side .code-block{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--void);border:1px solid var(--border);border-radius:6px;padding:10px 14px;margin:10px 0;color:var(--teal-soft);overflow-x:auto;}
+.formula-side ul{list-style:none;padding:0;}
+.formula-side ul li{font-size:13px;color:var(--text-2);padding:4px 0 4px 16px;position:relative;line-height:1.55;}
+.formula-side.old ul li::before{content:"→";position:absolute;left:0;color:var(--text-3);font-size:11px;top:6px;}
+.formula-side.new ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:11px;top:6px;}
+/* PIVOT STEPS */
+.pivot-steps{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+.pivot-step{display:flex;gap:16px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;}
+.pivot-num{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;color:var(--teal);flex-shrink:0;min-width:28px;}
+.pivot-body h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:3px;}
+.pivot-body p{font-size:13px;color:var(--text-2);line-height:1.6;}
+/* MDM LAYERS */
+.mdm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.mdm-card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.mdm-header{padding:12px 16px;font-size:13px;font-weight:600;border-bottom:1px solid var(--border);}
+.mdm-header.vendor{border-top:3px solid var(--teal);color:var(--teal);background:var(--teal-glow);}
+.mdm-header.customer{border-top:3px solid var(--gold);color:var(--gold);background:var(--gold-bg);}
+.mdm-header.material{border-top:3px solid var(--sky);color:var(--sky);background:rgba(56,189,248,0.10);}
+.mdm-body{padding:14px 16px;}
+.mdm-body ul{list-style:none;padding:0;}
+.mdm-body ul li{font-size:12px;color:var(--text-2);padding:4px 0 4px 14px;position:relative;border-bottom:1px solid var(--border);line-height:1.55;}
+.mdm-body ul li:last-child{border-bottom:none;}
+.mdm-header.vendor ~ .mdm-body ul li::before{content:"·";position:absolute;left:0;color:var(--teal);font-size:18px;top:0;}
+.mdm-header.customer ~ .mdm-body ul li::before{content:"·";position:absolute;left:0;color:var(--gold);font-size:18px;top:0;}
+.mdm-header.material ~ .mdm-body ul li::before{content:"·";position:absolute;left:0;color:var(--sky);font-size:18px;top:0;}
+/* DASHBOARD PRINCIPLES */
+.dash-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px;}
+.dash-card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
+.dash-num{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600;color:var(--border-2);margin-bottom:8px;}
+.dash-card h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px;}
+.dash-card p{font-size:12px;color:var(--text-2);line-height:1.6;}
+/* AUDIT TRAIL */
+.audit-flow{display:flex;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+.af-step{flex:1;padding:16px 14px;background:var(--surface-2);text-align:center;border-right:1px solid var(--border);}
+.af-step:last-child{border-right:none;}
+.af-step-num{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;margin-bottom:6px;}
+.af-step:nth-child(1) .af-step-num{color:var(--teal);}
+.af-step:nth-child(2) .af-step-num{color:var(--sky);}
+.af-step:nth-child(3) .af-step-num{color:var(--gold);}
+.af-step:nth-child(4) .af-step-num{color:var(--amber);}
+.af-step h4{font-size:12px;font-weight:600;color:#fff;margin-bottom:4px;}
+.af-step p{font-size:11px;color:var(--text-3);line-height:1.5;}
+.glossary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.glossary-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;}
+.glossary-term{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--teal);flex-shrink:0;min-width:80px;}
+.glossary-def{font-size:14px;color:var(--text-2);line-height:1.6;}
+.sources-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-top:48px;}
+.sources-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;}
+.sources-block ol{padding-left:20px;}
+.sources-block ol li{font-size:12px;color:var(--text-3);line-height:1.65;padding:3px 0;}
+.sources-block ol li a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);}
+.cta-block{background:var(--surface-3);border:1px solid var(--border-2);border-top:3px solid var(--teal);border-radius:16px;padding:44px 48px;margin-top:64px;text-align:center;}
+.cta-block h3{font-size:24px;font-weight:300;color:#fff;margin-bottom:12px;}
+.cta-block p{font-size:15px;color:var(--text-2);margin-bottom:28px;line-height:1.65;}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
+@media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="38" height="38" rx="6" fill="#0e1219"/><path d="M8 7 L4 7 L4 31 L8 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 7 L34 7 L34 31 L30 31" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polygon points="9,10 28,19 9,28 14,19" fill="#e8b800"/><polygon points="14,17 24,19 14,23 17,19" fill="white"/></svg>
+  <div class="topbar-brand"><span class="brand-name">GBS Insider Club</span><span class="brand-sub">Field Guide</span></div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-title">Pillar 3 — Digital and Technology Skills</div>
+  <div class="topbar-edition">Cluster 1 of 4</div>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-group-label">Pillar 3 · Digital &amp; Technology Skills</div>
+    <a href="#data-analytics" class="sidebar-item active"><div class="sidebar-badge">1</div><span class="nav-label">Data Strategy and Analytics</span></a>
+    <a href="pillar-3-cluster-2-enterprise-stack.html" class="sidebar-item"><div class="sidebar-badge">2</div><span class="nav-label">Enterprise Stack</span></a>
+    <a href="pillar-3-cluster-3-automation-ai.html" class="sidebar-item"><div class="sidebar-badge">3</div><span class="nav-label">Automation and AI</span></a>
+    <a href="pillar-3-cluster-4-tech-governance.html" class="sidebar-item"><div class="sidebar-badge">4</div><span class="nav-label">Tech Governance</span></a>
+    <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:16px;">
+      <a href="glossary.html" class="sidebar-item"><div class="sidebar-badge" style="color:var(--gold);border-color:var(--gold);">G</div><span class="nav-label">Glossary</span></a>
+    </div>
+    <div class="sidebar-on-page">
+      <div class="sidebar-on-page-label">On this page</div>
+      <a href="#excel-role">Excel in GBS — tool vs crutch</a>
+      <a href="#xlookup">VLOOKUP vs XLOOKUP</a>
+      <a href="#pivots">Pivot tables — the essential skill</a>
+      <a href="#audit-trail">The analyst's audit trail</a>
+      <a href="#mdm">Master Data Management</a>
+      <a href="#powerbi">Power BI and dashboards</a>
+      <a href="#interpretation">Data interpretation — the real skill</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="hero" id="data-analytics">
+      <div class="eyebrow">Pillar 3 · Digital &amp; Technology Skills · Cluster 1</div>
+      <h1>Data Strategy and Analytics
+        <span class="gold-line">Data without interpretation is noise. Interpretation without data is opinion.</span>
+      </h1>
+      <p class="hero-tagline">Every GBS professional works with data daily. The ones who advance are those who go beyond processing it — they understand what it means, communicate what it shows, and know when it is lying to them.</p>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-number">90%</span><span class="stat-label">of GBS organizations now use data analytics — near-universal adoption (SSON 2025). But only 20% rate themselves as advanced.</span></div>
+        <div class="stat"><span class="stat-number">MDM</span><span class="stat-label">Master Data Management — the most invisible and most important data discipline in GBS. Nobody notices it until it breaks.</span></div>
+        <div class="stat"><span class="stat-number">Pivots</span><span class="stat-label">Pivot tables remain the single highest-ROI Excel skill for GBS analysts. Learn them once, use them forever.</span></div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: EXCEL ROLE -->
+    <section class="section" id="excel-role">
+      <div class="section-eyebrow">Section 1</div>
+      <h2>Excel in GBS — essential tool, not a permanent solution</h2>
+      <p class="section-hook">Excel is the Swiss army knife of GBS. Versatile, fast, and universally available. But knowing when to use it — and when to replace it — separates analysts who contribute from analysts who become bottlenecks.</p>
+      <div class="card">
+        <div class="card-title">When Excel is the right tool</div>
+        <ul>
+          <li><strong>One-off data analysis:</strong> ad hoc investigations, answering a specific question from a dataset, verifying an anomaly in a KPI — Excel is faster than building a dashboard for a question you will ask once</li>
+          <li><strong>KPI mock-ups and prototyping:</strong> before investing in a Power BI dashboard, build the logic and layout in Excel first. Validate the concept, then migrate to a sustainable platform</li>
+          <li><strong>When no system capability exists:</strong> in the absence of proper reporting infrastructure, Excel is a legitimate compromise — not ideal, but functional. Acknowledge the gap and plan to close it</li>
+          <li><strong>Financial modelling and scenario analysis:</strong> Excel's flexibility for building models with assumptions, sensitivity tables, and what-if analysis is still unmatched for many finance use cases</li>
+        </ul>
+      </div>
+      <div class="card amber">
+        <div class="card-title">When Excel becomes a liability</div>
+        <ul>
+          <li><strong>Regular operational KPI reporting:</strong> a weekly or monthly report that depends on one person's Excel skills, with manual data refresh, formula dependencies, and no version control — this should be in Power BI, Tableau, or an automated reporting tool</li>
+          <li><strong>Multi-user data entry or tracking:</strong> shared Excel files used as pseudo-databases create version conflicts, data corruption, and audit trail gaps. Replace with a proper workflow or ticketing system</li>
+          <li><strong>When the file grows past 20MB or contains 100K+ rows:</strong> Excel was not designed to be a database. Performance degrades, formulas break silently, and one accidental sort can destroy data integrity</li>
+          <li><strong>When continuity depends on one person:</strong> if only one analyst understands the file, the organization has a single point of failure. That is not a skill — it is a risk</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 2: XLOOKUP -->
+    <section class="section" id="xlookup">
+      <div class="section-eyebrow">Section 2</div>
+      <h2>VLOOKUP vs XLOOKUP — why the upgrade matters</h2>
+      <p class="section-hook">VLOOKUP has been the default lookup function for 30 years. XLOOKUP, available since 2019, fixes every limitation VLOOKUP had. If you are still using VLOOKUP, this section shows you why — and how — to switch.</p>
+      <div class="formula-grid">
+        <div class="formula-side old">
+          <div class="formula-tag">VLOOKUP — the legacy way</div>
+          <h4>What it does</h4>
+          <div class="code-block">=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</div>
+          <ul>
+            <li>Searches the first column of a range and returns a value from a specified column</li>
+            <li>Cannot look left — the lookup column must be leftmost</li>
+            <li>Uses a column number (not column name) — fragile if columns are inserted or deleted</li>
+            <li>Returns #N/A on no match unless wrapped in IFERROR</li>
+            <li>Defaults to approximate match — a common source of silent errors</li>
+          </ul>
+        </div>
+        <div class="formula-side new">
+          <div class="formula-tag">XLOOKUP — the replacement</div>
+          <h4>What it does better</h4>
+          <div class="code-block">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])</div>
+          <ul>
+            <li>Searches any column and returns from any other column — direction does not matter</li>
+            <li>Built-in error handling — specify a default value for no match directly in the formula</li>
+            <li>Defaults to exact match — no more silent approximate match errors</li>
+            <li>Can search bottom-to-top — useful for finding the last entry in a list</li>
+            <li>Cleaner syntax — no column index number, no IFERROR wrapper needed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="disclaimer-box">
+        <strong style="color:var(--amber);">Compatibility note:</strong> XLOOKUP requires Microsoft 365 or Excel 2021+. If your GBS operates on older Excel versions, VLOOKUP or INDEX/MATCH remains your option. Check your environment before switching — and document which version your files require.
+      </div>
+    </section>
+
+    <!-- SECTION 3: PIVOTS -->
+    <section class="section" id="pivots">
+      <div class="section-eyebrow">Section 3</div>
+      <h2>Pivot tables — the single most valuable Excel skill in GBS</h2>
+      <p class="section-hook">Pivot tables turn raw transaction data into structured analysis in minutes. They are the fastest way to answer questions like "how many invoices per vendor per month?" or "what is the aging breakdown by entity?" without writing a single formula.</p>
+      <div class="pivot-steps">
+        <div class="pivot-step">
+          <div class="pivot-num">01</div>
+          <div class="pivot-body">
+            <h4>Select your data</h4>
+            <p>Your data must be in a flat table — one row per record, headers in the first row, no merged cells, no blank rows. If your data is not in this format, clean it first. Pivot tables require structured input.</p>
+          </div>
+        </div>
+        <div class="pivot-step">
+          <div class="pivot-num">02</div>
+          <div class="pivot-body">
+            <h4>Insert pivot table</h4>
+            <p>Insert → Pivot Table → select your data range → choose where to place it. A blank pivot table field list appears on the right.</p>
+          </div>
+        </div>
+        <div class="pivot-step">
+          <div class="pivot-num">03</div>
+          <div class="pivot-body">
+            <h4>Drag fields to build your view</h4>
+            <p>Drag dimensions (vendor, entity, month) into <strong>Rows</strong> or <strong>Columns</strong>. Drag measures (amount, count) into <strong>Values</strong>. Drag filters into <strong>Filters</strong>. The pivot table updates instantly. Rearranging is as simple as dragging fields between areas.</p>
+          </div>
+        </div>
+        <div class="pivot-step">
+          <div class="pivot-num">04</div>
+          <div class="pivot-body">
+            <h4>Summarize and interpret</h4>
+            <p>Right-click any value to change the summary (sum, count, average). Use "Show Values As" for percentages, running totals, or rank. Add a pivot chart for visual output. The pivot table is not the deliverable — the insight it reveals is the deliverable.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card gold">
+        <div class="card-title">GBS pivot table use cases — what to build today</div>
+        <ul>
+          <li><strong>Invoice aging by vendor:</strong> Rows = vendor name. Columns = aging bucket (0–30, 31–60, 60+). Values = count of invoices. Instantly shows which vendors are aging and where volume concentrates.</li>
+          <li><strong>Volume trend by month and entity:</strong> Rows = month. Columns = entity/company code. Values = count of transactions. Shows volume trends over time — the foundation for capacity planning.</li>
+          <li><strong>Error analysis by type and processor:</strong> Rows = error category. Columns = processor name. Values = count. Reveals whether errors concentrate in one category or one person — different root causes, different fixes.</li>
+          <li><strong>Open items at month-end:</strong> Filter = period. Rows = process. Values = count + sum of open amounts. The hardest metric to hide — and the most useful for backlog conversations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 4: AUDIT TRAIL -->
+    <section class="section" id="audit-trail">
+      <div class="section-eyebrow">Section 4</div>
+      <h2>The analyst's audit trail — documenting your work properly</h2>
+      <p class="section-hook">Creating a graph is not the skill. Creating a graph that someone else can trust, verify, and reproduce six months later — that is the skill. The difference is an audit trail.</p>
+      <div class="audit-flow">
+        <div class="af-step">
+          <div class="af-step-num">01</div>
+          <h4>Source</h4>
+          <p>Document where the data came from. System, report name, date extracted, who pulled it.</p>
+        </div>
+        <div class="af-step">
+          <div class="af-step-num">02</div>
+          <h4>Inputs</h4>
+          <p>Raw data tab — untouched. Any assumptions, filters, or exclusions documented on a separate sheet.</p>
+        </div>
+        <div class="af-step">
+          <div class="af-step-num">03</div>
+          <h4>Workings</h4>
+          <p>Transformation logic, formulas, pivot tables. Each step traceable. Named ranges for clarity.</p>
+        </div>
+        <div class="af-step">
+          <div class="af-step-num">04</div>
+          <h4>Output</h4>
+          <p>The deliverable: charts, tables, summary. With interpretation — not just the visual, but what it means.</p>
+        </div>
+      </div>
+      <div class="tension-box">
+        <div class="tension-label">Why this matters in GBS specifically</div>
+        <p>GBS analysts produce output that feeds SLA reports, management decisions, and audit evidence. A chart without a documented source is not evidence — it is a claim. A report with no traceable methodology cannot be defended during an audit review. Building the audit trail while you work takes 5 minutes. Reconstructing it six months later takes days — if it is possible at all. This habit separates analysts who are trusted with high-stakes analysis from those who are not.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 5: MDM -->
+    <section class="section" id="mdm">
+      <div class="section-eyebrow">Section 5</div>
+      <h2><a class="gloss" href="#g-mdm">Master Data Management<span class="tooltip">MDM — the governance of the critical reference data (vendors, customers, materials, GL accounts) that all transactions depend on. Clean master data = reliable processes. Dirty master data = errors, rework, audit findings.</span></a> — what nobody explains to new joiners</h2>
+      <p class="section-hook">Master data is the foundation data that every transaction references — vendor records, customer records, material numbers, GL accounts. When it is clean, processes run smoothly. When it is not, errors cascade through every downstream step. Garbage in, garbage out.</p>
+
+      <div class="mdm-grid">
+        <div class="mdm-card">
+          <div class="mdm-header vendor">Vendor master data</div>
+          <div class="mdm-body">
+            <ul>
+              <li>Vendor name, address, VAT/tax ID</li>
+              <li>Bank account details for payments</li>
+              <li>Payment terms (net 30, net 60)</li>
+              <li>Purchasing organization assignment</li>
+              <li>Duplicate vendor risk — #1 P2P fraud vector</li>
+              <li>SOX control: changes require approval</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mdm-card">
+          <div class="mdm-header customer">Customer master data</div>
+          <div class="mdm-body">
+            <ul>
+              <li>Customer name, billing address, ship-to</li>
+              <li>Credit limit and payment terms</li>
+              <li>Revenue recognition rules by customer</li>
+              <li>Dunning procedure assignment</li>
+              <li>Duplicate records cause collection confusion</li>
+              <li>SOX control: credit limit changes require approval</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mdm-card">
+          <div class="mdm-header material">Material / GL master data</div>
+          <div class="mdm-body">
+            <ul>
+              <li>Material numbers, descriptions, categories</li>
+              <li>GL account chart — the backbone of financial reporting</li>
+              <li>Cost center and profit center assignments</li>
+              <li>Incorrect GL mapping = misclassified financials</li>
+              <li>Inconsistent naming = duplicate materials, wrong pricing</li>
+              <li>SOX control: GL structure changes require controller sign-off</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Why MDM governance matters — what happens when it fails</div>
+        <ul>
+          <li><strong>Duplicate vendors:</strong> the same supplier exists under two names with two bank accounts. One is legitimate, one is fraudulent. Without MDM controls, both receive payments.</li>
+          <li><strong>Incorrect payment terms:</strong> a vendor record shows net 30 but the contract says net 60. The system pays early. Cash leaves 30 days sooner than it should — across thousands of invoices, that is a working capital impact.</li>
+          <li><strong>GL misclassification:</strong> expenses coded to the wrong GL account distort financial statements. This creates audit findings, restatement risk, and erodes management's trust in the numbers GBS produces.</li>
+          <li><strong>Orphaned records:</strong> vendors, customers, or materials that are no longer active but still in the system. They consume maintenance effort, create confusion, and occasionally receive payments or credits in error.</li>
+        </ul>
+      </div>
+
+      <div class="insight-block">
+        <div class="insight-icon">✦</div>
+        <div class="insight-body">
+          <div class="insight-label">GBS Insider Club Insights</div>
+          <ul>
+            <li><strong>MDM is invisible until it breaks.</strong> No GBS professional starts their career thinking about master data governance. But the analysts who understand why vendor bank details require four-eyes approval, why GL account creation follows a defined process, and why duplicate detection is a SOX control — those analysts understand the infrastructure their work depends on.</li>
+            <li><strong>A large percentage of SOX controls in GBS are master data controls.</strong> If you work in F&A shared services, your daily work is shaped by MDM governance whether you know it or not. Changes to vendor bank details, credit limits, payment terms, and GL assignments are all controlled activities — and your role in executing or checking those changes is part of the control environment.</li>
+            <li><strong>"Garbage in, garbage out" is not a cliche — it is a root cause statement.</strong> When a KPI looks wrong, before questioning the formula, question the data. Before questioning the data, question the master data it was built on. The root cause of many persistent GBS problems is upstream data quality, not downstream processing errors.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: POWER BI -->
+    <section class="section" id="powerbi">
+      <div class="section-eyebrow">Section 6</div>
+      <h2>Power BI and dashboards — what makes them useful versus decorative</h2>
+      <p class="section-hook">GBS centers are full of dashboards. Most of them are opened once, admired, and never used for a decision. The difference between a useful dashboard and a decorative one is not design — it is whether there is a process, an owner, and an action behind it.</p>
+
+      <div class="dash-grid">
+        <div class="dash-card">
+          <div class="dash-num">01</div>
+          <h4>It answers a specific question</h4>
+          <p>A good dashboard does not show everything. It answers: "Is this process on track or not?" "Where is the backlog?" "Which entity is at risk?" If it does not answer a question, it is decoration.</p>
+        </div>
+        <div class="dash-card">
+          <div class="dash-num">02</div>
+          <h4>It has an owner</h4>
+          <p>Someone is accountable for reviewing the dashboard on a defined cadence. If nobody owns it, nobody acts on it. A dashboard without an owner is a report that happens to be visual.</p>
+        </div>
+        <div class="dash-card">
+          <div class="dash-num">03</div>
+          <h4>It triggers actions</h4>
+          <p>A red indicator means someone does something specific — investigates, escalates, reallocates capacity. If the dashboard has no defined response protocol, the red light is just a light.</p>
+        </div>
+        <div class="dash-card">
+          <div class="dash-num">04</div>
+          <h4>It connects to clean data</h4>
+          <p>Automated data refresh from a trusted source. Not a manual upload that someone forgets to do. Not a snapshot from last month presented as current. Data freshness and reliability are non-negotiable.</p>
+        </div>
+        <div class="dash-card">
+          <div class="dash-num">05</div>
+          <h4>It replaces a manual report</h4>
+          <p>The best dashboards eliminate a recurring manual Excel report. If your team still produces the same Excel report alongside the Power BI dashboard, the migration is incomplete and you are paying for both.</p>
+        </div>
+        <div class="dash-card">
+          <div class="dash-num">06</div>
+          <h4>It includes context, not just numbers</h4>
+          <p>A KPI without a target is just a number. A trend without commentary is just a line. The dashboard should show: what happened, whether it is good or bad, and what is being done about it.</p>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong style="color:var(--amber);">Power BI learning path for GBS analysts:</strong> Start with Power BI Desktop (free). Connect to an Excel data source. Build a simple bar chart showing volume by month. Add a slicer for entity or vendor. Publish to a shared workspace. That is your first dashboard — and it probably already outperforms the manual Excel report it replaces. Power Query (built into Power BI) handles the data transformation layer; learn it alongside Power BI, not separately.
+      </div>
+    </section>
+
+    <!-- SECTION 7: INTERPRETATION -->
+    <section class="section" id="interpretation">
+      <div class="section-eyebrow">Section 7</div>
+      <h2>Data interpretation — the skill that separates analysts from processors</h2>
+      <p class="section-hook">Creating graphs and tables is a technical skill. Interpreting what they mean — and communicating that interpretation clearly — is the analytical skill that GBS organizations actually need and consistently lack.</p>
+
+      <div class="card gold">
+        <div class="card-title">What interpretation actually means in practice</div>
+        <ul>
+          <li><strong>Do not present data and leave the audience to draw conclusions.</strong> A chart showing DSO rising for three consecutive months is not an insight. "DSO has risen from 42 to 51 days over three months, driven by delayed collections in Entity X — recommend targeted follow-up" is an insight.</li>
+          <li><strong>Every graph needs a "so what" statement.</strong> After the visual, write one sentence explaining what the audience should take away. If you cannot write that sentence, the graph is not ready.</li>
+          <li><strong>Extrapolate where the data is heading, not just where it has been.</strong> KPI reports are backward-looking by nature. The value is in saying what happens next if the trend continues — and what can be done to change it.</li>
+          <li><strong>Question the data before presenting it.</strong> Does this number make sense? Is it consistent with other indicators? Has the data source changed? A confident-looking chart built on flawed data is worse than no chart at all — it creates false confidence.</li>
+          <li><strong>Context changes meaning.</strong> A 95% SLA compliance rate sounds strong — until you learn the target is 99.5% and the prior period was 98%. Numbers without context are not information.</li>
+        </ul>
+      </div>
+
+      <div class="insight-block">
+        <div class="insight-icon">✦</div>
+        <div class="insight-body">
+          <div class="insight-label">GBS Insider Club Insights</div>
+          <ul>
+            <li><strong>Excel is a tool. Power BI is a platform. Interpretation is the skill.</strong> The most valuable analyst on a GBS team is not the one who can build the most complex pivot table or the most polished dashboard. It is the one who can look at the output and say: "This is what the data is telling us, this is what it means, and this is what we should do about it." That capability is rare — and it is the foundation of every career move from analyst to team lead to operations manager.</li>
+            <li><strong>The best Excel skill you can learn is knowing when to stop using Excel.</strong> Build the prototype in Excel. Validate the logic. Then migrate to a sustainable, automated, shared platform. The analyst who automates themselves out of a manual report is the analyst who gets trusted with the next, more complex problem.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="section" id="glossary">
+      <div class="section-eyebrow">Glossary</div>
+      <h2>Key terms in this cluster</h2>
+      <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
+      <div class="glossary-grid">
+        <div class="glossary-item" id="g-mdm"><span class="glossary-term">MDM</span><span class="glossary-def">Master Data Management — the governance of critical reference data (vendors, customers, materials, GL accounts) that all transactions depend on. Clean master data is the foundation of reliable GBS operations.</span></div>
+        <div class="glossary-item"><span class="glossary-term">XLOOKUP</span><span class="glossary-def">Modern Excel lookup function replacing VLOOKUP. Searches any direction, defaults to exact match, includes built-in error handling. Requires Microsoft 365 or Excel 2021+.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Pivot table</span><span class="glossary-def">Excel feature that summarizes large datasets into structured cross-tabulations. Drag-and-drop interface for dimensions and measures. The single highest-ROI Excel skill for GBS analysts.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Power BI</span><span class="glossary-def">Microsoft's business intelligence platform for interactive dashboards and reports. Connects to multiple data sources, automates refresh, and publishes to shared workspaces. The standard replacement for recurring Excel reports in GBS.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Power Query</span><span class="glossary-def">Data transformation engine built into Excel and Power BI. Automates data cleaning, reshaping, and merging from multiple sources. Eliminates manual copy-paste data preparation workflows.</span></div>
+        <div class="glossary-item"><span class="glossary-term">GL account</span><span class="glossary-def">General Ledger account — the fundamental unit of financial classification. Every transaction in the ERP maps to a GL account. Incorrect GL mapping distorts financial statements and creates audit findings.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Audit trail</span><span class="glossary-def">The documented chain of evidence from data source through transformation logic to final output. In GBS analytics: source, inputs, assumptions, workings, and output — all traceable and reproducible.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Data governance</span><span class="glossary-def">The organizational framework for managing data quality, integrity, security, and accessibility. In GBS, closely linked to MDM governance and SOX compliance requirements.</span></div>
+      </div>
+    </section>
+
+    <div class="sources-block" id="sources">
+      <div class="sources-label">Sources and further reading</div>
+      <ol>
+        <li>SSON — <a href="https://www.ssonetwork.com/global-business-services/articles/the-future-of-business-services-digitalized-gbs" target="_blank">The Future of Business Services: Digitalized GBS</a> (2023)</li>
+        <li>Auxis — <a href="https://www.auxis.com/learn/shared-services/shared-services-trends/" target="_blank">10 Shared Services Trends Shaping the GBS Industry in 2026</a></li>
+        <li>Nanonets — <a href="https://nanonets.com/blog/top-priorities-for-shared-services-and-gbs-leaders-for-2026/" target="_blank">Top Priorities for Shared Services and GBS Leaders for 2026</a></li>
+        <li>Microsoft — <a href="https://support.microsoft.com/en-us/office/xlookup-function-b7fd680e-6d10-43e6-84f9-88eae8bf5929" target="_blank">XLOOKUP Function Reference</a></li>
+        <li>Microsoft — <a href="https://support.microsoft.com/en-us/office/create-a-pivottable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576" target="_blank">Create a PivotTable to Analyze Worksheet Data</a></li>
+        <li>Microsoft — <a href="https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview" target="_blank">What is Power BI?</a></li>
+      </ol>
+    </div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;margin-top:48px;margin-bottom:32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">What this cluster covers — and what comes next</div>
+      <ul style="list-style:none;padding:0;">
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Excel in GBS</strong> — when to use it, when to replace it, XLOOKUP, pivot tables</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>The analyst's audit trail</strong> — source, inputs, workings, output</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Master Data Management</strong> — vendor, customer, material/GL master data with SOX controls</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Power BI and dashboards</strong> — 6 principles for dashboards that drive action, not decoration</li>
+        <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Data interpretation</strong> — the "so what" skill that separates analysts from processors</li>
+        <li style="font-size:14px;color:var(--text-2);padding:6px 0 6px 20px;position:relative;"><span style="position:absolute;left:0;color:var(--text-3);">→</span> <strong style="color:var(--text-2);">Enterprise Stack</strong> — SAP, Oracle, ServiceNow, workflow tools — <a href="pillar-3-cluster-2-enterprise-stack.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">Cluster 2</a></li>
+      </ul>
+    </div>
+    <div class="cta-block">
+      <h3>Want the full breakdown on video?</h3>
+      <p>Data strategy and analytics for GBS professionals covered in depth on the GBS Insider Club YouTube channel.</p>
+      <a href="https://youtube.com/@gbsinsiderclub" class="cta-btn" target="_blank">&#9654; &nbsp; Subscribe on YouTube</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>
