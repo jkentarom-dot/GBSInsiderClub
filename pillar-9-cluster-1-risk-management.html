@@ -229,6 +229,27 @@ a.gloss:hover .tooltip{display:block;}
       <p class="section-eyebrow">Crisis Response</p>
       <h2>Incident management and crisis escalation</h2>
       <p class="section-hook">When something goes wrong at scale — a data breach, a system outage, a regulatory violation — the quality of your escalation playbook determines whether it stays an incident or becomes a crisis.</p>
+<!-- SVG DIAGRAM -->
+<div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
+<svg viewBox="0 0 780 170" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:780px; display:block; margin:0 auto;">
+  <!-- Severity bars -->
+  <rect x="10" y="10" width="760" height="32" rx="6" fill="#141922" stroke="#e84560" stroke-width="1.5"/>
+  <rect x="10" y="52" width="570" height="32" rx="6" fill="#141922" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="10" y="94" width="380" height="32" rx="6" fill="#141922" stroke="#e8b800" stroke-width="1"/>
+  <rect x="10" y="136" width="190" height="32" rx="6" fill="#141922" stroke="#38bdf8" stroke-width="1"/>
+  <!-- Labels -->
+  <text x="24" y="31" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#e84560" letter-spacing="0.1em">SEV-1</text>
+  <text x="80" y="31" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#fff">Critical — full service outage, revenue impact, executive escalation within 15 min</text>
+  <text x="24" y="73" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#f59e0b" letter-spacing="0.1em">SEV-2</text>
+  <text x="80" y="73" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#fff">Major — degraded service, SLA breach risk, manager escalation within 1 hr</text>
+  <text x="24" y="115" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#e8b800" letter-spacing="0.1em">SEV-3</text>
+  <text x="80" y="115" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#fff">Moderate — workaround exists, tracked in backlog</text>
+  <text x="24" y="157" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#38bdf8" letter-spacing="0.1em">SEV-4</text>
+  <text x="80" y="157" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#fff">Low — cosmetic, no business impact</text>
+</svg>
+<div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Incident Severity Classification</div>
+</div>
+
       <div class="pivot-steps"><div class="pivot-step">
       <div class="pivot-num">1</div>
       <div class="pivot-body"><h4>Detect and classify</h4><p>Identify the incident, assess severity (P1 critical, P2 major, P3 moderate, P4 minor), and determine the affected scope — processes, users, customers, and regulatory implications.</p></div>

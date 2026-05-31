@@ -202,6 +202,51 @@ a.gloss:hover .tooltip{display:block;}
       <p class="section-eyebrow">Framework</p>
       <h2>The project lifecycle — initiation to closure</h2>
       <p class="section-hook">Every project follows the same fundamental arc: define what you are doing, plan how to do it, execute the plan, and close properly. Skipping phases creates downstream problems.</p>
+<!-- SVG DIAGRAM -->
+<div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
+<svg viewBox="0 0 780 140" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:780px; display:block; margin:0 auto;">
+  <defs>
+    <marker id="pl-ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#1d6aff"/></marker>
+  </defs>
+  <!-- Chevron boxes -->
+  <rect x="4" y="24" width="138" height="72" rx="6" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
+  <rect x="160" y="24" width="138" height="72" rx="6" fill="#141922" stroke="#5090ff" stroke-width="1.5"/>
+  <rect x="316" y="24" width="138" height="72" rx="6" fill="#141922" stroke="#e8b800" stroke-width="1.5"/>
+  <rect x="472" y="24" width="138" height="72" rx="6" fill="#141922" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="628" y="24" width="138" height="72" rx="6" fill="#141922" stroke="#38bdf8" stroke-width="1.5"/>
+  <!-- Labels -->
+  <text x="73" y="8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#1d6aff" letter-spacing="0.1em">01</text>
+  <text x="229" y="8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#5090ff" letter-spacing="0.1em">02</text>
+  <text x="385" y="8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#e8b800" letter-spacing="0.1em">03</text>
+  <text x="541" y="8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#f59e0b" letter-spacing="0.1em">04</text>
+  <text x="697" y="8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#38bdf8" letter-spacing="0.1em">05</text>
+  <!-- Titles -->
+  <text x="73" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Initiation</text>
+  <text x="229" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Planning</text>
+  <text x="385" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Execution</text>
+  <text x="541" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Monitoring</text>
+  <text x="697" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Closure</text>
+  <!-- Sub-labels -->
+  <text x="73" y="73" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">Charter + sponsor</text>
+  <text x="229" y="73" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">WBS + timeline</text>
+  <text x="385" y="73" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">Deliver + track</text>
+  <text x="541" y="73" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">RAID + status</text>
+  <text x="697" y="73" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">Lessons + handoff</text>
+  <!-- Arrows -->
+  <line x1="145" y1="60" x2="157" y2="60" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#pl-ah)"/>
+  <line x1="301" y1="60" x2="313" y2="60" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#pl-ah)"/>
+  <line x1="457" y1="60" x2="469" y2="60" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#pl-ah)"/>
+  <line x1="613" y1="60" x2="625" y2="60" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#pl-ah)"/>
+  <!-- Monitoring feedback loop -->
+  <path d="M541 98 Q541 120 385 120 Q229 120 229 98" fill="none" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#pl-fb)"/>
+  <text x="385" y="135" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#f59e0b" letter-spacing="0.08em">FEEDBACK LOOP</text>
+  <defs>
+    <marker id="pl-fb" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><path d="M0,0 L6,2.5 L0,5" fill="#f59e0b"/></marker>
+  </defs>
+</svg>
+<div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Project Lifecycle Flow</div>
+</div>
+
       <div class="pivot-steps"><div class="pivot-step">
       <div class="pivot-num">1</div>
       <div class="pivot-body"><h4>Initiation</h4><p>Define the project purpose, scope boundaries, key stakeholders, and success criteria. Produce a project charter. Get formal approval to proceed.</p></div>
