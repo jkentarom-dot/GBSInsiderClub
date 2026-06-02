@@ -182,6 +182,29 @@ a.gloss:hover .tooltip{display:block;}
       <p class="section-eyebrow">Methodology</p>
       <h2>Lift and Shift vs Lift and Fix (Transform)</h2>
       <p class="section-hook">The fundamental strategic choice: move the process as-is and improve later, or redesign while migrating. Each approach has trade-offs in speed, risk, and long-term value.</p>
+<!-- SVG DIAGRAM -->
+<div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
+<svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;display:block;margin:0 auto;">
+  <!-- Left: Lift and Shift -->
+  <rect x="10" y="10" width="320" height="130" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
+  <text x="170" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#1d6aff" letter-spacing="0.1em">LIFT AND SHIFT</text>
+  <text x="170" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="#fff">Move process as-is</text>
+  <text x="170" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Faster. Lower risk. Preserves current state.</text>
+  <text x="170" y="98" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Debt: you inherit every inefficiency.</text>
+  <text x="170" y="125" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1d6aff">Timeline: 3-6 months</text>
+  <!-- VS -->
+  <text x="350" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#7a8799">VS</text>
+  <!-- Right: Lift and Fix -->
+  <rect x="370" y="10" width="320" height="130" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.5"/>
+  <text x="530" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#e8b800" letter-spacing="0.1em">LIFT AND FIX</text>
+  <text x="530" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="#fff">Move and redesign</text>
+  <text x="530" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Slower. Higher risk. Builds for the future.</text>
+  <text x="530" y="98" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Gain: clean processes from day one.</text>
+  <text x="530" y="125" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#e8b800">Timeline: 6-18 months</text>
+</svg>
+<div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Migration Strategy Comparison</div>
+</div>
+
       <div class="formula-grid">
       <div class="formula-side old">
         <div class="formula-tag">Lift &amp; Shift</div>

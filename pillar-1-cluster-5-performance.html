@@ -270,6 +270,35 @@
       <div class="section-eyebrow">Section 2</div>
       <h2>The three-layer KPI framework: input, operational, output</h2>
       <p class="section-hook">A flat list of metrics misses causality. A layered framework tells you not just what happened — but why, and where to look to fix it.</p>
+<!-- SVG DIAGRAM -->
+<div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
+<svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;display:block;margin:0 auto;">
+  <defs><marker id="kp-ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#1d6aff"/></marker></defs>
+  <rect x="10" y="30" width="200" height="100" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
+  <rect x="250" y="30" width="200" height="100" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.5"/>
+  <rect x="490" y="30" width="200" height="100" rx="8" fill="#141922" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="110" y="14" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#1d6aff" letter-spacing="0.1em">LAYER 1</text>
+  <text x="350" y="14" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#e8b800" letter-spacing="0.1em">LAYER 2</text>
+  <text x="590" y="14" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#38bdf8" letter-spacing="0.1em">LAYER 3</text>
+  <text x="110" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="600" fill="#fff">Input</text>
+  <text x="350" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="600" fill="#fff">Operational</text>
+  <text x="590" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="600" fill="#fff">Output</text>
+  <text x="110" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Volume received</text>
+  <text x="110" y="93" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Quality of inbound data</text>
+  <text x="110" y="108" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Headcount utilization</text>
+  <text x="350" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Cycle time</text>
+  <text x="350" y="93" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Error rate</text>
+  <text x="350" y="108" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Backlog age</text>
+  <text x="590" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">SLA compliance %</text>
+  <text x="590" y="93" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Stakeholder satisfaction</text>
+  <text x="590" y="108" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Cost per transaction</text>
+  <line x1="213" y1="80" x2="247" y2="80" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#kp-ah)"/>
+  <line x1="453" y1="80" x2="487" y2="80" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#kp-ah)"/>
+  <text x="350" y="152" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7a8799" letter-spacing="0.08em">WHAT YOU CONTROL → WHAT YOU TRACK → WHAT YOU REPORT</text>
+</svg>
+<div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Three-Layer KPI Framework</div>
+</div>
+
       <div class="kpi-cat-grid">
         <div class="kpi-cat">
           <div class="kpi-cat-header quality">Quality metrics</div>
