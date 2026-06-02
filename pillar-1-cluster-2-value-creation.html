@@ -548,6 +548,43 @@
       <div class="section-eyebrow">Section 2</div>
       <h2><a class="gloss" href="glossary.html#g-tco">TCO<span class="tooltip">Total Cost of Ownership — the full cost of delivering a service, including direct and indirect costs, not just visible headcount.</span></a> and Cost-to-Serve — how costs are actually measured</h2>
       <p class="section-hook">Most GBS business cases compare total cost before centralization to total cost after. That is TCO done correctly. The discipline is in what you include.</p>
+<!-- SVG DIAGRAM -->
+<div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
+<svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:720px;display:block;margin:0 auto;">
+  <!-- Y axis -->
+  <line x1="80" y1="30" x2="80" y2="240" stroke="#252e40" stroke-width="1"/>
+  <text x="40" y="140" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7a8799" letter-spacing="0.08em" transform="rotate(-90,40,140)">COST</text>
+  <!-- Bars (waterfall style — stacked from bottom) -->
+  <!-- Direct costs -->
+  <rect x="110" y="140" width="100" height="100" rx="4" fill="rgba(29,106,255,0.15)" stroke="#1d6aff" stroke-width="1.5"/>
+  <text x="160" y="195" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Direct</text>
+  <text x="160" y="212" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Headcount</text>
+  <text x="160" y="226" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Vendor fees</text>
+  <!-- Indirect costs (stacked on top) -->
+  <rect x="240" y="90" width="100" height="150" rx="4" fill="rgba(232,184,0,0.12)" stroke="#e8b800" stroke-width="1.5"/>
+  <rect x="240" y="140" width="100" height="100" rx="4" fill="rgba(29,106,255,0.15)" stroke="#1d6aff" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="290" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#e8b800">+ Indirect</text>
+  <text x="290" y="134" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">IT, facilities, mgmt</text>
+  <!-- Hidden costs (stacked on top of indirect) -->
+  <rect x="370" y="45" width="100" height="195" rx="4" fill="rgba(232,69,96,0.10)" stroke="#e84560" stroke-width="1.5"/>
+  <rect x="370" y="90" width="100" height="150" rx="4" fill="rgba(232,184,0,0.08)" stroke="#e8b800" stroke-width="0.8" stroke-dasharray="4,3"/>
+  <text x="420" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#e84560">+ Hidden</text>
+  <text x="420" y="83" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Rework, attrition</text>
+  <!-- Total bar -->
+  <rect x="510" y="45" width="100" height="195" rx="4" fill="rgba(56,189,248,0.10)" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="560" y="145" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="600" fill="#38bdf8">TCO</text>
+  <text x="560" y="163" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">The real number</text>
+  <!-- X labels -->
+  <text x="160" y="258" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1d6aff" letter-spacing="0.08em">VISIBLE</text>
+  <text x="290" y="258" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#e8b800" letter-spacing="0.08em">ALLOCATED</text>
+  <text x="420" y="258" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#e84560" letter-spacing="0.08em">BURIED</text>
+  <text x="560" y="258" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#38bdf8" letter-spacing="0.08em">TOTAL</text>
+  <!-- Annotation -->
+  <text x="400" y="275" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#7a8799">Most business cases only show the first bar.</text>
+</svg>
+<div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Total Cost of Ownership — Waterfall</div>
+</div>
+
 
       <div class="tco-wrap">
         <div class="tco-header">

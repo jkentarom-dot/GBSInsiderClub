@@ -203,6 +203,40 @@ a.gloss:hover .tooltip{display:block;}
       <p class="section-eyebrow">Regulatory Frameworks</p>
       <h2>GDPR and SOX — the two compliance pillars</h2>
       <p class="section-hook">GDPR governs how you handle personal data. SOX governs the accuracy and integrity of financial reporting. Both carry severe consequences for violations.</p>
+<!-- SVG DIAGRAM -->
+<div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
+<svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:720px;display:block;margin:0 auto;">
+  <!-- Two columns -->
+  <!-- ITGC -->
+  <rect x="20" y="10" width="320" height="190" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
+  <text x="180" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#1d6aff" letter-spacing="0.1em">IT GENERAL CONTROLS (ITGC)</text>
+  <text x="180" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Controls over the systems themselves</text>
+  <rect x="40" y="68" width="280" height="26" rx="4" fill="rgba(29,106,255,0.08)"/>
+  <text x="180" y="86" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff">Access management (who can log in)</text>
+  <rect x="40" y="100" width="280" height="26" rx="4" fill="rgba(29,106,255,0.06)"/>
+  <text x="180" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff">Change management (code deploys)</text>
+  <rect x="40" y="132" width="280" height="26" rx="4" fill="rgba(29,106,255,0.04)"/>
+  <text x="180" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff">Backup and recovery procedures</text>
+  <rect x="40" y="164" width="280" height="26" rx="4" fill="rgba(29,106,255,0.03)"/>
+  <text x="180" y="182" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff">Job scheduling and batch processing</text>
+  <!-- Business Process Controls -->
+  <rect x="380" y="10" width="320" height="190" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.5"/>
+  <text x="540" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#e8b800" letter-spacing="0.1em">BUSINESS PROCESS CONTROLS</text>
+  <text x="540" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Controls over the transactions</text>
+  <rect x="400" y="68" width="280" height="26" rx="4" fill="rgba(232,184,0,0.08)"/>
+  <text x="540" y="86" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff">Three-way match (PO, receipt, invoice)</text>
+  <rect x="400" y="100" width="280" height="26" rx="4" fill="rgba(232,184,0,0.06)"/>
+  <text x="540" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff">Segregation of duties (SoD)</text>
+  <rect x="400" y="132" width="280" height="26" rx="4" fill="rgba(232,184,0,0.04)"/>
+  <text x="540" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff">Account reconciliation sign-off</text>
+  <rect x="400" y="164" width="280" height="26" rx="4" fill="rgba(232,184,0,0.03)"/>
+  <text x="540" y="182" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff">Journal entry approval workflow</text>
+  <!-- Bottom connector -->
+  <text x="360" y="215" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#7a8799">Both layers must pass for SOX 404 compliance. One failure = material weakness risk.</text>
+</svg>
+<div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">SOX 404 — Two Control Layers</div>
+</div>
+
       <div class="formula-grid">
       <div class="formula-side old">
         <div class="formula-tag">GDPR</div>

@@ -554,6 +554,56 @@
       <div class="section-eyebrow">Section 3</div>
       <h2>The two-axis relationship — and why it creates pressure</h2>
       <p class="section-hook">GBS exists between two forces that pull in different directions. Every professional on the floor feels this. Few can name it clearly.</p>
+<!-- SVG DIAGRAM -->
+<div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;display:block;margin:0 auto;">
+  <!-- Axes -->
+  <line x1="160" y1="30" x2="160" y2="280" stroke="#252e40" stroke-width="1.5"/>
+  <line x1="160" y1="50" x2="680" y2="50" stroke="#252e40" stroke-width="1.5"/>
+  <!-- Axis labels -->
+  <text x="100" y="165" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#e8b800" letter-spacing="0.1em" transform="rotate(-90,100,165)">GEOGRAPHY</text>
+  <text x="420" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#1d6aff" letter-spacing="0.1em">FUNCTION</text>
+  <!-- Column headers -->
+  <text x="280" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Finance</text>
+  <text x="420" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">HR</text>
+  <text x="560" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Procurement</text>
+  <!-- Row headers -->
+  <text x="140" y="120" text-anchor="end" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#c8d0de">EMEA</text>
+  <text x="140" y="175" text-anchor="end" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#c8d0de">APAC</text>
+  <text x="140" y="230" text-anchor="end" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#c8d0de">Americas</text>
+  <!-- Grid cells -->
+  <rect x="220" y="90" width="120" height="40" rx="4" fill="#141922" stroke="#1e2535" stroke-width="1"/>
+  <rect x="360" y="90" width="120" height="40" rx="4" fill="#141922" stroke="#1e2535" stroke-width="1"/>
+  <rect x="500" y="90" width="120" height="40" rx="4" fill="#141922" stroke="#1e2535" stroke-width="1"/>
+  <rect x="220" y="145" width="120" height="40" rx="4" fill="#141922" stroke="#1e2535" stroke-width="1"/>
+  <rect x="360" y="145" width="120" height="40" rx="4" fill="#141922" stroke="#1e2535" stroke-width="1"/>
+  <rect x="500" y="145" width="120" height="40" rx="4" fill="#141922" stroke="#1e2535" stroke-width="1"/>
+  <rect x="220" y="200" width="120" height="40" rx="4" fill="#141922" stroke="#1e2535" stroke-width="1"/>
+  <rect x="360" y="200" width="120" height="40" rx="4" fill="#141922" stroke="#1e2535" stroke-width="1"/>
+  <rect x="500" y="200" width="120" height="40" rx="4" fill="#141922" stroke="#1e2535" stroke-width="1"/>
+  <!-- Cell content examples -->
+  <text x="280" y="114" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">AP, AR, GL</text>
+  <text x="420" y="114" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Payroll, Benefits</text>
+  <text x="560" y="114" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">P2P, Sourcing</text>
+  <text x="280" y="169" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">AP, AR, GL</text>
+  <text x="420" y="169" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Payroll, L&D</text>
+  <text x="560" y="169" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">P2P</text>
+  <text x="280" y="224" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">AP, AR, GL</text>
+  <text x="420" y="224" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Payroll</text>
+  <text x="560" y="224" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">P2P, Contracts</text>
+  <!-- Tension arrows -->
+  <path d="M130 90 L130 240" stroke="#e8b800" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#mx-ah1)"/>
+  <path d="M220 42 L620 42" stroke="#1d6aff" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#mx-ah2)"/>
+  <defs>
+    <marker id="mx-ah1" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><path d="M0,0 L6,2.5 L0,5" fill="#e8b800"/></marker>
+    <marker id="mx-ah2" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><path d="M0,0 L6,2.5 L0,5" fill="#1d6aff"/></marker>
+  </defs>
+  <!-- Tension label -->
+  <text x="420" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#7a8799">The person in each cell reports to BOTH axes. That is the tension.</text>
+</svg>
+<div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">GBS Matrix — Functional vs Geographic Reporting</div>
+</div>
+
 
       <div class="axis-diagram">
         <div class="axis-card vertical">
