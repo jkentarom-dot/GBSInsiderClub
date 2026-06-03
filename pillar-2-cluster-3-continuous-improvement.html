@@ -8,34 +8,34 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--border:#1e2535;--border-2:#252e40;--teal:#1d6aff;--teal-deep:#0050e6;--teal-soft:#5090ff;--teal-glow:rgba(29,106,255,0.14);--gold:#e8b800;--gold-soft:#f0cc30;--gold-bg:rgba(232,184,0,0.12);--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--ruby:#e84560;--amber:#f59e0b;}
+  :root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--border:#1e2535;--border-2:#252e40;--teal:#1d6aff;--teal-deep:#0050e6;--teal-soft:#5090ff;--teal-glow:rgba(29,106,255,0.14);--gold:#e8b800;--gold-soft:#f0cc30;--gold-bg:rgba(232,184,0,0.12);--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#ffffff;--ruby:#e84560;--amber:#f59e0b;}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
   body{font-family:'Inter',sans-serif;font-weight:300;background:var(--void);color:var(--text);font-size:16px;line-height:1.75;}
   .topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:2px solid var(--teal);height:62px;display:flex;align-items:center;padding:0 32px;gap:20px;}
   .logo-mark{width:38px;height:38px;flex-shrink:0;}
   .topbar-brand{display:flex;flex-direction:column;line-height:1.25;}
   .topbar-brand .brand-name{font-size:13px;font-weight:600;color:#fff;}
-  .topbar-brand .brand-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;}
+  .topbar-brand .brand-sub{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;}
   .topbar-divider{width:1px;height:28px;background:var(--border-2);margin:0 4px;}
   .topbar-title{font-size:14px;color:var(--text-2);flex:1;}
-  .topbar-edition{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;}
+  .topbar-edition{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;}
   .layout{display:flex;min-height:calc(100vh - 62px);}
   .sidebar{width:290px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:28px 0;position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;}
-  .sidebar-group-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;padding:0 24px 10px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+  .sidebar-group-label{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;padding:0 24px 10px;border-bottom:1px solid var(--border);margin-bottom:8px;}
   .sidebar-item{display:flex;align-items:center;gap:12px;padding:11px 24px;text-decoration:none;transition:background 0.15s;}
   .sidebar-item:hover{background:var(--surface-2);}
   .sidebar-item.active{background:var(--teal-glow);border-left:2px solid var(--teal);padding-left:22px;}
-  .sidebar-badge{width:22px;height:22px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);flex-shrink:0;}
+  .sidebar-badge{width:22px;height:22px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-3);flex-shrink:0;}
   .sidebar-item.active .sidebar-badge{background:var(--teal-glow);border-color:var(--teal);color:var(--teal);}
   .sidebar-item span.nav-label{font-size:13px;color:var(--text-2);line-height:1.35;}
   .sidebar-item.active span.nav-label{color:#fff;}
   .sidebar-on-page{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;}
-  .sidebar-on-page-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;padding:0 24px 8px;}
+  .sidebar-on-page-label{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;padding:0 24px 8px;}
   .sidebar-on-page a{display:block;padding:7px 24px 7px 32px;font-size:12px;color:var(--text-3);text-decoration:none;transition:color 0.15s;}
   .sidebar-on-page a:hover{color:var(--text-2);}
   .main{flex:1;max-width:1100px;padding:60px 60px 96px;overflow-x:hidden;}
   .hero{margin-bottom:72px;}
-  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:18px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:18px;}
   .hero h1{font-size:46px;font-weight:300;letter-spacing:-1.1px;line-height:1.08;color:#fff;margin-bottom:10px;}
   .hero h1 .gold-line{color:var(--gold);display:block;}
   .hero-tagline{font-size:17px;color:var(--text-2);margin-bottom:36px;max-width:580px;line-height:1.7;}
@@ -49,7 +49,7 @@
   a.gloss .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--teal);}
   a.gloss:hover .tooltip{display:block;}
   .section{margin-bottom:72px;scroll-margin-top:80px;}
-  .section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:10px;}
+  .section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:10px;}
   .section h2{font-size:28px;font-weight:300;letter-spacing:-0.4px;color:#fff;margin-bottom:8px;}
   .section-hook{font-size:16px;color:var(--text-2);margin-bottom:32px;font-style:italic;line-height:1.6;}
   .card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:28px 32px;margin-bottom:16px;}
@@ -63,12 +63,12 @@
   .card.gold ul li::before{color:var(--gold);}
   .card.amber ul li::before{color:var(--amber);}
   .tension-box{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:10px;padding:20px 24px;margin-bottom:16px;}
-  .tension-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;}
+  .tension-label{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;}
   .tension-box p{font-size:14px;color:var(--text-2);line-height:1.65;}
   .disclaimer-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:8px;padding:16px 20px;font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:16px;}
   .insight-block{background:linear-gradient(135deg,var(--gold-bg),transparent);border:1px solid var(--gold);border-radius:12px;padding:28px 32px;margin:32px 0;display:flex;gap:20px;align-items:flex-start;}
   .insight-icon{width:38px;height:38px;background:var(--gold-bg);border:1px solid var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--gold);flex-shrink:0;}
-  .insight-body .insight-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:12px;}
+  .insight-body .insight-label{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:12px;}
   .insight-body ul{list-style:none;padding:0;}
   .insight-body ul li{font-size:15px;color:var(--text);padding:7px 0 7px 20px;position:relative;line-height:1.65;border-bottom:1px solid rgba(232,184,0,0.15);}
   .insight-body ul li:last-child{border-bottom:none;}
@@ -78,7 +78,7 @@
   .glossary-term{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--teal);flex-shrink:0;min-width:80px;}
   .glossary-def{font-size:14px;color:var(--text-2);line-height:1.6;}
   .sources-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-top:48px;}
-  .sources-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;}
+  .sources-label{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;}
   .sources-block ol{padding-left:20px;}
   .sources-block ol li{font-size:12px;color:var(--text-3);line-height:1.65;padding:3px 0;}
   .sources-block ol li a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);}
@@ -93,7 +93,7 @@
   .waste-letter{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:var(--ruby);line-height:1;margin-bottom:6px;}
   .waste-card h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px;}
   .waste-card p{font-size:12px;color:var(--text-2);line-height:1.6;}
-  .waste-card .gbs-example{font-size:11px;color:var(--teal);margin-top:6px;font-style:italic;}
+  .waste-card .gbs-example{font-size:12px;color:var(--teal);margin-top:6px;font-style:italic;}
 
   /* DMAIC */
   .dmaic-flow{display:flex;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;}
@@ -111,8 +111,8 @@
   .dmaic-phase:nth-child(5){background:var(--surface-3);}
   .dmaic-phase:nth-child(5) .dmaic-letter{color:var(--ruby);}
   .dmaic-phase h4{font-size:12px;font-weight:600;color:#fff;margin-bottom:6px;}
-  .dmaic-phase p{font-size:11px;color:var(--text-3);line-height:1.5;}
-  .dmaic-phase .dmaic-example{font-size:11px;color:var(--text-2);margin-top:8px;padding-top:8px;border-top:1px solid var(--border);line-height:1.4;}
+  .dmaic-phase p{font-size:12px;color:var(--text-3);line-height:1.5;}
+  .dmaic-phase .dmaic-example{font-size:12px;color:var(--text-2);margin-top:8px;padding-top:8px;border-top:1px solid var(--border);line-height:1.4;}
 
   /* BELTS */
   .belt-row{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
@@ -130,15 +130,15 @@
   .savings-side{padding:22px 24px;}
   .savings-side.hard{background:var(--surface);border-right:1px solid var(--border);border-top:3px solid var(--teal);}
   .savings-side.soft{background:var(--surface-3);border-top:3px solid var(--gold);}
-  .savings-tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;}
+  .savings-tag{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;}
   .savings-side.hard .savings-tag{color:var(--teal);}
   .savings-side.soft .savings-tag{color:var(--gold);}
   .savings-side h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:8px;}
   .savings-side ul{list-style:none;padding:0;}
   .savings-side ul li{font-size:13px;color:var(--text-2);padding:5px 0 5px 16px;position:relative;border-bottom:1px solid var(--border);line-height:1.55;}
   .savings-side ul li:last-child{border-bottom:none;}
-  .savings-side.hard ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:11px;top:7px;}
-  .savings-side.soft ul li::before{content:"→";position:absolute;left:0;color:var(--gold);font-size:11px;top:7px;}
+  .savings-side.hard ul li::before{content:"→";position:absolute;left:0;color:var(--teal);font-size:12px;top:7px;}
+  .savings-side.soft ul li::before{content:"→";position:absolute;left:0;color:var(--gold);font-size:12px;top:7px;}
 
   @media(max-width:1024px){
     .sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}
@@ -212,16 +212,16 @@
 
       <!-- SVG: Lean vs Six Sigma -->
       <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:24px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Lean vs Six Sigma — two different problems, one combined toolkit</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Lean vs Six Sigma — two different problems, one combined toolkit</div>
         <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
           <!-- Lean -->
           <rect x="20" y="20" width="300" height="140" rx="10" fill="#0e1219" stroke="#1d6aff" stroke-width="1.5"/>
           <rect x="20" y="20" width="300" height="5" rx="2" fill="#1d6aff"/>
           <text x="170" y="44" fill="#1d6aff" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" font-weight="600">LEAN</text>
           <text x="170" y="62" fill="#c8d0de" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" font-weight="500">Problem: Waste and slowness</text>
-          <text x="170" y="84" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Removes steps that don't add value</text>
-          <text x="170" y="104" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Speeds up flow through a process</text>
-          <text x="170" y="124" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Tools: VSM, 5S, Kaizen, Kanban</text>
+          <text x="170" y="84" fill="#ffffff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Removes steps that don't add value</text>
+          <text x="170" y="104" fill="#ffffff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Speeds up flow through a process</text>
+          <text x="170" y="124" fill="#ffffff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Tools: VSM, 5S, Kaizen, Kanban</text>
           <text x="170" y="148" fill="#1d6aff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" font-style="italic">GBS example: reduce AP cycle time</text>
           <!-- + -->
           <text x="349" y="100" fill="#e8b800" font-size="28" text-anchor="middle" font-weight="300">+</text>
@@ -230,9 +230,9 @@
           <rect x="380" y="20" width="300" height="5" rx="2" fill="#e8b800"/>
           <text x="530" y="44" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" font-weight="600">SIX SIGMA</text>
           <text x="530" y="62" fill="#c8d0de" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" font-weight="500">Problem: Defects and variation</text>
-          <text x="530" y="84" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Reduces errors and inconsistency</text>
-          <text x="530" y="104" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Uses data to find root causes</text>
-          <text x="530" y="124" fill="#7a8799" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Tools: DMAIC, fishbone, control charts</text>
+          <text x="530" y="84" fill="#ffffff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Reduces errors and inconsistency</text>
+          <text x="530" y="104" fill="#ffffff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Uses data to find root causes</text>
+          <text x="530" y="124" fill="#ffffff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Tools: DMAIC, fishbone, control charts</text>
           <text x="530" y="148" fill="#e8b800" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" font-style="italic">GBS example: reduce invoice error rate</text>
         </svg>
       </div>
@@ -286,9 +286,9 @@
   <line x1="301" y1="60" x2="313" y2="60" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#dm-ah)"/>
   <line x1="457" y1="60" x2="469" y2="60" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#dm-ah)"/>
   <line x1="613" y1="60" x2="625" y2="60" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#dm-ah)"/>
-  <text x="390" y="130" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7a8799" letter-spacing="0.08em">SIX SIGMA PROJECT FRAMEWORK</text>
+  <text x="390" y="130" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ffffff" letter-spacing="0.08em">SIX SIGMA PROJECT FRAMEWORK</text>
 </svg>
-<div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">DMAIC — Six Sigma Project Framework</div>
+<div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">DMAIC — Six Sigma Project Framework</div>
 </div>
 
 
@@ -518,7 +518,7 @@
     </div>
 
     <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;margin-top:48px;margin-bottom:32px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">What this cluster covers — and what comes next</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">What this cluster covers — and what comes next</div>
       <ul style="list-style:none;padding:0;">
         <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Lean vs Six Sigma</strong> — what each targets and why GBS uses both</li>
         <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>DOWNTIME wastes</strong> — all 8 with GBS-specific examples</li>

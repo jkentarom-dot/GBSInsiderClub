@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--teal:#1d6aff;--gold:#e8b800;--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--border:#1e2636;--border-2:#2a3347;--green:#34d399;--purple:#a78bfa}
+  :root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--teal:#1d6aff;--gold:#e8b800;--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#ffffff;--border:#1e2636;--border-2:#2a3347;--green:#34d399;--purple:#a78bfa}
   body{background:var(--void);color:var(--text-2);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
   .topbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;background:rgba(8,11,16,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
   .topbar-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
@@ -17,18 +17,18 @@
   .topbar-nav{display:flex;align-items:center;gap:20px}.topbar-nav a{color:var(--text-3);text-decoration:none;font-size:13px;transition:color 0.2s}.topbar-nav a:hover{color:var(--teal)}
   .page{padding-top:56px}.content-wrap{max-width:1280px;margin:0 auto;padding:0 48px}
   .hero{padding:64px 0 48px;position:relative}.hero::after{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(ellipse at 80% 30%,rgba(29,106,255,0.05) 0%,transparent 70%);pointer-events:none}
-  .breadcrumb{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px}.breadcrumb a{color:var(--text-3);text-decoration:none}.breadcrumb a:hover{color:var(--teal)}.breadcrumb .sep{margin:0 8px;opacity:0.4}
+  .breadcrumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px}.breadcrumb a{color:var(--text-3);text-decoration:none}.breadcrumb a:hover{color:var(--teal)}.breadcrumb .sep{margin:0 8px;opacity:0.4}
   .hero-grid{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:start}
   .hero h1{font-size:clamp(36px,4vw,56px);font-weight:300;color:var(--text);line-height:1.1;margin-bottom:16px}.hero h1 strong{font-weight:600;color:var(--teal)}
   .hero-lead{font-size:17px;color:var(--text-2);line-height:1.75;margin-bottom:20px;max-width:680px}.hero-body{font-size:15px;color:var(--text-3);line-height:1.8;max-width:680px}
   .stats-panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px 28px;flex-shrink:0}
-  .stats-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px}
-  .stat-block{margin-bottom:16px}.stat-num{font-size:36px;font-weight:600;color:var(--gold);line-height:1}.stat-desc{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px}
+  .stats-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px}
+  .stat-block{margin-bottom:16px}.stat-num{font-size:36px;font-weight:600;color:var(--gold);line-height:1}.stat-desc{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px}
   .level-dots{padding-top:16px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px}.level-dot{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-3)}.level-dot .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
   .cluster-nav{padding:0 0 48px}.cluster-nav h2{font-size:13px;font-weight:600;color:var(--text-3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px}
   .cluster-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
   .cluster-card{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none;transition:all 0.2s}.cluster-card:hover{border-color:var(--teal);background:var(--surface-2);transform:translateY(-1px)}
-  .cc-num{width:28px;height:28px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);flex-shrink:0}.cluster-card:hover .cc-num{border-color:var(--teal);color:var(--teal)}
+  .cc-num{width:28px;height:28px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-3);flex-shrink:0}.cluster-card:hover .cc-num{border-color:var(--teal);color:var(--teal)}
   .cc-label{font-size:13px;color:var(--text-2);line-height:1.35}
   .section-toggle{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;cursor:pointer;margin-bottom:32px;transition:border-color 0.2s;width:fit-content}.section-toggle:hover{border-color:var(--teal)}.section-toggle .arrow{font-size:12px;color:var(--teal);transition:transform 0.3s}.section-toggle.open .arrow{transform:rotate(180deg)}.section-toggle span{font-size:13px;color:var(--text-2)}
   .topics-container{display:none}.topics-container.visible{display:block}
@@ -38,7 +38,7 @@
   .tile-header{display:flex;align-items:center;gap:14px;padding:16px 18px}
   .tile-icon{width:40px;height:40px;border-radius:8px;flex-shrink:0;background:rgba(29,106,255,0.06);border:1px solid rgba(29,106,255,0.15);display:flex;align-items:center;justify-content:center}.tile-icon svg{width:20px;height:20px}
   .tile-info{flex:1;min-width:0}.tile-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.4}.tile-meta{display:flex;align-items:center;gap:8px;margin-top:4px}
-  .tile-badge{font-family:'JetBrains Mono',monospace;font-size:11px;padding:1px 8px;border-radius:3px;letter-spacing:0.06em;white-space:nowrap;border:1px solid}
+  .tile-badge{font-family:'JetBrains Mono',monospace;font-size:12px;padding:1px 8px;border-radius:3px;letter-spacing:0.06em;white-space:nowrap;border:1px solid}
   .badge-rookie{color:var(--green);border-color:rgba(52,211,153,0.25)}.badge-pro{color:var(--teal);border-color:rgba(29,106,255,0.25)}.badge-lead{color:var(--gold);border-color:rgba(232,184,0,0.25)}.badge-pm{color:var(--purple);border-color:rgba(167,139,250,0.25)}
   .tile-expand-icon{color:var(--text-3);font-size:16px;transition:transform 0.3s;flex-shrink:0}.topic-tile.open .tile-expand-icon{transform:rotate(45deg);color:var(--teal)}
   .tile-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;padding:0 18px}.topic-tile.open .tile-body{max-height:500px;padding:0 18px 18px}
@@ -58,7 +58,7 @@
   <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><span style="color:var(--teal);">Pillar 2</span></div>
   <div class="hero-grid">
     <div>
-      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;"><div style="width:20px;height:1px;background:var(--teal);"></div><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:0.15em;text-transform:uppercase;">Pillar 2 of 10</span></div>
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;"><div style="width:20px;height:1px;background:var(--teal);"></div><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);letter-spacing:0.15em;text-transform:uppercase;">Pillar 2 of 10</span></div>
       <h1>Operational<br><strong>Excellence</strong></h1>
       <p class="hero-lead">Process discipline, service management, continuous improvement, and the daily operating rigor that separates functional GBS organizations from struggling ones.</p>
       <p class="hero-body">Operational excellence is not a project — it is an operating system. It covers how you document processes, manage service delivery, improve continuously, maintain controls, and stay productive under volume. This pillar is where GBS careers are built or broken at every level.</p>

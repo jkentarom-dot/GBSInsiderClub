@@ -13,7 +13,7 @@
     --border: #1e2535; --border-2: #252e40;
     --teal: #1d6aff; --teal-deep: #0050e6; --teal-soft: #5090ff; --teal-glow: rgba(29,106,255,0.14);
     --gold: #e8b800; --gold-soft: #f0cc30; --gold-bg: rgba(232,184,0,0.12);
-    --sky: #38bdf8; --text: #ffffff; --text-2: #c8d0de; --text-3: #7a8799;
+    --sky: #38bdf8; --text: #ffffff; --text-2: #c8d0de; --text-3: #ffffff;
     --ruby: #e84560; --amber: #f59e0b;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,29 +24,29 @@
   .logo-mark { width: 38px; height: 38px; flex-shrink: 0; }
   .topbar-brand { display: flex; flex-direction: column; line-height: 1.25; }
   .topbar-brand .brand-name { font-size: 13px; font-weight: 600; color: #fff; }
-  .topbar-brand .brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.12em; }
+  .topbar-brand .brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.12em; }
   .topbar-divider { width: 1px; height: 28px; background: var(--border-2); margin: 0 4px; }
   .topbar-title { font-size: 14px; color: var(--text-2); flex: 1; }
-  .topbar-edition { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .topbar-edition { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
 
   .layout { display: flex; min-height: calc(100vh - 62px); }
   .sidebar { width: 290px; flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--border); padding: 28px 0; position: sticky; top: 62px; height: calc(100vh - 62px); overflow-y: auto; }
-  .sidebar-group-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; padding: 0 24px 10px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
+  .sidebar-group-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; padding: 0 24px 10px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
   .sidebar-item { display: flex; align-items: center; gap: 12px; padding: 11px 24px; text-decoration: none; transition: background 0.15s; }
   .sidebar-item:hover { background: var(--surface-2); }
   .sidebar-item.active { background: var(--teal-glow); border-left: 2px solid var(--teal); padding-left: 22px; }
-  .sidebar-badge { width: 22px; height: 22px; border-radius: 50%; background: var(--surface-3); border: 1px solid var(--border-2); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); flex-shrink: 0; }
+  .sidebar-badge { width: 22px; height: 22px; border-radius: 50%; background: var(--surface-3); border: 1px solid var(--border-2); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-3); flex-shrink: 0; }
   .sidebar-item.active .sidebar-badge { background: var(--teal-glow); border-color: var(--teal); color: var(--teal); }
   .sidebar-item span.nav-label { font-size: 13px; color: var(--text-2); line-height: 1.35; }
   .sidebar-item.active span.nav-label { color: #fff; }
   .sidebar-on-page { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px; }
-  .sidebar-on-page-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.14em; padding: 0 24px 8px; }
+  .sidebar-on-page-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.14em; padding: 0 24px 8px; }
   .sidebar-on-page a { display: block; padding: 7px 24px 7px 32px; font-size: 12px; color: var(--text-3); text-decoration: none; transition: color 0.15s; }
   .sidebar-on-page a:hover { color: var(--text-2); }
 
   .main { flex: 1; max-width: 1100px; padding: 60px 60px 96px; overflow-x: hidden; }
   .hero { margin-bottom: 72px; }
-  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 18px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 18px; }
   .hero h1 { font-size: 46px; font-weight: 300; letter-spacing: -1.1px; line-height: 1.08; color: #fff; margin-bottom: 10px; }
   .hero h1 .gold-line { color: var(--gold); display: block; }
   .hero-tagline { font-size: 17px; color: var(--text-2); margin-bottom: 36px; max-width: 580px; line-height: 1.7; }
@@ -62,7 +62,7 @@
   a.gloss:hover .tooltip { display: block; }
 
   .section { margin-bottom: 72px; scroll-margin-top: 80px; }
-  .section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px; }
+  .section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px; }
   .section h2 { font-size: 28px; font-weight: 300; letter-spacing: -0.4px; color: #fff; margin-bottom: 8px; }
   .section-hook { font-size: 16px; color: var(--text-2); margin-bottom: 32px; font-style: italic; line-height: 1.6; }
 
@@ -71,7 +71,7 @@
   .doc-layer { display: flex; align-items: stretch; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 10px; }
   .doc-layer-badge { width: 120px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 16px; text-align: center; }
   .doc-layer-badge .layer-num { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 600; line-height: 1; margin-bottom: 6px; }
-  .doc-layer-badge .layer-name { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+  .doc-layer-badge .layer-name { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
   .doc-layer.l1 .doc-layer-badge { background: var(--teal-glow); border-right: 1px solid var(--teal); }
   .doc-layer.l1 .doc-layer-badge .layer-num { color: var(--teal); }
   .doc-layer.l1 .doc-layer-badge .layer-name { color: var(--teal); }
@@ -84,7 +84,7 @@
   .doc-layer-content { flex: 1; padding: 18px 22px; background: var(--surface-2); }
   .doc-layer-content h4 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
   .doc-layer-content p { font-size: 13px; color: var(--text-2); line-height: 1.65; margin-bottom: 8px; }
-  .doc-layer-content .example-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; }
+  .doc-layer-content .example-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; }
   .doc-layer.l1 .example-tag { color: var(--teal); border: 1px solid var(--teal); background: var(--teal-glow); }
   .doc-layer.l2 .example-tag { color: var(--gold); border: 1px solid var(--gold); background: var(--gold-bg); }
   .doc-layer.l3 .example-tag { color: var(--sky); border: 1px solid var(--sky); background: rgba(56,189,248,0.10); }
@@ -92,7 +92,7 @@
   /* COMPARISON TABLE */
   .compare-table { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
   .ct-head { display: grid; grid-template-columns: 160px 1fr 1fr; background: var(--surface-2); border-bottom: 1px solid var(--border-2); }
-  .ct-head div { padding: 12px 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+  .ct-head div { padding: 12px 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
   .ct-head .h-sop { color: var(--teal); }
   .ct-head .h-dtp { color: var(--gold); }
   .ct-row { display: grid; grid-template-columns: 160px 1fr 1fr; border-bottom: 1px solid var(--border); }
@@ -108,7 +108,7 @@
   .gov-step:last-child { border-right: none; }
   .gov-step-num { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 600; color: var(--teal); margin-bottom: 8px; }
   .gov-step h4 { font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 6px; line-height: 1.3; }
-  .gov-step p { font-size: 11px; color: var(--text-3); line-height: 1.5; }
+  .gov-step p { font-size: 12px; color: var(--text-3); line-height: 1.5; }
   .gov-arrow { position: absolute; right: -14px; top: 50%; transform: translateY(-50%); color: var(--teal); font-size: 18px; z-index: 2; background: var(--surface-2); padding: 2px; line-height: 1; }
 
   /* GPO MODEL CARDS */
@@ -130,12 +130,12 @@
 
   /* GPO ENGAGEMENT CHART — SVG inline */
   .chart-wrap { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-  .chart-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; }
+  .chart-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; }
 
   /* SERVICE CATALOG */
   .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
   .catalog-item { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
-  .catalog-item-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .catalog-item-tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
   .catalog-item h4 { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 6px; }
   .catalog-item p { font-size: 12px; color: var(--text-2); line-height: 1.6; }
 
@@ -144,20 +144,20 @@
   .xla-side { padding: 24px 26px; }
   .xla-side.sla-side { background: var(--surface); border-right: 1px solid var(--border); border-top: 3px solid var(--text-3); }
   .xla-side.xla-new { background: var(--surface-3); border-top: 3px solid var(--teal); }
-  .xla-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+  .xla-tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
   .xla-side.sla-side .xla-tag { color: var(--text-3); }
   .xla-side.xla-new .xla-tag { color: var(--teal); }
   .xla-side h4 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 8px; }
   .xla-side ul { list-style: none; padding: 0; }
   .xla-side ul li { font-size: 13px; color: var(--text-2); padding: 5px 0 5px 16px; position: relative; border-bottom: 1px solid var(--border); line-height: 1.55; }
   .xla-side ul li:last-child { border-bottom: none; }
-  .xla-side.sla-side ul li::before { content: "→"; position: absolute; left: 0; color: var(--text-3); font-size: 11px; top: 7px; }
-  .xla-side.xla-new ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-size: 11px; top: 7px; }
+  .xla-side.sla-side ul li::before { content: "→"; position: absolute; left: 0; color: var(--text-3); font-size: 12px; top: 7px; }
+  .xla-side.xla-new ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-size: 12px; top: 7px; }
 
   /* INSIGHT */
   .insight-block { background: linear-gradient(135deg, var(--gold-bg), transparent); border: 1px solid var(--gold); border-radius: 12px; padding: 28px 32px; margin: 32px 0; display: flex; gap: 20px; align-items: flex-start; }
   .insight-icon { width: 38px; height: 38px; background: var(--gold-bg); border: 1px solid var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; color: var(--gold); flex-shrink: 0; }
-  .insight-body .insight-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 12px; }
+  .insight-body .insight-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 12px; }
   .insight-body ul { list-style: none; padding: 0; }
   .insight-body ul li { font-size: 15px; color: var(--text); padding: 7px 0 7px 20px; position: relative; line-height: 1.65; border-bottom: 1px solid rgba(232,184,0,0.15); }
   .insight-body ul li:last-child { border-bottom: none; }
@@ -175,7 +175,7 @@
   .card.amber ul li::before { color: var(--amber); }
 
   .tension-box { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--amber); border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; }
-  .tension-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--amber); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+  .tension-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--amber); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
   .tension-box p { font-size: 14px; color: var(--text-2); line-height: 1.65; }
   .disclaimer-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--amber); border-radius: 8px; padding: 16px 20px; font-size: 14px; color: var(--text-2); line-height: 1.65; margin-bottom: 16px; }
 
@@ -187,7 +187,7 @@
 
   /* SOURCES */
   .sources-block { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-top: 48px; }
-  .sources-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .sources-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
   .sources-block ol { padding-left: 20px; }
   .sources-block ol li { font-size: 12px; color: var(--text-3); line-height: 1.65; padding: 3px 0; }
   .sources-block ol li a { color: var(--teal); text-decoration: none; border-bottom: 1px dotted var(--teal); }
@@ -307,7 +307,7 @@
   <text x="85" y="100" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="11" fill="#e8b800" letter-spacing="0.08em">OPERATIONAL</text>
   <text x="85" y="150" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="11" fill="#38bdf8" letter-spacing="0.08em">TACTICAL</text>
 </svg>
-<div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Policy → SOP → DTP Hierarchy</div>
+<div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Policy → SOP → DTP Hierarchy</div>
 </div>
 
 
@@ -551,8 +551,8 @@
           <line x1="60" y1="260" x2="660" y2="260" stroke="#1e2535" stroke-width="1.5"/>
           <line x1="60" y1="40" x2="60" y2="260" stroke="#1e2535" stroke-width="1.5"/>
           <!-- Axis labels -->
-          <text x="360" y="295" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1">CHANGE INTENSITY IN ORGANIZATION</text>
-          <text x="20" y="150" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" transform="rotate(-90,20,150)">GPO ENGAGEMENT LEVEL</text>
+          <text x="360" y="295" fill="#ffffff" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1">CHANGE INTENSITY IN ORGANIZATION</text>
+          <text x="20" y="150" fill="#ffffff" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" transform="rotate(-90,20,150)">GPO ENGAGEMENT LEVEL</text>
           <!-- Grid lines -->
           <line x1="60" y1="200" x2="660" y2="200" stroke="#1e2535" stroke-width="0.5" stroke-dasharray="4,4"/>
           <line x1="60" y1="140" x2="660" y2="140" stroke="#1e2535" stroke-width="0.5" stroke-dasharray="4,4"/>
@@ -567,8 +567,8 @@
           <path d="M60,240 C150,230 200,200 300,160 C400,120 500,80 660,55" fill="none" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round"/>
           <!-- Zone labels -->
           <rect x="70" y="205" width="130" height="42" rx="5" fill="#0e1219" stroke="#1e2535" stroke-width="1"/>
-          <text x="135" y="222" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Stable operations</text>
-          <text x="135" y="237" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Light governance role</text>
+          <text x="135" y="222" fill="#ffffff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Stable operations</text>
+          <text x="135" y="237" fill="#ffffff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Light governance role</text>
           <rect x="240" y="155" width="130" height="42" rx="5" fill="#0e1219" stroke="#1d6aff" stroke-width="1"/>
           <text x="305" y="172" fill="#c8d0de" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Process improvement</text>
           <text x="305" y="187" fill="#c8d0de" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Active involvement</text>
@@ -576,13 +576,13 @@
           <text x="581" y="65" fill="#e8b800" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Transformation /</text>
           <text x="581" y="80" fill="#e8b800" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">migration: full GPO</text>
           <!-- X axis labels -->
-          <text x="135" y="275" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">LOW</text>
-          <text x="360" y="275" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">MEDIUM</text>
-          <text x="590" y="275" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">HIGH</text>
+          <text x="135" y="275" fill="#ffffff" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">LOW</text>
+          <text x="360" y="275" fill="#ffffff" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">MEDIUM</text>
+          <text x="590" y="275" fill="#ffffff" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">HIGH</text>
           <!-- Y axis labels -->
-          <text x="55" y="244" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">LOW</text>
-          <text x="55" y="144" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">MED</text>
-          <text x="55" y="84" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">HIGH</text>
+          <text x="55" y="244" fill="#ffffff" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">LOW</text>
+          <text x="55" y="144" fill="#ffffff" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">MED</text>
+          <text x="55" y="84" fill="#ffffff" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">HIGH</text>
           <!-- Data points -->
           <circle cx="60" cy="240" r="5" fill="#1d6aff"/>
           <circle cx="210" cy="195" r="5" fill="#1d6aff"/>
@@ -681,13 +681,13 @@
         <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
           <!-- SLA box -->
           <rect x="30" y="30" width="290" height="140" rx="10" fill="#0e1219" stroke="#1e2535" stroke-width="1"/>
-          <rect x="30" y="30" width="290" height="6" rx="3" fill="#7a8799"/>
-          <text x="175" y="58" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" font-weight="600">SLA MEASURES</text>
+          <rect x="30" y="30" width="290" height="6" rx="3" fill="#ffffff"/>
+          <text x="175" y="58" fill="#ffffff" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" letter-spacing="1" font-weight="600">SLA MEASURES</text>
           <text x="175" y="82" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Turnaround time hit?</text>
           <text x="175" y="102" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Error rate within threshold?</text>
           <text x="175" y="122" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Volume processed on time?</text>
           <text x="175" y="142" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">SLA compliance %?</text>
-          <text x="175" y="162" fill="#7a8799" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" font-style="italic">Output — did it happen?</text>
+          <text x="175" y="162" fill="#ffffff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" font-style="italic">Output — did it happen?</text>
           <!-- Arrow -->
           <text x="349" y="108" fill="#1d6aff" font-size="28" text-anchor="middle" font-family="Inter">+</text>
           <!-- XLA box -->
@@ -781,7 +781,7 @@
 
     <!-- SCOPE SIGNPOST -->
     <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;margin-top:48px;margin-bottom:32px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">What this cluster covers — and what comes next</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">What this cluster covers — and what comes next</div>
       <ul style="list-style:none;padding:0;">
         <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Document layers</strong> — SOP (what), DTP (how), controls (guardrails)</li>
         <li style="font-size:14px;color:var(--text);padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--teal);">✓</span> <strong>Documentation governance cycle</strong> — review, update, approve, train, repeat</li>
