@@ -5,438 +5,181 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pillar 2: Operational Excellence — GBS Insider Club</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --gold: #b89438; --gold-light: #d4a843; --navy: #05080f;
-    --navy2: #0a0e18; --navy3: #0f1520;
-    --border2: rgba(184,148,56,0.08); --text: #c8d0dc; --text2: #8a94a8; --text3: #3d4a5c;
-  }
-  body { background: var(--navy); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; overflow-x: hidden; }
-  .topbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 56px; height: 64px;
-    background: rgba(5,8,15,0.95); backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border2);
-  }
-  .topbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .brand-mark { width: 28px; height: 28px; border: 1px solid rgba(184,148,56,0.4); border-radius: 4px; background: rgba(184,148,56,0.08); display: flex; align-items: center; justify-content: center; }
-  .brand-name { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; }
-  .brand-name span:first-child { color: var(--gold); }
-  .brand-name span:last-child { color: var(--text2); font-weight: 300; }
-  @media (max-width: 768px) { .topbar { padding: 0 24px; } .hero, .content { padding-left: 24px; padding-right: 24px; } }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--teal:#1d6aff;--gold:#e8b800;--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--border:#1e2636;--border-2:#2a3347;--green:#34d399;--purple:#a78bfa}
+  body{background:var(--void);color:var(--text-2);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;background:rgba(8,11,16,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+  .topbar-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand-mark{width:28px;height:28px;border:1px solid rgba(29,106,255,0.3);border-radius:4px;background:rgba(29,106,255,0.06);display:flex;align-items:center;justify-content:center}
+  .brand-name{font-size:13px;font-weight:600;letter-spacing:0.08em}.brand-name span:first-child{color:var(--teal)}.brand-name span:last-child{color:var(--text-3);font-weight:400}
+  .topbar-nav{display:flex;align-items:center;gap:20px}.topbar-nav a{color:var(--text-3);text-decoration:none;font-size:13px;transition:color 0.2s}.topbar-nav a:hover{color:var(--teal)}
+  .page{padding-top:56px}.content-wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+  .hero{padding:64px 0 48px;position:relative}.hero::after{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(ellipse at 80% 30%,rgba(29,106,255,0.05) 0%,transparent 70%);pointer-events:none}
+  .breadcrumb{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px}.breadcrumb a{color:var(--text-3);text-decoration:none}.breadcrumb a:hover{color:var(--teal)}.breadcrumb .sep{margin:0 8px;opacity:0.4}
+  .hero-grid{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:start}
+  .hero h1{font-size:clamp(36px,4vw,56px);font-weight:300;color:var(--text);line-height:1.1;margin-bottom:16px}.hero h1 strong{font-weight:600;color:var(--teal)}
+  .hero-lead{font-size:17px;color:var(--text-2);line-height:1.75;margin-bottom:20px;max-width:680px}.hero-body{font-size:15px;color:var(--text-3);line-height:1.8;max-width:680px}
+  .stats-panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px 28px;flex-shrink:0}
+  .stats-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px}
+  .stat-block{margin-bottom:16px}.stat-num{font-size:36px;font-weight:600;color:var(--gold);line-height:1}.stat-desc{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px}
+  .level-dots{padding-top:16px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px}.level-dot{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-3)}.level-dot .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .cluster-nav{padding:0 0 48px}.cluster-nav h2{font-size:13px;font-weight:600;color:var(--text-3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px}
+  .cluster-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+  .cluster-card{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none;transition:all 0.2s}.cluster-card:hover{border-color:var(--teal);background:var(--surface-2);transform:translateY(-1px)}
+  .cc-num{width:28px;height:28px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);flex-shrink:0}.cluster-card:hover .cc-num{border-color:var(--teal);color:var(--teal)}
+  .cc-label{font-size:13px;color:var(--text-2);line-height:1.35}
+  .section-toggle{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;cursor:pointer;margin-bottom:32px;transition:border-color 0.2s;width:fit-content}.section-toggle:hover{border-color:var(--teal)}.section-toggle .arrow{font-size:12px;color:var(--teal);transition:transform 0.3s}.section-toggle.open .arrow{transform:rotate(180deg)}.section-toggle span{font-size:13px;color:var(--text-2)}
+  .topics-container{display:none}.topics-container.visible{display:block}
+  .cluster-section{margin-bottom:48px}.cluster-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}.ch-bar{width:3px;height:28px;background:linear-gradient(to bottom,var(--teal),transparent);border-radius:2px;flex-shrink:0}.cluster-heading h3{font-size:22px;font-weight:500;color:var(--text)}
+  .tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:10px}
+  .topic-tile{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color 0.25s,box-shadow 0.25s;cursor:pointer}.topic-tile:hover{border-color:var(--border-2)}.topic-tile.open{border-color:var(--teal);box-shadow:0 0 0 1px rgba(29,106,255,0.1),0 8px 24px rgba(0,0,0,0.3);cursor:default}
+  .tile-header{display:flex;align-items:center;gap:14px;padding:16px 18px}
+  .tile-icon{width:40px;height:40px;border-radius:8px;flex-shrink:0;background:rgba(29,106,255,0.06);border:1px solid rgba(29,106,255,0.15);display:flex;align-items:center;justify-content:center}.tile-icon svg{width:20px;height:20px}
+  .tile-info{flex:1;min-width:0}.tile-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.4}.tile-meta{display:flex;align-items:center;gap:8px;margin-top:4px}
+  .tile-badge{font-family:'JetBrains Mono',monospace;font-size:11px;padding:1px 8px;border-radius:3px;letter-spacing:0.06em;white-space:nowrap;border:1px solid}
+  .badge-rookie{color:var(--green);border-color:rgba(52,211,153,0.25)}.badge-pro{color:var(--teal);border-color:rgba(29,106,255,0.25)}.badge-lead{color:var(--gold);border-color:rgba(232,184,0,0.25)}.badge-pm{color:var(--purple);border-color:rgba(167,139,250,0.25)}
+  .tile-expand-icon{color:var(--text-3);font-size:16px;transition:transform 0.3s;flex-shrink:0}.topic-tile.open .tile-expand-icon{transform:rotate(45deg);color:var(--teal)}
+  .tile-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;padding:0 18px}.topic-tile.open .tile-body{max-height:500px;padding:0 18px 18px}
+  .tile-body-inner{border-top:1px solid var(--border);padding-top:14px}.tile-desc{font-size:14px;color:var(--text-2);line-height:1.75;margin-bottom:14px}
+  .tile-link{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);text-decoration:none;letter-spacing:0.04em;transition:gap 0.2s}.tile-link:hover{gap:10px}
+  .footer-nav{padding:48px 0 64px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.footer-nav a{color:var(--text-3);text-decoration:none;font-size:14px;transition:color 0.2s}.footer-nav a:hover{color:var(--teal)}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:var(--teal);color:var(--void);font-weight:600;font-size:13px;letter-spacing:0.04em;text-decoration:none;border-radius:6px;transition:background 0.2s}.btn-primary:hover{background:#3d7eff}
+  @media(max-width:1024px){.content-wrap{padding:0 24px}.topbar{padding:0 24px}.hero-grid{grid-template-columns:1fr}.stats-panel{display:none}.tile-grid{grid-template-columns:1fr}.cluster-cards{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.cluster-cards{grid-template-columns:1fr}.hero h1{font-size:32px}}
 </style>
 </head>
 <body>
+<nav class="topbar"><a href="index.html" class="topbar-brand"><div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div></a><div class="topbar-nav"><a href="index.html">All Pillars</a><a href="guide.html" class="btn-primary" style="font-size:12px;padding:6px 16px;">Field Guide</a></div></nav>
+<div class="page"><div class="content-wrap">
 
-<nav class="topbar">
-  <a href="index.html" class="topbar-brand">
-    <div class="brand-mark">
-      <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
-        <path d="M8 22 L16 8 L20 14 L26 8" stroke="#b89438" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M22 8 L26 8 L26 12" stroke="#b89438" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+<section class="hero">
+  <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><span style="color:var(--teal);">Pillar 2</span></div>
+  <div class="hero-grid">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;"><div style="width:20px;height:1px;background:var(--teal);"></div><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:0.15em;text-transform:uppercase;">Pillar 2 of 10</span></div>
+      <h1>Operational<br><strong>Excellence</strong></h1>
+      <p class="hero-lead">Process discipline, service management, continuous improvement, and the daily operating rigor that separates functional GBS organizations from struggling ones.</p>
+      <p class="hero-body">Operational excellence is not a project — it is an operating system. It covers how you document processes, manage service delivery, improve continuously, maintain controls, and stay productive under volume. This pillar is where GBS careers are built or broken at every level.</p>
     </div>
-    <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
-  </a>
-  <div style="display:flex; align-items:center; gap:24px;">
-    <a href="index.html" style="color:var(--text2); text-decoration:none; font-size:13px; letter-spacing:0.04em; transition:color 0.2s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text2)'">← All Pillars</a>
-    <a href="guide.html" style="padding:8px 20px; border:1px solid rgba(184,148,56,0.2); border-radius:4px; color:var(--gold-light); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;">AI Field Guide →</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section style="padding: 120px 56px 64px; position:relative; overflow:hidden;">
-  <div style="position:absolute; top:0; right:0; width:50%; height:100%; background:radial-gradient(ellipse at right, rgba(184,148,56,0.04) 0%, transparent 70%); pointer-events:none;"></div>
-  <div style="max-width:1200px; margin:0 auto; position:relative; z-index:1;">
-
-    <!-- Breadcrumb -->
-    <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text3); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:24px;">
-      <a href="index.html" style="color:var(--text3); text-decoration:none;">GBS Insider Club</a>
-      <span style="margin:0 8px;">→</span>
-      <span style="color:var(--gold);">Pillar 2</span>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:start;">
-      <div>
-        <div style="display:inline-flex; align-items:center; gap:8px; margin-bottom:20px;">
-          <div style="width:20px; height:1px; background:var(--gold);"></div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Pillar 2 of 10</span>
-        </div>
-        <h1 style="font-family:'Cormorant Garamond',serif; font-size:clamp(40px,5vw,72px); font-weight:300; color:#fff; line-height:1.05; margin-bottom:20px;">Operational Excellence</h1>
-        <p style="font-size:18px; color:var(--text2); line-height:1.8; max-width:640px; margin-bottom:32px;">Process management, CI, service quality, and controls — as practised, not as taught.</p>
-        <p style="font-size:15px; color:var(--text2); line-height:1.9; max-width:680px;">Operational excellence in GBS is not a methodology. It is a mindset that gets embedded into how a team runs every day. The tools — Lean, Six Sigma, DMAIC — are secondary to the habit of questioning how things are done and whether they need to be done that way at all.</p>
-      </div>
-
-      <!-- Stats panel -->
-      <div style="background:var(--navy2); border:1px solid var(--border2); border-radius:8px; padding:28px 32px; min-width:220px; flex-shrink:0;">
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:20px;">Pillar Overview</div>
-        <div style="margin-bottom:16px;">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:600; color:var(--gold-light); line-height:1;">28</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text3); letter-spacing:0.12em; text-transform:uppercase; margin-top:2px;">Topics</div>
-        </div>
-        <div style="margin-bottom:20px;">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:600; color:var(--gold-light); line-height:1;">5</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text3); letter-spacing:0.12em; text-transform:uppercase; margin-top:2px;">Sections</div>
-        </div>
-        <div style="padding-top:16px; border-top:1px solid var(--border2);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text3); letter-spacing:0.08em; margin-bottom:10px;">LEVEL RANGE</div>
-          <div style="display:flex; flex-direction:column; gap:6px;">
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:#00d68f;"></div><span style="font-size:12px; color:var(--text2);">Rookie</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:var(--gold);"></div><span style="font-size:12px; color:var(--text2);">Team Lead</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:#4d9fff;"></div><span style="font-size:12px; color:var(--text2);">Pro</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:#a855f7;"></div><span style="font-size:12px; color:var(--text2);">Project Mgr</span></div>
-          </div>
-        </div>
+    <div class="stats-panel">
+      <div class="stats-label">Pillar Overview</div>
+      <div class="stat-block"><div class="stat-num">28</div><div class="stat-desc">Topics</div></div>
+      <div class="stat-block"><div class="stat-num">5</div><div class="stat-desc">Clusters</div></div>
+      <div class="level-dots" style="margin-top:8px;">
+        <div class="level-dot"><div class="dot" style="background:var(--green);"></div> Rookie</div>
+        <div class="level-dot"><div class="dot" style="background:var(--teal);"></div> Pro</div>
+        <div class="level-dot"><div class="dot" style="background:var(--gold);"></div> Team Lead</div>
+        <div class="level-dot"><div class="dot" style="background:var(--purple);"></div> Project Mgr</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GOLD DIVIDER -->
-<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(184,148,56,0.3), rgba(184,148,56,0.5), rgba(184,148,56,0.3), transparent); max-width:1200px; margin:0 auto 0;"></div>
-
-
-<!-- CLUSTER NAVIGATION -->
-<section style="padding:48px 56px 0; max-width:1312px; margin:0 auto;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
-      <div style="width:20px; height:1px; background:var(--gold, #b89438);"></div>
-      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.15em; text-transform:uppercase;">Deep-Dive Guides</span>
-    </div>
-    <h2 style="font-family:'Cormorant Garamond','Inter',serif; font-size:clamp(28px,3.5vw,40px); font-weight:300; color:#fff; line-height:1.15; margin-bottom:8px;">Cluster guides for this pillar</h2>
-    <p style="font-size:15px; color:var(--text2, #8a94a8); line-height:1.7; margin-bottom:32px; max-width:640px;">Each guide covers a specific area in depth — frameworks, field-tested tactics, and the operational detail you need.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px; margin-bottom:48px;">
-      
-          <a href="pillar-2-cluster-1-process-knowledge.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">2.1</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Process Knowledge</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Process documentation, mapping, and the operational knowledge required to run GBS.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-2-cluster-2-service-management.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">2.2</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Service Management</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Ticketing, SLA tracking, service catalogs, and managing the service delivery engine.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-2-cluster-3-continuous-improvement.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">2.3</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Continuous Improvement</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Lean, Six Sigma, Kaizen — structured improvement methodologies applied to GBS.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-2-cluster-4-operational-controls.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">2.4</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Operational Controls</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Quality assurance, exception handling, and building control frameworks.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-2-cluster-5-personal-productivity.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">2.5</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Personal Productivity</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Time management, prioritization, and personal operating systems for GBS professionals.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-    </div>
+<section class="cluster-nav">
+  <h2>Cluster Guides</h2>
+  <div class="cluster-cards">
+    <a href="pillar-2-cluster-1-process-knowledge.html" class="cluster-card"><div class="cc-num">1</div><span class="cc-label">Process Knowledge</span></a>
+    <a href="pillar-2-cluster-2-service-management.html" class="cluster-card"><div class="cc-num">2</div><span class="cc-label">Service Management</span></a>
+    <a href="pillar-2-cluster-3-continuous-improvement.html" class="cluster-card"><div class="cc-num">3</div><span class="cc-label">Continuous Improvement</span></a>
+    <a href="pillar-2-cluster-4-operational-controls.html" class="cluster-card"><div class="cc-num">4</div><span class="cc-label">Operational Controls</span></a>
+    <a href="pillar-2-cluster-5-personal-productivity.html" class="cluster-card"><div class="cc-num">5</div><span class="cc-label">Personal Productivity</span></a>
   </div>
 </section>
 
+<div class="section-toggle" onclick="toggleTopics(this)"><span class="arrow">&#9660;</span><span>Full topic curriculum — 28 subtopics by cluster</span></div>
+<div class="topics-container" id="topicsContainer">
 
-<!-- CAREER CONTEXT -->
-<section style="padding:16px 56px 0; max-width:1312px; margin:0 auto;">
-  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:24px; align-items:start;">
-    <div style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.1); border-left:3px solid #b89438; border-radius:8px; padding:24px 28px;">
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:12px;">Why this pillar matters</div>
-      <p style="font-size:15px; color:#c8d0de; line-height:1.75; margin:0;">GBS runs on process. This pillar covers the day-to-day reality: how processes are documented, how services are managed, how improvement happens, and how you build the personal operating system that keeps you effective when the volume hits. If you are running transactions, managing queues, or responsible for SLA delivery — this is your core toolkit.</p>
-    </div>
-    <div style="background:var(--navy3, #0f1520); border:1px solid rgba(29,106,255,0.15); border-radius:8px; padding:20px 22px;">
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:rgba(29,106,255,0.8); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px;">Who needs this</div>
-      <p style="font-size:13px; color:#8a94a8; line-height:1.7; margin:0;">Process analysts, team leads, anyone responsible for SLA delivery or continuous improvement.</p>
-    </div>
-  </div>
-</section>
+<!-- ═══ 2.1 PROCESS & KNOWLEDGE MGMT ═══ -->
+<div class="cluster-section"><div class="cluster-heading"><div class="ch-bar"></div><h3>2.1 Process and Knowledge Management</h3></div><div class="tile-grid">
 
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#1d6aff"/><line x1="8" y1="8" x2="16" y2="8" stroke="var(--text-3)"/><line x1="8" y1="12" x2="14" y2="12" stroke="var(--text-3)"/><line x1="8" y1="16" x2="12" y2="16" stroke="var(--text-3)"/></svg></div><div class="tile-info"><div class="tile-title">Process Documentation Standards (SOPs and DTPs)</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">SOPs define how work is done. DTPs define step-by-step execution. Most GBS teams have documentation that is either too abstract to be useful or so detailed it is never read. The sweet spot is documentation that lets someone new execute the process within a day — not a week, not a month.</p><a href="pillar-2-cluster-1-process-knowledge.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
 
-<div style="padding:0 56px; max-width:1200px; margin:24px auto 0;">
-  <button onclick="document.getElementById('topic-detail').style.display = document.getElementById('topic-detail').style.display === 'none' ? 'block' : 'none'; this.querySelector('.toggle-arrow').textContent = document.getElementById('topic-detail').style.display === 'none' ? '>' : 'v'" style="background:none; border:1px solid rgba(184,148,56,0.15); border-radius:6px; padding:12px 20px; color:#8a94a8; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer; display:flex; align-items:center; gap:10px; transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.15)'">
-    <span class="toggle-arrow" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#b89438;">v</span>
-    <span>Full topic curriculum — individual subtopics by cluster</span>
-  </button>
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4" stroke="#e8b800"/><path d="M8 14c0-2 8-2 8 0" stroke="#1d6aff"/><path d="M10 18h4M12 14v4" stroke="#1d6aff"/></svg></div><div class="tile-info"><div class="tile-title">Knowledge Management: Maintaining the Single Source of Truth</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">In a GBS environment, knowledge is distributed across wikis, SharePoint sites, email threads, and heads. When someone leaves, their knowledge walks out with them. A single source of truth is not a technology problem — it is a discipline problem. One authoritative location per process, updated as part of the change cycle, not as an afterthought.</p><a href="pillar-2-cluster-1-process-knowledge.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="5" cy="12" r="2.5" stroke="#1d6aff"/><circle cx="19" cy="12" r="2.5" stroke="#e8b800"/><path d="M7.5 12h9" stroke="var(--text-3)"/><path d="M12 10v4" stroke="#38bdf8" stroke-dasharray="2 2"/></svg></div><div class="tile-info"><div class="tile-title">End-to-End Process Ownership and Handoffs</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">The biggest source of errors in GBS is not what happens inside a team — it is what happens between teams. Handoff points are where transactions stall, data gets corrupted, and accountability disappears. E2E process ownership means someone is accountable for the outcome, not just their piece of the chain.</p><a href="pillar-2-cluster-1-process-knowledge.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="6" width="7" height="5" rx="1" stroke="#1d6aff"/><rect x="3" y="13" width="7" height="5" rx="1" stroke="#38bdf8"/><path d="M10 8.5h4l2 2-2 2h-4" stroke="#e8b800"/><path d="M10 15.5h4l2 2-2 2h-4" stroke="#e8b800"/></svg></div><div class="tile-info"><div class="tile-title">Tools for Process Mapping (Visio, Lucid, Signavio)</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Process maps are the common language of GBS improvement. Visio is the legacy standard, Lucidchart is the collaboration-first alternative, and Signavio connects process mining to documentation. The tool matters less than the discipline: if your process maps do not match reality, they are fiction.</p><a href="pillar-2-cluster-1-process-knowledge.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8" stroke="#1d6aff" stroke-dasharray="3 2"/><circle cx="12" cy="12" r="3" stroke="#e8b800"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2" stroke="var(--text-3)"/></svg></div><div class="tile-info"><div class="tile-title">Service Blueprinting and Design Thinking</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Service blueprinting maps the entire delivery chain — what the customer sees (front-stage) and what happens behind the scenes (back-stage). Design thinking applies human-centered problem solving to service improvement. Both are underused in GBS because most teams optimize for efficiency first and experience never.</p><a href="pillar-2-cluster-1-process-knowledge.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+</div></div>
+
+<!-- ═══ 2.2 SERVICE MANAGEMENT ═══ -->
+<div class="cluster-section"><div class="cluster-heading"><div class="ch-bar"></div><h3>2.2 Service Management</h3></div><div class="tile-grid">
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="4" rx="1" stroke="#1d6aff"/><rect x="3" y="10" width="18" height="4" rx="1" stroke="#e8b800"/><rect x="3" y="16" width="18" height="4" rx="1" stroke="#38bdf8"/></svg></div><div class="tile-info"><div class="tile-title">ITIL/COBIT Fundamentals for Business Services</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">ITIL provides a framework for managing services end-to-end — incident management, problem management, change management, service catalog. COBIT adds the governance and control layer. GBS borrowed these from IT service management, and while not every concept translates directly, the service lifecycle thinking is universally applicable.</p><a href="pillar-2-cluster-2-service-management.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#1d6aff"/><line x1="4" y1="9" x2="20" y2="9" stroke="var(--border-2)"/><line x1="4" y1="14" x2="20" y2="14" stroke="var(--border-2)"/><circle cx="8" cy="6.5" r="1" fill="#e8b800" stroke="none"/><circle cx="8" cy="11.5" r="1" fill="#38bdf8" stroke="none"/><circle cx="8" cy="16.5" r="1" fill="#34d399" stroke="none"/></svg></div><div class="tile-info"><div class="tile-title">Service Catalog: Defining and Pricing the Menu</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">A service catalog lists what your GBS delivers, to whom, at what service level, and at what cost. Without one, your GBS is a black box — business units do not know what they are paying for, and you cannot manage demand or demonstrate value. Building a catalog forces uncomfortable conversations about what is in scope and what is not.</p><a href="pillar-2-cluster-2-service-management.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M4 12h5l2-3 2 3h7" stroke="#1d6aff"/><path d="M17 8l3 4-3 4" stroke="#e8b800"/></svg></div><div class="tile-info"><div class="tile-title">Managing Service Transitions and Operations</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Service transition is the handover from project to BAU — where a new process or team goes live. It is where most GBS implementations stumble. The project team moves on, operations inherits undocumented exceptions, and the first month looks nothing like the business case. Structured transition management prevents this.</p><a href="pillar-2-cluster-2-service-management.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8" stroke="#1d6aff"/><path d="M8 14c0 0 2 3 4 3s4-3 4-3" stroke="#e8b800"/><circle cx="9" cy="10" r="1" fill="var(--text-3)" stroke="none"/><circle cx="15" cy="10" r="1" fill="var(--text-3)" stroke="none"/></svg></div><div class="tile-info"><div class="tile-title">Customer Experience Metrics: NPS and CES</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Net Promoter Score measures whether internal clients would recommend your service. Customer Effort Score measures how hard it was to get what they needed. In GBS, CES is often more actionable than NPS — a process can be accurate but so painful to interact with that stakeholders route around it entirely.</p><a href="pillar-2-cluster-2-service-management.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M4 12h16" stroke="var(--text-3)"/><circle cx="8" cy="8" r="3" stroke="#1d6aff"/><circle cx="16" cy="16" r="3" stroke="#e8b800"/><text x="8" y="9.5" fill="#1d6aff" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">S</text><text x="16" y="17.5" fill="#e8b800" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">X</text></svg></div><div class="tile-info"><div class="tile-title">Experience Level Agreements (XLAs) vs. SLAs</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">SLAs measure what you deliver. XLAs measure how it felt. An SLA might say "resolved within 24 hours." The XLA asks whether the resolution actually helped, whether communication was clear, and whether the stakeholder had to follow up. XLAs shift the conversation from compliance to quality.</p><a href="pillar-2-cluster-2-service-management.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+</div></div>
+
+<!-- ═══ 2.3 CONTINUOUS IMPROVEMENT ═══ -->
+<div class="cluster-section"><div class="cluster-heading"><div class="ch-bar"></div><h3>2.3 Continuous Improvement</h3></div><div class="tile-grid">
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M12 4a8 8 0 0 1 0 16" stroke="#1d6aff"/><path d="M12 20a8 8 0 0 1 0-16" stroke="#e8b800"/><path d="M15 7l-3-3-3 3" stroke="#1d6aff"/><path d="M9 17l3 3 3-3" stroke="#e8b800"/></svg></div><div class="tile-info"><div class="tile-title">CI Culture: Building the Kaizen Mindset</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Continuous improvement only works when it is embedded in daily operations, not run as a quarterly initiative from a PMO slide deck. Kaizen means every team member looks for small improvements every day. The team lead's job is creating the environment where people feel safe to flag problems and empowered to fix them.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="6" width="16" height="12" rx="2" stroke="#1d6aff"/><path d="M8 10l2 2-2 2" stroke="#e8b800"/><line x1="12" y1="14" x2="16" y2="14" stroke="var(--text-3)"/></svg></div><div class="tile-info"><div class="tile-title">The 8 Wastes (Muda): Recognizing Value Leakage</div><div class="tile-meta"><span class="tile-badge badge-rookie">Rookie</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Lean identifies eight types of waste: defects, overproduction, waiting, non-utilized talent, transportation, inventory, motion, and extra-processing. In a GBS context, the biggest offenders are typically waiting (approvals stuck in queues), defects (rework from incorrect data), and non-utilized talent (experienced analysts doing manual copy-paste work).</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="5" height="16" rx="1" stroke="#1d6aff"/><rect x="10" y="4" width="5" height="16" rx="1" stroke="#e8b800"/><rect x="17" y="4" width="4" height="16" rx="1" stroke="#38bdf8"/><rect x="4" y="6" width="3" height="2" rx="0.5" fill="rgba(29,106,255,0.3)" stroke="none"/><rect x="11" y="6" width="3" height="2" rx="0.5" fill="rgba(232,184,0,0.3)" stroke="none"/><rect x="11" y="10" width="3" height="2" rx="0.5" fill="rgba(232,184,0,0.3)" stroke="none"/></svg></div><div class="tile-info"><div class="tile-title">Visual Management: Huddle Boards and Digital Kanban</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Visual management makes work status visible to everyone without asking. A huddle board shows daily priorities, blockers, and KPIs at a glance. Digital Kanban tools do the same for distributed teams. The point is not the board — it is the daily standup conversation that happens in front of it.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M4 20l6-8 4 4 6-10" stroke="#1d6aff"/><circle cx="20" cy="6" r="2" stroke="#e8b800"/><text x="20" y="7.5" fill="#e8b800" font-size="4" font-family="Inter" stroke="none" text-anchor="middle">6</text></svg></div><div class="tile-info"><div class="tile-title">Lean Six Sigma Fundamentals (The Belt System)</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">White Belt is awareness. Yellow is participation. Green is project leadership part-time. Black is full-time improvement leadership. Master Black Belt is organizational capability building. The belt itself is less important than the structured problem-solving methodology it represents.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#1d6aff"/><text x="12" y="8" fill="#e8b800" font-size="4" font-family="Inter" stroke="none" text-anchor="middle">S I P O C</text><line x1="3" y1="10" x2="21" y2="10" stroke="var(--border-2)"/><line x1="7" y1="10" x2="7" y2="21" stroke="var(--border-2)"/><line x1="11" y1="10" x2="11" y2="21" stroke="var(--border-2)"/><line x1="15" y1="10" x2="15" y2="21" stroke="var(--border-2)"/></svg></div><div class="tile-info"><div class="tile-title">SIPOC Diagrams: Defining Scope and Boundaries</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">SIPOC stands for Suppliers, Inputs, Process, Outputs, Customers. It is a one-page scope definition that prevents improvement projects from drifting. Before you optimize anything, you need to agree on where the process starts, where it ends, and who it serves. SIPOC forces that alignment in a single workshop.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M3 20h18" stroke="var(--text-3)"/><path d="M3 20V8l4 4 4-6 4 3 4-5v16" stroke="#1d6aff" fill="rgba(29,106,255,0.06)"/><path d="M3 14l18-6" stroke="#e8b800" stroke-dasharray="3 2"/></svg></div><div class="tile-info"><div class="tile-title">Value Stream Mapping: Current vs. Future State</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">A value stream map traces a transaction from request to delivery, capturing every step, wait time, and rework loop. The current-state map usually reveals that 80% of total cycle time is waiting, not processing. The future-state map is your improvement roadmap — the gap between the two is your business case.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="5" cy="12" r="2.5" stroke="#1d6aff"/><circle cx="12" cy="12" r="2.5" stroke="#e8b800"/><circle cx="19" cy="12" r="2.5" stroke="#38bdf8"/><path d="M7.5 12h2M14.5 12h2" stroke="var(--text-3)"/><text x="5" y="13.2" fill="#1d6aff" font-size="3.5" font-family="Inter" stroke="none" text-anchor="middle">D</text><text x="12" y="13.2" fill="#e8b800" font-size="3.5" font-family="Inter" stroke="none" text-anchor="middle">M</text><text x="19" y="13.2" fill="#38bdf8" font-size="3.5" font-family="Inter" stroke="none" text-anchor="middle">C</text><text x="5" y="7" fill="var(--text-3)" font-size="3" font-family="Inter" stroke="none" text-anchor="middle">D M A I C</text></svg></div><div class="tile-info"><div class="tile-title">DMAIC Framework: Define Measure Analyze Improve Control</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">DMAIC is the Six Sigma project methodology. Define the problem. Measure current state. Analyze root causes. Improve with tested solutions. Control to sustain gains. Every step has specific deliverables and tollgates. Skipping straight to Improve — which everyone wants to do — is how you solve the wrong problem.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="13" rx="1" stroke="#1d6aff"/><line x1="12" y1="3" x2="12" y2="16" stroke="var(--border-2)"/><line x1="3" y1="10" x2="21" y2="10" stroke="var(--border-2)"/><text x="7" y="8" fill="#e8b800" font-size="4" font-family="Inter" stroke="none" text-anchor="middle">?</text><text x="17" y="14" fill="#34d399" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">!</text></svg></div><div class="tile-info"><div class="tile-title">A3 Problem Solving: Structured Logic and Storytelling</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">The A3 format constrains your entire problem-solving narrative to one sheet of paper. Left side: background, current condition, root cause. Right side: target condition, countermeasures, implementation plan. The constraint forces clarity. If you cannot explain the problem and solution on one page, you do not understand it well enough.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="12" x2="20" y2="12" stroke="#1d6aff"/><path d="M20 12l-6-6M20 12l-6 6" stroke="#1d6aff"/><line x1="10" y1="6" x2="10" y2="18" stroke="var(--text-3)" stroke-dasharray="2 2"/><line x1="14" y1="6" x2="14" y2="18" stroke="var(--text-3)" stroke-dasharray="2 2"/><text x="7" y="10" fill="#e8b800" font-size="4" font-family="Inter" stroke="none" text-anchor="middle">5Y</text></svg></div><div class="tile-info"><div class="tile-title">Root Cause Analysis: 5 Whys and Fishbone Diagrams</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Five Whys is exactly what it sounds like — keep asking "why" until you reach the systemic cause. Fishbone diagrams categorize potential causes by type. Both prevent the GBS trap of fixing symptoms instead of causes. When the same error type recurs quarterly, someone stopped at "why" number two.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="10" r="4" stroke="#e8b800"/><path d="M12 14v4" stroke="#e8b800"/><path d="M10 6l2-3 2 3" stroke="#e8b800"/><path d="M6 18h12" stroke="var(--text-3)"/><path d="M4 18l2 3h12l2-3" stroke="#1d6aff"/></svg></div><div class="tile-info"><div class="tile-title">Innovation Management: Hackathons and Idea Funnels</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Innovation and continuous improvement are different disciplines. CI optimizes what exists. Innovation creates something new. Hackathons generate energy and ideas but without an idea funnel to evaluate, fund, and implement, they become annual morale events with no lasting output. The funnel matters more than the hackathon.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#1d6aff"/><line x1="12" y1="4" x2="12" y2="20" stroke="var(--border-2)"/><text x="8" y="13" fill="#34d399" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">H</text><text x="16" y="13" fill="var(--text-3)" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">S</text></svg></div><div class="tile-info"><div class="tile-title">Validating Savings: Hard (P&L) vs. Soft (Avoidance)</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Hard savings hit the P&L — headcount reduction, vendor cost elimination, actual budget decrease. Soft savings are cost avoidance — you would have needed 5 more people if you had not automated. Finance only trusts hard savings. Your GBS credibility depends on knowing the difference and being honest about which category your improvement lands in.</p><a href="pillar-2-cluster-3-continuous-improvement.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+</div></div>
+
+<!-- ═══ 2.4 OPERATIONAL CONTROLS ═══ -->
+<div class="cluster-section"><div class="cluster-heading"><div class="ch-bar"></div><h3>2.4 Operational Controls</h3></div><div class="tile-grid">
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8" stroke="#1d6aff"/><circle cx="12" cy="12" r="3" stroke="#e8b800"/><circle cx="12" cy="12" r="0.5" fill="#e8b800" stroke="none"/></svg></div><div class="tile-info"><div class="tile-title">Quality Management: Error Tracking and Prevention</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Tracking errors after they happen is quality control. Preventing errors before they happen is quality management. The shift from reactive to proactive requires categorizing defects by root cause, building prevention controls, and measuring defect rates over time — not just counting how many got caught in review.</p><a href="pillar-2-cluster-4-operational-controls.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="10" r="3" stroke="#1d6aff"/><circle cx="16" cy="10" r="3" stroke="#e8b800"/><path d="M8 13v3c0 1 1 2 4 2s4-1 4-2v-3" stroke="var(--text-3)"/></svg></div><div class="tile-info"><div class="tile-title">The Four-Eyes Principle and Internal Controls</div><div class="tile-meta"><span class="tile-badge badge-rookie">Rookie</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">The four-eyes principle means no single person can initiate and complete a transaction alone. In GBS, this is the foundation of internal controls — segregation of duties between who creates, who reviews, and who approves. It exists because the cost of catching fraud or errors after they reach the client is exponentially higher than catching them at execution.</p><a href="pillar-2-cluster-4-operational-controls.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2" stroke="#1d6aff"/><path d="M9 7h6M9 10h6M9 13h4" stroke="var(--text-3)"/><path d="M14 16l2 2 4-4" stroke="#34d399" stroke-width="2"/></svg></div><div class="tile-info"><div class="tile-title">Audit Preparation: Being Audit Ready Every Day</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Audit readiness is not a quarterly fire drill — it is a daily operating discipline. Documentation is current, controls are evidenced in real-time, exceptions are logged with explanations, and your team can walk an auditor through any transaction without advance preparation. The teams that panic before audits are the ones that treat compliance as separate from operations.</p><a href="pillar-2-cluster-4-operational-controls.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M12 4v4l3 2" stroke="#e8b800"/><circle cx="12" cy="4" r="2" stroke="#e8b800"/><path d="M4 14h16l-2 6H6z" stroke="#1d6aff" fill="rgba(29,106,255,0.06)"/><path d="M8 17h8" stroke="var(--text-3)"/></svg></div><div class="tile-info"><div class="tile-title">Handling Escalations, Volume Spikes and SLA Breaches</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">When volumes spike or SLAs breach, the first response matters more than the root cause analysis that follows. Effective escalation management means pre-defined severity levels, automatic stakeholder notification, and a triage protocol that prioritizes by business impact — not by who escalates loudest.</p><a href="pillar-2-cluster-4-operational-controls.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+</div></div>
+
+<!-- ═══ 2.5 PERSONAL PRODUCTIVITY ═══ -->
+<div class="cluster-section"><div class="cluster-heading"><div class="ch-bar"></div><h3>2.5 Personal Productivity</h3></div><div class="tile-grid">
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#1d6aff"/><line x1="12" y1="3" x2="12" y2="21" stroke="var(--border-2)"/><line x1="3" y1="12" x2="21" y2="12" stroke="var(--border-2)"/><circle cx="7.5" cy="7.5" r="2" fill="rgba(232,184,0,0.15)" stroke="#e8b800"/><circle cx="16.5" cy="7.5" r="2" fill="rgba(29,106,255,0.15)" stroke="#1d6aff"/></svg></div><div class="tile-info"><div class="tile-title">Workflow Prioritization (Eisenhower Matrix)</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">The Eisenhower Matrix sorts tasks by urgency and importance. In GBS, the trap is spending 80% of your day in "urgent and important" (fire-fighting) while "important but not urgent" (process improvement, career development) never gets touched. The matrix is simple. The discipline to protect quadrant two time is not.</p><a href="pillar-2-cluster-5-personal-productivity.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#1d6aff"/><path d="M3 9l9 5 9-5" stroke="#e8b800"/></svg></div><div class="tile-info"><div class="tile-title">Email Management and Zero Inbox Methodologies</div><div class="tile-meta"><span class="tile-badge badge-rookie">Rookie</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">In a GBS environment, email is both your primary communication tool and your biggest productivity drain. Zero inbox is not about having zero emails — it is about processing every email into an action, a delegate, a file, or a delete within a defined time window. The goal is decision speed, not email bankruptcy.</p><a href="pillar-2-cluster-5-personal-productivity.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+<div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8" stroke="#1d6aff"/><path d="M12 7v5l4 2" stroke="#e8b800"/><rect x="16" y="4" width="5" height="3" rx="1" stroke="#38bdf8" fill="rgba(56,189,248,0.1)"/></svg></div><div class="tile-info"><div class="tile-title">Time Blocking and Deep Work in a Service Environment</div><div class="tile-meta"><span class="tile-badge badge-rookie">Rookie</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Service environments interrupt constantly — queries, escalations, status updates. Time blocking reserves specific hours for focused work and communicates those blocks to the team. Without it, your day is 100% reactive and deliverables that need thinking never get done.</p><a href="pillar-2-cluster-5-personal-productivity.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div>
+
+</div></div>
+
 </div>
 
-<!-- CONTENT -->
-<section class="content" id="topic-detail" style="padding:64px 56px 100px; max-width:1200px; margin:0 auto;">
-  
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">2.1 Process & Knowledge Mgmt</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Process Documentation Standards (SOPs & DTPs)</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Knowledge Management: Maintaining the "Single Source of Truth"</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">End-to-End (E2E) Process Ownership & Handoffs</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Tools for Process Mapping (Visio, Lucid, Signavio)</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Service Blueprinting & Design Thinking</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">2.2 Service Management</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">ITIL/COBIT Fundamentals for Business Services</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Service Catalog: Defining & Pricing the Menu of Services</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Managing Service Transitions & Operations</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Customer Experience (CX) Metrics: NPS & CES</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Experience Level Agreements (XLAs) vs. SLAs</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">2.3 Continuous Improvement</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">CI Culture: Building the "Kaizen" Mindset</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">The 8 Wastes (Muda): Recognizing Value Leakage</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#00d68f; border:1px solid #00d68f33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Rookie</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Visual Management: Huddle Boards & Digital Kanban</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Lean Six Sigma Fundamentals (The Belt System)</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">SIPOC Diagrams: Defining Scope & Boundaries</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Value Stream Mapping (VSM): Current vs. Future State</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">DMAIC Framework: Define Measure Analyze Improve Control</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">A3 Problem Solving: Structured Logic & Storytelling</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Root Cause Analysis: 5 Whys & Fishbone Diagrams</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Innovation Mgmt: Hackathons & Idea Funnels (vs CI)</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Validating Savings: Hard (P&L) vs. Soft (Avoidance)</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">2.4 Operational Controls</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Quality Management: Error Tracking & Prevention</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">The Four-Eyes Principle & Internal Controls</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#00d68f; border:1px solid #00d68f33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Rookie</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Audit Preparation: Being "Audit Ready" Every Day</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Handling Escalations, Volume Spikes & SLA Breaches</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">2.5 Personal Productivity</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Workflow Prioritization (Eisenhower Matrix)</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Email Management & Zero Inbox Methodologies</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#00d68f; border:1px solid #00d68f33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Rookie</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Time Blocking & Deep Work in a Service Environment</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#00d68f; border:1px solid #00d68f33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Rookie</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
+<div class="footer-nav"><a href="index.html">&#8592; Back to all pillars</a><a href="guide.html" class="btn-primary">Field Guide &#8594;</a></div>
 
-  <!-- Back / Forward nav -->
-  <div style="padding-top:48px; border-top:1px solid var(--border2); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-    <a href="index.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--text2); text-decoration:none; font-size:14px; transition:color 0.2s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text2)'">
-      ← Back to all pillars
-    </a>
-    <a href="guide.html" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; background:linear-gradient(135deg, var(--gold), var(--gold-light)); color:var(--navy); font-weight:700; font-size:13px; letter-spacing:0.06em; text-decoration:none; border-radius:4px;">
-      AI Field Guide (Live) →
-    </a>
-  </div>
-</section>
-
+</div></div>
+<script>
+function toggleTopics(btn){const c=document.getElementById('topicsContainer');btn.classList.toggle('open');c.classList.toggle('visible');}
+function toggleTile(tile){const w=tile.classList.contains('open');tile.closest('.tile-grid').querySelectorAll('.topic-tile.open').forEach(t=>t.classList.remove('open'));if(!w)tile.classList.add('open');}
+</script>
 </body>
 </html>
