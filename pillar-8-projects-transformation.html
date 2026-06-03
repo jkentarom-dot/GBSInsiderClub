@@ -5,28 +5,190 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pillar 8: Projects & Transformation — GBS Insider Club</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --gold: #b89438; --gold-light: #d4a843; --navy: #05080f;
-    --navy2: #0a0e18; --navy3: #0f1520;
-    --border2: rgba(184,148,56,0.08); --text: #c8d0dc; --text2: #8a94a8; --text3: #3d4a5c;
+    --void: #080b10; --surface: #0e1219; --surface-2: #141922; --surface-3: #1b2130;
+    --teal: #1d6aff; --gold: #e8b800; --sky: #38bdf8;
+    --text: #ffffff; --text-2: #c8d0de; --text-3: #7a8799;
+    --border: #1e2636; --border-2: #2a3347;
+    --green: #34d399; --purple: #a78bfa;
   }
-  body { background: var(--navy); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; overflow-x: hidden; }
+  body { background: var(--void); color: var(--text-2); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+
+  /* ── TOPBAR ── */
   .topbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 56px; height: 64px;
-    background: rgba(5,8,15,0.95); backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border2);
+    padding: 0 48px; height: 56px;
+    background: rgba(8,11,16,0.92); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
   }
   .topbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .brand-mark { width: 28px; height: 28px; border: 1px solid rgba(184,148,56,0.4); border-radius: 4px; background: rgba(184,148,56,0.08); display: flex; align-items: center; justify-content: center; }
-  .brand-name { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; }
-  .brand-name span:first-child { color: var(--gold); }
-  .brand-name span:last-child { color: var(--text2); font-weight: 300; }
-  @media (max-width: 768px) { .topbar { padding: 0 24px; } .hero, .content { padding-left: 24px; padding-right: 24px; } }
+  .brand-mark {
+    width: 28px; height: 28px; border: 1px solid rgba(29,106,255,0.3); border-radius: 4px;
+    background: rgba(29,106,255,0.06); display: flex; align-items: center; justify-content: center;
+  }
+  .brand-name { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+  .brand-name span:first-child { color: var(--teal); }
+  .brand-name span:last-child { color: var(--text-3); font-weight: 400; }
+  .topbar-nav { display: flex; align-items: center; gap: 20px; }
+  .topbar-nav a { color: var(--text-3); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .topbar-nav a:hover { color: var(--teal); }
+
+  /* ── LAYOUT ── */
+  .page { padding-top: 56px; }
+  .content-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+
+  /* ── HERO ── */
+  .hero { padding: 64px 0 48px; position: relative; }
+  .hero::after {
+    content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%;
+    background: radial-gradient(ellipse at 80% 30%, rgba(29,106,255,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .breadcrumb {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px;
+  }
+  .breadcrumb a { color: var(--text-3); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--teal); }
+  .breadcrumb .sep { margin: 0 8px; opacity: 0.4; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 260px; gap: 48px; align-items: start; }
+  .hero h1 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--text); line-height: 1.1; margin-bottom: 16px; }
+  .hero h1 strong { font-weight: 600; color: var(--teal); }
+  .hero-lead { font-size: 17px; color: var(--text-2); line-height: 1.75; margin-bottom: 20px; max-width: 680px; }
+  .hero-body { font-size: 15px; color: var(--text-3); line-height: 1.8; max-width: 680px; }
+
+  /* Stats panel */
+  .stats-panel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 24px 28px; flex-shrink: 0;
+  }
+  .stats-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
+  .stat-block { margin-bottom: 16px; }
+  .stat-num { font-size: 36px; font-weight: 600; color: var(--gold); line-height: 1; }
+  .stat-desc { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; }
+  .level-dots { padding-top: 16px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
+  .level-dot { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-3); }
+  .level-dot .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── CLUSTER NAV CARDS ── */
+  .cluster-nav { padding: 0 0 48px; }
+  .cluster-nav h2 { font-size: 13px; font-weight: 600; color: var(--text-3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+  .cluster-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+  .cluster-card {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 16px; text-decoration: none; transition: all 0.2s;
+  }
+  .cluster-card:hover { border-color: var(--teal); background: var(--surface-2); transform: translateY(-1px); }
+  .cc-num {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--surface-3); border: 1px solid var(--border-2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); flex-shrink: 0;
+  }
+  .cluster-card:hover .cc-num { border-color: var(--teal); color: var(--teal); }
+  .cc-label { font-size: 13px; color: var(--text-2); line-height: 1.35; }
+
+  /* ── COLLAPSIBLE SECTION TOGGLE ── */
+  .section-toggle {
+    display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    cursor: pointer; margin-bottom: 32px; transition: border-color 0.2s; width: fit-content;
+  }
+  .section-toggle:hover { border-color: var(--teal); }
+  .section-toggle .arrow { font-size: 12px; color: var(--teal); transition: transform 0.3s; }
+  .section-toggle.open .arrow { transform: rotate(180deg); }
+  .section-toggle span { font-size: 13px; color: var(--text-2); }
+  .topics-container { display: none; }
+  .topics-container.visible { display: block; }
+
+  /* ── CLUSTER SECTIONS ── */
+  .cluster-section { margin-bottom: 48px; }
+  .cluster-heading {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  }
+  .ch-bar { width: 3px; height: 28px; background: linear-gradient(to bottom, var(--teal), transparent); border-radius: 2px; flex-shrink: 0; }
+  .cluster-heading h3 { font-size: 22px; font-weight: 500; color: var(--text); }
+
+  /* ── TOPIC TILES (ACCORDION) ── */
+  .tile-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 10px; }
+  .topic-tile {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; transition: border-color 0.25s, box-shadow 0.25s; cursor: pointer;
+  }
+  .topic-tile:hover { border-color: var(--border-2); }
+  .topic-tile.open { border-color: var(--teal); box-shadow: 0 0 0 1px rgba(29,106,255,0.1), 0 8px 24px rgba(0,0,0,0.3); cursor: default; }
+
+  .tile-header {
+    display: flex; align-items: center; gap: 14px; padding: 16px 18px;
+  }
+  .tile-icon {
+    width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0;
+    background: rgba(29,106,255,0.06); border: 1px solid rgba(29,106,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tile-icon svg { width: 20px; height: 20px; }
+  .tile-info { flex: 1; min-width: 0; }
+  .tile-title { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.4; }
+  .tile-meta { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+  .tile-badge {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 1px 8px;
+    border-radius: 3px; letter-spacing: 0.06em; white-space: nowrap; border: 1px solid;
+  }
+  .badge-rookie { color: var(--green); border-color: rgba(52,211,153,0.25); }
+  .badge-pro { color: var(--teal); border-color: rgba(29,106,255,0.25); }
+  .badge-lead { color: var(--gold); border-color: rgba(232,184,0,0.25); }
+  .badge-pm { color: var(--purple); border-color: rgba(167,139,250,0.25); }
+  .tile-expand-icon { color: var(--text-3); font-size: 16px; transition: transform 0.3s; flex-shrink: 0; }
+  .topic-tile.open .tile-expand-icon { transform: rotate(45deg); color: var(--teal); }
+
+  /* Expanded content */
+  .tile-body {
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 18px;
+  }
+  .topic-tile.open .tile-body { max-height: 500px; padding: 0 18px 18px; }
+  .tile-body-inner { border-top: 1px solid var(--border); padding-top: 14px; }
+  .tile-desc { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 14px; }
+  .tile-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal);
+    text-decoration: none; letter-spacing: 0.04em; transition: gap 0.2s;
+  }
+  .tile-link:hover { gap: 10px; }
+
+  /* ── FOOTER NAV ── */
+  .footer-nav {
+    padding: 48px 0 64px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-nav a { color: var(--text-3); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--teal); }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 24px; background: var(--teal); color: var(--void); font-weight: 600;
+    font-size: 13px; letter-spacing: 0.04em; text-decoration: none; border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #3d7eff; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .content-wrap { padding: 0 24px; }
+    .topbar { padding: 0 24px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .stats-panel { display: none; }
+    .tile-grid { grid-template-columns: 1fr; }
+    .cluster-cards { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .cluster-cards { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 32px; }
+  }
 </style>
 </head>
 <body>
@@ -34,311 +196,343 @@
 <nav class="topbar">
   <a href="index.html" class="topbar-brand">
     <div class="brand-mark">
-      <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
-        <path d="M8 22 L16 8 L20 14 L26 8" stroke="#b89438" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M22 8 L26 8 L26 12" stroke="#b89438" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
   </a>
-  <div style="display:flex; align-items:center; gap:24px;">
-    <a href="index.html" style="color:var(--text2); text-decoration:none; font-size:13px; letter-spacing:0.04em; transition:color 0.2s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text2)'">← All Pillars</a>
-    <a href="guide.html" style="padding:8px 20px; border:1px solid rgba(184,148,56,0.2); border-radius:4px; color:var(--gold-light); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;">AI Field Guide →</a>
+  <div class="topbar-nav">
+    <a href="index.html">All Pillars</a>
+    <a href="guide.html" class="btn-primary" style="font-size:12px; padding:6px 16px;">Field Guide</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section style="padding: 120px 56px 64px; position:relative; overflow:hidden;">
-  <div style="position:absolute; top:0; right:0; width:50%; height:100%; background:radial-gradient(ellipse at right, rgba(184,148,56,0.04) 0%, transparent 70%); pointer-events:none;"></div>
-  <div style="max-width:1200px; margin:0 auto; position:relative; z-index:1;">
+<div class="page">
+<div class="content-wrap">
 
-    <!-- Breadcrumb -->
-    <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text3); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:24px;">
-      <a href="index.html" style="color:var(--text3); text-decoration:none;">GBS Insider Club</a>
-      <span style="margin:0 8px;">→</span>
-      <span style="color:var(--gold);">Pillar 8</span>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="breadcrumb">
+      <a href="index.html">GBS Insider Club</a><span class="sep">/</span><span style="color:var(--teal);">Pillar 8</span>
     </div>
-
-    <div style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:start;">
+    <div class="hero-grid">
       <div>
-        <div style="display:inline-flex; align-items:center; gap:8px; margin-bottom:20px;">
-          <div style="width:20px; height:1px; background:var(--gold);"></div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Pillar 8 of 10</span>
+        <div style="display:inline-flex; align-items:center; gap:8px; margin-bottom:16px;">
+          <div style="width:20px; height:1px; background:var(--teal);"></div>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--teal); letter-spacing:0.15em; text-transform:uppercase;">Pillar 8 of 10</span>
         </div>
-        <h1 style="font-family:'Cormorant Garamond',serif; font-size:clamp(40px,5vw,72px); font-weight:300; color:#fff; line-height:1.05; margin-bottom:20px;">Projects & Transformation</h1>
-        <p style="font-size:18px; color:var(--text2); line-height:1.8; max-width:640px; margin-bottom:32px;">Project management, execution methodologies, change management, and delivering value.</p>
-        <p style="font-size:15px; color:var(--text2); line-height:1.9; max-width:680px;">In GBS, almost every improvement initiative runs as a project alongside BAU operations. The ability to manage scope, stakeholders, risks, and change — while keeping the lights on — is a core competency at every level from team lead upward.</p>
+        <h1>Projects &<br><strong>Transformation</strong></h1>
+        <p class="hero-lead">Project management, execution methodologies, change management, and delivering measurable value through GBS transformation programs.</p>
+        <p class="hero-body">In GBS, almost every improvement initiative runs as a project alongside BAU operations. The ability to manage scope, stakeholders, risks, and change — while keeping the lights on — is a core competency at every level from team lead upward.</p>
       </div>
-
-      <!-- Stats panel -->
-      <div style="background:var(--navy2); border:1px solid var(--border2); border-radius:8px; padding:28px 32px; min-width:220px; flex-shrink:0;">
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:20px;">Pillar Overview</div>
-        <div style="margin-bottom:16px;">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:600; color:var(--gold-light); line-height:1;">14</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text3); letter-spacing:0.12em; text-transform:uppercase; margin-top:2px;">Topics</div>
-        </div>
-        <div style="margin-bottom:20px;">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:600; color:var(--gold-light); line-height:1;">5</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text3); letter-spacing:0.12em; text-transform:uppercase; margin-top:2px;">Sections</div>
-        </div>
-        <div style="padding-top:16px; border-top:1px solid var(--border2);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text3); letter-spacing:0.08em; margin-bottom:10px;">LEVEL RANGE</div>
-          <div style="display:flex; flex-direction:column; gap:6px;">
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:#00d68f;"></div><span style="font-size:12px; color:var(--text2);">Rookie</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:var(--gold);"></div><span style="font-size:12px; color:var(--text2);">Team Lead</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:#4d9fff;"></div><span style="font-size:12px; color:var(--text2);">Pro</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:#a855f7;"></div><span style="font-size:12px; color:var(--text2);">Project Mgr</span></div>
-          </div>
+      <div class="stats-panel">
+        <div class="stats-label">Pillar Overview</div>
+        <div class="stat-block"><div class="stat-num">14</div><div class="stat-desc">Topics</div></div>
+        <div class="stat-block"><div class="stat-num">5</div><div class="stat-desc">Clusters</div></div>
+        <div class="level-dots" style="margin-top:8px;">
+          <div class="level-dot"><div class="dot" style="background:var(--green);"></div> Rookie</div>
+          <div class="level-dot"><div class="dot" style="background:var(--teal);"></div> Pro</div>
+          <div class="level-dot"><div class="dot" style="background:var(--gold);"></div> Team Lead</div>
+          <div class="level-dot"><div class="dot" style="background:var(--purple);"></div> Project Mgr</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- GOLD DIVIDER -->
-<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(184,148,56,0.3), rgba(184,148,56,0.5), rgba(184,148,56,0.3), transparent); max-width:1200px; margin:0 auto 0;"></div>
-
-
-<!-- CLUSTER NAVIGATION -->
-<section style="padding:48px 56px 0; max-width:1312px; margin:0 auto;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
-      <div style="width:20px; height:1px; background:var(--gold, #b89438);"></div>
-      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.15em; text-transform:uppercase;">Deep-Dive Guides</span>
+  <!-- CLUSTER NAV CARDS -->
+  <section class="cluster-nav">
+    <h2>Cluster Guides</h2>
+    <div class="cluster-cards">
+      <a href="pillar-8-cluster-1-pm-fundamentals.html" class="cluster-card"><div class="cc-num">1</div><span class="cc-label">PM Fundamentals</span></a>
+      <a href="pillar-8-cluster-2-execution-methods.html" class="cluster-card"><div class="cc-num">2</div><span class="cc-label">Execution Methodologies</span></a>
+      <a href="pillar-8-cluster-3-stakeholder-value.html" class="cluster-card"><div class="cc-num">3</div><span class="cc-label">Stakeholder and Value</span></a>
+      <a href="pillar-8-cluster-4-change-management.html" class="cluster-card"><div class="cc-num">4</div><span class="cc-label">Change Management</span></a>
+      <a href="pillar-8-cluster-5-sme-participation.html" class="cluster-card"><div class="cc-num">5</div><span class="cc-label">SME Participation</span></a>
     </div>
-    <h2 style="font-family:'Cormorant Garamond','Inter',serif; font-size:clamp(28px,3.5vw,40px); font-weight:300; color:#fff; line-height:1.15; margin-bottom:8px;">Cluster guides for this pillar</h2>
-    <p style="font-size:15px; color:var(--text2, #8a94a8); line-height:1.7; margin-bottom:32px; max-width:640px;">Each guide covers a specific area in depth — frameworks, field-tested tactics, and the operational detail you need.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px; margin-bottom:48px;">
-      
-          <a href="pillar-8-cluster-1-pm-fundamentals.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">8.1</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">PM Fundamentals</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Project charters, scope management, and the basics of running a GBS project.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-8-cluster-2-execution-methods.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">8.2</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Execution Methodologies</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Waterfall, Agile, hybrid — choosing the right execution approach.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-8-cluster-3-stakeholder-value.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">8.3</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Stakeholder and Value</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Stakeholder alignment, business case construction, and tracking project value.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-8-cluster-4-change-management.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">8.4</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Change Management</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Driving adoption, managing resistance, and change communication.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-8-cluster-5-sme-participation.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">8.5</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">SME Participation</div>
-            <div style="font-size:13px; color:var(--text2, #8a94a8); line-height:1.6;">Subject matter expert engagement, knowledge capture, and workshop facilitation.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-    </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- CAREER CONTEXT -->
-<section style="padding:16px 56px 0; max-width:1312px; margin:0 auto;">
-  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:24px; align-items:start;">
-    <div style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.1); border-left:3px solid #b89438; border-radius:8px; padding:24px 28px;">
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:12px;">Why this pillar matters</div>
-      <p style="font-size:15px; color:#c8d0de; line-height:1.75; margin:0;">GBS transformation is where careers accelerate. This pillar covers project management fundamentals, execution methodologies, stakeholder alignment, change management, and how to contribute as a subject matter expert on large programs. If a migration, process redesign, or system implementation is coming — you need this.</p>
-    </div>
-    <div style="background:var(--navy3, #0f1520); border:1px solid rgba(29,106,255,0.15); border-radius:8px; padding:20px 22px;">
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:rgba(29,106,255,0.8); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px;">Who needs this</div>
-      <p style="font-size:13px; color:#8a94a8; line-height:1.7; margin:0;">Project participants, SMEs on transformation programs, aspiring PMs, anyone involved in GBS migrations.</p>
-    </div>
-  </div>
-</section>
-
-
-<div style="padding:0 56px; max-width:1200px; margin:24px auto 0;">
-  <button onclick="document.getElementById('topic-detail').style.display = document.getElementById('topic-detail').style.display === 'none' ? 'block' : 'none'; this.querySelector('.toggle-arrow').textContent = document.getElementById('topic-detail').style.display === 'none' ? '>' : 'v'" style="background:none; border:1px solid rgba(184,148,56,0.15); border-radius:6px; padding:12px 20px; color:#8a94a8; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer; display:flex; align-items:center; gap:10px; transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.15)'">
-    <span class="toggle-arrow" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#b89438;">v</span>
+  <!-- TOPIC TOGGLE -->
+  <div class="section-toggle" onclick="toggleTopics(this)">
+    <span class="arrow">&#9660;</span>
     <span>Full topic curriculum — individual subtopics by cluster</span>
-  </button>
-</div>
-
-<!-- CONTENT -->
-<section class="content" id="topic-detail" style="padding:64px 56px 100px; max-width:1200px; margin:0 auto;">
-  
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">8.1 PM Fundamentals</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Project vs. BAU: Defining the Boundary</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#00d68f; border:1px solid #00d68f33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Rookie</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">The Project Lifecycle: Initiation to Closure</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">RAID Logs: Managing Risks Assumptions Issues Dependencies</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Scope Management: Preventing Creep</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">8.2 Execution Methodologies</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Waterfall vs. Agile in a GBS Context</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Scaled Agile (SAFe) Basics</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Work Breakdown Structure (WBS) & Estimation</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">8.3 Stakeholder & Value</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">RACI Matrix: Mapping Roles & Responsibilities</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Benefits Realization: Tracking ROI Post-Project</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Managing Executive Sponsors & Steering Committees</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">8.4 Change Management</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Change Communication Strategies</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Managing Cultural Resistance During Change</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">8.5 SME Participation</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Balancing BAU with Project Work</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">User Acceptance Testing (UAT) Best Practices</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text2, #5a6578); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-
-  <!-- Back / Forward nav -->
-  <div style="padding-top:48px; border-top:1px solid var(--border2); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-    <a href="index.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--text2); text-decoration:none; font-size:14px; transition:color 0.2s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text2)'">
-      ← Back to all pillars
-    </a>
-    <a href="guide.html" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; background:linear-gradient(135deg, var(--gold), var(--gold-light)); color:var(--navy); font-weight:700; font-size:13px; letter-spacing:0.06em; text-decoration:none; border-radius:4px;">
-      AI Field Guide (Live) →
-    </a>
   </div>
-</section>
 
+  <!-- TOPICS ACCORDION -->
+  <div class="topics-container" id="topicsContainer">
+
+    <!-- ═══ 8.1 PM FUNDAMENTALS ═══ -->
+    <div class="cluster-section">
+      <div class="cluster-heading"><div class="ch-bar"></div><h3>8.1 PM Fundamentals</h3></div>
+      <div class="tile-grid">
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5" stroke-linecap="round"><path d="M3 12h7M14 12h7"/><circle cx="12" cy="12" r="3"/><path d="M3 6h18M3 18h18" stroke="#7a8799" stroke-dasharray="2 2"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Project vs. BAU: Defining the Boundary</div>
+              <div class="tile-meta"><span class="tile-badge badge-rookie">Rookie</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">Every GBS team runs two tracks simultaneously — keeping operations going and delivering change. Understanding where BAU ends and a project begins determines how you request resources, set timelines, and justify investment. Get this wrong and your initiative either stalls in approvals or runs without proper governance.</p>
+            <a href="pillar-8-cluster-1-pm-fundamentals.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5" stroke-linecap="round"><path d="M3 12h2l2-4 3 8 2-6 2 4h2"/><circle cx="20" cy="12" r="1.5" fill="#e8b800" stroke="none"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">The Project Lifecycle: Initiation to Closure</div>
+              <div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">GBS projects follow a five-stage lifecycle — initiation, planning, execution, monitoring, and closure. Each stage has specific deliverables and gate reviews that determine whether the project advances or pivots. Missing a gate review in a shared services context typically means you lose your sponsor's attention to competing priorities.</p>
+            <a href="pillar-8-cluster-1-pm-fundamentals.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/><text x="5" y="9" fill="#e8b800" font-size="6" font-family="Inter" stroke="none">R</text><text x="15" y="9" fill="#38bdf8" font-size="6" font-family="Inter" stroke="none">A</text><text x="5" y="19" fill="#38bdf8" font-size="6" font-family="Inter" stroke="none">I</text><text x="15" y="19" fill="#a78bfa" font-size="6" font-family="Inter" stroke="none">D</text></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">RAID Logs: Managing Risks, Assumptions, Issues, Dependencies</div>
+              <div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">A RAID log is your single source of truth for everything that could derail your GBS project. Risks are things that might happen. Assumptions are things you bet will hold true. Issues are things already going wrong. Dependencies are things outside your control. Most failed GBS migrations had the warning signs sitting in an unread RAID log.</p>
+            <a href="pillar-8-cluster-1-pm-fundamentals.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2" stroke-dasharray="3 2"/><path d="M4 8h16" stroke="#e8b800" stroke-dasharray="0"/><path d="M8 8v12" stroke="#e8b800" stroke-dasharray="0"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Scope Management: Preventing Creep</div>
+              <div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">Scope creep is how GBS projects die. A process migration starts with AP, then someone adds AR "since we're already moving finance," then T&E gets added "because it's small." Each addition looks reasonable in isolation but compounds into a timeline and budget that no longer matches the original business case.</p>
+            <a href="pillar-8-cluster-1-pm-fundamentals.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ 8.2 EXECUTION METHODOLOGIES ═══ -->
+    <div class="cluster-section">
+      <div class="cluster-heading"><div class="ch-bar"></div><h3>8.2 Execution Methodologies</h3></div>
+      <div class="tile-grid">
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M4 4v16h4v-6h4v-4h4v-2h4V4" stroke="#1d6aff"/><path d="M16 20a4 4 0 1 0 0-8" stroke="#e8b800" stroke-dasharray="2 2"/><path d="M18 14l2 2-2 2" stroke="#e8b800"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Waterfall vs. Agile in a GBS Context</div>
+              <div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">Most GBS transformations are hybrid — waterfall for infrastructure and system migrations, agile for process optimization and continuous improvement. A lift-and-shift migration is inherently waterfall. Process redesign in a live SSC is inherently iterative. Knowing when to apply each is more valuable than dogmatic commitment to either.</p>
+            <a href="pillar-8-cluster-2-execution-methods.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="14" width="6" height="6" rx="1" stroke="#38bdf8"/><rect x="9" y="8" width="6" height="12" rx="1" stroke="#1d6aff"/><rect x="16" y="2" width="6" height="18" rx="1" stroke="#a78bfa"/><text x="4" y="18.5" fill="#38bdf8" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">T</text><text x="11.5" y="15.5" fill="#1d6aff" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">P</text><text x="18.5" y="12.5" fill="#a78bfa" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">V</text></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Scaled Agile (SAFe) Basics</div>
+              <div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">SAFe coordinates agile delivery across multiple teams — exactly what large GBS transformations need. Its three layers — team, program, and portfolio — map directly to how GBS organizations structure delivery. Understanding PI planning and ART ceremonies is increasingly expected at PM level in enterprise GBS environments.</p>
+            <a href="pillar-8-cluster-2-execution-methods.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><line x1="12" y1="6" x2="6" y2="11"/><line x1="12" y1="6" x2="18" y2="11"/><circle cx="6" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/><line x1="6" y1="13.5" x2="4" y2="17"/><line x1="6" y1="13.5" x2="8" y2="17"/><line x1="18" y1="13.5" x2="16" y2="17"/><line x1="18" y1="13.5" x2="20" y2="17"/><circle cx="4" cy="18" r="1" fill="#e8b800" stroke="none"/><circle cx="8" cy="18" r="1" fill="#e8b800" stroke="none"/><circle cx="16" cy="18" r="1" fill="#e8b800" stroke="none"/><circle cx="20" cy="18" r="1" fill="#e8b800" stroke="none"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Work Breakdown Structure (WBS) and Estimation</div>
+              <div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">A WBS decomposes a GBS project into manageable work packages that can be estimated, assigned, and tracked. The quality of your WBS directly determines the accuracy of your timeline and budget. The most common mistake: decomposing by department instead of by deliverable, which creates handoff gaps and accountability blind spots.</p>
+            <a href="pillar-8-cluster-2-execution-methods.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ 8.3 STAKEHOLDER & VALUE ═══ -->
+    <div class="cluster-section">
+      <div class="cluster-heading"><div class="ch-bar"></div><h3>8.3 Stakeholder and Value</h3></div>
+      <div class="tile-grid">
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="1" stroke="#1d6aff"/><line x1="2" y1="9" x2="22" y2="9" stroke="#1d6aff"/><line x1="8" y1="4" x2="8" y2="20" stroke="var(--border-2)"/><line x1="14" y1="4" x2="14" y2="20" stroke="var(--border-2)"/><text x="5" y="7.5" fill="#e8b800" font-size="4" font-family="Inter" stroke="none" text-anchor="middle">R</text><text x="11" y="7.5" fill="#38bdf8" font-size="4" font-family="Inter" stroke="none" text-anchor="middle">A</text><text x="17" y="7.5" fill="#34d399" font-size="4" font-family="Inter" stroke="none" text-anchor="middle">C</text><text x="20.5" y="7.5" fill="#a78bfa" font-size="4" font-family="Inter" stroke="none" text-anchor="middle">I</text></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">RACI Matrix: Mapping Roles and Responsibilities</div>
+              <div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">In GBS, process ownership crosses organizational boundaries — the person who executes a task often reports to a different leader than the person who approves the output. A RACI matrix makes these invisible accountability lines visible. Without one, you discover ownership gaps at the worst possible moment — during an audit or escalation.</p>
+            <a href="pillar-8-cluster-3-stakeholder-value.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M4 18L8 10l4 5 4-8 4 6" stroke="#1d6aff"/><circle cx="20" cy="13" r="2" stroke="#e8b800" fill="rgba(232,184,0,0.15)"/><line x1="4" y1="20" x2="20" y2="20" stroke="var(--text-3)" stroke-dasharray="2 2"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Benefits Realization: Tracking ROI Post-Project</div>
+              <div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">The business case gets the project funded. Benefits realization proves it was worth it. Most GBS transformations claim savings at sign-off that never materialize because nobody tracks actuals against the original business case. Building a benefits register at initiation — not closure — is the difference between a successful project and a political one.</p>
+            <a href="pillar-8-cluster-3-stakeholder-value.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="5" r="3" stroke="#e8b800"/><circle cx="6" cy="14" r="2" stroke="#1d6aff"/><circle cx="18" cy="14" r="2" stroke="#1d6aff"/><circle cx="12" cy="19" r="2" stroke="#1d6aff"/><line x1="12" y1="8" x2="6" y2="12" stroke="var(--text-3)"/><line x1="12" y1="8" x2="18" y2="12" stroke="var(--text-3)"/><line x1="12" y1="8" x2="12" y2="17" stroke="var(--text-3)"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Managing Executive Sponsors and Steering Committees</div>
+              <div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">Your steering committee is not a status meeting — it is a decision forum. GBS project managers who treat it as a reporting exercise lose sponsor engagement within two sessions. Effective management means pre-aligning decisions before the meeting, presenting options with recommendations, and protecting sponsor time for what only they can decide.</p>
+            <a href="pillar-8-cluster-3-stakeholder-value.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ 8.4 CHANGE MANAGEMENT ═══ -->
+    <div class="cluster-section">
+      <div class="cluster-heading"><div class="ch-bar"></div><h3>8.4 Change Management</h3></div>
+      <div class="tile-grid">
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M4 12h3l2-3 3 6 2-4 2 2h4" stroke="#1d6aff"/><path d="M6 6l-2 2 2 2" stroke="#e8b800"/><path d="M6 4h6" stroke="#e8b800"/><path d="M6 8h4" stroke="rgba(232,184,0,0.4)"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Change Communication Strategies</div>
+              <div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">In GBS transitions, the process change is the easy part — getting people to adopt the new way of working is the hard part. Effective change communication addresses three questions in order: why are we changing, what does it mean for me personally, and what do I need to do differently starting when. Most change programs fail because they answer question one twenty times and never get to question three.</p>
+            <a href="pillar-8-cluster-4-change-management.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="8" y="3" width="3" height="18" rx="1" stroke="var(--text-3)" fill="rgba(122,135,153,0.1)"/><path d="M4 12h4" stroke="#e8b800"/><path d="M14 12h6" stroke="#1d6aff"/><path d="M17 9l3 3-3 3" stroke="#1d6aff"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Managing Cultural Resistance During Change</div>
+              <div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">Cultural resistance in GBS is rarely about the process — it is about identity. Teams that defined themselves by deep expertise in a legacy system will resist automation that makes that expertise less relevant. The skill is recognizing that resistance is a signal of what people value, not a deficiency to overcome.</p>
+            <a href="pillar-8-cluster-4-change-management.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ 8.5 SME PARTICIPATION ═══ -->
+    <div class="cluster-section">
+      <div class="cluster-heading"><div class="ch-bar"></div><h3>8.5 SME Participation</h3></div>
+      <div class="tile-grid">
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="3" x2="12" y2="21" stroke="var(--text-3)" stroke-dasharray="2 2"/><rect x="3" y="7" width="7" height="10" rx="1.5" stroke="#1d6aff"/><rect x="14" y="7" width="7" height="10" rx="1.5" stroke="#e8b800"/><text x="6.5" y="13.5" fill="#1d6aff" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">B</text><text x="17.5" y="13.5" fill="#e8b800" font-size="5" font-family="Inter" stroke="none" text-anchor="middle">P</text></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">Balancing BAU with Project Work</div>
+              <div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">Every GBS professional eventually faces the dual-mandate problem: deliver your operational KPIs while contributing to a transformation project that demands 30-40% of your time. The organizations that handle this well explicitly fund the backfill or reduce BAU targets. The ones that don't burn out their best people and wonder why project timelines slip.</p>
+            <a href="pillar-8-cluster-5-sme-participation.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+        <div class="topic-tile" onclick="toggleTile(this)">
+          <div class="tile-header">
+            <div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#1d6aff"/><line x1="8" y1="8" x2="16" y2="8" stroke="var(--text-3)"/><line x1="8" y1="12" x2="16" y2="12" stroke="var(--text-3)"/><line x1="8" y1="16" x2="13" y2="16" stroke="var(--text-3)"/><path d="M15 14l2 2 4-4" stroke="#34d399" stroke-width="2"/></svg></div>
+            <div class="tile-info">
+              <div class="tile-title">User Acceptance Testing (UAT) Best Practices</div>
+              <div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div>
+            </div>
+            <span class="tile-expand-icon">+</span>
+          </div>
+          <div class="tile-body"><div class="tile-body-inner">
+            <p class="tile-desc">UAT is where theoretical process design meets operational reality. In GBS, effective UAT requires testing with actual transaction volumes, real edge cases, and the people who will run the process daily — not a sanitized demo with perfect data. The biggest failure mode: testing the happy path while ignoring the exception handling that consumes 40% of an analyst's day.</p>
+            <a href="pillar-8-cluster-5-sme-participation.html" class="tile-link">Read full guide <span>&#8594;</span></a>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /topics-container -->
+
+  <!-- FOOTER NAV -->
+  <div class="footer-nav">
+    <a href="index.html">&#8592; Back to all pillars</a>
+    <a href="guide.html" class="btn-primary">Field Guide &#8594;</a>
+  </div>
+
+</div><!-- /content-wrap -->
+</div><!-- /page -->
+
+<script>
+function toggleTopics(btn) {
+  const container = document.getElementById('topicsContainer');
+  btn.classList.toggle('open');
+  container.classList.toggle('visible');
+}
+function toggleTile(tile) {
+  const wasOpen = tile.classList.contains('open');
+  // Close all tiles in same grid
+  tile.closest('.tile-grid').querySelectorAll('.topic-tile.open').forEach(t => t.classList.remove('open'));
+  // Open clicked tile if it wasn't already open
+  if (!wasOpen) tile.classList.add('open');
+}
+</script>
 </body>
 </html>
