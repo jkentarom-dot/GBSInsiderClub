@@ -359,6 +359,56 @@
   .node-project .rn-level { color: var(--ruby); }
   .node-empty { background: transparent; border: none; }
 
+  /* role detail panel */
+  .role-detail-overlay {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(8,11,16,0.75); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 24px;
+  }
+  .role-detail-overlay.active { display: flex; }
+  .role-detail-panel {
+    background: var(--surface-2); border: 1px solid var(--border-2);
+    border-radius: 14px; max-width: 520px; width: 100%;
+    padding: 32px; position: relative; animation: panelIn 0.2s ease-out;
+  }
+  @keyframes panelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .rdp-close {
+    position: absolute; top: 14px; right: 16px; background: none; border: none;
+    color: var(--text-2); font-size: 20px; cursor: pointer; padding: 4px 8px;
+    line-height: 1; border-radius: 4px;
+  }
+  .rdp-close:hover { color: #fff; background: rgba(255,255,255,0.08); }
+  .rdp-level {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;
+  }
+  .rdp-title { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 14px; }
+  .rdp-body { font-size: 14px; color: var(--text-2); line-height: 1.7; margin-bottom: 20px; }
+  .rdp-section-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600;
+    color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;
+  }
+  .rdp-skills {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
+  }
+  .rdp-skill {
+    background: rgba(29,106,255,0.1); border: 1px solid rgba(29,106,255,0.2);
+    border-radius: 6px; padding: 4px 12px; font-size: 13px; color: var(--teal);
+  }
+  .rdp-links { display: flex; flex-direction: column; gap: 8px; }
+  .rdp-link {
+    display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+    background: var(--surface-3); border: 1px solid var(--border);
+    border-radius: 8px; text-decoration: none; color: #fff;
+    font-size: 14px; font-weight: 500; transition: border-color 0.15s, background 0.15s;
+  }
+  .rdp-link:hover { border-color: var(--teal); background: rgba(29,106,255,0.06); }
+  .rdp-link-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal);
+    min-width: 28px;
+  }
+  .role-node.active { outline: 2px solid var(--teal); outline-offset: 2px; }
+
   /* grid positions */
   .pos-r1c1 { grid-column: 2; grid-row: 4; }
   .pos-r1c2 { grid-column: 3; grid-row: 4; }
@@ -761,58 +811,58 @@
       </div>
 
       <!-- Row 1: Entry level -->
-      <div class="role-node node-entry pos-r1c1">
+      <div class="role-node node-entry pos-r1c1" data-role="associate" onclick="openRole(this)">
         <div class="rn-level">Entry</div>
         <div class="rn-title">Associate / Analyst</div>
         <div class="rn-desc">Transaction execution, process learning, SLA delivery</div>
       </div>
-      <div class="role-node node-entry pos-r1c2">
+      <div class="role-node node-entry pos-r1c2" data-role="sr-associate" onclick="openRole(this)">
         <div class="rn-level">Entry+</div>
         <div class="rn-title">Senior Associate</div>
         <div class="rn-desc">Process ownership, exception handling, quality checks</div>
       </div>
 
       <!-- Row 2: Operational -->
-      <div class="role-node node-mid pos-r2c1">
+      <div class="role-node node-mid pos-r2c1" data-role="team-lead" onclick="openRole(this)">
         <div class="rn-level">Operational</div>
         <div class="rn-title">Team Lead / Supervisor</div>
         <div class="rn-desc">Small team management, escalation point, reporting</div>
       </div>
-      <div class="role-node node-mid pos-r2c2">
+      <div class="role-node node-mid pos-r2c2" data-role="process-analyst" onclick="openRole(this)">
         <div class="rn-level">Operational</div>
         <div class="rn-title">Process Analyst / SME</div>
         <div class="rn-desc">Process design, improvement initiatives, documentation</div>
       </div>
-      <div class="role-node node-project pos-r2c3">
+      <div class="role-node node-project pos-r2c3" data-role="project-coord" onclick="openRole(this)">
         <div class="rn-level">Lateral · Project</div>
         <div class="rn-title">Project Coordinator</div>
         <div class="rn-desc">Transition projects, CI initiatives, system rollouts</div>
       </div>
 
       <!-- Row 3: Managerial -->
-      <div class="role-node node-senior pos-r3c1">
+      <div class="role-node node-senior pos-r3c1" data-role="manager" onclick="openRole(this)">
         <div class="rn-level">Managerial</div>
         <div class="rn-title">Manager / Senior Manager</div>
         <div class="rn-desc">Team ownership, stakeholder mgmt, performance reporting</div>
       </div>
-      <div class="role-node node-senior pos-r3c2">
+      <div class="role-node node-senior pos-r3c2" data-role="gpo" onclick="openRole(this)">
         <div class="rn-level">Managerial</div>
         <div class="rn-title">Process Manager / GPO</div>
         <div class="rn-desc">E2E process governance, global standards, transformation</div>
       </div>
-      <div class="role-node node-expert pos-expert">
+      <div class="role-node node-expert pos-expert" data-role="expert" onclick="openRole(this)">
         <div class="rn-level">Expert Track</div>
         <div class="rn-title">Domain Expert / CoE Lead</div>
         <div class="rn-desc">Tax, Treasury, FP&A, Compliance specialist roles</div>
       </div>
 
       <!-- Row 4: Strategic -->
-      <div class="role-node node-senior pos-r4c1">
+      <div class="role-node node-senior pos-r4c1" data-role="director" onclick="openRole(this)">
         <div class="rn-level">Strategic</div>
         <div class="rn-title">Director / Senior Director</div>
         <div class="rn-desc">GBS function leadership, C-suite interface, org design</div>
       </div>
-      <div class="role-node node-senior pos-r4c2">
+      <div class="role-node node-senior pos-r4c2" data-role="head-gbs" onclick="openRole(this)">
         <div class="rn-level">Strategic</div>
         <div class="rn-title">Head of GBS / VP</div>
         <div class="rn-desc">Full GBS P&L, operating model, global delivery strategy</div>
@@ -835,6 +885,21 @@
     </div>
   </div>
   <p class="career-map-disclaimer">Role titles and band structures vary significantly across organizations. Some companies use 3-band structures (Junior / Senior / Lead), others use 6+ levels per category. This map shows typical progression patterns, not universal titles.</p>
+  <p style="text-align:center; font-size:13px; color:var(--teal); margin-top:8px; font-family:'JetBrains Mono',monospace; letter-spacing:0.04em;">Click any role to explore skills and recommended pillars</p>
+
+<!-- Role detail overlay -->
+<div class="role-detail-overlay" id="roleOverlay" onclick="if(event.target===this)closeRole()">
+  <div class="role-detail-panel">
+    <button class="rdp-close" onclick="closeRole()">&times;</button>
+    <div class="rdp-level" id="rdpLevel"></div>
+    <div class="rdp-title" id="rdpTitle"></div>
+    <div class="rdp-body" id="rdpBody"></div>
+    <div class="rdp-section-label">Key Skills</div>
+    <div class="rdp-skills" id="rdpSkills"></div>
+    <div class="rdp-section-label">Start Here</div>
+    <div class="rdp-links" id="rdpLinks"></div>
+  </div>
+</div>
 </section>
 
 <!-- ─── SECTION 5: WHAT'S INSIDE ─── -->
@@ -1039,6 +1104,154 @@
     <a href="glossary.html">Glossary</a>
   </div>
 </footer>
+
+<script>
+const roleData = {
+  'associate': {
+    level: 'Entry',
+    title: 'Associate / Analyst',
+    body: 'You are learning the machine. Your job is to execute transactions accurately, meet SLA deadlines, and understand the end-to-end process you sit inside. The best associates do not just complete tasks — they start asking why the process works the way it does.',
+    skills: ['Process execution', 'SLA awareness', 'Excel and ERP basics', 'Documentation', 'Attention to detail', 'Time management'],
+    links: [
+      { num: '01', name: 'GBS Fundamentals', desc: 'Understand the operating model you work inside', href: 'pillar-1-gbs-fundamentals.html' },
+      { num: '02', name: 'Operational Excellence', desc: 'Process knowledge, SOPs, and quality standards', href: 'pillar-2-operational-excellence.html' },
+      { num: '03', name: 'Digital and Technology', desc: 'Excel, ERP navigation, and basic data skills', href: 'pillar-3-digital-technology.html' }
+    ]
+  },
+  'sr-associate': {
+    level: 'Entry+',
+    title: 'Senior Associate',
+    body: 'You own your process end-to-end. You handle exceptions that junior team members escalate, you run quality checks, and you are the person the team lead relies on when things break. This is where you start building the judgment that separates operators from future leaders.',
+    skills: ['Exception handling', 'Process ownership', 'Quality assurance', 'Peer mentoring', 'Root cause analysis', 'Reporting basics'],
+    links: [
+      { num: '02', name: 'Operational Excellence', desc: 'Deep process knowledge and continuous improvement', href: 'pillar-2-operational-excellence.html' },
+      { num: '03', name: 'Digital and Technology', desc: 'Automation awareness and data analytics', href: 'pillar-3-digital-technology.html' },
+      { num: '05', name: 'Career and Performance', desc: 'Build your brag sheet and performance loop', href: 'pillar-5-career-performance.html' }
+    ]
+  },
+  'team-lead': {
+    level: 'Operational',
+    title: 'Team Lead / Supervisor',
+    body: 'Your job shifts from doing the work to making sure the team delivers it. You run daily operations, handle escalations, manage capacity, and report upward. The hardest transition is letting go of individual execution and learning to lead through others.',
+    skills: ['Capacity planning', 'One-on-ones', 'SLA reporting', 'Escalation management', 'Delegation', 'Team scheduling'],
+    links: [
+      { num: '07', name: 'Leadership and People', desc: 'First-time manager skills, team operations, coaching', href: 'pillar-7-leadership-people.html' },
+      { num: '02', name: 'Operational Excellence', desc: 'Operational controls and service management', href: 'pillar-2-operational-excellence.html' },
+      { num: '04', name: 'Stakeholder Communication', desc: 'Reporting upward and managing expectations', href: 'pillar-4-stakeholder-communication.html' }
+    ]
+  },
+  'process-analyst': {
+    level: 'Operational',
+    title: 'Process Analyst / SME',
+    body: 'You are the person who knows why the process works the way it does — and how to make it better. You design workflows, write SOPs, lead improvement initiatives, and serve as the subject matter expert during transitions and audits. Deep knowledge is your currency.',
+    skills: ['Process mapping', 'Lean / Six Sigma basics', 'SOP documentation', 'Data analysis', 'Stakeholder interviews', 'UAT testing'],
+    links: [
+      { num: '02', name: 'Operational Excellence', desc: 'Process design, CI methods, and documentation', href: 'pillar-2-operational-excellence.html' },
+      { num: '03', name: 'Digital and Technology', desc: 'Automation, data analytics, and enterprise tools', href: 'pillar-3-digital-technology.html' },
+      { num: '08', name: 'Projects and Transformation', desc: 'SME participation in projects and transitions', href: 'pillar-8-projects-transformation.html' }
+    ]
+  },
+  'project-coord': {
+    level: 'Lateral / Project',
+    title: 'Project Coordinator',
+    body: 'You have stepped out of BAU into project work — transitions, system rollouts, continuous improvement programs. This is a lateral move that builds a completely different skill set. You learn to manage timelines, dependencies, and stakeholders instead of daily transactions.',
+    skills: ['Project tracking', 'RAID logs', 'Meeting facilitation', 'Status reporting', 'Change management basics', 'Vendor coordination'],
+    links: [
+      { num: '08', name: 'Projects and Transformation', desc: 'PM fundamentals, execution methods, change management', href: 'pillar-8-projects-transformation.html' },
+      { num: '10', name: 'GBS Transition', desc: 'Transition strategy, knowledge transfer, stabilization', href: 'pillar-10-gbs-transition.html' },
+      { num: '04', name: 'Stakeholder Communication', desc: 'Negotiation, influence, and executive reporting', href: 'pillar-4-stakeholder-communication.html' }
+    ]
+  },
+  'manager': {
+    level: 'Managerial',
+    title: 'Manager / Senior Manager',
+    body: 'You own a team, a budget line, and a set of stakeholder relationships. Your success is no longer measured by what you deliver personally — it is measured by what your team delivers, how your stakeholders perceive the service, and whether you can develop the people below you.',
+    skills: ['Performance management', 'Stakeholder management', 'Budget ownership', 'Hiring and retention', 'Cross-functional alignment', 'Operational reporting'],
+    links: [
+      { num: '07', name: 'Leadership and People', desc: 'Performance management, team ops, coaching', href: 'pillar-7-leadership-people.html' },
+      { num: '04', name: 'Stakeholder Communication', desc: 'Relationship management and executive influence', href: 'pillar-4-stakeholder-communication.html' },
+      { num: '05', name: 'Career and Performance', desc: 'Career strategy and personal branding at scale', href: 'pillar-5-career-performance.html' }
+    ]
+  },
+  'gpo': {
+    level: 'Managerial',
+    title: 'Process Manager / GPO',
+    body: 'You own the process globally — not just one location, not just one team. You set the standard, define governance, drive transformation, and ensure consistency across regions. Global Process Owners are the backbone of mature GBS organizations.',
+    skills: ['Global process governance', 'Standardization', 'Cross-regional alignment', 'Transformation leadership', 'Vendor management', 'Benchmarking'],
+    links: [
+      { num: '02', name: 'Operational Excellence', desc: 'E2E process governance, controls, CI at scale', href: 'pillar-2-operational-excellence.html' },
+      { num: '08', name: 'Projects and Transformation', desc: 'Leading transformation programs and change', href: 'pillar-8-projects-transformation.html' },
+      { num: '01', name: 'GBS Fundamentals', desc: 'Operating models, governance, performance frameworks', href: 'pillar-1-gbs-fundamentals.html' }
+    ]
+  },
+  'expert': {
+    level: 'Expert Track',
+    title: 'Domain Expert / CoE Lead',
+    body: 'You chose depth over breadth. Tax, Treasury, FP&A, Compliance, Internal Audit — these are specialist roles where deep domain knowledge matters more than management span. CoE leads build centers of excellence that the business cannot replicate locally.',
+    skills: ['Deep domain expertise', 'Regulatory knowledge', 'Advisory capability', 'CoE design', 'Knowledge management', 'Audit readiness'],
+    links: [
+      { num: '09', name: 'Compliance and Risk', desc: 'Controls, audit, regulatory frameworks, SOX', href: 'pillar-9-compliance-risk.html' },
+      { num: '06', name: 'Total Rewards', desc: 'Compensation structures, market intelligence, mobility', href: 'pillar-6-total-rewards.html' },
+      { num: '01', name: 'GBS Fundamentals', desc: 'Operating models and where CoEs fit', href: 'pillar-1-gbs-fundamentals.html' }
+    ]
+  },
+  'director': {
+    level: 'Strategic',
+    title: 'Director / Senior Director',
+    body: 'You lead a GBS function or a major service line. Your audience is the C-suite. You design organizations, negotiate with vendors at scale, present to steering committees, and make decisions that affect hundreds of people across multiple geographies.',
+    skills: ['Org design', 'C-suite communication', 'Vendor strategy', 'P&L awareness', 'Talent strategy', 'Board-level reporting'],
+    links: [
+      { num: '01', name: 'GBS Fundamentals', desc: 'Operating model design and governance at scale', href: 'pillar-1-gbs-fundamentals.html' },
+      { num: '04', name: 'Stakeholder Communication', desc: 'Executive influence and negotiation', href: 'pillar-4-stakeholder-communication.html' },
+      { num: '07', name: 'Leadership and People', desc: 'Strategic leadership and organizational development', href: 'pillar-7-leadership-people.html' }
+    ]
+  },
+  'head-gbs': {
+    level: 'Strategic',
+    title: 'Head of GBS / VP',
+    body: 'You own the entire GBS operation — the P&L, the operating model, the delivery strategy, and the relationship with every function the GBS serves. You report to the CFO or COO. Everything in this curriculum is relevant to your role, because you need to understand every layer of the organization you lead.',
+    skills: ['Full P&L ownership', 'Operating model design', 'Global delivery strategy', 'Executive stakeholder management', 'Board reporting', 'Transformation vision'],
+    links: [
+      { num: '01', name: 'GBS Fundamentals', desc: 'The complete operating model and governance picture', href: 'pillar-1-gbs-fundamentals.html' },
+      { num: '08', name: 'Projects and Transformation', desc: 'Leading large-scale transformation programs', href: 'pillar-8-projects-transformation.html' },
+      { num: '07', name: 'Leadership and People', desc: 'Strategic leadership, talent, and culture at scale', href: 'pillar-7-leadership-people.html' }
+    ]
+  }
+};
+
+function openRole(el) {
+  const role = el.dataset.role;
+  const d = roleData[role];
+  if (!d) return;
+  document.querySelectorAll('.role-node').forEach(n => n.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('rdpLevel').textContent = d.level;
+  document.getElementById('rdpLevel').style.color =
+    el.classList.contains('node-entry') ? 'var(--teal-soft)' :
+    el.classList.contains('node-mid') ? 'var(--teal)' :
+    el.classList.contains('node-senior') ? 'var(--gold)' :
+    el.classList.contains('node-expert') ? 'var(--sky)' :
+    el.classList.contains('node-project') ? 'var(--ruby)' : 'var(--teal)';
+  document.getElementById('rdpTitle').textContent = d.title;
+  document.getElementById('rdpBody').textContent = d.body;
+  const skillsEl = document.getElementById('rdpSkills');
+  skillsEl.innerHTML = d.skills.map(s => '<span class="rdp-skill">' + s + '</span>').join('');
+  const linksEl = document.getElementById('rdpLinks');
+  linksEl.innerHTML = d.links.map(l =>
+    '<a class="rdp-link" href="' + l.href + '"><span class="rdp-link-num">P' + l.num + '</span><span><strong>' + l.name + '</strong><br><span style="font-size:12px;color:var(--text-2);font-weight:400;">' + l.desc + '</span></span></a>'
+  ).join('');
+  document.getElementById('roleOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeRole() {
+  document.getElementById('roleOverlay').classList.remove('active');
+  document.querySelectorAll('.role-node').forEach(n => n.classList.remove('active'));
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeRole(); });
+</script>
 
 </body>
 </html>
