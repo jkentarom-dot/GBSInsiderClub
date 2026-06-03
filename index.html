@@ -88,15 +88,17 @@
     display: flex; flex-direction: column; justify-content: center;
     padding: 120px 80px 80px;
     position: relative; overflow: hidden;
+    background: url('images/hero-julian.webp') center right / cover no-repeat;
   }
   .hero::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse 800px 600px at 60% 40%, rgba(0,191,165,0.04) 0%, transparent 70%),
-                radial-gradient(ellipse 400px 400px at 20% 80%, rgba(201,162,39,0.03) 0%, transparent 60%);
+    background: linear-gradient(90deg, var(--void) 0%, var(--void) 35%, rgba(8,11,16,0.7) 60%, rgba(8,11,16,0.55) 100%),
+                linear-gradient(180deg, var(--void) 0%, transparent 20%, transparent 80%, var(--void) 100%);
     pointer-events: none;
   }
   .hero-eyebrow {
+    position: relative; z-index: 1;
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px; font-weight: 600;
     color: var(--teal); text-transform: uppercase; letter-spacing: 0.16em;
@@ -104,7 +106,7 @@
     display: flex; align-items: center; gap: 12px;
   }
   .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--teal); }
-  .hero h1 {
+  .hero h1 { position: relative; z-index: 1;
     font-size: clamp(52px, 7vw, 88px);
     font-weight: 600;
     letter-spacing: -2.5px;
@@ -115,13 +117,13 @@
   }
   .hero h1 .line-gold { color: var(--gold); display: block; font-style: normal; }
   .hero h1 .line-muted { color: var(--text-3); display: block; }
-  .hero-sub {
+  .hero-sub { position: relative; z-index: 1;
     font-size: 18px; font-weight: 300;
     color: var(--text-2); line-height: 1.65;
     max-width: 520px; margin-top: 36px; margin-bottom: 44px;
   }
   .hero-sub strong { color: #fff; font-weight: 500; }
-  .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .hero-actions { position: relative; z-index: 1; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 10px;
     background: var(--teal); color: var(--void);
@@ -140,7 +142,7 @@
     transition: border-color 0.15s, color 0.15s;
   }
   .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
-  .hero-scroll-hint {
+  .hero-scroll-hint { position: relative; z-index: 1;
     position: absolute; bottom: 40px; left: 80px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px; color: var(--text-3);
@@ -631,7 +633,11 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     section, .hero { padding: 64px 24px; }
-    .hero h1 { font-size: 44px; letter-spacing: -1.5px; }
+    .hero { background-position: center center; min-height: 80vh; }
+    .hero::before {
+      background: linear-gradient(180deg, var(--void) 0%, rgba(8,11,16,0.82) 40%, rgba(8,11,16,0.75) 70%, var(--void) 100%);
+    }
+    .hero h1 { position: relative; z-index: 1; font-size: 44px; letter-spacing: -1.5px; }
     .why-grid, .audience-grid, .hooks-grid { grid-template-columns: 1fr; }
     .why-card.full { flex-direction: column; gap: 16px; }
     .pillars-grid { grid-template-columns: repeat(2, 1fr); }
