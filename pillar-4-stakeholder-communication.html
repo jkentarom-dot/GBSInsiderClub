@@ -1,287 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pillar 4: Stakeholder & Communication — GBS Insider Club</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --gold: #b89438; --gold-light: #d4a843; --navy: #05080f;
-    --navy2: #0a0e18; --navy3: #0f1520;
-    --border2: rgba(184,148,56,0.08); --text: #c8d0dc; --text2: #ffffff; --text3: #c8d0de;
-  }
-  body { background: var(--navy); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; overflow-x: hidden; }
-  .topbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 56px; height: 64px;
-    background: rgba(5,8,15,0.95); backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border2);
-  }
-  .topbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .brand-mark { width: 28px; height: 28px; border: 1px solid rgba(184,148,56,0.4); border-radius: 4px; background: rgba(184,148,56,0.08); display: flex; align-items: center; justify-content: center; }
-  .brand-name { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; }
-  .brand-name span:first-child { color: var(--gold); }
-  .brand-name span:last-child { color: var(--text2); font-weight: 300; }
-  @media (max-width: 768px) { .topbar { padding: 0 24px; } .hero, .content { padding-left: 24px; padding-right: 24px; } }
-</style>
-</head>
-<body>
-
-<nav class="topbar">
-  <a href="index.html" class="topbar-brand">
-    <div class="brand-mark">
-      <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
-        <path d="M8 22 L16 8 L20 14 L26 8" stroke="#b89438" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M22 8 L26 8 L26 12" stroke="#b89438" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
-  </a>
-  <div style="display:flex; align-items:center; gap:24px;">
-    <a href="index.html" style="color:var(--text2); text-decoration:none; font-size:13px; letter-spacing:0.04em; transition:color 0.2s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text2)'">← All Pillars</a>
-    <a href="guide.html" style="padding:8px 20px; border:1px solid rgba(184,148,56,0.2); border-radius:4px; color:var(--gold-light); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;">AI Field Guide →</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section style="padding: 120px 56px 64px; position:relative; overflow:hidden;">
-  <div style="position:absolute; top:0; right:0; width:50%; height:100%; background:radial-gradient(ellipse at right, rgba(184,148,56,0.04) 0%, transparent 70%); pointer-events:none;"></div>
-  <div style="max-width:1200px; margin:0 auto; position:relative; z-index:1;">
-
-    <!-- Breadcrumb -->
-    <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text3); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:24px;">
-      <a href="index.html" style="color:var(--text3); text-decoration:none;">GBS Insider Club</a>
-      <span style="margin:0 8px;">→</span>
-      <span style="color:var(--gold);">Pillar 4</span>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:start;">
-      <div>
-        <div style="display:inline-flex; align-items:center; gap:8px; margin-bottom:20px;">
-          <div style="width:20px; height:1px; background:var(--gold);"></div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Pillar 4 of 10</span>
-        </div>
-        <h1 style="font-family:'Cormorant Garamond',serif; font-size:clamp(40px,5vw,72px); font-weight:300; color:#fff; line-height:1.05; margin-bottom:20px;">Stakeholder & Communication</h1>
-        <p style="font-size:18px; color:var(--text2); line-height:1.8; max-width:640px; margin-bottom:32px;">Communication, relationship management, influence, and negotiation in a matrix organisation.</p>
-        <p style="font-size:15px; color:var(--text2); line-height:1.9; max-width:680px;">In a matrix organisation, your ability to deliver depends on people who do not report to you. The communication skills that matter in GBS are not presentation polish — they are the ability to navigate ambiguity, manage conflicting priorities, and build trust across functions and geographies.</p>
-      </div>
-
-      <!-- Stats panel -->
-      <div style="background:var(--navy2); border:1px solid var(--border2); border-radius:8px; padding:28px 32px; min-width:220px; flex-shrink:0;">
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:20px;">Pillar Overview</div>
-        <div style="margin-bottom:16px;">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:600; color:var(--gold-light); line-height:1;">11</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text3); letter-spacing:0.12em; text-transform:uppercase; margin-top:2px;">Topics</div>
-        </div>
-        <div style="margin-bottom:20px;">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:600; color:var(--gold-light); line-height:1;">3</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text3); letter-spacing:0.12em; text-transform:uppercase; margin-top:2px;">Sections</div>
-        </div>
-        <div style="padding-top:16px; border-top:1px solid var(--border2);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text3); letter-spacing:0.08em; margin-bottom:10px;">LEVEL RANGE</div>
-          <div style="display:flex; flex-direction:column; gap:6px;">
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:#00d68f;"></div><span style="font-size:12px; color:var(--text2);">Rookie</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:var(--gold);"></div><span style="font-size:12px; color:var(--text2);">Team Lead</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:#4d9fff;"></div><span style="font-size:12px; color:var(--text2);">Pro</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:8px; height:8px; border-radius:50%; background:#a855f7;"></div><span style="font-size:12px; color:var(--text2);">Project Mgr</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GOLD DIVIDER -->
-<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(184,148,56,0.3), rgba(184,148,56,0.5), rgba(184,148,56,0.3), transparent); max-width:1200px; margin:0 auto 0;"></div>
-
-
-<!-- CLUSTER NAVIGATION -->
-<section style="padding:48px 56px 0; max-width:1312px; margin:0 auto;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
-      <div style="width:20px; height:1px; background:var(--gold, #b89438);"></div>
-      <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold, #b89438); letter-spacing:0.15em; text-transform:uppercase;">Deep-Dive Guides</span>
-    </div>
-    <h2 style="font-family:'Cormorant Garamond','Inter',serif; font-size:clamp(28px,3.5vw,40px); font-weight:300; color:#fff; line-height:1.15; margin-bottom:8px;">Cluster guides for this pillar</h2>
-    <p style="font-size:15px; color:var(--text2, #ffffff); line-height:1.7; margin-bottom:32px; max-width:640px;">Each guide covers a specific area in depth — frameworks, field-tested tactics, and the operational detail you need.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px; margin-bottom:48px;">
-      
-          <a href="pillar-4-cluster-1-core-communication.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">4.1</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Core Communication</div>
-            <div style="font-size:13px; color:var(--text2, #ffffff); line-height:1.6;">Written and verbal communication skills tailored for GBS contexts.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-4-cluster-2-relationship-mgmt.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">4.2</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Relationship Management</div>
-            <div style="font-size:13px; color:var(--text2, #ffffff); line-height:1.6;">Building trust, managing stakeholder expectations, and navigating GBS politics.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-          <a href="pillar-4-cluster-3-negotiation-influence.html" style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.12); border-radius:8px; padding:22px 24px; text-decoration:none; display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.12)';this.style.transform='none'">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold, #b89438); font-weight:500; letter-spacing:0.08em;">4.3</div>
-              <div style="width:16px; height:1px; background:rgba(184,148,56,0.3);"></div>
-            </div>
-            <div style="font-family:'IBM Plex Sans','Inter',sans-serif; font-size:16px; color:#ffffff; font-weight:500; line-height:1.3;">Negotiation and Influence</div>
-            <div style="font-size:13px; color:var(--text2, #ffffff); line-height:1.6;">Negotiation tactics, influencing without authority, and executive communication.</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold, #b89438); letter-spacing:0.08em; margin-top:auto; padding-top:8px;">READ GUIDE →</div>
-          </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- CAREER CONTEXT -->
-<section style="padding:16px 56px 0; max-width:1312px; margin:0 auto;">
-  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:24px; align-items:start;">
-    <div style="background:var(--navy3, #0f1520); border:1px solid rgba(184,148,56,0.1); border-left:3px solid #b89438; border-radius:8px; padding:24px 28px;">
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#b89438; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:12px;">Why this pillar matters</div>
-      <p style="font-size:15px; color:#c8d0de; line-height:1.75; margin:0;">GBS is a service business inside a business. Your stakeholders are your customers, and how you communicate determines whether they see you as a cost center or a partner. This pillar covers writing for executives, managing difficult relationships, negotiating without authority, and presenting in a way that gets decisions made.</p>
-    </div>
-    <div style="background:var(--navy3, #0f1520); border:1px solid rgba(29,106,255,0.15); border-radius:8px; padding:20px 22px;">
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(29,106,255,0.8); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px;">Who needs this</div>
-      <p style="font-size:13px; color:#ffffff; line-height:1.7; margin:0;">Anyone who writes emails to the business, presents in steering committees, or manages stakeholder expectations.</p>
-    </div>
-  </div>
-</section>
-
-
-<div style="padding:0 56px; max-width:1200px; margin:24px auto 0;">
-  <button onclick="document.getElementById('topic-detail').style.display = document.getElementById('topic-detail').style.display === 'none' ? 'block' : 'none'; this.querySelector('.toggle-arrow').textContent = document.getElementById('topic-detail').style.display === 'none' ? '>' : 'v'" style="background:none; border:1px solid rgba(184,148,56,0.15); border-radius:6px; padding:12px 20px; color:#ffffff; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer; display:flex; align-items:center; gap:10px; transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(184,148,56,0.4)'" onmouseout="this.style.borderColor='rgba(184,148,56,0.15)'">
-    <span class="toggle-arrow" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#b89438;">v</span>
-    <span>Full topic curriculum — individual subtopics by cluster</span>
-  </button>
-</div>
-
-<!-- CONTENT -->
-<section class="content" id="topic-detail" style="padding:64px 56px 100px; max-width:1200px; margin:0 auto;">
-  
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">4.1 Core Communication</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">High-Context vs. Low-Context Cultural Communication</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Virtual Presence: Video Etiquette & Being "Seen"</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#00d68f; border:1px solid #00d68f33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Rookie</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Writing Executive Summaries & Briefings</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Working Across Time Zones & Asynchronous Work</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">4.2 Relationship Management</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Managing Conflict in a Matrix Organization</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Managing Up: Strategies for Working with Leadership</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Managing Difficult Stakeholders & Pushback</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">The Art of Saying "No" Diplomatically</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#4d9fff; border:1px solid #4d9fff33; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Pro</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-      <div style="margin-bottom:48px;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid rgba(184,148,56,0.1);">
-          <div style="width:3px; height:32px; background:linear-gradient(to bottom, #b89438, rgba(184,148,56,0.2)); border-radius:2px; flex-shrink:0;"></div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#ffffff; margin:0;">4.3 Negotiation & Influence</h3>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
-          
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Interest-Based Negotiation (Getting to Yes)</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#b89438; border:1px solid #b8943833; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Team Lead</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Leading Without Authority (Influence maps)</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-            <div style="background:var(--navy3); border:1px solid rgba(255,255,255,0.05); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-                <div style="font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#ffffff; font-weight:500; line-height:1.4;">Presenting to Senior Leadership (The Minto Pyramid)</div>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#a855f7; border:1px solid #a855f733; padding:2px 8px; border-radius:2px; letter-spacing:0.08em; white-space:nowrap;">Project Mgr</span>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text2, #ffffff); letter-spacing:0.08em;">COVERED IN CLUSTER GUIDE</div>
-            </div>
-        </div>
-      </div>
-
-  <!-- Back / Forward nav -->
-  <div style="padding-top:48px; border-top:1px solid var(--border2); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-    <a href="index.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--text2); text-decoration:none; font-size:14px; transition:color 0.2s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text2)'">
-      ← Back to all pillars
-    </a>
-    <a href="guide.html" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; background:linear-gradient(135deg, var(--gold), var(--gold-light)); color:var(--navy); font-weight:700; font-size:13px; letter-spacing:0.06em; text-decoration:none; border-radius:4px;">
-      AI Field Guide (Live) →
-    </a>
-  </div>
-</section>
-
-</body>
-</html>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--teal:#1d6aff;--gold:#e8b800;--sky:#38bdf8;--text:#ffffff;--text-2:#c8d0de;--text-3:#ffffff;--border:#1e2636;--border-2:#2a3347;--green:#34d399;--purple:#a78bfa}
+body{background:var(--void);color:var(--text-2);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;background:rgba(8,11,16,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.topbar-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-mark{width:28px;height:28px;border:1px solid rgba(29,106,255,0.3);border-radius:4px;background:rgba(29,106,255,0.06);display:flex;align-items:center;justify-content:center}
+.brand-name{font-size:13px;font-weight:600;letter-spacing:0.08em}.brand-name span:first-child{color:var(--teal)}.brand-name span:last-child{color:var(--text-3);font-weight:400}
+.topbar-nav{display:flex;align-items:center;gap:20px}.topbar-nav a{color:var(--text-3);text-decoration:none;font-size:13px;transition:color 0.2s}.topbar-nav a:hover{color:var(--teal)}
+.page{padding-top:56px}.content-wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+.hero{padding:64px 0 48px;position:relative}.hero::after{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(ellipse at 80% 30%,rgba(29,106,255,0.05) 0%,transparent 70%);pointer-events:none}
+.breadcrumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px}.breadcrumb a{color:var(--text-3);text-decoration:none}.breadcrumb a:hover{color:var(--teal)}.breadcrumb .sep{margin:0 8px;opacity:0.4}
+.hero-grid{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:start}
+.hero h1{font-size:clamp(36px,4vw,56px);font-weight:300;color:var(--text);line-height:1.1;margin-bottom:16px}.hero h1 strong{font-weight:600;color:var(--teal)}
+.hero-lead{font-size:17px;color:var(--text-2);line-height:1.75;margin-bottom:20px;max-width:680px}.hero-body{font-size:15px;color:var(--text-3);line-height:1.8;max-width:680px}
+.stats-panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px 28px;flex-shrink:0}
+.stats-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px}
+.stat-block{margin-bottom:16px}.stat-num{font-size:36px;font-weight:600;color:var(--gold);line-height:1}.stat-desc{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px}
+.level-dots{padding-top:16px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px}.level-dot{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-3)}.level-dot .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.cluster-nav{padding:0 0 48px}.cluster-nav h2{font-size:13px;font-weight:600;color:var(--text-3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px}
+.cluster-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.cluster-card{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none;transition:all 0.2s}.cluster-card:hover{border-color:var(--teal);background:var(--surface-2);transform:translateY(-1px)}
+.cc-num{width:28px;height:28px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-3);flex-shrink:0}.cluster-card:hover .cc-num{border-color:var(--teal);color:var(--teal)}
+.cc-label{font-size:13px;color:var(--text-2);line-height:1.35}
+.section-toggle{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;cursor:pointer;margin-bottom:32px;transition:border-color 0.2s;width:fit-content}.section-toggle:hover{border-color:var(--teal)}.section-toggle .arrow{font-size:12px;color:var(--teal);transition:transform 0.3s}.section-toggle.open .arrow{transform:rotate(180deg)}.section-toggle span{font-size:13px;color:var(--text-2)}
+.topics-container{display:none}.topics-container.visible{display:block}
+.cluster-section{margin-bottom:48px}.cluster-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}.ch-bar{width:3px;height:28px;background:linear-gradient(to bottom,var(--teal),transparent);border-radius:2px;flex-shrink:0}.cluster-heading h3{font-size:22px;font-weight:500;color:var(--text)}
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:10px}
+.topic-tile{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color 0.25s,box-shadow 0.25s;cursor:pointer}.topic-tile:hover{border-color:var(--border-2)}.topic-tile.open{border-color:var(--teal);box-shadow:0 0 0 1px rgba(29,106,255,0.1),0 8px 24px rgba(0,0,0,0.3);cursor:default}
+.tile-header{display:flex;align-items:center;gap:14px;padding:16px 18px}
+.tile-icon{width:40px;height:40px;border-radius:8px;flex-shrink:0;background:rgba(29,106,255,0.06);border:1px solid rgba(29,106,255,0.15);display:flex;align-items:center;justify-content:center}.tile-icon svg{width:20px;height:20px}
+.tile-info{flex:1;min-width:0}.tile-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.4}.tile-meta{display:flex;align-items:center;gap:8px;margin-top:4px}
+.tile-badge{font-family:'JetBrains Mono',monospace;font-size:12px;padding:1px 8px;border-radius:3px;letter-spacing:0.06em;white-space:nowrap;border:1px solid}
+.badge-rookie{color:var(--green);border-color:rgba(52,211,153,0.25)}.badge-pro{color:var(--teal);border-color:rgba(29,106,255,0.25)}.badge-lead{color:var(--gold);border-color:rgba(232,184,0,0.25)}.badge-pm{color:var(--purple);border-color:rgba(167,139,250,0.25)}
+.tile-expand-icon{color:var(--text-3);font-size:16px;transition:transform 0.3s;flex-shrink:0}.topic-tile.open .tile-expand-icon{transform:rotate(45deg);color:var(--teal)}
+.tile-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;padding:0 18px}.topic-tile.open .tile-body{max-height:500px;padding:0 18px 18px}
+.tile-body-inner{border-top:1px solid var(--border);padding-top:14px}.tile-desc{font-size:14px;color:var(--text-2);line-height:1.75;margin-bottom:14px}
+.tile-link{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);text-decoration:none;letter-spacing:0.04em;transition:gap 0.2s}.tile-link:hover{gap:10px}
+.footer-nav{padding:48px 0 64px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.footer-nav a{color:var(--text-3);text-decoration:none;font-size:14px;transition:color 0.2s}.footer-nav a:hover{color:var(--teal)}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:var(--teal);color:var(--void);font-weight:600;font-size:13px;letter-spacing:0.04em;text-decoration:none;border-radius:6px;transition:background 0.2s}.btn-primary:hover{background:#3d7eff}
+@media(max-width:1024px){.content-wrap{padding:0 24px}.topbar{padding:0 24px}.hero-grid{grid-template-columns:1fr}.stats-panel{display:none}.tile-grid{grid-template-columns:1fr}.cluster-cards{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.cluster-cards{grid-template-columns:1fr}.hero h1{font-size:32px}}</style></head><body>
+<nav class="topbar"><a href="index.html" class="topbar-brand"><div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div></a><div class="topbar-nav"><a href="index.html">All Pillars</a><a href="guide.html" class="btn-primary" style="font-size:12px;padding:6px 16px;">Field Guide</a></div></nav>
+<div class="page"><div class="content-wrap">
+<section class="hero"><div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><span style="color:var(--teal);">Pillar 4</span></div>
+<div class="hero-grid"><div>
+<div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;"><div style="width:20px;height:1px;background:var(--teal);"></div><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);letter-spacing:0.15em;text-transform:uppercase;">Pillar 4 of 10</span></div>
+<h1>Stakeholder &<br><strong>Communication</strong></h1><p class="hero-lead">Cultural fluency, executive communication, relationship management, and the influence skills that drive outcomes across a matrix organization.</p><p class="hero-body">In GBS, your technical skills get you hired. Your communication skills determine whether anyone listens to your recommendations. Every process improvement, automation proposal, and career move depends on your ability to communicate across cultures, hierarchies, and time zones.</p>
+</div><div class="stats-panel"><div class="stats-label">Pillar Overview</div><div class="stat-block"><div class="stat-num">11</div><div class="stat-desc">Topics</div></div><div class="stat-block"><div class="stat-num">3</div><div class="stat-desc">Clusters</div></div><div class="level-dots" style="margin-top:8px;"><div class="level-dot"><div class="dot" style="background:var(--green);"></div> Rookie</div><div class="level-dot"><div class="dot" style="background:var(--teal);"></div> Pro</div><div class="level-dot"><div class="dot" style="background:var(--gold);"></div> Team Lead</div><div class="level-dot"><div class="dot" style="background:var(--purple);"></div> Project Mgr</div></div></div></div></section>
+<section class="cluster-nav"><h2>Cluster Guides</h2><div class="cluster-cards"><a href="pillar-4-cluster-1-core-communication.html" class="cluster-card"><div class="cc-num">1</div><span class="cc-label">Core Communication</span></a><a href="pillar-4-cluster-2-relationship-mgmt.html" class="cluster-card"><div class="cc-num">2</div><span class="cc-label">Relationship Management</span></a><a href="pillar-4-cluster-3-negotiation-influence.html" class="cluster-card"><div class="cc-num">3</div><span class="cc-label">Negotiation and Influence</span></a></div></section>
+<div class="section-toggle" onclick="toggleTopics(this)"><span class="arrow">&#9660;</span><span>Full topic curriculum — 11 subtopics by cluster</span></div>
+<div class="topics-container" id="topicsContainer"><div class="cluster-section"><div class="cluster-heading"><div class="ch-bar"></div><h3>4.1 Core Communication</h3></div><div class="tile-grid"><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="9" x2="16" y2="9" stroke="var(--text-3)"/><line x1="8" y1="13" x2="14" y2="13" stroke="var(--text-3)"/></svg></div><div class="tile-info"><div class="tile-title">High-Context vs. Low-Context Cultural Communication</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">In high-context cultures (Japan, India, many of Latin America), meaning lives between the lines — tone, relationship, and what is not said matter as much as the words. In low-context cultures (US, Germany, Netherlands), communication is direct and explicit. GBS teams span both. Misreading the style leads to misaligned expectations, missed signals, and fractured trust.</p><a href="pillar-4-cluster-1-core-communication.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8" stroke="#1d6aff"/><path d="M12 8v4l3 2" stroke="#e8b800"/></svg></div><div class="tile-info"><div class="tile-title">Virtual Presence: Video Etiquette and Being Seen</div><div class="tile-meta"><span class="tile-badge badge-rookie">Rookie</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">In a distributed GBS environment, your camera-on presence is your professional visibility. How you show up on video calls — framing, audio quality, background, engagement — directly affects how leadership perceives your readiness for higher responsibility. Remote does not mean invisible. The people who advance are the ones who are seen contributing, not just attending.</p><a href="pillar-4-cluster-1-core-communication.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M4 18l6-8 4 4 6-10" stroke="#1d6aff"/><circle cx="20" cy="4" r="2" stroke="#e8b800"/></svg></div><div class="tile-info"><div class="tile-title">Writing Executive Summaries and Briefings</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">An executive summary is not a shorter version of your report — it is the decision-relevant extract. Lead with the recommendation, follow with the evidence, close with the ask. Executives read the first paragraph and decide whether to read the rest. If your summary requires scrolling before reaching the point, you have lost your audience.</p><a href="pillar-4-cluster-1-core-communication.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="6" width="7" height="5" rx="1" stroke="#1d6aff"/><rect x="14" y="13" width="7" height="5" rx="1" stroke="#e8b800"/><path d="M10 8.5h4" stroke="var(--text-3)"/><path d="M10 15.5h4" stroke="var(--text-3)"/></svg></div><div class="tile-info"><div class="tile-title">Working Across Time Zones and Asynchronous Work</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">GBS teams routinely span 8-12 time zones. Synchronous meetings become impossible; asynchronous communication becomes essential. The skill is structuring handoffs, documentation, and decision-making so work progresses across shifts without waiting for someone to wake up. The teams that master async operate 24 hours a day. The ones that do not create 24 hours of bottlenecks.</p><a href="pillar-4-cluster-1-core-communication.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div></div></div><div class="cluster-section"><div class="cluster-heading"><div class="ch-bar"></div><h3>4.2 Relationship Management</h3></div><div class="tile-grid"><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8" stroke="#1d6aff" stroke-dasharray="3 2"/><circle cx="12" cy="12" r="3" stroke="#e8b800"/></svg></div><div class="tile-info"><div class="tile-title">Managing Conflict in a Matrix Organization</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">In a matrix, conflict is structural — it is built into the design. Functional leaders want standardization; regional leaders want flexibility. Your job is not to avoid conflict but to surface it early, frame it as a trade-off decision, and escalate with options rather than complaints. The GBS professionals who navigate conflict effectively are the ones who get trusted with bigger scope.</p><a href="pillar-4-cluster-2-relationship-mgmt.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M12 4a8 8 0 0 1 0 16" stroke="#1d6aff"/><path d="M12 20a8 8 0 0 1 0-16" stroke="#e8b800"/></svg></div><div class="tile-info"><div class="tile-title">Managing Up: Strategies for Working with Leadership</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Managing up is not politics — it is making your manager effective. That means understanding their priorities, anticipating their questions, delivering information in their preferred format, and flagging risks before they become surprises. The people who do this well get more autonomy, better assignments, and faster career progression.</p><a href="pillar-4-cluster-2-relationship-mgmt.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#1d6aff"/><line x1="12" y1="3" x2="12" y2="21" stroke="var(--border-2)"/><line x1="3" y1="12" x2="21" y2="12" stroke="var(--border-2)"/></svg></div><div class="tile-info"><div class="tile-title">Managing Difficult Stakeholders and Pushback</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Difficult stakeholders are rarely difficult people — they are people with unmet expectations, competing priorities, or legitimate concerns that nobody acknowledged. The skill is diagnosing the root cause of the resistance before responding to the behavior. Once you understand what someone is protecting, you can address the concern instead of fighting the symptom.</p><a href="pillar-4-cluster-2-relationship-mgmt.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="6" r="3" stroke="#e8b800"/><path d="M6 15h12" stroke="#1d6aff"/><path d="M6 15v3M12 9v9M18 15v3" stroke="#1d6aff"/></svg></div><div class="tile-info"><div class="tile-title">The Art of Saying No Diplomatically</div><div class="tile-meta"><span class="tile-badge badge-pro">Pro</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">In GBS, every yes to an out-of-scope request is a no to something already committed. Saying no diplomatically means acknowledging the request, explaining the trade-off, and offering an alternative. "We cannot do that this week, but we can prioritize it for next sprint if you deprioritize X." The word no protects your team and your credibility.</p><a href="pillar-4-cluster-2-relationship-mgmt.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div></div></div><div class="cluster-section"><div class="cluster-heading"><div class="ch-bar"></div><h3>4.3 Negotiation and Influence</h3></div><div class="tile-grid"><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#1d6aff"/><path d="M8 10l2 2-2 2" stroke="#e8b800"/><line x1="12" y1="14" x2="16" y2="14" stroke="var(--text-3)"/></svg></div><div class="tile-info"><div class="tile-title">Interest-Based Negotiation (Getting to Yes)</div><div class="tile-meta"><span class="tile-badge badge-lead">Team Lead</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">Position-based negotiation ("I want X") creates winners and losers. Interest-based negotiation ("I need X because of Y") finds solutions that satisfy both parties. In GBS, you negotiate constantly — scope, timelines, resources, SLAs, vendor terms. The framework from Getting to Yes (separate people from problems, focus on interests, generate options) applies to every one of these conversations.</p><a href="pillar-4-cluster-3-negotiation-influence.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M3 12h2l2-4 3 8 2-6 2 4h2" stroke="#1d6aff"/><circle cx="20" cy="12" r="1.5" fill="#e8b800" stroke="none"/></svg></div><div class="tile-info"><div class="tile-title">Leading Without Authority (Influence Maps)</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">In GBS, you rarely have direct authority over the people whose cooperation you need. Influence maps identify who has decision power, who has veto power, who is a champion, and who is a blocker — then help you build a strategy for each. The skill is not persuasion; it is understanding what each stakeholder needs to say yes and systematically providing it.</p><a href="pillar-4-cluster-3-negotiation-influence.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div><div class="topic-tile" onclick="toggleTile(this)"><div class="tile-header"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2" stroke="#1d6aff"/><path d="M9 8h6M9 12h4" stroke="var(--text-3)"/><path d="M14 15l2 2 3-3" stroke="#34d399"/></svg></div><div class="tile-info"><div class="tile-title">Presenting to Senior Leadership (The Minto Pyramid)</div><div class="tile-meta"><span class="tile-badge badge-pm">Project Mgr</span></div></div><span class="tile-expand-icon">+</span></div><div class="tile-body"><div class="tile-body-inner"><p class="tile-desc">The Minto Pyramid inverts how most people present: start with the answer, then provide the supporting arguments, then the evidence. Executives want the conclusion first and the analysis only if they challenge it. If you build up to your recommendation over 20 slides, you will lose the room by slide 5.</p><a href="pillar-4-cluster-3-negotiation-influence.html" class="tile-link">Read full guide <span>&#8594;</span></a></div></div></div></div></div></div>
+<div class="footer-nav"><a href="index.html">&#8592; Back to all pillars</a><a href="guide.html" class="btn-primary">Field Guide &#8594;</a></div>
+</div></div>
+<script>
+function toggleTopics(btn){const c=document.getElementById('topicsContainer');btn.classList.toggle('open');c.classList.toggle('visible');}
+function toggleTile(tile){const w=tile.classList.contains('open');tile.closest('.tile-grid').querySelectorAll('.topic-tile.open').forEach(t=>t.classList.remove('open'));if(!w)tile.classList.add('open');}
+</script></body></html>
