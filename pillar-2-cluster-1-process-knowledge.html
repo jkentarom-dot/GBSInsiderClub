@@ -216,6 +216,14 @@
     .gov-step { border-right: none; border-bottom: 1px solid var(--border); }
     .gov-arrow { display: none; }
   }
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -358,7 +366,12 @@
       <div class="disclaimer-box">
         <strong style="color: var(--amber);">The real-world gap:</strong> Many organizations have SOPs. Fewer have current DTPs. Almost none have all three layers consistently maintained and linked together. The further from setup you get, the more the documentation drifts from reality — processes change, systems are upgraded, and nobody updates the manual. This is not laziness. It is a governance failure.
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c1-documentation.webp" alt="Documentation layers" loading="lazy">
+      <p class="sd-caption">Documentation layers — process maps, SOPs, DTPs</p>
+    </div>
+</section>
 
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p2c1-process-knowledge.webp" alt="GBS Process & Knowledge Management Ecosystem — documentation, centralized knowledge hub, E2E process ownership, and continuous improvement cycle"
@@ -476,7 +489,12 @@
           </ul>
         </div>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c1-knowledge-hub.webp" alt="Knowledge hub" loading="lazy">
+      <p class="sd-caption">Knowledge hub — centralized, searchable, governed</p>
+    </div>
+</section>
 
     <!-- SECTION 4: GPO -->
     <section class="section" id="gpo">
@@ -605,7 +623,12 @@
         <div class="tension-label">The GPO controversy — why the role often underdelivers</div>
         <p>The GPO title frequently exceeds the authority granted. A GPO who has no solid-line relationship to operational teams, no budget, and no dedicated time (because the role is a part-time addition to another job) cannot drive the standardization and governance the role requires. Research shows that the most effective GPOs have direct accountability to senior leadership — not just a dotted-line relationship to GBS. Without real authority, the GPO becomes a process documentarian rather than a process owner.</p>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c1-e2e-ownership.webp" alt="End-to-end process ownership" loading="lazy">
+      <p class="sd-caption">End-to-end ownership — GPO accountability model</p>
+    </div>
+</section>
 
     <!-- SECTION 5: SERVICE CATALOG -->
     <section class="section" id="service-catalog">

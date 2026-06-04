@@ -140,6 +140,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
 
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -221,7 +229,12 @@ a.gloss:hover .tooltip{display:block;}
         <ul><li>Deep expertise plus broad cross-functional knowledge</li><li>Can contribute across process, technology, and stakeholder domains</li><li>Career resilient: multiple pivot options when landscape shifts</li><li>High demand for transformation and leadership roles</li></ul>
       </div>
     </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p5c2-skills-matrix.webp" alt="Skills matrix" loading="lazy">
+      <p class="sd-caption">Skills matrix — breadth and depth for career growth</p>
+    </div>
+</section>
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p5c2-career-strategy.webp" alt="GBS Career Strategy Roadmap — career progression ladder, specialist vs leadership track, career capital, 70-20-10 development model, career conversations"
         style="width:100%; max-width:960px; border-radius:10px; border:1px solid rgba(29,106,255,0.2);">
@@ -243,7 +256,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p5c2-career-map.webp" alt="Career map" loading="lazy">
+      <p class="sd-caption">Career map — lateral, vertical, and diagonal moves</p>
+    </div>
+</section>
 <section class="section" id="ops-to-projects">
       <p class="section-eyebrow">Career Pivots</p>
       <h2>From operations to projects — making the pivot</h2>

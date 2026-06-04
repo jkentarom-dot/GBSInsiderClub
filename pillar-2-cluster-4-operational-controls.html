@@ -131,6 +131,14 @@
     .stat{border-right:none;border-bottom:1px solid var(--border);}
     .stat:last-child{border-bottom:none;}
   }
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -223,7 +231,12 @@
         <div class="tension-label">The rubber stamp problem</div>
         <p>The most common failure mode for the four-eyes principle is not bypassing it — it is performing it without actually reviewing. A reviewer who approves based on trust rather than scrutiny provides no protection. Auditors test this by checking whether reviewers can explain what they approved and why. A culture where second reviews are rushed or treated as a formality is a culture where controls exist on paper but not in practice.</p>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c4-four-eyes.webp" alt="Four-eyes principle" loading="lazy">
+      <p class="sd-caption">Four-eyes principle — maker-checker control</p>
+    </div>
+</section>
 
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p2c4-operational-controls.webp" alt="GBS Operational Controls Framework — quality management, four-eyes principle, audit readiness, escalation management, and control activities"
@@ -345,7 +358,12 @@
       <div class="disclaimer-box">
         <strong style="color:var(--amber);">The daily practice:</strong> Audit readiness is built through habits, not sprints. Attaching evidence at the time of execution (not six months later when auditors ask), maintaining version-controlled documentation, and flagging exceptions immediately — rather than hoping nobody notices — are the daily disciplines that make audit preparation a formality rather than a crisis.
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c4-quality-mgmt.webp" alt="Quality management" loading="lazy">
+      <p class="sd-caption">Quality management — building audit readiness into daily work</p>
+    </div>
+</section>
 
     <section class="section" id="escalation">
       <div class="section-eyebrow">Section 4</div>
@@ -401,7 +419,12 @@
           </ul>
         </div>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c4-escalation.webp" alt="Escalation framework" loading="lazy">
+      <p class="sd-caption">Escalation framework — structured issue resolution</p>
+    </div>
+</section>
 
     <section class="section" id="glossary">
       <div class="section-eyebrow">Glossary</div>

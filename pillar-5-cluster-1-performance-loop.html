@@ -140,6 +140,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
 
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -206,7 +214,12 @@ a.gloss:hover .tooltip{display:block;}
       </div>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p5c1-okr-kpi.webp" alt="OKR and KPI framework" loading="lazy">
+      <p class="sd-caption">OKRs and KPIs — setting goals that count</p>
+    </div>
+</section>
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p5c1-performance-loop.webp" alt="GBS Performance Management Loop — goal setting, execution, feedback, formal review, calibration, OKR vs KPI, self-assessment, SBI feedback model"
         style="width:100%; max-width:960px; border-radius:10px; border:1px solid rgba(29,106,255,0.2);">
@@ -251,7 +264,12 @@ a.gloss:hover .tooltip{display:block;}
       <div class="pivot-num">5</div>
       <div class="pivot-body"><h4>Demonstrate visible change</h4><p>The goal is not just to improve — it is to make the improvement visible to the person who gave the feedback. Close the loop explicitly: "I took your feedback on X and here is what I have changed."</p></div>
     </div></div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p5c1-sbi-model.webp" alt="SBI feedback model" loading="lazy">
+      <p class="sd-caption">SBI model — Situation, Behavior, Impact</p>
+    </div>
+</section>
 <section class="section" id="self-assessment">
       <p class="section-eyebrow">Self-Advocacy</p>
       <h2>Writing compelling self-assessments</h2>
@@ -267,7 +285,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p5c1-calibration.webp" alt="Calibration reality" loading="lazy">
+      <p class="sd-caption">Calibration — how your rating actually gets decided</p>
+    </div>
+</section>
     <section class="section" id="glossary">
       <p class="section-eyebrow">Reference</p>
       <h2>Glossary</h2>

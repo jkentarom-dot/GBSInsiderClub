@@ -149,6 +149,14 @@
     .stat{border-right:none;border-bottom:1px solid var(--border);}
     .stat:last-child{border-bottom:none;}
   }
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -253,7 +261,12 @@
           <text x="350" y="179" fill="#c8d0de" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Daily execution: processing transactions, resolving queries, managing backlogs</text>
         </svg>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c2-itil-lifecycle.webp" alt="ITIL service lifecycle" loading="lazy">
+      <p class="sd-caption">ITIL service lifecycle — strategy through continual improvement</p>
+    </div>
+</section>
 
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p2c2-service-management.webp" alt="GBS Service Management Framework — service catalog, ITIL service lifecycle, SLA vs XLA comparison, and service transitions"
@@ -310,7 +323,12 @@
           </ul>
         </div>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c2-service-catalog.webp" alt="Service catalog" loading="lazy">
+      <p class="sd-caption">Service catalog — the menu of what GBS delivers</p>
+    </div>
+</section>
 
     <section class="section" id="service-transition">
       <div class="section-eyebrow">Section 3</div>
@@ -370,7 +388,12 @@
           <li><strong>Scheduled check-ins with the business:</strong> not just reactive — proactive updates even when things are going well, to build confidence</li>
         </ul>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c2-sla-vs-xla.webp" alt="SLA vs XLA comparison" loading="lazy">
+      <p class="sd-caption">SLA vs XLA — measuring service vs experience</p>
+    </div>
+</section>
 
     <section class="section" id="glossary">
       <div class="section-eyebrow">Glossary</div>

@@ -122,6 +122,14 @@
     .stat{border-right:none;border-bottom:1px solid var(--border);}
     .stat:last-child{border-bottom:none;}
   }
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -252,7 +260,12 @@
       <div class="disclaimer-box">
         <strong style="color:var(--amber);">The GBS trap:</strong> In a high-volume service environment, almost everything feels like Q1 or Q3. The discipline is recognizing that most apparent urgency is borrowed from someone else's priorities. Before responding to something as urgent, ask: is this actually important to my work, or is it just that someone wants it quickly? The answer changes how you allocate your next hour.
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c5-eisenhower.webp" alt="Eisenhower matrix" loading="lazy">
+      <p class="sd-caption">Eisenhower matrix — urgent vs important</p>
+    </div>
+</section>
 
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p2c5-personal-productivity.webp" alt="Personal Productivity System for GBS Professionals — Eisenhower matrix, time blocking, zero inbox methodology, deep work, and batch processing"
@@ -322,7 +335,12 @@
         <div class="tension-label">The GBS challenge with deep work</div>
         <p>GBS is a service environment. Your colleagues and stakeholders expect responsiveness. You cannot ignore a payment escalation because you are in a focus block. The resolution: communicate your focus blocks to your team lead, ensure cover is in place for urgent issues, and treat the blocks as protected — not absolute. A 90-minute focus block with a cover arrangement is sustainable. A 90-minute block with no cover causes real operational problems.</p>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c5-time-blocking.webp" alt="Time blocking" loading="lazy">
+      <p class="sd-caption">Time blocking — protecting deep work in a service environment</p>
+    </div>
+</section>
 
     <section class="section" id="email">
       <div class="section-eyebrow">Section 3</div>
@@ -371,7 +389,12 @@
           </ul>
         </div>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p2c5-zero-inbox.webp" alt="Zero inbox method" loading="lazy">
+      <p class="sd-caption">Zero inbox — process, delegate, schedule, archive</p>
+    </div>
+</section>
 
     <section class="section" id="glossary">
       <div class="section-eyebrow">Glossary</div>

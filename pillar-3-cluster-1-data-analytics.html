@@ -138,6 +138,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-block p{font-size:15px;color:var(--text-2);margin-bottom:28px;line-height:1.65;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -208,7 +216,12 @@ a.gloss:hover .tooltip{display:block;}
           <li><strong>When continuity depends on one person:</strong> if only one analyst understands the file, the organization has a single point of failure. That is not a skill — it is a risk</li>
         </ul>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p3c1-data-foundation.webp" alt="Data foundation" loading="lazy">
+      <p class="sd-caption">Data foundation — from raw data to insight</p>
+    </div>
+</section>
 
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p3c1-data-analytics.webp" alt="GBS Data Strategy & Analytics Stack — data foundation, analytics tools (Excel, Power Query, Power BI), financial modeling, and data visualization"
@@ -296,7 +309,12 @@ a.gloss:hover .tooltip{display:block;}
           <li><strong>Open items at month-end:</strong> Filter = period. Rows = process. Values = count + sum of open amounts. The hardest metric to hide — and the most useful for backlog conversations.</li>
         </ul>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p3c1-analytics-tools.webp" alt="Analytics tools" loading="lazy">
+      <p class="sd-caption">Analytics tools beyond Excel</p>
+    </div>
+</section>
 
     <!-- SECTION 4: AUDIT TRAIL -->
     <section class="section" id="audit-trail">
@@ -329,7 +347,12 @@ a.gloss:hover .tooltip{display:block;}
         <div class="tension-label">Why this matters in GBS specifically</div>
         <p>GBS analysts produce output that feeds SLA reports, management decisions, and audit evidence. A chart without a documented source is not evidence — it is a claim. A report with no traceable methodology cannot be defended during an audit review. Building the audit trail while you work takes 5 minutes. Reconstructing it six months later takes days — if it is possible at all. This habit separates analysts who are trusted with high-stakes analysis from those who are not.</p>
       </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p3c1-visualization.webp" alt="Data visualization" loading="lazy">
+      <p class="sd-caption">Visualization — dashboards that drive decisions</p>
+    </div>
+</section>
 
     <!-- SECTION 5: MDM -->
     <section class="section" id="mdm">
