@@ -742,6 +742,17 @@
     .stat { border-right: none; border-bottom: 1px solid var(--border); }
     .stat:last-child { border-bottom: none; }
   }
+
+  /* Sub-diagram inline visuals */
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+  .sub-diagram-row { display: flex; gap: 12px; margin: 32px 0; flex-wrap: wrap; justify-content: center; }
+  .sub-diagram-row .sub-diagram { flex: 1; min-width: 200px; max-width: 350px; margin: 0; }
+
 </style>
 </head>
 <body>
@@ -926,6 +937,21 @@
           </ul>
         </div>
       </div>
+
+    <div class="sub-diagram-row">
+        <div class="sub-diagram">
+          <img src="images/p1c1-captive-model.webp" alt="Captive GBS model — fully owned and operated inhouse" loading="lazy">
+          <p class="sd-caption">Captive — owned and operated inhouse</p>
+        </div>
+        <div class="sub-diagram">
+          <img src="images/p1c1-outsourced-model.webp" alt="Outsourced GBS model — third-party service provider" loading="lazy">
+          <p class="sd-caption">Outsourced — BPO delivers the work</p>
+        </div>
+        <div class="sub-diagram">
+          <img src="images/p1c1-hybrid-model.webp" alt="Hybrid GBS model — combination of inhouse and outsourced" loading="lazy">
+          <p class="sd-caption">Hybrid — inhouse core + outsourced scale</p>
+        </div>
+    </div>
 
       <div class="insight-block">
         <div class="insight-icon">✦</div>

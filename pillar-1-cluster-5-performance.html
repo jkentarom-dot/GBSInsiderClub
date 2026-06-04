@@ -175,6 +175,17 @@
     .stat { border-right: none; border-bottom: 1px solid var(--border); }
     .stat:last-child { border-bottom: none; }
   }
+
+  /* Sub-diagram inline visuals */
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+  .sub-diagram-row { display: flex; gap: 12px; margin: 32px 0; flex-wrap: wrap; justify-content: center; }
+  .sub-diagram-row .sub-diagram { flex: 1; min-width: 200px; max-width: 350px; margin: 0; }
+
 </style>
 </head>
 <body>
@@ -350,6 +361,12 @@
       </div>
     </section>
 
+
+    <div class="sub-diagram wide">
+      <img src="images/p1c5-input-metrics.webp" alt="Input metrics — headcount, cost per FTE, training hours, ticket volume" loading="lazy">
+      <p class="sd-caption">Input metrics — what we invest</p>
+    </div>
+
     <!-- SECTION 3: KPI BY PROCESS -->
     <section class="section" id="kpi-by-process">
       <div class="section-eyebrow">Section 3</div>
@@ -391,6 +408,12 @@
       <p style="font-size: 12px; color: var(--text-3); font-style: italic; margin-top: 8px; padding-left: 4px;">Standard metrics. Naming and calculation methods vary by organization and ERP configuration. Source: SSON Analytics, HighRadius, Chazey Partners, Opsdog.</p>
     </section>
 
+
+    <div class="sub-diagram wide">
+      <img src="images/p1c5-operational-metrics.webp" alt="Operational metrics — SLA achievement, first-time-right, cycle time, backlog age" loading="lazy">
+      <p class="sd-caption">Operational metrics — how we perform</p>
+    </div>
+
     <!-- SECTION 4: BACKLOG TRAP -->
     <section class="section" id="backlog-risk">
       <div class="section-eyebrow">Section 4</div>
@@ -425,6 +448,12 @@
         </div>
       </div>
     </section>
+
+
+    <div class="sub-diagram wide">
+      <img src="images/p1c5-output-metrics.webp" alt="Output metrics — cost-to-serve, CSAT, business impact score, value delivered" loading="lazy">
+      <p class="sd-caption">Output metrics — what we deliver</p>
+    </div>
 
     <!-- SECTION 5: PERCEPTION GAP -->
     <section class="section" id="perception-gap">
@@ -486,6 +515,12 @@
         </ul>
       </div>
     </section>
+
+
+    <div class="sub-diagram wide">
+      <img src="images/p1c5-reporting-cadence.webp" alt="Reporting cadence — daily operational, weekly team, monthly stakeholder, quarterly steering" loading="lazy">
+      <p class="sd-caption">Reporting cadence — daily to quarterly</p>
+    </div>
 
     <!-- SECTION 7: AI FORWARD -->
     <section class="section" id="ai-forward">

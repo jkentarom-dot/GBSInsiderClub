@@ -350,6 +350,17 @@
     .glossary-grid { grid-template-columns: 1fr; }
     .tco-header, .tco-row { grid-template-columns: 1fr 80px 80px; }
   }
+
+  /* Sub-diagram inline visuals */
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+  .sub-diagram-row { display: flex; gap: 12px; margin: 32px 0; flex-wrap: wrap; justify-content: center; }
+  .sub-diagram-row .sub-diagram { flex: 1; min-width: 200px; max-width: 350px; margin: 0; }
+
 </style>
 </head>
 <body>
@@ -551,6 +562,12 @@
       <p style="font-size:12px; color:var(--text-2); margin-top:10px; font-style:italic;">From Cost Center to Value Partner — the GBS maturity journey</p>
     </div>
 
+
+    <div class="sub-diagram narrow">
+      <img src="images/p1c2-cost-drivers.webp" alt="GBS cost levers — headcount, real estate, vendor consolidation" loading="lazy">
+      <p class="sd-caption">Cost levers — headcount, real estate, vendor consolidation</p>
+    </div>
+
     <!-- SECTION 2: TCO and Cost-to-Serve -->
     <section class="section" id="tco">
       <div class="section-eyebrow">Section 2</div>
@@ -659,6 +676,12 @@
       </div>
     </section>
 
+
+    <div class="sub-diagram narrow">
+      <img src="images/p1c2-value-drivers.webp" alt="GBS value drivers — data insights, process intelligence, strategic advisory, automation ROI" loading="lazy">
+      <p class="sd-caption">Value drivers — data insights, process intelligence, strategic advisory, automation ROI</p>
+    </div>
+
     <!-- SECTION 3: CFO Conversation -->
     <section class="section" id="cfo">
       <div class="section-eyebrow">Section 3</div>
@@ -721,6 +744,12 @@
           <li>Most GBS organizations are sitting on a talent pipeline story they have never told. Associates who move through multiple processes and geographies become your best future finance and operations leaders. That story is free to tell and almost never told.</li>
         </ul>
       </div>
+    </div>
+
+
+    <div class="sub-diagram wide">
+      <img src="images/p1c2-maturity-journey.webp" alt="GBS maturity journey — cost center to service provider to value partner" loading="lazy">
+      <p class="sd-caption">The GBS maturity journey — cost center to value partner</p>
     </div>
 
     <!-- SECTION 4: Career -->
