@@ -88,7 +88,7 @@
     display: flex; flex-direction: column; justify-content: center;
     padding: 120px 80px 80px;
     position: relative; overflow: hidden;
-    background: url('images/hero-julian.webp') center right / cover no-repeat;
+    background: url('images/hero-julian.webp') right center / auto 65% no-repeat;
   }
   .hero::before {
     content: '';
@@ -119,7 +119,7 @@
   .hero-sub { position: relative; z-index: 1;
     font-size: 18px; font-weight: 300;
     color: var(--text-2); line-height: 1.65;
-    max-width: 520px; margin-top: 36px; margin-bottom: 44px;
+    max-width: 640px; margin-top: 36px; margin-bottom: 44px;
   }
   .hero-sub strong { color: #fff; font-weight: 500; }
   .hero-actions { position: relative; z-index: 1; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -161,7 +161,7 @@
   }
   .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
   .section-h2 {
-    font-size: clamp(36px, 4vw, 52px);
+    font-size: clamp(40px, 5vw, 64px);
     font-weight: 600; letter-spacing: -1.8px;
     line-height: 1.02; color: #fff;
     margin-bottom: 16px;
@@ -169,7 +169,7 @@
   .section-h2 .accent { color: var(--gold); }
   .section-lead {
     font-size: 17px; color: var(--text-2);
-    max-width: 580px; line-height: 1.7; margin-bottom: 56px;
+    max-width: 800px; line-height: 1.7; margin-bottom: 56px;
   }
 
   /* ─── SECTION 2: WHY ─── */
@@ -561,20 +561,20 @@
 
   /* promise bar */
   .promise-bar {
-    background: linear-gradient(135deg, var(--gold-bg), transparent);
-    border: 1px solid var(--gold); border-radius: 12px;
-    padding: 32px 40px; margin-bottom: 48px;
+    background: linear-gradient(135deg, rgba(232,184,0,0.1), rgba(29,106,255,0.05));
+    border: 2px solid var(--gold); border-radius: 14px;
+    padding: 44px 44px; margin-bottom: 48px;
     display: flex; align-items: center; gap: 40px;
   }
   .promise-icon {
-    width: 48px; height: 48px; flex-shrink: 0;
-    background: var(--gold-bg); border: 1px solid var(--gold);
-    border-radius: 10px; display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
+    width: 60px; height: 60px; flex-shrink: 0;
+    background: rgba(232,184,0,0.1); border: 2px solid var(--gold);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
   }
-  .promise-text h3 { font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 6px; }
-  .promise-text p { font-size: 14px; color: var(--text-2); line-height: 1.65; }
-  .promise-text strong { color: var(--gold); font-weight: 500; }
+  .promise-text h3 { font-size: 28px; font-weight: 600; color: #fff; margin-bottom: 12px; letter-spacing: -0.5px; }
+  .promise-text p { font-size: 18px; color: var(--text-2); line-height: 1.7; }
+  .promise-text strong { color: var(--gold); font-weight: 600; }
 
   /* ─── SECTION 7: JOIN ─── */
   .join-section {
@@ -632,8 +632,8 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     section, .hero { padding: 64px 24px; }
-    .hero { background-position: 70% center; min-height: 80vh; }
-    .hero::before { background: linear-gradient(90deg, var(--void) 0%, rgba(8,11,16,0.7) 50%, rgba(8,11,16,0.4) 100%), linear-gradient(180deg, rgba(8,11,16,0.3) 0%, transparent 15%, transparent 85%, var(--void) 100%); }
+    .hero { background-size: auto 45%; background-position: right bottom; }
+    .hero::before { background: linear-gradient(90deg, var(--void) 0%, rgba(8,11,16,0.6) 60%, rgba(8,11,16,0.3) 100%), linear-gradient(180deg, rgba(8,11,16,0.3) 0%, transparent 15%, transparent 85%, var(--void) 100%); }
     .hero h1 { font-size: 44px; letter-spacing: -1.5px; }
     .why-grid, .audience-grid, .hooks-grid { grid-template-columns: 1fr; }
     .why-card.full { flex-direction: column; gap: 16px; }
@@ -678,15 +678,15 @@
 <section class="hero" id="hero">
   <div class="hero-eyebrow">The GBS Career and Performance Coach</div>
   <h1>
-    Know the GBS game.
+    Know the GBS career game.
     <span class="line-gold">Play it well.</span>
-    <span class="line-muted">Move up.</span>
+    <span class="line-muted">Move up the career ladder quick.</span>
   </h1>
   <p class="hero-sub">
     GBS centers offer <strong>fast careers, real exposure, and genuine breadth.</strong>
-    But nobody hands you a map when you arrive.
+    But nobody hands you a map how to succeed.
     <br><br>
-    This is where that changes.
+    Join the club to amplify your career!
   </p>
   <div class="hero-actions">
     <a href="#join" class="btn-primary">Join Free — No Credit Card</a>
@@ -769,27 +769,6 @@
         </ul>
       </div>
     </div>
-  </div>
-
-  <div class="recognition-bar">
-    <div class="recognition-top">
-      <div class="recognition-avatar">🤔</div>
-      <div class="recognition-header-text">
-        <h3>Sounds familiar?</h3>
-        <p>You're not alone. These are the questions every GBS professional has — and almost nobody answers directly.</p>
-      </div>
-    </div>
-    <div class="recognition-quotes">
-      <div class="rec-quote">I work hard but I'm not getting promoted. What am I missing?</div>
-      <div class="rec-quote">I don't understand why decisions get made the way they do.</div>
-      <div class="rec-quote">My manager doesn't really develop me — and I don't know what to do about it.</div>
-      <div class="rec-quote">I want to move up but I don't know what the next level actually requires.</div>
-      <div class="rec-quote">I don't know how I can earn more money. Nobody ever told me how.</div>
-      <div class="rec-quote">I'm stuck where I am. Should I even stay in this job?</div>
-      <div class="rec-quote">What should I learn and focus on these days to stay relevant?</div>
-      <div class="rec-quote">Will AI replace me — and what do I do if it does?</div>
-    </div>
-    <div class="recognition-conclusion">If you recognized yourself in any of these — you're in the right place.</div>
   </div>
 </section>
 
@@ -1049,8 +1028,8 @@
   <div class="promise-bar">
     <div class="promise-icon">◎</div>
     <div class="promise-text">
-      <h3>The GBS Insider Club Promise</h3>
-      <p>Professionals who understand how GBS works, what is expected at each level, and how to navigate the organizational dynamics around them <strong>progress faster, earn more, and build careers with options.</strong> That is the outcome this platform is designed to deliver — in 6 to 12 months of consistent engagement.</p>
+      <h3>Do you want to progress faster? Earn more? Have options?</h3>
+      <p>Stay attractive for employers. Build careers with real choices. This is the right platform — with <strong>6 to 12 months of consistent engagement you will have all you need for your next promotion and earn more money.</strong> Simple — because your value goes up.</p>
     </div>
   </div>
 </section>
