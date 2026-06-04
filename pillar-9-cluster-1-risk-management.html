@@ -140,6 +140,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
 
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -208,7 +216,12 @@ a.gloss:hover .tooltip{display:block;}
       <p>Most GBS organizations have a BCP document. Far fewer have tested it under realistic conditions. A plan that says "employees will work from home" fails when VPN capacity is 500 users and you have 3,000 employees. A plan that says "work transfers to the secondary site" fails when the secondary site has never processed a live transaction. Test the plan, find the gaps, fix them before the disruption arrives.</p>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram narrow">
+      <img src="images/p9c1-risk-categories.webp" alt="Risk categories in GBS" loading="lazy">
+      <p class="sd-caption">Risk categories — operational, financial, compliance, technology, people</p>
+    </div>
+</section>
 <section class="section" id="vendor-risk">
       <p class="section-eyebrow">Third-Party Risk</p>
       <h2>Vendor risk — third and fourth party exposure</h2>
@@ -233,7 +246,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p9c1-risk-matrix.webp" alt="Risk assessment matrix" loading="lazy">
+      <p class="sd-caption">Risk assessment matrix — impact vs likelihood</p>
+    </div>
+</section>
 <section class="section" id="incident-mgmt">
       <p class="section-eyebrow">Crisis Response</p>
       <h2>Incident management and crisis escalation</h2>
@@ -285,7 +303,12 @@ a.gloss:hover .tooltip{display:block;}
       </div>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram wide">
+      <img src="images/p9c1-risk-register.webp" alt="Risk register example" loading="lazy">
+      <p class="sd-caption">Risk register — ID, description, owner, probability, impact, mitigation</p>
+    </div>
+</section>
     <section class="section" id="glossary">
       <p class="section-eyebrow">Reference</p>
       <h2>Glossary</h2>

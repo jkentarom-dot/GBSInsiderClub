@@ -140,6 +140,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
 
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -260,7 +268,17 @@ a.gloss:hover .tooltip{display:block;}
       <p>When timelines slip, the first thing leadership compresses is KT duration. "Can we do shadow and reverse shadow in one week instead of four?" The answer is technically yes and practically no. Compressed KT produces teams that can handle the happy path but fail on exceptions, edge cases, and month-end spikes. The errors show up 60-90 days later as audit findings and SLA breaches.</p>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p10c2-kt-phases.webp" alt="KT phases" loading="lazy">
+      <p class="sd-caption">KT phases — shadow, reverse shadow, supervised, independent, sign-off</p>
+    </div>
+
+    <div class="sub-diagram narrow">
+      <img src="images/p10c2-kt-tracker.webp" alt="KT tracker" loading="lazy">
+      <p class="sd-caption">KT tracker — real-time visibility of completion by workstream</p>
+    </div>
+</section>
 <section class="section" id="cultural-resistance">
       <p class="section-eyebrow">People Challenges</p>
       <h2>Managing cultural resistance during transition</h2>
@@ -284,7 +302,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram wide">
+      <img src="images/p10c2-kt-failure.webp" alt="KT failure modes" loading="lazy">
+      <p class="sd-caption">KT failure modes — documentation without practice, rushed timelines, SME unavailability</p>
+    </div>
+</section>
 <section class="section" id="sac">
       <p class="section-eyebrow">Acceptance</p>
       <h2>Service Acceptance Criteria</h2>

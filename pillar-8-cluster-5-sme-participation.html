@@ -140,6 +140,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
 
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -203,7 +211,17 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p8c5-dual-role.webp" alt="Dual role BAU and project" loading="lazy">
+      <p class="sd-caption">The dual role — BAU operations + project SME</p>
+    </div>
+
+    <div class="sub-diagram narrow">
+      <img src="images/p8c5-career-leverage.webp" alt="Career leverage from projects" loading="lazy">
+      <p class="sd-caption">Career leverage — visibility, cross-functional skills, promotion evidence</p>
+    </div>
+</section>
 <section class="section" id="uat">
       <p class="section-eyebrow">Testing</p>
       <h2>User Acceptance Testing best practices</h2>
@@ -223,7 +241,12 @@ a.gloss:hover .tooltip{display:block;}
       <p>Project teams under timeline pressure will push for UAT sign-off before all defects are resolved. As the SME, your sign-off is your professional certification that the system works. Do not sign off on a system that will fail your team in production. Escalate to the steering committee if necessary — that is exactly what steering committees are for.</p>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram wide">
+      <img src="images/p8c5-sme-trap.webp" alt="SME trap warning" loading="lazy">
+      <p class="sd-caption">The SME trap — saying yes without capacity relief</p>
+    </div>
+</section>
     <section class="section" id="glossary">
       <p class="section-eyebrow">Reference</p>
       <h2>Glossary</h2>

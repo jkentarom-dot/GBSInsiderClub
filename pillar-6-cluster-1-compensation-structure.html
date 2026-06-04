@@ -140,6 +140,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
 
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -201,7 +209,12 @@ a.gloss:hover .tooltip{display:block;}
       <p>Comparing base salaries across GBS hubs without considering total rewards is misleading. A lower base salary in Germany with 30 days leave, full healthcare, and employer pension contributions may be worth more than a higher base in a market with fewer mandated benefits. Always compare total cost to the employer, not just the number on your payslip.</p>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram narrow">
+      <img src="images/p6c1-pay-bands.webp" alt="GBS pay bands India 2026" loading="lazy">
+      <p class="sd-caption">Illustrative pay bands — analyst to director (India, 2026)</p>
+    </div>
+</section>
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p6c1-compensation-structure.webp" alt="GBS Total Compensation Breakdown — illustrative India pay bands, compensation components, variable pay mechanics, and total rewards"
         style="width:100%; max-width:960px; border-radius:10px; border:1px solid rgba(29,106,255,0.2);">
@@ -222,7 +235,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p6c1-variable-pay.webp" alt="Variable pay mechanics" loading="lazy">
+      <p class="sd-caption">Variable pay — target bonus, multipliers, payout curve</p>
+    </div>
+</section>
 <section class="section" id="equity">
       <p class="section-eyebrow">Equity Compensation</p>
       <h2>Equity 101 — stock options and RSUs</h2>
@@ -248,7 +266,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram wide">
+      <img src="images/p6c1-total-rewards.webp" alt="Total rewards breakdown" loading="lazy">
+      <p class="sd-caption">Total rewards — base salary is just the starting point</p>
+    </div>
+</section>
     <section class="section" id="glossary">
       <p class="section-eyebrow">Reference</p>
       <h2>Glossary</h2>

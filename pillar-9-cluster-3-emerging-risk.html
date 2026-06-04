@@ -140,6 +140,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
 
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -204,7 +212,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram narrow">
+      <img src="images/p9c3-bcp.webp" alt="Business continuity planning" loading="lazy">
+      <p class="sd-caption">Business continuity — crisis comms, DR, alternate site, data backup</p>
+    </div>
+</section>
 <section class="section" id="esg">
       <p class="section-eyebrow">Sustainability</p>
       <h2>ESG — measuring GBS sustainability impact</h2>
@@ -219,7 +232,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram wide">
+      <img src="images/p9c3-gbs-advantage.webp" alt="GBS advantage in risk" loading="lazy">
+      <p class="sd-caption">The GBS advantage — concentration risk vs faster response capability</p>
+    </div>
+</section>
 <section class="section" id="ethical-ai">
       <p class="section-eyebrow">AI Governance</p>
       <h2>Ethical AI — governance of automated decisions</h2>
@@ -235,7 +253,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram narrow">
+      <img src="images/p9c3-ai-risk.webp" alt="AI risk framework" loading="lazy">
+      <p class="sd-caption">AI risk framework — bias, explainability, privacy, oversight, accountability</p>
+    </div>
+</section>
 <section class="section" id="phishing">
       <p class="section-eyebrow">Cybersecurity</p>
       <h2>Social engineering and phishing awareness</h2>

@@ -140,6 +140,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
 
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -207,7 +215,12 @@ a.gloss:hover .tooltip{display:block;}
       <p>SoD is straightforward in large GBS centers with hundreds of employees. It becomes genuinely difficult in small teams where there are not enough people to split every function. The answer is compensating controls — additional review steps, management approvals, exception reporting, and audit trail monitoring that mitigate the risk when full segregation is not possible.</p>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram wide">
+      <img src="images/p9c2-three-lines.webp" alt="Three lines of defense" loading="lazy">
+      <p class="sd-caption">Three lines of defense — operations, risk & compliance, internal audit</p>
+    </div>
+</section>
 <section class="section" id="gdpr-sox">
       <p class="section-eyebrow">Regulatory Frameworks</p>
       <h2>GDPR and SOX — the two compliance pillars</h2>
@@ -258,7 +271,12 @@ a.gloss:hover .tooltip{display:block;}
         <ul><li>Ensures accuracy of financial reporting for US-listed companies</li><li>Applies to the company and all entities that contribute to consolidated financial statements</li><li>Enforcement: criminal penalties including imprisonment for executives</li><li>Key requirements: internal controls over financial reporting (ICFR), management assessment, external auditor attestation</li></ul>
       </div>
     </div>
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p9c2-coso.webp" alt="COSO framework" loading="lazy">
+      <p class="sd-caption">COSO framework — foundation of SOX compliance in GBS</p>
+    </div>
+</section>
 <section class="section" id="aml">
       <p class="section-eyebrow">Financial Crime</p>
       <h2>AML and sanctions screening basics</h2>
@@ -294,7 +312,12 @@ a.gloss:hover .tooltip{display:block;}
       <p>GDPR requires data minimization and storage limitation — do not keep personal data longer than necessary. Tax and financial regulations require long retention periods for records that contain personal data. These requirements conflict. The resolution is purpose-based retention: keep only the data elements required for the regulatory purpose, for the minimum period required, with appropriate access controls.</p>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram wide">
+      <img src="images/p9c2-your-role.webp" alt="Your role in the control environment" loading="lazy">
+      <p class="sd-caption">Your role — approvals, reconciliations, documentation, compliance</p>
+    </div>
+</section>
     <section class="section" id="glossary">
       <p class="section-eyebrow">Reference</p>
       <h2>Glossary</h2>
