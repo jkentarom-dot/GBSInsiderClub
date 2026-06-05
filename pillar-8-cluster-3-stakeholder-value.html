@@ -140,6 +140,14 @@ a.gloss:hover .tooltip{display:block;}
 .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--void);font-size:15px;font-weight:500;padding:13px 32px;border-radius:8px;text-decoration:none;}
 @media(max-width:1024px){.sidebar{display:none;}.main{padding:36px 24px 80px;max-width:100%;}.formula-grid,.mdm-grid,.dash-grid{grid-template-columns:1fr;}.formula-side.old{border-right:none;border-bottom:1px solid var(--border);}.audit-flow{flex-direction:column;}.af-step{border-right:none;border-bottom:1px solid var(--border);}.af-step:last-child{border-bottom:none;}.hero h1{font-size:34px;}.glossary-grid,.stats-row{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--border);}.stat:last-child{border-bottom:none;}}
 
+
+  .sub-diagram { margin: 32px 0; text-align: center; }
+  .sub-diagram img { width: 100%; border-radius: 8px; border: 1px solid rgba(29,106,255,0.15); }
+  .sub-diagram.narrow img { max-width: 420px; }
+  .sub-diagram.medium img { max-width: 640px; }
+  .sub-diagram.wide img { max-width: 860px; }
+  .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -182,7 +190,14 @@ a.gloss:hover .tooltip{display:block;}
 
       </div>
     </div>
-    <section class="section" id="raci">
+    
+    <div style="margin:48px 0; text-align:center;">
+      <img src="images/p8c3-stakeholder-value.webp" alt="GBS project stakeholder and value realization framework"
+        style="width:100%; max-width:960px; border-radius:10px; border:1px solid rgba(29,106,255,0.2);">
+      <p style="font-size:12px; color:var(--text-2); margin-top:10px; font-style:italic;">GBS project stakeholder and value realization framework</p>
+    </div>
+
+<section class="section" id="raci">
       <p class="section-eyebrow">Role Clarity</p>
       <h2>RACI matrix — mapping roles and responsibilities</h2>
       <p class="section-hook">When everyone is responsible, nobody is responsible. RACI prevents ambiguity by defining exactly who does the work, who owns the outcome, who provides input, and who needs to be kept aware.</p>
@@ -236,7 +251,12 @@ a.gloss:hover .tooltip{display:block;}
       <p>The most common RACI failure is having too many Cs and no clear A. Every stakeholder wants to be consulted, which creates a consensus-driven paralysis. A well-governed RACI has exactly one A per deliverable, limits Cs to those whose input genuinely changes the quality of the decision, and uses I liberally to keep people informed without slowing down execution.</p>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram wide">
+      <img src="images/p8c3-business-case.webp" alt="Business case structure" loading="lazy">
+      <p class="sd-caption">Business case — problem, solution, cost-benefit, ROI, risk</p>
+    </div>
+</section>
 <section class="section" id="benefits">
       <p class="section-eyebrow">Value Tracking</p>
       <h2>Benefits realization — tracking ROI post-project</h2>
@@ -252,7 +272,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p8c3-benefits-register.webp" alt="Benefits register" loading="lazy">
+      <p class="sd-caption">Benefits register — cost savings, revenue, quality, risk, experience</p>
+    </div>
+</section>
 <section class="section" id="steering">
       <p class="section-eyebrow">Governance</p>
       <h2>Managing executive sponsors and steering committees</h2>
@@ -268,7 +293,12 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
-    </section>
+    
+    <div class="sub-diagram medium">
+      <img src="images/p8c3-value-tracker.webp" alt="Value realization tracker" loading="lazy">
+      <p class="sd-caption">Value realization — investment to optimization</p>
+    </div>
+</section>
     <section class="section" id="glossary">
       <p class="section-eyebrow">Reference</p>
       <h2>Glossary</h2>
