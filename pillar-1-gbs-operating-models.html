@@ -750,6 +750,7 @@
   .sub-diagram.medium img { max-width: 640px; }
   .sub-diagram.wide img { max-width: 860px; }
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
+  .sub-diagram svg { display: block; margin: 0 auto; }
   .sub-diagram-row { display: flex; gap: 12px; margin: 32px 0; flex-wrap: wrap; justify-content: center; }
   .sub-diagram-row .sub-diagram { flex: 1; min-width: 200px; max-width: 350px; margin: 0; }
 
@@ -963,15 +964,191 @@
 
     <div class="sub-diagram-row">
         <div class="sub-diagram">
-          <img src="images/p1c1-captive-model.webp" alt="Captive GBS model — fully owned and operated inhouse" loading="lazy">
+          <svg viewBox="0 0 340 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px;height:auto;">
+  <defs>
+    <linearGradient id="cap-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1d6aff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#1d6aff" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+  <!-- Title -->
+  <text x="170" y="28" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="16" letter-spacing="0.1em">CAPTIVE</text>
+  <text x="170" y="48" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="11">Fully owned and operated in-house</text>
+  <!-- Enterprise box -->
+  <rect x="30" y="64" width="280" height="80" rx="8" fill="url(#cap-glow)" stroke="#1d6aff" stroke-width="1.2"/>
+  <text x="170" y="86" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="13">ENTERPRISE</text>
+  <line x1="52" y1="96" x2="288" y2="96" stroke="#1e2636" stroke-width="0.8"/>
+  <text x="80" y="116" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Business</text>
+  <text x="80" y="128" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Units</text>
+  <text x="148" y="116" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Governance</text>
+  <text x="218" y="116" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Strategy</text>
+  <text x="278" y="116" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Performance</text>
+  <!-- Arrow down -->
+  <line x1="170" y1="144" x2="170" y2="174" stroke="#1d6aff" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="164,170 170,180 176,170" fill="#1d6aff"/>
+  <!-- GBS Center box -->
+  <rect x="30" y="184" width="280" height="120" rx="8" fill="url(#cap-glow)" stroke="#1d6aff" stroke-width="1.2"/>
+  <text x="170" y="208" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="12">GBS OPERATING CENTER</text>
+  <line x1="52" y1="218" x2="288" y2="218" stroke="#1e2636" stroke-width="0.8"/>
+  <!-- 4 capability items with small icons -->
+  
+  <circle cx="72" cy="240" r="4" fill="none" stroke="#1d6aff" stroke-width="0.8"/><circle cx="72" cy="240" r="1.5" fill="#1d6aff"/>
+  <text x="72" y="260" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Process</text>
+  <text x="72" y="272" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Delivery</text>
+  
+  <circle cx="140" cy="237" r="2.5" fill="none" stroke="#1d6aff" stroke-width="0.8"/><path d="M134,246 Q137,242 140,242 Q143,242 146,246" fill="none" stroke="#1d6aff" stroke-width="0.8"/>
+  <text x="140" y="260" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">People</text>
+  
+  <rect x="202" y="236" width="12" height="8" rx="1" fill="none" stroke="#1d6aff" stroke-width="0.8"/><line x1="205" y1="244" x2="211" y2="244" stroke="#1d6aff" stroke-width="0.8"/>
+  <text x="208" y="260" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Technology</text>
+  
+  <rect x="270" y="236" width="3" height="8" fill="#1d6aff" opacity="0.6"/><rect x="274" y="233" width="3" height="11" fill="#1d6aff" opacity="0.8"/><rect x="278" y="238" width="3" height="6" fill="#1d6aff" opacity="0.5"/>
+  <text x="275" y="260" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Data</text>
+  <text x="275" y="272" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Analytics</text>
+  <!-- Ownership badge -->
+  <rect x="100" y="282" width="140" height="16" rx="8" fill="rgba(29,106,255,0.15)"/>
+  <text x="170" y="293" text-anchor="middle" fill="#1d6aff" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.08em">SINGLE EMPLOYER</text>
+  <!-- Arrow down -->
+  <line x1="170" y1="304" x2="170" y2="334" stroke="#1d6aff" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="164,330 170,340 176,330" fill="#1d6aff"/>
+  <!-- Suppliers box -->
+  <rect x="30" y="344" width="280" height="54" rx="8" fill="url(#cap-glow)" stroke="#1e2636" stroke-width="1"/>
+  <text x="170" y="368" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-weight="500" font-size="11">SUPPLIERS &amp; PARTNERS</text>
+  <text x="170" y="384" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="9">Vendors, consultants, technology providers</text>
+  <!-- Key differentiator -->
+  <text x="170" y="424" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">One reporting line · Full control · Slower to scale</text>
+</svg>
           <p class="sd-caption">Captive — owned and operated inhouse</p>
         </div>
         <div class="sub-diagram">
-          <img src="images/p1c1-outsourced-model.webp" alt="Outsourced GBS model — third-party service provider" loading="lazy">
+          <svg viewBox="0 0 340 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px;height:auto;">
+  <defs>
+    <linearGradient id="out-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1d6aff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#1d6aff" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="bpo-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8b800" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#e8b800" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <!-- Title -->
+  <text x="170" y="28" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="16" letter-spacing="0.1em">OUTSOURCED</text>
+  <text x="170" y="48" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="11">Third-party provider runs the operation</text>
+  <!-- Enterprise box -->
+  <rect x="30" y="64" width="280" height="66" rx="8" fill="url(#out-glow)" stroke="#1d6aff" stroke-width="1.2"/>
+  <text x="170" y="86" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="13">ENTERPRISE</text>
+  <line x1="52" y1="96" x2="288" y2="96" stroke="#1e2636" stroke-width="0.8"/>
+  <text x="102" y="116" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Business Units</text>
+  <text x="238" y="116" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Governance</text>
+  <!-- Arrow with label -->
+  <line x1="170" y1="130" x2="170" y2="160" stroke="#e8b800" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="164,156 170,166 176,156" fill="#e8b800"/>
+  <text x="220" y="150" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="7">CONTRACT</text>
+  <!-- BPO Provider box -->
+  <rect x="30" y="170" width="280" height="100" rx="8" fill="url(#bpo-glow)" stroke="#e8b800" stroke-width="1.2"/>
+  <text x="170" y="192" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="12">BPO SERVICE PROVIDER</text>
+  <line x1="52" y1="202" x2="288" y2="202" stroke="rgba(232,184,0,0.2)" stroke-width="0.8"/>
+  <!-- Provider names -->
+  <text x="85" y="222" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Accenture</text>
+  <text x="170" y="222" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Genpact</text>
+  <text x="255" y="222" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">TCS</text>
+  <text x="112" y="240" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Infosys</text>
+  <text x="218" y="240" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Wipro</text>
+  <!-- Ownership badge -->
+  <rect x="86" y="252" width="168" height="14" rx="7" fill="rgba(232,184,0,0.15)"/>
+  <text x="170" y="262" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="7" letter-spacing="0.08em">SEPARATE EMPLOYER</text>
+  <!-- Arrow -->
+  <line x1="170" y1="270" x2="170" y2="296" stroke="#1d6aff" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="164,292 170,302 176,292" fill="#1d6aff"/>
+  <!-- Capabilities box -->
+  <rect x="30" y="304" width="280" height="64" rx="8" fill="url(#out-glow)" stroke="#1d6aff" stroke-width="1"/>
+  <text x="78" y="328" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Process</text>
+  <text x="78" y="340" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Delivery</text>
+  <text x="148" y="328" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">People</text>
+  <text x="148" y="340" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">(BPO Staff)</text>
+  <text x="218" y="328" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Technology</text>
+  <text x="288" y="328" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Data</text>
+  <!-- Separators -->
+  <line x1="113" y1="314" x2="113" y2="358" stroke="#1e2636" stroke-width="0.5"/>
+  <line x1="183" y1="314" x2="183" y2="358" stroke="#1e2636" stroke-width="0.5"/>
+  <line x1="253" y1="314" x2="253" y2="358" stroke="#1e2636" stroke-width="0.5"/>
+  <!-- Arrow -->
+  <line x1="170" y1="368" x2="170" y2="394" stroke="#1d6aff" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="164,390 170,400 176,390" fill="#1d6aff"/>
+  <!-- Suppliers box -->
+  <rect x="30" y="402" width="280" height="40" rx="8" fill="url(#out-glow)" stroke="#1e2636" stroke-width="1"/>
+  <text x="170" y="426" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-weight="500" font-size="11">SUPPLIERS &amp; PARTNERS</text>
+  <!-- Key differentiator -->
+  <text x="170" y="464" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">Two bosses · Fast to scale · Service premium</text>
+</svg>
           <p class="sd-caption">Outsourced — BPO delivers the work</p>
         </div>
         <div class="sub-diagram">
-          <img src="images/p1c1-hybrid-model.webp" alt="Hybrid GBS model — combination of inhouse and outsourced" loading="lazy">
+          <svg viewBox="0 0 340 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px;height:auto;">
+  <defs>
+    <linearGradient id="hyb-blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1d6aff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#1d6aff" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="hyb-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8b800" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#e8b800" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <!-- Title -->
+  <text x="170" y="28" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="16" letter-spacing="0.1em">HYBRID</text>
+  <text x="170" y="48" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="11">In-house core + outsourced scale</text>
+  <!-- Enterprise box -->
+  <rect x="30" y="64" width="280" height="56" rx="8" fill="url(#hyb-blue)" stroke="#1d6aff" stroke-width="1.2"/>
+  <text x="170" y="86" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="13">ENTERPRISE</text>
+  <text x="170" y="106" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Business Units · Governance · Strategy</text>
+  <!-- Two arrows down -->
+  <line x1="100" y1="120" x2="100" y2="152" stroke="#1d6aff" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="94,148 100,158 106,148" fill="#1d6aff"/>
+  <line x1="240" y1="120" x2="240" y2="152" stroke="#e8b800" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="234,148 240,158 246,148" fill="#e8b800"/>
+  <!-- In-house column -->
+  <rect x="18" y="162" width="150" height="140" rx="8" fill="url(#hyb-blue)" stroke="#1d6aff" stroke-width="1.2"/>
+  <text x="93" y="184" text-anchor="middle" fill="#1d6aff" font-family="Inter,sans-serif" font-weight="600" font-size="11">IN-HOUSE GBS</text>
+  <line x1="36" y1="194" x2="150" y2="194" stroke="#1e2636" stroke-width="0.8"/>
+  <text x="93" y="214" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Complex processes</text>
+  <text x="93" y="230" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Judgment-intensive</text>
+  <text x="93" y="246" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Domain expertise</text>
+  <text x="93" y="262" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Full control</text>
+  <rect x="40" y="272" width="106" height="14" rx="7" fill="rgba(29,106,255,0.15)"/>
+  <text x="93" y="282" text-anchor="middle" fill="#1d6aff" font-family="JetBrains Mono,monospace" font-size="7">OWN EMPLOYEES</text>
+  <!-- Outsourced column -->
+  <rect x="172" y="162" width="150" height="140" rx="8" fill="url(#hyb-gold)" stroke="#e8b800" stroke-width="1.2"/>
+  <text x="247" y="184" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="11">OUTSOURCED</text>
+  <line x1="190" y1="194" x2="304" y2="194" stroke="rgba(232,184,0,0.2)" stroke-width="0.8"/>
+  <text x="247" y="214" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">High-volume transactions</text>
+  <text x="247" y="230" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Scalable operations</text>
+  <text x="247" y="246" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Language coverage</text>
+  <text x="247" y="262" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Flex capacity</text>
+  <rect x="188" y="272" width="118" height="14" rx="7" fill="rgba(232,184,0,0.15)"/>
+  <text x="247" y="282" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="7">BPO EMPLOYEES</text>
+  <!-- Integration bridge -->
+  <line x1="168" y1="220" x2="172" y2="220" stroke="#38bdf8" stroke-width="2"/>
+  <line x1="168" y1="240" x2="172" y2="240" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="130" y="228" width="80" height="18" rx="9" fill="#0e1219" stroke="#38bdf8" stroke-width="1"/>
+  <text x="170" y="240" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-size="7" letter-spacing="0.06em">INTEGRATION</text>
+  <!-- Governance layer -->
+  <line x1="170" y1="302" x2="170" y2="326" stroke="#1d6aff" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="164,322 170,332 176,322" fill="#1d6aff"/>
+  <rect x="18" y="336" width="304" height="50" rx="8" fill="url(#hyb-blue)" stroke="#1d6aff" stroke-width="1"/>
+  <text x="170" y="356" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">ORCHESTRATION &amp; GOVERNANCE</text>
+  <text x="170" y="374" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9">Standards · Security · Performance · Risk &amp; Compliance</text>
+  <!-- Arrow -->
+  <line x1="170" y1="386" x2="170" y2="412" stroke="#1d6aff" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="164,408 170,418 176,408" fill="#1d6aff"/>
+  <!-- Suppliers box -->
+  <rect x="30" y="420" width="280" height="40" rx="8" fill="url(#hyb-blue)" stroke="#1e2636" stroke-width="1"/>
+  <text x="170" y="444" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-weight="500" font-size="11">SUPPLIERS &amp; PARTNERS</text>
+  <!-- Key differentiator -->
+  <text x="170" y="484" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.04em">58% of organizations · Best balance of</text>
+  <text x="170" y="498" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.04em">control and scale · Coordination overhead</text>
+</svg>
           <p class="sd-caption">Hybrid — inhouse core + outsourced scale</p>
         </div>
     </div>
