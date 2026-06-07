@@ -992,6 +992,11 @@
               <p>Early AI was hand-coded logic. Programmers wrote explicit rules: "if X then Y." These systems could play chess or answer narrow questions, but they were brittle — one unexpected input and the whole thing broke. They could not learn.</p>
             </div>
           </div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch02-history.webp" alt="Evolution of computing from 1950s mainframes to modern AI systems" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
           <div class="timeline-item">
             <div class="timeline-year">1980s</div>
             <div class="timeline-body">
@@ -4670,6 +4675,11 @@
 
       <div class="card">
         <div class="card-header ch-red">How do they avoid creating new <strong style="color:var(--yellow)">hallucinations</strong> — and protect what the model already knew?</div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch22-rl-finetuning.webp" alt="Two learning paths: structured fine-tuning versus exploratory reinforcement learning" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
         <p>This is one of the hardest problems in LLM development. Every weight change that improves one behaviour risks degrading another. The mechanisms that manage it:</p>
         <ul class="bullets" style="margin-top:10px;">
           <li><strong>Very low learning rate during fine-tuning and RL.</strong> Small changes mean less disruption to existing learned patterns. The risk is moving too slow; the reward is preserving general capability.</li>
@@ -6096,6 +6106,11 @@ Think step by step before concluding.</code>
 
       <div class="card">
         <div class="card-header ch-green">The major benchmarks — what they actually test</div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch26-benchmarks.webp" alt="AI model performance dashboard showing scoring metrics and comparative analysis" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
         <div class="table-wrap">
           <table>
             <tr><th>Benchmark</th><th>What it tests</th><th>Why it matters</th><th>Limitation</th></tr>
@@ -7511,6 +7526,11 @@ Think step by step before concluding.</code>
 
       <div class="card">
         <div class="card-header ch-blue">Vendor evaluation — what to ask and what to ignore</div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch36-solution.webp" alt="Team evaluating AI solution options on a strategy board" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
         <p>If you are buying, use this evaluation checklist. It filters out vendors who are selling a demo, not a product.</p>
 
         <p style="margin-top:12px;"><strong>Questions that matter:</strong></p>
@@ -7802,6 +7822,11 @@ Think step by step before concluding.</code>
         <div class="callout callout-orange" style="margin-top:12px;">
           <strong>The quality trade-off.</strong> Local models are not frontier models. A 7B or 13B model running on a gaming GPU will not match GPT-4o or Claude Sonnet on complex reasoning tasks. The question is not "which is better" but "is local quality good enough for this specific task?" For many practical tasks — classification, summarisation, extraction, Q&amp;A over known documents — a well-chosen 7B model is entirely adequate.
         </div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch38-hero.webp" alt="Developer workstation running a local AI model with glowing terminal" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
       </div>
 
       <div class="card">
@@ -7821,6 +7846,11 @@ Think step by step before concluding.</code>
         <div class="callout callout-green" style="margin-top:12px;">
           <strong>Where to find GGUF models.</strong> The primary source is <strong>Hugging Face</strong> (huggingface.co/models — filter by GGUF). For a first model, search for <code>Llama-3.2-3B-Instruct-Q4_K_M.gguf</code> — it runs on most hardware with 4 GB RAM and handles most practical tasks well.
         </div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch38-hardware.webp" alt="Installing a high-end GPU for local AI inference" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
       </div>
 
       <div class="card">
@@ -7837,6 +7867,11 @@ Think step by step before concluding.</code>
               <p style="margin-top:8px;"><strong>Key capability:</strong> runs on CPUs (slower but requires no GPU) and is highly optimised for Apple M-series chips via Metal acceleration. This is why Macs are disproportionately popular for local AI work.</p>
             </div>
           </div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch38-cloud-vs-local.webp" alt="Cloud AI versus local AI — data leaving versus data staying secure" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
           <div class="step">
             <div class="step-num">2</div>
             <div class="step-body">
@@ -7850,6 +7885,11 @@ Think step by step before concluding.</code>
               <p style="margin-top:8px;"><strong>Where it is weak:</strong> single-user, single-machine. Not designed for multi-user serving or production deployments with many concurrent requests. For those scenarios, use vLLM.</p>
             </div>
           </div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch38-community.webp" alt="Open source AI community — developers collaborating on local model deployments" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
           <div class="step">
             <div class="step-num">3</div>
             <div class="step-body">
