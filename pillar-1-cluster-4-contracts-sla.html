@@ -358,7 +358,43 @@
       </div>
     
     <div class="sub-diagram wide">
-      <img src="images/p1c4-contract-hierarchy.webp" alt="GBS contract hierarchy — MSA to SOW to SLA" loading="lazy">
+      <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;height:auto;">
+  <defs>
+    <linearGradient id="c4hg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1d6aff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#1d6aff" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+  <text x="350" y="24" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="13" letter-spacing="0.1em">GBS CONTRACT HIERARCHY</text>
+  <!-- MSA -->
+  <rect x="200" y="44" width="300" height="52" rx="8" fill="url(#c4hg)" stroke="#1d6aff" stroke-width="1.4"/>
+  <text x="350" y="66" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="13">MASTER SERVICE AGREEMENT (MSA)</text>
+  <text x="350" y="84" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Overall relationship · Legal framework · Governance</text>
+  <!-- Arrow -->
+  <line x1="350" y1="96" x2="350" y2="116" stroke="#1d6aff" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="344,112 350,122 356,112" fill="#1d6aff"/>
+  <!-- SOW -->
+  <rect x="150" y="122" width="200" height="48" rx="8" fill="url(#c4hg)" stroke="#1d6aff" stroke-width="1.2"/>
+  <text x="250" y="144" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="12">SOW</text>
+  <text x="250" y="160" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Scope · Deliverables · Pricing</text>
+  <rect x="370" y="122" width="200" height="48" rx="8" fill="url(#c4hg)" stroke="#1d6aff" stroke-width="1.2"/>
+  <text x="470" y="144" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="12">SOW</text>
+  <text x="470" y="160" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Scope · Deliverables · Pricing</text>
+  <!-- Arrows to SLAs -->
+  <line x1="250" y1="170" x2="250" y2="190" stroke="#e8b800" stroke-width="1" stroke-dasharray="4,3"/>
+  <polygon points="244,186 250,196 256,186" fill="#e8b800"/>
+  <line x1="470" y1="170" x2="470" y2="190" stroke="#e8b800" stroke-width="1" stroke-dasharray="4,3"/>
+  <polygon points="464,186 470,196 476,186" fill="#e8b800"/>
+  <!-- SLAs -->
+  <rect x="170" y="196" width="160" height="34" rx="6" fill="rgba(232,184,0,0.12)" stroke="#e8b800" stroke-width="1"/>
+  <text x="250" y="217" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="11">SLA / KPIs</text>
+  <rect x="390" y="196" width="160" height="34" rx="6" fill="rgba(232,184,0,0.12)" stroke="#e8b800" stroke-width="1"/>
+  <text x="470" y="217" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="11">SLA / KPIs</text>
+  <!-- Side labels -->
+  <text x="80" y="74" text-anchor="middle" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">STRATEGIC</text>
+  <text x="80" y="150" text-anchor="middle" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">TACTICAL</text>
+  <text x="80" y="216" text-anchor="middle" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">OPERATIONAL</text>
+</svg>
       <p class="sd-caption">Contract hierarchy — MSA contains SOW contains SLA</p>
     </div>
 </section>
@@ -437,7 +473,60 @@
       </div>
     
     <div class="sub-diagram wide">
-      <img src="images/p1c4-sla-anatomy.webp" alt="SLA anatomy — KPI definition, measurement, targets, penalties, reporting" loading="lazy">
+      <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;height:auto;">
+  <defs>
+    <linearGradient id="c4sg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8b800" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#e8b800" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <text x="350" y="24" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="13" letter-spacing="0.1em">ANATOMY OF AN SLA</text>
+  <!-- Five components -->
+  <rect x="20" y="48" width="125" height="130" rx="8" fill="url(#c4sg)" stroke="#e8b800" stroke-width="1"/>
+  <text x="82" y="72" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">KPI</text>
+  <text x="82" y="86" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">DEFINITION</text>
+  <line x1="34" y1="96" x2="131" y2="96" stroke="#1e2636" stroke-width="0.8"/>
+  <text x="82" y="114" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">What is measured</text>
+  <text x="82" y="130" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Clear formula</text>
+  <text x="82" y="146" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Data source</text>
+  <text x="82" y="162" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Exclusions</text>
+
+  <rect x="158" y="48" width="125" height="130" rx="8" fill="url(#c4sg)" stroke="#e8b800" stroke-width="1"/>
+  <text x="220" y="78" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">MEASUREMENT</text>
+  <line x1="172" y1="88" x2="269" y2="88" stroke="#1e2636" stroke-width="0.8"/>
+  <text x="220" y="108" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Frequency</text>
+  <text x="220" y="124" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Methodology</text>
+  <text x="220" y="140" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Validation</text>
+  <text x="220" y="156" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Owner</text>
+
+  <rect x="296" y="48" width="125" height="130" rx="8" fill="url(#c4sg)" stroke="#e8b800" stroke-width="1"/>
+  <text x="358" y="78" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">TARGETS</text>
+  <line x1="310" y1="88" x2="407" y2="88" stroke="#1e2636" stroke-width="0.8"/>
+  <text x="358" y="108" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Baseline</text>
+  <text x="358" y="124" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Target %</text>
+  <text x="358" y="140" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Stretch goal</text>
+  <text x="358" y="156" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Ramp-up period</text>
+
+  <rect x="434" y="48" width="125" height="130" rx="8" fill="url(#c4sg)" stroke="#e8b800" stroke-width="1"/>
+  <text x="496" y="78" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">PENALTIES</text>
+  <line x1="448" y1="88" x2="545" y2="88" stroke="#1e2636" stroke-width="0.8"/>
+  <text x="496" y="108" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Service credits</text>
+  <text x="496" y="124" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Escalation triggers</text>
+  <text x="496" y="140" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Remediation plan</text>
+  <text x="496" y="156" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Cure period</text>
+
+  <rect x="572" y="48" width="125" height="130" rx="8" fill="url(#c4sg)" stroke="#e8b800" stroke-width="1"/>
+  <text x="634" y="78" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">REPORTING</text>
+  <line x1="586" y1="88" x2="683" y2="88" stroke="#1e2636" stroke-width="0.8"/>
+  <text x="634" y="108" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Dashboard</text>
+  <text x="634" y="124" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Review cadence</text>
+  <text x="634" y="140" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Stakeholder view</text>
+  <text x="634" y="156" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Trend analysis</text>
+
+  <!-- Bottom connector -->
+  <rect x="100" y="192" width="500" height="20" rx="4" fill="rgba(232,184,0,0.08)" stroke="#e8b800" stroke-width="0.6"/>
+  <text x="350" y="206" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.08em">ALL FIVE COMPONENTS MUST BE DEFINED FOR AN SLA TO BE ENFORCEABLE</text>
+</svg>
       <p class="sd-caption">SLA anatomy — five components from KPI definition to reporting cadence</p>
     </div>
 </section>
