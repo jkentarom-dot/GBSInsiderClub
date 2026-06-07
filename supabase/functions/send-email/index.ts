@@ -93,6 +93,30 @@ Deno.serve(async (req) => {
       )
     }
 
+    else if (type === 'free_signup_notification') {
+      await sendViaResend(
+        JULIAN_EMAIL,
+        `[GBS] New free signup — ${first_name} ${last_name}`,
+        `<!DOCTYPE html><html><body style="font-family:'Helvetica Neue',Arial,sans-serif;background:#f5f5f5;padding:40px 20px;">
+  <table width="100%" style="max-width:520px;margin:0 auto;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e0e0e0;">
+    <tr><td style="height:3px;background:linear-gradient(90deg,#00d68f,rgba(0,214,143,0.3));"></td></tr>
+    <tr><td style="padding:32px;">
+      <p style="color:#b89438;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 16px;">GBS INSIDER CLUB</p>
+      <h2 style="color:#111;font-size:20px;margin:0 0 20px;">New free member registered</h2>
+      <table style="font-size:14px;color:#333;border-collapse:collapse;width:100%;margin-bottom:28px;">
+        <tr><td style="padding:6px 20px 6px 0;color:#888;width:80px;">Name</td><td><strong>${first_name} ${last_name}</strong></td></tr>
+        <tr><td style="padding:6px 20px 6px 0;color:#888;">Email</td><td>${email}</td></tr>
+        <tr><td style="padding:6px 20px 6px 0;color:#888;">Company</td><td>${company || '—'}</td></tr>
+        <tr><td style="padding:6px 20px 6px 0;color:#888;">Time</td><td>${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Warsaw' })}</td></tr>
+      </table>
+      <p style="color:#00d68f;font-size:13px;font-weight:600;margin:0;">Auto-approved — invite email sent to user.</p>
+      <a href="https://supabase.com/dashboard/project/wgdcfgknnentriqlajqe/auth/users" style="display:inline-block;margin-top:16px;background:#0d1117;color:#ced4e0;font-weight:600;font-size:13px;padding:10px 20px;border-radius:5px;text-decoration:none;border:1px solid #1e2530;">View Users in Supabase →</a>
+    </td></tr>
+  </table>
+</body></html>`
+      )
+    }
+
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })

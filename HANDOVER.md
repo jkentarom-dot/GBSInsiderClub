@@ -124,6 +124,45 @@ git config user.name "GBS Content Bot"
 - Supabase 2FA enable
 - Two user re-invitations (djschmechel, michaelpenndorf) pending
 
+### SUPABASE AUTH — DIAGNOSTIC STATE (2026-06-07)
+
+**Infrastructure confirmed working (via screenshots):**
+- 5 edge functions deployed: approve-paid-user, handle-access-request, handle-waitlist, notify-waitlist, send-email (all 12-13 days ago)
+- 2 tables: `access_requests` (15 cols, 6 rows), `waitlist` (6 cols, 3 rows)
+- 5 secrets configured: SMTP_PASS, NOTIFY_EMAIL, WEBHOOK_SECRET, SERVICE_KEY, RESEND_API_KEY
+- Saved SQL queries for manual tier changes (paid/free) via `UPDATE auth.users SET raw_user_meta_data`
+- RLS enabled on both tables with insert-only policies
+
+**Auth flow architecture (code in guide.html):**
+- Login: email + password → `sb.auth.signInWithPassword()` → tier read from `user_metadata.tier`
+- Request access form: first name, last name, email, company (optional), free/paid tier radio
+- Free tier request → `handle-access-request` edge function → auto-insert to `access_requests` (status=approved) → `sb.auth.admin.inviteUserByEmail()` → invite email sent via Supabase SMTP
+- Paid tier request → `handle-access-request` → insert with status=pending + approval_token → `send-email` edge function → Resend API → email to Julian with 1-click approve link
+- Approve link → `approve-paid-user` edge function → creates/upgrades user → sends invite email
+- Invite flow: user clicks email link → guide.html detects `#access_token` + `type=invite` → shows password setup form → `sb.auth.updateUser({ password })` → grants access
+- Tier gating: free tier hides Advanced/Expert sidebar items (opacity 0.35, pointer-events none) + shows upgrade banner
+- Forgot password: `sb.auth.resetPasswordForEmail()`
+
+**Supabase anon key format:** `sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp` — non-standard format (typical Supabase anon keys start with `eyJ...` JWT). Needs verification in Dashboard → Settings → API.
+
+**Likely failure point:** Email delivery. Either:
+1. Resend domain (`gbsinsiderclub.com`) not verified → paid tier notification emails to Julian silently fail
+2. Supabase SMTP rate limiting (free tier: ~4 emails/hour) → invite emails for free tier users throttled/dropped
+3. Supabase invite emails going to spam
+
+**Old system (deprecated):**
+- `notify-waitlist.js` (Cloudflare Pages function) uses MailChannels API — MailChannels discontinued free Cloudflare integration. This path is fully broken.
+- `handle-waitlist` edge function + `waitlist` table still exist but are the older flow
+- New system uses `handle-access-request` + `access_requests` table + Resend
+
+**Pending diagnostic (needs Julian action):**
+1. Run `SELECT email, first_name, last_name, tier_requested, status, approved_by, invite_sent_at FROM access_requests ORDER BY requested_at DESC;`
+2. Run `SELECT * FROM waitlist ORDER BY created_at DESC;`
+3. Check edge function logs for `handle-access-request` (Logs tab)
+4. Check Resend dashboard: domain verification status + sent/failed emails
+5. Check Supabase Auth → Users list
+6. Verify anon key matches Dashboard → Settings → API → anon/public key
+
 ---
 
 ## 5. Key Learnings & Principles

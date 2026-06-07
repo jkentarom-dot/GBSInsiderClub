@@ -86,6 +86,12 @@ Deno.serve(async (req) => {
         .update({ invite_sent_at: new Date().toISOString(), tier_granted: 'free' })
         .eq('id', record.id)
 
+      // Notify Julian about new free signup
+      await sendEmail({
+        type: 'free_signup_notification',
+        first_name, last_name, email, company,
+      })
+
       return new Response(JSON.stringify({
         success: true,
         message: 'Access granted! Check your email for your invite link to set up your password.'
