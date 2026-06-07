@@ -1,19 +1,176 @@
-# GBS Insider Club — Handover
+# GBS Insider Club — Session Handover Document
 
-Project documentation, credentials, change log, and session protocol
-are maintained in the **Claude project files** (not here).
-
-If you are a Claude session: ask Julian to share the HANDOVER.md from the project.
+**Date:** 2026-06-07
+**Session:** SVG rebuild (P2-P10), Julian's Takes (full coverage), Self-Check blocks (all pages), link restyling
+**Status:** All execution items complete. Next session is content enrichment + new features.
 
 ---
 
-## Site files
+## 1. What Was Completed This Session
 
-| File | What it is |
-|---|---|
-| `index.html` / `landing.html` | Public landing page |
-| `guide.html` | AI Field Guide (auth-gated) |
-| `pillar-*.html` | GBS curriculum content |
-| `supabase/functions/` | Edge functions |
+### SVG Sub-Diagram Rebuild — ALL PILLARS COMPLETE
+Replaced all 93+ raster sub-diagram crops with clean inline SVGs using brand tokens across P1-P10 (38 cluster pages). Zero raster sub-diagrams remain.
 
-Full commit history: https://github.com/jkentarom-dot/GBSInsiderClub/commits/main
+| Commit | Scope | Count | SHA |
+|--------|-------|-------|-----|
+| P1 C2-C6 | SVGs | 15 | bcd17df |
+| P2 C1-C5 | SVGs | 17 | fa17c55 |
+| P3 C1-C4 | SVGs | 9 | 8a2f183 |
+| P4 C1-C3 | SVGs | 7 | e5ac09a |
+| P5+P6 | SVGs | 15 | 5b95f19 |
+| P7 C1-C4 | SVGs | 12 | bcc6e8c |
+| P8 C1-C5 | SVGs | 15 | c3bac12 |
+| P9 C1-C3 | SVGs | 9 | 7c2cf13 |
+| P10 C1-C3 | SVGs | 9 | ee4551c |
+
+P1C1 was completed in a prior session (9374ea3).
+
+### Julian's Take Blocks — FULL COVERAGE
+All 38 cluster pages now have at least one practitioner insight block. 16 new Take blocks added this session (10 + 6), plus 10 on pillar landing pages from prior sessions.
+
+- Rotating labels: REALITY CHECK, FROM THE FIELD, JULIAN'S PERSPECTIVE, PRACTITIONER'S LENS, CAREER PLAYBOOK, FIELD NOTES, BLIND SPOT
+- Placed just before glossary section on each cluster page
+- Gold accent styling, "JT" icon badge
+- Commits: 3785b76, 1e6dda4
+
+### Self-Check Blocks — ALL 38 CLUSTER PAGES
+Collapsible probing question blocks on every cluster page. 2 blocks per page (76 total blocks, ~300 questions).
+
+- **Block 1** (mid-page): "CHALLENGE YOURSELF" or "REALITY TEST" — practical application
+- **Block 2** (before glossary): "CAREER CHECK" — career progression + performance focus + paid tier bridge
+- Sky blue accent (#38bdf8), distinct from Takes (gold) and content (blue)
+- details/summary HTML — collapsed by default, no JS needed
+- Each question has a 22px checkbox outline with 12px vertical spacing
+- Coaching tone: challenging but encouraging, no judgment, open-ended
+- Paid tier callout at bottom of Block 2 (gold left-border box)
+- Commits: dfd14bd, e095067, 49dc793
+
+### Link Restyling — ALL 10 PILLAR PAGES
+Made "Full topic curriculum" toggle and "Read full guide" tile links more prominent:
+
+- **Section toggle:** Full-width, gold left border, gradient background, 15px white text, hover lifts with shadow
+- **Tile links:** Button-styled with blue background + border, hover turns gold
+- Commit: b06855e
+
+---
+
+## 2. Current Site State
+
+- **54 HTML files** live, auto-deployed via Cloudflare Pages
+- **38 cluster pages** — all have: concept SVG diagram, inline sub-diagram SVGs (brand tokens), Julian's Take block, 2x Self-Check blocks, glossary
+- **10 pillar landing pages** — all have: Julian's Take block, restyled curriculum toggle + tile links
+- **0 raster sub-diagrams** remaining
+- **Brand skill** at /mnt/skills/user/brand/SKILL.md — fully current
+
+### SVG Design Pattern
+- Brand tokens: #1d6aff (blue), #e8b800 (gold), #38bdf8 (sky), #080b10 (void bg), #c8d0de (text-2), #7a8799 (muted)
+- Fonts: Inter (body), JetBrains Mono (labels/badges)
+- LinearGradient fills with low opacity, rx="8" rounded corners, dashed arrows stroke-dasharray="4,3"
+- Full concept diagrams kept as raster; only sub-diagram crops replaced with SVGs
+- Python regex: r'<img\s+src="' + re.escape(img_src) + r'"[^>]*>'
+
+### Self-Check Block HTML Pattern
+Uses details/summary for native collapse. Sky blue accent. Checkbox per question (22px empty square). Paid tier bridge in gold-border box at bottom of Career Check block.
+
+---
+
+## 3. Architecture Reference
+
+- **Repo:** jkentarom-dot/GBSInsiderClub on GitHub, branch main
+- **PAT:** /mnt/project/PAT_for_github (stored in project files)
+- **Hosting:** Cloudflare Pages (auto-deploy on push) + Cloudflare DNS/CDN
+- **Auth/backend:** Supabase (auth, edge functions) + Resend (transactional email)
+- **Domain:** Namecheap
+- **Brand tokens:** /mnt/skills/user/brand/SKILL.md
+- **Curriculum source:** /mnt/project/GBS_Curriculum_Final_2026_01_28_v01.xlsx
+- **Learning paths master:** /mnt/project/LEARNING_PATHS_MASTER.md
+
+### Git Session Setup (every new session)
+```
+cd /home/claude
+git clone https://github.com/jkentarom-dot/GBSInsiderClub.git
+cd GBSInsiderClub
+PAT=$(cat /mnt/project/PAT_for_github)
+git remote set-url origin "https://x-access-token:${PAT}@github.com/jkentarom-dot/GBSInsiderClub.git"
+git config user.email "claude@gbsinsiderclub.com"
+git config user.name "GBS Content Bot"
+```
+
+---
+
+## 4. On the Horizon — Next Session Priorities
+
+### HIGH PRIORITY
+1. **Keyword highlighting across all content sections** — Mark key terms in gold/bold throughout cluster page text (like landing page does). Systematic pass across 38 cluster pages. Needs regex-based approach per pillar targeting domain-specific terms. Large task — likely full session.
+
+2. **Landing page paid tier value prop rework** — Current landing page undersells paid tier. Needs compelling free-vs-paid comparison, keyword highlighting on audience cards, people photos as section breakers, reduced text density with diagrams and internal anchor links. Blocked on Julian concept input.
+
+3. **Landing page design unification** to current brand system.
+
+### MEDIUM PRIORITY
+4. **Paid tier content build** — 13 role-based learning paths (Core 7, Project 3, Add-On 3). Architecture complete in LEARNING_PATHS_MASTER.md, awaiting Julian review of path lineup, pricing, first 2 paths to build. Key open questions: Q1-Q11 in the master doc.
+
+5. **Deeper cluster treatment** — P2C3 Continuous Improvement and similar performance clusters need: work examples, practical tips, downloadable PDF templates, step-by-step guides. PDFs to be co-designed with Julian.
+
+6. **Visual-first layout** — Visuals should appear before explanatory text across cluster pages (not yet broadly implemented).
+
+### LOWER PRIORITY
+7. **YouTube production** — Deprioritized until site content ready.
+8. **Sidebar font fix** — Grey text to white, small fonts for mobile.
+9. **One people photo gap** — Solo early-career person at a laptop.
+
+### OPEN SECURITY/OPS
+- Namecheap mailbox password change + SMTP_PASS update in Supabase
+- Supabase 2FA enable
+- Two user re-invitations (djschmechel, michaelpenndorf) pending
+
+---
+
+## 5. Key Learnings & Principles
+
+### Technical
+- Always grep exact alt text before writing replacement scripts — mismatch causes silent failure
+- Always re-fetch SHA before GitHub PUT; stale SHAs cause 409 errors
+- GitHub secret scanning blocks pushes with credential patterns (ghp_...)
+- Python urllib.request more reliable than curl for large file pushes
+- Some pillar pages have minified CSS, others spaced — scripts must handle both
+- details/summary is best for collapsible blocks — native HTML, no JS, accessible
+- For bulk HTML edits: sed loop + verify with count + spot-check
+
+### Product/Content
+- Self-Check tone: challenging but encouraging, no judgment, no consequences stated
+- Questions: shorter, open-ended, invite self-reflection not quiz answers
+- Paid tier bridge: natural positioning as "next step" not "buy now"
+- Three visual rhythm elements per page: content (blue) > Take (gold) > Self-Check (sky blue)
+- Text-heavy pages need keyword highlighting against TL;DR abandonment
+- Julian's voice: punchy, practitioner-direct, un-textbook
+
+### Working Style
+- Julian prefers single handover doc — older versions deleted not accumulated
+- Handover docs fully self-contained
+- PAT stored in project files — no need to ask each session
+- Speed-first with explicit handoffs when scope exceeds session
+
+---
+
+## 6. Session Commit History
+
+| # | SHA | Description |
+|---|-----|-------------|
+| 1 | bcd17df | P1 C2-C6 SVGs (15 diagrams) |
+| 2 | fa17c55 | P2 C1-C5 SVGs (17 diagrams) |
+| 3 | 8a2f183 | P3 C1-C4 SVGs (9 diagrams) |
+| 4 | e5ac09a | P4 C1-C3 SVGs (7 diagrams) |
+| 5 | 5b95f19 | P5+P6 SVGs (15 diagrams) |
+| 6 | bcc6e8c | P7 C1-C4 SVGs (12 diagrams) |
+| 7 | c3bac12 | P8 C1-C5 SVGs (15 diagrams) |
+| 8 | 7c2cf13 | P9 C1-C3 SVGs (9 diagrams) |
+| 9 | ee4551c | P10 C1-C3 SVGs (9 diagrams) — ALL COMPLETE |
+| 10 | 3785b76 | 10 Julian's Take blocks on cluster pages |
+| 11 | 1e6dda4 | Final 6 Takes — full coverage |
+| 12 | b06855e | Restyled toggle + tile-link CTAs (10 pillar pages) |
+| 13 | dfd14bd | Self-Check pilot (5 clusters) |
+| 14 | e095067 | Self-Check restyle: checkboxes + coaching tone |
+| 15 | 49dc793 | Self-Check all remaining pages (33 pages) |
+
+**Total:** 15 commits, 49 files changed, ~4,100 lines added
