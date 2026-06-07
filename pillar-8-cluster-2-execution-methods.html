@@ -262,12 +262,32 @@ a.gloss:hover .tooltip{display:block;}
     </div>
     
     <div class="sub-diagram narrow">
-      <img src="images/p8c2-waterfall.webp" alt="Waterfall methodology" loading="lazy">
+      <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;height:auto;"><text x="350" y="24" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="13" letter-spacing="0.1em">WATERFALL</text>
+<rect x="20" y="50" width="120" height="42" rx="6" fill="rgba(29,106,255,0.10)" stroke="#1d6aff" stroke-width="1"/><text x="80" y="76" text-anchor="middle" fill="#1d6aff" font-family="Inter,sans-serif" font-weight="600" font-size="10">REQUIREMENTS</text>
+<line x1="140" y1="71" x2="160" y2="81" stroke="#1d6aff" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="160" y="60" width="120" height="42" rx="6" fill="rgba(29,106,255,0.12)" stroke="#1d6aff" stroke-width="1"/><text x="220" y="86" text-anchor="middle" fill="#1d6aff" font-family="Inter,sans-serif" font-weight="600" font-size="10">DESIGN</text>
+<line x1="280" y1="81" x2="300" y2="91" stroke="#1d6aff" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="300" y="70" width="120" height="42" rx="6" fill="rgba(29,106,255,0.15)" stroke="#1d6aff" stroke-width="1.2"/><text x="360" y="96" text-anchor="middle" fill="#1d6aff" font-family="Inter,sans-serif" font-weight="600" font-size="10">BUILD</text>
+<line x1="420" y1="91" x2="440" y2="101" stroke="#e8b800" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="440" y="80" width="120" height="42" rx="6" fill="rgba(232,184,0,0.10)" stroke="#e8b800" stroke-width="1"/><text x="500" y="106" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="10">TEST</text>
+<line x1="560" y1="101" x2="580" y2="111" stroke="#e8b800" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="580" y="90" width="100" height="42" rx="6" fill="rgba(232,184,0,0.15)" stroke="#e8b800" stroke-width="1.2"/><text x="630" y="116" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="10">DEPLOY</text>
+<text x="350" y="150" text-anchor="middle" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">LINEAR &middot; SEQUENTIAL &middot; EACH PHASE COMPLETES BEFORE NEXT STARTS</text></svg>
       <p class="sd-caption">Waterfall — predictive, sequential</p>
     </div>
 
     <div class="sub-diagram medium">
-      <img src="images/p8c2-agile.webp" alt="Agile methodology" loading="lazy">
+      <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;height:auto;"><text x="350" y="24" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="13" letter-spacing="0.1em">AGILE / SCRUM</text>
+<rect x="80" y="48" width="540" height="68" rx="8" fill="rgba(29,106,255,0.06)" stroke="#1e2636" stroke-width="1"/>
+<rect x="100" y="58" width="120" height="48" rx="6" fill="rgba(29,106,255,0.15)" stroke="#1d6aff" stroke-width="1.2"/><text x="160" y="78" text-anchor="middle" fill="#1d6aff" font-family="Inter,sans-serif" font-weight="600" font-size="10">SPRINT 1</text><text x="160" y="96" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="8">Plan &rarr; Build &rarr; Review</text>
+<polygon points="228,82 238,76 238,88" fill="#1d6aff" opacity="0.5"/>
+<rect x="246" y="58" width="120" height="48" rx="6" fill="rgba(29,106,255,0.15)" stroke="#1d6aff" stroke-width="1.2"/><text x="306" y="78" text-anchor="middle" fill="#1d6aff" font-family="Inter,sans-serif" font-weight="600" font-size="10">SPRINT 2</text><text x="306" y="96" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="8">Plan &rarr; Build &rarr; Review</text>
+<polygon points="374,82 384,76 384,88" fill="#e8b800" opacity="0.5"/>
+<rect x="392" y="58" width="120" height="48" rx="6" fill="rgba(232,184,0,0.10)" stroke="#e8b800" stroke-width="1"/><text x="452" y="78" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="10">SPRINT 3</text><text x="452" y="96" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="8">Plan &rarr; Build &rarr; Review</text>
+<polygon points="520,82 530,76 530,88" fill="#e8b800" opacity="0.5"/>
+<text x="564" y="86" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="14">...</text>
+<text x="350" y="140" text-anchor="middle" fill="#7a8799" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">ITERATIVE &middot; INCREMENTAL &middot; DELIVER VALUE EVERY 2-4 WEEKS</text>
+<text x="350" y="156" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">FEEDBACK LOOPS REDUCE RISK OF BUILDING THE WRONG THING</text></svg>
       <p class="sd-caption">Agile — iterative, incremental, continuous feedback</p>
     </div>
 </section>
@@ -303,7 +323,10 @@ a.gloss:hover .tooltip{display:block;}
 
     
     <div class="sub-diagram wide">
-      <img src="images/p8c2-when-to-use.webp" alt="When to use which method" loading="lazy">
+      <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;height:auto;"><text x="350" y="24" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="13" letter-spacing="0.1em">WHEN TO USE WHICH</text>
+<rect x="30" y="48" width="300" height="80" rx="8" fill="rgba(29,106,255,0.12)" stroke="#1d6aff" stroke-width="1.2"/><text x="180" y="72" text-anchor="middle" fill="#1d6aff" font-family="Inter,sans-serif" font-weight="600" font-size="12">WATERFALL</text><text x="180" y="92" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Clear requirements upfront</text><text x="180" y="108" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Regulatory / compliance driven</text><text x="180" y="122" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="9">ERP migrations &middot; Audits &middot; SOX</text>
+<rect x="370" y="48" width="300" height="80" rx="8" fill="rgba(232,184,0,0.10)" stroke="#e8b800" stroke-width="1"/><text x="520" y="72" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-weight="600" font-size="12">AGILE</text><text x="520" y="92" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Requirements evolving</text><text x="520" y="108" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Fast feedback needed</text><text x="520" y="122" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="9">Automation &middot; Tools &middot; Process redesign</text>
+<text x="350" y="150" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">IN GBS, MOST PROJECTS USE A HYBRID — KNOW BOTH</text></svg>
       <p class="sd-caption">When to use which — scope, speed, change tolerance</p>
     </div>
 </section>
