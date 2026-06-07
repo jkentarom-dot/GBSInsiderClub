@@ -98,31 +98,40 @@ git config user.name "GBS Content Bot"
 
 ---
 
-## 4. On the Horizon — Next Session Priorities
+## 4. On the Horizon — Full Action List
 
 ### HIGH PRIORITY
-1. **Keyword highlighting across all content sections** — Mark key terms in gold/bold throughout cluster page text (like landing page does). Systematic pass across 38 cluster pages. Needs regex-based approach per pillar targeting domain-specific terms. Large task — likely full session.
+1. **AI Field Guide visual overhaul** — guide.html (37 chapters, ~9000 lines) needs the same treatment cluster pages got: keyword highlighting in gold/bold, inline SVG diagrams replacing any raster crops, visual-first layout. Largest single file on the site. Likely multi-session.
 
-2. **Landing page paid tier value prop rework** — Current landing page undersells paid tier. Needs compelling free-vs-paid comparison, keyword highlighting on audience cards, people photos as section breakers, reduced text density with diagrams and internal anchor links. Blocked on Julian concept input.
+2. **Keyword highlighting across all content sections** — Mark key terms in gold/bold throughout cluster page text (like landing page does). Systematic pass across 38 cluster pages. Needs regex-based approach per pillar targeting domain-specific terms. Large task — likely full session.
 
-3. **Landing page design unification** to current brand system.
+3. **Landing page paid tier value prop rework** — Current landing page undersells paid tier. Needs compelling free-vs-paid comparison, keyword highlighting on audience cards, people photos as section breakers, reduced text density with diagrams and internal anchor links. Blocked on Julian concept input.
+
+4. **Landing page design unification** to current brand system.
 
 ### MEDIUM PRIORITY
-4. **Paid tier content build** — 13 role-based learning paths (Core 7, Project 3, Add-On 3). Architecture complete in LEARNING_PATHS_MASTER.md, awaiting Julian review of path lineup, pricing, first 2 paths to build. Key open questions: Q1-Q11 in the master doc.
+5. **Paid tier content build** — 13 role-based learning paths (Core 7, Project 3, Add-On 3). Architecture complete in LEARNING_PATHS_MASTER.md, awaiting Julian review of path lineup, pricing, first 2 paths to build. Key open questions: Q1-Q11 in the master doc.
 
-5. **Deeper cluster treatment** — P2C3 Continuous Improvement and similar performance clusters need: work examples, practical tips, downloadable PDF templates, step-by-step guides. PDFs to be co-designed with Julian.
+6. **Deeper cluster treatment** — P2C3 Continuous Improvement and similar performance clusters need: work examples, practical tips, downloadable PDF templates, step-by-step guides. PDFs to be co-designed with Julian.
 
-6. **Visual-first layout** — Visuals should appear before explanatory text across cluster pages (not yet broadly implemented).
+7. **Visual-first layout** — Visuals should appear before explanatory text across cluster pages (not yet broadly implemented).
 
 ### LOWER PRIORITY
-7. **YouTube production** — Deprioritized until site content ready.
-8. **Sidebar font fix** — Grey text to white, small fonts for mobile.
-9. **One people photo gap** — Solo early-career person at a laptop.
+8. **YouTube production** — Deprioritized until site content ready.
+9. **Sidebar font fix** — Grey text to white, small fonts for mobile.
+10. **One people photo gap** — Solo early-career person at a laptop.
 
 ### OPEN SECURITY/OPS
 - Namecheap mailbox password change + SMTP_PASS update in Supabase
 - Supabase 2FA enable
-- Two user re-invitations (djschmechel, michaelpenndorf) pending
+
+### COMPLETED THIS SESSION (2026-06-07)
+- ✅ Supabase auth diagnostic — full flow documented
+- ✅ Free tier signup notification to Julian — code deployed
+- ✅ Paid tier approval flow — confirmed working
+- ✅ Edge function deploy docs updated (--no-verify-jwt requirement)
+- ✅ User re-invitations — djschmechel + michaelpenndorf tier set + password recovery sent
+- ✅ Supabase access token stored for future Claude deploys
 
 ### SUPABASE AUTH — DIAGNOSTIC STATE (2026-06-07)
 
