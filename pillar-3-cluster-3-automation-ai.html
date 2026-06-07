@@ -52,7 +52,7 @@ a.gloss .tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%
 a.gloss .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--teal);}
 a.gloss:hover .tooltip{display:block;}
 .section{margin-bottom:72px;scroll-margin-top:80px;}
-.section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:10px;}
+.section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:#00bfa5;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;padding:6px 0 6px 14px;border-left:3px solid rgba(0,191,165,0.5);}
 .section h2{font-size:28px;font-weight:300;letter-spacing:-0.4px;color:#fff;margin-bottom:8px;}
 .section-hook{font-size:16px;color:var(--text-2);margin-bottom:32px;font-style:italic;line-height:1.6;}
 .card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:28px 32px;margin-bottom:16px;}
@@ -218,7 +218,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
     <section class="section" id="rpa-basics">
-      <p class="section-eyebrow">Robotic Process Automation</p>
+      <p class="section-eyebrow">Topic 01 · Robotic Process Automation</p>
       <h2>RPA — what it actually does and where it breaks</h2>
       <p class="section-hook">RPA automates the clicks, not the thinking. That distinction defines where it works, where it fails, and why clean data matters more than clever bots.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Robotic Process Automation uses software robots to mimic human interactions with applications — clicking buttons, copying data between systems, filling forms, and running predefined sequences. The key word is "predefined." RPA excels at high-volume, rule-based, stable processes where the steps are identical every time. Invoice data entry from a structured template, payroll file uploads between systems, and report distribution to fixed distribution lists are textbook RPA candidates.</p>
@@ -275,7 +275,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
 <section class="section" id="idp-ocr">
-      <p class="section-eyebrow">Intelligent Document Processing</p>
+      <p class="section-eyebrow">Topic 02 · Intelligent Document Processing</p>
       <h2>IDP and OCR — reading what bots cannot</h2>
       <p class="section-hook">When documents arrive as PDFs, scanned images, or email attachments, standard RPA cannot process them. That is where intelligent document processing fills the gap.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Optical Character Recognition (OCR) converts images of text into machine-readable data. Intelligent Document Processing (IDP) goes further — it uses machine learning to identify document types, extract specific fields (invoice number, amount, date, vendor name), validate the extracted data against business rules, and flag exceptions for human review. In GBS finance operations, IDP is the bridge between paper-based or PDF-based inputs and structured ERP transactions.</p>
@@ -301,7 +301,7 @@ a.gloss:hover .tooltip{display:block;}
 
     </section>
 <section class="section" id="genai-copilot">
-      <p class="section-eyebrow">Generative AI</p>
+      <p class="section-eyebrow">Topic 03 · Generative AI</p>
       <h2>GenAI and Copilot — the tiers of value for GBS</h2>
       <p class="section-hook">Generative AI is not one thing. The value depends on how it is deployed, what data it accesses, and whether the organization has built the governance to use it safely.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Generative AI in GBS operations falls into distinct tiers. At the simplest level, standalone tools like ChatGPT help individual analysts draft communications, summarize documents, or troubleshoot formulas. Useful, but the value stays with the individual. The next tier is integrated copilots — Microsoft Copilot embedded in Excel, Teams, Outlook, and SharePoint. The strength of Copilot is not the language model itself. It is the Retrieval-Augmented Generation (RAG) layer that connects the model to your organization's data across Microsoft 365. When Copilot summarizes a Teams meeting, drafts an email based on a SharePoint document, or generates a chart from an Excel dataset, it is pulling from your actual work context.</p>
@@ -343,7 +343,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 </section>
 <section class="section" id="nocode">
-      <p class="section-eyebrow">No-Code and Low-Code</p>
+      <p class="section-eyebrow">Topic 04 · No-Code and Low-Code</p>
       <h2>No-code tools — automating without engineering</h2>
       <p class="section-hook">Power Automate, Make, and Zapier let GBS analysts build automations without writing code. The risk is ungoverned proliferation.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">No-code automation platforms allow business users to connect applications, trigger workflows, and move data between systems using visual drag-and-drop interfaces. In GBS, this means an analyst can build a flow that automatically saves email attachments to SharePoint, creates a Teams notification when an SLA breach occurs, or routes approval requests based on amount thresholds — all without submitting an IT development request.</p>
@@ -387,7 +387,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="process-mining">
-      <p class="section-eyebrow">Process Intelligence</p>
+      <p class="section-eyebrow">Topic 05 · Process Intelligence</p>
       <h2>Process mining — seeing what actually happens</h2>
       <p class="section-hook">Process mining tools like Celonis and UiPath Process Mining read event logs from your ERP and show you the actual process flow, not the one documented in the SOP.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Process mining extracts event logs from transactional systems (SAP, Oracle, ServiceNow) and reconstructs the actual process as it was executed — every step, every handoff, every deviation, every rework loop. The output is a visual process map that shows where the real bottlenecks are, which variants consume the most time, and where compliance violations occur. For GBS operations, this is transformative because it replaces opinion-based process improvement with data-driven evidence.</p>
@@ -409,7 +409,7 @@ a.gloss:hover .tooltip{display:block;}
 
     </section>
 <section class="section" id="hyperautomation">
-      <p class="section-eyebrow">Orchestration</p>
+      <p class="section-eyebrow">Topic 06 · Orchestration</p>
       <h2>Hyperautomation and agentic AI — the next layer</h2>
       <p class="section-hook">Hyperautomation combines RPA, AI, process mining, and workflow orchestration into integrated automation platforms. Agentic AI adds the ability to plan and adapt.</p>
 <!-- SVG DIAGRAM -->
