@@ -95,15 +95,11 @@
   .cc-label { font-size: 13px; color: var(--text-2); line-height: 1.35; }
 
   /* ── COLLAPSIBLE SECTION TOGGLE ── */
-  .section-toggle {
-    display: flex; align-items: center; gap: 10px; padding: 12px 16px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    cursor: pointer; margin-bottom: 32px; transition: border-color 0.2s; width: fit-content;
-  }
-  .section-toggle:hover { border-color: var(--teal); }
-  .section-toggle .arrow { font-size: 12px; color: var(--teal); transition: transform 0.3s; }
+  .section-toggle { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: linear-gradient(135deg,rgba(29,106,255,0.10),rgba(232,184,0,0.06)); border: 1.5px solid var(--teal); border-left: 4px solid var(--gold); border-radius: 10px; cursor: pointer; margin-bottom: 32px; transition: all 0.25s; width: 100%; box-sizing: border-box; }
+  .section-toggle:hover { border-color: var(--gold); background: linear-gradient(135deg,rgba(29,106,255,0.15),rgba(232,184,0,0.10)); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(29,106,255,0.12); }
+  .section-toggle .arrow { font-size: 16px; color: var(--gold); transition: transform 0.3s; }
   .section-toggle.open .arrow { transform: rotate(180deg); }
-  .section-toggle span { font-size: 13px; color: var(--text-2); }
+  .section-toggle span { font-size: 15px; color: #fff; font-weight: 500; }
   .topics-container { display: none; }
   .topics-container.visible { display: block; }
 
@@ -156,12 +152,8 @@
   .topic-tile.open .tile-body { max-height: 500px; padding: 0 18px 18px; }
   .tile-body-inner { border-top: 1px solid var(--border); padding-top: 14px; }
   .tile-desc { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 14px; }
-  .tile-link {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal);
-    text-decoration: none; letter-spacing: 0.04em; transition: gap 0.2s;
-  }
-  .tile-link:hover { gap: 10px; }
+  .tile-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #fff; text-decoration: none; letter-spacing: 0.04em; transition: all 0.25s; background: rgba(29,106,255,0.18); border: 1px solid var(--teal); padding: 8px 16px; border-radius: 6px; margin-top: 8px; }
+  .tile-link:hover { gap: 12px; background: rgba(29,106,255,0.28); border-color: var(--gold); color: var(--gold); }
 
   /* ── FOOTER NAV ── */
   .footer-nav {
