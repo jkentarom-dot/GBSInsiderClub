@@ -175,6 +175,10 @@ git config user.name "GBS Content Bot"
 - Some pillar pages have minified CSS, others spaced — scripts must handle both
 - details/summary is best for collapsible blocks — native HTML, no JS, accessible
 - For bulk HTML edits: sed loop + verify with count + spot-check
+- Supabase edge functions MUST be deployed with `--no-verify-jwt` flag — without it, anon key auth returns 401
+- Always `git pull` before `supabase functions deploy` — otherwise old code gets deployed
+- Supabase access token stored at /mnt/project/Supabase_Claude_token (sbp_... format)
+- Claude cannot deploy to Supabase directly (api.supabase.com not in network allowlist) — Julian deploys manually
 
 ### Product/Content
 - Self-Check tone: challenging but encouraging, no judgment, no consequences stated
