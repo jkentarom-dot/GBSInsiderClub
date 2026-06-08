@@ -2710,6 +2710,11 @@
           Remove any one of these four components and the model stops working. Intelligence = weights + architecture + tokeniser + runtime. This is why "downloading an AI" is meaningless without specifying which of these you mean.
         </div>
       </div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch09-datacenter.webp" alt="GPU server racks in a modern data centre powering AI inference" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
 
       <div class="card">
         <div class="card-header ch-orange">Why GPUs — and why you can't run large models on a laptop</div>
@@ -3761,7 +3766,7 @@
 
             <!-- LLM core -->
             <rect x="250" y="105" width="200" height="80" rx="8" fill="rgba(0,214,143,0.1)" stroke="#00d68f" stroke-width="2"/>
-            <text x="350" y="140" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="700">LLM</text>
+            <text x="350" y="138" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="700">Large Language Model</text>
             <text x="350" y="162" text-anchor="middle" fill="#00d68f" font-family="IBM Plex Mono, monospace" font-size="10">reasoning + text generation</text>
 
             <!-- Memory (left top) -->
@@ -3903,6 +3908,11 @@
             <text x="335" y="264" text-anchor="middle" fill="#4d9fff" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="600">Often combined in practice</text>
           </svg>
         </div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch16-automation-agents.webp" alt="Automation versus agents — rules-based versus adaptive" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
       </div>
 
       <div class="takeaway">
@@ -5069,6 +5079,11 @@
               <h4>Be specific about the task and output format</h4>
               <p>"Summarise this document" produces a general summary. "Summarise this document in 5 bullet points, each under 20 words, focusing on financial implications" produces a targeted one. The model cannot read your mind — the more precisely you define the output, the closer the result will be to what you need.</p>
             </div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch23-prompt.webp" alt="Structured prompt with system prompt, context, instruction, output format" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
           </div>
           <div class="step">
             <div class="step-num">2</div>
@@ -5618,6 +5633,11 @@ Think step by step before concluding.</code>
           <div class="hbox">
             <div class="hbox-label">Risk 1</div>
             <div class="hbox-title">Training data <strong style="color:var(--yellow)">contamination</strong></div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch20-injection.webp" alt="Prompt injection attack in progress" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
             <div class="hbox-desc">PII from web scrapes or leaked databases can end up in training data. Models can memorise and occasionally reproduce it — a real user's email address or phone number extracted from a training corpus.</div>
           </div>
           <div class="hbox">
@@ -5628,6 +5648,11 @@ Think step by step before concluding.</code>
           <div class="hbox">
             <div class="hbox-label">Risk 3</div>
             <div class="hbox-title"><strong style="color:var(--yellow)">RAG</strong> index leakage</div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch20-redaction.webp" alt="Data redaction — PII fields masked and protected" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
             <div class="hbox-desc">Your document index may contain PII — employee records, customer data, confidential HR files. Retrieved chunks get sent to the <strong style="color:var(--yellow)">LLM</strong> in every query. If access controls are not enforced at retrieval time, a user may receive another person's private data in the response.</div>
           </div>
         </div>
@@ -6228,6 +6253,11 @@ Think step by step before concluding.</code>
         <div class="callout callout-yellow" style="margin-top:12px;">
           <strong>The enforcement reality.</strong> National market surveillance authorities enforce the Act within each EU member state. Penalties: up to €35M or 7% of global annual turnover for the most serious violations, €15M or 3% for most compliance failures. The Act explicitly covers the supply chain — if you build a high-risk AI application on top of a third-party foundation model, you are responsible for compliance, even if the underlying model is someone else's.
         </div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch25-governance.webp" alt="AI governance — regulation meets technology" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
       </div>
 
       <div class="card">
@@ -6632,6 +6662,11 @@ Think step by step before concluding.</code>
 
       <div class="card">
         <div class="card-header ch-yellow">Where the value is — function-by-function plays that work in 2026</div>
+      <div style="margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); position:relative;">
+        <img src="images/guide-ch27-roi.webp" alt="AI ROI dashboard — cost savings and revenue acceleration" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.85);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(transparent, var(--bg));"></div>
+      </div>
+
         <p>The plays below are not theoretical. Each is in production at multiple Fortune 500 organisations as of 2026, with documented ROI. Pattern recognition matters: <strong>the strongest returns are concentrated in functions with high-volume, structured-but-cognitive work — coding, support, document review, <strong style="color:var(--yellow)">compliance</strong>.</strong></p>
 
         <p style="margin-top:14px;"><strong>Software engineering — the clearest, most measurable success</strong></p>
