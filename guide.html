@@ -3295,6 +3295,91 @@
           <li>Retrieval quality determines answer quality — garbage chunks in, garbage answers out</li>
         </ul>
       </div>
+
+      <div class="card">
+        <div class="card-header ch-purple">Beyond basic RAG — the 2025-26 landscape</div>
+        <p>The five-step pipeline above is now called <strong style="color:var(--yellow)">Naive RAG</strong>. It works well for straightforward factual questions against a single document set. But real-world enterprise use cases expose its limits: it cannot reason across multiple documents, it treats every query the same regardless of complexity, and it has no way to self-correct when retrieval quality is poor.</p>
+        <p style="margin-top:12px;">The field has evolved rapidly. Here are the four strategies that now dominate production deployments:</p>
+
+        <div style="margin:20px 0 8px; padding:16px 20px; background:var(--surface2); border-radius:8px; border-left:3px solid #a78bfa;">
+          <p style="color:#a78bfa; font-family:var(--mono); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">1 · Advanced RAG</p>
+          <p><strong style="color:var(--yellow)">What it adds:</strong> Query rewriting (reformulates vague questions before searching), <strong style="color:var(--yellow)">hybrid search</strong> (combines keyword matching with semantic similarity), and <strong style="color:var(--yellow)">reranking</strong> (a second model rescores retrieved chunks by actual relevance, not just vector distance).</p>
+          <p style="margin-top:8px;"><strong style="color:var(--yellow)">When to use:</strong> Any production RAG system. These are table-stakes improvements over Naive RAG — not optional extras. Query rewriting alone can improve retrieval accuracy by 15-30%.</p>
+          <p style="margin-top:8px;"><strong>Cost impact:</strong> Minimal. A reranker adds ~50ms latency and negligible token cost. The accuracy gain almost always justifies it.</p>
+        </div>
+
+        <div style="margin:12px 0 8px; padding:16px 20px; background:var(--surface2); border-radius:8px; border-left:3px solid #00d68f;">
+          <p style="color:#00d68f; font-family:var(--mono); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">2 · GraphRAG</p>
+          <p><strong style="color:var(--yellow)">What it adds:</strong> Instead of embedding flat text chunks, <strong style="color:var(--yellow)">GraphRAG</strong> extracts entities and relationships into a <strong style="color:var(--yellow)">knowledge graph</strong>, then uses graph traversal for retrieval. Think of it as giving the AI a map of how concepts connect, rather than a pile of paragraphs.</p>
+          <p style="margin-top:8px;">Microsoft's open-source GraphRAG is the reference implementation. Their 2025 update, <strong style="color:var(--yellow)">LazyGraphRAG</strong>, reduced indexing cost to 0.1% of the full version, making it practical for large document collections.</p>
+          <p style="margin-top:8px;"><strong style="color:var(--yellow)">When to use:</strong> Cross-document reasoning ("How does policy A relate to regulation B across all our compliance documents?"), regulatory analysis, research synthesis, competitive intelligence. If the question requires connecting dots across multiple sources, GraphRAG dominates.</p>
+          <p style="margin-top:8px;"><strong>Cost impact:</strong> Significant. GraphRAG uses ~2.5× more tokens per query than Naive RAG, and building the knowledge graph upfront requires weeks of processing for large corpora. <strong style="color:var(--yellow)">LightRAG</strong> and LazyGraphRAG reduce this cost substantially.</p>
+          <p style="margin-top:8px; font-size:13px; color:var(--text3);"><em>Rule of thumb:</em> If a human analyst would need to read 10+ documents and connect information across them to answer the question, GraphRAG is worth the cost. If the answer lives in one document, it is not.</p>
+        </div>
+
+        <div style="margin:12px 0 8px; padding:16px 20px; background:var(--surface2); border-radius:8px; border-left:3px solid #4d9fff;">
+          <p style="color:#4d9fff; font-family:var(--mono); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">3 · Agentic RAG</p>
+          <p><strong style="color:var(--yellow)">What it adds:</strong> An <strong style="color:var(--yellow)">AI agent</strong> wraps the retrieval pipeline and makes autonomous decisions: should I search again with a different query? Is this retrieved context sufficient? Should I decompose this question into sub-questions first? The agent reasons about retrieval, rather than blindly executing a fixed pipeline.</p>
+          <p style="margin-top:8px;">Related approaches include <strong style="color:var(--yellow)">Self-RAG</strong> (the model decides when it needs retrieval during generation), <strong style="color:var(--yellow)">Corrective RAG</strong> (evaluates retrieval quality and retries if poor), and multi-step research agents that chain multiple searches together.</p>
+          <p style="margin-top:8px;"><strong style="color:var(--yellow)">When to use:</strong> Complex, multi-hop questions where a single retrieval pass is insufficient. Research tasks, deep analysis, strategic questions that require synthesising information from different angles.</p>
+          <p style="margin-top:8px;"><strong>Cost impact:</strong> High. Multiple LLM calls per query (3-10×), higher latency (seconds vs milliseconds). Only justified for hard, high-value questions. For simple factual queries, agentic RAG is pure waste.</p>
+        </div>
+
+        <div style="margin:12px 0 8px; padding:16px 20px; background:var(--surface2); border-radius:8px; border-left:3px solid #ffcc00;">
+          <p style="color:#ffcc00; font-family:var(--mono); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">4 · Adaptive RAG — the emerging best practice</p>
+          <p><strong style="color:var(--yellow)">What it adds:</strong> A <strong style="color:var(--yellow)">query classifier</strong> routes each question to the right pipeline based on complexity. Simple factual questions go to fast, cheap Naive or Advanced RAG. Complex multi-hop questions get the full agentic treatment. Relationship questions get routed to GraphRAG.</p>
+          <p style="margin-top:8px;">This is where production systems are heading in 2026: <strong>not one RAG strategy, but a router that picks the optimal strategy per query.</strong> This delivers the best cost-quality trade-off because most real-world queries (70-80%) are simple and don't need expensive retrieval.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header ch-orange">When to use which — the decision matrix</div>
+        <table style="width:100%; font-size:13px; border-collapse:collapse; margin:12px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--border2);">
+              <th style="text-align:left; padding:8px; color:var(--yellow);">Strategy</th>
+              <th style="text-align:left; padding:8px;">Best for</th>
+              <th style="text-align:left; padding:8px;">Cost per query</th>
+              <th style="text-align:left; padding:8px;">Setup effort</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px; font-weight:600;">Naive RAG</td>
+              <td style="padding:8px;">Simple FAQs, single-doc lookup</td>
+              <td style="padding:8px; color:#00d68f;">Low</td>
+              <td style="padding:8px; color:#00d68f;">Days</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px; font-weight:600;">Advanced RAG</td>
+              <td style="padding:8px;">Production systems, enterprise search</td>
+              <td style="padding:8px; color:#00d68f;">Low-Medium</td>
+              <td style="padding:8px; color:#ffcc00;">1-2 weeks</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px; font-weight:600;">GraphRAG</td>
+              <td style="padding:8px;">Cross-document reasoning, compliance, research</td>
+              <td style="padding:8px; color:#ff6b35;">High (~2.5×)</td>
+              <td style="padding:8px; color:#ff4d6a;">Weeks-months</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px; font-weight:600;">Agentic RAG</td>
+              <td style="padding:8px;">Multi-hop research, complex analysis</td>
+              <td style="padding:8px; color:#ff4d6a;">Very high (3-10×)</td>
+              <td style="padding:8px; color:#ff6b35;">Weeks</td>
+            </tr>
+            <tr>
+              <td style="padding:8px; font-weight:600;">Adaptive RAG</td>
+              <td style="padding:8px;">High-volume mixed workloads</td>
+              <td style="padding:8px; color:#00d68f;">Optimised per query</td>
+              <td style="padding:8px; color:#ff6b35;">Weeks</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout" style="margin-top:16px;">
+          <p><strong>The practitioner's takeaway:</strong> Start with Advanced RAG (hybrid search + reranking) — it covers 80% of enterprise use cases at low cost. Only add GraphRAG or Agentic RAG when you have proven the question type justifies the cost. Adaptive RAG is the target architecture, but most organisations should walk before they run.</p>
+        </div>
+      </div>
     
       <details style="margin:28px 0; border:1px solid var(--border2); border-radius:8px; background:var(--surface); overflow:hidden;">
         <summary style="cursor:pointer; padding:16px 20px; font-family:var(--mono); font-size:13px; font-weight:700; color:var(--yellow); letter-spacing:0.1em; text-transform:uppercase; list-style:none; display:flex; align-items:center; gap:10px; user-select:none;">
