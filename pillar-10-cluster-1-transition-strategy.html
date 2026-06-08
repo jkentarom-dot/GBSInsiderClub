@@ -148,6 +148,37 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram.wide img { max-width: 860px; }
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
+
+/* METHOD COMPARISON GRID */
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:24px 0;}
+.method-col{background:var(--surface);padding:0;}
+.method-col:first-child{border-right:1px solid var(--border);}
+.method-col-head{padding:16px 22px;display:flex;align-items:center;justify-content:space-between;}
+.method-col-head--ls{border-top:3px solid var(--teal);background:rgba(29,106,255,0.05);}
+.method-col-head--tt{border-top:3px solid var(--purple);background:rgba(167,139,250,0.05);}
+.method-col-head h4{font-size:15px;font-weight:600;color:#fff;}
+.method-col-head .dur{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.06em;}
+.method-col-body{padding:16px 22px;}
+.method-col-body .hint{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);font-style:italic;margin-bottom:12px;}
+.method-col-body li{font-size:14px;color:var(--text-2);margin-bottom:6px;line-height:1.6;list-style:none;padding-left:14px;position:relative;}
+.method-col-body li::before{content:"→";position:absolute;left:0;color:var(--text-3);font-size:11px;}
+.method-col-head--ls + .method-col-body li::before{color:var(--teal);}
+.method-col-head--tt + .method-col-body li::before{color:var(--purple);}
+/* PHASE DIAGRAM WRAPPER */
+.phase-diagram-wrap{margin:28px 0;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);}
+.phase-diagram-bar{padding:10px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+.phase-diagram-bar .dot{width:7px;height:7px;border-radius:50%;}
+.phase-diagram-bar span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;}
+/* TRADE-OFF TABLE */
+.tradeoff-t{width:100%;margin:24px 0;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.tradeoff-t th{background:var(--surface-2);color:#fff;font-weight:500;font-size:13px;text-align:left;padding:12px 18px;}
+.tradeoff-t td{padding:10px 18px;font-size:14px;color:var(--text-2);border-top:1px solid var(--border);}
+.tradeoff-t td:nth-child(2){color:var(--teal);font-weight:500;font-size:13px;}
+.tradeoff-t td:nth-child(3){color:var(--purple);font-weight:500;font-size:13px;}
+/* METHOD INTRO */
+.method-intro{font-size:15px;color:var(--text-2);line-height:1.8;max-width:960px;margin-bottom:28px;}
+@media(max-width:1024px){.method-grid{grid-template-columns:1fr;}.method-col:first-child{border-right:none;border-bottom:1px solid var(--border);}}
+
 </style>
 </head>
 <body>
@@ -169,7 +200,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
     <div class="sidebar-on-page">
       <div class="sidebar-on-page-label">On this page</div>
-      <a href="#lift-shift">Lift and Shift vs Lift and Fix (Transform)</a>
+      <a href="#lift-shift">Lift and Shift vs Transform and Transfer</a>
       <a href="#due-diligence">Due diligence and scope validation</a>
       <a href="#governance">Transition governance and gate reviews</a>
       <a href="#glossary">Glossary</a>
@@ -197,93 +228,185 @@ a.gloss:hover .tooltip{display:block;}
 
 
     <!-- OVERVIEW SVG -->
-    <div style="margin:0 0 48px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
-    <svg viewBox="0 0 920 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:920px;display:block;margin:0 auto;">
-      <defs><marker id="ov-a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#1d6aff"/></marker></defs>
-      
-      <rect x="10" y="20" width="140" height="70" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
-      <text x="80" y="48" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Assess</text>
-      <text x="80" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">Scope and readiness</text>
-      <line x1="155" y1="55" x2="190" y2="55" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#ov-a)"/>
-      <rect x="200" y="20" width="140" height="70" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.5"/>
-      <text x="270" y="48" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Design</text>
-      <text x="270" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">Target operating model</text>
-      <line x1="345" y1="55" x2="380" y2="55" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#ov-a)"/>
-      <rect x="390" y="20" width="140" height="70" rx="8" fill="#141922" stroke="#38bdf8" stroke-width="1.5"/>
-      <text x="460" y="48" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Plan</text>
-      <text x="460" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">Migration waves</text>
-      <line x1="535" y1="55" x2="570" y2="55" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#ov-a)"/>
-      <rect x="580" y="20" width="140" height="70" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
-      <text x="650" y="48" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Execute</text>
-      <text x="650" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">Go-live delivery</text>
-      <line x1="725" y1="55" x2="760" y2="55" stroke="#1d6aff" stroke-width="1.5" marker-end="url(#ov-a)"/>
-      <rect x="770" y="20" width="140" height="70" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.5"/>
-      <text x="840" y="48" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Optimize</text>
-      <text x="840" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#c8d0de">Continuous value</text>
-    </svg>
-    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">GBS Transition Lifecycle</div>
-    </div>
+    
 
     <section class="section" id="lift-shift">
       <p class="section-eyebrow">Topic 01 · Methodology</p>
-      <h2>Lift and Shift vs Lift and Fix (Transform)</h2>
-      <p class="section-hook">The fundamental strategic choice: move the process as-is and improve later, or redesign while migrating. Each approach has trade-offs in speed, risk, and long-term value.</p>
-<!-- SVG DIAGRAM -->
-<div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
-<svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;display:block;margin:0 auto;">
-  <!-- Left: Lift and Shift -->
-  <rect x="10" y="10" width="320" height="130" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
-  <text x="170" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#1d6aff" letter-spacing="0.1em">LIFT AND SHIFT</text>
-  <text x="170" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="#fff">Move process as-is</text>
-  <text x="170" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Faster. Lower risk. Preserves current state.</text>
-  <text x="170" y="98" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Debt: you inherit every inefficiency.</text>
-  <text x="170" y="125" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1d6aff">Timeline: 3-6 months</text>
-  <!-- VS -->
-  <text x="350" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#ffffff">VS</text>
-  <!-- Right: Lift and Fix -->
-  <rect x="370" y="10" width="320" height="130" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.5"/>
-  <text x="530" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#e8b800" letter-spacing="0.1em">LIFT AND FIX</text>
-  <text x="530" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="#fff">Move and redesign</text>
-  <text x="530" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Slower. Higher risk. Builds for the future.</text>
-  <text x="530" y="98" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#c8d0de">Gain: clean processes from day one.</text>
-  <text x="530" y="125" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#e8b800">Timeline: 6-18 months</text>
-</svg>
-<div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Migration Strategy Comparison</div>
-</div>
+      <h2>Lift and Shift vs Transform and Transfer</h2>
+      <p class="section-hook">The fundamental strategic choice: move the process as-is and improve later, or redesign before migrating. Each approach has trade-offs in speed, risk, and long-term value.</p>
 
-      <div class="formula-grid">
-      <div class="formula-side old">
-        <div class="formula-tag">Lift &amp; Shift</div>
-        <h4>Approach</h4>
-        <ul><li>Move the process as-is to the new location</li><li>Faster timeline — focus on knowledge transfer, not redesign</li><li>Lower immediate risk — the process is proven</li><li>Optimization comes later as a separate initiative</li><li>Risk: you inherit all the problems and inefficiencies of the current process</li></ul>
+      <p class="method-intro">Every organisation standing up a GBS faces the same binary choice: migrate first and improve later, or redesign first and migrate to the new standard. The choice shapes your programme timeline, your risk profile, your change management approach, and ultimately whether you end up running a cost centre or a transformation engine.</p>
+
+      <!-- Two-column comparison -->
+      <div class="method-grid">
+        <div class="method-col">
+          <div class="method-col-head method-col-head--ls"><h4>Lift and Shift</h4><span class="dur">12–18 months</span></div>
+          <div class="method-col-body">
+            <div class="hint">Replicate, then standardise, then optimise</div>
+            <li>Migrate processes as-is to the GBS centre</li>
+            <li>Preserve current process variants during transition</li>
+            <li>Standardise and optimise after stabilisation</li>
+            <li>Speed-to-value is the primary driver</li>
+            <li>Two change cycles: migration, then transformation</li>
+          </div>
+        </div>
+        <div class="method-col">
+          <div class="method-col-head method-col-head--tt"><h4>Transform and Transfer</h4><span class="dur">18–30 months</span></div>
+          <div class="method-col-body">
+            <div class="hint">Redesign, then migrate, then stabilise</div>
+            <li>Design the harmonised target state before migration</li>
+            <li>Eliminate process variants by design</li>
+            <li>Migrate directly to the new standard</li>
+            <li>Step-change improvement is the primary driver</li>
+            <li>One concentrated change cycle</li>
+          </div>
+        </div>
       </div>
-      <div class="formula-side new">
-        <div class="formula-tag">Lift &amp; Fix (Transform)</div>
-        <h4>Approach</h4>
-        <ul><li>Redesign the process while migrating it</li><li>Longer timeline — requires process analysis, redesign, and testing</li><li>Higher implementation risk — new process and new location simultaneously</li><li>Value delivered earlier — no separate optimization project needed</li><li>Risk: scope creep as redesign ambitions expand during transition</li></ul>
+
+      <!-- ====== SVG: Lift & Shift Phase Diagram ====== -->
+      <div class="phase-diagram-wrap">
+        <div class="phase-diagram-bar"><div class="dot" style="background:var(--teal)"></div><span style="color:var(--teal)">Phase view / Lift and Shift</span></div>
+        <svg width="100%" viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <defs><marker id="pls" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#2a3347" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+          <rect x="24" y="30" width="832" height="2" rx="1" fill="rgba(232,184,0,0.08)"/>
+          <g fill="#2a3347" font-family="JetBrains Mono,monospace" font-size="9"><text x="24" y="24">M0</text><text x="170" y="24">M2</text><text x="330" y="24">M4</text><text x="510" y="24">M7</text><text x="660" y="24">M10</text><text x="830" y="24">M18+</text></g>
+          <rect x="24" y="40" width="152" height="40" rx="5" fill="rgba(29,106,255,0.08)" stroke="#1d6aff" stroke-width="0.5"/>
+          <text x="100" y="56" fill="#1d6aff" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">01 Mobilise</text>
+          <text x="100" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">4–6 weeks</text>
+          <line x1="176" y1="60" x2="186" y2="60" stroke="#2a3347" stroke-width="0.7" marker-end="url(#pls)"/>
+          <rect x="188" y="40" width="152" height="40" rx="5" fill="rgba(52,211,153,0.06)" stroke="#34d399" stroke-width="0.5"/>
+          <text x="264" y="56" fill="#34d399" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">02 AS-IS docs</text>
+          <text x="264" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">6–8 weeks</text>
+          <line x1="340" y1="60" x2="350" y2="60" stroke="#2a3347" stroke-width="0.7" marker-end="url(#pls)"/>
+          <rect x="352" y="40" width="168" height="40" rx="5" fill="rgba(232,184,0,0.06)" stroke="#e8b800" stroke-width="0.5"/>
+          <text x="436" y="56" fill="#e8b800" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">03 Migration</text>
+          <text x="436" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">8–12 wk / wave</text>
+          <line x1="520" y1="60" x2="530" y2="60" stroke="#2a3347" stroke-width="0.7" marker-end="url(#pls)"/>
+          <rect x="532" y="40" width="148" height="40" rx="5" fill="rgba(167,139,250,0.06)" stroke="#a78bfa" stroke-width="0.5"/>
+          <text x="606" y="56" fill="#a78bfa" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">04 Stabilise</text>
+          <text x="606" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">8–12 weeks</text>
+          <line x1="680" y1="60" x2="690" y2="60" stroke="#2a3347" stroke-width="0.7" marker-end="url(#pls)"/>
+          <rect x="692" y="40" width="164" height="40" rx="5" fill="rgba(29,106,255,0.06)" stroke="#1d6aff" stroke-width="0.5"/>
+          <text x="774" y="56" fill="#1d6aff" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">05 Optimise</text>
+          <text x="774" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">6–18 months</text>
+          <!-- Gate markers -->
+          <g font-family="JetBrains Mono,monospace" font-size="8" fill="#2a3347">
+            <rect x="169" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="177" y="94" text-anchor="middle">G1</text>
+            <rect x="333" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="341" y="94" text-anchor="middle">G2</text>
+            <rect x="513" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="521" y="94" text-anchor="middle">G3</text>
+            <rect x="673" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="681" y="94" text-anchor="middle">G4</text>
+            <rect x="848" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="856" y="94" text-anchor="middle">G5</text>
+          </g>
+          <text x="24" y="120" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.08em">KEY DELIVERABLES</text>
+          <line x1="24" y1="126" x2="856" y2="126" stroke="rgba(232,184,0,0.08)" stroke-width="0.5"/>
+          <g fill="#fff" font-family="Inter,sans-serif" font-size="10">
+            <text x="28" y="142">Programme charter</text><text x="28" y="157">Wave migration plan</text><text x="28" y="172">Location assessment</text><text x="28" y="187">Baseline cost model</text>
+            <text x="192" y="142">AS-IS process maps</text><text x="192" y="157">Variant matrix</text><text x="192" y="172">KT documentation</text><text x="192" y="187">System dependency map</text>
+            <text x="356" y="142">Trained GBS team</text><text x="356" y="157">Parallel run results</text><text x="356" y="172">SLAs per entity</text><text x="356" y="187">Ops handbook</text>
+            <text x="536" y="142">Hypercare dashboard</text><text x="536" y="157">Exception log</text><text x="536" y="172">Lessons learned</text><text x="536" y="187">BAU handover cert</text>
+            <text x="696" y="142">Standard process library</text><text x="696" y="157">Automation pipeline</text><text x="696" y="172">CI roadmap</text><text x="696" y="187">Benefits realisation</text>
+          </g>
+          <text x="24" y="214" fill="#1d6aff" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.08em">TYPICAL ACTIVITIES</text>
+          <line x1="24" y1="220" x2="856" y2="220" stroke="rgba(232,184,0,0.08)" stroke-width="0.5"/>
+          <g fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">
+            <text x="28" y="236">Scope definition</text><text x="28" y="251">Site selection</text><text x="28" y="266">Governance setup</text>
+            <text x="192" y="236">Process mapping</text><text x="192" y="251">SME interviews</text><text x="192" y="266">Tribal knowledge capture</text>
+            <text x="356" y="236">Recruit and train</text><text x="356" y="251">Parallel run</text><text x="356" y="266">Wave go-live</text>
+            <text x="536" y="236">SLA monitoring</text><text x="536" y="251">Exception handling</text><text x="536" y="266">Capacity adjustment</text>
+            <text x="696" y="236">Harmonise variants</text><text x="696" y="251">RPA / AI build</text><text x="696" y="266">Lean / Six Sigma</text>
+          </g>
+          <text x="24" y="296" fill="#2a3347" font-family="JetBrains Mono,monospace" font-size="9">G1 Scope sign-off  |  G2 Docs complete  |  G3 Go-live ready  |  G4 Hypercare exit  |  G5 Benefits realisation</text>
+        </svg>
       </div>
-    </div><div class="insight-block">
-      <div class="insight-icon">IC</div>
-      <div class="insight-body">
-        <div class="insight-label">GBS Insider Club Insights</div>
+
+      <!-- ====== SVG: Transform & Transfer Phase Diagram ====== -->
+      <div class="phase-diagram-wrap">
+        <div class="phase-diagram-bar"><div class="dot" style="background:var(--purple)"></div><span style="color:var(--purple)">Phase view / Transform and Transfer</span></div>
+        <svg width="100%" viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <defs><marker id="ptt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#2a3347" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+          <rect x="24" y="30" width="832" height="2" rx="1" fill="rgba(232,184,0,0.08)"/>
+          <g fill="#2a3347" font-family="JetBrains Mono,monospace" font-size="9"><text x="24" y="24">M0</text><text x="185" y="24">M3</text><text x="365" y="24">M6</text><text x="530" y="24">M10</text><text x="660" y="24">M14</text><text x="830" y="24">M30+</text></g>
+          <rect x="24" y="40" width="166" height="40" rx="5" fill="rgba(167,139,250,0.06)" stroke="#a78bfa" stroke-width="0.5"/>
+          <text x="107" y="56" fill="#a78bfa" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">01 Discovery</text>
+          <text x="107" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">6–10 weeks</text>
+          <line x1="190" y1="60" x2="200" y2="60" stroke="#2a3347" stroke-width="0.7" marker-end="url(#ptt)"/>
+          <rect x="202" y="40" width="172" height="40" rx="5" fill="rgba(29,106,255,0.08)" stroke="#1d6aff" stroke-width="0.5"/>
+          <text x="288" y="56" fill="#1d6aff" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">02 Target design</text>
+          <text x="288" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">10–14 weeks</text>
+          <line x1="374" y1="60" x2="384" y2="60" stroke="#2a3347" stroke-width="0.7" marker-end="url(#ptt)"/>
+          <rect x="386" y="40" width="154" height="40" rx="5" fill="rgba(232,184,0,0.06)" stroke="#e8b800" stroke-width="0.5"/>
+          <text x="463" y="56" fill="#e8b800" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">03 Build</text>
+          <text x="463" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">12–16 weeks</text>
+          <line x1="540" y1="60" x2="550" y2="60" stroke="#2a3347" stroke-width="0.7" marker-end="url(#ptt)"/>
+          <rect x="552" y="40" width="118" height="40" rx="5" fill="rgba(52,211,153,0.06)" stroke="#34d399" stroke-width="0.5"/>
+          <text x="611" y="56" fill="#34d399" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">04 Test</text>
+          <text x="611" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">6–8 weeks</text>
+          <line x1="670" y1="60" x2="680" y2="60" stroke="#2a3347" stroke-width="0.7" marker-end="url(#ptt)"/>
+          <rect x="682" y="40" width="174" height="40" rx="5" fill="rgba(29,106,255,0.06)" stroke="#1d6aff" stroke-width="0.5"/>
+          <text x="769" y="56" fill="#1d6aff" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">05 Deploy</text>
+          <text x="769" y="72" fill="#c8d0de" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">8–12 wk + ongoing</text>
+          <!-- Gate markers -->
+          <g font-family="JetBrains Mono,monospace" font-size="8" fill="#2a3347">
+            <rect x="183" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="191" y="94" text-anchor="middle">G1</text>
+            <rect x="367" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="375" y="94" text-anchor="middle">G2</text>
+            <rect x="533" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="541" y="94" text-anchor="middle">G3</text>
+            <rect x="663" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="671" y="94" text-anchor="middle">G4</text>
+            <rect x="848" y="86" width="16" height="11" rx="2" fill="var(--void)" stroke="rgba(232,184,0,0.2)" stroke-width="0.5"/><text x="856" y="94" text-anchor="middle">G5</text>
+          </g>
+          <text x="24" y="120" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.08em">KEY DELIVERABLES</text>
+          <line x1="24" y1="126" x2="856" y2="126" stroke="rgba(232,184,0,0.08)" stroke-width="0.5"/>
+          <g fill="#fff" font-family="Inter,sans-serif" font-size="10">
+            <text x="28" y="142">Maturity assessment</text><text x="28" y="157">Benchmark analysis</text><text x="28" y="172">Opportunity heat map</text><text x="28" y="187">Detailed business case</text>
+            <text x="206" y="142">TO-BE process library</text><text x="206" y="157">TOM blueprint</text><text x="206" y="172">Tech architecture</text><text x="206" y="187">Service catalogue + SLAs</text>
+            <text x="390" y="142">Configured systems</text><text x="390" y="157">Automation workflows</text><text x="390" y="172">Training curriculum</text><text x="390" y="187">Data migration scripts</text>
+            <text x="556" y="142">UAT sign-off</text><text x="556" y="157">Cutover plan</text><text x="556" y="172">Readiness scorecard</text><text x="556" y="187">Rollback procedures</text>
+            <text x="686" y="142">Go-live per entity</text><text x="686" y="157">Adoption dashboards</text><text x="686" y="172">Benefits tracker</text><text x="686" y="187">CI pipeline</text>
+          </g>
+          <text x="24" y="214" fill="#a78bfa" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.08em">TYPICAL ACTIVITIES</text>
+          <line x1="24" y1="220" x2="856" y2="220" stroke="rgba(232,184,0,0.08)" stroke-width="0.5"/>
+          <g fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">
+            <text x="28" y="236">AS-IS assessment</text><text x="28" y="251">Industry benchmarking</text><text x="28" y="266">Value quantification</text>
+            <text x="206" y="236">Process harmonisation</text><text x="206" y="251">TOM design workshops</text><text x="206" y="266">Change impact analysis</text>
+            <text x="390" y="236">ERP configuration</text><text x="390" y="251">Build automations</text><text x="390" y="266">Data migration</text>
+            <text x="556" y="236">UAT execution</text><text x="556" y="251">Cutover rehearsal</text><text x="556" y="266">Readiness assessment</text>
+            <text x="686" y="236">Wave go-lives</text><text x="686" y="251">Hypercare</text><text x="686" y="266">Adoption tracking</text>
+          </g>
+          <text x="24" y="296" fill="#2a3347" font-family="JetBrains Mono,monospace" font-size="9">G1 Business case  |  G2 Design sign-off  |  G3 SIT complete  |  G4 Go / no-go  |  G5 Benefits realisation</text>
+        </svg>
+      </div>
+
+      <!-- Trade-off table -->
+      <table class="tradeoff-t">
+        <thead><tr><th style="width:35%">Dimension</th><th>Lift and Shift</th><th>Transform and Transfer</th></tr></thead>
+        <tbody>
+          <tr><td>Time to first value</td><td>3–4 months</td><td>6–10 months</td></tr>
+          <tr><td>Total duration</td><td>12–18 months</td><td>18–30 months</td></tr>
+          <tr><td>Upfront investment</td><td>Lower</td><td>Higher</td></tr>
+          <tr><td>Long-term savings</td><td>Moderate</td><td>Higher</td></tr>
+          <tr><td>Process debt risk</td><td>High</td><td>Low</td></tr>
+          <tr><td>Automation readiness</td><td>Delayed</td><td>Immediate</td></tr>
+          <tr><td>Typical failure mode</td><td>Debt never resolved</td><td>Analysis paralysis</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Julian's Take — hybrid approach -->
+      <div style="margin:24px 0 32px; padding:24px; background:rgba(232,184,0,0.06); border-left:3px solid var(--gold); border-radius:0 10px 10px 0;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--gold); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:12px;">FROM THE FIELD</div>
+        <p style="font-size:15px; color:var(--text-2); line-height:1.7; margin:0;">Most successful GBS transformations use a hybrid: transform and transfer as the strategic frame, with tactical lift and shift for early waves to build credibility. You earn board credibility in Wave 1 and spend it on the design time you need for the harder towers. The people who insist on pure transform and transfer from day one are the same people who get their funding pulled in month nine because the board sees no results.</p>
+      </div>
+
+      <div class="card teal">
+        <div class="card-title">When to use each approach</div>
         <ul>
-        <li>For first-wave transitions, Lift & Shift is usually safer — establish credibility with reliable delivery, then improve. Trying to transform and transition simultaneously doubles the risk.</li>
-        <li>For subsequent waves, Lift & Fix makes more sense — you have the operational maturity to absorb change, and stakeholders have seen the GBS model work.</li>
-        <li>The worst outcome is an unofficial hybrid: claiming Lift & Shift but allowing ad-hoc process changes during transition without formal change control.</li>
+          <li>For first-wave transitions, Lift and Shift is usually safer — establish credibility with reliable delivery, then improve. Trying to transform and transition simultaneously doubles the risk.</li>
+          <li>For subsequent waves, Transform and Transfer makes more sense — you have the operational maturity to absorb change, and stakeholders have seen the GBS model work.</li>
+          <li>The worst outcome is an unofficial hybrid: claiming Lift and Shift but allowing ad-hoc process changes during transition without formal change control.</li>
+          <li>Wave sequencing matters: start with high-volume, low-complexity processes to build momentum and credibility before tackling complex, exception-heavy towers.</li>
         </ul>
       </div>
-    </div>
 
-    
-    <div class="sub-diagram wide">
-      <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;height:auto;"><text x="350" y="24" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="13" letter-spacing="0.1em">TRANSITION MODELS</text>
-<rect x="20" y="48" width="200" height="74" rx="8" fill="rgba(29,106,255,0.12)" stroke="#1d6aff" stroke-width="1"/><text x="120" y="72" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">LIFT &amp; SHIFT</text><text x="120" y="92" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Move as-is, optimize later</text><text x="120" y="108" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="9">Fast &middot; Lower risk &middot; Less value</text>
-<rect x="250" y="48" width="200" height="74" rx="8" fill="rgba(29,106,255,0.15)" stroke="#1d6aff" stroke-width="1.2"/><text x="350" y="72" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">TRANSFORM</text><text x="350" y="92" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Redesign then move</text><text x="350" y="108" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="9">Slower &middot; Higher value &middot; Higher risk</text>
-<rect x="480" y="48" width="200" height="74" rx="8" fill="rgba(232,184,0,0.10)" stroke="#e8b800" stroke-width="1"/><text x="580" y="72" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="11">HYBRID</text><text x="580" y="92" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Move first, improve in waves</text><text x="580" y="108" text-anchor="middle" fill="#7a8799" font-family="Inter,sans-serif" font-size="9">Most common &middot; Balanced approach</text>
-<text x="350" y="146" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">MOST GBS TRANSITIONS USE HYBRID &middot; PURE LIFT-AND-SHIFT RARELY DELIVERS VALUE</text></svg>
-      <p class="sd-caption">Transition models — big bang, phased, parallel run</p>
-    </div>
-</section>
+    </section>
+
 <section class="section" id="due-diligence">
       <p class="section-eyebrow">Topic 02 · Scoping</p>
       <h2>Due diligence and scope validation</h2>
@@ -411,7 +534,7 @@ a.gloss:hover .tooltip{display:block;}
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">
         <div class="glossary-item"><span class="glossary-term">Lift &amp; Shift</span><span class="glossary-def">Transition methodology where processes are moved to the GBS center as-is, without redesign. Prioritizes speed and stability over optimization.</span></div>
-        <div class="glossary-item"><span class="glossary-term">Lift &amp; Fix</span><span class="glossary-def">Transition methodology where processes are redesigned during migration to improve efficiency, standardize, and automate. Higher risk but earlier value delivery.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Transform &amp; Transfer</span><span class="glossary-def">Transition methodology where the target operating model is designed and processes are harmonised before migration. Also called Lift &amp; Fix. Higher investment upfront but delivers a cleaner end state with immediate automation readiness.</span></div>
         <div class="glossary-item"><span class="glossary-term">Due diligence</span><span class="glossary-def">The investigation and analysis conducted before committing to a transition. Covers process inventory, volume analysis, complexity assessment, and risk identification.</span></div>
         <div class="glossary-item"><span class="glossary-term">Gate review</span><span class="glossary-def">A formal governance checkpoint where defined criteria must be met before a transition advances to the next phase. Prevents premature go-live.</span></div>
         <div class="glossary-item"><span class="glossary-term">Transition charter</span><span class="glossary-def">The governing document that defines the transition scope, objectives, timeline, governance structure, and success criteria.</span></div>
