@@ -1178,7 +1178,7 @@
         <div class="card-header ch-blue">The transformer at a glance</div>
         <p>One diagram for the whole stack. Text comes in on the left. <strong style="color:var(--yellow)">Tokens</strong> get embedded. The transformer block — attention plus feed-forward — runs once, then again, then 30 to 120 more times. The output head turns the final state into a probability over the next token.</p>
         <div style="margin-top:18px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 6px; padding: 20px 16px; overflow-x: auto;">
-          <svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; max-width:100%; display:block;" role="img" aria-label="Transformer architecture diagram showing flow from text input through tokeniser, embeddings, repeated transformer blocks, output head, to next-token probability">
+          <svg viewBox="0 0 960 400" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; max-width:100%; display:block;" role="img" aria-label="Transformer architecture diagram showing flow from text input through tokeniser, embeddings, repeated transformer blocks, output head, to next-token probability">
             <defs>
               <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
                 <path d="M0,0 L0,6 L9,3 z" fill="#ffffff" />
@@ -1194,63 +1194,63 @@
 
             <!-- Input text -->
             <g>
-              <rect x="20" y="135" width="110" height="60" rx="6" fill="rgba(77,159,255,0.08)" stroke="#4d9fff" stroke-width="1.5"/>
-              <text x="75" y="160" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600">Input text</text>
-              <text x="75" y="180" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="10">"The cat sat"</text>
+              <rect x="20" y="150" width="120" height="68" rx="6" fill="rgba(77,159,255,0.08)" stroke="#4d9fff" stroke-width="1.5"/>
+              <text x="80" y="176" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600">Input text</text>
+              <text x="80" y="198" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">"The cat sat"</text>
             </g>
-            <line x1="130" y1="165" x2="170" y2="165" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+            <line x1="140" y1="184" x2="175" y2="184" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
 
             <!-- Tokeniser -->
             <g>
-              <rect x="170" y="135" width="110" height="60" rx="6" fill="rgba(0,214,143,0.08)" stroke="#00d68f" stroke-width="1.5"/>
-              <text x="225" y="160" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600">Tokeniser</text>
-              <text x="225" y="180" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="10">[464, 2415, 3332]</text>
+              <rect x="175" y="150" width="120" height="68" rx="6" fill="rgba(0,214,143,0.08)" stroke="#00d68f" stroke-width="1.5"/>
+              <text x="235" y="176" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600">Tokeniser</text>
+              <text x="235" y="198" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">[464, 2415, 3332]</text>
             </g>
-            <line x1="280" y1="165" x2="320" y2="165" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+            <line x1="295" y1="184" x2="330" y2="184" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
 
             <!-- Embeddings -->
             <g>
-              <rect x="320" y="135" width="110" height="60" rx="6" fill="rgba(0,214,143,0.08)" stroke="#00d68f" stroke-width="1.5"/>
-              <text x="375" y="158" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600">Embeddings</text>
-              <text x="375" y="175" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="9">vectors of ~4000</text>
-              <text x="375" y="186" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="9">numbers each</text>
+              <rect x="330" y="150" width="130" height="68" rx="6" fill="rgba(0,214,143,0.08)" stroke="#00d68f" stroke-width="1.5"/>
+              <text x="395" y="174" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600">Embeddings</text>
+              <text x="395" y="194" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">vectors of ~4000</text>
+              <text x="395" y="208" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">numbers each</text>
             </g>
-            <line x1="430" y1="165" x2="470" y2="165" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+            <line x1="460" y1="184" x2="495" y2="184" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
 
             <!-- Transformer block group -->
             <g>
-              <rect x="470" y="60" width="240" height="210" rx="8" fill="url(#blockGrad)" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
-              <text x="590" y="82" text-anchor="middle" fill="#a78bfa" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="600" letter-spacing="0.1em">TRANSFORMER BLOCK</text>
-              <text x="590" y="98" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="9">repeats 30–120 times</text>
+              <rect x="495" y="60" width="250" height="240" rx="8" fill="url(#blockGrad)" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="620" y="84" text-anchor="middle" fill="#a78bfa" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="0.1em">TRANSFORMER BLOCK</text>
+              <text x="620" y="102" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="11">repeats 30–120 times</text>
 
               <!-- Attention sub-block -->
-              <rect x="490" y="115" width="200" height="58" rx="5" fill="rgba(255,107,53,0.10)" stroke="#ff6b35" stroke-width="1.2"/>
-              <text x="590" y="138" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600">Self-Attention</text>
-              <text x="590" y="156" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="9">every token looks at every other</text>
-              <text x="590" y="167" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="9">→ context, relationships</text>
+              <rect x="515" y="118" width="210" height="68" rx="5" fill="rgba(255,107,53,0.10)" stroke="#ff6b35" stroke-width="1.2"/>
+              <text x="620" y="142" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600">Self-Attention</text>
+              <text x="620" y="162" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">every token looks at every other</text>
+              <text x="620" y="178" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">→ context, relationships</text>
 
               <!-- Arrow within block -->
-              <line x1="590" y1="178" x2="590" y2="198" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead-loop)"/>
+              <line x1="620" y1="190" x2="620" y2="216" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead-loop)"/>
 
               <!-- FFN sub-block -->
-              <rect x="490" y="200" width="200" height="58" rx="5" fill="rgba(255,204,0,0.10)" stroke="#ffcc00" stroke-width="1.2"/>
-              <text x="590" y="223" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600">Feed-Forward</text>
-              <text x="590" y="241" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="9">each token, independently</text>
-              <text x="590" y="252" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="9">→ knowledge, facts, reasoning</text>
+              <rect x="515" y="218" width="210" height="68" rx="5" fill="rgba(255,204,0,0.10)" stroke="#ffcc00" stroke-width="1.2"/>
+              <text x="620" y="242" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600">Feed-Forward</text>
+              <text x="620" y="262" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">each token, independently</text>
+              <text x="620" y="278" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">→ knowledge, facts, reasoning</text>
             </g>
 
             <!-- Loop arrow back -->
-            <path d="M 710 165 Q 745 165 745 290 Q 745 320 590 320 Q 470 320 470 290 Q 470 165 470 165" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
-            <text x="590" y="338" text-anchor="middle" fill="#a78bfa" font-family="IBM Plex Mono, monospace" font-size="10" opacity="0.85">×N (model depth)</text>
+            <path d="M 745 184 Q 780 184 780 320 Q 780 350 620 350 Q 495 350 495 320 Q 495 184 495 184" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+            <text x="620" y="375" text-anchor="middle" fill="#a78bfa" font-family="IBM Plex Mono, monospace" font-size="11" opacity="0.85">×N (model depth)</text>
 
             <!-- Output -->
-            <line x1="710" y1="165" x2="750" y2="165" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+            <line x1="745" y1="184" x2="785" y2="184" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
 
             <g>
-              <rect x="750" y="135" width="130" height="60" rx="6" fill="rgba(255,77,106,0.08)" stroke="#ff4d6a" stroke-width="1.5"/>
-              <text x="815" y="158" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600">Output head</text>
-              <text x="815" y="175" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="9">probability over</text>
-              <text x="815" y="186" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="9">~50K tokens → "on"</text>
+              <rect x="785" y="150" width="150" height="68" rx="6" fill="rgba(255,77,106,0.08)" stroke="#ff4d6a" stroke-width="1.5"/>
+              <text x="860" y="176" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600">Output head</text>
+              <text x="860" y="196" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">probability over</text>
+              <text x="860" y="210" text-anchor="middle" fill="#ced4e0" font-family="IBM Plex Mono, monospace" font-size="11">~50K tokens → "on"</text>
             </g>
           </svg>
         </div>
