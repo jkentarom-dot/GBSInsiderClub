@@ -41,7 +41,7 @@
 - **54 HTML files** live, auto-deployed via Cloudflare Pages
 - **38 cluster pages** — all have: concept SVG diagram, inline sub-diagram SVGs (brand tokens), Julian's Take block, 2× Self-Check blocks, numbered topic headings with teal accent, glossary
 - **10 pillar landing pages** — all have: Julian's Take block, restyled curriculum toggle + tile links, cluster counts
-- **1 AI Field Guide** (guide.html) — 37 chapters, 296 keyword highlights, 14 section breaker images, 34 inline SVGs, 36 self-check question blocks (109 questions), tier gating (free/paid), auth gate
+- **1 AI Field Guide** (guide.html) — 37 chapters, 853 keyword highlights, 21 section breaker images, 34 inline SVGs, 36 self-check question blocks (109 questions), advanced RAG strategies section (GraphRAG, Agentic RAG, Adaptive RAG), tier gating (free/paid), auth gate
 - **1 landing page** (index.html) — pillar explanation, career map, audience cards, hooks grid
 - **0 raster sub-diagrams** remaining on cluster pages
 - **Auth system fully operational:** free tier auto-invite + Julian notification, paid tier email approval flow
@@ -54,9 +54,9 @@
 | Inline sub-diagram SVGs | ✅ all | – | – | – |
 | Julian's Take block | ✅ all | ✅ all | – | – |
 | Self-Check blocks (2×) | ✅ all | – | ✅ 36 blocks, 109 Qs | – |
-| Keyword highlighting | – | – | ✅ 296 terms | partial |
+| Keyword highlighting | – | – | ✅ 853 terms | partial |
 | Topic numbering | ✅ 156 topics | – | – | – |
-| People/section photos | – | – | ✅ 14 images | – |
+| People/section photos | – | – | ✅ 21 images | – |
 | Glossary | ✅ all | – | ✅ | – |
 
 ### Auth System State
@@ -193,8 +193,12 @@ Claude can deploy if `api.supabase.com` is in the domain allowlist (added 2026-0
 | 7 | 496a00d | 8 generated images placed in guide + landing page text width fix |
 | 8 | c97ed40 | Complete handover rewrite |
 | 9 | c027dc3 | Self-check questions — 109 across 36 guide chapters |
+| 10 | ac4ba0f | Expand keyword highlighting — 853 total (doubled) |
+| 11 | 6024e21 | Fix ch15 LLM label + 7 new guide images (batch 2) |
+| 12 | 2244a41 | Advanced RAG strategies — GraphRAG, Agentic RAG, Adaptive RAG |
+| 13 | ae31c19 | Fix guide topbar line-breaking |
 
-**Total this session:** 9 commits, ~55 files changed
+**Total this session:** 13 commits, ~60 files changed
 
 ### Prior Session Reference (2026-06-07)
 15 commits: SVG rebuild (all pillars), Julian's Takes (full coverage), Self-Check blocks (all pages), link restyling. See git log for full history.
