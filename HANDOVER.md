@@ -1,89 +1,58 @@
 # GBS Insider Club — Session Handover Document
 
-**Date:** 2026-06-08
-**Session:** Supabase auth fix, AI Field Guide visual overhaul, landing page + cluster page enhancements
-**Status:** All execution items complete. Auth system working. Guide visually upgraded. Next session is cluster keyword highlighting + paid tier build.
+**Date:** 2026-06-08 (extended session)
+**Status:** Free tier site complete. AI Field Guide overhauled. Auth system operational. Next priority: paid tier architecture and content build.
 
 ---
 
-## 1. What Was Completed This Session
+## 1. Current Site State — What Exists
 
-### Supabase Auth — Diagnosed and Fixed
-- **Root cause found:** Free tier signups weren't notifying Julian — code only emailed for paid tier requests
-- **Fix deployed:** Added `free_signup_notification` type to `handle-access-request` and `send-email` edge functions
-- **Paid tier flow confirmed working:** Julian received approval email, 1-click approve link functional
-- **JWT issue fixed:** Edge functions must be deployed with `--no-verify-jwt` flag (documented in DEPLOY.md)
-- **User access resolved:** djschmechel + michaelpenndorf given tier metadata + password recovery sent; Anna Zaborowicz + Maciej Kuczko confirmed in auth system with invites sent
-- **Supabase access token stored** at `/mnt/project/Supabase_Claude_token` for future Claude deploys
-- **Domain allowlist updated:** `api.supabase.com` added to Claude project capabilities for future direct deploys
+### Free Tier (LIVE)
+- **54 HTML files** auto-deployed via Cloudflare Pages from GitHub
+- **10 pillar landing pages** — Julian's Take blocks, restyled curriculum toggles, cluster counts on tiles
+- **38 cluster pages** — concept SVGs, inline sub-diagram SVGs, Julian's Take blocks, 2× Self-Check blocks, numbered topic headings (156 topics) with teal accent, glossaries
+- **1 AI Field Guide** (guide.html) — 37 chapters behind auth gate:
+  - 853 keyword highlights (gold)
+  - 21 section breaker images (people photos + AI-generated)
+  - 34 inline SVG diagrams
+  - 36 self-check question blocks (109 questions)
+  - Advanced RAG strategies section (GraphRAG, Agentic RAG, Adaptive RAG with decision matrix)
+  - Tier gating (free/paid chapter visibility)
+- **1 landing page** (index.html) — pillar explanation with cluster counts, career map, audience cards, hooks grid, CTA section
 
-### AI Field Guide Visual Overhaul (guide.html)
-- **296 keyword highlights** across 36 chapters — gold `var(--yellow)` on first occurrence per chapter
-- **14 images total** placed as section breakers in text-heavy chapters:
-  - 6 existing people photos (ch18, ch19, ch25, ch28, ch29, ch39)
-  - 8 new AI-generated images (ch02 history timeline, ch22 RL vs fine-tuning, ch26 benchmarks dashboard, ch36 solution selection, ch38 ×4 local AI images)
-
-### Landing Page Improvements
-- **10 Pillars section rewritten:** Explains pillars → clusters → topics hierarchy for new visitors
-- **Navigation guidance added:** "Pick any pillar below to start exploring"
-- **Cluster counts on all 10 tiles:** "5 clusters · 15 topics — Models, governance, metrics"
-- **Text width expanded** from 720px to 960px to eliminate dead space
-
-### Cluster Page Topic Numbering — ALL 39 PAGES
-- **156 topics numbered:** "Topic 01 · Label" format across all cluster pages
-- **CSS upgraded:** section-eyebrow enlarged from 12px→14px, bold, teal #00bfa5 color, left border accent
-- **Glossary/Reference sections left unnumbered** as intended
-
----
-
-## 2. Current Site State
-
-- **54 HTML files** live, auto-deployed via Cloudflare Pages
-- **38 cluster pages** — all have: concept SVG diagram, inline sub-diagram SVGs (brand tokens), Julian's Take block, 2× Self-Check blocks, numbered topic headings with teal accent, glossary
-- **10 pillar landing pages** — all have: Julian's Take block, restyled curriculum toggle + tile links, cluster counts
-- **1 AI Field Guide** (guide.html) — 37 chapters, 853 keyword highlights, 21 section breaker images, 34 inline SVGs, 36 self-check question blocks (109 questions), advanced RAG strategies section (GraphRAG, Agentic RAG, Adaptive RAG), tier gating (free/paid), auth gate
-- **1 landing page** (index.html) — pillar explanation, career map, audience cards, hooks grid
-- **0 raster sub-diagrams** remaining on cluster pages
-- **Auth system fully operational:** free tier auto-invite + Julian notification, paid tier email approval flow
-
-### Visual Inventory per Page Type
-
-| Element | Cluster Pages | Pillar Pages | Guide | Landing |
-|---------|--------------|--------------|-------|---------|
-| Concept SVG diagram | ✅ all | – | 34 | – |
-| Inline sub-diagram SVGs | ✅ all | – | – | – |
-| Julian's Take block | ✅ all | ✅ all | – | – |
-| Self-Check blocks (2×) | ✅ all | – | ✅ 36 blocks, 109 Qs | – |
-| Keyword highlighting | – | – | ✅ 853 terms | partial |
-| Topic numbering | ✅ 156 topics | – | – | – |
-| People/section photos | – | – | ✅ 21 images | – |
-| Glossary | ✅ all | – | ✅ | – |
-
-### Auth System State
-- 5 edge functions deployed (all with `--no-verify-jwt`)
-- 2 tables: `access_requests` (active), `waitlist` (legacy)
-- Resend domain verified (gbsinsiderclub.com)
-- 5 secrets configured: SERVICE_KEY, RESEND_API_KEY, SMTP_PASS, NOTIFY_EMAIL, WEBHOOK_SECRET
+### Auth System (OPERATIONAL)
+- 5 edge functions deployed with `--no-verify-jwt`
 - Free tier: auto-invite + Julian notification via Resend
-- Paid tier: Julian gets email with 1-click approve link via Resend
-- Users in auth: Anna Zaborowicz, Maciej Kuczko, djschmechel, michaelpenndorf, jkentarom, julian.magata@gmx.de
+- Paid tier: Julian gets email with 1-click approve link
+- Invite emails redirect to guide.html (where auth processing happens)
+- Users: Anna Zaborowicz, Maciej Kuczko, djschmechel, michaelpenndorf, jkentarom, julian.magata@gmx.de
+
+### What Does NOT Exist Yet
+- Paid tier content (learning paths, templates, exercises)
+- Paid tier landing page / experience
+- Payment processing
+- Cluster page keyword highlighting (guide has it, cluster pages don't)
 
 ---
 
-## 3. Architecture Reference
+## 2. Architecture Reference
 
-- **Repo:** jkentarom-dot/GBSInsiderClub on GitHub, branch main
-- **PAT:** /mnt/project/PAT_for_github
-- **Supabase token:** /mnt/project/Supabase_Claude_token (sbp_... format)
-- **Hosting:** Cloudflare Pages (auto-deploy on push) + Cloudflare DNS/CDN
-- **Auth/backend:** Supabase (auth, edge functions) + Resend (transactional email)
-- **Domain:** Namecheap
-- **Brand tokens:** /mnt/skills/user/brand/SKILL.md
-- **Curriculum source:** /mnt/project/GBS_Curriculum_Final_2026_01_28_v01.xlsx
-- **Learning paths master:** /mnt/project/LEARNING_PATHS_MASTER.md
+### Infrastructure
+| Component | Service | Notes |
+|-----------|---------|-------|
+| Hosting | Cloudflare Pages | Auto-deploy on push to main |
+| Repo | GitHub: jkentarom-dot/GBSInsiderClub | Branch: main |
+| Auth | Supabase | Edge functions, user management |
+| Email | Resend | Domain verified: gbsinsiderclub.com |
+| Domain | Namecheap | DNS via Cloudflare |
+| PAT | /mnt/project/PAT_for_github | |
+| Supabase token | /mnt/project/Supabase_Claude_token | sbp_... format |
+| Curriculum | /mnt/project/GBS_Curriculum_Final_2026_01_28_v01.xlsx | |
+| Learning paths | /mnt/project/LEARNING_PATHS_MASTER.md | Architecture doc |
+| Brand | /mnt/skills/user/brand/SKILL.md | Single source of truth |
 
 ### Git Session Setup (every new session)
-```
+```bash
 cd /home/claude
 git clone https://github.com/jkentarom-dot/GBSInsiderClub.git
 cd GBSInsiderClub
@@ -93,46 +62,65 @@ git config user.email "claude@gbsinsiderclub.com"
 git config user.name "GBS Content Bot"
 ```
 
-### Supabase Edge Function Deploy (when functions change)
-```
-cd GBSInsiderClub
-git pull
+### Supabase Edge Function Deploy
+```bash
+cd GBSInsiderClub && git pull
 supabase functions deploy handle-access-request --project-ref wgdcfgknnentriqlajqe --no-verify-jwt
 supabase functions deploy send-email --project-ref wgdcfgknnentriqlajqe --no-verify-jwt
 supabase functions deploy approve-paid-user --project-ref wgdcfgknnentriqlajqe --no-verify-jwt
 ```
-Claude can deploy if `api.supabase.com` is in the domain allowlist (added 2026-06-08). Use `SUPABASE_ACCESS_TOKEN=$(cat /mnt/project/Supabase_Claude_token)` prefix.
-
-### Auth Flow (code in guide.html + 3 edge functions)
-- Login: email + password → `sb.auth.signInWithPassword()` → tier from `user_metadata.tier`
-- Free signup: form → `handle-access-request` → auto-approve → invite email via Supabase SMTP → notification to Julian via Resend
-- Paid signup: form → `handle-access-request` → pending + approval_token → email to Julian via Resend with 1-click approve link
-- Approve: Julian clicks link → `approve-paid-user` → creates/upgrades user → invite email
-- Tier gating: free hides Advanced/Expert chapters (opacity 0.35, pointer-events none) + upgrade banner
-- Manual tier change SQL: `UPDATE auth.users SET raw_user_meta_data = raw_user_meta_data || '{"tier": "paid"}'::jsonb WHERE email = 'user@email.com';`
+**CRITICAL:** Always use `--no-verify-jwt`. Always `git pull` first. Claude can deploy if `api.supabase.com` is in domain allowlist.
 
 ---
 
-## 4. On the Horizon — Full Action List
+## 3. Next Priority: Paid Tier Build
+
+### Architecture Decision (confirmed 2026-06-08)
+**Separate experience, not baked into existing structure.**
+
+Rationale: Users will get lost if paid content is mixed into the 38 cluster pages. The paid tier should be a distinct, guided experience with its own landing page, learning paths, and progression — while linking back to free tier theory as reference material.
+
+**Structure:**
+- New paid tier landing page (aligned to 10 pillars visual language)
+- 13 role-based learning paths (7 Core, 3 Project, 3 Add-On)
+- Each path: weekly modules with AI exercises, homework, templates, quizzes
+- Links back to free tier cluster pages for theory foundations
+- Full architecture in LEARNING_PATHS_MASTER.md
+
+### Open Questions Requiring Julian Decision
+See LEARNING_PATHS_MASTER.md Section 9 for full list. Top 5:
+1. **Q1:** Confirm 13 paths lineup — add, remove, or rename?
+2. **Q2:** Which 2 paths to build first? (Recommended: C3 New Team Lead + C1 New Associate)
+3. **Q3:** Price point — $19 founding / $29 launch / $39 premium?
+4. **Q9:** Linear-only or allow "pick your week"?
+5. **Q10:** Certificate of completion?
+
+### Build Sequence (proposed)
+1. Julian reviews LEARNING_PATHS_MASTER.md, answers Q1-Q11
+2. Design learning path page template (HTML)
+3. Build first 2 paths (content + exercises + templates)
+4. Add payment/gating (Stripe or manual approval)
+5. Build paid tier landing page
+
+---
+
+## 4. Remaining Action List
 
 ### HIGH PRIORITY
-1. **Keyword highlighting across 38 cluster pages** — Same treatment as guide.html. Mark key GBS terms in gold/bold. Regex-based approach per pillar targeting domain-specific terms. Large task — likely full session.
-
-2. **Landing page paid tier value prop rework** — Current landing page undersells paid tier. Needs compelling free-vs-paid comparison, keyword highlighting on audience cards, people photos as section breakers, reduced text density with diagrams and internal anchor links. Blocked on Julian concept input.
-
-3. **Landing page design unification** to current brand system.
+1. **Paid tier architecture review** — Julian reviews LEARNING_PATHS_MASTER.md, confirms path lineup, pricing, first 2 paths
+2. **Keyword highlighting on 38 cluster pages** — same treatment as guide (853 terms). Large task, full session.
+3. **Landing page paid tier value prop** — needs compelling free-vs-paid comparison. Blocked on paid tier decisions.
+4. **Edge function redeployment** — invite redirect fix (index.html → guide.html) needs deploying
 
 ### MEDIUM PRIORITY
-4. **Paid tier content build** — 13 role-based learning paths (Core 7, Project 3, Add-On 3). Architecture complete in LEARNING_PATHS_MASTER.md, awaiting Julian review of path lineup, pricing, first 2 paths to build. Key open questions: Q1-Q11 in the master doc.
-
-5. **Deeper cluster treatment** — P2C3 Continuous Improvement and similar performance clusters need: work examples, practical tips, downloadable PDF templates, step-by-step guides. PDFs to be co-designed with Julian.
-
-6. **Visual-first layout** — Visuals should appear before explanatory text across cluster pages (not yet broadly implemented).
+5. **Deeper cluster treatment** — work examples, practical tips, PDF templates for performance-critical clusters
+6. **Visual-first layout** across cluster pages
+7. **Landing page design unification** to current brand system
 
 ### LOWER PRIORITY
-7. **YouTube production** — Deprioritized until site content ready.
-8. **Sidebar font fix** — Grey text to white, small fonts for mobile.
-9. **One people photo gap** — Solo early-career person at a laptop.
+8. YouTube production
+9. Sidebar font fix (grey→white, mobile)
+10. One people photo gap (solo early-career at laptop)
 
 ### OPEN SECURITY/OPS
 - Namecheap mailbox password change + SMTP_PASS update in Supabase
@@ -143,62 +131,50 @@ Claude can deploy if `api.supabase.com` is in the domain allowlist (added 2026-0
 ## 5. Key Learnings & Principles
 
 ### Technical
-- Always grep exact alt text before writing replacement scripts — mismatch causes silent failure
-- Always re-fetch SHA before GitHub PUT; stale SHAs cause 409 errors
-- GitHub secret scanning blocks pushes with credential patterns (ghp_...)
+- Supabase edge functions MUST deploy with `--no-verify-jwt` — anon key auth returns 401 without it
+- Always `git pull` before `supabase functions deploy`
+- Always grep exact alt text before SVG replacement scripts
+- Always re-fetch SHA before GitHub PUT; stale SHAs cause 409
 - Python urllib.request more reliable than curl for large file pushes
-- Some pillar pages have minified CSS, others spaced — scripts must handle both
-- details/summary is best for collapsible blocks — native HTML, no JS, accessible
-- For bulk HTML edits: sed loop + verify with count + spot-check
-- Supabase edge functions MUST be deployed with `--no-verify-jwt` — without it, anon key auth returns 401
-- Always `git pull` before `supabase functions deploy` — otherwise old code gets deployed
-- Supabase access token stored at /mnt/project/Supabase_Claude_token (sbp_... format)
-- Keyword highlighting: always verify no highlights leaked into SVGs, headings, or code blocks after bulk apply
-- When cleaning SVG highlight leaks: remove `<strong style="...">` and `</strong>` wrappers but preserve the text content inside
-
-### Product/Content
-- Self-Check tone: challenging but encouraging, no judgment, no consequences stated
-- Questions: shorter, open-ended, invite self-reflection not quiz answers
-- Paid tier bridge: natural positioning as "next step" not "buy now"
-- Three visual rhythm elements per page: content (blue) > Take (gold) > Self-Check (sky blue)
-- Text-heavy pages need keyword highlighting against TL;DR abandonment
-- Julian's voice: punchy, practitioner-direct, un-textbook
-- Topic numbering format: "Topic 01 · Descriptive Label" in teal with left border accent
+- Keyword highlighting: always verify no highlights leaked into SVGs, headings, or code blocks
+- Invite emails must redirect to guide.html (not index.html) — index.html has no Supabase auth code
 
 ### Layout & Design Rules
-- **No dead space.** Text sections must use available width (min 960px max-width for body text). If a section leaves significant right-side white space, either expand the text container, add a visual element (photo, diagram, sidebar), or restructure to a two-column layout. This applies to all new pages — especially paid tier learning path pages where there will be many more content pages.
-- Section breaker photos: 100% width, 200-220px height, object-fit:cover, filter:brightness(0.85), gradient overlay at bottom fading to page bg color
-- People photos placed between content blocks as visual rhythm breakers — not decorative, should match section context
-- Images converted to WebP quality 85 before pushing to repo
-- Naming convention for guide images: `guide-chNN-descriptor.webp`
+- **No dead space.** Text sections must use available width (min 960px max-width). Add visuals or restructure to fill.
+- Section breaker photos: 100% width, 200-220px height, object-fit:cover, filter:brightness(0.85), gradient overlay
+- Topic numbering: "Topic 01 · Label" in teal 14px with 3px left border accent
+- Keyword highlighting: gold `var(--yellow)` or `#e8b800`, first occurrence per chapter/section
+- Three visual rhythm elements per cluster page: content (blue) > Take (gold) > Self-Check (sky blue)
+
+### Product
+- Paid tier = separate experience with own landing page, not mixed into free tier structure
+- Julian's voice: punchy, practitioner-direct, un-textbook
+- Self-Check tone: challenging but encouraging, scenario-based, no trivia
+- Paid tier bridge: natural "next step" positioning, not "buy now"
 
 ### Working Style
-- Julian prefers single handover doc — older versions deleted not accumulated
-- Handover docs fully self-contained
-- PAT stored in project files — no need to ask each session
+- Single handover doc — older versions deleted, not accumulated
+- Handover fully self-contained
 - Speed-first with explicit handoffs when scope exceeds session
 
 ---
 
-## 6. Session Commit History (2026-06-08)
+## 6. Commit History (2026-06-08 full session)
 
 | # | SHA | Description |
 |---|-----|-------------|
 | 1 | 9ff3766 | Free tier signup notification to Julian via Resend |
 | 2 | 662f6f2 | DEPLOY.md + HANDOVER with --no-verify-jwt docs |
-| 3 | 89a9ef3 | Action list update with AI Field Guide + session completions |
-| 4 | f4410a4 | Guide keyword highlighting — 296 terms across 36 chapters |
-| 5 | b35e545 | Guide people photos — 6 section breakers in text-heavy chapters |
+| 3 | 89a9ef3 | Action list update |
+| 4 | f4410a4 | Guide keyword highlighting — 296 terms |
+| 5 | b35e545 | Guide people photos — 6 section breakers |
 | 6 | 2d919c1 | Landing page pillar explanation + 156 cluster topic numbers |
-| 7 | 496a00d | 8 generated images placed in guide + landing page text width fix |
-| 8 | c97ed40 | Complete handover rewrite |
+| 7 | 496a00d | 8 generated images + landing page text width fix |
+| 8 | c97ed40 | Handover rewrite |
 | 9 | c027dc3 | Self-check questions — 109 across 36 guide chapters |
-| 10 | ac4ba0f | Expand keyword highlighting — 853 total (doubled) |
+| 10 | ac4ba0f | Expand keyword highlighting — 853 total |
 | 11 | 6024e21 | Fix ch15 LLM label + 7 new guide images (batch 2) |
 | 12 | 2244a41 | Advanced RAG strategies — GraphRAG, Agentic RAG, Adaptive RAG |
 | 13 | ae31c19 | Fix guide topbar line-breaking |
-
-**Total this session:** 13 commits, ~60 files changed
-
-### Prior Session Reference (2026-06-07)
-15 commits: SVG rebuild (all pillars), Julian's Takes (full coverage), Self-Check blocks (all pages), link restyling. See git log for full history.
+| 14 | 755408a | Handover update |
+| 15 | 35e6e33 | Fix "See what's inside" link + invite redirect |
