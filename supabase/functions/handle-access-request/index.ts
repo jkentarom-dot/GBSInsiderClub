@@ -78,7 +78,7 @@ Deno.serve(async (req) => {
       // Auto-invite
       const { error: inviteError } = await sb.auth.admin.inviteUserByEmail(email, {
         data: { tier: 'free', first_name, last_name },
-        redirectTo: `${SITE_URL}/index.html`,
+        redirectTo: `${SITE_URL}/guide.html`,
       })
       if (inviteError) throw inviteError
 

@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
     // New user — send invite
     const { error: inviteError } = await sb.auth.admin.inviteUserByEmail(record.email, {
       data: { tier: 'paid', first_name: record.first_name, last_name: record.last_name },
-      redirectTo: `${SITE_URL}/index.html`,
+      redirectTo: `${SITE_URL}/guide.html`,
     })
     if (inviteError) {
       return html('Invite Failed', `Could not send invite to ${record.email}. Error: ${inviteError.message}`, '#ff4d6a')
