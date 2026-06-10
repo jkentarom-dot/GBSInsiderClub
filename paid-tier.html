@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GBS Insider Club Career Paths — role-based learning programs built on the 5-Step Career Booster. Self-assessment, practical exercises, and the skills nobody teaches you.">
+<link rel="canonical" href="https://gbsinsiderclub.com/paid-tier.html">
+<title>Career Paths — GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --void: #080b10; --surface: #0e1219; --surface-2: #141922; --surface-3: #1b2130;
+    --teal: #1d6aff; --gold: #e8b800; --sky: #38bdf8;
+    --text: #ffffff; --text-2: #c8d0de; --text-3: #7a8799;
+    --border: #1e2636; --border-2: #2a3347;
+    --green: #34d399; --purple: #a78bfa;
+  }
+  body { background: var(--void); color: var(--text-2); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.7; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 56px; background: rgba(8,11,16,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .topbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand-mark { width: 28px; height: 28px; border: 1px solid rgba(29,106,255,0.3); border-radius: 4px; background: rgba(29,106,255,0.06); display: flex; align-items: center; justify-content: center; }
+  .brand-name { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+  .brand-name span:first-child { color: var(--teal); }
+  .brand-name span:last-child { color: var(--text-2); font-weight: 400; }
+  .topbar-nav { display: flex; align-items: center; gap: 20px; }
+  .topbar-nav a { color: var(--text-2); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .topbar-nav a:hover { color: var(--teal); }
+  .page { padding-top: 56px; }
+  .content-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.15em; text-transform: uppercase; }
+  .eyebrow-gold { color: var(--gold); }
+  .hero { padding: 80px 0 56px; position: relative; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: radial-gradient(ellipse at 80% 30%, rgba(29,106,255,0.05) 0%, transparent 70%); pointer-events: none; }
+  .hero h1 { font-size: clamp(38px, 4.5vw, 60px); font-weight: 300; color: var(--text); line-height: 1.1; margin: 16px 0; max-width: 880px; }
+  .hero h1 strong { font-weight: 600; color: var(--teal); }
+  .hero-lead { font-size: 18px; color: var(--text-2); line-height: 1.8; max-width: 900px; }
+  .section { padding: 56px 0; border-top: 1px solid var(--border); }
+  .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
+  .section-intro { font-size: 15px; color: var(--text-2); line-height: 1.8; margin-bottom: 28px; }
+  .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
+  .svg-frame svg { display: block; width: 100%; height: auto; min-width: 720px; }
+  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
+  .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+  .card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 10px; }
+  .card p { font-size: 14px; color: var(--text-2); line-height: 1.8; }
+  .card ul { margin: 0; padding: 0 0 0 18px; }
+  .card li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 4px; }
+  .num-chip { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(29,106,255,0.08); border: 1px solid rgba(29,106,255,0.3); font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--teal); margin-bottom: 14px; }
+  .rule-list { list-style: none; counter-reset: rule; }
+  .rule-list li { counter-increment: rule; display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 15px; color: var(--text-2); line-height: 1.7; }
+  .rule-list li::before { content: counter(rule, decimal-leading-zero); font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+  .step-row { display: grid; grid-template-columns: 56px 1fr; gap: 0; padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .step-row:last-child { border-bottom: none; }
+  .step-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.08em; padding-top: 2px; }
+  .step-content h4 { font-size: 15px; font-weight: 600; color: var(--text); margin: 0 0 6px; }
+  .step-content p { font-size: 14px; color: var(--text-2); line-height: 1.75; margin: 0; }
+  .highlight-box { background: rgba(232,184,0,0.06); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 20px 0; }
+  .highlight-box .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+  .highlight-box p { font-size: 15px; color: var(--text-2); line-height: 1.8; margin: 0; }
+  .ai-tech { border-left: 3px solid var(--teal); }
+  .ai-tech .tech-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 8px; }
+  .path-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 26px; display: flex; flex-direction: column; transition: border-color 0.25s, transform 0.2s; }
+  .path-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+  .path-card .pc-badge { align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid; border-radius: 3px; padding: 2px 8px; margin-bottom: 14px; }
+  .pc-green { color: var(--green); border-color: rgba(52,211,153,0.3); }
+  .pc-gold { color: var(--gold); border-color: rgba(232,184,0,0.3); }
+  .pc-teal { color: var(--teal); border-color: rgba(29,106,255,0.3); }
+  .pc-purple { color: var(--purple); border-color: rgba(167,139,250,0.3); }
+  .path-card h3 { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .path-card .pc-tagline { font-size: 13px; color: var(--gold); margin-bottom: 12px; font-style: italic; }
+  .path-card p { font-size: 14px; color: var(--text-2); line-height: 1.75; flex: 1; }
+  .path-card ul { list-style: none; padding: 0; margin: 0; flex: 1; }
+  .path-card li { font-size: 14px; color: var(--text-2); line-height: 1.7; padding: 4px 0 4px 18px; position: relative; }
+  .path-card li::before { content: ''; position: absolute; left: 0; top: 13px; width: 10px; height: 2px; background: var(--teal); }
+  .path-card .pc-foot { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); letter-spacing: 0.08em; text-transform: uppercase; }
+  .path-card a.pc-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #fff; text-decoration: none; background: rgba(29,106,255,0.18); border: 1px solid var(--teal); padding: 8px 16px; border-radius: 6px; align-self: flex-start; transition: all 0.25s; }
+  .path-card a.pc-link:hover { background: rgba(29,106,255,0.28); border-color: var(--gold); color: var(--gold); }
+  .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; align-items: stretch; }
+  .price-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 28px; display: flex; flex-direction: column; }
+  .price-card.featured { border-color: var(--teal); background: var(--surface-3); box-shadow: 0 0 0 1px rgba(29,106,255,0.15), 0 12px 32px rgba(0,0,0,0.35); }
+  .price-card .tier-name { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+  .price-card .price { font-size: 36px; font-weight: 600; color: var(--gold); line-height: 1; }
+  .price-card .price-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); letter-spacing: 0.08em; text-transform: uppercase; margin: 6px 0 18px; }
+  .price-card ul { list-style: none; flex: 1; }
+  .price-card li { font-size: 14px; color: var(--text-2); padding: 7px 0 7px 22px; position: relative; line-height: 1.55; }
+  .price-card li::before { content: ''; position: absolute; left: 0; top: 14px; width: 12px; height: 2px; background: var(--teal); }
+  .ppp-note { margin-top: 20px; background: rgba(232,184,0,0.06); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; font-size: 14px; color: var(--text-2); line-height: 1.7; }
+  .ppp-note .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+  .footer-nav { padding: 48px 0 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-nav a { color: var(--text-2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--teal); }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: var(--teal); color: var(--void); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-decoration: none; border-radius: 6px; transition: background 0.2s; }
+  .btn-primary:hover { background: #3d7eff; }
+  @media (max-width: 1024px) { .content-wrap { padding: 0 24px; } .topbar { padding: 0 24px; } .grid-5 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); } }
+  @media (max-width: 600px) { .hero h1 { font-size: 32px; } }
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <a href="index.html" class="topbar-brand">
+    <div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
+  </a>
+  <div class="topbar-nav"><a href="index.html">Free Tier</a><a href="guide.html">Field Guide</a><a href="#pricing" class="btn-primary" style="font-size:12px; padding:6px 16px;">Get Access</a></div>
+</nav>
+<div class="page"><div class="content-wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="eyebrow">GBS Insider Club — Career Paths</span>
+    <h1>Your Career <strong>Starts Here!</strong></h1>
+    <p class="hero-lead">Learn how you unlock your <strong style="color:var(--gold)">true potential</strong> at work. Role-based career programs for GBS professionals — built around one system that takes you from where you are to where you want to be.</p>
+  </section>
+
+  <!-- ============ 5-STEP CAREER BOOSTER ============ -->
+  <section class="section" id="career-booster">
+    <span class="eyebrow">The System</span>
+    <h2>The 5-Step Career Booster</h2>
+    <p class="section-intro">Every learning path follows this system. Five steps that build on each other — but not a rigid waterfall. Depending on where you stand, you may work on performance and visibility at the same time. The assessment tells you where to focus. What matters: don't skip the foundation. Performance comes before positioning.</p>
+
+    <div class="svg-frame">
+      <svg viewBox="0 0 1180 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The 5-Step Career Booster model">
+        <defs>
+          <marker id="arrowT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1d6aff"/>
+          </marker>
+        </defs>
+        <text x="40" y="32" font-family="JetBrains Mono, monospace" font-size="13" fill="#1d6aff" letter-spacing="3">THE 5-STEP CAREER BOOSTER</text>
+        <!-- Step blocks: ascending -->
+        <rect x="40" y="72" width="192" height="158" rx="10" fill="#141922" stroke="#1e2636"/>
+        <rect x="40" y="72" width="192" height="3" fill="#1d6aff"/>
+        <text x="60" y="104" font-family="JetBrains Mono, monospace" font-size="12" fill="#1d6aff" letter-spacing="2">STEP 1</text>
+        <text x="60" y="140" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Career</text>
+        <text x="60" y="166" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Mindset</text>
+
+        <rect x="264" y="60" width="192" height="170" rx="10" fill="#141922" stroke="#1e2636"/>
+        <rect x="264" y="60" width="192" height="3" fill="#1d6aff"/>
+        <text x="284" y="92" font-family="JetBrains Mono, monospace" font-size="12" fill="#1d6aff" letter-spacing="2">STEP 2</text>
+        <text x="284" y="128" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Job Value &amp;</text>
+        <text x="284" y="154" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Performance</text>
+
+        <rect x="488" y="48" width="192" height="182" rx="10" fill="#141922" stroke="#1e2636"/>
+        <rect x="488" y="48" width="192" height="3" fill="#1d6aff"/>
+        <text x="508" y="80" font-family="JetBrains Mono, monospace" font-size="12" fill="#1d6aff" letter-spacing="2">STEP 3</text>
+        <text x="508" y="116" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Visibility &amp;</text>
+        <text x="508" y="142" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Ambition</text>
+
+        <rect x="712" y="36" width="192" height="194" rx="10" fill="#141922" stroke="#1e2636"/>
+        <rect x="712" y="36" width="192" height="3" fill="#1d6aff"/>
+        <text x="732" y="68" font-family="JetBrains Mono, monospace" font-size="12" fill="#1d6aff" letter-spacing="2">STEP 4</text>
+        <text x="732" y="104" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Next-Role</text>
+        <text x="732" y="130" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Skills</text>
+
+        <rect x="936" y="24" width="204" height="206" rx="10" fill="#1b2130" stroke="#e8b800" stroke-width="1.5"/>
+        <rect x="936" y="24" width="204" height="3" fill="#e8b800"/>
+        <text x="956" y="56" font-family="JetBrains Mono, monospace" font-size="12" fill="#e8b800" letter-spacing="2">STEP 5</text>
+        <text x="956" y="92" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Execute</text>
+
+        <!-- connecting arrows -->
+        <line x1="232" y1="148" x2="260" y2="142" stroke="#1d6aff" stroke-width="2" marker-end="url(#arrowT)"/>
+        <line x1="456" y1="136" x2="484" y2="130" stroke="#1d6aff" stroke-width="2" marker-end="url(#arrowT)"/>
+        <line x1="680" y1="124" x2="708" y2="118" stroke="#1d6aff" stroke-width="2" marker-end="url(#arrowT)"/>
+        <line x1="904" y1="112" x2="932" y2="106" stroke="#1d6aff" stroke-width="2" marker-end="url(#arrowT)"/>
+        <!-- overlap bracket hint for steps 2-3 -->
+        <path d="M 310 234 Q 440 250 570 234" stroke="#2a3347" stroke-width="1" fill="none" stroke-dasharray="4 4"/>
+        <text x="440" y="254" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7a8799" letter-spacing="1">CAN OVERLAP</text>
+      </svg>
+    </div>
+
+    <div class="grid-5">
+      <div class="card"><div class="num-chip">1</div><h3>Career Mindset</h3><p>What do you <strong style="color:var(--gold)">actually want</strong>? Where do you stand — honestly? Self-assessment, strengths, weaknesses, and your Career Chessboard position before anything else begins.</p></div>
+      <div class="card"><div class="num-chip">2</div><h3>Job Value &amp; Performance</h3><p>Understand what matters in your role. Find and close your skill gaps — hard and soft. Become demonstrably <strong style="color:var(--gold)">above average</strong>. This is the non-negotiable foundation.</p></div>
+      <div class="card"><div class="num-chip">3</div><h3>Visibility &amp; Ambition</h3><p>Make your work known. Build your network in all directions. Find a visibility channel that fits your personality. Express your <strong style="color:var(--gold)">ambitions</strong> — at the right time, in the right way.</p></div>
+      <div class="card"><div class="num-chip">4</div><h3>Next-Role Skills</h3><p>Understand what the next role actually requires — from real job descriptions. Build those capabilities before you hold the title. <strong style="color:var(--gold)">Promotions</strong> go to people already operating above their level.</p></div>
+      <div class="card" style="border-color: rgba(232,184,0,0.35);"><div class="num-chip" style="color:var(--gold); border-color:rgba(232,184,0,0.3); background:rgba(232,184,0,0.06);">5</div><h3>Execute</h3><p>Get promoted. Negotiate the raise. Apply for the role. <strong style="color:var(--gold)">Earned</strong> at Steps 2-4, executed here. With evidence, the ask is a logical conclusion.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ FOLLOW THIS ============ -->
+  <section class="section">
+    <span class="eyebrow eyebrow-gold">The Promise</span>
+    <h2>Follow this and you will get promoted</h2>
+    <p class="section-intro">We repeat it because it matters. There are no cheat codes or tricks that make you look better than you are — those collapse the moment someone checks. We want you to be successful through <strong style="color:var(--gold)">knowledge</strong>, <strong style="color:var(--gold)">clarity</strong>, and <strong style="color:var(--gold)">real capability</strong>. Five rules:</p>
+    <ol class="rule-list">
+      <li>Develop the skills to perform well — hard skills and soft skills, deliberately.</li>
+      <li>Understand what matters: to your role, your manager, your organization.</li>
+      <li>Actually perform — above average, consistently, not once.</li>
+      <li>Be seen. Make your contribution visible in a way that fits who you are.</li>
+      <li>Actively ask for what you want — at the right time, in the right way, with evidence.</li>
+    </ol>
+  </section>
+
+  <!-- ============ STUDY GUIDE ============ -->
+  <section class="section" id="study-guide">
+    <span class="eyebrow">Before Any Path</span>
+    <h2>Study Guide — How to Learn</h2>
+    <p class="section-intro">In order to get the most out of the career path, you need to apply, experiment, and habitualize the career advice and techniques. The risk: you read, nod your head, and forget. We want you to be successful — so we don't only need your full attention, we need your active support and willingness to execute.</p>
+
+    <div class="highlight-box">
+      <span class="label">The Core Method</span>
+      <p><strong style="color:var(--gold)">"Repetition makes the master"</strong> is what we say in Germany. The science backs it up: active recall — testing yourself from memory — outperforms passive re-reading by a factor of two or more. Spaced repetition — revisiting material at increasing intervals — beats cramming every time. And the Feynman Technique says: if you can explain something simply, you know it. If you can't, you've found your gap.</p>
+    </div>
+
+    <div class="step-row">
+      <span class="step-label">Step 1</span>
+      <div class="step-content"><h4>Focus on just one new topic a day.</h4><p>Not three. One. Give it your full attention. Quality beats quantity.</p></div>
+    </div>
+    <div class="step-row">
+      <span class="step-label">Step 2</span>
+      <div class="step-content"><h4>Summarize it without looking.</h4><p>Close the material. Write or speak what you understood in your own words. If you struggle — go back and re-read. This is <strong style="color:var(--gold)">active recall</strong>, and it works.</p></div>
+    </div>
+    <div class="step-row">
+      <span class="step-label">Step 3</span>
+      <div class="step-content"><h4>Apply this at work next morning.</h4><p>Use it. Afraid to make a mistake? You can make mistakes — that's how skills are built. Plan exactly when and where you'll use it: "In tomorrow's 1:1, I will try the 3-sentence summary technique." This is an implementation intention, and it doubles follow-through.</p></div>
+    </div>
+    <div class="step-row">
+      <span class="step-label">Step 4</span>
+      <div class="step-content"><h4>Repeat.</h4><p>Revisit yesterday's topic briefly before starting today's. One minute of recall compounds over weeks.</p></div>
+    </div>
+    <div class="step-row">
+      <span class="step-label">Step 5</span>
+      <div class="step-content"><h4>Next topic.</h4><p>Move on only when the previous one feels natural — not memorized, but habitualized.</p></div>
+    </div>
+
+    <p style="font-size:15px; color:var(--text-2); line-height:1.8; margin-top:20px;">Ninety days of this compounds you into a fundamentally different professional. Every module ships with a practical exercise designed to be done at your actual job. If you only read, you bought another theory course — and you already have one for free.</p>
+
+    <div class="grid-3" style="margin-top:28px;">
+      <div class="card"><div class="num-chip">1</div><h3>Teach It Back</h3><ul><li>Explain what you learned to a colleague — informally, over coffee, in a team chat</li><li>Teaching forces you to organize your understanding</li><li>If you can teach it, you own it</li><li>If you stumble, that's the gap to go back to</li></ul></div>
+      <div class="card"><div class="num-chip">2</div><h3>Reflect for Two Minutes</h3><ul><li>End-of-day, two questions: What did I try today? What happened?</li><li>This micro-reflection turns experience into learning</li><li>Without it, the insight evaporates by morning</li><li>Two minutes — not a journal, just a mental check</li></ul></div>
+      <div class="card"><div class="num-chip">3</div><h3>Spaced Review</h3><ul><li>Before starting this week's topic, spend five minutes recalling last week's</li><li>The forgetting curve is real — we lose 70% within 24 hours without review</li><li>A brief review at the right interval locks knowledge in permanently</li><li>One minute of recall beats thirty minutes of re-reading</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ============ AI SECTION ============ -->
+  <section class="section" id="ai">
+    <span class="eyebrow">Performance Enhancer</span>
+    <h2>AI: Accelerate Your Learning Trajectory</h2>
+    <p class="section-intro">Here are a few practical techniques using AI to amplify everything you learn. Associates who use AI properly operate with capabilities it took senior colleagues years to develop — drafting, analyzing, preparing, practicing. Every module in every path includes an AI application alongside the manual approach.</p>
+    <p style="font-size:14px; color:var(--text-2); margin-bottom:24px;">Not every organization permits AI use at every level. Where it doesn't, each exercise includes a manual alternative.</p>
+
+    <p style="font-size:16px; font-weight:500; color:var(--text); margin-bottom:16px;">Here are 3 very practical tips to get more out of AI:</p>
+
+    <div class="grid-3">
+      <div class="card ai-tech"><span class="tech-label">Technique 01</span><h3>Prompt Reversal</h3><ul><li>Don't write long prompts yourself</li><li>Tell AI your <strong style="color:var(--gold)">goal</strong>, ask it to write the optimal prompt for you</li><li>Copy it back, adjust slightly, run it</li><li>Beats hand-crafted prompts and prompt libraries</li></ul></div>
+      <div class="card ai-tech"><span class="tech-label">Technique 02</span><h3>The Session Document</h3><ul><li>Write a <strong style="color:var(--gold)">job description</strong> for your AI: role, context, voice, status</li><li>Define human-in-the-loop checkpoints — where you review and decide</li><li>Hand it over at the start of every new session</li><li>Your AI starts every conversation already briefed</li></ul></div>
+      <div class="card ai-tech"><span class="tech-label">Technique 03</span><h3>Interview Mode</h3><ul><li>Don't say "write me X"</li><li>Say: "I need X. <strong style="color:var(--gold)">Interview me first</strong> — ask me 10 questions about my situation"</li><li>AI combines your answers with best practices and research</li><li>General knowledge + your specifics = uniquely strong output</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ============ THE 4 PATHS ============ -->
+  <section class="section" id="paths">
+    <span class="eyebrow">The Paths</span>
+    <h2>Four roles. One system.</h2>
+    <p class="section-intro">Pick the path that matches your role today. Each one applies the 5-Step Career Booster to the specific reality of that level — the scenarios, the politics, the skills that actually matter there.</p>
+    <div class="grid-2">
+      <div class="path-card">
+        <span class="pc-badge pc-green">Available First</span>
+        <h3>Associate Accelerator</h3>
+        <div class="pc-tagline">"Everything your manager should teach you — but probably won't."</div>
+        <ul>
+          <li>For GBS/SSC associates in their first <strong style="color:var(--gold)">0-24 months</strong></li>
+          <li>Own your onboarding — decode what's actually expected</li>
+          <li>Learn to manage up and build <strong style="color:var(--gold)">visibility</strong> that fits your personality</li>
+          <li>Lay the groundwork for your first career move</li>
+        </ul>
+        <a class="pc-link" href="path-associate.html">View the full path</a>
+        <div class="pc-foot">Career Chessboard + 5 Steps + 90-Day Roadmap</div>
+      </div>
+      <div class="path-card">
+        <span class="pc-badge pc-gold">Coming Next</span>
+        <h3>Team Lead Playbook</h3>
+        <div class="pc-tagline">"Yesterday you were one of them. Today you're the boss."</div>
+        <ul>
+          <li>For first-time and experienced <strong style="color:var(--gold)">team leads</strong></li>
+          <li>Navigate the peer-to-boss transition</li>
+          <li>Master delegation, hard conversations, and <strong style="color:var(--gold)">calibration politics</strong></li>
+          <li>Bridge the gap between running a team and running a function</li>
+        </ul>
+        <div class="pc-foot">In development</div>
+      </div>
+      <div class="path-card">
+        <span class="pc-badge pc-teal">Planned</span>
+        <h3>Manager Track</h3>
+        <div class="pc-tagline">"You run the function. Now run it like a business."</div>
+        <ul>
+          <li>For managers who own <strong style="color:var(--gold)">service delivery</strong>, internal customer relationships, and people</li>
+          <li>Develop P&amp;L thinking and technology strategy</li>
+          <li>Master executive communication and org design</li>
+          <li>Position yourself for the <strong style="color:var(--gold)">strategic level</strong></li>
+        </ul>
+        <div class="pc-foot">In development</div>
+      </div>
+      <div class="path-card">
+        <span class="pc-badge pc-purple">Planned</span>
+        <h3>Project Leadership</h3>
+        <div class="pc-tagline">"From SME on your first project to leading the transformation."</div>
+        <ul>
+          <li>For everyone pulled into <strong style="color:var(--gold)">project work</strong> — part-time SME to full transformation lead</li>
+          <li>Scoping, governance, and savings validation</li>
+          <li>Turn projects into <strong style="color:var(--gold)">career currency</strong></li>
+        </ul>
+        <div class="pc-foot">In development</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section" id="pricing">
+    <span class="eyebrow">Pricing</span>
+    <h2>One-time purchase. No subscription.</h2>
+    <p class="section-intro">You buy it once, you keep it. No monthly fee, no "am I getting my money's worth this month" anxiety. The content is a complete program, not a feed.</p>
+    <div class="highlight-box" style="margin-bottom:28px;">
+      <span class="label">The Math Is Simple</span>
+      <p>Once you land a monthly increase, a promotion, or a better-paying role — your <strong style="color:var(--gold)">one-time investment</strong> in yourself pays for itself many times over. This isn't a recurring cost. It's a career asset with compounding returns.</p>
+    </div>
+    <div class="price-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="price-card featured">
+        <div class="tier-name">Full Access</div>
+        <div class="price">$99</div>
+        <div class="price-meta">One-time / lifetime access</div>
+        <ul>
+          <li>All <strong style="color:var(--gold)">learning paths</strong> — current and future updates included</li>
+          <li>All templates, exercises, and downloads</li>
+          <li>Career Chessboard with re-assessment tracking</li>
+          <li>Every Julian's Take, every module</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="tier-name">Personal Coaching</div>
+        <div class="price" style="font-size:24px; color:var(--text);">Let's talk</div>
+        <div class="price-meta">Book a free intro call</div>
+        <ul>
+          <li>Everything in Full Access</li>
+          <li>Personal 1:1 sessions with Julian</li>
+          <li>Your Career Chessboard, <strong style="color:var(--gold)">reviewed together</strong></li>
+          <li>Your promotion case — challenged and sharpened</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ppp-note">
+      <span class="label">Fair Global Pricing</span>
+      GBS careers are global — pricing should be too. If you're in India, the Philippines, Malaysia, or other qualifying countries, adjusted regional pricing applies automatically. Same content, same lifetime access, priced for your market.
+    </div>
+  </section>
+
+  <!-- ============ WHAT IF ============ -->
+  <section class="section">
+    <span class="eyebrow">Honest Outcomes</span>
+    <h2>What if it's not working?</h2>
+    <p class="section-intro">The 5-Step Career Booster works for most people willing to do the work. But not every situation has a promotion at the end. Two scenarios deserve honest answers — not motivational posters.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>You're giving your best — and it's still not enough</h3>
+        <ul>
+          <li>You've done the work. Your manager's assessment isn't bias — it's honest.</li>
+          <li>Sometimes the role genuinely isn't the <strong style="color:var(--gold)">right fit</strong> for your strengths</li>
+          <li>Acknowledging this is not weakness — it's self-awareness, one of the hardest professional skills</li>
+          <li>The right move: conclude honestly, take action, and <strong style="color:var(--gold)">redirect</strong> toward a role where your strengths compound</li>
+          <li>The Career Chessboard helps you see this clearly — that's part of its value</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>You've done your homework — but there are no openings</h3>
+        <ul>
+          <li>Performance is strong. Potential is clear. There's simply <strong style="color:var(--gold)">no opportunity</strong> in sight</li>
+          <li>This isn't a personal failure — it's a supply issue, and it happens</li>
+          <li>The right next step: prepare for the external market</li>
+          <li>Brush up your CV/resume — position your achievements in the language recruiters search for</li>
+          <li>Prepare for <strong style="color:var(--gold)">job interviews</strong> — practice your story, your case studies, your salary negotiation</li>
+          <li>Your Brag Sheet and Career Chessboard become your interview preparation kit</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="footer-nav">
+    <a href="index.html">&larr; Back to GBS Insider Club</a>
+    <a href="path-associate.html" class="btn-primary">Explore the Associate Accelerator</a>
+  </div>
+
+</div></div>
+</body>
+</html>
