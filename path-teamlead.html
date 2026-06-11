@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Team Lead Playbook — the GBS Insider Club career path for new and experienced team leads. Career Chessboard self-assessment, the 5-Step Career Booster, and a 90-day leadership roadmap.">
+<meta name="description" content="Team Lead Playbook — the GBS Insider Club career path for new and experienced team leads. Career Chessboard self-assessment, the 5-Step Career Booster, talent management, and a 90-day roadmap to Manager.">
 <link rel="canonical" href="https://gbsinsiderclub.com/path-teamlead.html">
 <title>Team Lead Playbook — GBS Insider Club</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +43,9 @@
   .section { padding: 52px 0; border-top: 1px solid var(--border); }
   .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
   .section-intro { font-size: 15px; color: var(--text-2); line-height: 1.8; max-width: 760px; margin-bottom: 28px; }
+  .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
+  .svg-frame svg { display: block; width: 100%; height: auto; min-width: 680px; max-width: 980px; margin: 0 auto; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
   .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
   .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
   .card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
@@ -113,8 +116,8 @@
     <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><a href="paid-tier.html">Career Paths</a><span class="sep">/</span><span style="color:var(--teal);">Team Lead Playbook</span></div>
     <span class="eyebrow">Career Path — Team Lead Level</span>
     <h1>Team Lead<br><strong>Playbook</strong></h1>
-    <p class="hero-lead">Yesterday you were one of them. Today you run the team. The skills that matter now are completely different from the ones that got you here — and nobody hands you a manual.</p>
-    <p class="hero-body">This is not a leadership theory course. The free tier covers theory. This path is the behavioral, political, and operational playbook for team leads who want to build a high-performing team, earn their authority, and position themselves for Manager — guided by an honest self-assessment and measured by a 90-day leadership roadmap.</p>
+    <p class="hero-lead">Yesterday you were one of them. Today you run the team. The talent management, authority, political, and operational skills that determine whether you advance to Manager or plateau.</p>
+    <p class="hero-body">This is not a leadership theory course. The free tier covers frameworks. This path is the behavioral playbook for what actually changes when you become the person responsible for other people's performance, careers, and the team's output. Guided by the Career Chessboard, structured by the 5-Step Career Booster, measured by a 90-day roadmap with a real tollgate.</p>
   </section>
 
   <!-- ============ HOW THIS WORKS ============ -->
@@ -122,9 +125,9 @@
     <span class="eyebrow">Before You Start</span>
     <h2>How this path works</h2>
     <div class="grid-3">
-      <div class="card"><h3>Self-paced study, real-job practice</h3><p>Study 30-60 minutes daily. But the exercises happen with your actual team, your actual stakeholders, your actual manager. The 90-day milestones track real leadership behavior, not reading completion.</p></div>
-      <div class="card"><h3>One behavior at a time</h3><p>Each module targets one leadership behavior. Apply it the same week. Repeat until it becomes your default operating mode. Moving on before the previous behavior is habitual defeats the purpose.</p></div>
-      <div class="card"><h3>AI in every module</h3><p>Each exercise has an AI application using the three foundation techniques — Prompt Reversal, Session Document, Interview Mode. If your organization restricts AI use, every exercise has a manual alternative.</p></div>
+      <div class="card"><h3>Self-paced study, fixed-pace practice</h3><p>Study 30-60 minutes daily. The practical exercises happen at your real job on a real roadmap. The 90-day milestones keep you honest. You're managing people now — the work can't wait.</p></div>
+      <div class="card"><h3>One behavior per week</h3><p>Each module ends in something you do with your team. Pick one leadership behavior, apply it, repeat until natural. Reading about delegation doesn't make you a delegator.</p></div>
+      <div class="card"><h3>AI in every module</h3><p>Each exercise has an AI application using Prompt Reversal, Session Document, and Interview Mode. If your organization restricts AI, every exercise has a manual alternative. Many exercises involve real conversations — AI prepares you, reality tests you.</p></div>
     </div>
     <p style="margin-top:18px; font-size:14px; color:var(--text-3);">New to the foundation techniques? Read <a href="paid-tier.html#foundations" style="color:var(--teal); text-decoration:none;">How to Learn &amp; AI Foundations</a> first — it applies to every path.</p>
   </section>
@@ -133,59 +136,125 @@
   <section class="section" id="step-1">
     <div class="step-header">
       <div class="step-num">1</div>
-      <div><span class="step-kicker">Career Booster — Step 1</span><h2 style="margin:2px 0 0;">Build a Leadership Mindset</h2></div>
+      <div><span class="step-kicker">Career Booster — Step 1</span><h2 style="margin:2px 0 0;">Build a Career Mindset</h2></div>
     </div>
-    <p class="section-intro">The biggest shift isn't the title. It's the realization that your success is now measured by your team's output, not yours. Step 1 forces an honest assessment of where you stand as a leader — not where you stood as an individual contributor.</p>
+    <p class="section-intro">The assessment changes at Team Lead level. You're no longer scored on individual execution — you're scored on whether your team delivers and whether you're developing the capabilities a Manager needs. Different game, different scoreboard.</p>
 
     <details class="module" open>
-      <summary><span class="mod-code">1.1</span><span class="mod-title">Self-Assessment: Leadership Competencies — Evidence Only</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">1.1</span><span class="mod-title">Self-Assessment: The Team Lead Scoreboard</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>The same rule applies: <strong style="color:var(--gold);">no example, no score.</strong> But the competencies have changed completely. You are no longer scored on how well you execute tasks. You are scored on how well your team delivers, how you handle people, and whether you display the capabilities your manager needs to see before trusting you with more.</p>
-        <span class="mod-label">Collect your benchmarks</span>
-        <table class="data-table">
-          <thead><tr><th>Benchmark</th><th>Where to get it</th><th>If you can't get it</th></tr></thead>
-          <tbody>
-            <tr><td>Your Team Lead job description</td><td>HR, your manager, the posting you were promoted from</td><td>We provide a generic GBS Team Lead role profile</td></tr>
-            <tr><td>Your team's SLAs and KPIs</td><td>Performance dashboards, your manager</td><td>Ask: "What are the metrics my team is measured against?"</td></tr>
-            <tr><td>The Manager job description</td><td>Internal postings, HR, your manager</td><td>We provide a generic GBS Manager role profile</td></tr>
-          </tbody>
-        </table>
-        <span class="mod-label">Impact as a team lead — is your team delivering?</span>
+        <p>As an associate, the question was "are you good at your job?" As a Team Lead, the question splits: "does your team deliver?" and "could you run something bigger?" Rate yourself against each competency below. Same rule applies: <strong style="color:var(--gold);">no example, no score.</strong></p>
+        <span class="mod-label">Impact — does your team deliver?</span>
         <table class="data-table">
           <thead><tr><th>Competency</th><th>Evidence question</th></tr></thead>
           <tbody>
-            <tr><td>Direction</td><td>Does your team know what's expected of them — and would they describe it the same way you do?</td></tr>
-            <tr><td>Accountability</td><td>When a team member misses a target, do you address it within 48 hours — or let it slide?</td></tr>
-            <tr><td>Conflict Resolution</td><td>Name one interpersonal conflict or tension you resolved this quarter. How?</td></tr>
-            <tr><td>Team Building</td><td>Is your team a unit that covers for each other — or a group of individuals who happen to sit together?</td></tr>
+            <tr><td>Direction</td><td>Does every team member know their priorities and why they matter — without you restating them weekly?</td></tr>
+            <tr><td>Accountability</td><td>When someone misses a target, do you address it the same week — or let it drift?</td></tr>
+            <tr><td>Conflict Resolution</td><td>Name the last interpersonal or process conflict you resolved before it escalated.</td></tr>
+            <tr><td>Team Building</td><td>Have you hired, onboarded, or developed someone who's now performing above expectations?</td></tr>
           </tbody>
         </table>
-        <span class="mod-label">Readiness for the next role — could you run a function?</span>
+        <span class="mod-label">Readiness — could you run a function?</span>
         <table class="data-table">
           <thead><tr><th>Competency</th><th>Evidence question</th></tr></thead>
           <tbody>
-            <tr><td>Financial Literacy</td><td>Can you explain your team's cost-to-serve and how headcount decisions are made?</td></tr>
-            <tr><td>Strategic Thinking</td><td>Have you proposed an improvement or restructuring that goes beyond day-to-day operations?</td></tr>
-            <tr><td>Org Navigation</td><td>Do you know how decisions get made above your level — and who influences them?</td></tr>
-            <tr><td>Engagement</td><td>Would your team follow you to a new project — and do they proactively bring you problems early?</td></tr>
+            <tr><td>Financial Literacy</td><td>Can you explain your team's cost-to-serve, and would your number be close to your manager's?</td></tr>
+            <tr><td>Strategic Thinking</td><td>Have you proposed a structural change — not a process fix, but a team or service redesign?</td></tr>
+            <tr><td>Org Navigation</td><td>Do you know how decisions get made one and two levels above you — and can you influence them?</td></tr>
+            <tr><td>Engagement</td><td>Would your team members choose to work for you again? How do you know?</td></tr>
           </tbody>
         </table>
-        <div class="jt-block"><span class="jt-label">Reality Check</span><p>The mindset shift at team lead level is this: consistent display of ownership, reliability, responsibility, and reasonableness. Add leading by example and displaying authority. These had to be visible before your manager put the fate of a team into your hands — and they need to stay visible every day now. If your self-scores are high but your team wouldn't agree, the gap between your view and theirs is itself the finding.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Upload your TL job description and your team's KPIs. Ask: <em>"Based on these, build an evidence-based leadership assessment. For each competency, interview me for a specific example from the last 3 months before assigning a score. Challenge vague answers."</em></p></div>
+        <div class="jt-block"><span class="jt-label">Reality Check</span><p>The shift is real: strong individual contributors can score low here. Direction, accountability, and team building are learned skills, not personality traits. If your Impact scores are weak, the path starts there — managing people well is the prerequisite to everything that follows.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Upload a Team Lead or Supervisor job description for your organization. Ask: <em>"Based on this JD, build me an evidence-based self-assessment. For each factor, ask me for a concrete example involving my team before assigning a score."</em></p></div>
       </div>
     </details>
 
     <details class="module">
-      <summary><span class="mod-code">1.2</span><span class="mod-title">The Career Chessboard — Plot Your Leadership Position</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">1.2</span><span class="mod-title">The Career Chessboard — Team Lead Edition</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>Same framework as the Associate version, but the axes measure different things. Impact is about your team's delivery and the people outcomes you drive. Readiness is about whether you can already operate at Manager level — budgets, stakeholders, multi-team thinking, organizational politics. Your eight scores collapse into two averages. Plot them. Your square determines where this path focuses your effort.</p>
-        <p>The nine positions and their focus directives work the same way — but the actions look completely different at TL level. A "Mid-Game" TL with strong team performance but weak strategic skills focuses on Step 4 (financial literacy, succession, stakeholder influence). A "Starting Position" TL who just got promoted focuses on Step 2 (expectations, delegation, talent management).</p>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Complete the Career Chessboard using the TL competencies above. Write your position and your primary focus area. You'll retake this at 30 days and 90 days — movement is the metric.</p></div>
-        <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I've completed the Career Chessboard with evidence-backed scores</div>
-          <div class="cp-item"><span class="cp-box"></span>I know my square and my primary focus area for this path</div>
-          <div class="cp-item"><span class="cp-box"></span>I've set my ambition level: Perform / Advance / Pivot</div>
+        <p>Same framework, different competencies. Your eight scores collapse into Impact (team delivery) and Readiness (manager capabilities). The square you land on drives your focus for the entire path.</p>
+        <div class="svg-frame">
+          <svg viewBox="0 0 880 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Career Chessboard — Team Lead Edition: Impact versus Readiness for Manager">
+            <text x="440" y="36" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="#1d6aff" letter-spacing="4">THE CAREER CHESSBOARD — TEAM LEAD</text>
+            <line x1="150" y1="80" x2="150" y2="560" stroke="#2a3347" stroke-width="1.5"/>
+            <text x="64" y="320" font-family="JetBrains Mono, monospace" font-size="13" fill="#c8d0de" letter-spacing="2" transform="rotate(-90 64 320)" text-anchor="middle">READINESS FOR MANAGER</text>
+            <text x="120" y="140" font-family="JetBrains Mono, monospace" font-size="11" fill="#7a8799" text-anchor="end">HIGH</text>
+            <text x="120" y="324" font-family="JetBrains Mono, monospace" font-size="11" fill="#7a8799" text-anchor="end">MID</text>
+            <text x="120" y="508" font-family="JetBrains Mono, monospace" font-size="11" fill="#7a8799" text-anchor="end">LOW</text>
+            <line x1="150" y1="560" x2="850" y2="560" stroke="#2a3347" stroke-width="1.5"/>
+            <text x="500" y="616" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#c8d0de" letter-spacing="2">TEAM DELIVERY IMPACT</text>
+            <text x="265" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#7a8799" text-anchor="middle">LOW</text>
+            <text x="500" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#7a8799" text-anchor="middle">SOLID</text>
+            <text x="735" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#7a8799" text-anchor="middle">HIGH</text>
+            <!-- Row 1: High readiness -->
+            <rect x="158" y="88" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
+            <text x="178" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Wrong Square</text>
+            <text x="178" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Manager skills visible, but</text>
+            <text x="178" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">team isn't delivering.</text>
+            <text x="178" y="186" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: FIX TEAM PERFORMANCE</text>
+            <rect x="392" y="88" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
+            <text x="412" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Ready Position</text>
+            <text x="412" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Team runs well. Strategic</text>
+            <text x="412" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">skills building.</text>
+            <text x="412" y="186" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: SEEK BROADER SCOPE</text>
+            <rect x="626" y="88" width="214" height="152" rx="8" fill="#1b2130" stroke="#e8b800" stroke-width="1.5"/>
+            <text x="646" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#e8b800">Checkmate</text>
+            <text x="646" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Operating at Manager level</text>
+            <text x="646" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">already.</text>
+            <text x="646" y="186" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: MAKE THE MOVE</text>
+            <!-- Row 2: Mid readiness -->
+            <rect x="158" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
+            <text x="178" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Scrambling</text>
+            <text x="178" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Still finding your footing.</text>
+            <text x="178" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Team feels the uncertainty.</text>
+            <text x="178" y="346" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: STABILIZE + DELEGATE</text>
+            <rect x="392" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
+            <text x="412" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#1d6aff">Mid-Game</text>
+            <text x="412" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Team delivers. You're</text>
+            <text x="412" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">growing into the role.</text>
+            <text x="412" y="346" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: PUSH ONE AXIS</text>
+            <rect x="626" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
+            <text x="646" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Operator</text>
+            <text x="646" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Strong team output. Haven't</text>
+            <text x="646" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">stretched beyond operations.</text>
+            <text x="646" y="346" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: BUILD STRATEGIC SKILLS</text>
+            <!-- Row 3: Low readiness -->
+            <rect x="158" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
+            <text x="178" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">New Appointment</text>
+            <text x="178" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Just promoted. Everything is</text>
+            <text x="178" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">new. Normal — but act fast.</text>
+            <text x="178" y="506" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: FIRST 90 DAYS</text>
+            <rect x="392" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
+            <text x="412" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Comfortable</text>
+            <text x="412" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Team ticks along. No growth</text>
+            <text x="412" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">pressure felt — yet.</text>
+            <text x="412" y="506" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: CREATE AMBITION</text>
+            <rect x="626" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
+            <text x="646" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Super-IC</text>
+            <text x="646" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Delivering through personal</text>
+            <text x="646" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">effort, not through the team.</text>
+            <text x="646" y="506" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: LET GO + DEVELOP PEOPLE</text>
+          </svg>
         </div>
+        <p>The "Super-IC" square is the most common trap for promoted associates. High personal output, low team development. Module 2.2 addresses this directly.</p>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Give AI your eight scores and your square. Ask: <em>"Interview me about my team context, then tell me which two competencies, if improved, would move my position fastest — and what my manager would need to see as evidence."</em></p></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">1.3</span><span class="mod-title">Set Your Ambition — What Are You Building Toward?</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>The path adapts to your honest answer. At Team Lead level, the ambition question sharpens — the roles ahead are fewer, more competitive, and require distinctly different skills.</p>
+        <table class="data-table">
+          <thead><tr><th>Intent</th><th>What it means</th><th>How the path adjusts</th></tr></thead>
+          <tbody>
+            <tr><td>Stabilize</td><td>"I'm new to this role and need to get my footing"</td><td>Step 2 focus — talent management, delegation, authority</td></tr>
+            <tr><td>Perform</td><td>"I want my team to be the best-run team in the function"</td><td>Steps 2 and 3 — operational excellence, team reputation, CI culture</td></tr>
+            <tr><td>Advance</td><td>"I want to be a Manager within 12-18 months"</td><td>Full intensity — all five steps, succession planning, financial literacy</td></tr>
+            <tr><td>Pivot</td><td>"I want to move into projects, process ownership, or a different function"</td><td>Steps 2 and 4 — transferable skills, stakeholder exposure, versatility</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">From the Field</span><p>The TL-to-Manager gap is wider than it looks. It requires stronger stakeholder management, comfort with complexity across multiple teams, and fluency in corporate policy. Having led different teams — not just one — significantly strengthens your case. Be realistic about the timeline: if there are stronger candidates or no open positions, skills alone won't do it. Timing, trust, and sometimes politics matter too.</p></div>
       </div>
     </details>
   </section>
@@ -194,132 +263,118 @@
   <section class="section" id="step-2">
     <div class="step-header">
       <div class="step-num">2</div>
-      <div><span class="step-kicker">Career Booster — Step 2</span><h2 style="margin:2px 0 0;">Understand Your Value &amp; Perform</h2></div>
+      <div><span class="step-kicker">Career Booster — Step 2</span><h2 style="margin:2px 0 0;">Master Your Role &amp; Team Performance</h2></div>
     </div>
-    <p class="section-intro">As a team lead, your value is measured differently. You don't deliver work — you deliver a team that delivers work. Step 2 covers the operational and people skills that define whether your team thrives or merely survives under your leadership.</p>
+    <p class="section-intro">The core pivot: from "doing the work" to "making others successful at doing the work." This is where most team leads either grow or get stuck. Every module here is a skill your team feels directly.</p>
 
     <details class="module">
-      <summary><span class="mod-code">2.1</span><span class="mod-title">Understand What's Expected — Including What Nobody Says Out Loud</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">2.1</span><span class="mod-title">The Talent Management Pivot — Your Actual Job Now</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>Your manager will give you targets: SLAs, KPIs, TAT. Those are the voiced expectations. The unvoiced ones are where new team leads get blindsided: people management quality, team morale, documentation currency, continuous improvement culture, process discipline, and — increasingly — driving efficiency. The expectation that you'll do the same work with fewer resources grows with every rung on the ladder.</p>
-        <span class="mod-label gold">The full expectation map</span>
-        <table class="data-table">
-          <thead><tr><th>Category</th><th>Voiced</th><th>Unvoiced (assumed)</th></tr></thead>
-          <tbody>
-            <tr><td>Service delivery</td><td>Hit SLAs, manage backlog</td><td>Identify root causes, not just firefight</td></tr>
-            <tr><td>People management</td><td>Handle escalations</td><td>Develop talent, address low performers, retain high performers</td></tr>
-            <tr><td>Process discipline</td><td>Follow SOPs</td><td>Keep documentation current, drive CI culture, maintain audit readiness</td></tr>
-            <tr><td>Efficiency</td><td>Stay within headcount</td><td>Find ways to do the same work with less — commercial thinking</td></tr>
-            <tr><td>Communication</td><td>Send status updates</td><td>Speak confidently to stakeholders, present to larger groups over time</td></tr>
-            <tr><td>Initiative</td><td>None stated</td><td>Propose team restructuring ideas, identify project resources, develop new solutions</td></tr>
-          </tbody>
-        </table>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Schedule a 30-minute conversation with your manager. Ask: "Beyond the dashboard metrics, what does success look like for me this year?" Document everything — especially what they mention casually. Those casual mentions are the real priorities.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Give AI your role description and team context. Interview Mode: <em>"What are the typical unvoiced expectations for a GBS team lead that managers assume but rarely articulate? Interview me about my situation, then build a complete expectation map."</em></p></div>
-        <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I've had an expectations conversation with my manager beyond the KPIs</div>
-          <div class="cp-item"><span class="cp-box"></span>I can list 3 unvoiced expectations that apply to my role</div>
-          <div class="cp-item"><span class="cp-box"></span>I know what "efficiency" means for my team — and where the potential sits</div>
-        </div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary><span class="mod-code">2.2</span><span class="mod-title">The Talent Management Pivot — From Doing Work to Making People Successful</span><span class="mod-arrow">&#9662;</span></summary>
-      <div class="mod-body">
-        <p>This is the single biggest capability shift. Before, you were measured on your own output. Now, your job is to <strong style="color:var(--gold);">attract, identify, develop, retain, and promote talent</strong> — to make them successful in delivering whatever your team owns. Many new team leads were great, reliable individual contributors. That skill set is necessary but no longer sufficient. Empathy matters, but so does the corporate reality: this is not a charity. Low performers create extra work, damage morale, and carry reputational risk for the entire department.</p>
+        <p>Your job description changed. You're no longer measured on how well you execute tasks — you're measured on whether you can <strong style="color:var(--gold);">attract, identify, develop, retain, and promote talent</strong> that delivers what the team owns. Many team leads were great individual contributors. That's irrelevant now. The question is: can you make other people great?</p>
         <span class="mod-label">The talent cycle you now own</span>
-        <ul>
-          <li><strong style="color:var(--text);">Attract</strong> — be the team lead people want to work for. Your reputation as a developer of people is your recruiting tool.</li>
-          <li><strong style="color:var(--text);">Identify</strong> — know who your high performers, steady performers, and struggling performers are. Know why.</li>
-          <li><strong style="color:var(--text);">Develop</strong> — invest time in each person's growth. 1:1s are development conversations, not status updates.</li>
-          <li><strong style="color:var(--text);">Retain</strong> — create an environment people don't want to leave, even for slightly more money elsewhere. Morale beats salary within a reasonable range.</li>
-          <li><strong style="color:var(--text);">Promote</strong> — actively advocate for your people when they're ready. Their career movement reflects on you.</li>
-        </ul>
-        <div class="jt-block"><span class="jt-label">From the Field</span><p>The best team leads Julian worked with kept misplaced hires low and dealt with performance issues early, positively, and professionally. The worst ones avoided hard conversations, let struggling team members drag the group down, and then acted surprised when their best people left — tired of carrying the load.</p></div>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Map your team: for each person, note their current performance level, their development trajectory, and one specific action you can take this month to support their growth. If you can't name an action, that's the gap.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe your team composition (anonymized). Ask AI to help build a talent development matrix: <em>"For each profile, suggest one development action, one retention risk indicator, and one conversation I should be having."</em></p></div>
-        <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I can categorize every team member by performance level with evidence</div>
-          <div class="cp-item"><span class="cp-box"></span>Each person has at least one development action this quarter</div>
-          <div class="cp-item"><span class="cp-box"></span>I've had one genuine development conversation this month — not a status update</div>
-        </div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary><span class="mod-code">2.3</span><span class="mod-title">Delegation &amp; the Micromanagement Trap</span><span class="mod-arrow">&#9662;</span></summary>
-      <div class="mod-body">
-        <p>Micromanagement means: checking the work of associates excessively, giving "how" instructions instead of "what" (objectives or deliverables), overriding the way of working the associate prefers or proposes. It might be helpful for a new learner or an unknown task, but it's resented by an experienced associate. It creates a feeling of distrust — and that distrust spreads.</p>
-        <span class="mod-label gold">Context matters — this is not black and white</span>
-        <p>A new team lead learning the ropes, a team under pressure with inexperienced members, a process in crisis mode — hands-on management may be survival. The problem arises when it becomes the permanent management style. The test: if the pressure lifted tomorrow, would you still be checking everything? If yes, that's the habit to break.</p>
-        <p>If you're still performing your former associate job plus team lead tasks, you're almost certainly failing at one of them. It isn't fair if your manager left that situation unresolved — but you need to escalate it. Passion for the ground work is understandable; your team may even appreciate that you know their job. But your job is now "leadership and tell," not "do and manage."</p>
-        <span class="mod-label">The delegation framework</span>
-        <ul>
-          <li><strong style="color:var(--text);">Define the "what"</strong> — the deliverable, the deadline, the quality standard</li>
-          <li><strong style="color:var(--text);">Let them own the "how"</strong> — unless they ask for guidance or the risk is too high</li>
-          <li><strong style="color:var(--text);">Check at milestones, not continuously</strong> — agree on checkpoints up front</li>
-          <li><strong style="color:var(--text);">Accept "different but acceptable"</strong> — their approach doesn't need to match yours</li>
-        </ul>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Identify one task you're still doing from your old role. Delegate it this week using the framework above. Document: what you delegated, to whom, what "what" you defined, and what happened. If you have no old-role tasks left, delegate one decision you currently make yourself.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe your current task portfolio. Ask AI: <em>"Which of these should a team lead NOT be doing? For each, draft a delegation brief: the deliverable, the quality standard, and the checkpoint schedule."</em></p></div>
-        <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I've delegated at least one task using the "what not how" framework</div>
-          <div class="cp-item"><span class="cp-box"></span>I'm no longer performing my old associate role alongside TL duties</div>
-          <div class="cp-item"><span class="cp-box"></span>I can describe the difference between hands-on leadership and micromanagement</div>
-        </div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary><span class="mod-code">2.4</span><span class="mod-title">The Hard Conversations — Low Performers, Team Tension, Requests</span><span class="mod-arrow">&#9662;</span></summary>
-      <div class="mod-body">
-        <p>This module covers the conversations every team lead dreads — and the ones that define your leadership credibility. Three scenarios, one principle: handle them professionally, with empathy, but without avoiding the issue.</p>
-
-        <span class="mod-label gold">Scenario 1: The low performer</span>
-        <p>Associates perform on different levels. Some are not suitable, some need significantly more time. A good team lead addresses performance issues positively and early — first to diagnose: is this temporary (personal issues, adjustment period), a capability mismatch (right attitude, wrong role), or a behavioral problem (attitude, effort)?</p>
         <table class="data-table">
-          <thead><tr><th>Diagnosis</th><th>Response</th><th>Common mistake</th></tr></thead>
+          <thead><tr><th>Stage</th><th>What it means at TL level</th></tr></thead>
           <tbody>
-            <tr><td>Temporary / personal</td><td>Support, adjust expectations short-term, check in regularly</td><td>Ignoring it and hoping it resolves</td></tr>
-            <tr><td>Capability mismatch</td><td>Explore redeployment to a role that fits — if the attitude is right</td><td>Putting them on a PIP when the job simply exceeds their capability</td></tr>
-            <tr><td>Behavioral / attitude</td><td>Clear feedback, documented expectations, PIP if needed</td><td>Avoiding the conversation until it's too late</td></tr>
+            <tr><td>Attract</td><td>Help hiring managers identify the right profiles. Know what "good" looks like for your team's work.</td></tr>
+            <tr><td>Identify</td><td>Spot high potential early. Know who's coasting, who's growing, who's struggling.</td></tr>
+            <tr><td>Develop</td><td>Coaching, stretch assignments, feedback loops. Not "send them to training" — active development.</td></tr>
+            <tr><td>Retain</td><td>Create an environment people don't want to leave. Morale, growth opportunities, fairness.</td></tr>
+            <tr><td>Promote</td><td>Advocate for your people's careers. A TL who develops future TLs is worth more than one who hoards talent.</td></tr>
           </tbody>
         </table>
-        <div class="jt-block"><span class="jt-label">Blind Spot</span><p>A PIP on someone who fundamentally cannot do the job isn't development — it's a legal formality for termination dressed as an opportunity. If the gap is capability, not effort, the humane path is redeployment or an honest conversation about fit. For the sake of the team's health and performance, a termination or redeployment is the right thing — the low performer creates extra work for everyone and reputational risk for the department. Do it humanely, fairly, and supportively.</p></div>
-
-        <span class="mod-label gold">Scenario 2: Salary and promotion requests</span>
-        <p>You will get these. The rules: never just grant a request — that creates a queue (this information travels fast among associates). Lay out the path: what needs to happen, by when, and how raises and promotions are earned within the HR and center strategy. Be transparent and fair.</p>
-        <p>The exception: a genuine high performer at the edge of leaving. An extraordinary increase may be cheaper and more reasonable than losing them — the cost of a new hire plus training plus ramp-up, especially in markets with inflation, often exceeds the cost of retention. Make this case to your manager if it applies. But the broader goal is creating an environment where people stay because they want to — not because of a counter-offer.</p>
-
-        <span class="mod-label gold">Scenario 3: Team tension and peer-to-boss dynamics</span>
-        <p>If you were promoted from within the team, some former peers will adjust naturally. Others won't. You hold the upper hand — and you hold the responsibility. Either take the lead in resolving it or, in serious cases, make the hard decision that the working relationship can't continue. Letting tension fester is the one choice that always makes things worse.</p>
-
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Identify the hardest people conversation you're currently avoiding. Prepare it using the diagnosis framework above. Set a date this week to have it — or, if the situation doesn't exist, prepare a "what I would say" brief for one of the three scenarios and review it with a mentor or peer TL.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Role-play all three scenarios with AI as the team member. Try multiple approaches: <em>"Play a low performer who gets defensive. Play an associate requesting a raise I can't grant. Play a former peer who doesn't accept my authority."</em> Practice the words before the moment arrives.</p></div>
+        <p>Empathy matters — understanding what your people need, reading situations, sensing tension before it surfaces. But empathy alone isn't leadership. This isn't a charity. Low performers need to be dealt with, tension needs resolution, and professional standards need enforcement. The skill is doing both: caring about people while holding the line.</p>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Map your team: for each person, write one sentence on where they are in the talent cycle (developing, performing, at risk, ready for more). Identify one person you should invest more time in and one situation you've been avoiding. Act on both this week.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe your team composition (anonymized). Ask: <em>"Interview me about each person's performance and potential. Then help me build a talent map with specific development actions — not generic 'provide feedback,' but actions I can take this month."</em></p></div>
         <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I've had or prepared for one hard conversation using the diagnosis framework</div>
-          <div class="cp-item"><span class="cp-box"></span>I know the difference between a PIP that develops and a PIP that exits</div>
-          <div class="cp-item"><span class="cp-box"></span>I can handle a salary request without caving or dismissing — I lay out the path</div>
+          <div class="cp-item"><span class="cp-box"></span>I can describe each team member's position in the talent cycle</div>
+          <div class="cp-item"><span class="cp-box"></span>I have at least one active development action per person</div>
+          <div class="cp-item"><span class="cp-box"></span>I've addressed one situation I was avoiding</div>
         </div>
       </div>
     </details>
 
     <details class="module">
-      <summary><span class="mod-code">2.5</span><span class="mod-title">Skip-Level Meetings — Prep Your Team, Control the Narrative</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">2.2</span><span class="mod-title">Hands-On vs. Hands-Off — When to Step In, When to Let Go</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>Directors and VPs may schedule skip-level meetings — conversations directly with your team members, bypassing you. These can signal genuine interest in ground-level reality, or they can be information-gathering exercises. Either way, your job is the same: prepare your team so nobody is blindsided.</p>
-        <span class="mod-label">How to handle skip-levels</span>
-        <ul>
-          <li>Inform the team in advance — visits and sessions are usually announced, but explain the format (organized agenda or informal drop-by)</li>
-          <li>Frame it positively, always — even if your gut says otherwise. Creating unnecessary fear in the team helps nobody.</li>
-          <li>For new joiners especially: explain what skip-levels are, that they're normal, and what to expect</li>
-          <li>Don't coach people on what to say — that backfires if discovered. Instead, build a team that has genuine good things to report because you're actually leading well.</li>
-        </ul>
-        <div class="jt-block"><span class="jt-label">Pro Tip</span><p>The best defense against a skip-level turning into a surprise is running a team where there are no surprises. If you're addressing problems, developing people, and creating a positive environment, skip-levels become endorsements, not risks.</p></div>
+        <p>Micromanagement has a definition: checking finished work, giving "how" instructions instead of "what" objectives, overriding the way an associate prefers to work. It might be helpful for a new joiner on an unfamiliar task. It's destructive as a permanent management style — it signals distrust and prevents people from developing ownership.</p>
+        <span class="mod-label gold">Context matters — read the situation</span>
+        <p>A new TL in a high-pressure team with inexperienced associates may need to be hands-on as a survival tactic. That's not micromanagement — it's crisis management. The issue arises when the crisis passes and the behavior doesn't. If you're still checking every output and dictating every step six months in, you haven't transitioned — you're still doing your old job with a new title.</p>
+        <span class="mod-label">The IC addiction trap</span>
+        <p>If you're performing your former role plus team lead tasks, you're failing at one of them — likely both. This might be your manager's fault (delayed backfill, capacity issues) but it's your responsibility to escalate it. If you're doing it because you enjoy the ground work, recognize the cost: your team is either overloaded or neglected. Your job is now leadership and direction, not execution. The team may appreciate a hands-on TL who knows the work, but appreciation doesn't develop their capabilities.</p>
+        <div class="jt-block"><span class="jt-label">Blind Spot</span><p>Corporations offer internal leadership development programs and courses for various levels. Use them. Most TLs discover skills they thought were intuitive actually need to be learned — delegation, feedback, performance conversations. The programs exist because the transition is hard for everyone, not just you.</p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Track your time for one week: what percentage is leadership (coaching, planning, reviewing, stakeholder management) vs. execution (doing work your team should do)? If execution exceeds 30%, identify what you need to delegate or escalate as a capacity issue.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe your weekly activities. Ask: <em>"Categorize each as 'leadership' or 'execution.' For every execution task, tell me who on my team could do it, what training they'd need, and draft a delegation conversation."</em></p></div>
         <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I know my organization's skip-level culture — and I've prepared my team for it</div>
-          <div class="cp-item"><span class="cp-box"></span>New joiners understand what leadership visits look like in our center</div>
+          <div class="cp-item"><span class="cp-box"></span>I know my leadership-to-execution time ratio</div>
+          <div class="cp-item"><span class="cp-box"></span>I've delegated at least one task I was holding onto</div>
+          <div class="cp-item"><span class="cp-box"></span>I've enrolled in or identified an internal leadership development program</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">2.3</span><span class="mod-title">Managing Low Performers — The Escalation Ladder</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Every team has performance variation. Some associates need more time. Some are misplaced. Some have temporary personal issues affecting output. Your job is to diagnose the root cause before choosing the response — and to act, not wait. A low performer left unaddressed creates extra work for the team and reputational risk for the department. The team sees inaction. It erodes trust.</p>
+        <span class="mod-label">The diagnostic — why before what</span>
+        <table class="data-table">
+          <thead><tr><th>Root cause</th><th>Indicators</th><th>Response</th></tr></thead>
+          <tbody>
+            <tr><td>Temporary / personal</td><td>Previously solid performer, recent decline, external signs of stress</td><td>Support, adjust workload temporarily, check in privately. Set a timeframe for recovery.</td></tr>
+            <tr><td>Capability gap</td><td>Willing and trying, but the role requirements exceed their skills</td><td>Training if the gap is closeable. Redeployment to a better-fit role if the attitude is right but the capability fundamentally isn't.</td></tr>
+            <tr><td>Behavioral / attitude</td><td>Capable but unwilling — misses standards, disrupts team, resists feedback</td><td>Formal feedback, documented expectations, PIP if necessary. A PIP is a structured last chance, not a formality.</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Reality Check</span><p>A common mistake: putting someone on a PIP when the job requirements completely exceed their capability. A PIP assumes the gap is closeable with effort. If it isn't, the PIP becomes a legal formality for termination — a "structured exit" disguised as a development plan. That's not fair to anyone. If the person's attitude is right but the fit is wrong, redeployment is the humane and honest path. If termination is the right call, do it as fairly and supportively as possible — for the team's health and the individual's dignity.</p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Identify any current performance concern on your team — even a mild one. Diagnose the root cause using the table above. Document what you've observed (specific, factual, recent). Have the conversation this week using the professional approach: facts, impact, support offered, expectations set.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe the situation (anonymized). Ask: <em>"Help me diagnose whether this is temporary, a capability gap, or behavioral. Then draft the conversation — what to say, what to listen for, and what to document afterwards."</em></p></div>
+        <div class="checkpoint-block">
+          <div class="cp-item"><span class="cp-box"></span>I have no unaddressed performance concerns older than 30 days</div>
+          <div class="cp-item"><span class="cp-box"></span>I can distinguish temporary, capability, and behavioral root causes</div>
+          <div class="cp-item"><span class="cp-box"></span>I've had at least one structured performance conversation</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">2.4</span><span class="mod-title">The Authority Shift — Peer to Boss, Equal Treatment, Professional Distance</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Authority arrives with the title — but acceptance doesn't. You may have been peers with people you now evaluate. The relationships change, and pretending they don't creates worse problems than acknowledging the shift. You'll be treated differently: less intimate, more observed, more judged. That's the role, not a problem to solve.</p>
+        <span class="mod-label">The non-negotiables</span>
+        <ul>
+          <li>Treat every team member with equal professionalism — no favorites, no grudges from peer days</li>
+          <li>Decisions must be explainable. "Because I said so" works exactly zero times in a professional setting.</li>
+          <li>Maintain enough distance that your judgments aren't questioned for personal bias — but enough closeness that trust exists</li>
+          <li>If a former-peer conflict runs deep, you hold the upper hand. Resolve it actively or — if irrecoverable — make the hard call. Letting it fester poisons the team.</li>
+        </ul>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Audit your relationships: is there anyone on your team you treat differently — more leniently or more harshly — because of your history as peers? Write down the specific behavior, then correct it this week. Ask a trusted colleague outside your team for a reality check if you're unsure.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe a peer-to-boss transition scenario. Ask: <em>"Role-play as the team member who's uncomfortable with the new dynamic. Help me practice three different responses — one too distant, one too friendly, one professional."</em></p></div>
+        <div class="checkpoint-block">
+          <div class="cp-item"><span class="cp-box"></span>I treat all team members with demonstrably equal professionalism</div>
+          <div class="cp-item"><span class="cp-box"></span>I've addressed any lingering peer-era dynamics</div>
+          <div class="cp-item"><span class="cp-box"></span>My team knows what to expect from me — consistency, not surprises</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">2.5</span><span class="mod-title">CI Culture &amp; Process Discipline — Run It Like a Business</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>As a TL, you own the culture of continuous improvement in your team. That means process discipline: documentation stays current, SOPs reflect reality, errors are tracked and addressed, and the team looks for ways to do the same work better — or the same work with fewer resources. This is where <strong style="color:var(--gold);">commercial acumen</strong> starts: not in a finance course, but in the daily habit of asking "is this efficient?"</p>
+        <span class="mod-label">What "CI culture" looks like in practice</span>
+        <ul>
+          <li>SOPs and process documentation reviewed quarterly — assigned, not assumed</li>
+          <li>Errors tracked, root-caused, and fixed — not just reported</li>
+          <li>Team members empowered to flag waste and suggest improvements — and recognized when they do</li>
+          <li>A visible improvement pipeline: what are we working on, what's completed, what's the impact?</li>
+          <li>Efficiency mindset: can we deliver this with fewer steps, fewer handoffs, fewer exceptions?</li>
+        </ul>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Pick one process in your area. Audit: is the SOP current? Are errors tracked? Is there one improvement you could implement in 2 weeks? Execute it. Document the before-and-after for your own portfolio and your team's visibility.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe your team's main process. Ask: <em>"Identify the 3 most likely waste categories in this process. For each, give me a specific question to ask my team to surface real examples — and a template to track and resolve them."</em></p></div>
+        <div class="checkpoint-block">
+          <div class="cp-item"><span class="cp-box"></span>My team's SOPs are current — or I've assigned an update schedule</div>
+          <div class="cp-item"><span class="cp-box"></span>Errors in my area are tracked with root causes, not just counts</div>
+          <div class="cp-item"><span class="cp-box"></span>I've implemented or initiated at least one process improvement</div>
         </div>
       </div>
     </details>
@@ -329,49 +384,65 @@
   <section class="section" id="step-3">
     <div class="step-header">
       <div class="step-num">3</div>
-      <div><span class="step-kicker">Career Booster — Step 3</span><h2 style="margin:2px 0 0;">Build Your Authority &amp; Visibility</h2></div>
+      <div><span class="step-kicker">Career Booster — Step 3</span><h2 style="margin:2px 0 0;">Build Visibility &amp; Team Reputation</h2></div>
     </div>
-    <p class="section-intro">Authority isn't automatic with the title. It's earned through how you carry yourself, how you treat your team, and how your team's reputation travels beyond your immediate scope. Step 3 is about building both — and avoiding the behaviors that destroy them overnight.</p>
+    <p class="section-intro">At TL level, visibility shifts from personal to team. Your reputation is your team's performance. The fastest way to damage it is taking credit for their work. The fastest way to build it is making your team's achievements known — with their names attached.</p>
 
     <details class="module">
-      <summary><span class="mod-code">3.1</span><span class="mod-title">Authority, Distance &amp; Equal Treatment</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">3.1</span><span class="mod-title">Building Your Team's Reputation — Credit Flows Down</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>With authority comes responsibility — and a change in how people relate to you. Former peers may treat you differently: less intimately, more carefully. That's normal. Your job is to accept the distance and make sure you treat every team member professionally and equally. Favoritism — real or perceived — is the fastest way to fracture a team.</p>
-        <span class="mod-label gold">The authority paradox</span>
-        <p>You need to be approachable enough that people bring you problems early, and authoritative enough that decisions stick. Too friendly: decisions get challenged, boundaries blur. Too distant: problems get hidden, morale drops. The balance is professional warmth — genuine interest in people combined with clear expectations and consistent follow-through.</p>
-        <span class="mod-label">Credit and blame — the rules</span>
-        <ul>
-          <li>Team wins are your team's wins. Share credit explicitly and publicly. Name people.</li>
-          <li>Team failures are your failures. Take responsibility upward. Fix it with the team privately.</li>
-          <li>Taking credit for a team member's work is the single fastest way to lose trust — and the team talks. Always.</li>
-        </ul>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>In your next team meeting or status update, publicly credit a team member by name for a specific contribution. Observe the reaction — from them and from the team. Make this a habit, not a one-time gesture.</p></div>
+        <p>A TL who takes credit for team members' work destroys trust faster than any other mistake. The team notices immediately, and the damage compounds: people stop going above and beyond, information stops flowing upward, and your best people start looking elsewhere. The rule is simple: credit flows down, accountability flows up. Your team's wins are their wins, named individually. Your team's failures are your responsibility.</p>
+        <span class="mod-label gold">Create an environment worth staying in</span>
+        <p>Retention isn't about blocking exits — it's about making the team a place people choose to be. Fair treatment, growth opportunities, recognition, and the sense that their TL has their back. When associates can get slightly more money elsewhere but choose to stay — that's your leadership working. When they leave despite liking the work — look at what you're not providing.</p>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>In your next report or update to leadership, mention a team member by name for a specific contribution. Make it a habit: one named recognition per week, in a visible channel. Track whether engagement shifts over 30 days.</p></div>
         <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I treat all team members with professional equality — and they'd confirm it</div>
-          <div class="cp-item"><span class="cp-box"></span>I've publicly credited a team member by name this month</div>
-          <div class="cp-item"><span class="cp-box"></span>I take responsibility for team failures upward and fix them with the team privately</div>
+          <div class="cp-item"><span class="cp-box"></span>I consistently credit team members by name in upward communication</div>
+          <div class="cp-item"><span class="cp-box"></span>I can identify what keeps each person on my team — and what might push them out</div>
         </div>
       </div>
     </details>
 
     <details class="module">
-      <summary><span class="mod-code">3.2</span><span class="mod-title">Speaking Up &amp; Stakeholder Exposure</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">3.2</span><span class="mod-title">Public Speaking &amp; Communication Progression</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>As a team lead, you report upward and converse with service recipients. Both audiences are judging your confidence, clarity, and composure — often unconsciously. Public speaking is a progression: team huddles this month, department presentations next quarter, stakeholder forums next year. The small occasions are the gym.</p>
-        <span class="mod-label">The progression</span>
+        <p>As a TL, you speak to your team daily. As a Manager, you'll speak to departments, stakeholders, and leadership. The progression is deliberate: team huddles this quarter, department presentations next quarter, larger forums after that. Start small, build the muscle. Communication is trainable — it's not a personality trait you either have or don't.</p>
+        <span class="mod-label">The progression ladder</span>
         <ul>
-          <li>Run a structured team huddle or standup — own the format, keep it tight, drive outcomes</li>
-          <li>Present one operational update to your manager's peers or a stakeholder group</li>
-          <li>Volunteer for one cross-functional meeting where your team's work is discussed</li>
-          <li>Build toward: presenting at department-level town halls, leading stakeholder reviews</li>
+          <li>Run structured team huddles — consistent format, clear purpose, timed</li>
+          <li>Present your team's results in a manager-level meeting</li>
+          <li>Deliver one stakeholder update or service review</li>
+          <li>Volunteer for one cross-team or department-level presentation</li>
         </ul>
-        <div class="jt-block"><span class="jt-label">From the Field</span><p>Building trust with your team is the foundation — that's where service performance comes from. But your reputation outside your team is what gets you promoted. Your manager, your manager's peers, your service recipients — they all form impressions. Make sure those impressions come from your actual performance, not from silence.</p></div>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Run or redesign your team's standup/huddle this week. Keep it under 15 minutes, action-oriented, no status recitals. Then identify one upcoming cross-functional meeting you can attend or present in.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Give AI the context of your next presentation (audience, topic, time limit). Ask: <em>"Structure this as a 3-part executive update: situation, actions, what I need from this group. Keep it under 5 minutes."</em></p></div>
+        <span class="mod-label gold">Skip-level readiness</span>
+        <p>Leaders — Directors, VPs, your manager's manager — may visit your team or run skip-level meetings. These can be organized or improvised. Your job: prep your team positively. Frame it as genuine interest from leadership, never as surveillance. For new joiners, explain what skip-levels look like and why they happen. Control the narrative before anxiety fills the vacuum.</p>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Run one structured team huddle this week using a consistent format (5-10 minutes, 3 topics: yesterday's highlights, today's priorities, blockers). Volunteer to present one result at the next manager-level meeting.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Ask AI to design a team huddle format for your context — team size, process type, time zone spread. Then: <em>"Draft talking points for a 5-minute presentation of my team's last month to my manager's leadership meeting."</em></p></div>
         <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I run a structured team huddle with a consistent format</div>
-          <div class="cp-item"><span class="cp-box"></span>I've presented to at least one audience beyond my immediate team</div>
-          <div class="cp-item"><span class="cp-box"></span>My manager's peers and at least one stakeholder know my name and my team's work</div>
+          <div class="cp-item"><span class="cp-box"></span>I run regular structured team huddles</div>
+          <div class="cp-item"><span class="cp-box"></span>I've presented my team's results at least once at a higher-level meeting</div>
+          <div class="cp-item"><span class="cp-box"></span>My team knows what to expect from skip-level meetings</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">3.3</span><span class="mod-title">Handling Salary &amp; Promotion Requests — Keep the Fort</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>You will get asked for raises and promotions. The wrong response — giving in to avoid conflict — creates a queue: information travels fast, and every associate who hears about it will expect the same. The right response: lay out the path, align it with HR and center strategy, and make it fair, transparent, and achievable for high performers.</p>
+        <span class="mod-label">How to handle the conversation</span>
+        <ul>
+          <li>Acknowledge the ask — don't dismiss or deflect. The person took a risk by asking.</li>
+          <li>Explain the rules: when raises happen, what criteria are used, what the cycle looks like. No surprises.</li>
+          <li>If they deserve it: advocate upward. Build the case with evidence. That's your job.</li>
+          <li>If they're not ready: be honest about the gap. Offer a concrete development plan with a timeline. "Not yet, and here's how to get there" is a good outcome.</li>
+        </ul>
+        <div class="jt-block"><span class="jt-label">From the Field</span><p>The exception: a genuine high performer at the edge of leaving. In that case, an extraordinary retention package may be cheaper and smarter than replacement, training, and ramp-up — especially in markets where inflation makes new hires expensive. Know the math. Present it to your manager with the business case, not the emotional case. These decisions are often above your authority — your job is to escalate with the right data.</p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Learn your organization's compensation and promotion rules: cycle timing, criteria, approval chain, budget constraints. Document them in a one-page reference you can use in conversations. If you don't know — ask HR or your manager now, before the request comes.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Role-play the conversation: <em>"You're a solid performer asking me for a raise. I need to explain the path without making promises I can't keep. Coach me through three versions: the associate is early, the associate deserves it, and the associate is threatening to leave."</em></p></div>
+        <div class="checkpoint-block">
+          <div class="cp-item"><span class="cp-box"></span>I know my organization's compensation and promotion rules</div>
+          <div class="cp-item"><span class="cp-box"></span>I can handle a salary/promotion request with professionalism and honesty</div>
+          <div class="cp-item"><span class="cp-box"></span>I've advocated for at least one team member's development or recognition</div>
         </div>
       </div>
     </details>
@@ -381,79 +452,70 @@
   <section class="section" id="step-4">
     <div class="step-header">
       <div class="step-num">4</div>
-      <div><span class="step-kicker">Career Booster — Step 4</span><h2 style="margin:2px 0 0;">Acquire Next-Level Skills</h2></div>
+      <div><span class="step-kicker">Career Booster — Step 4</span><h2 style="margin:2px 0 0;">Build Next-Level Capabilities</h2></div>
     </div>
-    <p class="section-intro">The gap from Team Lead to Manager is wider than most people think. Managers think in P&amp;L, handle multi-team complexity, display corporate policy fluency, and manage stakeholders who outrank them. Step 4 starts building those capabilities while you still have the safety net of a single team.</p>
+    <p class="section-intro">Managers think differently than Team Leads. They think in P&L, not just SLA. They manage multiple teams, not one. They design organizations, not just operate them. Step 4 builds these capabilities while you're still in the TL seat — because they must be visible before you get the title.</p>
 
     <details class="module">
-      <summary><span class="mod-code">4.1</span><span class="mod-title">The Manager Gap — What's Actually Different</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">4.1</span><span class="mod-title">Financial Literacy &amp; Commercial Acumen</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>A team lead runs a team. A manager runs a function — or multiple teams. The differences aren't just scale. They're category changes in how you think, what you're accountable for, and who you interact with.</p>
-        <table class="data-table">
-          <thead><tr><th>Dimension</th><th>Team Lead</th><th>Manager</th></tr></thead>
-          <tbody>
-            <tr><td>Scope</td><td>One team, one process area</td><td>Multiple teams, cross-functional scope</td></tr>
-            <tr><td>Metrics</td><td>SLAs, KPIs, team performance</td><td>P&amp;L, cost-to-serve, business outcomes</td></tr>
-            <tr><td>Stakeholders</td><td>Direct manager, service recipients</td><td>Directors, VPs, external partners, steering committees</td></tr>
-            <tr><td>People decisions</td><td>Performance, delegation, team dynamics</td><td>Org design, headcount planning, succession across teams</td></tr>
-            <tr><td>Strategic input</td><td>Improvement suggestions</td><td>Technology roadmaps, location strategy, operating model decisions</td></tr>
-            <tr><td>Authority display</td><td>Within team</td><td>Across organization — corporate policy fluency, negotiation with senior stakeholders</td></tr>
-          </tbody>
-        </table>
-        <p>Having had TL roles in different teams strengthens your Manager candidacy — it shows versatility and reduces the risk that your leadership only works in one context.</p>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Shadow your manager for one week — pay attention to what they do that you don't: the meetings they attend, the conversations they have, the decisions they make. Document 5 activities that don't exist in your role today.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Upload both your TL job description and the Manager JD. Ask: <em>"Build a gap analysis between these two roles. For each gap, suggest one action I can take in my current TL position to start building that capability."</em></p></div>
+        <p>A Team Lead manages work. A Manager manages a budget. The gap starts here: understanding cost-to-serve, headcount economics, and the difference between Capex and Opex. You don't need an MBA — you need to understand the numbers your manager uses to make decisions, and to think in efficiency terms: can we deliver the same service quality with fewer resources, fewer steps, fewer exceptions?</p>
+        <span class="mod-label">The financial vocabulary you need</span>
+        <ul>
+          <li>Cost-to-serve: what does it cost to process one transaction, handle one ticket, close one case?</li>
+          <li>FTE economics: salary, benefits, overhead, training cost, ramp-up cost. Know the real number.</li>
+          <li>Capex vs. Opex: why it matters for project funding and headcount decisions</li>
+          <li>The "same work, fewer FTEs" conversation: efficiency gains fund growth and protect headcount during cuts</li>
+        </ul>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Ask your manager: "What's our team's cost-to-serve?" If they share the number, understand how it's calculated. If they don't have it, that's an opportunity — build a rough estimate together. Understanding your team's economics is a Manager-level skill displayed at TL level.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Give AI your team size, location, and function. Ask: <em>"Build me a basic cost-to-serve model. Walk me through each component so I understand what drives the number — and where efficiency gains would have the most impact."</em></p></div>
         <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I can describe 5 things a Manager does that I don't do today</div>
-          <div class="cp-item"><span class="cp-box"></span>I've shadowed or observed my manager's scope for at least one week</div>
-          <div class="cp-item"><span class="cp-box"></span>I have a gap table with specific actions for my top 3 Manager-level gaps</div>
+          <div class="cp-item"><span class="cp-box"></span>I know my team's approximate cost-to-serve</div>
+          <div class="cp-item"><span class="cp-box"></span>I understand the FTE economics — what each person costs beyond salary</div>
+          <div class="cp-item"><span class="cp-box"></span>I've identified at least one efficiency opportunity with financial impact</div>
         </div>
       </div>
     </details>
 
     <details class="module">
-      <summary><span class="mod-code">4.2</span><span class="mod-title">Financial &amp; Commercial Literacy</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">4.2</span><span class="mod-title">Succession Planning — Create Your Own Runway</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>Managers think in P&amp;L. Team leads who don't understand budgets, headcount economics, and cost-to-serve are speaking a different language from the people who decide promotions. You don't need to be a finance expert — you need to understand how the numbers behind your team work.</p>
-        <span class="mod-label">What you need to know</span>
+        <p>The most underrated skill at TL level: <strong style="color:var(--gold);">identify and develop your successor early, plus a backup if the preferred one leaves.</strong> Without this, you're trapped. Every opportunity that requires you to step away gets blocked because nobody can cover your role. With succession in place, you create the runway to take on additional responsibilities, substitute for your manager, and eventually step into a bigger role.</p>
+        <span class="mod-label">The succession equation</span>
         <ul>
-          <li><strong style="color:var(--text);">Your team's cost</strong> — headcount cost, fully loaded (salary + benefits + overhead + seat cost)</li>
-          <li><strong style="color:var(--text);">Cost-to-serve</strong> — what it costs to process one transaction, one ticket, one case in your area</li>
-          <li><strong style="color:var(--text);">The efficiency expectation</strong> — doing the same or more work with fewer FTEs over time. This is the commercial reality of GBS.</li>
-          <li><strong style="color:var(--text);">Capex vs Opex basics</strong> — what gets capitalized (projects, implementations) vs. what's operational expense (your team's salary)</li>
-          <li><strong style="color:var(--text);">Headcount decisions</strong> — how backfills are approved, how new positions are justified, what a business case looks like</li>
+          <li>Identify 1-2 people who could cover your role — not "someday," but within 3-6 months of focused development</li>
+          <li>Develop them actively: delegate decision-making, not just tasks. Let them run the team in your absence.</li>
+          <li>Build a backup in case your primary successor moves or leaves — the bus factor applies to your succession too</li>
+          <li>Document the undocumented: the decisions, relationships, and knowledge that only exist in your head</li>
         </ul>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Ask your manager: "Can you walk me through our team's budget and cost structure?" If they can't or won't share specifics, ask for the concepts — what drives cost, what drives headcount decisions, what "efficiency" means in practice.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Ask AI to build a sample team budget for a 10-person GBS team in your location. Validate the assumptions against your reality. Ask: <em>"What would a headcount business case look like if I needed to justify one additional FTE?"</em></p></div>
+        <div class="jt-block"><span class="jt-label">From the Field</span><p>The best strategy for gaining experience beyond your team: manage your team so well that they operate without your involvement. Empower, redesign processes, build substitutes behind you. The runway you create is the runway you use — to substitute for your manager, take over a second team temporarily, or lead a cross-functional initiative. Nobody promotes a single point of failure.</p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Name your successor candidate. Write down the three capabilities they'd need to cover your role. Start developing one of those capabilities this month — through delegation, coaching, or stretch assignment. Plan your first "TL-free day" where the successor runs the team.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Ask: <em>"I want to develop a succession plan for my TL role. Interview me about my team and responsibilities, then help me build a 90-day development plan for my successor candidate — with specific milestones and decision rights I can gradually transfer."</em></p></div>
         <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I can explain my team's cost-to-serve in one sentence</div>
-          <div class="cp-item"><span class="cp-box"></span>I understand how headcount decisions are made in my organization</div>
-          <div class="cp-item"><span class="cp-box"></span>I can articulate the efficiency expectation — and where I see potential</div>
+          <div class="cp-item"><span class="cp-box"></span>I have a named successor candidate (plus a backup)</div>
+          <div class="cp-item"><span class="cp-box"></span>My successor has taken ownership of at least one TL responsibility</div>
+          <div class="cp-item"><span class="cp-box"></span>I've had at least one "TL-free" period where the team ran without me</div>
         </div>
       </div>
     </details>
 
     <details class="module">
-      <summary><span class="mod-code">4.3</span><span class="mod-title">Succession &amp; Freedom — Make Yourself Unnecessary</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">4.3</span><span class="mod-title">Multi-Team Thinking &amp; Org Design</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>The most underrated skill at team lead level: identify and develop a successor early, plus a backup if the preferred candidate leaves. This sounds counterintuitive — why train your replacement? Because it's the only way to free yourself for the next opportunity.</p>
-        <span class="mod-label gold">The succession paradox</span>
-        <p>If nobody can replace you, you can't be promoted. If your team falls apart when you're on leave, your manager sees fragility, not indispensability. The team leads who got promoted fastest in Julian's experience were the ones whose teams ran smoothly without them — because they'd built the layer behind them.</p>
-        <span class="mod-label">The strategy</span>
+        <p>Managers run multiple teams or an entire function. To get there, you need to think beyond your own team's boundaries: how does your team's work connect to adjacent teams? Where are the handoff inefficiencies? Could the teams be structured differently? These are questions your manager thinks about — and the TL who starts thinking about them gets noticed.</p>
+        <span class="mod-label">Org design thinking at TL level</span>
         <ul>
-          <li>Identify 1-2 potential successors — people with the aptitude and willingness</li>
-          <li>Gradually delegate real TL tasks to them: running huddles, handling escalations, owning a workstream</li>
-          <li>Build substitutes: who covers when you're on leave, and how prepared are they?</li>
-          <li>Redesign processes so they don't depend on your personal knowledge</li>
-          <li>Use the runway you've created to work on next-level skills: attend manager meetings, take on cross-functional work, substitute for your manager</li>
+          <li>Identify project resources: who on your team could support initiatives without breaking BAU?</li>
+          <li>Propose solutions: if you see a structural problem (wrong team boundaries, missing roles, skill gaps), draft a recommendation — even if the decision isn't yours</li>
+          <li>Understand span of control: how many direct reports is optimal for your work type? Why?</li>
+          <li>Cross-team collaboration: build relationships with adjacent TLs. Shared problems are often structural, not personal.</li>
         </ul>
-        <div class="jt-block"><span class="jt-label">From the Field</span><p>Manage your team so well that they operate without your involvement. Empower, redesign, build the layer behind you. That runway is exactly how you take over more responsibility — including substituting for your manager and gaining direct exposure to a role one level above yours.</p></div>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Name your successor candidate. This week, delegate one TL-level task to them with proper context. If you don't have a candidate, that's the finding — start developing one. Document your succession plan, even if informal.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe your team structure. Ask: <em>"Help me build a succession plan: who could be my backup, what tasks should I start delegating to them, and what's the 90-day development path to make them ready?"</em></p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Map your team's interfaces: who do you hand work to, who hands work to you, where do things break? Write a one-page "how I'd restructure this" proposal — not to present necessarily, but to practice thinking at the function level.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe your team and its adjacent teams. Ask: <em>"Identify structural inefficiencies in how these teams interact. Propose 2-3 org design alternatives with trade-offs for each."</em></p></div>
         <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I've identified at least one successor candidate</div>
-          <div class="cp-item"><span class="cp-box"></span>I've delegated one TL-level task to them with proper context</div>
-          <div class="cp-item"><span class="cp-box"></span>My team can operate for a week without me — and I've tested it</div>
+          <div class="cp-item"><span class="cp-box"></span>I can describe how my team connects to adjacent teams and where handoffs break</div>
+          <div class="cp-item"><span class="cp-box"></span>I've identified at least one project resource I could release for initiatives</div>
+          <div class="cp-item"><span class="cp-box"></span>I've drafted at least one structural recommendation (even if unshared)</div>
         </div>
       </div>
     </details>
@@ -465,57 +527,36 @@
       <div class="step-num gold">5</div>
       <div><span class="step-kicker">Career Booster — Step 5</span><h2 style="margin:2px 0 0;">Execute</h2></div>
     </div>
-    <p class="section-intro">You've built the team, earned the authority, and started operating at the next level. Step 5 turns all of that into a promotion case — or a clear-eyed plan for what to do if the timing isn't right.</p>
+    <p class="section-intro">You've built the team, developed the capabilities, and created the runway. Step 5 turns evidence into action — the promotion case, the conversation, and the honest assessment of what happens if the answer is "not yet."</p>
 
     <details class="module">
       <summary><span class="mod-code">5.1</span><span class="mod-title">The Brag Sheet — Team Lead Edition</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>Your Brag Sheet at TL level tracks two categories: your team's achievements (which reflect your leadership) and your personal capability demonstrations (which signal Manager readiness). Every team milestone, every hard conversation you handled well, every efficiency initiative, every time a team member was promoted under your leadership — documented, dated, with outcomes.</p>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Update your Brag Sheet with the provided TL template. Minimum 15 entries before your tollgate — split across team achievements and personal leadership demonstrations. Each entry: what happened, what you did, the result, who witnessed it.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Feed AI your Brag Sheet and the Manager JD: <em>"Map my achievements against Manager competencies. Where am I strong? Where do I need more evidence? Suggest what kind of achievement would fill each gap."</em></p></div>
+        <p>At TL level, the Brag Sheet shifts from personal achievements to <strong style="color:var(--gold);">team outcomes you enabled.</strong> A process you improved, a person you developed who got promoted, a crisis your team navigated, a stakeholder relationship you turned around. The evidence is about impact through others — which is exactly what a Manager does at scale.</p>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Update your Brag Sheet with at least 10 entries. Each entry: what the team achieved, your specific leadership contribution, the measurable result, and who witnessed it. Include at least 3 entries about developing people — not just delivering results.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Feed AI your Brag Sheet and the Manager job description. Ask: <em>"Map my TL achievements against Manager competencies. Where am I strong? Where's the gap? Turn the strengths into 3 talking points for a promotion conversation."</em></p></div>
       </div>
     </details>
 
     <details class="module">
-      <summary><span class="mod-code">5.2</span><span class="mod-title">The Promotion Case — From Team Lead to Manager</span><span class="mod-arrow">&#9662;</span></summary>
+      <summary><span class="mod-code">5.2</span><span class="mod-title">The Promotion Case &amp; The Plateau Pattern</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
-        <p>The promotion conversation isn't "I want to be a Manager." It's "here's the evidence I'm already operating at Manager level — here's what I've built, here's what I've delivered, here's the gap analysis I've done, and here's my succession plan for my current role. What's the path and timeline?"</p>
-        <span class="mod-label">Your case document includes</span>
+        <p>The TL-to-Manager promotion is competitive. The gap is wider than Associate-to-TL: you need demonstrated stakeholder management, comfort with multi-team complexity, versatility in corporate policy, and ideally TL experience in different teams — not just one. Your promotion case must show these, not just strong team delivery.</p>
+        <span class="mod-label gold">Why good TLs get stuck</span>
         <ul>
-          <li>Team performance trajectory under your leadership — improvement trend, not one good quarter</li>
-          <li>People development outcomes — who you've grown, promoted, or retained</li>
-          <li>Financial literacy demonstrated — cost-to-serve awareness, efficiency initiatives</li>
-          <li>Stakeholder relationships beyond your team — who knows you and your work</li>
-          <li>Succession plan — who replaces you and how ready they are</li>
-          <li>Manager-level activities already performed — substituting, cross-functional work, strategic input</li>
+          <li>Missing next-level skills they haven't acquired — financial literacy, strategic thinking, stakeholder influence</li>
+          <li>Stronger candidates exist — more versatile, more exposure, better-known across the organization</li>
+          <li>Timing and availability — the right role hasn't opened, or opened when they weren't ready</li>
+          <li>Personal preference and trust — leadership sometimes favors candidates they know better, regardless of capability. This is reality, not conspiracy.</li>
         </ul>
-        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Build your promotion case document using the template provided. Rehearse it with a mentor or peer — then with AI as a skeptical manager. Refine until every claim has evidence.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>AI role-play as a budget-constrained manager: <em>"I'm presenting my case for promotion to Manager. Challenge every claim. Ask for evidence. Push back on anything that sounds like ambition without substance."</em></p></div>
+        <p>If the answer is "not yet" with a concrete plan and timeline — hold them to it. If the answer is "no" without a path — that's information. The disciplined route: build your case, secure a genuine alternative if one exists, and make the decision with leverage and clarity.</p>
+        <div class="jt-block"><span class="jt-label">Reality Check</span><p>Being at the right place at the right time matters — despite your skills. Trust is part of the game and it takes time to build. If there are multiple candidates, objective skill comparison isn't always what decides it. Focus on what you can control: skills, evidence, relationships, and readiness. The rest is positioning and patience.</p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Build your promotion case document: evidence mapped against Manager requirements, gaps closed during this path, your succession plan (proving you can be replaced), and the specific ask. Rehearse with AI or a mentor before the real conversation.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Ask: <em>"Role-play as my manager — the budget-constrained, already-has-two-candidates version. Challenge my promotion case. What's weak? What's missing? What would change your mind?"</em></p></div>
         <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I have a promotion case document with evidence for every claim</div>
-          <div class="cp-item"><span class="cp-box"></span>I've rehearsed the conversation — and can handle pushback</div>
-          <div class="cp-item"><span class="cp-box"></span>My succession plan is documented — I'm not irreplaceable, I'm promotable</div>
-        </div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary><span class="mod-code">5.3</span><span class="mod-title">The Plateau Pattern &amp; Plan B</span><span class="mod-arrow">&#9662;</span></summary>
-      <div class="mod-body">
-        <p>Not every team lead becomes a manager — and not every team lead who deserves it gets promoted on their timeline. The reasons: missing next-level skills, stronger internal candidates, timing and organizational politics, or simply personal preference of decision-makers overriding the skill comparison. Being at the right place at the right time matters, despite your capabilities.</p>
-        <span class="mod-label gold">What you control</span>
-        <ul>
-          <li>Building genuine Manager-level skills — not just asking for the title</li>
-          <li>Gaining trust with the people who decide — a long game, not a campaign</li>
-          <li>Diversifying your TL experience — leading different teams signals versatility</li>
-          <li>Developing corporate development programs — most organizations offer leadership courses at various levels. Use them.</li>
-        </ul>
-        <span class="mod-label gold">What you do if the answer is "not yet"</span>
-        <p>Same principle as the Associate path: "not yet" with a concrete development plan and timeline is a good outcome — hold them to it. "No" without a path is information. The disciplined route: secure a real alternative, then decide.</p>
-        <div class="jt-block"><span class="jt-label">Blind Spot</span><p>Sometimes the issue isn't your skills at all — it's that there are simply more candidates than positions, and personal preference or political dynamics tip the scale. That's not failure. That's organizational reality. The response isn't bitterness — it's building so much capability that the next opportunity, here or elsewhere, becomes inevitable.</p></div>
-        <div class="checkpoint-block">
-          <div class="cp-item"><span class="cp-box"></span>I understand why TLs plateau — and which factors I can influence</div>
-          <div class="cp-item"><span class="cp-box"></span>I have a concrete Plan B if promotion timing doesn't align</div>
+          <div class="cp-item"><span class="cp-box"></span>I have a documented promotion case with evidence against Manager competencies</div>
+          <div class="cp-item"><span class="cp-box"></span>I understand the plateau risks and what I can control</div>
+          <div class="cp-item"><span class="cp-box"></span>I have a plan for both "yes" and "not yet" outcomes</div>
         </div>
       </div>
     </details>
@@ -523,43 +564,43 @@
 
   <!-- ============ ROADMAP ============ -->
   <section class="section" id="roadmap">
-    <span class="eyebrow eyebrow-gold">The 90-Day Leadership Roadmap</span>
+    <span class="eyebrow eyebrow-gold">The 90-Day Roadmap</span>
     <h2>Milestones, not deadlines</h2>
-    <p class="section-intro">Study at your pace — the leadership practice runs on a roadmap. Three milestone checkpoints build the habits; the tollgate at the end tells you honestly whether you're leading or just managing.</p>
+    <p class="section-intro">Study at your pace — the leadership practice runs on a roadmap. Three milestone checkpoints build the habits; the tollgate at the end tells you honestly whether you're operating at the level above.</p>
     <div class="milestone-grid">
       <div class="milestone-card">
         <div class="ms-month">Month 1</div>
-        <h3>Foundations</h3>
+        <h3>Stabilize &amp; Assess</h3>
         <div class="checkpoint-block" style="margin-top:0; border-style:solid;">
-          <div class="cp-item"><span class="cp-box"></span>Career Chessboard completed — leadership position and focus known</div>
-          <div class="cp-item"><span class="cp-box"></span>Full expectation map documented — voiced and unvoiced (2.1)</div>
-          <div class="cp-item"><span class="cp-box"></span>Team talent map completed — every member categorized with evidence (2.2)</div>
-          <div class="cp-item"><span class="cp-box"></span>One delegation using "what not how" framework (2.3)</div>
-          <div class="cp-item"><span class="cp-box"></span>Team prepped for skip-level culture (2.5)</div>
-          <div class="cp-item"><span class="cp-box"></span>Brag Sheet started — minimum 5 entries</div>
+          <div class="cp-item"><span class="cp-box"></span>Career Chessboard completed — position and focus known</div>
+          <div class="cp-item"><span class="cp-box"></span>Talent map completed — each team member assessed</div>
+          <div class="cp-item"><span class="cp-box"></span>Leadership-to-execution time ratio measured</div>
+          <div class="cp-item"><span class="cp-box"></span>At least one delegation action completed</div>
+          <div class="cp-item"><span class="cp-box"></span>One performance conversation held (if needed)</div>
+          <div class="cp-item"><span class="cp-box"></span>Brag Sheet started — minimum 5 team-level entries</div>
         </div>
       </div>
       <div class="milestone-card">
         <div class="ms-month">Month 2</div>
-        <h3>Authority</h3>
+        <h3>Lead &amp; Build</h3>
         <div class="checkpoint-block" style="margin-top:0; border-style:solid;">
-          <div class="cp-item"><span class="cp-box"></span>One hard conversation handled — low performer, salary request, or tension (2.4)</div>
-          <div class="cp-item"><span class="cp-box"></span>Credit-sharing habit established — team members named publicly (3.1)</div>
-          <div class="cp-item"><span class="cp-box"></span>Structured team huddle running weekly (3.2)</div>
-          <div class="cp-item"><span class="cp-box"></span>One presentation to an audience beyond your team (3.2)</div>
+          <div class="cp-item"><span class="cp-box"></span>Team huddles running consistently</div>
+          <div class="cp-item"><span class="cp-box"></span>One process improvement implemented with documented impact</div>
+          <div class="cp-item"><span class="cp-box"></span>Named team member recognition in upward communication — at least twice</div>
+          <div class="cp-item"><span class="cp-box"></span>Successor candidate identified and first development action started</div>
+          <div class="cp-item"><span class="cp-box"></span>Cost-to-serve understood (at least directionally)</div>
           <div class="cp-item"><span class="cp-box"></span>Chessboard re-taken — movement documented</div>
-          <div class="cp-item"><span class="cp-box"></span>Brag Sheet at 10+ entries</div>
         </div>
       </div>
       <div class="milestone-card">
         <div class="ms-month">Month 3</div>
-        <h3>Acceleration</h3>
+        <h3>Position &amp; Prepare</h3>
         <div class="checkpoint-block" style="margin-top:0; border-style:solid;">
           <div class="cp-item"><span class="cp-box"></span>All modules complete — concepts and exercises</div>
-          <div class="cp-item"><span class="cp-box"></span>Manager gap analysis validated (4.1)</div>
-          <div class="cp-item"><span class="cp-box"></span>Financial literacy conversation with manager completed (4.2)</div>
-          <div class="cp-item"><span class="cp-box"></span>Successor candidate identified and first TL task delegated (4.3)</div>
-          <div class="cp-item"><span class="cp-box"></span>Promotion case document drafted (5.2)</div>
+          <div class="cp-item"><span class="cp-box"></span>Presented team results at a manager-level meeting</div>
+          <div class="cp-item"><span class="cp-box"></span>Succession plan in place — at least one TL-free period tested</div>
+          <div class="cp-item"><span class="cp-box"></span>Salary/promotion request protocol documented and ready</div>
+          <div class="cp-item"><span class="cp-box"></span>Promotion case drafted with evidence</div>
           <div class="cp-item"><span class="cp-box"></span>Chessboard re-taken — progress vs. starting position</div>
         </div>
       </div>
@@ -567,14 +608,14 @@
 
     <div class="tollgate">
       <span class="eyebrow eyebrow-gold">Tollgate</span>
-      <h3>Are you leading — or just managing?</h3>
-      <p class="tg-sub">These are not participation trophies. If you can't honestly check them, the path has shown you where the gaps are. If you can, you're operating at Manager level in practice — and you have the evidence to prove it.</p>
+      <h3>Are you operating at the next level?</h3>
+      <p class="tg-sub">These aren't participation checkboxes. They're evidence that you've made the shift from managing tasks to leading people and thinking like a manager. If you can't honestly check them, the path has shown you exactly where to focus next.</p>
       <div class="checkpoint-block" style="margin-top:0; border-style:solid; background:var(--surface);">
-        <div class="cp-item"><span class="cp-box"></span>My team consistently delivers against SLAs — and I can explain the trend, not just the number</div>
-        <div class="cp-item"><span class="cp-box"></span>I've developed at least one team member visibly — and they'd say so</div>
-        <div class="cp-item"><span class="cp-box"></span>I've handled at least one hard conversation — low performer, salary request, or team tension</div>
-        <div class="cp-item"><span class="cp-box"></span>People beyond my team know my name, my team's work, and my leadership style</div>
-        <div class="cp-item"><span class="cp-box"></span>I have a successor, a promotion case, and a Brag Sheet — and I know which conversations come next</div>
+        <div class="cp-item"><span class="cp-box"></span>My team delivers consistently — and would confirm I developed them, not just directed them</div>
+        <div class="cp-item"><span class="cp-box"></span>I have a successor who can run the team in my absence</div>
+        <div class="cp-item"><span class="cp-box"></span>I understand my team's cost-to-serve and have delivered at least one efficiency improvement</div>
+        <div class="cp-item"><span class="cp-box"></span>I've handled at least one hard people conversation — performance, conflict, or compensation — professionally</div>
+        <div class="cp-item"><span class="cp-box"></span>I have a promotion case with evidence, a plan, and I've had the conversation</div>
       </div>
     </div>
   </section>
@@ -586,22 +627,23 @@
     <table class="data-table">
       <thead><tr><th>Template</th><th>Format</th><th>Used in</th></tr></thead>
       <tbody>
-        <tr><td>Career Chessboard Self-Assessment (TL version)</td><td>Interactive + worksheet</td><td>Step 1</td></tr>
-        <tr><td>Generic GBS Team Lead Role Profile</td><td>PDF</td><td>Step 1 — benchmark fallback</td></tr>
-        <tr><td>Generic GBS Manager Role Profile</td><td>PDF</td><td>Steps 1 &amp; 4 — readiness benchmark</td></tr>
-        <tr><td>Team Talent Development Matrix</td><td>XLSX</td><td>Module 2.2</td></tr>
-        <tr><td>Delegation Brief Template</td><td>PDF</td><td>Module 2.3</td></tr>
-        <tr><td>Performance Conversation Preparation Sheet</td><td>PDF</td><td>Module 2.4</td></tr>
+        <tr><td>Career Chessboard — Team Lead Edition</td><td>Interactive + worksheet</td><td>Step 1</td></tr>
+        <tr><td>Generic TL / Supervisor Role Profile</td><td>PDF</td><td>Step 1 — benchmark fallback</td></tr>
+        <tr><td>Generic Manager Role Profile</td><td>PDF</td><td>Steps 1 &amp; 4 — readiness benchmark</td></tr>
+        <tr><td>Team Talent Map</td><td>XLSX</td><td>Module 2.1</td></tr>
+        <tr><td>Leadership vs. Execution Time Tracker</td><td>XLSX</td><td>Module 2.2</td></tr>
+        <tr><td>Performance Conversation Prep Sheet</td><td>PDF</td><td>Module 2.3</td></tr>
+        <tr><td>CI Improvement Pipeline Tracker</td><td>XLSX</td><td>Module 2.5</td></tr>
         <tr><td>Team Huddle Format Template</td><td>PDF</td><td>Module 3.2</td></tr>
-        <tr><td>Manager Gap Analysis</td><td>XLSX</td><td>Module 4.1</td></tr>
-        <tr><td>Team Budget &amp; Cost Model</td><td>XLSX</td><td>Module 4.2</td></tr>
-        <tr><td>Succession Plan Template</td><td>PDF / XLSX</td><td>Module 4.3</td></tr>
-        <tr><td>Brag Sheet (TL Edition)</td><td>XLSX</td><td>Module 5.1 — used throughout</td></tr>
-        <tr><td>Promotion Case Document</td><td>DOCX</td><td>Module 5.2</td></tr>
+        <tr><td>Compensation &amp; Promotion Rules Reference</td><td>PDF</td><td>Module 3.3</td></tr>
+        <tr><td>Cost-to-Serve Calculator</td><td>XLSX</td><td>Module 4.1</td></tr>
+        <tr><td>Succession Planning Worksheet</td><td>XLSX</td><td>Module 4.2</td></tr>
+        <tr><td>Brag Sheet — Team Lead Edition</td><td>XLSX</td><td>Module 5.1 — used throughout</td></tr>
+        <tr><td>Promotion Case Builder</td><td>DOCX</td><td>Module 5.2</td></tr>
         <tr><td>AI Session Document</td><td>DOCX</td><td>All modules — foundation technique</td></tr>
       </tbody>
     </table>
-    <p style="font-size:14px; color:var(--text-3); max-width:75ch;">What's deliberately not here: leadership theory (the <a href="index.html" style="color:var(--teal); text-decoration:none;">free tier</a> covers it), generic HR training content, and executive strategy. You're leading a team, not a function — that's the Manager Track.</p>
+    <p style="font-size:14px; color:var(--text-3); max-width:75ch;">What's deliberately not here: leadership theory (the <a href="index.html" style="color:var(--teal); text-decoration:none;">free tier</a> covers it), generic management courses, and Director-level strategy. You're learning to lead people and think like a manager — not run a function yet. That's the Manager Track.</p>
   </section>
 
   <!-- ============ FOOTER ============ -->
