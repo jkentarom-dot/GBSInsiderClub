@@ -453,11 +453,34 @@
     }
   });
 
-  // Payment return handling
+  // Payment return handling — verify server-side, then unlock
   const params = new URLSearchParams(window.location.search);
-  if (params.get('payment') === 'success') {
-    setBtn('Payment received — access unlocked', true);
-    checkoutBtn.style.background = '#34d399';
+  if (params.get('payment') === 'success' && params.get('session_id')) {
+    (async function() {
+      setBtn('Verifying payment...', true);
+      try {
+        const { data: { session } } = await sb.auth.getSession();
+        if (!session) { setBtn('Payment received — log in to unlock', true); return; }
+        const resp = await fetch(SUPABASE_URL + '/functions/v1/verify-payment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY },
+          body: JSON.stringify({ session_id: params.get('session_id'), user_id: session.user.id })
+        });
+        const data = await resp.json();
+        if (data.verified) {
+          setBtn('Full Access unlocked', true);
+          checkoutBtn.style.background = '#34d399';
+          // Clean URL
+          history.replaceState({}, '', window.location.pathname);
+        } else {
+          setBtn(BTN_DEFAULT, false);
+          alert('Payment could not be verified yet. If you completed the purchase, your access will activate shortly — or contact us.');
+        }
+      } catch (e) {
+        console.error('verify error:', e);
+        setBtn(BTN_DEFAULT, false);
+      }
+    })();
   } else if (params.get('payment') === 'cancelled') {
     setBtn(BTN_DEFAULT, false);
   }
