@@ -647,5 +647,60 @@
   </div>
 
 </div></div>
+
+<!-- progress-tracking -->
+<style>
+  .cp-item { cursor: pointer; user-select: none; transition: opacity 0.15s; }
+  .cp-item:hover .cp-box { border-color: var(--teal); }
+  .cp-item.done { opacity: 0.65; }
+  .cp-item.done .cp-box { background: var(--teal); border-color: var(--teal); position: relative; }
+  .cp-item.done .cp-box::after { content: ''; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px; border: solid var(--void); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .progress-bar-wrap { position: sticky; top: 56px; z-index: 90; background: rgba(8,11,16,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .progress-bar-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; gap: 16px; }
+  .progress-track { flex: 1; height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); border-radius: 3px; width: 0%; transition: width 0.3s ease; }
+  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-2); white-space: nowrap; letter-spacing: 0.04em; }
+  .progress-label strong { color: var(--gold); font-weight: 600; }
+  @media (max-width: 1024px) { .progress-bar-inner { padding: 0 24px; } }
+</style>
+<script>
+(function() {
+  var KEY = 'gbs-progress-associate';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) {}
+
+  var items = document.querySelectorAll('.cp-item');
+  var total = items.length;
+
+  // Progress bar UI
+  var page = document.querySelector('.page') || document.body;
+  var bar = document.createElement('div');
+  bar.className = 'progress-bar-wrap';
+  bar.innerHTML = '<div class="progress-bar-inner"><span class="progress-label">Your progress</span><div class="progress-track"><div class="progress-fill" id="pf"></div></div><span class="progress-label" id="pl"><strong>0</strong> / ' + total + '</span></div>';
+  page.insertBefore(bar, page.firstChild);
+
+  function render() {
+    var done = 0;
+    items.forEach(function(it, i) {
+      if (saved[i]) { it.classList.add('done'); done++; }
+      else { it.classList.remove('done'); }
+    });
+    document.getElementById('pf').style.width = (total ? Math.round(done / total * 100) : 0) + '%';
+    document.getElementById('pl').innerHTML = '<strong>' + done + '</strong> / ' + total + ' checkpoints';
+  }
+
+  items.forEach(function(it, i) {
+    it.addEventListener('click', function() {
+      saved[i] = !saved[i];
+      if (!saved[i]) delete saved[i];
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e) {}
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+
 </body>
 </html>

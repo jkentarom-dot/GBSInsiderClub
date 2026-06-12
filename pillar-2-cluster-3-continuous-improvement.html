@@ -778,6 +778,97 @@
       <p>Lean Six Sigma for GBS professionals — covered in depth on the GBS Insider Club YouTube channel.</p>
       <a href="https://youtube.com/@gbsinsiderclub" class="cta-btn" target="_blank">&#9654; &nbsp; Subscribe on YouTube</a>
     </div>
+  
+    
+    <!-- scenario-quiz -->
+    <section class="section" id="scenario-quiz" style="margin-top:8px;">
+      <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;">Test Yourself</p>
+      <h2 style="font-size:24px;color:var(--text);font-weight:500;margin-bottom:8px;">Scenario check — would you make the right call?</h2>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:20px;">No trivia. Every question is a situation you will actually face. Pick your answer, get the reasoning.</p>
+      <div id="quiz-root"></div>
+    </section>
+    <script>
+    (function() {
+      var QUESTIONS = [{"q": "Your improvement idea saves the team 5 hours per week by removing a redundant report. Finance asks about savings. Which is true?", "opts": ["5 hours x 52 weeks x hourly rate = hard savings on the P&L", "It's a soft saving unless headcount or budget actually changes — valuable, but not P&L money", "Time savings don't count as improvements", "You should inflate the number to get attention"], "correct": 1, "why": "Hard savings reduce actual spend (FTEs, licenses, vendor costs). Freed-up time is a soft saving until it converts into measurable capacity reduction or redeployment. Claiming soft as hard is the fastest way to lose Finance's trust — and the credibility of every future proposal you make."}, {"q": "You want your first Six Sigma belt. Your company offers Yellow Belt training. A colleague says 'skip it, only Black Belt matters.' What's the practitioner reality?", "opts": ["Correct — anything below Black Belt is worthless", "Yellow/Green Belt plus a delivered project beats an unused higher belt; certifications are evidence of applied capability, not trophies", "Belts are obsolete — nobody uses Six Sigma anymore", "Wait until your company pays for Black Belt directly"], "correct": 1, "why": "Hiring managers and promotion panels look for belts attached to delivered, quantified projects. A Green Belt who saved a documented $50K outranks an untested Black Belt certificate. Start where you are, deliver a real project, and let the results justify the next level."}, {"q": "During a Kaizen event, the team identifies 12 improvement ideas. The sponsor wants all of them implemented. What's the right move?", "opts": ["Implement all 12 — more is better", "Prioritize by effort vs impact, commit to the top 2-3, and park the rest in a visible backlog", "Let the sponsor pick their favorites", "Implement only what requires no effort"], "correct": 1, "why": "Improvement initiatives die from scope, not from lack of ideas. Two or three delivered improvements with measured results beat twelve half-started ones. The visible backlog keeps the other ideas alive and shows the sponsor a pipeline, not a rejection."}, {"q": "You spot waste in a process owned by another team. Their TL is defensive about it. The smart play?", "opts": ["Escalate to their manager with your analysis", "Drop it — not your process, not your problem", "Share the observation as a question, offer to help measure it, and let them own the win", "Fix it yourself without telling them"], "correct": 2, "why": "Improvement across team boundaries is a politics problem before it's a process problem. Letting the owning team take the credit converts a defensive TL into an ally — and builds your reputation as someone who makes others successful. That reputation compounds faster than any single fixed process."}];
+      var root = document.getElementById('quiz-root');
+      var answered = 0, correct = 0;
+
+      QUESTIONS.forEach(function(item, qi) {
+        var card = document.createElement('div');
+        card.style.cssText = 'background:var(--surface-2,#141922);border:1px solid var(--border,#1e2636);border-radius:10px;padding:22px 24px;margin-bottom:14px;';
+        var qEl = document.createElement('p');
+        qEl.style.cssText = 'font-size:15px;font-weight:500;color:var(--text,#fff);line-height:1.6;margin:0 0 14px;';
+        qEl.textContent = (qi + 1) + '. ' + item.q;
+        card.appendChild(qEl);
+
+        var optWrap = document.createElement('div');
+        var feedback = document.createElement('div');
+        feedback.style.cssText = 'display:none;margin-top:14px;padding:14px 16px;border-radius:0 8px 8px 0;font-size:14px;line-height:1.7;';
+
+        item.opts.forEach(function(opt, oi) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.style.cssText = 'display:block;width:100%;text-align:left;background:var(--surface,#0e1219);border:1px solid var(--border,#1e2636);border-radius:8px;padding:11px 16px;margin-bottom:8px;font-size:14px;color:var(--text-2,#c8d0de);cursor:pointer;font-family:inherit;line-height:1.5;transition:border-color 0.15s;';
+          btn.textContent = String.fromCharCode(65 + oi) + ') ' + opt;
+          btn.onmouseover = function() { if (!card.dataset.done) btn.style.borderColor = '#1d6aff'; };
+          btn.onmouseout = function() { if (!card.dataset.done) btn.style.borderColor = 'var(--border,#1e2636)'; };
+          btn.onclick = function() {
+            if (card.dataset.done) return;
+            card.dataset.done = '1';
+            answered++;
+            var isCorrect = (oi === item.correct);
+            if (isCorrect) correct++;
+            Array.prototype.forEach.call(optWrap.children, function(b, bi) {
+              b.style.cursor = 'default';
+              if (bi === item.correct) { b.style.borderColor = '#34d399'; b.style.color = '#34d399'; }
+              else if (bi === oi) { b.style.borderColor = '#ff3355'; b.style.color = '#ff3355'; }
+              else { b.style.opacity = '0.45'; }
+            });
+            feedback.style.display = 'block';
+            feedback.style.background = isCorrect ? 'rgba(52,211,153,0.07)' : 'rgba(232,184,0,0.06)';
+            feedback.style.borderLeft = isCorrect ? '3px solid #34d399' : '3px solid #e8b800';
+            feedback.style.color = 'var(--text-2,#c8d0de)';
+            feedback.innerHTML = '<strong style="color:' + (isCorrect ? '#34d399' : '#e8b800') + ';font-size:12px;font-family:JetBrains Mono,monospace;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">' + (isCorrect ? 'Correct' : 'Not quite — here is why') + '</strong>' + item.why;
+            if (answered === QUESTIONS.length) showScore();
+          };
+          optWrap.appendChild(btn);
+        });
+
+        card.appendChild(optWrap);
+        card.appendChild(feedback);
+        root.appendChild(card);
+      });
+
+      function showScore() {
+        var s = document.createElement('div');
+        s.style.cssText = 'background:linear-gradient(135deg, rgba(232,184,0,0.08), rgba(29,106,255,0.05));border:1px solid rgba(232,184,0,0.35);border-radius:10px;padding:20px 24px;margin-top:6px;';
+        var pct = Math.round(correct / QUESTIONS.length * 100);
+        var verdict = pct === 100 ? 'You think like a practitioner. The Career Paths will sharpen the execution.' : pct >= 50 ? 'Solid instincts — the gaps are exactly what the Career Paths close.' : 'These judgment calls are learnable. The Career Paths teach the reasoning behind every one.';
+        s.innerHTML = '<p style="font-family:JetBrains Mono,monospace;font-size:13px;color:#e8b800;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 8px;">Your score: ' + correct + ' / ' + QUESTIONS.length + '</p><p style="font-size:14px;color:var(--text-2,#c8d0de);line-height:1.7;margin:0 0 14px;">' + verdict + '</p><a href="paid-tier.html" style="display:inline-flex;background:#1d6aff;color:#080b10;font-size:13px;font-weight:600;padding:9px 20px;border-radius:7px;text-decoration:none;">Explore the Career Paths &rarr;</a>';
+        root.appendChild(s);
+      }
+    })();
+    </script>
+
+    <!-- funnel-block -->
+    <div style="margin:48px 0 12px;background:linear-gradient(135deg, rgba(232,184,0,0.07), rgba(29,106,255,0.04));border:1px solid rgba(232,184,0,0.3);border-radius:12px;padding:28px 32px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;">Theory done. Now make it count.</span>
+      <p style="font-size:16px;color:var(--text);font-weight:500;margin:0 0 8px;line-height:1.5;">Knowing the frameworks is the entry ticket. Applying them — visibly, at your actual job — is what gets you promoted.</p>
+      <p style="font-size:14px;color:var(--text-2);margin:0 0 18px;line-height:1.7;">The GBS Insider Club Career Paths turn this theory into a guided 90-day program for your role: self-assessment, practical exercises, templates, and Julian's unfiltered practitioner playbook.</p>
+      <a href="paid-tier.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--void);font-size:14px;font-weight:600;padding:10px 24px;border-radius:8px;text-decoration:none;">Explore the Career Paths &rarr;</a>
+      <a href="pillar-2-operational-excellence.html" style="display:inline-flex;align-items:center;gap:8px;margin-left:14px;color:var(--text-2);font-size:13px;text-decoration:none;border-bottom:1px dotted var(--text-3);">Back to Operational Excellence</a>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 40px;">
+      <a href="pillar-2-cluster-2-service-management.html" style="flex:1;min-width:220px;display:block;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">&larr; Previous</span>
+        <span style="font-size:14px;font-weight:500;color:var(--text);">Service Management</span>
+      </a>
+      <a href="pillar-2-cluster-4-operational-controls.html" style="flex:1;min-width:220px;display:block;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;text-align:right;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Next &rarr;</span>
+        <span style="font-size:14px;font-weight:500;color:var(--text);">Operational Controls</span>
+      </a>
+    </div>
+
   </main>
 </div>
 </body>

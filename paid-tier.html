@@ -388,82 +388,78 @@
 
 </div></div>
 
-<!-- ============ STRIPE CHECKOUT (PLACEHOLDER) ============ -->
+<!-- ============ STRIPE CHECKOUT ============ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // ── Stripe Integration — wired up, waiting for:
-  //   1. Julian creates Stripe account + product ($99 Full Access)
-  //   2. Stripe API key + webhook secret added to Supabase secrets
-  //   3. Edge functions deployed: create-checkout-session, stripe-webhook
-  //   4. api.stripe.com + js.stripe.com added to egress allowlist
-  //
-  // Once ready, uncomment the fetch block below and remove the alert.
+  // Stripe publishable key (test mode) — used for future embedded checkout; redirect flow doesn't need it client-side
+  const STRIPE_PK = 'pk_test_51ThWtv6mItRCsuhhHkbjJxiHffR1GXGVMHZV1V2NioPouhAFvDsHMPuKS8IZYUy07MSLbB0HMhQqheckacNpduLf003Olq2GRT';
+  const SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  const SUPABASE_URL = 'https://bpwxxaolrmyqgdwgjjig.supabase.co';
+  const checkoutBtn = document.getElementById('checkout-btn');
+  const BTN_DEFAULT = 'Get Full Access — $99';
 
-  document.getElementById('checkout-btn').addEventListener('click', async function() {
-    const btn = this;
-    btn.disabled = true;
-    btn.textContent = 'Loading...';
+  function setBtn(text, disabled) { checkoutBtn.textContent = text; checkoutBtn.disabled = !!disabled; }
 
+  // If already full access, show owned state
+  async function checkTier() {
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) return;
+    const { data } = await sb.from('user_tiers').select('tier').eq('user_id', session.user.id).maybeSingle();
+    if (data && data.tier === 'full_access') {
+      setBtn('You have Full Access', true);
+      checkoutBtn.style.background = '#34d399';
+    }
+  }
+  checkTier();
+
+  checkoutBtn.addEventListener('click', async function() {
+    setBtn('Loading...', true);
     try {
-      // Step 1: Check if user is logged in
-      const sessionResp = await fetch(SUPABASE_URL + '/auth/v1/user', {
-        headers: {
-          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwd3h4YW9scm15cWdkd2dqamlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI4NTA5NDUsImV4cCI6MjA1ODQyNjk0NX0.v0vEVM4NtT6dMBLJSWDPa6GDY7P-kWxlLgXQOtcxb04',
-          'Authorization': 'Bearer ' + (localStorage.getItem('sb-bpwxxaolrmyqgdwgjjig-auth-token') ? JSON.parse(localStorage.getItem('sb-bpwxxaolrmyqgdwgjjig-auth-token')).access_token : '')
-        }
-      });
-
-      if (!sessionResp.ok) {
-        // Not logged in — redirect to sign up first
-        alert('Please create a free account first, then come back to purchase.');
-        btn.disabled = false;
-        btn.textContent = 'Get Full Access — $99';
+      const { data: { session } } = await sb.auth.getSession();
+      if (!session) {
+        alert('Please create a free account first (it takes 60 seconds), then come back here to purchase.');
+        window.location.href = 'index.html#join';
         return;
       }
 
-      const user = await sessionResp.json();
+      const resp = await fetch(SUPABASE_URL + '/functions/v1/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY },
+        body: JSON.stringify({
+          user_id: session.user.id,
+          email: session.user.email,
+          success_url: window.location.origin + '/paid-tier.html?payment=success',
+          cancel_url: window.location.origin + '/paid-tier.html?payment=cancelled'
+        })
+      });
 
-      // Step 2: Create Stripe Checkout Session
-      // ── UNCOMMENT WHEN STRIPE IS READY ──
-      // const checkoutResp = await fetch(SUPABASE_URL + '/functions/v1/create-checkout-session', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     user_id: user.id,
-      //     email: user.email,
-      //     price_id: 'STRIPE_PRICE_ID_HERE',  // Replace with actual Stripe price ID
-      //     success_url: window.location.origin + '/paid-tier.html?payment=success',
-      //     cancel_url: window.location.origin + '/paid-tier.html?payment=cancelled'
-      //   })
-      // });
-      //
-      // const { url } = await checkoutResp.json();
-      // window.location.href = url;  // Redirect to Stripe Checkout
-
-      // ── TEMPORARY: Remove when Stripe is live ──
-      alert('Payment processing is being set up. Full Access will be available for purchase shortly. In the meantime, all content is accessible for preview.');
-      btn.disabled = false;
-      btn.textContent = 'Get Full Access — $99';
-
+      const data = await resp.json();
+      if (resp.ok && data.url) {
+        window.location.href = data.url;  // Redirect to Stripe Checkout
+        return;
+      }
+      if (data.error === 'payment_not_configured') {
+        alert('Payment processing is being finalized — Full Access will be purchasable very soon. All content is currently open for preview.');
+      } else {
+        alert('Checkout could not be started: ' + (data.message || 'unknown error') + '. Please try again or contact us.');
+      }
     } catch (err) {
       console.error('Checkout error:', err);
-      alert('Something went wrong. Please try again.');
-      btn.disabled = false;
-      btn.textContent = 'Get Full Access — $99';
+      alert('Something went wrong starting checkout. Please try again.');
+    } finally {
+      if (!checkoutBtn.textContent.includes('Full Access') || checkoutBtn.textContent === 'Loading...') setBtn(BTN_DEFAULT, false);
     }
   });
 
-  // ── Handle payment return ──
+  // Payment return handling
   const params = new URLSearchParams(window.location.search);
   if (params.get('payment') === 'success') {
-    // Show success state
-    const btn = document.getElementById('checkout-btn');
-    if (btn) {
-      btn.textContent = 'Access Granted';
-      btn.style.background = '#34d399';
-      btn.disabled = true;
-    }
+    setBtn('Payment received — access unlocked', true);
+    checkoutBtn.style.background = '#34d399';
+  } else if (params.get('payment') === 'cancelled') {
+    setBtn(BTN_DEFAULT, false);
   }
 </script>
 

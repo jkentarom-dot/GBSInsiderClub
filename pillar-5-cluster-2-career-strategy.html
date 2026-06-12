@@ -426,6 +426,97 @@ a.gloss:hover .tooltip{display:block;}
         <li>PMI — Pulse of the Profession, 2025</li>
       </ol>
     </div>
+  
+    
+    <!-- scenario-quiz -->
+    <section class="section" id="scenario-quiz" style="margin-top:8px;">
+      <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;">Test Yourself</p>
+      <h2 style="font-size:24px;color:var(--text);font-weight:500;margin-bottom:8px;">Scenario check — would you make the right call?</h2>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:20px;">No trivia. Every question is a situation you will actually face. Pick your answer, get the reasoning.</p>
+      <div id="quiz-root"></div>
+    </section>
+    <script>
+    (function() {
+      var QUESTIONS = [{"q": "You've been a strong Senior Associate for 18 months. A Team Lead role opened and went to a colleague with less tenure. What's the most likely explanation?", "opts": ["Your manager doesn't like you personally", "The colleague was more visible to decision-makers and signaled ambition earlier", "Tenure should have decided it — HR made a mistake", "The process was political and there's nothing you can do"], "correct": 1, "why": "Promotions are decided on perceived readiness, not tenure. Visibility and explicitly signaling ambition are part of readiness. If decision-makers don't know you want the role and can't recall your impact, you're not in the conversation — regardless of how well you perform."}, {"q": "You want to move from operations into project work. What's the strongest first move?", "opts": ["Wait until a project role is posted internally and apply", "Tell your manager you're bored with BAU work", "Volunteer as SME on a current initiative while keeping your BAU performance high", "Get a PMP certification first, then ask for project work"], "correct": 2, "why": "SME participation is the proven on-ramp: you build project vocabulary, relationships, and evidence while de-risking the move for everyone. Certifications without applied experience rarely open the door alone — and signaling boredom signals a problem, not potential."}, {"q": "Your skills are deep in one process (T-shape vertical) but you've never worked outside it. For your next role, what does the T-shaped model suggest?", "opts": ["Go even deeper — become the undisputed expert", "Deliberately add breadth: adjacent processes, cross-functional exposure, projects", "Depth doesn't matter anymore, only leadership skills do", "Switch organizations to reset your profile"], "correct": 1, "why": "Leadership roles in GBS require connecting across processes and functions. Depth got you credibility; breadth makes you promotable. The horizontal bar of the T is what separates future leaders from permanent specialists — unless you deliberately choose the expert track."}, {"q": "A recruiter offers you a lateral move to another company for +15% salary. Internally, a promotion looks 12-18 months away. What deserves the most weight in your decision?", "opts": ["Always take the money — 15% now beats a maybe later", "Never leave — loyalty is always rewarded eventually", "Compare total trajectory: manager quality, growth runway, and what each path makes possible in 3 years", "Ask your manager to match the offer"], "correct": 2, "why": "A single salary jump is one data point. Career value compounds through manager sponsorship, scope growth, and skills acquired. Sometimes the external move wins, sometimes the internal runway does — but the 3-year view, not the 3-month view, is the right lens. Counter-offers fix symptoms, not trajectories."}];
+      var root = document.getElementById('quiz-root');
+      var answered = 0, correct = 0;
+
+      QUESTIONS.forEach(function(item, qi) {
+        var card = document.createElement('div');
+        card.style.cssText = 'background:var(--surface-2,#141922);border:1px solid var(--border,#1e2636);border-radius:10px;padding:22px 24px;margin-bottom:14px;';
+        var qEl = document.createElement('p');
+        qEl.style.cssText = 'font-size:15px;font-weight:500;color:var(--text,#fff);line-height:1.6;margin:0 0 14px;';
+        qEl.textContent = (qi + 1) + '. ' + item.q;
+        card.appendChild(qEl);
+
+        var optWrap = document.createElement('div');
+        var feedback = document.createElement('div');
+        feedback.style.cssText = 'display:none;margin-top:14px;padding:14px 16px;border-radius:0 8px 8px 0;font-size:14px;line-height:1.7;';
+
+        item.opts.forEach(function(opt, oi) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.style.cssText = 'display:block;width:100%;text-align:left;background:var(--surface,#0e1219);border:1px solid var(--border,#1e2636);border-radius:8px;padding:11px 16px;margin-bottom:8px;font-size:14px;color:var(--text-2,#c8d0de);cursor:pointer;font-family:inherit;line-height:1.5;transition:border-color 0.15s;';
+          btn.textContent = String.fromCharCode(65 + oi) + ') ' + opt;
+          btn.onmouseover = function() { if (!card.dataset.done) btn.style.borderColor = '#1d6aff'; };
+          btn.onmouseout = function() { if (!card.dataset.done) btn.style.borderColor = 'var(--border,#1e2636)'; };
+          btn.onclick = function() {
+            if (card.dataset.done) return;
+            card.dataset.done = '1';
+            answered++;
+            var isCorrect = (oi === item.correct);
+            if (isCorrect) correct++;
+            Array.prototype.forEach.call(optWrap.children, function(b, bi) {
+              b.style.cursor = 'default';
+              if (bi === item.correct) { b.style.borderColor = '#34d399'; b.style.color = '#34d399'; }
+              else if (bi === oi) { b.style.borderColor = '#ff3355'; b.style.color = '#ff3355'; }
+              else { b.style.opacity = '0.45'; }
+            });
+            feedback.style.display = 'block';
+            feedback.style.background = isCorrect ? 'rgba(52,211,153,0.07)' : 'rgba(232,184,0,0.06)';
+            feedback.style.borderLeft = isCorrect ? '3px solid #34d399' : '3px solid #e8b800';
+            feedback.style.color = 'var(--text-2,#c8d0de)';
+            feedback.innerHTML = '<strong style="color:' + (isCorrect ? '#34d399' : '#e8b800') + ';font-size:12px;font-family:JetBrains Mono,monospace;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">' + (isCorrect ? 'Correct' : 'Not quite — here is why') + '</strong>' + item.why;
+            if (answered === QUESTIONS.length) showScore();
+          };
+          optWrap.appendChild(btn);
+        });
+
+        card.appendChild(optWrap);
+        card.appendChild(feedback);
+        root.appendChild(card);
+      });
+
+      function showScore() {
+        var s = document.createElement('div');
+        s.style.cssText = 'background:linear-gradient(135deg, rgba(232,184,0,0.08), rgba(29,106,255,0.05));border:1px solid rgba(232,184,0,0.35);border-radius:10px;padding:20px 24px;margin-top:6px;';
+        var pct = Math.round(correct / QUESTIONS.length * 100);
+        var verdict = pct === 100 ? 'You think like a practitioner. The Career Paths will sharpen the execution.' : pct >= 50 ? 'Solid instincts — the gaps are exactly what the Career Paths close.' : 'These judgment calls are learnable. The Career Paths teach the reasoning behind every one.';
+        s.innerHTML = '<p style="font-family:JetBrains Mono,monospace;font-size:13px;color:#e8b800;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 8px;">Your score: ' + correct + ' / ' + QUESTIONS.length + '</p><p style="font-size:14px;color:var(--text-2,#c8d0de);line-height:1.7;margin:0 0 14px;">' + verdict + '</p><a href="paid-tier.html" style="display:inline-flex;background:#1d6aff;color:#080b10;font-size:13px;font-weight:600;padding:9px 20px;border-radius:7px;text-decoration:none;">Explore the Career Paths &rarr;</a>';
+        root.appendChild(s);
+      }
+    })();
+    </script>
+
+    <!-- funnel-block -->
+    <div style="margin:48px 0 12px;background:linear-gradient(135deg, rgba(232,184,0,0.07), rgba(29,106,255,0.04));border:1px solid rgba(232,184,0,0.3);border-radius:12px;padding:28px 32px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;">Theory done. Now make it count.</span>
+      <p style="font-size:16px;color:var(--text);font-weight:500;margin:0 0 8px;line-height:1.5;">Knowing the frameworks is the entry ticket. Applying them — visibly, at your actual job — is what gets you promoted.</p>
+      <p style="font-size:14px;color:var(--text-2);margin:0 0 18px;line-height:1.7;">The GBS Insider Club Career Paths turn this theory into a guided 90-day program for your role: self-assessment, practical exercises, templates, and Julian's unfiltered practitioner playbook.</p>
+      <a href="paid-tier.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--void);font-size:14px;font-weight:600;padding:10px 24px;border-radius:8px;text-decoration:none;">Explore the Career Paths &rarr;</a>
+      <a href="pillar-5-career-performance.html" style="display:inline-flex;align-items:center;gap:8px;margin-left:14px;color:var(--text-2);font-size:13px;text-decoration:none;border-bottom:1px dotted var(--text-3);">Back to Career and Performance</a>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 40px;">
+      <a href="pillar-5-cluster-1-performance-loop.html" style="flex:1;min-width:220px;display:block;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">&larr; Previous</span>
+        <span style="font-size:14px;font-weight:500;color:var(--text);">Performance Loop</span>
+      </a>
+      <a href="pillar-5-cluster-3-personal-branding.html" style="flex:1;min-width:220px;display:block;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;text-align:right;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Next &rarr;</span>
+        <span style="font-size:14px;font-weight:500;color:var(--text);">Personal Branding</span>
+      </a>
+    </div>
+
   </main>
 </div>
 </body>
