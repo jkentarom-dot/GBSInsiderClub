@@ -309,6 +309,113 @@
     </div>
   </section>
 
+
+  <!-- ============ ROI CALCULATOR ============ -->
+  <section class="section" id="roi">
+    <span class="eyebrow eyebrow-gold">The Investment Case</span>
+    <h2>What does $99 actually buy? Run your numbers.</h2>
+    <p class="section-intro">A salary increase is not a one-time event — it compounds. Every future raise, bonus, and job offer builds on your new base. Pick your market, enter your salary, and see what one promotion or increase is worth over five years against a one-time $99.</p>
+
+    <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:28px;">
+        <div>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px;">Your market</label>
+          <select id="roi-market" style="width:100%;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;">
+            <option value="INR" data-sym="&#8377;" data-salary="50000">India (INR / month)</option>
+            <option value="PHP" data-sym="&#8369;" data-salary="35000">Philippines (PHP / month)</option>
+            <option value="MYR" data-sym="RM" data-salary="4500">Malaysia (MYR / month)</option>
+            <option value="PLN" data-sym="z&#322;" data-salary="8000">Poland (PLN / month)</option>
+            <option value="EUR" data-sym="&#8364;" data-salary="3500">Europe (EUR / month)</option>
+            <option value="USD" data-sym="$" data-salary="4500">US / Other (USD / month)</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px;">Your monthly salary</label>
+          <input id="roi-salary" type="number" min="0" step="100" value="50000" style="width:100%;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;">
+        </div>
+        <div>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px;">Increase you target</label>
+          <select id="roi-raise" style="width:100%;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;">
+            <option value="0.08">8% — strong in-band increase</option>
+            <option value="0.15" selected>15% — typical promotion step</option>
+            <option value="0.25">25% — promotion + market correction</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px;">Extra income / month</div>
+          <div id="roi-monthly" style="font-size:26px;font-weight:600;color:var(--text);">&mdash;</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid rgba(232,184,0,0.35);border-radius:10px;padding:20px 22px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Payback on $99</div>
+          <div id="roi-payback" style="font-size:26px;font-weight:600;color:var(--gold);">&mdash;</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px;">Extra earned in 5 years</div>
+          <div id="roi-5y" style="font-size:26px;font-weight:600;color:var(--text);">&mdash;</div>
+          <div style="font-size:11px;color:var(--text-3);margin-top:6px;">incl. ~7% annual raises compounding on the higher base</div>
+        </div>
+      </div>
+
+      <p id="roi-verdict" style="font-size:15px;color:var(--text-2);line-height:1.8;margin:24px 0 0;border-top:1px solid var(--border);padding-top:20px;"></p>
+    </div>
+    <p style="font-size:12px;color:var(--text-3);margin-top:12px;line-height:1.6;">Illustration, not a guarantee. Assumes the increase lands within 6-12 months of consistent application and annual raises of ~7% thereafter. The work is yours — the system shows you where to aim it.</p>
+  </section>
+<script>
+(function() {
+  var market = document.getElementById('roi-market');
+  var salary = document.getElementById('roi-salary');
+  var raise_ = document.getElementById('roi-raise');
+  // USD value of one unit of each currency (approx, for payback math only)
+  var FX = { INR: 0.012, PHP: 0.018, MYR: 0.21, PLN: 0.25, EUR: 1.08, USD: 1.0 };
+
+  function fmt(n, sym) {
+    return sym + ' ' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function calc() {
+    var opt = market.options[market.selectedIndex];
+    var sym = opt.getAttribute('data-sym');
+    var cur = market.value;
+    var s = parseFloat(salary.value) || 0;
+    var r = parseFloat(raise_.value);
+    var monthly = s * r;
+    if (s <= 0) return;
+
+    document.getElementById('roi-monthly').innerHTML = fmt(monthly, sym);
+
+    var monthlyUSD = monthly * FX[cur];
+    var paybackMonths = monthlyUSD > 0 ? 99 / monthlyUSD : 0;
+    var pbText;
+    if (paybackMonths < 0.5) pbText = 'Under 2 weeks';
+    else if (paybackMonths <= 1) pbText = 'About 1 month';
+    else pbText = Math.ceil(paybackMonths) + ' months';
+    document.getElementById('roi-payback').textContent = pbText;
+
+    // 5-year extra earnings: difference between raised path and flat path, both growing 7%/yr
+    var total = 0, baseNew = s * (1 + r), baseOld = s;
+    for (var y = 0; y < 5; y++) {
+      total += (baseNew - baseOld) * 12;
+      baseNew *= 1.07; baseOld *= 1.07;
+    }
+    document.getElementById('roi-5y').innerHTML = fmt(total, sym);
+
+    var multiple = Math.round((total * FX[cur]) / 99);
+    document.getElementById('roi-verdict').innerHTML = 'One ' + Math.round(r*100) + '% increase pays back the $99 in <strong style="color:var(--gold)">' + pbText.toLowerCase() + '</strong> &mdash; and is worth roughly <strong style="color:var(--gold)">' + multiple.toLocaleString('en-US') + 'x the investment</strong> over five years, because every future raise compounds on the higher base. That is the math of investing in yourself early.';
+  }
+
+  market.addEventListener('change', function() {
+    salary.value = market.options[market.selectedIndex].getAttribute('data-salary');
+    calc();
+  });
+  salary.addEventListener('input', calc);
+  raise_.addEventListener('change', calc);
+  calc();
+})();
+</script>
+
   <!-- ============ PRICING ============ -->
   <section class="section" id="pricing">
     <span class="eyebrow">Pricing</span>

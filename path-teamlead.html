@@ -708,5 +708,89 @@
 })();
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- tier-gating -->
+<style>
+  .module.locked .mod-body { display: none !important; }
+  .module.locked summary { opacity: 0.75; }
+  .module.locked .mod-arrow { display: none; }
+  .lock-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(232,184,0,0.35); border-radius: 3px; padding: 2px 7px; margin-left: auto; flex-shrink: 0; }
+  .gate-panel { background: linear-gradient(135deg, rgba(232,184,0,0.07), rgba(29,106,255,0.05)); border: 1px solid rgba(232,184,0,0.35); border-radius: 12px; padding: 32px 36px; margin: 28px 0; text-align: center; }
+  .gate-panel h3 { font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 10px; }
+  .gate-panel p { font-size: 14px; color: var(--text-2); line-height: 1.8; max-width: 640px; margin: 0 auto 20px; }
+  .gate-panel .gate-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: var(--void); font-size: 14px; font-weight: 600; padding: 12px 28px; border-radius: 8px; text-decoration: none; }
+  .preview-banner { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 14px 20px; margin: 16px 0 24px; font-size: 13px; color: var(--text-2); line-height: 1.7; }
+  .preview-banner strong { color: var(--gold); }
+</style>
+<script>
+(function() {
+  var SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
+  var FREE_PREVIEW_MODULES = 2;
+
+  function lockContent() {
+    var modules = document.querySelectorAll('details.module');
+    modules.forEach(function(mod, i) {
+      if (i < FREE_PREVIEW_MODULES) return;
+      mod.classList.add('locked');
+      mod.removeAttribute('open');
+      var summary = mod.querySelector('summary');
+      if (summary && !summary.querySelector('.lock-tag')) {
+        var tag = document.createElement('span');
+        tag.className = 'lock-tag';
+        tag.textContent = 'Full Access';
+        summary.appendChild(tag);
+      }
+      if (summary) {
+        summary.addEventListener('click', function(e) {
+          e.preventDefault();
+          var gate = document.getElementById('gate-panel');
+          if (gate) gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+    });
+
+    // Preview banner after the last free module
+    var lastFree = modules[FREE_PREVIEW_MODULES - 1];
+    if (lastFree && !document.getElementById('gate-panel')) {
+      var panel = document.createElement('div');
+      panel.className = 'gate-panel';
+      panel.id = 'gate-panel';
+      panel.innerHTML = '<h3>You have seen the first two modules. ' + (modules.length - FREE_PREVIEW_MODULES) + ' more are waiting.</h3>' +
+        '<p>The remaining modules contain the practical core: the hard conversations, the templates, the AI applications, and the 90-day roadmap with tollgate. One payment, lifetime access, all current and future paths included.</p>' +
+        '<a class="gate-btn" href="paid-tier.html#pricing">Unlock Full Access — $99 &rarr;</a>';
+      lastFree.parentNode.insertBefore(panel, lastFree.nextSibling);
+    }
+
+    // Banner at top
+    var page = document.querySelector('.content-wrap') || document.body;
+    if (!document.getElementById('preview-banner')) {
+      var b = document.createElement('div');
+      b.id = 'preview-banner';
+      b.className = 'preview-banner';
+      b.innerHTML = '<strong>Free preview:</strong> the first two modules are open. The full path unlocks with Full Access — <a href="paid-tier.html#pricing" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">see pricing</a>.';
+      page.insertBefore(b, page.firstChild);
+    }
+  }
+
+  function init() {
+    if (typeof supabase === 'undefined') { lockContent(); return; }
+    var sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    sb.auth.getSession().then(function(res) {
+      var session = res.data ? res.data.session : null;
+      if (!session) { lockContent(); return; }
+      sb.from('user_tiers').select('tier').eq('user_id', session.user.id).maybeSingle().then(function(r) {
+        if (!(r.data && r.data.tier === 'full_access')) lockContent();
+        // full_access: leave everything open
+      }).catch(function() { lockContent(); });
+    }).catch(function() { lockContent(); });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
 </body>
 </html>
