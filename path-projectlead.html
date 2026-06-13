@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Project Leadership Path — the GBS Insider Club guide to leading initiatives in a GBS organisation: from CI projects to system deployments and transformation programs. Full PM toolkit with editable templates.">
+<link rel="canonical" href="https://gbsinsiderclub.com/path-associate.html">
+<title>Project Leadership Path — GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --void: #080b10; --surface: #0e1219; --surface-2: #141922; --surface-3: #1b2130;
+    --teal: #1d6aff; --gold: #e8b800; --sky: #38bdf8;
+    --text: #ffffff; --text-2: #c8d0de; --text-3: #7a8799;
+    --border: #1e2636; --border-2: #2a3347;
+    --green: #34d399; --purple: #a78bfa;
+  }
+  body { background: var(--void); color: var(--text-2); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 56px; background: rgba(8,11,16,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .topbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand-mark { width: 28px; height: 28px; border: 1px solid rgba(29,106,255,0.3); border-radius: 4px; background: rgba(29,106,255,0.06); display: flex; align-items: center; justify-content: center; }
+  .brand-name { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+  .brand-name span:first-child { color: var(--teal); }
+  .brand-name span:last-child { color: var(--text-3); font-weight: 400; }
+  .topbar-nav { display: flex; align-items: center; gap: 20px; }
+  .topbar-nav a { color: var(--text-3); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .topbar-nav a:hover { color: var(--teal); }
+  .page { padding-top: 56px; }
+  .content-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.15em; text-transform: uppercase; }
+  .eyebrow-gold { color: var(--gold); }
+  .breadcrumb { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; }
+  .breadcrumb a { color: var(--text-3); text-decoration: none; } .breadcrumb a:hover { color: var(--teal); }
+  .breadcrumb .sep { margin: 0 8px; opacity: 0.4; }
+  .hero { padding: 64px 0 48px; position: relative; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: radial-gradient(ellipse at 80% 30%, rgba(29,106,255,0.05) 0%, transparent 70%); pointer-events: none; }
+  .hero h1 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--text); line-height: 1.1; margin: 14px 0 16px; }
+  .hero h1 strong { font-weight: 600; color: var(--teal); }
+  .hero-lead { font-size: 17px; color: var(--text-2); line-height: 1.75; margin-bottom: 16px; max-width: 740px; }
+  .hero-body { font-size: 15px; color: var(--text-3); line-height: 1.8; max-width: 740px; }
+  .section { padding: 52px 0; border-top: 1px solid var(--border); }
+  .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
+  .section-intro { font-size: 15px; color: var(--text-2); line-height: 1.8; max-width: 760px; margin-bottom: 28px; }
+  .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
+  .svg-frame svg { display: block; width: 100%; height: auto; min-width: 680px; max-width: 980px; margin: 0 auto; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
+  .card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+  .card p { font-size: 14px; color: var(--text-2); line-height: 1.75; }
+  .data-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+  .data-table th, .data-table td { padding: 12px 16px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+  .data-table th { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); background: var(--surface-2); }
+  .data-table td { color: var(--text-2); }
+  .data-table td:first-child { color: var(--text); font-weight: 500; }
+  .step-header { display: flex; align-items: center; gap: 16px; margin: 0 0 8px; }
+  .step-num { width: 52px; height: 52px; border-radius: 10px; background: rgba(29,106,255,0.08); border: 1px solid rgba(29,106,255,0.3); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--teal); flex-shrink: 0; }
+  .step-num.gold { color: var(--gold); border-color: rgba(232,184,0,0.35); background: rgba(232,184,0,0.06); }
+  .step-kicker { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); letter-spacing: 0.12em; text-transform: uppercase; }
+  .module { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
+  .module summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 18px 22px; transition: background 0.2s; }
+  .module summary::-webkit-details-marker { display: none; }
+  .module summary:hover { background: var(--surface-3); }
+  .mod-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.08em; flex-shrink: 0; width: 44px; }
+  .mod-title { font-size: 15px; font-weight: 500; color: var(--text); flex: 1; }
+  .mod-arrow { color: var(--text-3); font-size: 14px; transition: transform 0.3s; }
+  .module[open] .mod-arrow { transform: rotate(180deg); color: var(--teal); }
+  .module[open] summary { border-bottom: 1px solid var(--border); }
+  .mod-body { padding: 20px 22px 24px; }
+  .mod-body p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 14px; max-width: 75ch; }
+  .mod-body ul { margin: 0 0 14px 18px; }
+  .mod-body li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 6px; }
+  .mod-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin: 18px 0 8px; }
+  .mod-label.gold { color: var(--gold); }
+  .mod-label.sky { color: var(--sky); }
+  .exercise-block { background: rgba(56,189,248,0.05); border-left: 3px solid var(--sky); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0; }
+  .exercise-block p { margin-bottom: 0; }
+  .ai-block { background: rgba(29,106,255,0.05); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0; }
+  .ai-block p { margin-bottom: 0; }
+  .checkpoint-block { background: var(--surface); border: 1px dashed var(--border-2); border-radius: 8px; padding: 14px 18px; margin-top: 16px; }
+  .checkpoint-block .cp-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--text-2); padding: 4px 0; line-height: 1.6; }
+  .checkpoint-block .cp-box { width: 14px; height: 14px; border: 1px solid var(--border-2); border-radius: 3px; flex-shrink: 0; margin-top: 3px; }
+  .jt-block { background: rgba(232,184,0,0.06); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; max-width: 820px; }
+  .jt-block .jt-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+  .jt-block p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin: 0; }
+  .milestone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+  .milestone-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+  .milestone-card .ms-month { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+  .milestone-card h3 { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 14px; }
+  .tollgate { background: var(--surface-3); border: 1.5px solid var(--gold); border-radius: 10px; padding: 28px; margin-top: 24px; }
+  .tollgate h3 { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .tollgate .tg-sub { font-size: 14px; color: var(--text-2); margin-bottom: 16px; line-height: 1.7; }
+  .footer-nav { padding: 48px 0 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-nav a { color: var(--text-3); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--teal); }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: var(--teal); color: var(--void); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-decoration: none; border-radius: 6px; transition: background 0.2s; }
+  .btn-primary:hover { background: #3d7eff; }
+  @media (max-width: 1024px) { .content-wrap { padding: 0 24px; } .topbar { padding: 0 24px; } }
+  @media (max-width: 600px) { .hero h1 { font-size: 32px; } .data-table th, .data-table td { padding: 9px 10px; font-size: 13px; } }
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <a href="index.html" class="topbar-brand">
+    <div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
+  </a>
+  <div class="topbar-nav"><a href="paid-tier.html">All Paths</a><a href="index.html">Free Tier</a><a href="paid-tier.html#pricing" class="btn-primary" style="font-size:12px; padding:6px 16px;">Get Access</a></div>
+</nav>
+<div class="page"><div class="content-wrap">
+
+
+  <section class="hero">
+    <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><a href="paid-tier.html">Career Paths</a><span class="sep">/</span><span style="color:var(--teal);">Project Leadership Path</span></div>
+    <span class="eyebrow">Career Path — Project Leadership</span>
+    <h1>Project<br><strong>Leadership</strong></h1>
+    <p class="hero-lead">You are leading an initiative — a CI project, a tool rollout, a system deployment, a workstream on a transformation program. This path gives you the toolkit, the judgment, and the practical step-by-step to run it well and turn it into a career.</p>
+    <p class="hero-body">Project leadership is the highest-leverage career move in a GBS organisation. Initiatives are where cost is taken out, scale is built, and reputations are made. This path follows the 5-Step Career Booster spine, but the content is built around running real projects — small scope or large — using the methods, governance, and stakeholder skills that separate the people who deliver from the people who get overwhelmed. Where your company provides branded templates, use them; where they don't, ours are ready and fully editable.</p>
+  </section>
+
+  <section class="section">
+    <span class="eyebrow">Before You Start</span>
+    <h2>How this path works</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Scales to your project</h3><p>Whether you're running a two-week Kaizen or a workstream on a multi-year program, the toolkit scales. Use the depth your project needs — the judgment is the same at every size.</p></div>
+      <div class="card"><h3>5-Step Career Booster spine</h3><p>Mindset, performance, visibility, next-level skills, execute. Project leadership is itself a visibility-and-skills engine — this path uses it to advance your career, not just deliver the project.</p></div>
+      <div class="card"><h3>A real, editable toolkit</h3><p>Project charter, RAID log, WBS, stakeholder map, status report. Designed to look professional and be edited. Use them, or map them to your company's branded equivalents.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="step-1">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div><span class="step-kicker">Career Booster — Step 1</span><h2 style="margin:2px 0 0;">Project Leadership Mindset</h2></div>
+    </div>
+    <p class="section-intro">Leading a project is a fundamentally different job than contributing to one. Step 1 sets the mindset: you are now responsible for an outcome you cannot deliver alone, through people who do not report to you.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">1.1</span><span class="mod-title">From Contributor to Leader — The Real Shift</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>As a contributor, you were measured on your own work. As a project lead, you are measured on whether the project delivers — which depends almost entirely on other people, most of whom do not report to you. This is leading without authority, and it is the core skill. The people who struggle as project leads are the ones who try to do all the work themselves; the ones who succeed orchestrate, unblock, and hold the outcome.</p>
+        <span class="mod-label">The mindset shifts that matter</span>
+        <table class="data-table">
+          <thead><tr><th>From (contributor)</th><th>To (project lead)</th></tr></thead>
+          <tbody>
+            <tr><td>Doing the work</td><td>Making sure the work happens, by others</td></tr>
+            <tr><td>My task is done</td><td>The outcome is delivered, end to end</td></tr>
+            <tr><td>Authority comes from my title</td><td>Influence comes from clarity, trust, and momentum</td></tr>
+            <tr><td>Problems are escalated to me</td><td>I anticipate problems and clear them before they hit</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>The hardest lesson for first-time project leads is that doing the work yourself feels productive but is actually you failing at your real job. If you are heads-down executing tasks, nobody is leading the project. Your job is to see the whole board, keep everyone moving, and remove the obstacles only you can remove. That feels less busy and is far more valuable.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Brief your AI with your project context and ask: <em>"I'm leading [project]. Interview me about scope, stakeholders, and timeline, then tell me honestly where I'm likely to fall into 'doing the work myself' instead of leading, and how to avoid it."</em></p></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">1.2</span><span class="mod-title">Scope the Project Honestly — Where 80% Fail</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Most projects fail at scoping, not execution. Too big, too vague, or no clear definition of done — and the project drifts until everyone is exhausted and nothing shipped. A tight scope is the single biggest predictor of delivery. Before anything else, you define what this project is, what it is not, and how you'll know it's done.</p>
+        <span class="mod-label">The scoping questions you must answer</span>
+        <table class="data-table">
+          <thead><tr><th>Question</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>What specific problem does this solve?</td><td>A project without a sharp problem statement cannot succeed — there's no target</td></tr>
+            <tr><td>What is explicitly out of scope?</td><td>Naming what you won't do prevents scope creep later</td></tr>
+            <tr><td>What does "done" look like, measurably?</td><td>Without a definition of done, the project never ends</td></tr>
+            <tr><td>Who is the sponsor and what do they want?</td><td>The sponsor's real goal is the project's true north</td></tr>
+          </tbody>
+        </table>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the Project Charter template to scope your real project on one page: problem, objectives, in/out of scope, success criteria, sponsor. Get it reviewed and signed off before you do anything else. An approved charter is your shield against scope creep.</p></div>
+        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I understand my job is to lead the outcome, not do all the work</li><li class="cp-item"><span class="cp-box"></span>My project has a sharp, written problem statement</li><li class="cp-item"><span class="cp-box"></span>I have a signed-off Project Charter with a clear definition of done</li></ul></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="step-2">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div><span class="step-kicker">Career Booster — Step 2</span><h2 style="margin:2px 0 0;">Master the Craft — Plan and Run the Project</h2></div>
+    </div>
+    <p class="section-intro">This is the toolkit. Planning, structured problem-solving, governance, and the methods that make delivery predictable instead of heroic. Use the depth your project needs.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">2.1</span><span class="mod-title">Break It Down — WBS and the Plan</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>A project is delivered by breaking a large outcome into small, ownable pieces of work, each with an owner and a date. The Work Breakdown Structure (WBS) is how you do this. A plan is not a Gantt chart for show — it is the shared agreement on who does what by when, and the basis for tracking whether you're on track.</p>
+        <span class="mod-label">From outcome to plan</span>
+        <table class="data-table">
+          <thead><tr><th>Level</th><th>What it is</th><th>Example (tool rollout)</th></tr></thead>
+          <tbody>
+            <tr><td>Outcome</td><td>The project's goal</td><td>New ticketing tool live for 3 teams</td></tr>
+            <tr><td>Workstream</td><td>A major area of work</td><td>Configuration · Data migration · Training · Go-live</td></tr>
+            <tr><td>Work package</td><td>An ownable chunk</td><td>"Migrate historical tickets" — owner, dates</td></tr>
+            <tr><td>Task</td><td>A single action</td><td>"Export legacy data to staging"</td></tr>
+          </tbody>
+        </table>
+        <p>Every work package needs an <strong style="color:var(--gold);">owner and a date</strong>. A plan where everything is owned by "the team" is owned by no one.</p>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the WBS template to break your project into workstreams and work packages. Assign an owner and a date to each. This becomes your master plan and your tracking baseline.</p></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">2.2</span><span class="mod-title">Choose Your Method — CI, Waterfall, or Agile</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Different projects need different methods. Picking the wrong one creates friction the whole way through. You don't need to be a certified expert in all of them — you need to know which fits your project and how to run it competently.</p>
+        <span class="mod-label">Match the method to the project</span>
+        <table class="data-table">
+          <thead><tr><th>Method</th><th>Best for</th><th>Core tools</th></tr></thead>
+          <tbody>
+            <tr><td>DMAIC / Lean Six Sigma</td><td>Process improvement, reducing defects or waste</td><td>SIPOC, root cause, control plan</td></tr>
+            <tr><td>A3 / Kaizen</td><td>Focused improvement events, fast cycles</td><td>One-page A3, 5 Whys, fishbone</td></tr>
+            <tr><td>Waterfall</td><td>Defined-scope deployments with clear stages</td><td>WBS, gate reviews, milestones</td></tr>
+            <tr><td>Agile / iterative</td><td>Evolving requirements, software-style delivery</td><td>Backlog, sprints, stand-ups</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>In GBS, most associate-led projects are CI or deployment work, so DMAIC and a clean Waterfall with gate reviews cover most of what you'll run. Don't over-engineer the method. A simple, well-run A3 beats a badly-run pseudo-Agile process every time. Pick the lightest method that fits, and run it properly.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe your project to your AI and ask: <em>"Given this scope, timeline, and certainty of requirements, which delivery method fits best — DMAIC, A3, Waterfall, or Agile — and why? Give me the decision in a short table."</em></p></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">2.3</span><span class="mod-title">Structured Problem-Solving — A3 and Root Cause</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Project leaders are paid to solve problems in a way others can follow and trust. "We fixed it" is weak. A structured approach — define the problem, find the real root cause, design the solution, prove it worked — is what impresses sponsors and what holds up when someone challenges your results.</p>
+        <span class="mod-label">The structured path</span>
+        <ul style="margin:10px 0 14px;padding-left:22px;color:var(--text-2);line-height:1.8;font-size:14px;">
+          <li><strong style="color:var(--gold);">Define</strong> — state the problem with data, not opinion.</li>
+          <li><strong style="color:var(--gold);">Analyse</strong> — find the root cause (5 Whys, fishbone), not the symptom.</li>
+          <li><strong style="color:var(--gold);">Solve</strong> — design options, choose with the team, plan the change.</li>
+          <li><strong style="color:var(--gold);">Control</strong> — prove the fix held with a measure that doesn't regress.</li>
+        </ul>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Take the central problem in your project and run it through the A3 template: problem, current state, root cause, target state, countermeasures, plan. One page. Present it to your sponsor — a clean A3 builds more credibility than a long deck.</p></div>
+        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>My project is broken into a WBS with owners and dates</li><li class="cp-item"><span class="cp-box"></span>I've chosen a delivery method that fits the project</li><li class="cp-item"><span class="cp-box"></span>I've run my core problem through a structured A3</li></ul></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">2.4</span><span class="mod-title">Govern the Project — RAID and Gate Reviews</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Governance sounds bureaucratic but it is what prevents projects from quietly derailing. Two tools do most of the work: a live RAID log (risks, assumptions, issues, dependencies) and gate reviews (formal go/no-go checkpoints between phases). Together they mean problems surface early and the project can't drift past a broken stage.</p>
+        <span class="mod-label">Lightweight governance that works</span>
+        <table class="data-table">
+          <thead><tr><th>Tool</th><th>What it does</th><th>Cadence</th></tr></thead>
+          <tbody>
+            <tr><td>RAID log</td><td>Tracks what could go wrong and what you're counting on</td><td>Reviewed weekly, owned by you</td></tr>
+            <tr><td>Gate review</td><td>Formal checkpoint: are we ready for the next phase?</td><td>At each phase boundary</td></tr>
+            <tr><td>Status report</td><td>Tells stakeholders where things stand, honestly</td><td>Weekly or bi-weekly</td></tr>
+            <tr><td>Decision log</td><td>Records what was decided and why</td><td>As decisions happen</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>Governance prevents about 90% of project derailment, and most of it is just discipline: a RAID log you actually update, and the courage to call a gate review honestly even when the answer is "we're not ready." The project lead who says "we're not ready, here's the gap, here's the plan" looks far stronger six months later than the one who waved a broken project through the gate to avoid an awkward meeting.</p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Set up your RAID log from the template and populate it with your real project's current risks, assumptions, issues, and dependencies. Commit to a weekly review. This single habit prevents most surprises.</p></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="step-3">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div><span class="step-kicker">Career Booster — Step 3</span><h2 style="margin:2px 0 0;">Stakeholders, Visibility, and Communication</h2></div>
+    </div>
+    <p class="section-intro">Projects live or die on stakeholder management. As project lead you are constantly communicating up, across, and out — and that visibility is also building your reputation. Use it deliberately.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">3.1</span><span class="mod-title">Map and Manage Your Stakeholders</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Every project has people who can help it, block it, or sink it. Knowing who they are, what they care about, and how much power and interest they hold lets you manage them deliberately instead of being surprised. The stakeholder who feels ignored becomes the one who undermines you in a steering meeting.</p>
+        <span class="mod-label">The power / interest grid</span>
+        <table class="data-table">
+          <thead><tr><th>Quadrant</th><th>Who</th><th>How to manage</th></tr></thead>
+          <tbody>
+            <tr><td>High power, high interest</td><td>Sponsor, key decision-makers</td><td>Manage closely — frequent, tailored communication</td></tr>
+            <tr><td>High power, low interest</td><td>Senior leaders not close to the project</td><td>Keep satisfied — concise updates, no surprises</td></tr>
+            <tr><td>Low power, high interest</td><td>Affected teams, end users</td><td>Keep informed — they shape adoption</td></tr>
+            <tr><td>Low power, low interest</td><td>Peripheral parties</td><td>Monitor — light touch</td></tr>
+          </tbody>
+        </table>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the Stakeholder Map template to plot your project's real stakeholders on the power/interest grid. For each high-power stakeholder, write one line: what they care about and how you'll keep them on side.</p></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">3.2</span><span class="mod-title">Manage Your Sponsor — They Don't Manage Themselves</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Your sponsor is the most important stakeholder — they hold the budget, the authority, and the air cover. But sponsors are busy and will not manage the relationship for you. A disengaged sponsor is the single biggest predictor of project failure. Managing up to your sponsor is your job, not theirs.</p>
+        <span class="mod-label">How to keep a sponsor engaged</span>
+        <ul style="margin:10px 0 14px;padding-left:22px;color:var(--text-2);line-height:1.8;font-size:14px;">
+          <li><strong style="color:var(--gold);">Make it easy</strong> — bring them clear decisions to make, not open problems to solve.</li>
+          <li><strong style="color:var(--gold);">No surprises</strong> — a sponsor who hears bad news first from someone else stops trusting you.</li>
+          <li><strong style="color:var(--gold);">Use their power deliberately</strong> — when you're blocked at your level, that's exactly what a sponsor is for.</li>
+        </ul>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>Treat your sponsor like a resource you have to actively deploy, not a figurehead who shows up at the end. Bring them the two or three decisions only they can make, give them the context in one page, and tell them exactly what you need. Sponsors love a project lead who makes their involvement efficient — and they remember them when bigger roles open up.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Ask your AI: <em>"Help me prepare a sponsor update. Here's my status: [paste]. Structure it as: 3-line summary, decisions I need from you, key risks, and what I'm handling myself. Keep it to one screen."</em></p></div>
+        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I've mapped my stakeholders on the power/interest grid</li><li class="cp-item"><span class="cp-box"></span>I have a deliberate plan for each high-power stakeholder</li><li class="cp-item"><span class="cp-box"></span>I'm managing my sponsor with clear decisions and no surprises</li></ul></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="step-4">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div><span class="step-kicker">Career Booster — Step 4</span><h2 style="margin:2px 0 0;">Land It and Prove the Value</h2></div>
+    </div>
+    <p class="section-intro">Delivery is not "we did the work." It's a clean landing, adoption that sticks, and value proven in terms Finance accepts. This is what separates a project that happened from a project that mattered.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">4.1</span><span class="mod-title">Change Management — Make the Change Stick</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>A technically perfect project that nobody adopts is a failure. People resist change — not because they're difficult, but because change is disruptive and uncertain. Managing the human side is as important as managing the plan. The best solution implemented badly loses to a decent solution people actually embrace.</p>
+        <span class="mod-label">The change essentials</span>
+        <table class="data-table">
+          <thead><tr><th>Do this</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Explain the "why" before the "what"</td><td>People accept change they understand the reason for</td></tr>
+            <tr><td>Involve the affected people early</td><td>Involvement converts resistance into ownership</td></tr>
+            <tr><td>Communicate more than feels necessary</td><td>In change, under-communication is the default failure</td></tr>
+            <tr><td>Support through the dip</td><td>Performance drops before it improves — plan for it</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>Resistance is usually a signal, not an obstacle. When people push back, they often see a real problem you missed from the project room. Listen first. The associate who treats resistance as enemy fire escalates conflict; the one who treats it as feedback wins the room — and delivers a change that actually holds after go-live.</p></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">4.2</span><span class="mod-title">Prove the Value — Hard vs. Soft Savings</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>When your project ends, leadership and Finance will ask what it delivered. How you answer determines whether your project is remembered as a success. The critical distinction: hard savings reduce actual spend (FTEs, licenses, vendor cost) and land on the P&L; soft savings (freed time, better quality, reduced risk) are real but don't directly cut the budget. Claiming soft as hard destroys your credibility with Finance — permanently.</p>
+        <span class="mod-label">Get your value validated</span>
+        <table class="data-table">
+          <thead><tr><th>Saving type</th><th>Example</th><th>Counts on P&L?</th></tr></thead>
+          <tbody>
+            <tr><td>Hard</td><td>Removed 1.5 FTE of manual effort, redeployed; cancelled a license</td><td>Yes — if the reduction is real and actioned</td></tr>
+            <tr><td>Soft</td><td>Freed 5 hours/week of capacity; fewer errors; lower risk</td><td>No — valuable, but not direct P&L money</td></tr>
+          </tbody>
+        </table>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the Status Report template's benefits section to document your project's value, clearly split into hard and soft. Take it to Finance and get the hard number validated. A Finance-validated saving is the most powerful line in your career story.</p></div>
+        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I have a change plan for the people affected, not just the process</li><li class="cp-item"><span class="cp-box"></span>My project's value is split honestly into hard and soft savings</li><li class="cp-item"><span class="cp-box"></span>I've had the hard savings validated by Finance</li></ul></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="step-5">
+    <div class="step-header">
+      <div class="step-num">5</div>
+      <div><span class="step-kicker">Career Booster — Step 5</span><h2 style="margin:2px 0 0;">Execute Your Career Move</h2></div>
+    </div>
+    <p class="section-intro">A delivered project is career currency — but only if you convert it. Step 5 turns your project portfolio into a concrete next step toward bigger initiatives, a PM role, or management.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">5.1</span><span class="mod-title">Build Your Project Portfolio and Make the Move</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Project leadership is the most portable, most marketable evidence in a GBS career. A delivered initiative with a validated number is worth more in a promotion case than years of solid BAU. Now you make it visible and use it — for the next, bigger project, for a project management role, or as the bridge into management.</p>
+        <span class="mod-label">Convert delivery into advancement</span>
+        <table class="data-table">
+          <thead><tr><th>Action</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Document each project: scope, your role, result, validated value</td><td>This is your portfolio — the core of every future promotion case</td></tr>
+            <tr><td>Get sponsor and stakeholder feedback in writing</td><td>Senior endorsement carries disproportionate weight in calibration</td></tr>
+            <tr><td>Signal your appetite for bigger scope</td><td>The pull reason only works if leadership knows you want more</td></tr>
+            <tr><td>Position the experience on LinkedIn and your CV</td><td>Transformation and project delivery are highly marketable externally</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>The project leads who advance fastest treat every initiative as a portfolio piece. They finish, they quantify, they get the sponsor's endorsement on record, and they make their interest in the next, bigger thing known — before the project is even fully closed. Delivery earns you the right to ask. Asking is still on you.</p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Build your project portfolio entry for the initiative you're running: scope, your role, the validated result, and one sponsor quote. Then identify the next bigger project or role you want — and tell the person who can make it happen.</p></div>
+        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>My project is documented as a portfolio piece with a validated number</li><li class="cp-item"><span class="cp-box"></span>I have written sponsor or stakeholder feedback on record</li><li class="cp-item"><span class="cp-box"></span>I've signalled my appetite for bigger scope to the right person</li></ul></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section">
+    <h2>The project toolkit</h2>
+    <p class="section-intro">A complete, editable set for running a real initiative. Built to look professional and to be adapted — or mapped to your company's branded equivalents.</p>
+    <div class="grid-3">
+      <div class="card"><h3>Project Charter</h3><p>One page: problem, objectives, scope, success criteria, sponsor. Your scope-creep shield.</p></div>
+      <div class="card"><h3>WBS / Master Plan</h3><p>Break the outcome into workstreams, work packages, owners, and dates.</p></div>
+      <div class="card"><h3>RAID Log</h3><p>Live tracker for risks, assumptions, issues, dependencies — with mitigations.</p></div>
+      <div class="card"><h3>Stakeholder Map</h3><p>Power/interest grid with a management plan for each key player.</p></div>
+      <div class="card"><h3>A3 Problem-Solving</h3><p>One-page structured problem-solving for the heart of your project.</p></div>
+      <div class="card"><h3>Status Report</h3><p>Clean weekly status with RAG, progress, risks, and a benefits section.</p></div>
+    </div>
+  </section>
+
+</div></div>
+
+<!-- progress-tracking -->
+<style>
+  .cp-item { cursor: pointer; user-select: none; transition: opacity 0.15s; }
+  .cp-item:hover .cp-box { border-color: var(--teal); }
+  .cp-item.done { opacity: 0.65; }
+  .cp-item.done .cp-box { background: var(--teal); border-color: var(--teal); position: relative; }
+  .cp-item.done .cp-box::after { content: ''; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px; border: solid var(--void); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .progress-bar-wrap { position: sticky; top: 56px; z-index: 90; background: rgba(8,11,16,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .progress-bar-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; gap: 16px; }
+  .progress-track { flex: 1; height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); border-radius: 3px; width: 0%; transition: width 0.3s ease; }
+  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-2); white-space: nowrap; letter-spacing: 0.04em; }
+  .progress-label strong { color: var(--gold); font-weight: 600; }
+  @media (max-width: 1024px) { .progress-bar-inner { padding: 0 24px; } }
+</style>
+<script>
+(function() {
+  var KEY = 'gbs-progress-projectlead';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) {}
+
+  var items = document.querySelectorAll('.cp-item');
+  var total = items.length;
+
+  // Progress bar UI
+  var page = document.querySelector('.page') || document.body;
+  var bar = document.createElement('div');
+  bar.className = 'progress-bar-wrap';
+  bar.innerHTML = '<div class="progress-bar-inner"><span class="progress-label">Your progress</span><div class="progress-track"><div class="progress-fill" id="pf"></div></div><span class="progress-label" id="pl"><strong>0</strong> / ' + total + '</span></div>';
+  page.insertBefore(bar, page.firstChild);
+
+  function render() {
+    var done = 0;
+    items.forEach(function(it, i) {
+      if (saved[i]) { it.classList.add('done'); done++; }
+      else { it.classList.remove('done'); }
+    });
+    document.getElementById('pf').style.width = (total ? Math.round(done / total * 100) : 0) + '%';
+    document.getElementById('pl').innerHTML = '<strong>' + done + '</strong> / ' + total + ' checkpoints';
+  }
+
+  items.forEach(function(it, i) {
+    it.addEventListener('click', function() {
+      saved[i] = !saved[i];
+      if (!saved[i]) delete saved[i];
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e) {}
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- tier-gating -->
+<style>
+  .module.locked .mod-body { display: none !important; }
+  .module.locked summary { opacity: 0.75; }
+  .module.locked .mod-arrow { display: none; }
+  .lock-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(232,184,0,0.35); border-radius: 3px; padding: 2px 7px; margin-left: auto; flex-shrink: 0; }
+  .gate-panel { background: linear-gradient(135deg, rgba(232,184,0,0.07), rgba(29,106,255,0.05)); border: 1px solid rgba(232,184,0,0.35); border-radius: 12px; padding: 32px 36px; margin: 28px 0; text-align: center; }
+  .gate-panel h3 { font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 10px; }
+  .gate-panel p { font-size: 14px; color: var(--text-2); line-height: 1.8; max-width: 640px; margin: 0 auto 20px; }
+  .gate-panel .gate-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: var(--void); font-size: 14px; font-weight: 600; padding: 12px 28px; border-radius: 8px; text-decoration: none; }
+  .preview-banner { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 14px 20px; margin: 16px 0 24px; font-size: 13px; color: var(--text-2); line-height: 1.7; }
+  .preview-banner strong { color: var(--gold); }
+</style>
+<script>
+(function() {
+  var SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
+  var FREE_PREVIEW_MODULES = 2;
+
+  function lockContent() {
+    var modules = document.querySelectorAll('details.module');
+    modules.forEach(function(mod, i) {
+      if (i < FREE_PREVIEW_MODULES) return;
+      mod.classList.add('locked');
+      mod.removeAttribute('open');
+      var summary = mod.querySelector('summary');
+      if (summary && !summary.querySelector('.lock-tag')) {
+        var tag = document.createElement('span');
+        tag.className = 'lock-tag';
+        tag.textContent = 'Full Access';
+        summary.appendChild(tag);
+      }
+      if (summary) {
+        summary.addEventListener('click', function(e) {
+          e.preventDefault();
+          var gate = document.getElementById('gate-panel');
+          if (gate) gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+    });
+
+    // Preview banner after the last free module
+    var lastFree = modules[FREE_PREVIEW_MODULES - 1];
+    if (lastFree && !document.getElementById('gate-panel')) {
+      var panel = document.createElement('div');
+      panel.className = 'gate-panel';
+      panel.id = 'gate-panel';
+      panel.innerHTML = '<h3>You have seen the first two modules. ' + (modules.length - FREE_PREVIEW_MODULES) + ' more are waiting.</h3>' +
+        '<p>The remaining modules contain the practical core: the hard conversations, the templates, the AI applications, and the 90-day roadmap with tollgate. One payment, lifetime access, all current and future paths included.</p>' +
+        '<a class="gate-btn" href="paid-tier.html#pricing">Unlock Full Access — $99 &rarr;</a>';
+      lastFree.parentNode.insertBefore(panel, lastFree.nextSibling);
+    }
+
+    // Banner at top
+    var page = document.querySelector('.content-wrap') || document.body;
+    if (!document.getElementById('preview-banner')) {
+      var b = document.createElement('div');
+      b.id = 'preview-banner';
+      b.className = 'preview-banner';
+      b.innerHTML = '<strong>Free preview:</strong> the first two modules are open. The full path unlocks with Full Access — <a href="paid-tier.html#pricing" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">see pricing</a>.';
+      page.insertBefore(b, page.firstChild);
+    }
+  }
+
+  function init() {
+    if (typeof supabase === 'undefined') { lockContent(); return; }
+    var sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    sb.auth.getSession().then(function(res) {
+      var session = res.data ? res.data.session : null;
+      if (!session) { lockContent(); return; }
+      sb.from('user_tiers').select('tier').eq('user_id', session.user.id).maybeSingle().then(function(r) {
+        if (!(r.data && r.data.tier === 'full_access')) lockContent();
+        // full_access: leave everything open
+      }).catch(function() { lockContent(); });
+    }).catch(function() { lockContent(); });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+</body>

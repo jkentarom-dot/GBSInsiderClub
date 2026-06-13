@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Project SME Path — the GBS Insider Club guide to shining as a Subject Matter Expert on transitions, migrations, CI projects, and system deployments. 6-week practical program with templates.">
+<link rel="canonical" href="https://gbsinsiderclub.com/path-associate.html">
+<title>Project SME Path — GBS Insider Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --void: #080b10; --surface: #0e1219; --surface-2: #141922; --surface-3: #1b2130;
+    --teal: #1d6aff; --gold: #e8b800; --sky: #38bdf8;
+    --text: #ffffff; --text-2: #c8d0de; --text-3: #7a8799;
+    --border: #1e2636; --border-2: #2a3347;
+    --green: #34d399; --purple: #a78bfa;
+  }
+  body { background: var(--void); color: var(--text-2); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 56px; background: rgba(8,11,16,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .topbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand-mark { width: 28px; height: 28px; border: 1px solid rgba(29,106,255,0.3); border-radius: 4px; background: rgba(29,106,255,0.06); display: flex; align-items: center; justify-content: center; }
+  .brand-name { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+  .brand-name span:first-child { color: var(--teal); }
+  .brand-name span:last-child { color: var(--text-3); font-weight: 400; }
+  .topbar-nav { display: flex; align-items: center; gap: 20px; }
+  .topbar-nav a { color: var(--text-3); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .topbar-nav a:hover { color: var(--teal); }
+  .page { padding-top: 56px; }
+  .content-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.15em; text-transform: uppercase; }
+  .eyebrow-gold { color: var(--gold); }
+  .breadcrumb { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; }
+  .breadcrumb a { color: var(--text-3); text-decoration: none; } .breadcrumb a:hover { color: var(--teal); }
+  .breadcrumb .sep { margin: 0 8px; opacity: 0.4; }
+  .hero { padding: 64px 0 48px; position: relative; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: radial-gradient(ellipse at 80% 30%, rgba(29,106,255,0.05) 0%, transparent 70%); pointer-events: none; }
+  .hero h1 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--text); line-height: 1.1; margin: 14px 0 16px; }
+  .hero h1 strong { font-weight: 600; color: var(--teal); }
+  .hero-lead { font-size: 17px; color: var(--text-2); line-height: 1.75; margin-bottom: 16px; max-width: 740px; }
+  .hero-body { font-size: 15px; color: var(--text-3); line-height: 1.8; max-width: 740px; }
+  .section { padding: 52px 0; border-top: 1px solid var(--border); }
+  .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
+  .section-intro { font-size: 15px; color: var(--text-2); line-height: 1.8; max-width: 760px; margin-bottom: 28px; }
+  .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
+  .svg-frame svg { display: block; width: 100%; height: auto; min-width: 680px; max-width: 980px; margin: 0 auto; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
+  .card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+  .card p { font-size: 14px; color: var(--text-2); line-height: 1.75; }
+  .data-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+  .data-table th, .data-table td { padding: 12px 16px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+  .data-table th { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); background: var(--surface-2); }
+  .data-table td { color: var(--text-2); }
+  .data-table td:first-child { color: var(--text); font-weight: 500; }
+  .step-header { display: flex; align-items: center; gap: 16px; margin: 0 0 8px; }
+  .step-num { width: 52px; height: 52px; border-radius: 10px; background: rgba(29,106,255,0.08); border: 1px solid rgba(29,106,255,0.3); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--teal); flex-shrink: 0; }
+  .step-num.gold { color: var(--gold); border-color: rgba(232,184,0,0.35); background: rgba(232,184,0,0.06); }
+  .step-kicker { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); letter-spacing: 0.12em; text-transform: uppercase; }
+  .module { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
+  .module summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 18px 22px; transition: background 0.2s; }
+  .module summary::-webkit-details-marker { display: none; }
+  .module summary:hover { background: var(--surface-3); }
+  .mod-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.08em; flex-shrink: 0; width: 44px; }
+  .mod-title { font-size: 15px; font-weight: 500; color: var(--text); flex: 1; }
+  .mod-arrow { color: var(--text-3); font-size: 14px; transition: transform 0.3s; }
+  .module[open] .mod-arrow { transform: rotate(180deg); color: var(--teal); }
+  .module[open] summary { border-bottom: 1px solid var(--border); }
+  .mod-body { padding: 20px 22px 24px; }
+  .mod-body p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 14px; max-width: 75ch; }
+  .mod-body ul { margin: 0 0 14px 18px; }
+  .mod-body li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 6px; }
+  .mod-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin: 18px 0 8px; }
+  .mod-label.gold { color: var(--gold); }
+  .mod-label.sky { color: var(--sky); }
+  .exercise-block { background: rgba(56,189,248,0.05); border-left: 3px solid var(--sky); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0; }
+  .exercise-block p { margin-bottom: 0; }
+  .ai-block { background: rgba(29,106,255,0.05); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0; }
+  .ai-block p { margin-bottom: 0; }
+  .checkpoint-block { background: var(--surface); border: 1px dashed var(--border-2); border-radius: 8px; padding: 14px 18px; margin-top: 16px; }
+  .checkpoint-block .cp-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--text-2); padding: 4px 0; line-height: 1.6; }
+  .checkpoint-block .cp-box { width: 14px; height: 14px; border: 1px solid var(--border-2); border-radius: 3px; flex-shrink: 0; margin-top: 3px; }
+  .jt-block { background: rgba(232,184,0,0.06); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; max-width: 820px; }
+  .jt-block .jt-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+  .jt-block p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin: 0; }
+  .milestone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+  .milestone-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+  .milestone-card .ms-month { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+  .milestone-card h3 { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 14px; }
+  .tollgate { background: var(--surface-3); border: 1.5px solid var(--gold); border-radius: 10px; padding: 28px; margin-top: 24px; }
+  .tollgate h3 { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .tollgate .tg-sub { font-size: 14px; color: var(--text-2); margin-bottom: 16px; line-height: 1.7; }
+  .footer-nav { padding: 48px 0 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-nav a { color: var(--text-3); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--teal); }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: var(--teal); color: var(--void); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-decoration: none; border-radius: 6px; transition: background 0.2s; }
+  .btn-primary:hover { background: #3d7eff; }
+  @media (max-width: 1024px) { .content-wrap { padding: 0 24px; } .topbar { padding: 0 24px; } }
+  @media (max-width: 600px) { .hero h1 { font-size: 32px; } .data-table th, .data-table td { padding: 9px 10px; font-size: 13px; } }
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <a href="index.html" class="topbar-brand">
+    <div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
+  </a>
+  <div class="topbar-nav"><a href="paid-tier.html">All Paths</a><a href="index.html">Free Tier</a><a href="paid-tier.html#pricing" class="btn-primary" style="font-size:12px; padding:6px 16px;">Get Access</a></div>
+</nav>
+<div class="page"><div class="content-wrap">
+
+
+  <section class="hero">
+    <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><a href="paid-tier.html">Career Paths</a><span class="sep">/</span><span style="color:var(--teal);">Project SME Path</span></div>
+    <span class="eyebrow">Career Path — Project SME</span>
+    <h1>Project SME<br><strong>Shine on the Project</strong></h1>
+    <p class="hero-lead">You just got pulled onto a project — a transition, a migration, a CI initiative, a system go-live — on top of your day job. Most associates survive it. This path is about using it to get noticed and get promoted.</p>
+    <p class="hero-body">In a GBS organisation, projects are where scale and leverage are created — and where careers accelerate. When a new entity is integrated, an acquired company is rolled in, or SAP is deployed to a business not yet on the platform, the organisation needs SMEs from the existing teams to support, document, test, and train. That SME is often a young associate. Done well, this is the fastest visibility you will ever get. This six-week path shows you how to do it well.</p>
+  </section>
+
+  <section class="section">
+    <span class="eyebrow">Before You Start</span>
+    <h2>How this path works</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Six weeks, alongside the project</h3><p>This path runs in parallel with your real project assignment. Each week maps to a phase you will actually move through — from getting pulled in, to go-live, to converting the experience into a career step.</p></div>
+      <div class="card"><h3>Your expertise is your leverage</h3><p>On a project, your process knowledge is the scarcest resource in the room. The project cannot succeed without it. This path teaches you to use that leverage without burning out or overstepping.</p></div>
+      <div class="card"><h3>Templates you actually use</h3><p>KT checklist, UAT test script, RAID log entry, go-live readiness check, and an SME-to-career positioning sheet. Built to be edited, ready for your real project.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="eyebrow">The Opportunity</span>
+    <h2>Why the SME role is a hidden career accelerator</h2>
+    <p class="section-intro">Most associates see a project assignment as extra work on top of BAU. The ones who advance see it for what it is: an audition in front of people who do not normally see them.</p>
+    <div class="grid-3">
+      <div class="card"><h3>New eyes see you</h3><p>Project managers, workstream leads, and senior stakeholders from across the organisation are suddenly watching how you work. These are people who would never see your BAU performance — and some of them make hiring decisions.</p></div>
+      <div class="card"><h3>New entities, new roles</h3><p>When a business is integrated or migrated, new roles open for the new scope. SMEs who supported the transition are the natural candidates — you already know the processes and the people. Transitions create org charts; be on them.</p></div>
+      <div class="card"><h3>From SME to trainer to lead</h3><p>New joiners are hired for the new entity. Someone has to train them. That someone is often the SME who documented the process. Training others is a leadership signal — and a direct step toward a Senior Associate or Team Lead role.</p></div>
+    </div>
+    <div class="jt-block"><span class="jt-label">Julian's Take</span><p>In every transition I ran, the associates who treated it as "extra work" stayed associates. The ones who treated it as a stage — who documented cleanly, tested rigorously, trained the new joiners, and made themselves visible to the project leadership — got pulled into the new structure. The work is the same. The framing is everything.</p></div>
+  </section>
+
+  <section class="section" id="week-1">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div><span class="step-kicker">Project SME — Week 1</span><h2 style="margin:2px 0 0;">Understand the Project and Your Place in It</h2></div>
+    </div>
+    <p class="section-intro">Before you do anything, understand what kind of project you are on, what is expected of you, and how to protect your BAU. Confusion in week one costs you the whole project.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">1.1</span><span class="mod-title">Project vs. BAU — Learn the Different Rules</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Project work runs on different rules than your day job. BAU rewards consistency and throughput. Projects reward hitting milestones, flagging risks early, and clear communication across people who do not share your context. The first mistake associates make is running their project work like BAU — heads down, just executing — and missing that on a project, <strong style="color:var(--gold);">visible communication is part of the deliverable.</strong></p>
+        <span class="mod-label">The project types you will meet in GBS</span>
+        <table class="data-table">
+          <thead><tr><th>Project type</th><th>What you'll do as SME</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Transition / migration (roll-in of a new entity)</td><td>Document current state, support knowledge transfer, test, train new joiners</td><td>This is where GBS scale is built — highest visibility, most new roles</td></tr>
+            <tr><td>System deployment (SAP / ERP go-live)</td><td>Validate process design, write and run test cases, support hypercare</td><td>Often combined with a transition; deep exposure to process and technology</td></tr>
+            <tr><td>CI / Lean Six Sigma project</td><td>Provide process reality, collect data, validate improvements</td><td>Your ground truth keeps the project honest; belt-holders need you</td></tr>
+            <tr><td>Controls / compliance initiative</td><td>Map controls, document gaps, support remediation</td><td>Builds a compliance skill set that opens audit and risk career tracks</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>If you are on a transition that combines an SAP deployment with a company roll-in, you are in the best possible spot. That is the GBS growth engine in motion. The new entity needs people who understand both the old way and the new platform — and after go-live, those people are exactly who gets offered the new roles. Treat it accordingly.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Brief your AI with your Session Document, then ask: <em>"I've been assigned as SME to a [transition / SAP go-live / CI] project while keeping my BAU. Interview me about my role, then produce a one-page summary of what is expected of me, what good looks like, and the three biggest risks to my BAU."</em></p></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">1.2</span><span class="mod-title">Protect Your BAU — The Capacity Conversation</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>The fastest way to fail at both is to accept the project on top of a full BAU load with no protected time. You will burn out, your BAU quality will slip, and the project will suffer — and somehow it will look like your fault. Have the capacity conversation with your manager <strong style="color:var(--gold);">before</strong> the project ramps, not after you are drowning.</p>
+        <span class="mod-label">What to agree before you start</span>
+        <table class="data-table">
+          <thead><tr><th>Agree this</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Protected project time (e.g. X days/week or % allocation)</td><td>Without it, project work happens on top of everything — unsustainable</td></tr>
+            <tr><td>What BAU gets covered or paused</td><td>Someone must absorb your BAU, or it silently fails</td></tr>
+            <tr><td>Who your project point of contact is</td><td>You need one clear channel for project asks, not five</td></tr>
+            <tr><td>How conflicts get escalated</td><td>When BAU and project collide, you need an agreed rule, not a panic</td></tr>
+          </tbody>
+        </table>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the SME Participation Agreement template to draft your capacity ask. Walk your manager through it this week. The goal is one page, agreed, that protects you when the project gets intense.</p></div>
+        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I understand which project type I'm on and its rules</li><li class="cp-item"><span class="cp-box"></span>I have agreed protected time and BAU coverage with my manager</li><li class="cp-item"><span class="cp-box"></span>I know my single project point of contact</li></ul></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="week-2">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div><span class="step-kicker">Project SME — Week 2</span><h2 style="margin:2px 0 0;">Knowledge Transfer — Document Like a Professional</h2></div>
+    </div>
+    <p class="section-intro">Knowledge transfer is where SMEs are made or broken. The quality of your documentation now determines how much pain everyone feels at go-live — and how good you look doing it.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">2.1</span><span class="mod-title">The 4-Phase KT Model — Done Properly</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Knowledge transfer is not "show someone your screen once." Real KT moves through four phases, and skipping any of them is why processes break after go-live. As the SME, you own the source-of-truth knowledge. How you transfer it is your reputation.</p>
+        <span class="mod-label">The four phases</span>
+        <table class="data-table">
+          <thead><tr><th>Phase</th><th>What happens</th><th>Your SME job</th></tr></thead>
+          <tbody>
+            <tr><td>1. Document</td><td>Capture the process as it really runs</td><td>Write SOPs / DTPs that include the exceptions, not just the happy path</td></tr>
+            <tr><td>2. Demonstrate</td><td>Show the process live</td><td>Walk through real cases, including the messy ones</td></tr>
+            <tr><td>3. Practise (with support)</td><td>The receiver does it, you watch</td><td>Let them drive; correct gently; resist taking the keyboard</td></tr>
+            <tr><td>4. Validate (independent)</td><td>The receiver does it alone, measured</td><td>Sign off only when they genuinely can — your name is on it</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>The exceptions are the whole game. Anyone can document the happy path. The value of a real SME is knowing what happens when the invoice has no PO, when the entity uses a different tax code, when the month-end falls on a holiday. Document the exceptions and you are irreplaceable. Skip them and the new team drowns in week one — and everyone remembers whose KT it was.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe a process to your AI and ask: <em>"Turn this into a structured SOP with a clear happy path, then a separate exceptions section. Interview me with 10 questions to surface the edge cases I forgot to mention."</em> The interview is where the real knowledge comes out.</p></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">2.2</span><span class="mod-title">Become the Trainer — Turn KT into a Leadership Signal</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>When a new entity is integrated, new joiners are hired for the new scope — and they need training. The SME who documented the process is the obvious trainer. Volunteering for this is one of the highest-leverage moves an associate can make: training others is the clearest pre-promotion leadership signal there is.</p>
+        <span class="mod-label">Why training is a career move, not extra work</span>
+        <ul style="margin:10px 0 14px;padding-left:22px;color:var(--text-2);line-height:1.8;font-size:14px;">
+          <li><strong style="color:var(--gold);">Visibility to leadership</strong> — you are now the person the project trusts with new people.</li>
+          <li><strong style="color:var(--gold);">A leadership rehearsal</strong> — explaining, correcting, and building others' capability is exactly what a Team Lead does.</li>
+          <li><strong style="color:var(--gold);">A network of people who owe you</strong> — every person you train remembers who got them started.</li>
+        </ul>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Offer to build the onboarding checklist for one process the new joiners will need. Use your KT documentation as the base. Present it to your project lead — this single act moves you from "SME" to "trainer" in their mind.</p></div>
+        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>My SOPs include a real exceptions section, not just the happy path</li><li class="cp-item"><span class="cp-box"></span>I've moved at least one process through all four KT phases</li><li class="cp-item"><span class="cp-box"></span>I've volunteered to train or build onboarding for new joiners</li></ul></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="week-3">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div><span class="step-kicker">Project SME — Week 3</span><h2 style="margin:2px 0 0;">Testing — UAT Without the Guesswork</h2></div>
+    </div>
+    <p class="section-intro">On a system deployment, you will be asked to test. Most associates do it badly because nobody taught them how. Good testing makes go-live smooth and makes you look sharp; bad testing causes a painful go-live with your name on the sign-off.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">3.1</span><span class="mod-title">UAT That Actually Catches Problems</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>User Acceptance Testing is your chance to confirm the new system or process actually works for the real business before it goes live. The goal is not to click through and confirm it works — it is to deliberately try to break it the way reality will. A test that only checks the happy path guarantees a painful go-live.</p>
+        <span class="mod-label">How to test properly</span>
+        <table class="data-table">
+          <thead><tr><th>Do this</th><th>Not this</th></tr></thead>
+          <tbody>
+            <tr><td>Write test cases from real scenarios, including exceptions</td><td>Improvise clicks and "see if it works"</td></tr>
+            <tr><td>Use real-world data variety (different entities, currencies, tax codes)</td><td>Test one clean example and sign off</td></tr>
+            <tr><td>Document each result clearly: pass / fail / what happened</td><td>Remember it in your head</td></tr>
+            <tr><td>Re-test after fixes (regression)</td><td>Assume a fix didn't break something else</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>When you sign off on UAT, you are telling the organisation "this works for the business I represent." If you waved it through and it breaks at go-live, that is on you — and people remember. If you caught the issue everyone else missed because you knew the one exception that matters, that is also remembered. Testing is a reputation event. Treat it like one.</p></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Give your AI a process and ask: <em>"Generate a UAT test script covering the happy path plus 8 edge cases for [process]. For each, give the steps, the test data, and the expected result."</em> Then validate and improve it with your real knowledge — the AI gives you structure, you supply the exceptions that matter.</p></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="week-4">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div><span class="step-kicker">Project SME — Week 4</span><h2 style="margin:2px 0 0;">Communicate on a Project — RAID and Status</h2></div>
+    </div>
+    <p class="section-intro">On a project, the people deciding your reputation often only see you through your written updates. Learn to raise issues without looking negative, and to report status so leadership trusts you.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">4.1</span><span class="mod-title">RAID Logs — Raise Issues Without Looking Negative</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>RAID stands for Risks, Assumptions, Issues, Dependencies — the project's shared memory of what could go wrong and what it is counting on. As an SME, you will spot risks others miss because you know the process. Raising them well marks you as switched-on; raising them badly marks you as a complainer. The difference is entirely in the framing.</p>
+        <span class="mod-label">The four RAID elements</span>
+        <table class="data-table">
+          <thead><tr><th>Element</th><th>What it captures</th><th>SME example</th></tr></thead>
+          <tbody>
+            <tr><td>Risk</td><td>Something that might go wrong</td><td>"If the legacy tax codes aren't mapped, payments will fail at go-live"</td></tr>
+            <tr><td>Assumption</td><td>Something being taken as true</td><td>"We assume the new entity uses the same approval hierarchy"</td></tr>
+            <tr><td>Issue</td><td>A problem happening now</td><td>"Test data for entity X is not available"</td></tr>
+            <tr><td>Dependency</td><td>Something you need from someone else</td><td>"KT sign-off depends on the entity finance lead's availability"</td></tr>
+          </tbody>
+        </table>
+        <p>The framing rule: raise a risk <strong style="color:var(--gold);">with a proposed mitigation</strong>, never as a bare complaint. "X is broken" is negativity. "X is a risk; here's what I'd suggest we do" is leadership.</p>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the RAID Log template to write your first three entries from your real project — at least one risk with a proposed mitigation. Submit it to your project lead this week.</p></div>
+        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I've written UAT test cases that include exceptions</li><li class="cp-item"><span class="cp-box"></span>I've logged at least one risk with a proposed mitigation</li><li class="cp-item"><span class="cp-box"></span>I've submitted one clear project status update</li></ul></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="week-5">
+    <div class="step-header">
+      <div class="step-num">5</div>
+      <div><span class="step-kicker">Project SME — Week 5</span><h2 style="margin:2px 0 0;">Go-Live and Hypercare — Land It Cleanly</h2></div>
+    </div>
+    <p class="section-intro">Go-live is the moment everything is judged. Hypercare is the support period right after. How you show up here is what people remember when the project is over and roles are being filled.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">5.1</span><span class="mod-title">Go-Live Readiness and Hypercare Support</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>Go-live readiness means confirming, honestly, that your area is ready: processes documented, people trained, tests passed, exceptions known. Hypercare is the intensive support window right after go-live when issues surface and need fast resolution. SMEs who are calm, available, and organised during hypercare become the people the new organisation wants to keep.</p>
+        <span class="mod-label">Your go-live readiness check</span>
+        <ul style="margin:10px 0 14px;padding-left:22px;color:var(--text-2);line-height:1.8;font-size:14px;">
+          <li><strong style="color:var(--gold);">Documentation current</strong> — SOPs reflect the new system, exceptions included.</li>
+          <li><strong style="color:var(--gold);">People ready</strong> — new joiners trained and validated, not just shown.</li>
+          <li><strong style="color:var(--gold);">Issues logged</strong> — known problems are in the RAID log, not just in your head.</li>
+          <li><strong style="color:var(--gold);">Support plan clear</strong> — you know who to escalate to and how fast.</li>
+        </ul>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>Hypercare is the audition's final act. Everyone is stressed, things are breaking, and the person who stays calm, tracks every issue, and quietly resolves things is the one leadership notices. That is the person who gets the offer for the new entity's permanent role. Be that person — organised, unflappable, visible.</p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Build your area's go-live readiness assessment using the template. Walk it through with your project lead and be honest about gaps — flagging a gap before go-live is professional; hiding it is a career risk.</p></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="week-6">
+    <div class="step-header">
+      <div class="step-num">6</div>
+      <div><span class="step-kicker">Project SME — Week 6</span><h2 style="margin:2px 0 0;">Convert the Project into a Career Step</h2></div>
+    </div>
+    <p class="section-intro">The project is ending. Most people just go back to BAU. You are going to convert what you did into evidence, visibility, and a concrete next move — because that was the point all along.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">6.1</span><span class="mod-title">From SME to Your Next Role</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+        <p>You documented processes, trained new joiners, caught issues at UAT, and supported a clean go-live. That is a portfolio. Now make it visible and use it. Transitions create new roles; the SMEs who supported them are the natural candidates — but only if leadership connects you to the work.</p>
+        <span class="mod-label">Your conversion checklist</span>
+        <table class="data-table">
+          <thead><tr><th>Action</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Log every project contribution in your Brag Sheet with numbers</td><td>"Trained 6 new joiners; my area had zero critical go-live defects" is promotion evidence</td></tr>
+            <tr><td>Ask your project lead for written feedback</td><td>A sentence from a project leader carries weight in calibration</td></tr>
+            <tr><td>Signal interest in roles for the new entity</td><td>If you don't say you want it, the pull reason can't work for you</td></tr>
+            <tr><td>Update your CV and LinkedIn with the project</td><td>Transition and migration experience is genuinely marketable</td></tr>
+          </tbody>
+        </table>
+        <div class="jt-block"><span class="jt-label">Julian's Take</span><p>The biggest waste I see: an associate does brilliant project work, then says nothing and slides back into BAU. The project leadership moves on, the new roles get filled by people who made their interest known, and six months later that associate wonders why they were overlooked. Do the work — then make sure the right people know you did it, and that you want what comes next.</p></div>
+        <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the SME-to-Career Positioning sheet: list your project contributions with numbers, draft your interest message to your project lead or manager, and identify the specific next role the transition might open. Send the message this week.</p></div>
+        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>Every project contribution is logged in my Brag Sheet with numbers</li><li class="cp-item"><span class="cp-box"></span>I've asked my project lead for written feedback</li><li class="cp-item"><span class="cp-box"></span>I've signalled interest in a specific next role to the right person</li></ul></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section">
+    <h2>Templates &amp; tools</h2>
+    <p class="section-intro">Every template is built to be edited and used on your real project.</p>
+    <div class="grid-3">
+      <div class="card"><h3>SME Participation Agreement</h3><p>One page to agree protected time and BAU coverage with your manager.</p></div>
+      <div class="card"><h3>KT Checklist (4-Phase)</h3><p>Move every process through document, demonstrate, practise, validate.</p></div>
+      <div class="card"><h3>UAT Test Script</h3><p>Structured test cases with happy path plus exceptions and expected results.</p></div>
+      <div class="card"><h3>RAID Log</h3><p>Capture risks, assumptions, issues, dependencies — with mitigations.</p></div>
+      <div class="card"><h3>Go-Live Readiness Check</h3><p>Honest readiness assessment for your area before go-live.</p></div>
+      <div class="card"><h3>SME-to-Career Positioning Sheet</h3><p>Turn project contributions into evidence and a concrete next-role ask.</p></div>
+    </div>
+  </section>
+
+</div></div>
+
+<!-- progress-tracking -->
+<style>
+  .cp-item { cursor: pointer; user-select: none; transition: opacity 0.15s; }
+  .cp-item:hover .cp-box { border-color: var(--teal); }
+  .cp-item.done { opacity: 0.65; }
+  .cp-item.done .cp-box { background: var(--teal); border-color: var(--teal); position: relative; }
+  .cp-item.done .cp-box::after { content: ''; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px; border: solid var(--void); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .progress-bar-wrap { position: sticky; top: 56px; z-index: 90; background: rgba(8,11,16,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .progress-bar-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; gap: 16px; }
+  .progress-track { flex: 1; height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); border-radius: 3px; width: 0%; transition: width 0.3s ease; }
+  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-2); white-space: nowrap; letter-spacing: 0.04em; }
+  .progress-label strong { color: var(--gold); font-weight: 600; }
+  @media (max-width: 1024px) { .progress-bar-inner { padding: 0 24px; } }
+</style>
+<script>
+(function() {
+  var KEY = 'gbs-progress-sme';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) {}
+
+  var items = document.querySelectorAll('.cp-item');
+  var total = items.length;
+
+  // Progress bar UI
+  var page = document.querySelector('.page') || document.body;
+  var bar = document.createElement('div');
+  bar.className = 'progress-bar-wrap';
+  bar.innerHTML = '<div class="progress-bar-inner"><span class="progress-label">Your progress</span><div class="progress-track"><div class="progress-fill" id="pf"></div></div><span class="progress-label" id="pl"><strong>0</strong> / ' + total + '</span></div>';
+  page.insertBefore(bar, page.firstChild);
+
+  function render() {
+    var done = 0;
+    items.forEach(function(it, i) {
+      if (saved[i]) { it.classList.add('done'); done++; }
+      else { it.classList.remove('done'); }
+    });
+    document.getElementById('pf').style.width = (total ? Math.round(done / total * 100) : 0) + '%';
+    document.getElementById('pl').innerHTML = '<strong>' + done + '</strong> / ' + total + ' checkpoints';
+  }
+
+  items.forEach(function(it, i) {
+    it.addEventListener('click', function() {
+      saved[i] = !saved[i];
+      if (!saved[i]) delete saved[i];
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e) {}
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- tier-gating -->
+<style>
+  .module.locked .mod-body { display: none !important; }
+  .module.locked summary { opacity: 0.75; }
+  .module.locked .mod-arrow { display: none; }
+  .lock-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(232,184,0,0.35); border-radius: 3px; padding: 2px 7px; margin-left: auto; flex-shrink: 0; }
+  .gate-panel { background: linear-gradient(135deg, rgba(232,184,0,0.07), rgba(29,106,255,0.05)); border: 1px solid rgba(232,184,0,0.35); border-radius: 12px; padding: 32px 36px; margin: 28px 0; text-align: center; }
+  .gate-panel h3 { font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 10px; }
+  .gate-panel p { font-size: 14px; color: var(--text-2); line-height: 1.8; max-width: 640px; margin: 0 auto 20px; }
+  .gate-panel .gate-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: var(--void); font-size: 14px; font-weight: 600; padding: 12px 28px; border-radius: 8px; text-decoration: none; }
+  .preview-banner { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 14px 20px; margin: 16px 0 24px; font-size: 13px; color: var(--text-2); line-height: 1.7; }
+  .preview-banner strong { color: var(--gold); }
+</style>
+<script>
+(function() {
+  var SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
+  var FREE_PREVIEW_MODULES = 2;
+
+  function lockContent() {
+    var modules = document.querySelectorAll('details.module');
+    modules.forEach(function(mod, i) {
+      if (i < FREE_PREVIEW_MODULES) return;
+      mod.classList.add('locked');
+      mod.removeAttribute('open');
+      var summary = mod.querySelector('summary');
+      if (summary && !summary.querySelector('.lock-tag')) {
+        var tag = document.createElement('span');
+        tag.className = 'lock-tag';
+        tag.textContent = 'Full Access';
+        summary.appendChild(tag);
+      }
+      if (summary) {
+        summary.addEventListener('click', function(e) {
+          e.preventDefault();
+          var gate = document.getElementById('gate-panel');
+          if (gate) gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+    });
+
+    // Preview banner after the last free module
+    var lastFree = modules[FREE_PREVIEW_MODULES - 1];
+    if (lastFree && !document.getElementById('gate-panel')) {
+      var panel = document.createElement('div');
+      panel.className = 'gate-panel';
+      panel.id = 'gate-panel';
+      panel.innerHTML = '<h3>You have seen the first two modules. ' + (modules.length - FREE_PREVIEW_MODULES) + ' more are waiting.</h3>' +
+        '<p>The remaining modules contain the practical core: the hard conversations, the templates, the AI applications, and the 90-day roadmap with tollgate. One payment, lifetime access, all current and future paths included.</p>' +
+        '<a class="gate-btn" href="paid-tier.html#pricing">Unlock Full Access — $99 &rarr;</a>';
+      lastFree.parentNode.insertBefore(panel, lastFree.nextSibling);
+    }
+
+    // Banner at top
+    var page = document.querySelector('.content-wrap') || document.body;
+    if (!document.getElementById('preview-banner')) {
+      var b = document.createElement('div');
+      b.id = 'preview-banner';
+      b.className = 'preview-banner';
+      b.innerHTML = '<strong>Free preview:</strong> the first two modules are open. The full path unlocks with Full Access — <a href="paid-tier.html#pricing" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">see pricing</a>.';
+      page.insertBefore(b, page.firstChild);
+    }
+  }
+
+  function init() {
+    if (typeof supabase === 'undefined') { lockContent(); return; }
+    var sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    sb.auth.getSession().then(function(res) {
+      var session = res.data ? res.data.session : null;
+      if (!session) { lockContent(); return; }
+      sb.from('user_tiers').select('tier').eq('user_id', session.user.id).maybeSingle().then(function(r) {
+        if (!(r.data && r.data.tier === 'full_access')) lockContent();
+        // full_access: leave everything open
+      }).catch(function() { lockContent(); });
+    }).catch(function() { lockContent(); });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+</body>
