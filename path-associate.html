@@ -134,6 +134,23 @@
   .kcheck.revealed .kcheck-answer { display: block; }
   .kcheck.revealed .kcheck-btn { display: none; }
 
+
+  /* Session Recap blocks */
+  .checkpoint-block { background: var(--surface); border: 1px solid var(--border-2); border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 26px 0; }
+  .recap-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .recap-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+  .recap-why { font-size: 13.5px; color: var(--text-2); line-height: 1.6; margin: 0 0 14px; font-style: italic; }
+
+
+  /* Field Skills boxes */
+  .fieldskill { background: rgba(52,211,153,0.05); border: 1px solid rgba(52,211,153,0.32); border-left: 3px solid #34d399; border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 24px 0; }
+  .fs-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #34d399; margin: 0 0 6px; font-weight: 700; }
+  .fs-q { font-size: 16px; font-weight: 600; color: var(--text); line-height: 1.5; margin: 0 0 10px; }
+  .fieldskill p { font-size: 14.5px; color: #dde3ec; line-height: 1.8; margin: 0 0 10px; }
+  .fieldskill ul { margin: 8px 0 10px; padding-left: 20px; }
+  .fieldskill li { font-size: 14px; color: #dde3ec; line-height: 1.75; margin-bottom: 6px; }
+  .fieldskill .fs-sci { font-size: 13px; color: var(--text-2); font-style: italic; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(52,211,153,0.22); }
+
 </style>
 </head>
 <body>
@@ -361,7 +378,7 @@
         </ul>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Have this conversation with your manager this week. Document the answers. If your manager can't answer clearly — that's a finding too, and it tells you to build your own definition of success and validate it with them.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Upload your job description. Ask: <em>"What are the 5 most critical success factors in this role, and what clarifying questions should I ask my manager?"</em> Manual alternative: compare your JD against our generic Associate profile and mark every line you can't yet evidence.</p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">If you don't know the real standard you're measured against, every other move is a guess.</p>
           <div class="cp-item"><span class="cp-box"></span>I have a documented set of expectations from my manager</div>
           <div class="cp-item"><span class="cp-box"></span>I know my top 3 KPIs</div>
           <div class="cp-item"><span class="cp-box"></span>I know who my key stakeholders are</div>
@@ -383,12 +400,23 @@
         </ul>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Write a one-page Process Health Assessment for your area and share it with your manager — framed as <em>"here's what I've observed,"</em> not as criticism. This is initiative made visible.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Describe your function (AP, AR, R2R, HR Ops...) and ask AI to generate a process health assessment template for it. Fill it with your real observations — AI structures, you supply the truth.</p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">You can't improve — or get credit for improving — a process you haven't honestly diagnosed.</p>
           <div class="cp-item"><span class="cp-box"></span>I can describe my process's top 3 pain points</div>
           <div class="cp-item"><span class="cp-box"></span>I know where hero knowledge exists</div>
           <div class="cp-item"><span class="cp-box"></span>I've shared my observations with my manager</div>
         </div>
-      </div>
+      <div class="fieldskill">
+<p class="fs-label">Field Skills</p>
+<p class="fs-q">&ldquo;I feel slower than my colleagues &mdash; how do I catch up?&rdquo;</p>
+<p>Speed early in a career is mostly familiarity, not talent &mdash; and familiarity is something you can build deliberately. Channel the worry into a plan rather than into longer hours:</p>
+<ul>
+<li><strong style="color:#34d399;">Find the pattern, not just the task</strong> &mdash; the fast people aren't working harder, they've learned the recurring shapes. Ask &ldquo;what's the general rule here?&rdquo; so each task teaches you the next ten.</li>
+<li><strong style="color:#34d399;">Build a personal playbook</strong> &mdash; note the steps for things you do repeatedly. Your second time should never be as slow as your first.</li>
+<li><strong style="color:#34d399;">Ask early, specifically</strong> &mdash; &ldquo;I want to get faster at this &mdash; what would you check first?&rdquo; Targeted questions close the gap faster than struggling alone.</li>
+<li><strong style="color:#34d399;">Compare to your past self</strong> &mdash; the honest benchmark is whether you're faster than last month, not whether you've matched someone with two more years in the seat.</li>
+</ul>
+<p>Steady, deliberate improvement is how almost everyone who looks &ldquo;naturally fast&rdquo; actually got there.</p><p class="fs-sci">Protect your rest while you build speed &mdash; sustainable, focused practice closes the gap; exhaustion just hides it.</p>
+</div></div>
     </details>
 
     <details class="module">
@@ -406,7 +434,7 @@
         <p>Raw numbers lie. If you handle complex cases while a peer cherry-picks volume, the dashboard makes you look slower. Align with your manager: <em>"I'm handling more complex cases that take longer — can we discuss how to reflect that in my targets so the numbers show my actual contribution?"</em> Managing the perception of your value is a skill, not politics.</p>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Prepare and lead your next 1:1 with two concrete topics. Afterwards, write down what you learned about how your manager thinks.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Before the 1:1, give AI your topics and ask it to structure your talking points. After, debrief: <em>"Here's the feedback I received — what does it tell me about what my manager values?"</em></p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">Your manager's view of you is shaped most in these meetings. Drive them, don't just attend.</p>
           <div class="cp-item"><span class="cp-box"></span>I lead my 1:1s with prepared topics</div>
           <div class="cp-item"><span class="cp-box"></span>I've had at least one KPI/target fairness conversation</div>
           <div class="cp-item"><span class="cp-box"></span>I can describe what my manager values most in 3 bullet points</div>
@@ -416,7 +444,16 @@
 <p style="font-size:14px;color:var(--text-2);line-height:1.75;margin:0 0 10px;"><strong style="color:var(--text);">The science:</strong> Social psychologists Fiske and Cuddy showed people judge warmth before competence — we decide whether we trust someone before we decide whether they're capable. Competence displayed without warmth reads as threatening, not impressive.</p>
 <p style="font-size:14px;color:var(--text-2);line-height:1.75;margin:0;"><strong style="color:#38bdf8;">Try this:</strong> Open every 1:1 with 60 genuine seconds of human contact before content — a real question, a thank-you, a follow-up on something they mentioned. Then switch to crisp business mode. The order matters: warmth opens the door competence walks through.</p>
 </div>
-</div>
+<div class="fieldskill">
+<p class="fs-label">Field Skills</p>
+<p class="fs-q">&ldquo;I struggle with small talk and building rapport.&rdquo;</p>
+<p>Rapport isn't about being charming &mdash; it's about making the other person feel noticed. That's a learnable routine:</p>
+<ul>
+<li><strong style="color:#34d399;">Warmth before business</strong> &mdash; 60 seconds of genuine human contact before you switch to the task. People decide whether they trust you before they decide whether you're capable.</li>
+<li><strong style="color:#34d399;">Remember one detail</strong> &mdash; their kid's exam, their move, their project. Following up on it next time is the entire secret of people who &ldquo;just get on with everyone.&rdquo;</li>
+<li><strong style="color:#34d399;">Ask, then listen</strong> &mdash; one genuine question and real attention beats any clever line. You don't need to be interesting; you need to be interested.</li>
+</ul><p class="fs-sci">Psychologists Fiske and Cuddy find people judge warmth before competence &mdash; a little genuine warmth opens the door that your capability then walks through.</p>
+</div></div>
     </details>
 
     <details class="module">
@@ -439,12 +476,22 @@
         </ul>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Adopt the protocol: pause, draft, review after 30 minutes, then send. The next pressure situation you handle well goes into your Brag Sheet — composure under fire is a career achievement.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Role-play with AI as the angry stakeholder. Try three different de-escalation approaches and compare which works fastest. Practice in private, perform in public.</p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">How you behave in the hard moments is remembered far longer than months of steady work.</p>
           <div class="cp-item"><span class="cp-box"></span>I have a personal protocol for pressure situations (pause, draft, review)</div>
           <div class="cp-item"><span class="cp-box"></span>I've practiced de-escalation — with AI or in a real situation</div>
           <div class="cp-item"><span class="cp-box"></span>I know my organization's escalation process for unacceptable behavior</div>
         </div>
-      </div>
+      <div class="fieldskill">
+<p class="fs-label">Field Skills</p>
+<p class="fs-q">&ldquo;I freeze when I'm suddenly put on the spot in a meeting.&rdquo;</p>
+<p>Freezing under a surprise question is normal &mdash; the goal is a small toolkit you can reach for automatically so you never go blank:</p>
+<ul>
+<li><strong style="color:#34d399;">Bridge to buy time</strong> &mdash; &ldquo;Good question. The way I'd think about that is&hellip;&rdquo; gives you three seconds and a running start.</li>
+<li><strong style="color:#34d399;">Reflect it back</strong> &mdash; &ldquo;Just to make sure I answer the right thing &mdash; are you asking about X or Y?&rdquo; buys time and sharpens your answer.</li>
+<li><strong style="color:#34d399;">The honest defer</strong> &mdash; &ldquo;I want to give you an accurate answer rather than guess &mdash; let me check and follow up by end of day.&rdquo; Then actually do it. Reliability beats improvisation.</li>
+</ul>
+<p>None of these are dodges. Each one makes you look more careful, not less capable.</p>
+</div></div>
     </details>
 
     <details class="module">
@@ -464,12 +511,23 @@
         <div class="jt-block"><span class="jt-label">Pro Tip</span><p>The highest-impact move isn't mastering this from a course. It's proposing that your center establishes cultural awareness training — or joining it if it exists. That improves the whole team and makes you visible at the same time. One initiative, two wins.</p></div>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Identify one communication pattern from a cross-cultural colleague that differs from your style. Adapt your approach for one week. Observe what changes.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Ask AI to rewrite the same message — a deadline reminder, a scope pushback — for three cultural contexts. Comparing the versions builds intuition faster than any theory chapter.</p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">Most cross-cultural friction is avoidable once you know where the misunderstandings hide.</p>
           <div class="cp-item"><span class="cp-box"></span>I can name 2-3 communication differences with my main counterpart cultures</div>
           <div class="cp-item"><span class="cp-box"></span>I've adapted my communication style at least once, deliberately</div>
           <div class="cp-item"><span class="cp-box"></span>I know whether my center offers cultural training — or I've considered proposing it</div>
         </div>
-      </div>
+      <div class="fieldskill">
+<p class="fs-label">Field Skills</p>
+<p class="fs-q">&ldquo;English isn't my first language &mdash; how do I sound clear and confident?&rdquo;</p>
+<p>Clarity beats vocabulary every time. The most respected communicators in global teams are often non-native speakers who keep it simple and structured:</p>
+<ul>
+<li><strong style="color:#34d399;">Short sentences</strong> &mdash; one idea each. Long, complex sentences are where both you and your listener get lost.</li>
+<li><strong style="color:#34d399;">Signpost</strong> &mdash; &ldquo;I have two points. First&hellip; Second&hellip;&rdquo; Structure makes you easy to follow regardless of accent.</li>
+<li><strong style="color:#34d399;">Slow down</strong> &mdash; speaking a little slower fixes far more comprehension problems than a bigger vocabulary ever will.</li>
+<li><strong style="color:#34d399;">Confirm in writing</strong> &mdash; a short follow-up message after a verbal discussion plays to a strength and removes any ambiguity.</li>
+</ul>
+<p>Your accent is not the problem. Unstructured, rushed speech is &mdash; and that's fully fixable.</p>
+</div></div>
     </details>
   </section>
 
@@ -509,7 +567,7 @@
 <text x="440" y="342" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="11.5">Your team: social capital + trust</text></svg></div>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise — 30-Day Network Build</span><p>Introduce yourself to 5 peers outside your immediate team. Identify 2 senior colleagues worth learning from and find a genuine work reason to interact. Join the buddy or mentor program if one exists — ask your manager if informal mentoring is possible if not. Have one conversation with a service recipient about what matters to them.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Ask AI to help you draft a natural reach-out message based on genuinely shared work — not a networking template. Authenticity scales, scripts don't.</p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">The people who vouch for you when you're not in the room are rarely only your own team.</p>
           <div class="cp-item"><span class="cp-box"></span>I have working relationships beyond my immediate team</div>
           <div class="cp-item"><span class="cp-box"></span>I have at least one informal mentor or senior contact</div>
           <div class="cp-item"><span class="cp-box"></span>I know what matters to at least one service recipient, personally</div>
@@ -524,6 +582,15 @@
 <p class="kcheck-question">You spend all your relationship energy on your manager and skip-level. Why might this quietly hurt you?</p>
 <button type="button" class="kcheck-btn">Reveal the answer &rarr;</button>
 <div class="kcheck-answer">People who network only upward get recognised as exactly that — and the team stops trusting them. Advancement comes from relationships in every direction: peers for social capital, adjacent seniors for exposure, and service recipients for reputation. The people who vouch for you when you're not in the room are rarely only above you.</div>
+</div><div class="fieldskill">
+<p class="fs-label">Field Skills</p>
+<p class="fs-q">&ldquo;I'm not a natural networker &mdash; it feels fake and pushy.&rdquo;</p>
+<p>If networking feels like selling yourself, you're doing the version that doesn't work anyway. The version that does is built on curiosity and small favors:</p>
+<ul>
+<li><strong style="color:#34d399;">Ask, don't pitch</strong> &mdash; &ldquo;You know this process better than anyone &mdash; can I borrow five minutes of your thinking?&rdquo; People like being asked, and it builds the relationship faster than offering help they didn't request.</li>
+<li><strong style="color:#34d399;">One coffee a week</strong> &mdash; a single, genuine 1:1 with someone new. Twelve weeks, twelve relationships. No event, no small-talk marathon.</li>
+<li><strong style="color:#34d399;">Be useful, not impressive</strong> &mdash; share a helpful link, make one introduction. Reputation is built by being the person who quietly helps.</li>
+</ul><p class="fs-sci">The 'Franklin effect': people who do you a small favor tend to like you more afterward &mdash; asking for modest help is one of the most natural ways to build a genuine working relationship.</p>
 </div></div>
     </details>
 
@@ -547,7 +614,7 @@
         </ul>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>This month, do two of these: present in a team meeting, share a written status update, forward positive feedback with context, or volunteer for one visible task. Log both in your Brag Sheet.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Let AI draft your status updates and meeting talking points; edit until they sound like you. After a few cycles you'll have internalized the structure and won't need the draft.</p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">Visibility isn't volume — but invisible good work doesn't get promoted. Be seen on purpose.</p>
           <div class="cp-item"><span class="cp-box"></span>I've contributed visibly in at least one meeting</div>
           <div class="cp-item"><span class="cp-box"></span>My manager has seen at least one piece of positive feedback about my work</div>
           <div class="cp-item"><span class="cp-box"></span>I have a visibility channel that fits my personality — and I'm training it</div>
@@ -560,7 +627,17 @@
 <figure style="margin:20px 0;padding:0;">
 <img src="images/img-visibility-huddle.jpg" alt="Young professional presenting confidently to her team huddle" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border);"><p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.08em;text-transform:uppercase;margin:8px 0 0;">Small occasions are the gym</p>
 </figure>
-</div>
+<div class="fieldskill">
+<p class="fs-label">Field Skills</p>
+<p class="fs-q">&ldquo;I'm an introvert &mdash; how do I get visible without pretending to be someone I'm not?&rdquo;</p>
+<p>Visibility is not volume, and the loudest person in the room is rarely the one who gets promoted. Introverts have channels that work just as well &mdash; often better, because they signal substance:</p>
+<ul>
+<li><strong style="color:#34d399;">Written updates</strong> &mdash; a crisp weekly summary to your manager makes your work visible without you saying a word in a meeting.</li>
+<li><strong style="color:#34d399;">Small groups and 1:1s</strong> &mdash; where introverts usually shine. A strong impression on three people travels.</li>
+<li><strong style="color:#34d399;">Prepared contributions</strong> &mdash; ask for the agenda, prepare one good point, deliver it. You don't need to speak ten times; you need to be worth listening to once.</li>
+</ul>
+<p>Pick one channel and train it. Speaking to three people in a huddle this month is how you speak to thirty in a town hall next year.</p><p class="fs-sci">Being a team player and a steady, trusted presence is itself a high-value skill set &mdash; not a consolation prize for the quiet.</p>
+</div></div>
     </details>
 
     <details class="module">
@@ -598,7 +675,7 @@
           <li><em>"I want my development aligned with where the team is going. Can we talk about what the next 12 months could look like?"</em></li>
         </ul>
         <div class="jt-block"><span class="jt-label">From the Field</span><p>Managers are bound by promotion rules, budgets, and job bands — sharing intent doesn't guarantee anything. But if you matter, your manager starts exploring ways to keep you, and when something opens, you're remembered. Never threaten to leave as a tactic. It sometimes works, and it always leaves a mark.</p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">The ask lands only when you've already shown the capability. Evidence first, conversation second.</p>
           <div class="cp-item"><span class="cp-box"></span>I know what I'd need to show before having the conversation</div>
           <div class="cp-item"><span class="cp-box"></span>I have draft framing for my career conversation — even if I'm not ready yet</div>
         </div>
@@ -653,7 +730,7 @@
 <text x="725" y="216" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="11">not "develop leadership"</text></svg></div>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Build your gap table: requirement, current evidence, gap, action, by-when. Validate the top three gaps with your manager or mentor — they may see different ones, and that conversation is itself a Step 3 move.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Give AI both job descriptions and your Brag Sheet. Interview Mode: <em>"Interview me about my situation, then build a gap analysis between my current evidence and this next role — with specific actions available to someone in my position."</em></p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">You can't close a gap you haven't named. This turns 'I want to grow' into a concrete plan.</p>
           <div class="cp-item"><span class="cp-box"></span>I have a documented gap analysis against a real next-role JD</div>
           <div class="cp-item"><span class="cp-box"></span>My top 3 gaps each have a concrete action attached</div>
           <div class="cp-item"><span class="cp-box"></span>I've validated the gaps with my manager or a mentor</div>
@@ -674,12 +751,22 @@
         </ul>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>For two weeks, end every significant piece of work with a 3-sentence summary to whoever needs it. In your next team meeting, state one opinion with one supporting reason — practice having a position out loud.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Paste a long, messy update you'd normally send. Ask AI for a 3-sentence executive version. Compare. Repeat until your first draft looks like AI's second one.</p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">Every next role demands sharper communication. This is the most portable skill you can build.</p>
           <div class="cp-item"><span class="cp-box"></span>I routinely summarize complex issues in 3 sentences</div>
           <div class="cp-item"><span class="cp-box"></span>I've stated and defended a position in a meeting</div>
           <div class="cp-item"><span class="cp-box"></span>My written updates lead with the ask</div>
         </div>
-      </div>
+      <div class="fieldskill">
+<p class="fs-label">Field Skills</p>
+<p class="fs-q">&ldquo;I often talk before I've thought it through &mdash; how do I sound more considered?&rdquo;</p>
+<p>The fix is a deliberate pause. A two-to-five second gap before you answer feels long to you and reads as thoughtful to everyone else. Practical moves:</p>
+<ul>
+<li><strong style="color:#34d399;">Buy the beat</strong> &mdash; &ldquo;That's a good question, let me think for a second.&rdquo; It signals confidence, not hesitation.</li>
+<li><strong style="color:#34d399;">The 5-second rule</strong> &mdash; count to five silently before responding in a charged moment. It shifts you from reacting to responding.</li>
+<li><strong style="color:#34d399;">Slow down your delivery</strong> &mdash; speaking a little slower makes you sound more measured and more senior, and gives your brain time to catch up with your mouth.</li>
+<li><strong style="color:#34d399;">It's fine to say &ldquo;I don't know enough on this yet &mdash; let me come back to you.&rdquo;</strong> That reads as judgment, not weakness.</li>
+</ul><p class="fs-sci">Communication research consistently finds that pausing before responding improves both the quality of what you say and how influential you appear &mdash; taking a beat makes people more likely to listen to you.</p>
+</div></div>
     </details>
 
     <details class="module">
@@ -696,7 +783,7 @@
         <p>Each comes with a "pitch to your manager" template — a short proposal with what you'd deliver in 90 days. Proposing your own role expansion is intrapreneurship, and managers remember who does it.</p>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Join or observe one improvement initiative this quarter — even as a listener. Separately: pick one growth move above, draft the 90-day pitch, and decide whether to propose it now or after your next milestone.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Use Interview Mode to build your pitch: <em>"I want to propose taking ownership of [area] to my manager. Interview me about my team's situation, then draft a one-page proposal with deliverables for the first 90 days."</em></p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">The improvement mindset develops early or not at all. Initiative is what next-level work looks like.</p>
           <div class="cp-item"><span class="cp-box"></span>I've participated in or observed at least one initiative</div>
           <div class="cp-item"><span class="cp-box"></span>I've identified one growth move that fits my situation</div>
           <div class="cp-item"><span class="cp-box"></span>I have a drafted 90-day pitch — ready when the timing is right</div>
@@ -775,7 +862,7 @@
       <div class="mod-body">
         <p>"Not yet" with a concrete development plan and timeline is a good outcome — hold them to it at the next milestone. "No" without a path is information. If you genuinely need more than your current role can deliver, the disciplined route is: secure a real alternative offer first, then decide — negotiate with leverage, or leave with grace.</p>
         <div class="jt-block"><span class="jt-label">Blind Spot</span><p>The alternative-offer play works exactly once, and it leaves a mark even when it works. Use it when you've exhausted internal options and you're genuinely willing to take the other job — never as a bluff. If they say "then go," you go.</p></div>
-        <div class="checkpoint-block">
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">A 'no' handled well keeps the door open and your reputation intact. Plan B is part of the ask.</p>
           <div class="cp-item"><span class="cp-box"></span>I know what a good "not yet" looks like — plan, timeline, next checkpoint</div>
           <div class="cp-item"><span class="cp-box"></span>I understand the plan-B route and its one-time cost</div>
         </div>

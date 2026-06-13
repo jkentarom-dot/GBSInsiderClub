@@ -134,6 +134,14 @@
   .kcheck.revealed .kcheck-answer { display: block; }
   .kcheck.revealed .kcheck-btn { display: none; }
 
+
+  /* Session Recap blocks */
+  .checkpoint-block { background: var(--surface); border: 1px solid var(--border-2); border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 26px 0; }
+  .recap-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .recap-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+  .recap-why { font-size: 13.5px; color: var(--text-2); line-height: 1.6; margin: 0 0 14px; font-style: italic; }
+  .checkpoint-block .cp-list { margin: 0; padding: 0; list-style: none; }
+
 </style>
 </head>
 <body>
@@ -246,7 +254,7 @@
           </tbody>
         </table>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the SME Participation Agreement template to draft your capacity ask. Walk your manager through it this week. The goal is one page, agreed, that protects you when the project gets intense.</p></div>
-        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I understand which project type I'm on and its rules</li><li class="cp-item"><span class="cp-box"></span>I have agreed protected time and BAU coverage with my manager</li><li class="cp-item"><span class="cp-box"></span>I know my single project point of contact</li></ul></div>
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">Knowing the rules of project work — versus BAU — is what stops you failing at both.</p><ul><li class="cp-item"><span class="cp-box"></span>I understand which project type I'm on and its rules</li><li class="cp-item"><span class="cp-box"></span>I have agreed protected time and BAU coverage with my manager</li><li class="cp-item"><span class="cp-box"></span>I know my single project point of contact</li></ul></div>
       </div>
     </details>
   </section>
@@ -324,7 +332,7 @@
           <li><strong style="color:var(--gold);">A network of people who owe you</strong> — every person you train remembers who got them started.</li>
         </ul>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Offer to build the onboarding checklist for one process the new joiners will need. Use your KT documentation as the base. Present it to your project lead — this single act moves you from "SME" to "trainer" in their mind.</p></div>
-        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>My SOPs include a real exceptions section, not just the happy path</li><li class="cp-item"><span class="cp-box"></span>I've moved at least one process through all four KT phases</li><li class="cp-item"><span class="cp-box"></span>I've volunteered to train or build onboarding for new joiners</li></ul></div>
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">The exceptions are the whole game. Skip them and the new team drowns at go-live.</p><ul><li class="cp-item"><span class="cp-box"></span>My SOPs include a real exceptions section, not just the happy path</li><li class="cp-item"><span class="cp-box"></span>I've moved at least one process through all four KT phases</li><li class="cp-item"><span class="cp-box"></span>I've volunteered to train or build onboarding for new joiners</li></ul></div>
       </div>
     </details>
   </section>
@@ -396,7 +404,7 @@
         </table>
         <p>The framing rule: raise a risk <strong style="color:var(--gold);">with a proposed mitigation</strong>, never as a bare complaint. "X is broken" is negativity. "X is a risk; here's what I'd suggest we do" is leadership.</p>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the RAID Log template to write your first three entries from your real project — at least one risk with a proposed mitigation. Submit it to your project lead this week.</p></div>
-        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I've written UAT test cases that include exceptions</li><li class="cp-item"><span class="cp-box"></span>I've logged at least one risk with a proposed mitigation</li><li class="cp-item"><span class="cp-box"></span>I've submitted one clear project status update</li></ul></div>
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">A clean go-live is built in testing. Your sign-off is a reputation event.</p><ul><li class="cp-item"><span class="cp-box"></span>I've written UAT test cases that include exceptions</li><li class="cp-item"><span class="cp-box"></span>I've logged at least one risk with a proposed mitigation</li><li class="cp-item"><span class="cp-box"></span>I've submitted one clear project status update</li></ul></div>
       </div>
     </details>
   </section>
@@ -464,7 +472,7 @@
         </table>
         <div class="jt-block"><span class="jt-label">Julian's Take</span><p>Here is the pattern I most want you to avoid. An associate does brilliant project work, then says nothing and slides back into BAU. The project leadership moves on, the new roles get filled by people who made their interest known, and six months later that associate wonders why they were overlooked. So do the work — then make sure the right people know you did it, and that you want what comes next.</p></div>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the SME-to-Career Positioning sheet: list your project contributions with numbers, draft your interest message to your project lead or manager, and identify the specific next role the transition might open. Send the message this week.</p></div>
-        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>Every project contribution is logged in my Brag Sheet with numbers</li><li class="cp-item"><span class="cp-box"></span>I've asked my project lead for written feedback</li><li class="cp-item"><span class="cp-box"></span>I've signalled interest in a specific next role to the right person</li></ul></div>
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">Brilliant project work means nothing to your career if no one connects it to you.</p><ul><li class="cp-item"><span class="cp-box"></span>Every project contribution is logged in my Brag Sheet with numbers</li><li class="cp-item"><span class="cp-box"></span>I've asked my project lead for written feedback</li><li class="cp-item"><span class="cp-box"></span>I've signalled interest in a specific next role to the right person</li></ul></div>
       </div>
     </details>
   </section>

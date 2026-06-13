@@ -134,6 +134,14 @@
   .kcheck.revealed .kcheck-answer { display: block; }
   .kcheck.revealed .kcheck-btn { display: none; }
 
+
+  /* Session Recap blocks */
+  .checkpoint-block { background: var(--surface); border: 1px solid var(--border-2); border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 26px 0; }
+  .recap-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .recap-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+  .recap-why { font-size: 13.5px; color: var(--text-2); line-height: 1.6; margin: 0 0 14px; font-style: italic; }
+  .checkpoint-block .cp-list { margin: 0; padding: 0; list-style: none; }
+
 </style>
 </head>
 <body>
@@ -231,7 +239,7 @@
           </tbody>
         </table>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the Project Charter template to scope your real project on one page: problem, objectives, in/out of scope, success criteria, sponsor. Get it reviewed and signed off before you do anything else. An approved charter is your shield against scope creep.</p></div>
-        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I understand my job is to lead the outcome, not do all the work</li><li class="cp-item"><span class="cp-box"></span>My project has a sharp, written problem statement</li><li class="cp-item"><span class="cp-box"></span>I have a signed-off Project Charter with a clear definition of done</li></ul></div>
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">If you're heads-down executing, nobody is leading the project.</p><ul><li class="cp-item"><span class="cp-box"></span>I understand my job is to lead the outcome, not do all the work</li><li class="cp-item"><span class="cp-box"></span>My project has a sharp, written problem statement</li><li class="cp-item"><span class="cp-box"></span>I have a signed-off Project Charter with a clear definition of done</li></ul></div>
       <div class="kcheck">
 <p class="kcheck-q">Quick check</p>
 <p class="kcheck-question">Your project keeps growing as stakeholders add 'just one more thing.' What should have prevented this?</p>
@@ -312,7 +320,7 @@
           <li><strong style="color:var(--gold);">Control</strong> — prove the fix held with a measure that doesn't regress.</li>
         </ul>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Take the central problem in your project and run it through the A3 template: problem, current state, root cause, target state, countermeasures, plan. One page. Present it to your sponsor — a clean A3 builds more credibility than a long deck.</p></div>
-        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>My project is broken into a WBS with owners and dates</li><li class="cp-item"><span class="cp-box"></span>I've chosen a delivery method that fits the project</li><li class="cp-item"><span class="cp-box"></span>I've run my core problem through a structured A3</li></ul></div>
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">Work owned by 'the team' is owned by no one. Owners and dates make a plan real.</p><ul><li class="cp-item"><span class="cp-box"></span>My project is broken into a WBS with owners and dates</li><li class="cp-item"><span class="cp-box"></span>I've chosen a delivery method that fits the project</li><li class="cp-item"><span class="cp-box"></span>I've run my core problem through a structured A3</li></ul></div>
       </div>
     </details>
 
@@ -411,7 +419,7 @@
         </ul>
         <div class="jt-block"><span class="jt-label">Julian's Take</span><p>Treat your sponsor like a resource you have to actively deploy, not a figurehead who shows up at the end. Bring them the two or three decisions only they can make, give them the context in one page, and tell them exactly what you need. Sponsors love a project lead who makes their involvement efficient — and they remember them when bigger roles open up.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Ask your AI: <em>"Help me prepare a sponsor update. Here's my status: [paste]. Structure it as: 3-line summary, decisions I need from you, key risks, and what I'm handling myself. Keep it to one screen."</em></p></div>
-        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I've mapped my stakeholders on the power/interest grid</li><li class="cp-item"><span class="cp-box"></span>I have a deliberate plan for each high-power stakeholder</li><li class="cp-item"><span class="cp-box"></span>I'm managing my sponsor with clear decisions and no surprises</li></ul></div>
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">The stakeholder who feels ignored becomes the one who undermines you in the steering meeting.</p><ul><li class="cp-item"><span class="cp-box"></span>I've mapped my stakeholders on the power/interest grid</li><li class="cp-item"><span class="cp-box"></span>I have a deliberate plan for each high-power stakeholder</li><li class="cp-item"><span class="cp-box"></span>I'm managing my sponsor with clear decisions and no surprises</li></ul></div>
       </div>
     </details>
   </section>
@@ -470,7 +478,7 @@
           </tbody>
         </table>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the Status Report template's benefits section to document your project's value, clearly split into hard and soft. Take it to Finance and get the hard number validated. A Finance-validated saving is the most powerful line in your career story.</p></div>
-        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I have a change plan for the people affected, not just the process</li><li class="cp-item"><span class="cp-box"></span>My project's value is split honestly into hard and soft savings</li><li class="cp-item"><span class="cp-box"></span>I've had the hard savings validated by Finance</li></ul></div>
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">A technically perfect project nobody adopts is a failure. The human side is the project.</p><ul><li class="cp-item"><span class="cp-box"></span>I have a change plan for the people affected, not just the process</li><li class="cp-item"><span class="cp-box"></span>My project's value is split honestly into hard and soft savings</li><li class="cp-item"><span class="cp-box"></span>I've had the hard savings validated by Finance</li></ul></div>
       <div class="kcheck">
 <p class="kcheck-q">Quick check</p>
 <p class="kcheck-question">Your project freed up 5 hours a week across the team. Can you report this as a hard saving to Finance?</p>
@@ -503,7 +511,7 @@
         </table>
         <div class="jt-block"><span class="jt-label">Julian's Take</span><p>The project leads who advance fastest treat every initiative as a portfolio piece. They finish, they quantify, they get the sponsor's endorsement on record, and they make their interest in the next, bigger thing known — before the project is even fully closed. Delivery earns you the right to ask. Asking is still on you.</p></div>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Build your project portfolio entry for the initiative you're running: scope, your role, the validated result, and one sponsor quote. Then identify the next bigger project or role you want — and tell the person who can make it happen.</p></div>
-        <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>My project is documented as a portfolio piece with a validated number</li><li class="cp-item"><span class="cp-box"></span>I have written sponsor or stakeholder feedback on record</li><li class="cp-item"><span class="cp-box"></span>I've signalled my appetite for bigger scope to the right person</li></ul></div>
+        <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">A delivered project with a validated number outweighs years of solid BAU in a promotion case.</p><ul><li class="cp-item"><span class="cp-box"></span>My project is documented as a portfolio piece with a validated number</li><li class="cp-item"><span class="cp-box"></span>I have written sponsor or stakeholder feedback on record</li><li class="cp-item"><span class="cp-box"></span>I've signalled my appetite for bigger scope to the right person</li></ul></div>
       </div>
     </details>
   </section>
