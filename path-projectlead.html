@@ -38,18 +38,18 @@
   .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: radial-gradient(ellipse at 80% 30%, rgba(29,106,255,0.05) 0%, transparent 70%); pointer-events: none; }
   .hero h1 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--text); line-height: 1.1; margin: 14px 0 16px; }
   .hero h1 strong { font-weight: 600; color: var(--teal); }
-  .hero-lead { font-size: 17px; color: var(--text-2); line-height: 1.75; margin-bottom: 16px; max-width: 740px; }
-  .hero-body { font-size: 15px; color: var(--text-3); line-height: 1.8; max-width: 740px; }
-  .section { padding: 52px 0; border-top: 1px solid var(--border); }
+  .hero-lead { font-size: 19px; color: var(--text); line-height: 1.7; margin-bottom: 18px; max-width: 760px; }
+  .hero-body { font-size: 17px; color: var(--text-2); line-height: 1.85; max-width: 760px; }
+  .section { padding: 72px 0; border-top: 1px solid var(--border); }
   .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
-  .section-intro { font-size: 15px; color: var(--text-2); line-height: 1.8; max-width: 760px; margin-bottom: 28px; }
+  .section-intro { font-size: 17px; color: var(--text); line-height: 1.8; max-width: 780px; margin-bottom: 36px; }
   .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
   .svg-frame svg { display: block; width: 100%; height: auto; min-width: 680px; max-width: 980px; margin: 0 auto; }
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
   .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
   .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
   .card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
-  .card p { font-size: 14px; color: var(--text-2); line-height: 1.75; }
+  .card p { font-size: 15px; color: #dde3ec; line-height: 1.8; }
   .data-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
   .data-table th, .data-table td { padding: 12px 16px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
   .data-table th { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); background: var(--surface-2); }
@@ -63,13 +63,13 @@
   .module summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 18px 22px; transition: background 0.2s; }
   .module summary::-webkit-details-marker { display: none; }
   .module summary:hover { background: var(--surface-3); }
-  .mod-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.08em; flex-shrink: 0; width: 44px; }
+  .mod-code { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #4d8bff; letter-spacing: 0.06em; flex-shrink: 0; width: 50px; }
   .mod-title { font-size: 15px; font-weight: 500; color: var(--text); flex: 1; }
   .mod-arrow { color: var(--text-3); font-size: 14px; transition: transform 0.3s; }
   .module[open] .mod-arrow { transform: rotate(180deg); color: var(--teal); }
   .module[open] summary { border-bottom: 1px solid var(--border); }
-  .mod-body { padding: 20px 22px 24px; }
-  .mod-body p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 14px; max-width: 75ch; }
+  .mod-body { padding: 8px 28px 30px; }
+  .mod-body p { font-size: 16px; color: #dde3ec; line-height: 1.85; margin-bottom: 18px; max-width: 75ch; }
   .mod-body ul { margin: 0 0 14px 18px; }
   .mod-body li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 6px; }
   .mod-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin: 18px 0 8px; }
@@ -99,6 +99,41 @@
   .btn-primary:hover { background: #3d7eff; }
   @media (max-width: 1024px) { .content-wrap { padding: 0 24px; } .topbar { padding: 0 24px; } }
   @media (max-width: 600px) { .hero h1 { font-size: 32px; } .data-table th, .data-table td { padding: 9px 10px; font-size: 13px; } }
+
+  /* Polish pass: readability + spacing */
+  .mod-body table.data-table td { font-size: 14px; color: #dde3ec; }
+  .mod-body table.data-table th { font-size: 13px; }
+  .mod-label { font-size: 13px; }
+  .module { margin-bottom: 18px; }
+  .step-header { margin-bottom: 14px; }
+  .jt-block, .ai-block, .exercise-block, .checkpoint-block { margin: 22px 0; }
+  .jt-block p, .ai-block p, .exercise-block p { font-size: 15px; line-height: 1.8; color: #dde3ec; }
+  .checkpoint-block li { font-size: 14.5px; }
+  figure { margin: 28px 0 !important; }
+
+
+  /* Model recap nav strip */
+  .spine-section { border-top: none; padding-bottom: 12px; }
+  .spine-intro { font-size: 16px; color: var(--text-2); line-height: 1.7; margin: 4px 0 22px; max-width: 760px; }
+  .spine-strip { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+  .spine-chip { display: flex; flex-direction: column; gap: 5px; flex: 1 1 150px; min-width: 140px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-decoration: none; transition: border-color 0.18s, transform 0.18s, background 0.18s; }
+  .spine-chip:hover { border-color: #4d8bff; transform: translateY(-3px); background: rgba(29,106,255,0.06); }
+  .spine-num { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #4d8bff; letter-spacing: 0.1em; }
+  .spine-label { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.35; }
+  .spine-arrow { display: flex; align-items: center; color: var(--text-3); font-size: 16px; flex: 0 0 auto; }
+  @media (max-width: 760px) { .spine-arrow { display: none; } .spine-chip { flex-basis: calc(50% - 6px); } }
+
+
+  /* Inline knowledge check */
+  .kcheck { background: rgba(232,184,0,0.05); border: 1px solid rgba(232,184,0,0.3); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 22px 0; }
+  .kcheck-q { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; }
+  .kcheck-question { font-size: 15.5px; color: var(--text); font-weight: 500; line-height: 1.7; margin: 0 0 14px; }
+  .kcheck-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; padding: 8px 18px; border-radius: 7px; cursor: pointer; transition: background 0.18s, color 0.18s; }
+  .kcheck-btn:hover { background: var(--gold); color: var(--void); }
+  .kcheck-answer { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(232,184,0,0.25); font-size: 14.5px; color: #dde3ec; line-height: 1.8; }
+  .kcheck.revealed .kcheck-answer { display: block; }
+  .kcheck.revealed .kcheck-btn { display: none; }
+
 </style>
 </head>
 <body>
@@ -117,8 +152,33 @@
     <span class="eyebrow">Career Path — Project Leadership</span>
     <h1>Project<br><strong>Leadership</strong></h1>
     <p class="hero-lead">You are leading an initiative — a CI project, a tool rollout, a system deployment, a workstream on a transformation program. This path gives you the toolkit, the judgment, and the practical step-by-step to run it well and turn it into a career.</p>
-    <p class="hero-body">Project leadership is the highest-leverage career move in a GBS organisation. Initiatives are where cost is taken out, scale is built, and reputations are made. This path follows the 5-Step Career Booster spine, but the content is built around running real projects — small scope or large — using the methods, governance, and stakeholder skills that separate the people who deliver from the people who get overwhelmed. Where your company provides branded templates, use them; where they don't, ours are ready and fully editable.</p>
+    <p class="hero-body">Project leadership is the highest-leverage career move in a GBS organisation. Initiatives are where cost is taken out, scale is built, and reputations are made. This path follows the 5-Step Career Booster spine, but the content is built around running real projects — small scope or large — using the methods, governance, and stakeholder skills that make delivery predictable and build your reputation. Where your company provides branded templates, use them; where they don't, ours are ready and fully editable.</p>
   </section>
+
+  <!-- ============ MODEL RECAP NAV ============ -->
+  <section class="section spine-section" style="padding-top:40px;">
+    <span class="eyebrow eyebrow-gold">The Path at a Glance</span>
+    <p class="spine-intro">The 5-Step Career Booster, applied to leading projects. Click any step to jump to it.</p>
+    <div class="spine-strip">
+      <a href="#step-1" class="spine-chip">
+        <span class="spine-num">STEP 1</span>
+        <span class="spine-label">Leadership Mindset</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-2" class="spine-chip">
+        <span class="spine-num">STEP 2</span>
+        <span class="spine-label">Plan & Run</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-3" class="spine-chip">
+        <span class="spine-num">STEP 3</span>
+        <span class="spine-label">Stakeholders</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-4" class="spine-chip">
+        <span class="spine-num">STEP 4</span>
+        <span class="spine-label">Land & Prove Value</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-5" class="spine-chip">
+        <span class="spine-num">STEP 5</span>
+        <span class="spine-label">Execute</span>
+      </a>
+    </div>
+  </section>
+
 
   <section class="section">
     <span class="eyebrow">Before You Start</span>
@@ -172,7 +232,12 @@
         </table>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the Project Charter template to scope your real project on one page: problem, objectives, in/out of scope, success criteria, sponsor. Get it reviewed and signed off before you do anything else. An approved charter is your shield against scope creep.</p></div>
         <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I understand my job is to lead the outcome, not do all the work</li><li class="cp-item"><span class="cp-box"></span>My project has a sharp, written problem statement</li><li class="cp-item"><span class="cp-box"></span>I have a signed-off Project Charter with a clear definition of done</li></ul></div>
-      </div>
+      <div class="kcheck">
+<p class="kcheck-q">Quick check</p>
+<p class="kcheck-question">Your project keeps growing as stakeholders add 'just one more thing.' What should have prevented this?</p>
+<button type="button" class="kcheck-btn">Reveal the answer &rarr;</button>
+<div class="kcheck-answer">A signed-off Project Charter with an explicit Out of Scope section. Most projects fail at scoping, not execution. When someone asks for more, you point at what was agreed — and any real change becomes a charter decision with the sponsor, not a quiet expansion that sinks your timeline.</div>
+</div></div>
     </details>
   </section>
 
@@ -338,7 +403,12 @@
         </table>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Use the Status Report template's benefits section to document your project's value, clearly split into hard and soft. Take it to Finance and get the hard number validated. A Finance-validated saving is the most powerful line in your career story.</p></div>
         <div class="checkpoint-block"><span class="mod-label">Checkpoint</span><ul><li class="cp-item"><span class="cp-box"></span>I have a change plan for the people affected, not just the process</li><li class="cp-item"><span class="cp-box"></span>My project's value is split honestly into hard and soft savings</li><li class="cp-item"><span class="cp-box"></span>I've had the hard savings validated by Finance</li></ul></div>
-      </div>
+      <div class="kcheck">
+<p class="kcheck-q">Quick check</p>
+<p class="kcheck-question">Your project freed up 5 hours a week across the team. Can you report this as a hard saving to Finance?</p>
+<button type="button" class="kcheck-btn">Reveal the answer &rarr;</button>
+<div class="kcheck-answer">No — that's a soft saving until it converts into an actual reduction in spend (FTEs, licenses, vendor cost). Freed time is real and valuable, but it only becomes a hard, P&L-counting saving when capacity is genuinely removed or redeployed. Claiming soft as hard is the fastest way to lose Finance's trust permanently.</div>
+</div></div>
     </details>
   </section>
 
@@ -520,6 +590,18 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+})();
+</script>
+
+
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    if (e.target.classList && e.target.classList.contains('kcheck-btn')) {
+      var box = e.target.closest('.kcheck');
+      if (box) box.classList.add('revealed');
+    }
+  });
 })();
 </script>
 

@@ -38,18 +38,18 @@
   .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: radial-gradient(ellipse at 80% 30%, rgba(29,106,255,0.05) 0%, transparent 70%); pointer-events: none; }
   .hero h1 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--text); line-height: 1.1; margin: 14px 0 16px; }
   .hero h1 strong { font-weight: 600; color: var(--teal); }
-  .hero-lead { font-size: 17px; color: var(--text-2); line-height: 1.75; margin-bottom: 16px; max-width: 740px; }
-  .hero-body { font-size: 15px; color: var(--text-3); line-height: 1.8; max-width: 740px; }
-  .section { padding: 52px 0; border-top: 1px solid var(--border); }
+  .hero-lead { font-size: 19px; color: var(--text); line-height: 1.7; margin-bottom: 18px; max-width: 760px; }
+  .hero-body { font-size: 17px; color: var(--text-2); line-height: 1.85; max-width: 760px; }
+  .section { padding: 72px 0; border-top: 1px solid var(--border); }
   .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
-  .section-intro { font-size: 15px; color: var(--text-2); line-height: 1.8; max-width: 760px; margin-bottom: 28px; }
+  .section-intro { font-size: 17px; color: var(--text); line-height: 1.8; max-width: 780px; margin-bottom: 36px; }
   .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
   .svg-frame svg { display: block; width: 100%; height: auto; min-width: 680px; max-width: 980px; margin: 0 auto; }
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
   .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
   .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
   .card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
-  .card p { font-size: 14px; color: var(--text-2); line-height: 1.75; }
+  .card p { font-size: 15px; color: #dde3ec; line-height: 1.8; }
   .data-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
   .data-table th, .data-table td { padding: 12px 16px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
   .data-table th { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); background: var(--surface-2); }
@@ -63,13 +63,13 @@
   .module summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 18px 22px; transition: background 0.2s; }
   .module summary::-webkit-details-marker { display: none; }
   .module summary:hover { background: var(--surface-3); }
-  .mod-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.08em; flex-shrink: 0; width: 44px; }
+  .mod-code { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #4d8bff; letter-spacing: 0.06em; flex-shrink: 0; width: 50px; }
   .mod-title { font-size: 15px; font-weight: 500; color: var(--text); flex: 1; }
   .mod-arrow { color: var(--text-3); font-size: 14px; transition: transform 0.3s; }
   .module[open] .mod-arrow { transform: rotate(180deg); color: var(--teal); }
   .module[open] summary { border-bottom: 1px solid var(--border); }
-  .mod-body { padding: 20px 22px 24px; }
-  .mod-body p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 14px; max-width: 75ch; }
+  .mod-body { padding: 8px 28px 30px; }
+  .mod-body p { font-size: 16px; color: #dde3ec; line-height: 1.85; margin-bottom: 18px; max-width: 75ch; }
   .mod-body ul { margin: 0 0 14px 18px; }
   .mod-body li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 6px; }
   .mod-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin: 18px 0 8px; }
@@ -99,6 +99,41 @@
   .btn-primary:hover { background: #3d7eff; }
   @media (max-width: 1024px) { .content-wrap { padding: 0 24px; } .topbar { padding: 0 24px; } }
   @media (max-width: 600px) { .hero h1 { font-size: 32px; } .data-table th, .data-table td { padding: 9px 10px; font-size: 13px; } }
+
+  /* Polish pass: readability + spacing */
+  .mod-body table.data-table td { font-size: 14px; color: #dde3ec; }
+  .mod-body table.data-table th { font-size: 13px; }
+  .mod-label { font-size: 13px; }
+  .module { margin-bottom: 18px; }
+  .step-header { margin-bottom: 14px; }
+  .jt-block, .ai-block, .exercise-block, .checkpoint-block { margin: 22px 0; }
+  .jt-block p, .ai-block p, .exercise-block p { font-size: 15px; line-height: 1.8; color: #dde3ec; }
+  .checkpoint-block li { font-size: 14.5px; }
+  figure { margin: 28px 0 !important; }
+
+
+  /* Model recap nav strip */
+  .spine-section { border-top: none; padding-bottom: 12px; }
+  .spine-intro { font-size: 16px; color: var(--text-2); line-height: 1.7; margin: 4px 0 22px; max-width: 760px; }
+  .spine-strip { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+  .spine-chip { display: flex; flex-direction: column; gap: 5px; flex: 1 1 150px; min-width: 140px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-decoration: none; transition: border-color 0.18s, transform 0.18s, background 0.18s; }
+  .spine-chip:hover { border-color: #4d8bff; transform: translateY(-3px); background: rgba(29,106,255,0.06); }
+  .spine-num { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #4d8bff; letter-spacing: 0.1em; }
+  .spine-label { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.35; }
+  .spine-arrow { display: flex; align-items: center; color: var(--text-3); font-size: 16px; flex: 0 0 auto; }
+  @media (max-width: 760px) { .spine-arrow { display: none; } .spine-chip { flex-basis: calc(50% - 6px); } }
+
+
+  /* Inline knowledge check */
+  .kcheck { background: rgba(232,184,0,0.05); border: 1px solid rgba(232,184,0,0.3); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 22px 0; }
+  .kcheck-q { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; }
+  .kcheck-question { font-size: 15.5px; color: var(--text); font-weight: 500; line-height: 1.7; margin: 0 0 14px; }
+  .kcheck-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; padding: 8px 18px; border-radius: 7px; cursor: pointer; transition: background 0.18s, color 0.18s; }
+  .kcheck-btn:hover { background: var(--gold); color: var(--void); }
+  .kcheck-answer { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(232,184,0,0.25); font-size: 14.5px; color: #dde3ec; line-height: 1.8; }
+  .kcheck.revealed .kcheck-answer { display: block; }
+  .kcheck.revealed .kcheck-btn { display: none; }
+
 </style>
 </head>
 <body>
@@ -117,8 +152,33 @@
     <span class="eyebrow">Career Path — Team Lead Level</span>
     <h1>Team Lead<br><strong>Playbook</strong></h1>
     <p class="hero-lead">Yesterday you were one of them. Today you run the team. The talent management, authority, political, and operational skills that determine whether you advance to Manager or plateau.</p>
-    <p class="hero-body">This is not a leadership theory course. The free tier covers frameworks. This path is the behavioral playbook for what actually changes when you become the person responsible for other people's performance, careers, and the team's output. Guided by the Career Chessboard, structured by the 5-Step Career Booster, measured by a 90-day roadmap with a real tollgate.</p>
+    <p class="hero-body">The free tier gives you the frameworks. This path is the behavioral playbook for what changes when you become the person responsible for other people's performance, careers, and the team's output. Guided by the Career Chessboard, structured by the 5-Step Career Booster, measured by a 90-day roadmap with a real tollgate.</p>
   </section>
+
+  <!-- ============ MODEL RECAP NAV ============ -->
+  <section class="section spine-section" style="padding-top:40px;">
+    <span class="eyebrow eyebrow-gold">The Path at a Glance</span>
+    <p class="spine-intro">The 5-Step Career Booster — your spine for this path. Click any step to jump to it.</p>
+    <div class="spine-strip">
+      <a href="#step-1" class="spine-chip">
+        <span class="spine-num">STEP 1</span>
+        <span class="spine-label">Career Mindset</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-2" class="spine-chip">
+        <span class="spine-num">STEP 2</span>
+        <span class="spine-label">Role & Team Performance</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-3" class="spine-chip">
+        <span class="spine-num">STEP 3</span>
+        <span class="spine-label">Visibility & Reputation</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-4" class="spine-chip">
+        <span class="spine-num">STEP 4</span>
+        <span class="spine-label">Next-Level Capabilities</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-5" class="spine-chip">
+        <span class="spine-num">STEP 5</span>
+        <span class="spine-label">Execute</span>
+      </a>
+    </div>
+  </section>
+
 
   <!-- ============ HOW THIS WORKS ============ -->
   <section class="section">
@@ -427,7 +487,12 @@
 <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:14px 0 8px;">Why it works</p>
 <ul style="margin:0;padding-left:20px;color:var(--text-2);font-size:13.5px;line-height:1.7;"><li style="margin-bottom:5px;">References the prior conversation and the time already given — the PIP is never the first conversation, and the script makes that history explicit.</li><li style="margin-bottom:5px;">Data leads ('the KPI report'), not feelings. Behavioral cases are won or lost on documentation.</li><li style="margin-bottom:5px;">The PIP is announced as a decision, paired immediately with an offer of support — accountability and help in the same breath.</li><li style="margin-bottom:5px;">A fixed review date makes it real. No date, no plan.</li></ul>
 </div>
-<figure style="margin:20px 0;padding:0;"><img src="images/img-hard-conversation.jpg" alt="A respectful but serious performance conversation" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border);"><p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.08em;text-transform:uppercase;margin:8px 0 0;">Clear, kind, documented — the professional way</p></figure></div>
+<figure style="margin:20px 0;padding:0;"><img src="images/img-hard-conversation.jpg" alt="A respectful but serious performance conversation" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border);"><p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.08em;text-transform:uppercase;margin:8px 0 0;">Clear, kind, documented — the professional way</p></figure><div class="kcheck">
+<p class="kcheck-q">Quick check</p>
+<p class="kcheck-question">A capable team member with a great attitude is in the wrong seat and struggling. Is a PIP the right tool?</p>
+<button type="button" class="kcheck-btn">Reveal the answer &rarr;</button>
+<div class="kcheck-answer">No. A PIP assumes the gap is closeable with effort. When the attitude is right but the fit is wrong, redeployment to a better-fitting role is the humane and honest path. A PIP here would just be a slow, painful exit for someone who could thrive elsewhere.</div>
+</div></div>
     </details>
 
     <details class="module">
@@ -566,7 +631,12 @@
 <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:14px 0 8px;">Why it works</p>
 <ul style="margin:0;padding-left:20px;color:var(--text-2);font-size:13.5px;line-height:1.7;"><li style="margin-bottom:5px;">Thanks them for asking directly — it reinforces the behavior you want (signal interest the right way) instead of punishing it.</li><li style="margin-bottom:5px;">Shows action taken on their behalf ('I took your case to HR and the other managers') — the answer is no, but they were represented, not dismissed.</li><li style="margin-bottom:5px;">Honest about the gap. False hope is the retention killer, not the truth.</li><li style="margin-bottom:5px;">Replaces the unavailable title with concrete development: a course plus real leadership tasks. The path exists even when the role doesn't — that's what keeps strong people from walking.</li></ul>
 </div>
-</div>
+<div class="kcheck">
+<p class="kcheck-q">Quick check</p>
+<p class="kcheck-question">A strong performer asks for a promotion, but there's no open role. What's the trap to avoid?</p>
+<button type="button" class="kcheck-btn">Reveal the answer &rarr;</button>
+<div class="kcheck-answer">Don't let yourself become a messenger carrying an unbacked request upward, and don't let it turn into a leaving-threat dynamic. Thank them for asking, be honest that no role exists yet, show you've genuinely explored it, and offer development now — a leadership course, stretch tasks. Keep them growing while the demand catches up.</div>
+</div></div>
     </details>
   </section>
 
@@ -936,6 +1006,18 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+})();
+</script>
+
+
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    if (e.target.classList && e.target.classList.contains('kcheck-btn')) {
+      var box = e.target.closest('.kcheck');
+      if (box) box.classList.add('revealed');
+    }
+  });
 })();
 </script>
 

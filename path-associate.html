@@ -38,18 +38,18 @@
   .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: radial-gradient(ellipse at 80% 30%, rgba(29,106,255,0.05) 0%, transparent 70%); pointer-events: none; }
   .hero h1 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--text); line-height: 1.1; margin: 14px 0 16px; }
   .hero h1 strong { font-weight: 600; color: var(--teal); }
-  .hero-lead { font-size: 17px; color: var(--text-2); line-height: 1.75; margin-bottom: 16px; max-width: 740px; }
-  .hero-body { font-size: 15px; color: var(--text-3); line-height: 1.8; max-width: 740px; }
-  .section { padding: 52px 0; border-top: 1px solid var(--border); }
+  .hero-lead { font-size: 19px; color: var(--text); line-height: 1.7; margin-bottom: 18px; max-width: 760px; }
+  .hero-body { font-size: 17px; color: var(--text-2); line-height: 1.85; max-width: 760px; }
+  .section { padding: 72px 0; border-top: 1px solid var(--border); }
   .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
-  .section-intro { font-size: 15px; color: var(--text-2); line-height: 1.8; max-width: 760px; margin-bottom: 28px; }
+  .section-intro { font-size: 17px; color: var(--text); line-height: 1.8; max-width: 780px; margin-bottom: 36px; }
   .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
   .svg-frame svg { display: block; width: 100%; height: auto; min-width: 680px; max-width: 980px; margin: 0 auto; }
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
   .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
   .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
   .card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
-  .card p { font-size: 14px; color: var(--text-2); line-height: 1.75; }
+  .card p { font-size: 15px; color: #dde3ec; line-height: 1.8; }
   .data-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
   .data-table th, .data-table td { padding: 12px 16px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
   .data-table th { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); background: var(--surface-2); }
@@ -63,13 +63,13 @@
   .module summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 18px 22px; transition: background 0.2s; }
   .module summary::-webkit-details-marker { display: none; }
   .module summary:hover { background: var(--surface-3); }
-  .mod-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.08em; flex-shrink: 0; width: 44px; }
+  .mod-code { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #4d8bff; letter-spacing: 0.06em; flex-shrink: 0; width: 50px; }
   .mod-title { font-size: 15px; font-weight: 500; color: var(--text); flex: 1; }
   .mod-arrow { color: var(--text-3); font-size: 14px; transition: transform 0.3s; }
   .module[open] .mod-arrow { transform: rotate(180deg); color: var(--teal); }
   .module[open] summary { border-bottom: 1px solid var(--border); }
-  .mod-body { padding: 20px 22px 24px; }
-  .mod-body p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 14px; max-width: 75ch; }
+  .mod-body { padding: 8px 28px 30px; }
+  .mod-body p { font-size: 16px; color: #dde3ec; line-height: 1.85; margin-bottom: 18px; max-width: 75ch; }
   .mod-body ul { margin: 0 0 14px 18px; }
   .mod-body li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 6px; }
   .mod-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin: 18px 0 8px; }
@@ -99,6 +99,41 @@
   .btn-primary:hover { background: #3d7eff; }
   @media (max-width: 1024px) { .content-wrap { padding: 0 24px; } .topbar { padding: 0 24px; } }
   @media (max-width: 600px) { .hero h1 { font-size: 32px; } .data-table th, .data-table td { padding: 9px 10px; font-size: 13px; } }
+
+  /* Polish pass: readability + spacing */
+  .mod-body table.data-table td { font-size: 14px; color: #dde3ec; }
+  .mod-body table.data-table th { font-size: 13px; }
+  .mod-label { font-size: 13px; }
+  .module { margin-bottom: 18px; }
+  .step-header { margin-bottom: 14px; }
+  .jt-block, .ai-block, .exercise-block, .checkpoint-block { margin: 22px 0; }
+  .jt-block p, .ai-block p, .exercise-block p { font-size: 15px; line-height: 1.8; color: #dde3ec; }
+  .checkpoint-block li { font-size: 14.5px; }
+  figure { margin: 28px 0 !important; }
+
+
+  /* Model recap nav strip */
+  .spine-section { border-top: none; padding-bottom: 12px; }
+  .spine-intro { font-size: 16px; color: var(--text-2); line-height: 1.7; margin: 4px 0 22px; max-width: 760px; }
+  .spine-strip { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+  .spine-chip { display: flex; flex-direction: column; gap: 5px; flex: 1 1 150px; min-width: 140px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-decoration: none; transition: border-color 0.18s, transform 0.18s, background 0.18s; }
+  .spine-chip:hover { border-color: #4d8bff; transform: translateY(-3px); background: rgba(29,106,255,0.06); }
+  .spine-num { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #4d8bff; letter-spacing: 0.1em; }
+  .spine-label { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.35; }
+  .spine-arrow { display: flex; align-items: center; color: var(--text-3); font-size: 16px; flex: 0 0 auto; }
+  @media (max-width: 760px) { .spine-arrow { display: none; } .spine-chip { flex-basis: calc(50% - 6px); } }
+
+
+  /* Inline knowledge check */
+  .kcheck { background: rgba(232,184,0,0.05); border: 1px solid rgba(232,184,0,0.3); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 22px 0; }
+  .kcheck-q { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; }
+  .kcheck-question { font-size: 15.5px; color: var(--text); font-weight: 500; line-height: 1.7; margin: 0 0 14px; }
+  .kcheck-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; padding: 8px 18px; border-radius: 7px; cursor: pointer; transition: background 0.18s, color 0.18s; }
+  .kcheck-btn:hover { background: var(--gold); color: var(--void); }
+  .kcheck-answer { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(232,184,0,0.25); font-size: 14.5px; color: #dde3ec; line-height: 1.8; }
+  .kcheck.revealed .kcheck-answer { display: block; }
+  .kcheck.revealed .kcheck-btn { display: none; }
+
 </style>
 </head>
 <body>
@@ -116,9 +151,34 @@
     <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><a href="paid-tier.html">Career Paths</a><span class="sep">/</span><span style="color:var(--teal);">Associate Accelerator</span></div>
     <span class="eyebrow">Career Path — Associate Level</span>
     <h1>Associate<br><strong>Accelerator</strong></h1>
-    <p class="hero-lead">Everything your manager should teach you in your first two years — but probably won't. The behavioral, political, and practical skills that determine whether you advance or stall.</p>
-    <p class="hero-body">This is not a theory course. The free tier covers theory. This path is a sequence of skills and habits you build at your actual job — guided by an honest self-assessment, structured by the 5-Step Career Booster, and measured by a 90-day roadmap with a real tollgate at the end.</p>
+    <p class="hero-lead">The behavioral, political, and practical skills that accelerate your growth in your first two years — all in one place. The capabilities that determine how fast you advance.</p>
+    <p class="hero-body">The free tier gives you the theory. This path turns it into action: a sequence of skills and habits you build at your actual job — guided by an honest self-assessment, structured by the 5-Step Career Booster, and measured by a 90-day roadmap with a real tollgate at the end.</p>
   </section>
+
+  <!-- ============ MODEL RECAP NAV ============ -->
+  <section class="section spine-section" style="padding-top:40px;">
+    <span class="eyebrow eyebrow-gold">The Path at a Glance</span>
+    <p class="spine-intro">The 5-Step Career Booster — your spine for this path. Click any step to jump to it.</p>
+    <div class="spine-strip">
+      <a href="#step-1" class="spine-chip">
+        <span class="spine-num">STEP 1</span>
+        <span class="spine-label">Career Mindset</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-2" class="spine-chip">
+        <span class="spine-num">STEP 2</span>
+        <span class="spine-label">Job Value & Performance</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-3" class="spine-chip">
+        <span class="spine-num">STEP 3</span>
+        <span class="spine-label">Visibility & Ambition</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-4" class="spine-chip">
+        <span class="spine-num">STEP 4</span>
+        <span class="spine-label">Next-Role Skills</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#step-5" class="spine-chip">
+        <span class="spine-num">STEP 5</span>
+        <span class="spine-label">Execute</span>
+      </a>
+    </div>
+  </section>
+
 
   <!-- ============ HOW THIS WORKS ============ -->
   <section class="section">
@@ -176,7 +236,12 @@
         </table>
         <div class="jt-block"><span class="jt-label">Reality Check</span><p>Your self-score is your view. Your manager's view may differ — and theirs is the one that decides promotions. If you're not sure your manager would score you the same way, that gap is itself a finding. The modules ahead are built to close it.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Upload your job description and ask: <em>"Based on this JD, what are the 5 most critical success factors? Build me an <strong style="color:var(--gold);">evidence-based</strong> self-assessment — for each factor, ask me for a concrete example from the last 3 months before assigning a score."</em> Interview Mode keeps you honest.</p></div>
-      </div>
+      <div class="kcheck">
+<p class="kcheck-q">Quick check</p>
+<p class="kcheck-question">You rate yourself 4/5 on Process Improvement, but the last improvement you can name was over a year ago. What's the honest score?</p>
+<button type="button" class="kcheck-btn">Reveal the answer &rarr;</button>
+<div class="kcheck-answer">Low — likely a 2. The rule is no example from the last three months, no score above 2. A score you can't evidence with a recent, specific example isn't a strength; it's a hope. Honest low scores show you exactly where to build.</div>
+</div></div>
     </details>
 
     <details class="module">
@@ -454,7 +519,12 @@
 <p style="font-size:14px;color:var(--text-2);line-height:1.75;margin:0 0 10px;"><strong style="color:var(--text);">The science:</strong> The "Franklin effect" (tested by Jecker and Landy): people who do YOU a small favor end up liking you more — the act rewires their perception of you. Combined with the Casciaro/Lobo finding that likability drives who gets picked for opportunities, asking well becomes a networking tool.</p>
 <p style="font-size:14px;color:var(--text-2);line-height:1.75;margin:0;"><strong style="color:#38bdf8;">Try this:</strong> Once a week, ask someone a small, specific, flattering question: "You know this process best — can I get your 5-minute opinion?" It costs them little, signals respect, and builds the relationship faster than offering help they didn't ask for.</p>
 </div>
-</div>
+<div class="kcheck">
+<p class="kcheck-q">Quick check</p>
+<p class="kcheck-question">You spend all your relationship energy on your manager and skip-level. Why might this quietly hurt you?</p>
+<button type="button" class="kcheck-btn">Reveal the answer &rarr;</button>
+<div class="kcheck-answer">People who network only upward get recognised as exactly that — and the team stops trusting them. Advancement comes from relationships in every direction: peers for social capital, adjacent seniors for exposure, and service recipients for reputation. The people who vouch for you when you're not in the room are rarely only above you.</div>
+</div></div>
     </details>
 
     <details class="module">
@@ -532,7 +602,12 @@
           <div class="cp-item"><span class="cp-box"></span>I know what I'd need to show before having the conversation</div>
           <div class="cp-item"><span class="cp-box"></span>I have draft framing for my career conversation — even if I'm not ready yet</div>
         </div>
-      </div>
+      <div style="background:var(--surface-2);border:1px solid rgba(29,106,255,0.45);border-radius:10px;padding:24px 28px;margin:22px 0;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#4d8bff;margin:0 0 14px;">Word-for-Word — Opening the Career Conversation</p>
+<p style="font-size:15px;color:#dde3ec;line-height:1.85;margin:0 0 10px;font-style:italic;">"Thank you for taking the time for this conversation — it's important to me. I know our annual review is a few months away, where we'll discuss my performance and aspirations. I'd like to bring something up before then: I'm highly motivated to grow and take a step up as soon as the opportunity is right."</p><p style="font-size:15px;color:#dde3ec;line-height:1.85;margin:0 0 10px;font-style:italic;">"To prepare for that, I've started analysing the processes I run, applying the continuous-improvement techniques I'm learning in an evening course. I've brought a few colleagues in with me — we're inspiring each other and validating our first results together, and we'll share our combined findings and recommendations with you very soon."</p><p style="font-size:15px;color:#dde3ec;line-height:1.85;margin:0 0 10px;font-style:italic;">"I believe the [role] would be a great fit for the value I can bring, based on my interests and the skills I'm building. As a next step, I'd like to set up a session to walk you through our CI results — and I'd love to continue this conversation about my next career step next week."</p>
+<p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:16px 0 8px;">Why it works</p>
+<ul style="margin:0;padding-left:20px;color:#dde3ec;font-size:14px;line-height:1.75;"><li style="margin-bottom:5px;">Opens with genuine thanks and respects the existing review cycle — never demanding, always professional.</li><li style="margin-bottom:5px;">Leads with evidence of initiative already underway (CI work, evening course, colleagues involved) — you're showing growth, not just asking for it.</li><li style="margin-bottom:5px;">States interest in a specific role clearly and positively. Interest signalled the right way is the push reason that gets you considered.</li><li style="margin-bottom:5px;">Ends with two concrete next steps (walk-through + follow-up meeting) — easy for your manager to say yes to.</li></ul>
+</div></div>
     </details>
   </section>
 
@@ -687,7 +762,12 @@
       <figure style="margin:20px 0;padding:0;">
 <img src="images/img-career-conversation.jpg" alt="Professional presenting a prepared one-pager to her manager" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border);"><p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.08em;text-transform:uppercase;margin:8px 0 0;">Prepared beats passionate</p>
 </figure>
-</div>
+<div style="background:var(--surface-2);border:1px solid rgba(29,106,255,0.45);border-radius:10px;padding:24px 28px;margin:22px 0;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#4d8bff;margin:0 0 14px;">Word-for-Word — The Follow-Up When the Timeline Is Long</p>
+<p style="font-size:15px;color:#dde3ec;line-height:1.85;margin:0 0 10px;font-style:italic;">"Thank you for meeting again, and for your kind feedback on the process-improvement work my colleagues and I have been doing. I also really appreciate the effort you made — including speaking with HR — to look at possibilities for my next step."</p><p style="font-size:15px;color:#dde3ec;line-height:1.85;margin:0 0 10px;font-style:italic;">"I understand the move in my case will take 12 months or more. I'll be honest: that timeline is a little longer than I'd hoped for my growth. I genuinely like this job, your leadership, and the team — so I'd like to ask: what other options do you see to support my development in the meantime?"</p><p style="font-size:15px;color:#dde3ec;line-height:1.85;margin:0 0 10px;font-style:italic;">"For example, are there any projects coming up that might be a good fit and could bridge the time before my next step — something I could start earlier? Could you keep me in mind when that kind of demand comes up? And I'd like to be transparent that I'll also keep an eye on openings in [department], which I feel could be a good fit too."</p>
+<p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:16px 0 8px;">Why it works</p>
+<ul style="margin:0;padding-left:20px;color:#dde3ec;font-size:14px;line-height:1.75;"><li style="margin-bottom:5px;">Opens with double thanks — for the feedback and for the concrete effort (HR conversation). Acknowledging effort builds goodwill.</li><li style="margin-bottom:5px;">Honest about the timeline being longer than ideal, but framed around aspiration, never as a complaint or threat.</li><li style="margin-bottom:5px;">Reaffirms genuine appreciation for the job, leader, and team before asking for more — warmth before the request.</li><li style="margin-bottom:5px;">Asks for a bridging option (a project) rather than demanding the promotion — a realistic, collaborative ask.</li><li style="margin-bottom:5px;">Transparent about exploring other internal openings. Honest, non-threatening, and keeps the relationship intact.</li></ul>
+</div></div>
     </details>
 
     <details class="module">
@@ -930,6 +1010,18 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+})();
+</script>
+
+
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    if (e.target.classList && e.target.classList.contains('kcheck-btn')) {
+      var box = e.target.closest('.kcheck');
+      if (box) box.classList.add('revealed');
+    }
+  });
 })();
 </script>
 
