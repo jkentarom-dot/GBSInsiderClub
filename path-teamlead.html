@@ -179,6 +179,7 @@
 .minifig{clear:both;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin:24px auto 30px;max-width:680px;overflow-x:auto;}.minifig svg{display:block;width:100%;height:auto;max-width:640px;margin:0 auto;}.minifig .mf-cap{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);text-align:center;margin-top:12px;}
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
 .hero{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;}@media(min-width:920px){.hero:not(.no-fig){grid-template-columns:1fr 320px;}}.hero.no-fig{grid-template-columns:1fr;}.hero-figure{display:flex;justify-content:center;}.hero.no-fig .hero-figure{display:none;}.hero-img{width:100%;max-width:320px;border-radius:14px;border:1px solid var(--border-2);box-shadow:0 14px 44px rgba(0,0,0,.45);object-fit:cover;aspect-ratio:4/5;}
+.toolkit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}@media(max-width:820px){.toolkit-grid{grid-template-columns:1fr;}}.toolkit-card{display:block;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:22px;text-decoration:none;transition:border-color .2s,transform .2s;}.toolkit-card:hover{border-color:var(--teal);transform:translateY(-2px);}.tk-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}.toolkit-card h3{font-size:18px;font-weight:500;color:var(--text);margin:6px 0 8px;}.toolkit-card p{font-size:14px;color:var(--text-2);line-height:1.55;margin-bottom:14px;max-width:none;}.tk-go{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);}
 </style>
 </head>
 <body>
@@ -242,6 +243,19 @@
   </section>
 
   <!-- ============ STEP 1 ============ -->
+  
+  <!-- ============ YOUR TOOLKIT ============ -->
+  <section class="section" id="toolkit">
+    <span class="eyebrow eyebrow-gold">Your Toolkit</span>
+    <h2>Apply it at work — not just on the page</h2>
+    <p class="section-intro">Reading changes nothing on its own. These three tools turn each module into action: a practice prompt, a desk reminder, and a place to bank the proof.</p>
+    <div class="toolkit-grid">
+      <a class="toolkit-card" href="action-cards-teamlead.html"><span class="tk-eyebrow">Apply</span><h3>Sprint Plan</h3><p>5 sprint cards. Five actions each — self-paced, applied with your actual team.</p><span class="tk-go">Open the cards →</span></a>
+      <a class="toolkit-card" href="desk-cards.html"><span class="tk-eyebrow">Remember</span><h3>Desk Cards</h3><p>The core frameworks as printable reminders. Pin one at your desk until it is second nature.</p><span class="tk-go">Open the cards →</span></a>
+      <a class="toolkit-card" href="proof-of-work-teamlead.html"><span class="tk-eyebrow">Bank</span><h3>Proof of Work</h3><p>Track the 14 real deliverables you will build. By the end, it is your evidence file.</p><span class="tk-go">Open the tracker →</span></a>
+    </div>
+  </section>
+
   <section class="section" id="step-1">
     <div class="step-header">
       <div class="step-num">1</div>

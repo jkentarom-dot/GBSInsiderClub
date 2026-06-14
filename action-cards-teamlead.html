@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Lead Playbook — Sprint Plan (Action Cards)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;
+--teal:#1d6aff;--gold:#e8b800;--sky:#38bdf8;--green:#34d399;
+--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--border:#1e2636;--border-2:#2a3347;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#05070b;font-family:'Inter',system-ui,sans-serif;color:var(--text);padding:28px 16px;}
+.intro{max-width:210mm;margin:0 auto 26px;color:var(--text-2);font-size:14px;line-height:1.5;}
+.intro b{color:var(--text);}
+.intro .eg{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+.card{width:210mm;max-width:100%;margin:0 auto 34px;background:var(--void);border:1px solid var(--border);
+border-radius:12px;padding:38px 36px;position:relative;overflow:hidden;}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;
+background:linear-gradient(90deg,var(--teal) 0%,var(--teal) 70%,var(--gold) 70%,var(--gold) 100%);}
+.eyebrowrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
+.pathbadge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--text-3);border:1px solid var(--border-2);padding:4px 10px;border-radius:4px;}
+h1{font-size:31px;font-weight:300;line-height:1.12;margin-bottom:10px;color:var(--text);}
+h1 strong{font-weight:600;color:var(--teal);}
+.frame{font-size:14.5px;color:var(--text-2);max-width:66ch;margin-bottom:6px;line-height:1.45;}
+.stepline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.day{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);}
+.day:last-of-type{border-bottom:1px solid var(--border);}
+.check{flex:0 0 auto;width:26px;height:26px;border:2px solid var(--teal);border-radius:6px;margin-top:2px;}
+.daybody{flex:1;}
+.daylabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:4px;}
+.daylabel .verb{color:var(--text);font-weight:600;}
+.action{font-size:15px;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:4px;}
+.why{font-size:12.5px;color:var(--text-3);line-height:1.45;}
+.why b{color:var(--green);font-weight:600;}
+.footer{margin-top:22px;padding:15px 18px;background:var(--surface-3);border-radius:8px;border:1px solid var(--border-2);
+display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.footer-txt{font-size:13px;color:var(--text-2);line-height:1.45;}
+.footer-txt b{color:var(--text);font-weight:600;}
+.footer-cta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--void);background:var(--gold);padding:8px 14px;border-radius:6px;white-space:nowrap;font-weight:600;}
+.lockup{margin-top:16px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);}
+.brand b{color:var(--teal);font-weight:600;}
+.pin{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);}
+@media print{
+ @page{size:A4;margin:0;}
+ body{background:#fff;padding:0;color:#080b10;}
+ .intro{display:none;}
+ .card{background:#fff;border:none;border-radius:0;margin:0;padding:16mm 15mm;page-break-after:always;overflow:visible;}
+ .card::before{height:6px;}
+ .eyebrow{color:#1d6aff;}
+ .pathbadge{color:#5a6578;border-color:#d7dce6;}
+ h1{color:#080b10;} h1 strong{color:#1d6aff;}
+ .frame{color:#2a3347;}
+ .stepline{color:#9a7c08;}
+ .day{border-color:#e2e6ee;}
+ .check{border-color:#1d6aff;background:#fff;}
+ .daylabel{color:#1d6aff;} .daylabel .verb{color:#080b10;}
+ .action{color:#080b10;}
+ .why{color:#5a6578;} .why b{color:#13865a;}
+ .footer{background:#f4f6fa;border-color:#e2e6ee;}
+ .footer-txt{color:#2a3347;} .footer-txt b{color:#080b10;}
+ .footer-cta{color:#080b10;background:#e8b800;}
+ .brand{color:#5a6578;} .brand b{color:#1d6aff;} .pin{color:#5a6578;}
+}
+.site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:11px 24px;background:rgba(8,11,16,.94);backdrop-filter:blur(12px);border-bottom:1px solid #1e2636;font-family:'Inter',system-ui,sans-serif;}.sb-back{color:#1d6aff;text-decoration:none;font-size:13px;font-weight:500;}.sb-back:hover{text-decoration:underline;}.sb-sp{margin-left:auto;}.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}@media print{.site-bar{display:none;}}
+</style></head><body>
+<div class="site-bar"><a class="sb-back" href="path-teamlead.html">← Team Lead Playbook</a><span class="sb-sp"></span><span class="tier-badge tier-vip">VIP tier</span></div>
+<div class="intro"><span class="eg">Sprint Plan · Team Lead Playbook</span>
+<b>5 sprint cards.</b> One per step of the path. Five actions each — self-paced, applied at your real job. Tick each action, bank your wins to Proof of Work. Print them or pin them at your desk.</div>
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Team Lead Playbook</span></div>
+ <h1>See Yourself as a Leader — <strong>Honestly</strong></h1>
+ <p class="frame">You got the title. Now decide what kind of leader you are building toward. Five sprint actions to set your foundation.</p>
+ <p class="stepline">Step 1 · Career Mindset</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Score</span></span>
+    <p class="action">Complete the Team Lead Scoreboard using evidence from the last three months, not feeling.</p>
+    <p class="why"><b>Why it works:</b> A self-assessment without evidence is a guess.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Plot</span></span>
+    <p class="action">Place yourself on the Career Chessboard: impact in current role vs. readiness for next.</p>
+    <p class="why"><b>Why it works:</b> You need a starting point before you can plan a route.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Listen</span></span>
+    <p class="action">Ask one direct report how they would describe your leadership style. Listen without defending.</p>
+    <p class="why"><b>Why it works:</b> The gap between intent and perception is where growth lives.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Declare</span></span>
+    <p class="action">Write your 18-month ambition: the scope, the role, the skill level you are building toward.</p>
+    <p class="why"><b>Why it works:</b> A vague goal pulls no one forward.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Prioritize</span></span>
+    <p class="action">Name the one leadership habit that would change your team’s output most.</p>
+    <p class="why"><b>Why it works:</b> One habit mastered beats five half-adopted.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-teamlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Team Lead Playbook</span></div>
+ <h1>Run the Team — Like a <strong>Business</strong></h1>
+ <p class="frame">You own the team’s output now. These sprint actions turn management theory into daily operating rhythm.</p>
+ <p class="stepline">Step 2 · Master Your Role & Team Performance</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Map</span></span>
+    <p class="action">Assess each team member’s capability vs. engagement. Decide who needs coaching, stretch, or structure.</p>
+    <p class="why"><b>Why it works:</b> Leading everyone the same way means leading no one well.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Delegate</span></span>
+    <p class="action">Choose one task you are still doing that should belong to someone else. Hand it over with support.</p>
+    <p class="why"><b>Why it works:</b> Delegation builds people. Hoarding builds dependency.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Confront</span></span>
+    <p class="action">Have the conversation you have been avoiding. Prepare the evidence, use the SBI model, deliver it.</p>
+    <p class="why"><b>Why it works:</b> Feedback delayed becomes a problem compounded.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Rhythm</span></span>
+    <p class="action">Set one weekly routine (huddle, 1:1, or quality review) and run it without missing once this sprint.</p>
+    <p class="why"><b>Why it works:</b> Consistency signals that the team operates with intention.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Diagnose</span></span>
+    <p class="action">Identify one process metric that is slipping. Own the root cause before anyone asks you about it.</p>
+    <p class="why"><b>Why it works:</b> Leaders who find problems early are trusted with bigger scope.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-teamlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Team Lead Playbook</span></div>
+ <h1>Build Your Team’s <strong>Reputation</strong></h1>
+ <p class="frame">Your team’s work is invisible until you make it visible. Five sprint actions to build credit for your people and for yourself.</p>
+ <p class="stepline">Step 3 · Visibility & Team Reputation</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Credit</span></span>
+    <p class="action">Name one team member’s contribution publicly — in a meeting, email, or standup.</p>
+    <p class="why"><b>Why it works:</b> Credit that flows down builds loyalty. Credit that flows up builds reputation.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Elevate</span></span>
+    <p class="action">Share one team result with your manager’s manager, framed in business terms.</p>
+    <p class="why"><b>Why it works:</b> Visibility skips levels when the message is right.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Navigate</span></span>
+    <p class="action">Handle one salary or promotion question with honesty and a clear next step.</p>
+    <p class="why"><b>Why it works:</b> How you handle these moments defines your leadership brand.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Report</span></span>
+    <p class="action">Write a team highlight for the next leadership update — one paragraph, business impact.</p>
+    <p class="why"><b>Why it works:</b> A team that can prove its value gets resourced. One that can’t gets cut.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Rehearse</span></span>
+    <p class="action">Prepare a two-minute summary of your team’s value. Be ready for any audience.</p>
+    <p class="why"><b>Why it works:</b> The question will come. The leaders who have an answer get remembered.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-teamlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Team Lead Playbook</span></div>
+ <h1>Think Like a Manager — Before You <strong>Are One</strong></h1>
+ <p class="frame">The gap between Team Lead and Manager is financial literacy, org design, and succession. Close it now.</p>
+ <p class="stepline">Step 4 · Next-Level Capabilities</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Cost it</span></span>
+    <p class="action">Ask your manager for your team’s cost-to-serve number. Understand every line.</p>
+    <p class="why"><b>Why it works:</b> Managers think in P&L. Team Leads who do the same get promoted.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">De-risk</span></span>
+    <p class="action">Identify your single point of failure. Start the knowledge transfer this sprint.</p>
+    <p class="why"><b>Why it works:</b> You cannot move up while the team depends on one person for everything.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Scale</span></span>
+    <p class="action">Sketch how your function would work with double the scope. What changes, what breaks.</p>
+    <p class="why"><b>Why it works:</b> Thinking at function level is the proof you are ready for more.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Read the numbers</span></span>
+    <p class="action">Read one P&L or budget document end to end. Note what surprises you.</p>
+    <p class="why"><b>Why it works:</b> Financial literacy separates team leads from managers more than any other skill.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Succession plan</span></span>
+    <p class="action">Draft a succession plan for your own role. Name who takes over, and what they need first.</p>
+    <p class="why"><b>Why it works:</b> A leader who has a successor is free to move. One who does not is stuck.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-teamlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Team Lead Playbook</span></div>
+ <h1>Make the Case — or Make <strong>Peace</strong></h1>
+ <p class="frame">The evidence is built. Now use it: make the promotion ask, or decide your real next move with clarity.</p>
+ <p class="stepline">Step 5 · Execute</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Compile</span></span>
+    <p class="action">Pull your Brag Sheet together with starred wins from every step of this path.</p>
+    <p class="why"><b>Why it works:</b> A promotion case is built on proof, not hope.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Write</span></span>
+    <p class="action">Draft the promotion case: impact delivered, capabilities built, readiness evidence.</p>
+    <p class="why"><b>Why it works:</b> The document forces clarity. If you struggle to fill it, you know where the gap is.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Advocate</span></span>
+    <p class="action">Identify your two strongest internal advocates. Brief them before your ask.</p>
+    <p class="why"><b>Why it works:</b> Promotions are decided in rooms you are not in. Advocates speak for you there.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Ask</span></span>
+    <p class="action">Book the career conversation. Use the Word-for-Word opener from the module.</p>
+    <p class="why"><b>Why it works:</b> A clear, calm ask is hard to brush off.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Plan B</span></span>
+    <p class="action">If the answer is not yet: decide whether to develop further, pivot to projects, or move externally.</p>
+    <p class="why"><b>Why it works:</b> A plan B turns a no into a timeline — or a redirect into a better fit.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-teamlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+</body></html>

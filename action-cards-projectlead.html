@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Leadership — Sprint Plan (Action Cards)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;
+--teal:#1d6aff;--gold:#e8b800;--sky:#38bdf8;--green:#34d399;
+--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--border:#1e2636;--border-2:#2a3347;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#05070b;font-family:'Inter',system-ui,sans-serif;color:var(--text);padding:28px 16px;}
+.intro{max-width:210mm;margin:0 auto 26px;color:var(--text-2);font-size:14px;line-height:1.5;}
+.intro b{color:var(--text);}
+.intro .eg{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+.card{width:210mm;max-width:100%;margin:0 auto 34px;background:var(--void);border:1px solid var(--border);
+border-radius:12px;padding:38px 36px;position:relative;overflow:hidden;}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;
+background:linear-gradient(90deg,var(--teal) 0%,var(--teal) 70%,var(--gold) 70%,var(--gold) 100%);}
+.eyebrowrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
+.pathbadge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--text-3);border:1px solid var(--border-2);padding:4px 10px;border-radius:4px;}
+h1{font-size:31px;font-weight:300;line-height:1.12;margin-bottom:10px;color:var(--text);}
+h1 strong{font-weight:600;color:var(--teal);}
+.frame{font-size:14.5px;color:var(--text-2);max-width:66ch;margin-bottom:6px;line-height:1.45;}
+.stepline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.day{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);}
+.day:last-of-type{border-bottom:1px solid var(--border);}
+.check{flex:0 0 auto;width:26px;height:26px;border:2px solid var(--teal);border-radius:6px;margin-top:2px;}
+.daybody{flex:1;}
+.daylabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:4px;}
+.daylabel .verb{color:var(--text);font-weight:600;}
+.action{font-size:15px;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:4px;}
+.why{font-size:12.5px;color:var(--text-3);line-height:1.45;}
+.why b{color:var(--green);font-weight:600;}
+.footer{margin-top:22px;padding:15px 18px;background:var(--surface-3);border-radius:8px;border:1px solid var(--border-2);
+display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.footer-txt{font-size:13px;color:var(--text-2);line-height:1.45;}
+.footer-txt b{color:var(--text);font-weight:600;}
+.footer-cta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--void);background:var(--gold);padding:8px 14px;border-radius:6px;white-space:nowrap;font-weight:600;}
+.lockup{margin-top:16px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);}
+.brand b{color:var(--teal);font-weight:600;}
+.pin{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);}
+@media print{
+ @page{size:A4;margin:0;}
+ body{background:#fff;padding:0;color:#080b10;}
+ .intro{display:none;}
+ .card{background:#fff;border:none;border-radius:0;margin:0;padding:16mm 15mm;page-break-after:always;overflow:visible;}
+ .card::before{height:6px;}
+ .eyebrow{color:#1d6aff;}
+ .pathbadge{color:#5a6578;border-color:#d7dce6;}
+ h1{color:#080b10;} h1 strong{color:#1d6aff;}
+ .frame{color:#2a3347;}
+ .stepline{color:#9a7c08;}
+ .day{border-color:#e2e6ee;}
+ .check{border-color:#1d6aff;background:#fff;}
+ .daylabel{color:#1d6aff;} .daylabel .verb{color:#080b10;}
+ .action{color:#080b10;}
+ .why{color:#5a6578;} .why b{color:#13865a;}
+ .footer{background:#f4f6fa;border-color:#e2e6ee;}
+ .footer-txt{color:#2a3347;} .footer-txt b{color:#080b10;}
+ .footer-cta{color:#080b10;background:#e8b800;}
+ .brand{color:#5a6578;} .brand b{color:#1d6aff;} .pin{color:#5a6578;}
+}
+.site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:11px 24px;background:rgba(8,11,16,.94);backdrop-filter:blur(12px);border-bottom:1px solid #1e2636;font-family:'Inter',system-ui,sans-serif;}.sb-back{color:#1d6aff;text-decoration:none;font-size:13px;font-weight:500;}.sb-back:hover{text-decoration:underline;}.sb-sp{margin-left:auto;}.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}@media print{.site-bar{display:none;}}
+</style></head><body>
+<div class="site-bar"><a class="sb-back" href="path-projectlead.html">← Project Leadership</a><span class="sb-sp"></span><span class="tier-badge tier-vip">VIP tier</span></div>
+<div class="intro"><span class="eg">Sprint Plan · Project Leadership</span>
+<b>5 sprint cards.</b> One per step of the path. Five actions each — self-paced, applied on your real projects. Tick each action, bank your wins to Proof of Work.</div>
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Project Leadership</span></div>
+ <h1>Think Like a Leader — Not a <strong>Doer</strong></h1>
+ <p class="frame">The shift from contributor to leader starts with how you scope, assess risk, and see stakeholders. Five sprint actions to build that mindset.</p>
+ <p class="stepline">Step 1 · Project Leadership Mindset</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Scope it</span></span>
+    <p class="action">Write a one-paragraph scope statement for your project. If it takes more, it is too broad.</p>
+    <p class="why"><b>Why it works:</b> Projects fail on scope more than on execution. Clarity here prevents chaos later.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Risk-bet</span></span>
+    <p class="action">Identify the three project risks you would bet your bonus on. Document them before anyone asks.</p>
+    <p class="why"><b>Why it works:</b> A leader who surfaces risk early gets trusted with bigger projects.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Real metric</span></span>
+    <p class="action">Name your project’s real success metric — the one the sponsor actually cares about beyond time and budget.</p>
+    <p class="why"><b>Why it works:</b> On time and on budget is the minimum. Sponsors care about the business outcome.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Stakeholder map</span></span>
+    <p class="action">Map who blocks, who enables, and who decides. Mark the ones you have not spoken to yet.</p>
+    <p class="why"><b>Why it works:</b> Unengaged stakeholders become surprised stakeholders — and surprised stakeholders block.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Boundaries</span></span>
+    <p class="action">Define your charter’s non-negotiable scope boundaries — the items you will protect.</p>
+    <p class="why"><b>Why it works:</b> Without boundaries, scope grows until the project collapses under its own weight.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-projectlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Project Leadership</span></div>
+ <h1>Plan the Work — Then Work the <strong>Plan</strong></h1>
+ <p class="frame">Structure separates a project leader from someone who is busy. Five sprint actions to build real project discipline.</p>
+ <p class="stepline">Step 2 · Master the Craft</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Break it down</span></span>
+    <p class="action">Build a WBS to level 3. If you cannot decompose it, you cannot estimate it.</p>
+    <p class="why"><b>Why it works:</b> A WBS is the skeleton of the project. Without it, everything is a guess.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Choose method</span></span>
+    <p class="action">Pick CI, Waterfall, or Agile for your project. Write a one-sentence rationale.</p>
+    <p class="why"><b>Why it works:</b> The right method depends on the project, not on preference. Justify the choice.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Root cause</span></span>
+    <p class="action">Run one structured problem-solving exercise (A3 or 5 Whys) on a real project issue.</p>
+    <p class="why"><b>Why it works:</b> Structured method impresses more than “we fixed it.” It also works better.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Govern it</span></span>
+    <p class="action">Set up your RAID log and governance cadence: who reviews what, when, and with what authority.</p>
+    <p class="why"><b>Why it works:</b> Governance prevents derailment. Projects that skip it spend twice the effort recovering.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Dependencies</span></span>
+    <p class="action">Identify the three longest dependencies in your plan and confirm who owns each one.</p>
+    <p class="why"><b>Why it works:</b> An unowned dependency is a risk in disguise.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-projectlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Project Leadership</span></div>
+ <h1>Manage the People — They Are Harder Than the <strong>Plan</strong></h1>
+ <p class="frame">Stakeholder management is where good projects succeed and great plans fail. Five sprint actions to stay ahead.</p>
+ <p class="stepline">Step 3 · Stakeholders & Communication</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Sponsor check</span></span>
+    <p class="action">Have a direct conversation with your sponsor. Ask what failure looks like to them.</p>
+    <p class="why"><b>Why it works:</b> A sponsor’s definition of failure is your real constraint. Learn it early.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Steerco ready</span></span>
+    <p class="action">Prepare and deliver one steering committee update — even if it is a dry run.</p>
+    <p class="why"><b>Why it works:</b> Presenting under governance pressure is a skill that only practice builds.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Difficult message</span></span>
+    <p class="action">Write one stakeholder message that delivers uncomfortable news: scope change, delay, or resource ask.</p>
+    <p class="why"><b>Why it works:</b> Difficult messages delivered well build credibility. Avoided ones build distrust.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Influence map</span></span>
+    <p class="action">Map your stakeholders from resistant to supportive. Plan one move to shift someone.</p>
+    <p class="why"><b>Why it works:</b> Influence is built deliberately. Hoping people come around is a plan for stalling.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Champion</span></span>
+    <p class="action">Identify and brief your project champion — the person who defends it when you are not in the room.</p>
+    <p class="why"><b>Why it works:</b> Every project needs someone fighting for it in the meetings you are not invited to.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-projectlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Project Leadership</span></div>
+ <h1>Land the Change — Then Prove It <strong>Worked</strong></h1>
+ <p class="frame">Delivery without adoption is a failed project. Five sprint actions to land the change and prove the value.</p>
+ <p class="stepline">Step 4 · Land It & Prove Value</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Change comms</span></span>
+    <p class="action">Build a change communication plan: who hears what, when, from whom.</p>
+    <p class="why"><b>Why it works:</b> Surprise is the enemy of adoption. A comms plan prevents the “no one told us” problem.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Hard savings</span></span>
+    <p class="action">Quantify one project outcome in hard savings terms. Get Finance to validate.</p>
+    <p class="why"><b>Why it works:</b> Soft savings are a conversation. Hard savings are a fact. Learn the difference.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Hypercare</span></span>
+    <p class="action">Design your hypercare model: who covers what, for how long, with what escalation path.</p>
+    <p class="why"><b>Why it works:</b> A planned hypercare period turns go-live panic into controlled stabilization.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Retro</span></span>
+    <p class="action">Run a retrospective: what went well, what broke, what you would do differently.</p>
+    <p class="why"><b>Why it works:</b> A project leader who reflects publicly earns the next assignment.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Benefits report</span></span>
+    <p class="action">Draft a benefits realization report: actual results vs. charter commitments.</p>
+    <p class="why"><b>Why it works:</b> The report is your proof of value. Without it, the project is a cost, not an investment.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-projectlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">Sprint Plan</span><span class="pathbadge">Project Leadership</span></div>
+ <h1>Build the Portfolio — Then Make the <strong>Move</strong></h1>
+ <p class="frame">Your project history is career currency. Five sprint actions to turn it into your next role.</p>
+ <p class="stepline">Step 5 · Execute Your Career Move</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Portfolio</span></span>
+    <p class="action">Compile your project portfolio: scope, role, results, and lessons for each project led.</p>
+    <p class="why"><b>Why it works:</b> A portfolio is proof of pattern, not just proof of one win.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Narrative</span></span>
+    <p class="action">Write the story: what kind of project leader you are and what you bring.</p>
+    <p class="why"><b>Why it works:</b> Facts open doors. A narrative gets you through them.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Target</span></span>
+    <p class="action">Name your next target: bigger project, PM role, or management track.</p>
+    <p class="why"><b>Why it works:</b> A vague ambition is easy to ignore. A specific ask gets a specific answer.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Advocate</span></span>
+    <p class="action">Brief your advocates with your portfolio before the career conversation.</p>
+    <p class="why"><b>Why it works:</b> Advocates who have your evidence can make your case when you are not there.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Ask</span></span>
+    <p class="action">Make the ask: promotion, new assignment, or external move.</p>
+    <p class="why"><b>Why it works:</b> The work is done. Now own the conversation.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-projectlead.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+</body></html>

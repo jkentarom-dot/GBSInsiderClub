@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Proof of Work — Team Lead Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;
+    --teal:#1d6aff;--gold:#e8b800;--green:#34d399;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;
+    --border:#1e2636;--border-2:#2a3347;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--void);font-family:'Inter',system-ui,sans-serif;color:var(--text);}
+  .wrap{max-width:880px;margin:0 auto;padding:48px 28px 80px;}
+  .top-accent{height:5px;background:linear-gradient(90deg,var(--teal) 0%,var(--teal) 70%,var(--gold) 70%,var(--gold) 100%);}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
+  h1{font-size:34px;font-weight:300;line-height:1.1;margin:10px 0 14px;}
+  h1 strong{font-weight:600;color:var(--teal);}
+  .lead{font-size:16px;color:var(--text-2);line-height:1.6;max-width:64ch;margin-bottom:8px;}
+  .lead b{color:var(--text);}
+
+  .progress{margin:26px 0 8px;display:flex;align-items:center;gap:14px;}
+  .progress .bar{flex:1;height:8px;background:var(--surface-2);border-radius:6px;overflow:hidden;}
+  .progress .fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .3s;}
+  .progress .count{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-2);white-space:nowrap;}
+
+  .step{margin-top:34px;}
+  .step-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .step-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--border-2),transparent);}
+
+  .item{display:flex;gap:16px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);
+    border-radius:10px;padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .2s,background .2s;}
+  .item:hover{border-color:var(--border-2);}
+  .item.done{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.05);}
+  .box{flex:0 0 auto;width:24px;height:24px;border:2px solid var(--teal);border-radius:6px;margin-top:2px;
+    display:flex;align-items:center;justify-content:center;transition:all .2s;}
+  .item.done .box{background:var(--green);border-color:var(--green);}
+  .box svg{width:14px;height:14px;opacity:0;transition:opacity .2s;}
+  .item.done .box svg{opacity:1;}
+  .body .name{font-size:15.5px;font-weight:500;color:var(--text);margin-bottom:3px;}
+  .item.done .name{color:var(--text-2);}
+  .body .proves{font-size:12.5px;color:var(--text-3);line-height:1.45;}
+  .body .proves b{color:var(--green);font-weight:600;}
+
+  .footer{margin-top:40px;padding:20px 22px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;}
+  .footer p{font-size:14px;color:var(--text-2);line-height:1.6;}
+  .footer p b{color:var(--text);}
+  .brand{margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--text-3);}
+  .brand b{color:var(--teal);font-weight:600;}
+
+  @media print{
+    body{background:#fff;color:#080b10;}
+    .top-accent{height:6px;}
+    .eyebrow{color:#1d6aff;} h1 strong{color:#1d6aff;} .lead{color:#2a3347;} .lead b{color:#080b10;}
+    .step-label{color:#9a7c08;}
+    .item{background:#fff;border-color:#e2e6ee;break-inside:avoid;}
+    .box{border-color:#1d6aff;} .name{color:#080b10;} .proves{color:#5a6578;} .proves b{color:#13865a;}
+    .progress{display:none;}
+    .footer{background:#f4f6fa;border-color:#e2e6ee;} .footer p{color:#2a3347;} .brand{color:#5a6578;}
+    @page{margin:14mm;}
+  }
+.site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:11px 24px;background:rgba(8,11,16,.94);backdrop-filter:blur(12px);border-bottom:1px solid #1e2636;font-family:'Inter',system-ui,sans-serif;}.sb-back{color:#1d6aff;text-decoration:none;font-size:13px;font-weight:500;}.sb-back:hover{text-decoration:underline;}.sb-sp{margin-left:auto;}.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}@media print{.site-bar{display:none;}}
+</style>
+</head>
+<body>
+<div class="site-bar"><a class="sb-back" href="path-teamlead.html">← Team Lead Playbook</a><span class="sb-sp"></span><span class="tier-badge tier-vip">VIP tier</span></div>
+<div class="top-accent"></div>
+<div class="wrap">
+  <span class="eyebrow">Proof of Work</span>
+  <h1>Your Evidence <strong>File</strong></h1>
+  <p class="lead"><b>This path builds real deliverables, not just knowledge.</b> By the end you will hold fourteen tangible outputs from your actual job. Tick each as you complete it. Together they are your promotion case — or your pivot plan.</p>
+
+  <div class="progress">
+    <div class="bar"><div class="fill" id="fill"></div></div>
+    <span class="count" id="count">0 / 0 built</span>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="footer">
+    <p><b>This is the difference between learning and applying.</b> Anyone can read a module. You will hold a folder of evidence that proves you did the work. Bring it to your next career conversation.</p>
+    <div class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</div>
+  </div>
+</div>
+
+<script>
+const data=[{"step": "Step 1 \u00b7 Career Mindset", "items": [{"name": "Completed Team Lead Scoreboard (evidence-based)", "proves": "You can see leadership gaps, not just strengths"}, {"name": "Career Chessboard position plotted", "proves": "You know your impact vs. readiness from real evidence"}, {"name": "18-month ambition statement", "proves": "You have a leadership direction, not a drift"}]}, {"step": "Step 2 \u00b7 Role & Team Performance", "items": [{"name": "Team capability map (skill x engagement)", "proves": "You know what each person needs from you"}, {"name": "One successful delegation with handover", "proves": "You develop people, not just manage tasks"}, {"name": "One difficult feedback conversation delivered (SBI)", "proves": "You can hold people accountable constructively"}, {"name": "Operating rhythm documented and running", "proves": "Your team runs like a business, not a reaction queue"}]}, {"step": "Step 3 \u00b7 Visibility & Team Reputation", "items": [{"name": "One team result shared upward in business terms", "proves": "You make your team's work visible to leadership"}, {"name": "Stakeholder communication using role-appropriate framing", "proves": "You communicate to impact, not just to inform"}]}, {"step": "Step 4 \u00b7 Next-Level Capabilities", "items": [{"name": "Your team's cost-to-serve understood and documented", "proves": "You think in financial terms, not just SLA terms"}, {"name": "Succession plan for your own role", "proves": "You have created runway for your own move"}, {"name": "One multi-team or org design scenario sketched", "proves": "You can think at function level, not just team level"}]}, {"step": "Step 5 \u00b7 Execute", "items": [{"name": "Brag Sheet compiled with starred wins", "proves": "Your wins are recorded, not remembered"}, {"name": "Promotion case or career pivot decision documented", "proves": "You can make the ask backed by evidence, or redirect with clarity"}]}];
+const KEY="gbs-proofofwork-teamlead";
+let done={};
+try{const r=window.localStorage&&localStorage.getItem(KEY); if(r) done=JSON.parse(r);}catch(e){}
+const list=document.getElementById('list');
+let idx=0, total=0;
+const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="#080b10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+data.forEach(s=>{
+  const sl=document.createElement('div'); sl.className='step';
+  sl.innerHTML=`<div class="step-label">${s.step}</div>`;
+  s.items.forEach(it=>{
+    const id='i'+(idx++); total++;
+    const row=document.createElement('div'); row.className='item'+(done[id]?' done':''); row.dataset.id=id;
+    row.innerHTML=`<div class="box">${CHECK}</div><div class="body"><div class="name">${it.name}</div><div class="proves"><b>Proves:</b> ${it.proves}</div></div>`;
+    row.addEventListener('click',()=>{done[id]=!done[id];row.classList.toggle('done');save();update();});
+    sl.appendChild(row);
+  });
+  list.appendChild(sl);
+});
+function save(){try{localStorage.setItem(KEY,JSON.stringify(done));}catch(e){}}
+function update(){const n=Object.values(done).filter(Boolean).length;
+  document.getElementById('count').textContent=n+' / '+total+' built';
+  document.getElementById('fill').style.width=(n/total*100)+'%';}
+update();
+</script>
+</body>
+</html>

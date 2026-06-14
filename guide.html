@@ -4825,7 +4825,7 @@
         <div class="myth-label">Myth 04</div>
         <div class="myth-claim">"The AI understands what it's saying."</div>
         <div class="myth-truth">
-          <strong>No.</strong> Language models are prediction engines. They produce statistically likely continuations of text. They do not verify claims, hold beliefs, or understand concepts the way a human does. A model can produce a confident, grammatically perfect, internally consistent explanation of something completely wrong — because the wrong explanation was the most statistically likely sequence of <strong style="color:var(--yellow)">tokens</strong> given the prompt. This is not lying and it is not a bug. It is the architecture. It is why all AI outputs on high-stakes factual questions require human verification.
+          <strong>No.</strong> Language models are prediction engines. They produce statistically likely continuations of text. They do not verify claims, hold beliefs, or understand concepts the way a human does. A model can produce a confident, grammatically perfect, internally consistent explanation of something completely wrong — because the wrong explanation was the most statistically likely sequence of <strong style="color:var(--yellow)">tokens</strong> given the prompt. This is the architecture working as designed. It is why all AI outputs on high-stakes factual questions require human verification.
         </div>
       </div>
 
@@ -8118,7 +8118,7 @@ Think step by step before concluding.</code>
           <li><strong>Abstract the model layer.</strong> Never hardcode a specific LLM into your application logic. Use an abstraction layer (LiteLLM, a simple API gateway, or your own wrapper) so that swapping from GPT-4o to Claude Sonnet or a fine-tuned Llama is a configuration change, not a rewrite.</li>
           <li><strong>Own your prompts and eval data.</strong> If you are using a vendor, ensure your prompts and evaluation datasets are exportable. If the vendor relationship ends, you need to rebuild on a different platform. Your prompts and evals are the intellectual property — the model is rented infrastructure.</li>
           <li><strong>Version everything.</strong> Prompts, model versions, eval results, system prompts, and workflow configurations. When output quality changes (and it will — model updates, API changes, <strong style="color:var(--yellow)">data drift</strong>), you need to know what changed and when. Treat AI configuration with the same version-control discipline as source code.</li>
-          <li><strong>Design for model-switching from day one.</strong> Run your eval suite against at least two providers before choosing one. Keep the second provider's integration as a fallback. This is not just future-proofing — it is negotiating power. A vendor knows you will not leave if switching costs are high.</li>
+          <li><strong>Design for model-switching from day one.</strong> Run your eval suite against at least two providers before choosing one. Keep the second provider's integration as a fallback. This is future-proofing and negotiating power in one move. A vendor knows you will not leave if switching costs are high.</li>
         </ul>
       </div>
 
@@ -9553,7 +9553,7 @@ Diagnose:
     sidebarGroups.forEach(g => {
       if (g.textContent.includes('Advanced') || g.textContent.includes('Expert') || 
           g.textContent.includes('Part') || g.textContent.includes('Practitioner')) {
-        g.innerHTML += ' <span style="font-size:12px; color:#b89438; margin-left:4px;">🔒</span>';
+        g.innerHTML += ' <span style="font-size:12px; color:#b89438; margin-left:4px;">&#9679;</span>';
       }
     });
   }

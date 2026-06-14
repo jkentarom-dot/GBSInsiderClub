@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project SME Path — This Week on the Project (Action Cards)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;
+--teal:#1d6aff;--gold:#e8b800;--sky:#38bdf8;--green:#34d399;
+--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--border:#1e2636;--border-2:#2a3347;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#05070b;font-family:'Inter',system-ui,sans-serif;color:var(--text);padding:28px 16px;}
+.intro{max-width:210mm;margin:0 auto 26px;color:var(--text-2);font-size:14px;line-height:1.5;}
+.intro b{color:var(--text);}
+.intro .eg{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+.card{width:210mm;max-width:100%;margin:0 auto 34px;background:var(--void);border:1px solid var(--border);
+border-radius:12px;padding:38px 36px;position:relative;overflow:hidden;}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;
+background:linear-gradient(90deg,var(--teal) 0%,var(--teal) 70%,var(--gold) 70%,var(--gold) 100%);}
+.eyebrowrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
+.pathbadge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--text-3);border:1px solid var(--border-2);padding:4px 10px;border-radius:4px;}
+h1{font-size:31px;font-weight:300;line-height:1.12;margin-bottom:10px;color:var(--text);}
+h1 strong{font-weight:600;color:var(--teal);}
+.frame{font-size:14.5px;color:var(--text-2);max-width:66ch;margin-bottom:6px;line-height:1.45;}
+.stepline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.day{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);}
+.day:last-of-type{border-bottom:1px solid var(--border);}
+.check{flex:0 0 auto;width:26px;height:26px;border:2px solid var(--teal);border-radius:6px;margin-top:2px;}
+.daybody{flex:1;}
+.daylabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:4px;}
+.daylabel .verb{color:var(--text);font-weight:600;}
+.action{font-size:15px;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:4px;}
+.why{font-size:12.5px;color:var(--text-3);line-height:1.45;}
+.why b{color:var(--green);font-weight:600;}
+.footer{margin-top:22px;padding:15px 18px;background:var(--surface-3);border-radius:8px;border:1px solid var(--border-2);
+display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.footer-txt{font-size:13px;color:var(--text-2);line-height:1.45;}
+.footer-txt b{color:var(--text);font-weight:600;}
+.footer-cta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--void);background:var(--gold);padding:8px 14px;border-radius:6px;white-space:nowrap;font-weight:600;}
+.lockup{margin-top:16px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);}
+.brand b{color:var(--teal);font-weight:600;}
+.pin{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);}
+@media print{
+ @page{size:A4;margin:0;}
+ body{background:#fff;padding:0;color:#080b10;}
+ .intro{display:none;}
+ .card{background:#fff;border:none;border-radius:0;margin:0;padding:16mm 15mm;page-break-after:always;overflow:visible;}
+ .card::before{height:6px;}
+ .eyebrow{color:#1d6aff;}
+ .pathbadge{color:#5a6578;border-color:#d7dce6;}
+ h1{color:#080b10;} h1 strong{color:#1d6aff;}
+ .frame{color:#2a3347;}
+ .stepline{color:#9a7c08;}
+ .day{border-color:#e2e6ee;}
+ .check{border-color:#1d6aff;background:#fff;}
+ .daylabel{color:#1d6aff;} .daylabel .verb{color:#080b10;}
+ .action{color:#080b10;}
+ .why{color:#5a6578;} .why b{color:#13865a;}
+ .footer{background:#f4f6fa;border-color:#e2e6ee;}
+ .footer-txt{color:#2a3347;} .footer-txt b{color:#080b10;}
+ .footer-cta{color:#080b10;background:#e8b800;}
+ .brand{color:#5a6578;} .brand b{color:#1d6aff;} .pin{color:#5a6578;}
+}
+.site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:11px 24px;background:rgba(8,11,16,.94);backdrop-filter:blur(12px);border-bottom:1px solid #1e2636;font-family:'Inter',system-ui,sans-serif;}.sb-back{color:#1d6aff;text-decoration:none;font-size:13px;font-weight:500;}.sb-back:hover{text-decoration:underline;}.sb-sp{margin-left:auto;}.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}@media print{.site-bar{display:none;}}
+</style></head><body>
+<div class="site-bar"><a class="sb-back" href="path-sme.html">← Project SME Path</a><span class="sb-sp"></span><span class="tier-badge tier-vip">VIP tier</span></div>
+<div class="intro"><span class="eg">This Week on the Project · Project SME Path</span>
+<b>6 weekly action cards.</b> One per week of the project. Five actions each — applied on your real project alongside BAU. Tick each action, bank your wins to Proof of Work.</div>
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">This Week on the Project</span><span class="pathbadge">Project SME Path</span></div>
+ <h1>Land on the Project — Without Losing Your <strong>BAU</strong></h1>
+ <p class="frame">You just got pulled onto a project. First priority: understand the rules and protect your day job.</p>
+ <p class="stepline">Week 1 · Understand the Project</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Read</span></span>
+    <p class="action">Read the project charter. Note what you are actually expected to deliver.</p>
+    <p class="why"><b>Why it works:</b> Assumptions about your role get corrected in the first week or never.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Protect</span></span>
+    <p class="action">Have the capacity conversation: agree with your TL what BAU work gets adjusted.</p>
+    <p class="why"><b>Why it works:</b> Without a signed agreement, project work eats BAU — and you get blamed for both.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Map</span></span>
+    <p class="action">Draw the project team: who is the PM, your counterpart, and who makes decisions.</p>
+    <p class="why"><b>Why it works:</b> Knowing who decides is more valuable than knowing who does.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Clarify</span></span>
+    <p class="action">Ask what you can approve vs. what you must escalate. Get the answer in writing.</p>
+    <p class="why"><b>Why it works:</b> Sign-off authority confusion causes the biggest project delays.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Track</span></span>
+    <p class="action">Set up your dual tracker: BAU commitments alongside project deliverables.</p>
+    <p class="why"><b>Why it works:</b> Two jobs need one view. Separate trackers create separate failures.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-sme.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">This Week on the Project</span><span class="pathbadge">Project SME Path</span></div>
+ <h1>Transfer Knowledge Like a <strong>Professional</strong></h1>
+ <p class="frame">KT is your moment. The quality of what you document now determines the pain level after go-live.</p>
+ <p class="stepline">Week 2 · Knowledge Transfer</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Walk the model</span></span>
+    <p class="action">Learn the 4-Phase KT approach: Prepare, Execute, Validate, Sign-off.</p>
+    <p class="why"><b>Why it works:</b> A framework prevents you from missing the step that causes post-go-live chaos.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Document</span></span>
+    <p class="action">Write one critical process so that a stranger could run it tomorrow.</p>
+    <p class="why"><b>Why it works:</b> If it depends on memory, it depends on a person who might leave.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Uncover</span></span>
+    <p class="action">Identify three things only you know. Start writing them down.</p>
+    <p class="why"><b>Why it works:</b> Undocumented knowledge is the project’s biggest hidden risk.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Risk-log</span></span>
+    <p class="action">Create a risk log for KT gaps: what is undocumented and who holds it.</p>
+    <p class="why"><b>Why it works:</b> Naming the gap is the first step toward closing it.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Test it</span></span>
+    <p class="action">Have someone execute the process using only your documentation.</p>
+    <p class="why"><b>Why it works:</b> Documentation that hasn’t been tested is documentation that doesn’t work.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-sme.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">This Week on the Project</span><span class="pathbadge">Project SME Path</span></div>
+ <h1>Test It Properly — Not Just <strong>Click Through</strong></h1>
+ <p class="frame">UAT is where you protect the business. Thorough testing now saves months of firefighting later.</p>
+ <p class="stepline">Week 3 · Testing</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Scenario-first</span></span>
+    <p class="action">Write test cases tied to business scenarios, not system steps.</p>
+    <p class="why"><b>Why it works:</b> Systems pass tech tests and fail real work. Business scenarios catch what tech misses.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Edge cases</span></span>
+    <p class="action">Run one end-to-end test that includes the exceptions and edge cases.</p>
+    <p class="why"><b>Why it works:</b> The happy path always works. Edge cases are where go-lives break.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Log properly</span></span>
+    <p class="action">Document every defect with clear steps to reproduce and business impact.</p>
+    <p class="why"><b>Why it works:</b> A well-logged defect gets fixed. A vague one gets deprioritized.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Escalate</span></span>
+    <p class="action">Raise one blocker through the proper channel — RAID log, not hallway chat.</p>
+    <p class="why"><b>Why it works:</b> Escalation through structure gets action. Hallway complaints get sympathy.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Exit criteria</span></span>
+    <p class="action">Review what “pass” actually means before you sign off.</p>
+    <p class="why"><b>Why it works:</b> Signing off without clear criteria means owning the outcome without controlling the standard.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-sme.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">This Week on the Project</span><span class="pathbadge">Project SME Path</span></div>
+ <h1>Raise Issues Without Looking <strong>Negative</strong></h1>
+ <p class="frame">Project communication has its own rules. Learn them and your voice carries weight, not friction.</p>
+ <p class="stepline">Week 4 · Communication</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">RAID it</span></span>
+    <p class="action">Write your first RAID log entry: one Risk or Issue with impact and mitigation.</p>
+    <p class="why"><b>Why it works:</b> Structured risk-raising is leadership. Unstructured complaining is noise.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Status update</span></span>
+    <p class="action">Submit one project status update using the standard template.</p>
+    <p class="why"><b>Why it works:</b> Consistent reporting builds your reputation as someone the PM can rely on.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Ask publicly</span></span>
+    <p class="action">Ask one clarifying question about scope in a project meeting.</p>
+    <p class="why"><b>Why it works:</b> Asking early prevents rework. The question you hold back is usually the one everyone has.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Flag</span></span>
+    <p class="action">Identify one dependency that could derail your area’s timeline.</p>
+    <p class="why"><b>Why it works:</b> Catching a dependency early is proactive. Catching it late is a crisis.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Bridge</span></span>
+    <p class="action">Send one proactive update to your BAU manager about project progress.</p>
+    <p class="why"><b>Why it works:</b> Keeping your BAU stakeholder informed prevents the “where were you?” conversation.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-sme.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">This Week on the Project</span><span class="pathbadge">Project SME Path</span></div>
+ <h1>Land It Cleanly — Then Survive <strong>Hypercare</strong></h1>
+ <p class="frame">Go-live is a team effort. Your preparation determines whether your area lands smoothly or scrambles.</p>
+ <p class="stepline">Week 5 · Go-Live</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Ready check</span></span>
+    <p class="action">Complete your area’s go-live readiness checklist.</p>
+    <p class="why"><b>Why it works:</b> Readiness is binary: ready or not. Guessing gets people hurt.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Anticipate</span></span>
+    <p class="action">Identify the three most likely post-go-live issues and prepare responses.</p>
+    <p class="why"><b>Why it works:</b> The issues you planned for are the ones that don’t become crises.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Hypercare model</span></span>
+    <p class="action">Set up your hypercare tracking: who escalates what, to whom, how fast.</p>
+    <p class="why"><b>Why it works:</b> Hypercare without a model is just overtime with extra stress.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Brief the team</span></span>
+    <p class="action">Tell your BAU team what changes and what support they will need.</p>
+    <p class="why"><b>Why it works:</b> Surprise is the enemy of adoption. Briefed teams adapt faster.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Exit plan</span></span>
+    <p class="action">Define your personal exit criteria: when is your project involvement done.</p>
+    <p class="why"><b>Why it works:</b> Without exit criteria, project work expands until someone burns out.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-sme.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+<div class="card">
+ <div class="eyebrowrow"><span class="eyebrow">This Week on the Project</span><span class="pathbadge">Project SME Path</span></div>
+ <h1>Convert the Project Into a <strong>Career Move</strong></h1>
+ <p class="frame">The project is winding down. Make sure the experience counts for your career — on purpose.</p>
+ <p class="stepline">Week 6 · Career Leverage</p>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 1 · <span class="verb">Bank it</span></span>
+    <p class="action">Update your Brag Sheet with project contributions and measurable results.</p>
+    <p class="why"><b>Why it works:</b> Experience without evidence is just a memory. Evidence is a career asset.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 2 · <span class="verb">Reference</span></span>
+    <p class="action">Ask the PM for written feedback or a project reference.</p>
+    <p class="why"><b>Why it works:</b> A reference from a PM carries weight with hiring managers and leadership.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 3 · <span class="verb">Name it</span></span>
+    <p class="action">List the skills this project built that your BAU role did not.</p>
+    <p class="why"><b>Why it works:</b> New skills are your return on investment from the project workload.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 4 · <span class="verb">Decide</span></span>
+    <p class="action">Choose your next move: back to BAU with new skills, or pursue project work.</p>
+    <p class="why"><b>Why it works:</b> A deliberate choice beats a default drift back to the old routine.</p>
+  </div></div>
+  <div class="day"><div class="check"></div><div class="daybody">
+    <span class="daylabel">Action 5 · <span class="verb">Position it</span></span>
+    <p class="action">Update your LinkedIn and prepare the project narrative for your next review.</p>
+    <p class="why"><b>Why it works:</b> The right framing turns six weeks of extra work into a career step.</p>
+  </div></div>
+ <div class="footer"><p class="footer-txt"><b>Banked your wins?</b> Add this sprint&#8217;s starred result to your Proof of Work portfolio.</p><a href="proof-of-work-sme.html" class="footer-cta" style="text-decoration:none;">&#8594; Proof of Work</a></div>
+ <div class="lockup"><span class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</span><span class="pin">Pin me at your desk</span></div>
+</div>
+
+</body></html>
