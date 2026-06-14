@@ -334,7 +334,7 @@
   <section class="section" id="roi">
     <span class="eyebrow eyebrow-gold">The Investment Case</span>
     <h2>What does $99 actually buy? Run your numbers.</h2>
-    <p class="section-intro">A salary increase is not a one-time event — it compounds. Every future raise, bonus, and job offer builds on your new base. Pick your market, enter your salary, and see what one promotion or increase is worth over five years against a one-time $99.</p>
+    <p class="section-intro">A salary increase compounds. Every future raise, bonus, and job offer builds on your new base. Pick your market, enter your salary, and see what even a modest increase is worth over five years against a one-time $99.</p>
 
     <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:32px;">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:28px;">
@@ -354,12 +354,9 @@
           <input id="roi-salary" type="number" min="0" step="100" value="50000" style="width:100%;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;">
         </div>
         <div>
-          <label style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px;">Increase you target</label>
-          <select id="roi-raise" style="width:100%;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;">
-            <option value="0.08">8% — strong in-band increase</option>
-            <option value="0.15" selected>15% — typical promotion step</option>
-            <option value="0.25">25% — promotion + market correction</option>
-          </select>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px;">Increase you target (%)</label>
+          <input id="roi-raise" type="number" min="1" max="50" step="1" value="8" style="width:100%;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;">
+          <div style="font-size:11px;color:var(--text-3);margin-top:6px;line-height:1.5;">3-5% in-band raise, 8-15% promotion, 20%+ role change. Varies by market, company, and timing.</div>
         </div>
       </div>
 
@@ -381,7 +378,7 @@
 
       <p id="roi-verdict" style="font-size:15px;color:var(--text-2);line-height:1.8;margin:24px 0 0;border-top:1px solid var(--border);padding-top:20px;"></p>
     </div>
-    <p style="font-size:12px;color:var(--text-3);margin-top:12px;line-height:1.6;">Illustration, not a guarantee. Assumes the increase lands within 6-12 months of consistent application and annual raises of ~7% thereafter. The work is yours — the system shows you where to aim it.</p>
+    <p style="font-size:12px;color:var(--text-3);margin-top:12px;line-height:1.6;">Illustration only. Actual increases depend on your market, company performance, role, and timing. The annual raise assumption (~7%) is an illustration — your market may differ. The work is yours; the system shows you where to aim it.</p>
   <figure style="margin:20px 0;padding:0;">
 <img src="images/img-roi-night.jpg" alt="A professional investing an evening in his own growth" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border);"><p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.08em;text-transform:uppercase;margin:8px 0 0;">The cheapest raise you will ever buy</p>
 </figure>
@@ -403,7 +400,7 @@
     var sym = opt.getAttribute('data-sym');
     var cur = market.value;
     var s = parseFloat(salary.value) || 0;
-    var r = parseFloat(raise_.value);
+    var r = (parseFloat(raise_.value) || 8) / 100;
     var monthly = s * r;
     if (s <= 0) return;
 
@@ -434,7 +431,7 @@
     calc();
   });
   salary.addEventListener('input', calc);
-  raise_.addEventListener('change', calc);
+  raise_.addEventListener('input', calc);
   calc();
 })();
 </script>
