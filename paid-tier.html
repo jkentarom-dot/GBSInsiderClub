@@ -354,9 +354,17 @@
           <input id="roi-salary" type="number" min="0" step="100" value="50000" style="width:100%;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;">
         </div>
         <div>
-          <label style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px;">Increase you target (%)</label>
-          <input id="roi-raise" type="number" min="1" max="50" step="1" value="8" style="width:100%;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;">
-          <div style="font-size:11px;color:var(--text-3);margin-top:6px;line-height:1.5;">3-5% in-band raise, 8-15% promotion, 20%+ role change. Varies by market, company, and timing.</div>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px;">Increase you are aiming for (%)</label>
+          <div id="roi-presets" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+            <button class="roi-btn" data-pct="3" style="padding:8px 14px;border-radius:6px;border:1px solid var(--border-2);background:var(--surface);color:var(--text-2);font-size:13px;font-family:inherit;cursor:pointer;">3%</button>
+            <button class="roi-btn" data-pct="5" style="padding:8px 14px;border-radius:6px;border:1px solid var(--border-2);background:var(--surface);color:var(--text-2);font-size:13px;font-family:inherit;cursor:pointer;">5%</button>
+            <button class="roi-btn roi-active" data-pct="8" style="padding:8px 14px;border-radius:6px;border:1px solid var(--teal);background:rgba(29,106,255,0.1);color:var(--teal);font-size:13px;font-family:inherit;cursor:pointer;font-weight:600;">8%</button>
+            <button class="roi-btn" data-pct="12" style="padding:8px 14px;border-radius:6px;border:1px solid var(--border-2);background:var(--surface);color:var(--text-2);font-size:13px;font-family:inherit;cursor:pointer;">12%</button>
+            <button class="roi-btn" data-pct="15" style="padding:8px 14px;border-radius:6px;border:1px solid var(--border-2);background:var(--surface);color:var(--text-2);font-size:13px;font-family:inherit;cursor:pointer;">15%</button>
+            <button class="roi-btn" data-pct="20" style="padding:8px 14px;border-radius:6px;border:1px solid var(--border-2);background:var(--surface);color:var(--text-2);font-size:13px;font-family:inherit;cursor:pointer;">20%</button>
+          </div>
+          <input id="roi-raise" type="number" min="1" max="50" step="1" value="8" placeholder="Or type your own %" style="width:100%;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;">
+          <div style="font-size:11px;color:var(--text-3);margin-top:6px;line-height:1.5;">Pick what fits your market and situation. 3-5% is typical for an in-band raise; 8-15% for a promotion; 15-20%+ for a role or company change. Every market, company, and economic cycle is different.</div>
         </div>
       </div>
 
@@ -378,7 +386,7 @@
 
       <p id="roi-verdict" style="font-size:15px;color:var(--text-2);line-height:1.8;margin:24px 0 0;border-top:1px solid var(--border);padding-top:20px;"></p>
     </div>
-    <p style="font-size:12px;color:var(--text-3);margin-top:12px;line-height:1.6;">Illustration only. Actual increases depend on your market, company performance, role, and timing. The annual raise assumption (~7%) is an illustration — your market may differ. The work is yours; the system shows you where to aim it.</p>
+    <p style="font-size:12px;color:var(--text-3);margin-top:12px;line-height:1.6;">Illustration only. Actual increases depend on your market, company performance, role, economic conditions, and timing. The annual raise assumption (~7%) varies widely by region and industry. Some markets and periods see lower growth; others see higher. Pick the percentage that matches your realistic situation, not the most optimistic one. The work is yours; the calculator shows you where to aim it.</p>
   <figure style="margin:20px 0;padding:0;">
 <img src="images/img-roi-night.jpg" alt="A professional investing an evening in his own growth" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border);"><p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.08em;text-transform:uppercase;margin:8px 0 0;">The cheapest raise you will ever buy</p>
 </figure>
@@ -431,7 +439,36 @@
     calc();
   });
   salary.addEventListener('input', calc);
-  raise_.addEventListener('input', calc);
+  raise_.addEventListener('input', function() {
+    // Deselect preset buttons when user types custom value
+    document.querySelectorAll('.roi-btn').forEach(function(b) {
+      b.style.border = '1px solid var(--border-2)';
+      b.style.background = 'var(--surface)';
+      b.style.color = 'var(--text-2)';
+      b.style.fontWeight = '400';
+      b.classList.remove('roi-active');
+    });
+    calc();
+  });
+  // Preset button clicks
+  document.querySelectorAll('.roi-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.roi-btn').forEach(function(b) {
+        b.style.border = '1px solid var(--border-2)';
+        b.style.background = 'var(--surface)';
+        b.style.color = 'var(--text-2)';
+        b.style.fontWeight = '400';
+        b.classList.remove('roi-active');
+      });
+      btn.style.border = '1px solid var(--teal)';
+      btn.style.background = 'rgba(29,106,255,0.1)';
+      btn.style.color = 'var(--teal)';
+      btn.style.fontWeight = '600';
+      btn.classList.add('roi-active');
+      raise_.value = btn.getAttribute('data-pct');
+      calc();
+    });
+  });
   calc();
 })();
 </script>
