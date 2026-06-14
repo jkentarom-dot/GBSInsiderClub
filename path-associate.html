@@ -160,6 +160,22 @@
 .jt-block .jt-label::before{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M9.5%2018h5M10.5%2021h3%27%2F%3E%3Cpath%20d%3D%27M12%203a6%206%200%200%201%203.6%2010.8c-.6.5-1.1%201.2-1.1%202.2H9.5c0-1-.5-1.7-1.1-2.2A6%206%200%200%201%2012%203z%27%2F%3E%3C%2Fsvg%3E");}
 .fieldskill .fs-label::before{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%278%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%274%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%271%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3C%2Fsvg%3E");}
 .checkpoint-block .recap-title::before{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M20%206.5L9.2%2017.3%204%2012.1%27%2F%3E%3C%2Fsvg%3E");}
+
+/* visual layer v2: branded section dividers */
+.section{border-top:none;position:relative;}
+.section::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+ background:linear-gradient(90deg,var(--teal) 0,var(--teal) 64px,transparent 64px) left top/100% 2px no-repeat,
+ linear-gradient(90deg,transparent,var(--border-2) 20%,var(--border-2) 80%,transparent) left top/100% 1px no-repeat;}
+.spine-section::before{display:none;}
+/* right-aligned callouts (fill the right zone, text wraps left) */
+.callout-right{float:right;width:38%;min-width:250px;max-width:360px;margin:4px 0 18px 30px;
+ background:var(--surface-2);border:1px solid var(--border-2);border-left:3px solid var(--gold);
+ border-radius:0 10px 10px 0;padding:18px 20px;}
+.callout-right .co-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--gold);display:block;margin:0 0 8px;}
+.callout-right p{font-size:15px;color:var(--text);line-height:1.5;margin:0;max-width:none;}
+.mod-body .exercise-block,.mod-body .ai-block,.mod-body .jt-block,.mod-body .checkpoint-block,.mod-body .fieldskill{clear:right;}
+@media(max-width:760px){.callout-right{float:none;width:auto;max-width:none;margin:16px 0;}}
 </style>
 </head>
 <body>
@@ -229,6 +245,7 @@
     <details class="module" open>
       <summary><span class="mod-code">1.1</span><span class="mod-title">Self-Assessment: Strengths &amp; Weaknesses — From the Company's Perspective</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
+          <div class="callout-right"><span class="co-label">Reality check</span><p>No example from the last three months? Then it is not yet a strength — it is a hope.</p></div>
         <p>Most self-assessments fail because people rate themselves against their own standard: <em>"For the time I've been in this role, I'm doing great."</em> Your manager doesn't grade on that curve. The standard is the role's requirements — not your tenure, not your effort, not your potential. Step one is collecting the actual standard.</p>
         <span class="mod-label">Collect your benchmarks</span>
         <table class="data-table">
@@ -606,6 +623,7 @@
     <details class="module">
       <summary><span class="mod-code">3.2</span><span class="mod-title">The Visibility Playbook — A Channel for Every Personality</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
+          <div class="callout-right"><span class="co-label">Remember</span><p>Invisible good work does not get promoted. Be seen on purpose.</p></div>
         <p>Visibility is not volume. There is a channel for every personality:</p>
         <ul style="margin:10px 0 14px;padding-left:22px;color:var(--text-2);line-height:1.8;font-size:14px;">
           <li><strong style="color:var(--gold);">Introvert channels</strong>: clear written updates, small-group contributions, 1:1 conversations — quiet and highly effective.</li>
@@ -852,6 +870,7 @@
     <details class="module">
       <summary><span class="mod-code">5.2</span><span class="mod-title">The Career Conversation — Making the Ask</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
+          <div class="callout-right"><span class="co-label">Key principle</span><p>A calm, evidence-backed ask is hard to brush off.</p></div>
         <p>You signaled ambition in Step 3. Now you make the structured ask — built on your Brag Sheet, your gap analysis, and your manager's own words about what the next level requires. The conversation isn't "I want a promotion." It's "here's the evidence I'm operating at the next level — what's the path from here, and what's the timeline?"</p>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Build your case document: evidence against next-role requirements, gaps closed since your first assessment, and the specific ask. Rehearse it once — with AI or a mentor — before the real conversation.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>AI role-play as your manager — including the skeptical version: <em>"Challenge my promotion case the way a budget-constrained manager would. What's weak? What's missing?"</em></p></div>
