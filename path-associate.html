@@ -38,11 +38,11 @@
   .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: radial-gradient(ellipse at 80% 30%, rgba(29,106,255,0.05) 0%, transparent 70%); pointer-events: none; }
   .hero h1 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--text); line-height: 1.1; margin: 14px 0 16px; }
   .hero h1 strong { font-weight: 600; color: var(--teal); }
-  .hero-lead { font-size: 19px; color: var(--text); line-height: 1.7; margin-bottom: 18px; max-width: 760px; }
-  .hero-body { font-size: 17px; color: var(--text-2); line-height: 1.85; max-width: 760px; }
+  .hero-lead { font-size: 19px; color: var(--text); line-height: 1.7; margin-bottom: 18px; max-width: 1040px; }
+  .hero-body { font-size: 17px; color: var(--text-2); line-height: 1.85; max-width: 1040px; }
   .section { padding: 72px 0; border-top: 1px solid var(--border); }
   .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
-  .section-intro { font-size: 17px; color: var(--text); line-height: 1.8; max-width: 780px; margin-bottom: 36px; }
+  .section-intro { font-size: 17px; color: var(--text); line-height: 1.8; max-width: 1040px; margin-bottom: 36px; }
   .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
   .svg-frame svg { display: block; width: 100%; height: auto; min-width: 680px; max-width: 980px; margin: 0 auto; }
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
@@ -69,7 +69,7 @@
   .module[open] .mod-arrow { transform: rotate(180deg); color: var(--teal); }
   .module[open] summary { border-bottom: 1px solid var(--border); }
   .mod-body { padding: 8px 28px 30px; }
-  .mod-body p { font-size: 16px; color: #dde3ec; line-height: 1.85; margin-bottom: 18px; max-width: 75ch; }
+  .mod-body p { font-size: 16px; color: #dde3ec; line-height: 1.85; margin-bottom: 18px; max-width: 90ch; }
   .mod-body ul { margin: 0 0 14px 18px; }
   .mod-body li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 6px; }
   .mod-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin: 18px 0 8px; }
@@ -82,7 +82,7 @@
   .checkpoint-block { background: var(--surface); border: 1px dashed var(--border-2); border-radius: 8px; padding: 14px 18px; margin-top: 16px; }
   .checkpoint-block .cp-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--text-2); padding: 4px 0; line-height: 1.6; }
   .checkpoint-block .cp-box { width: 14px; height: 14px; border: 1px solid var(--border-2); border-radius: 3px; flex-shrink: 0; margin-top: 3px; }
-  .jt-block { background: rgba(232,184,0,0.06); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; max-width: 820px; }
+  .jt-block { background: rgba(232,184,0,0.06); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; max-width: 1040px; }
   .jt-block .jt-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
   .jt-block p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin: 0; }
   .milestone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
@@ -114,14 +114,14 @@
 
   /* Model recap nav strip */
   .spine-section { border-top: none; padding-bottom: 12px; }
-  .spine-intro { font-size: 16px; color: var(--text-2); line-height: 1.7; margin: 4px 0 22px; max-width: 760px; }
+  .spine-intro { font-size: 16px; color: var(--text-2); line-height: 1.7; margin: 4px 0 22px; max-width: 1040px; }
   .spine-strip { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
   .spine-chip { display: flex; flex-direction: column; gap: 5px; flex: 1 1 150px; min-width: 140px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-decoration: none; transition: border-color 0.18s, transform 0.18s, background 0.18s; }
   .spine-chip:hover { border-color: #4d8bff; transform: translateY(-3px); background: rgba(29,106,255,0.06); }
   .spine-num { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #4d8bff; letter-spacing: 0.1em; }
   .spine-label { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.35; }
   .spine-arrow { display: flex; align-items: center; color: var(--text-3); font-size: 16px; flex: 0 0 auto; }
-  @media (max-width: 760px) { .spine-arrow { display: none; } .spine-chip { flex-basis: calc(50% - 6px); } }
+  @media (max-width: 1040px) { .spine-arrow { display: none; } .spine-chip { flex-basis: calc(50% - 6px); } }
 
 
   /* Inline knowledge check */
@@ -151,6 +151,7 @@
   .fieldskill li { font-size: 14px; color: #dde3ec; line-height: 1.75; margin-bottom: 6px; }
   .fieldskill .fs-sci { font-size: 13px; color: var(--text-2); font-style: italic; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(52,211,153,0.22); }
 
+.mod-body .exercise-block,.mod-body .ai-block,.mod-body .jt-block,.mod-body .checkpoint-block,.mod-body .fieldskill{margin-top:32px;margin-bottom:32px;}
 </style>
 </head>
 <body>
