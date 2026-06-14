@@ -177,6 +177,8 @@
 .mod-body .exercise-block,.mod-body .ai-block,.mod-body .jt-block,.mod-body .checkpoint-block,.mod-body .fieldskill{clear:right;}
 @media(max-width:760px){.callout-right{float:none;width:auto;max-width:none;margin:16px 0;}}
 .minifig{clear:both;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin:24px auto 30px;max-width:680px;overflow-x:auto;}.minifig svg{display:block;width:100%;height:auto;max-width:640px;margin:0 auto;}.minifig .mf-cap{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);text-align:center;margin-top:12px;}
+.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+.hero{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;}@media(min-width:920px){.hero:not(.no-fig){grid-template-columns:1fr 320px;}}.hero.no-fig{grid-template-columns:1fr;}.hero-figure{display:flex;justify-content:center;}.hero.no-fig .hero-figure{display:none;}.hero-img{width:100%;max-width:320px;border-radius:14px;border:1px solid var(--border-2);box-shadow:0 14px 44px rgba(0,0,0,.45);object-fit:cover;aspect-ratio:4/5;}
 </style>
 </head>
 <body>
@@ -185,17 +187,21 @@
     <div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
   </a>
+  <span class="tier-badge tier-vip">VIP tier</span>
   <div class="topbar-nav"><a href="paid-tier.html">All Paths</a><a href="index.html">Free Tier</a><a href="paid-tier.html#pricing" class="btn-primary" style="font-size:12px; padding:6px 16px;">Get Access</a></div>
 </nav>
 <div class="page"><div class="content-wrap">
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <div class="hero-text">
     <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><a href="paid-tier.html">Career Paths</a><span class="sep">/</span><span style="color:var(--teal);">Associate Accelerator</span></div>
     <span class="eyebrow">Career Path — Associate Level</span>
     <h1>Associate<br><strong>Accelerator</strong></h1>
     <p class="hero-lead">The behavioral, political, and practical skills that accelerate your growth in your first two years — all in one place. The capabilities that determine how fast you advance.</p>
     <p class="hero-body">The free tier gives you the theory. This path turns it into action: a sequence of skills and habits you build at your actual job — guided by an honest self-assessment, structured by the 5-Step Career Booster, and measured by a 90-day roadmap with a real tollgate at the end.</p>
+  </div>
+    <div class="hero-figure"><img class="hero-img" src="images/audience-associate.jpg" alt="Early-career GBS associates collaborating at work" loading="lazy" onerror="this.closest('.hero').classList.add('no-fig')"></div>
   </section>
 
   <!-- ============ MODEL RECAP NAV ============ -->
@@ -284,7 +290,7 @@
 <p class="kcheck-q">Quick check</p>
 <p class="kcheck-question">You rate yourself 4/5 on Process Improvement, but the last improvement you can name was over a year ago. What's the honest score?</p>
 <button type="button" class="kcheck-btn">Reveal the answer &rarr;</button>
-<div class="kcheck-answer">Low — likely a 2. The rule is no example from the last three months, no score above 2. A score you can't evidence with a recent, specific example isn't a strength; it's a hope. Honest low scores show you exactly where to build.</div>
+<div class="kcheck-answer">Low — likely a 2. The rule is no example from the last three months, no score above 2. A score you can't evidence with a recent, specific example is just a hope. Honest low scores show you exactly where to build.</div>
 </div></div>
     </details>
 
@@ -480,7 +486,7 @@
 <div class="fieldskill">
 <p class="fs-label">Field Skills</p>
 <p class="fs-q">&ldquo;I struggle with small talk and building rapport.&rdquo;</p>
-<p>Rapport isn't about being charming &mdash; it's about making the other person feel noticed. That's a learnable routine:</p>
+<p>Rapport comes from making the other person feel noticed. That's a learnable routine:</p>
 <ul>
 <li><strong style="color:#34d399;">Warmth before business</strong> &mdash; 60 seconds of genuine human contact before you switch to the task. People decide whether they trust you before they decide whether you're capable.</li>
 <li><strong style="color:#34d399;">Remember one detail</strong> &mdash; their kid's exam, their move, their project. Following up on it next time is the entire secret of people who &ldquo;just get on with everyone.&rdquo;</li>
@@ -544,7 +550,7 @@
         <span class="mod-label gold">Universal safe ground</span>
         <p>Friendliness, respectfulness, genuine curiosity about the other person's perspective, empathy, and follow-through on commitments. These work in every corridor, every time.</p>
         <p>The path includes a Cultural Corridors Reference Guide covering the major differences — directness, hierarchy, feedback norms, meeting dynamics — by region cluster.</p>
-        <div class="jt-block"><span class="jt-label">Pro Tip</span><p>The highest-impact move isn't mastering this from a course. It's proposing that your center establishes cultural awareness training — or joining it if it exists. That improves the whole team and makes you visible at the same time. One initiative, two wins.</p></div>
+        <div class="jt-block"><span class="jt-label">Pro Tip</span><p>The highest-impact move is proposing that your center establishes cultural awareness training — or joining it if it exists. That improves the whole team and makes you visible at the same time. One initiative, two wins.</p></div>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Identify one communication pattern from a cross-cultural colleague that differs from your style. Adapt your approach for one week. Observe what changes.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Ask AI to rewrite the same message — a deadline reminder, a scope pushback — for three cultural contexts. Comparing the versions builds intuition faster than any theory chapter.</p></div>
         <div class="checkpoint-block"><div class="recap-head"><span class="recap-title">Session Recap &mdash; Why it matters</span></div><p class="recap-why">Most cross-cultural friction is avoidable once you know where the misunderstandings hide.</p>
@@ -562,7 +568,7 @@
 <li><strong style="color:#34d399;">Slow down</strong> &mdash; speaking a little slower fixes far more comprehension problems than a bigger vocabulary ever will.</li>
 <li><strong style="color:#34d399;">Confirm in writing</strong> &mdash; a short follow-up message after a verbal discussion plays to a strength and removes any ambiguity.</li>
 </ul>
-<p>Your accent is not the problem. Unstructured, rushed speech is &mdash; and that's fully fixable.</p>
+<p>What usually trips up understanding is unstructured, rushed speech &mdash; and that's fully fixable.</p>
 </div></div>
     </details>
   </section>
@@ -890,7 +896,7 @@
       <summary><span class="mod-code">5.2</span><span class="mod-title">The Career Conversation — Making the Ask</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
           <div class="callout-right"><span class="co-label">Key principle</span><p>A calm, evidence-backed ask is hard to brush off.</p></div>
-        <p>You signaled ambition in Step 3. Now you make the structured ask — built on your Brag Sheet, your gap analysis, and your manager's own words about what the next level requires. The conversation isn't "I want a promotion." It's "here's the evidence I'm operating at the next level — what's the path from here, and what's the timeline?"</p>
+        <p>You signaled ambition in Step 3. Now you make the structured ask — built on your Brag Sheet, your gap analysis, and your manager's own words about what the next level requires. Frame the conversation around evidence: "here's the evidence I'm operating at the next level — what's the path from here, and what's the timeline?"</p>
         <div class="exercise-block"><span class="mod-label sky" style="margin-top:0;">Practical Exercise</span><p>Build your case document: evidence against next-role requirements, gaps closed since your first assessment, and the specific ask. Rehearse it once — with AI or a mentor — before the real conversation.</p></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>AI role-play as your manager — including the skeptical version: <em>"Challenge my promotion case the way a budget-constrained manager would. What's weak? What's missing?"</em></p></div>
       <figure style="margin:20px 0;padding:0;">
@@ -968,7 +974,7 @@
     <div class="tollgate">
       <span class="eyebrow eyebrow-gold">Tollgate</span>
       <h3>Have you actually moved?</h3>
-      <p class="tg-sub">These are not participation trophies. If you can't honestly check them, the path has shown you exactly where your gaps are — go back to that module. If you can check them, you're ready for what comes next, and you have the evidence to prove it.</p>
+      <p class="tg-sub">Check these honestly. If you can't, the path has shown you exactly where your gaps are — go back to that module. If you can check them, you're ready for what comes next, and you have the evidence to prove it.</p>
       <div class="checkpoint-block" style="margin-top:0; border-style:solid; background:var(--surface);">
         <div class="cp-item"><span class="cp-box"></span>I consistently meet or exceed my targets — and my manager would confirm it</div>
         <div class="cp-item"><span class="cp-box"></span>I lead my 1:1s and have a working, two-way relationship with my manager</div>

@@ -168,6 +168,8 @@
 .mod-body .exercise-block,.mod-body .ai-block,.mod-body .jt-block,.mod-body .checkpoint-block,.mod-body .fieldskill{clear:right;}
 @media(max-width:760px){.callout-right{float:none;width:auto;max-width:none;margin:16px 0;}}
 .minifig{clear:both;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin:24px auto 30px;max-width:680px;overflow-x:auto;}.minifig svg{display:block;width:100%;height:auto;max-width:640px;margin:0 auto;}.minifig .mf-cap{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);text-align:center;margin-top:12px;}
+.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+.hero{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;}@media(min-width:920px){.hero:not(.no-fig){grid-template-columns:1fr 320px;}}.hero.no-fig{grid-template-columns:1fr;}.hero-figure{display:flex;justify-content:center;}.hero.no-fig .hero-figure{display:none;}.hero-img{width:100%;max-width:320px;border-radius:14px;border:1px solid var(--border-2);box-shadow:0 14px 44px rgba(0,0,0,.45);object-fit:cover;aspect-ratio:4/5;}
 </style>
 </head>
 <body>
@@ -176,17 +178,21 @@
     <div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
   </a>
+  <span class="tier-badge tier-vip">VIP tier</span>
   <div class="topbar-nav"><a href="paid-tier.html">All Paths</a><a href="index.html">Free Tier</a><a href="paid-tier.html#pricing" class="btn-primary" style="font-size:12px; padding:6px 16px;">Get Access</a></div>
 </nav>
 <div class="page"><div class="content-wrap">
 
 
   <section class="hero">
+    <div class="hero-text">
     <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><a href="paid-tier.html">Career Paths</a><span class="sep">/</span><span style="color:var(--teal);">Project Leadership Path</span></div>
     <span class="eyebrow">Career Path — Project Leadership</span>
     <h1>Project<br><strong>Leadership</strong></h1>
     <p class="hero-lead">You are leading an initiative — a CI project, a tool rollout, a system deployment, a workstream on a transformation program. This path gives you the toolkit, the judgment, and the practical step-by-step to run it well and turn it into a career.</p>
     <p class="hero-body">Project leadership is the highest-leverage career move in a GBS organisation. Initiatives are where cost is taken out, scale is built, and reputations are made. This path follows the 5-Step Career Booster spine, but the content is built around running real projects — small scope or large — using the methods, governance, and stakeholder skills that make delivery predictable and build your reputation. Where your company provides branded templates, use them; where they don't, ours are ready and fully editable.</p>
+  </div>
+    <div class="hero-figure"><img class="hero-img" src="images/audience-projectlead.jpg" alt="A GBS project leader steering a project" loading="lazy" onerror="this.closest('.hero').classList.add('no-fig')"></div>
   </section>
 
   <!-- ============ MODEL RECAP NAV ============ -->
@@ -288,7 +294,7 @@
       <summary><span class="mod-code">2.1</span><span class="mod-title">Break It Down — WBS and the Plan</span><span class="mod-arrow">&#9662;</span></summary>
       <div class="mod-body">
           <div class="callout-right"><span class="co-label">The real game</span><p>Break the work down until each piece is ownable and estimable.</p></div>
-        <p>A project is delivered by breaking a large outcome into small, ownable pieces of work, each with an owner and a date. The Work Breakdown Structure (WBS) is how you do this. A plan is not a Gantt chart for show — it is the shared agreement on who does what by when, and the basis for tracking whether you're on track.</p>
+        <p>A project is delivered by breaking a large outcome into small, ownable pieces of work, each with an owner and a date. The Work Breakdown Structure (WBS) is how you do this. A real plan is the shared agreement on who does what by when — and your basis for tracking whether you're on track.</p>
 <div style="background:#0e1219;border:1px solid #1e2636;border-radius:10px;padding:20px;margin:24px 0;">
 <svg viewBox="0 0 880 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Work breakdown structure — outcome to task" style="width:100%;height:auto;display:block;">
 <text x="440" y="30" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-size="19" font-weight="600">Break the Outcome Down</text>
@@ -464,7 +470,7 @@
       <div class="step-num">4</div>
       <div><span class="step-kicker">Career Booster — Step 4</span><h2 style="margin:2px 0 0;">Land It and Prove the Value</h2></div>
     </div>
-    <p class="section-intro">Delivery is not "we did the work." It's a clean landing, adoption that sticks, and value proven in terms Finance accepts. This is what separates a project that happened from a project that mattered.</p>
+    <p class="section-intro">Delivery means a clean landing, adoption that sticks, and value proven in terms Finance accepts. This is what separates a project that happened from a project that mattered.</p>
 
     <details class="module" open>
       <summary><span class="mod-code">4.1</span><span class="mod-title">Change Management — Make the Change Stick</span><span class="mod-arrow">&#9662;</span></summary>

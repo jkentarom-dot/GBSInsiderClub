@@ -168,6 +168,8 @@
 .mod-body .exercise-block,.mod-body .ai-block,.mod-body .jt-block,.mod-body .checkpoint-block,.mod-body .fieldskill{clear:right;}
 @media(max-width:760px){.callout-right{float:none;width:auto;max-width:none;margin:16px 0;}}
 .minifig{clear:both;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin:24px auto 30px;max-width:680px;overflow-x:auto;}.minifig svg{display:block;width:100%;height:auto;max-width:640px;margin:0 auto;}.minifig .mf-cap{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);text-align:center;margin-top:12px;}
+.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+.hero{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;}@media(min-width:920px){.hero:not(.no-fig){grid-template-columns:1fr 320px;}}.hero.no-fig{grid-template-columns:1fr;}.hero-figure{display:flex;justify-content:center;}.hero.no-fig .hero-figure{display:none;}.hero-img{width:100%;max-width:320px;border-radius:14px;border:1px solid var(--border-2);box-shadow:0 14px 44px rgba(0,0,0,.45);object-fit:cover;aspect-ratio:4/5;}
 </style>
 </head>
 <body>
@@ -176,17 +178,21 @@
     <div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
   </a>
+  <span class="tier-badge tier-vip">VIP tier</span>
   <div class="topbar-nav"><a href="paid-tier.html">All Paths</a><a href="index.html">Free Tier</a><a href="paid-tier.html#pricing" class="btn-primary" style="font-size:12px; padding:6px 16px;">Get Access</a></div>
 </nav>
 <div class="page"><div class="content-wrap">
 
 
   <section class="hero">
+    <div class="hero-text">
     <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><a href="paid-tier.html">Career Paths</a><span class="sep">/</span><span style="color:var(--teal);">Project SME Path</span></div>
     <span class="eyebrow">Career Path — Project SME</span>
     <h1>Project SME<br><strong>Shine on the Project</strong></h1>
     <p class="hero-lead">You just got pulled onto a project — a transition, a migration, a CI initiative, a system go-live — on top of your day job. This path shows you how to use that opportunity to get noticed and get promoted.</p>
     <p class="hero-body">In a GBS organisation, projects are where scale and leverage are created — and where careers accelerate. When a new entity is integrated, an acquired company is rolled in, or SAP is deployed to a business not yet on the platform, the organisation needs SMEs from the existing teams to support, document, test, and train. That SME is often a young associate. Done well, this is the fastest visibility you will ever get. This six-week path shows you how to do it well.</p>
+  </div>
+    <div class="hero-figure"><img class="hero-img" src="images/audience-sme.jpg" alt="A GBS subject-matter expert working on a project" loading="lazy" onerror="this.closest('.hero').classList.add('no-fig')"></div>
   </section>
 
   <!-- ============ MODEL RECAP NAV ============ -->
