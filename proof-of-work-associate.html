@@ -67,77 +67,24 @@
 </style>
 </head>
 <body>
-<div class="site-bar"><a class="sb-back" href="path-associate.html">← Associate Accelerator</a><span class="sb-sp"></span><span class="tier-badge tier-vip">VIP tier</span></div>
-<div class="top-accent"></div>
-<div class="wrap">
-  <span class="eyebrow">Proof of Work</span>
-  <h1>Your Evidence <strong>File</strong></h1>
-  <p class="lead"><b>This path doesn't just teach — it builds.</b> By the end you'll hold twelve real deliverables, made from your actual job. Tick each as you complete it. Together they're your promotion case.</p>
-
-  <div class="progress">
-    <div class="bar"><div class="fill" id="fill"></div></div>
-    <span class="count" id="count">0 / 12 built</span>
-  </div>
-
-  <div id="list"></div>
-
-  <div class="footer">
-    <p><b>This is the difference between learning and applying.</b> Anyone can watch a module. You'll have a folder of evidence — the self-assessment, the gap analysis, the promotion case — that proves you did the work. Bring it to your next career conversation.</p>
-    <div class="brand"><b>GBS Insider Club</b> · gbsinsiderclub.com</div>
-  </div>
-</div>
-
-<script>
-const data=[
- {step:"Step 1 · Career Mindset",items:[
-   {name:"Honest self-assessment (the company's view)",proves:"You can see yourself the way you're actually measured"},
-   {name:"Career Chessboard — your position plotted",proves:"You know your impact now vs. readiness for next"},
-   {name:"18-month ambition statement",proves:"You have a direction, not a drift"},
- ]},
- {step:"Step 2 · Job Value & Performance",items:[
-   {name:"Documented manager expectations",proves:"You know the real standard you're judged against"},
-   {name:"One process read + improvement idea",proves:"You add value beyond your task list"},
-   {name:"A weekly manager-brief routine",proves:"You manage up on purpose"},
- ]},
- {step:"Step 3 · Visibility & Ambition",items:[
-   {name:"Your network map (all directions)",proves:"You've built relationships before you need them"},
-   {name:"A running win-log / Brag Sheet",proves:"Your wins are recorded, not remembered"},
-   {name:"A personal visibility plan",proves:"Your good work is seen on purpose"},
- ]},
- {step:"Step 4 · Next-Role Skills",items:[
-   {name:"Next-role JD gap analysis + dev plan",proves:"You're closing the gap before the title"},
- ]},
- {step:"Step 5 · Execute",items:[
-   {name:"One next-level initiative delivered",proves:"You've done the next role, not just asked for it"},
-   {name:"Your promotion case document",proves:"You can make the ask, backed by evidence"},
- ]},
-];
-const KEY="gbs-proofofwork-associate";
-let done={};
-try{const r=window.localStorage&&localStorage.getItem(KEY); if(r) done=JSON.parse(r);}catch(e){}
-const list=document.getElementById('list');
-let idx=0, total=0;
-const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="#080b10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
-data.forEach(s=>{
-  const sl=document.createElement('div'); sl.className='step';
-  sl.innerHTML=`<div class="step-label">${s.step}</div>`;
-  s.items.forEach(it=>{
-    const id='i'+(idx++); total++;
-    const row=document.createElement('div'); row.className='item'+(done[id]?' done':''); row.dataset.id=id;
-    row.innerHTML=`<div class="box">${CHECK}</div><div class="body"><div class="name">${it.name}</div><div class="proves"><b>Proves:</b> ${it.proves}</div></div>`;
-    row.addEventListener('click',()=>{done[id]=!done[id];row.classList.toggle('done');save();update();});
-    sl.appendChild(row);
-  });
-  list.appendChild(sl);
-});
-function save(){try{localStorage.setItem(KEY,JSON.stringify(done));}catch(e){}}
-function update(){const n=Object.values(done).filter(Boolean).length;
-  document.getElementById('count').textContent=n+' / '+total+' built';
-  document.getElementById('fill').style.width=(n/total*100)+'%';}
-update();
-</script>
-
+<div id="gmount"></div>
 <!-- VIP full_access gate (fail-closed; reuses path-page check) -->
-<style>#vipgate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(8,11,16,0.975);padding:24px;text-align:center;font-family:Inter,system-ui,sans-serif}#vipgate .vg-card{max-width:440px;background:#0e1219;border:1px solid #2a3347;border-radius:14px;padding:34px 28px}#vipgate h2{color:#fff;font-size:20px;margin:0 0 10px;font-weight:600}#vipgate p{color:#c8d0de;font-size:14px;line-height:1.6;margin:0 0 22px}#vipgate a.vg-btn{display:inline-block;background:#e8b800;color:#080b10;font-weight:600;text-decoration:none;padding:12px 22px;border-radius:8px;font-size:14px}#vipgate a.vg-back{display:block;margin-top:14px;color:#7a8799;font-size:12px;text-decoration:none}body.vip-unlocked #vipgate{display:none}</style><div id="vipgate"><div class="vg-card"><h2>Full Access required</h2><p>These tools unlock with Full Access &mdash; one payment, lifetime access to every path and toolkit.</p><a class="vg-btn" href="paid-tier.html#pricing">Unlock Full Access &mdash; $99 &rarr;</a><a class="vg-back" href="paid-tier.html">Back to the VIP overview</a></div></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>(function(){var U="https://wgdcfgknnentriqlajqe.supabase.co";var K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo";try{var sb=supabase.createClient(U,K);sb.auth.getSession().then(function(res){var s=res.data?res.data.session:null;if(!s)return;sb.from("user_tiers").select("tier").eq("user_id",s.user.id).maybeSingle().then(function(r){if(r.data&&r.data.tier==="full_access"){document.body.classList.add("vip-unlocked");}}).catch(function(){});}).catch(function(){});}catch(e){}})();</script>
+<style>#vipgate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(8,11,16,0.975);padding:24px;text-align:center;font-family:Inter,system-ui,sans-serif}#vipgate .vg-card{max-width:440px;background:#0e1219;border:1px solid #2a3347;border-radius:14px;padding:34px 28px}#vipgate h2{color:#fff;font-size:20px;margin:0 0 10px;font-weight:600}#vipgate p{color:#c8d0de;font-size:14px;line-height:1.6;margin:0 0 22px}#vipgate a.vg-btn{display:inline-block;background:#e8b800;color:#080b10;font-weight:600;text-decoration:none;padding:12px 22px;border-radius:8px;font-size:14px}#vipgate a.vg-back{display:block;margin-top:14px;color:#7a8799;font-size:12px;text-decoration:none}body.vip-unlocked #vipgate{display:none}</style><div id="vipgate"><div class="vg-card"><h2>Full Access required</h2><p>These tools unlock with Full Access &mdash; one payment, lifetime access to every path and toolkit.</p><a class="vg-btn" href="paid-tier.html#pricing">Unlock Full Access &mdash; $99 &rarr;</a><a class="vg-back" href="paid-tier.html">Back to the VIP overview</a></div></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+(function(){
+  var U="https://wgdcfgknnentriqlajqe.supabase.co", K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo", FN=U+"/functions/v1/get-gated-content", PAGE="proof-of-work-associate";
+  function unlock(html){ var m=document.getElementById("gmount"); if(m) m.innerHTML=html; document.body.classList.add("vip-unlocked"); }
+  try{
+    var sb=supabase.createClient(U,K);
+    sb.auth.getSession().then(function(res){
+      var s=res.data?res.data.session:null;
+      if(!s) return;
+      fetch(FN,{method:"POST",headers:{"apikey":K,"Authorization":"Bearer "+s.access_token,"Content-Type":"application/json"},body:JSON.stringify({page:PAGE})})
+        .then(function(r){return r.ok?r.json():null;})
+        .then(function(j){ if(j&&j.html) unlock(j.html); })
+        .catch(function(){});
+    }).catch(function(){});
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
