@@ -155,6 +155,15 @@ a.gloss:hover .tooltip{display:block;}
 .topic-ico{flex:0 0 auto;line-height:0;}
 .topic-ico svg{display:block;}
 @media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
+
+.icon-list{list-style:none;padding-left:0;margin:14px 0;}
+.icon-list li{position:relative;padding-left:26px;margin-bottom:9px;color:var(--text-2);line-height:1.6;}
+.icon-list li::before{content:"";position:absolute;left:2px;top:4px;width:14px;height:14px;background-repeat:no-repeat;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23e8b800' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M3 8.5 L6.5 12 L13 4'/></svg>");}
+.takeaway{display:flex;gap:12px;align-items:flex-start;background:rgba(232,184,0,0.06);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:14px 18px;margin:22px 0;}
+.takeaway .tk-ico{flex:0 0 auto;margin-top:1px;line-height:0;}
+.tk-label{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px;}
+.tk-text{font-size:14px;color:var(--text-2);line-height:1.6;}
+.tk-text b{color:var(--text);font-weight:500;}
 </style>
 </head>
 <body>
@@ -223,22 +232,23 @@ a.gloss:hover .tooltip{display:block;}
       <h2>High-context vs low-context communication</h2>
       <p class="section-hook">A direct email that works in Amsterdam can destroy a relationship in Tokyo. Understanding cultural communication styles is operational, not optional.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Edward Hall's framework distinguishes <strong style="color:var(--gold)">high-context</strong> cultures (Japan, India, Arab countries) — where meaning is embedded in relationships, hierarchy, and unspoken cues — from <strong style="color:var(--gold)">low-context</strong> cultures (Germany, Netherlands, USA) where communication is explicit, direct, and expects written confirmation. <strong style="color:var(--gold)">GBS</strong> teams working across both must adapt their style depending on the audience, not default to their own preference.</p>
+      <div class="takeaway"><span class="tk-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 A6 6 0 0 1 18 9 C18 12 15 13 15 16 H9 C9 13 6 12 6 9 A6 6 0 0 1 12 3 Z"/><path d="M9 19 H15 M10 22 H14"/></svg></span><div><span class="tk-label">Key takeaway</span><span class="tk-text"><b>Adapt to their style, not yours.</b> The same blunt email that lands well in Amsterdam can cost you the relationship in Tokyo. Read the room before you hit send.</span></div></div>
 <div class="formula-grid">
       <div class="formula-side old">
         <div class="formula-tag">Low-Context Cultures</div>
         <h4>Communication norms</h4>
-        <ul><li>Direct and explicit — say exactly what you mean</li><li>Written confirmation expected for decisions</li><li>Disagreement expressed openly in meetings</li><li>Deadlines are hard commitments</li></ul>
+        <ul class="icon-list"><li>Direct and explicit — say exactly what you mean</li><li>Written confirmation expected for decisions</li><li>Disagreement expressed openly in meetings</li><li>Deadlines are hard commitments</li></ul>
       </div>
       <div class="formula-side new">
         <div class="formula-tag">High-Context Cultures</div>
         <h4>Communication norms</h4>
-        <ul><li>Indirect and layered — read between the lines</li><li>Verbal agreements carry weight; written follow-up may feel distrustful</li><li>Disagreement expressed privately, after the meeting</li><li>Deadlines are targets; relationship and context can adjust timelines</li></ul>
+        <ul class="icon-list"><li>Indirect and layered — read between the lines</li><li>Verbal agreements carry weight; written follow-up may feel distrustful</li><li>Disagreement expressed privately, after the meeting</li><li>Deadlines are targets; relationship and context can adjust timelines</li></ul>
       </div>
     </div><div class="insight-block">
       <div class="insight-icon">IC</div>
       <div class="insight-body">
         <div class="insight-label">GBS Insider Club Insights</div>
-        <ul>
+        <ul class="icon-list">
         <li>The most dangerous assumption in GBS communication is that silence means agreement. In high-context cultures, silence can mean disagreement, discomfort, or deference to hierarchy.</li>
         <li>When in doubt, confirm in writing — but frame it as "summarizing for clarity" not "documenting what you said." The framing matters.</li>
         <li>Build relationships before you need them. In high-context cultures, the relationship determines whether your message gets heard at all.</li>
@@ -267,7 +277,7 @@ a.gloss:hover .tooltip{display:block;}
       <p class="section-hook">In a GBS center, your reputation is built on video calls and written messages. Virtual presence is built on reliability, clarity, and follow-through.</p>
       <div class="card teal">
       <div class="card-title">Virtual presence fundamentals</div>
-      <ul>
+      <ul class="icon-list">
         <li>Camera on as default — visibility builds trust; exceptions should be the exception, not the rule</li>
         <li>Structured updates — lead with the conclusion, then provide supporting detail (<strong style="color:var(--gold)">Minto Pyramid</strong> principle)</li>
         <li>Active participation — contribute, ask questions, and summarize; silent participants are invisible participants</li>
@@ -302,7 +312,7 @@ a.gloss:hover .tooltip{display:block;}
       <div class="pivot-body"><h4>Close with clear next steps</h4><p>Who does what by when. If you need a decision, state the decision needed, the options, and the deadline. Do not leave the reader wondering what happens next.</p></div>
     </div></div><div class="card amber">
       <div class="card-title">Common executive communication failures</div>
-      <ul>
+      <ul class="icon-list">
         <li>Burying the lead — putting context and background before the recommendation</li>
         <li>Data without interpretation — presenting numbers without explaining what they mean for the business</li>
         <li>Too much detail — executive summaries that are neither executive nor summaries</li>
@@ -360,7 +370,7 @@ a.gloss:hover .tooltip{display:block;}
       <p class="section-hook">When your team spans Manila, Krakow, and Detroit, synchronous communication is a luxury. Mastering <strong style="color:var(--gold)">async</strong> work is a core GBS skill.</p>
       <div class="card teal">
       <div class="card-title">Async-first principles for GBS</div>
-      <ul>
+      <ul class="icon-list">
         <li>Document decisions, not just discussions — if it was decided in a call, it needs a written record accessible to those who were not present</li>
         <li>Overlap windows are scarce — use them for decision-making and problem-solving, not status updates that could be written</li>
         <li>Default to written — video calls should have a purpose that cannot be achieved in writing</li>
@@ -372,7 +382,7 @@ a.gloss:hover .tooltip{display:block;}
       <div class="insight-icon">IC</div>
       <div class="insight-body">
         <div class="insight-label">GBS Insider Club Insights</div>
-        <ul>
+        <ul class="icon-list">
         <li>The best GBS teams treat async communication as the default and synchronous meetings as the exception. Most status updates, approvals, and updates do not need a meeting.</li>
         <li>A 30-minute meeting with 8 people across 3 time zones costs 4 hours of productive time. A well-written Slack message or email costs 15 minutes.</li>
         </ul>
