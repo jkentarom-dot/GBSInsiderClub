@@ -536,12 +536,12 @@
     <h2>Templates &amp; tools</h2>
     <p class="section-intro">Every template is built to be edited and used on your real project.</p>
     <div class="grid-3">
-      <div class="card"><h3>SME Participation Agreement</h3><p>One page to agree protected time and BAU coverage with your manager.</p></div>
-      <div class="card"><h3>KT Checklist (4-Phase)</h3><p>Move every process through document, demonstrate, practise, validate.</p></div>
-      <div class="card"><h3>UAT Test Script</h3><p>Structured test cases with happy path plus exceptions and expected results.</p></div>
-      <div class="card"><h3>RAID Log</h3><p>Capture risks, assumptions, issues, dependencies — with mitigations.</p></div>
-      <div class="card"><h3>Go-Live Readiness Check</h3><p>Honest readiness assessment for your area before go-live.</p></div>
-      <div class="card"><h3>SME-to-Career Positioning Sheet</h3><p>Turn project contributions into evidence and a concrete next-role ask.</p></div>
+      <a class="card tpl-dl" href="templates/SME_Participation_Agreement.xlsx" download><h3>SME Participation Agreement</h3><p>One page to agree protected time and BAU coverage with your manager.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl" href="templates/KT_Checklist_4Phase.xlsx" download><h3>KT Checklist (4-Phase)</h3><p>Move every process through document, demonstrate, practise, validate.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl" href="templates/UAT_Test_Script.xlsx" download><h3>UAT Test Script</h3><p>Structured test cases with happy path plus exceptions and expected results.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl" href="templates/RAID_Log.xlsx" download><h3>RAID Log</h3><p>Capture risks, assumptions, issues, dependencies — with mitigations.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl" href="templates/Go_Live_Readiness_Check.xlsx" download><h3>Go-Live Readiness Check</h3><p>Honest readiness assessment for your area before go-live.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl" href="templates/SME_to_Career_Positioning_Sheet.xlsx" download><h3>SME-to-Career Positioning Sheet</h3><p>Turn project contributions into evidence and a concrete next-role ask.</p><span class="dl-go">Download .xlsx →</span></a>
     </div>
   </section>
 
@@ -615,7 +615,7 @@
   .gate-panel .gate-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: var(--void); font-size: 14px; font-weight: 600; padding: 12px 28px; border-radius: 8px; text-decoration: none; }
   .preview-banner { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 14px 20px; margin: 16px 0 24px; font-size: 13px; color: var(--text-2); line-height: 1.7; }
   .preview-banner strong { color: var(--gold); }
-</style>
+.tpl-dl{text-decoration:none;display:block;transition:border-color .2s,transform .2s;}.tpl-dl:hover{border-color:var(--teal);transform:translateY(-2px);}.tpl-dl h3{color:var(--text);}.tpl-dl .dl-go{display:block;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);}</style>
 <script>
 (function() {
   var SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
@@ -623,6 +623,7 @@
   var FREE_PREVIEW_MODULES = 2;
 
   function lockContent() {
+    document.querySelectorAll('.tpl-dl').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();window.location.href='paid-tier.html#pricing';});var g=a.querySelector('.dl-go');if(g)g.textContent='Full Access \u2192';});
     var modules = document.querySelectorAll('details.module');
     modules.forEach(function(mod, i) {
       if (i < FREE_PREVIEW_MODULES) return;
