@@ -149,6 +149,12 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -214,7 +220,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
     <section class="section" id="erp-role">
-      <p class="section-eyebrow">Topic 01 · Enterprise Resource Planning</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><p class="section-eyebrow">Topic 01 · Enterprise Resource Planning</p></div>
       <h2>Why ERP is the backbone, not the brain</h2>
       <p class="section-hook">The value of an <strong style="color:var(--gold)">ERP</strong> is integration across functions, not the features of any single module. That distinction changes how you think about every process you touch.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Every transaction in a <strong style="color:var(--gold)">GBS</strong> center eventually touches an ERP. Purchase orders, invoices, journal entries, payroll runs, intercompany settlements — they all flow through SAP, Oracle, or Microsoft Dynamics as the system of record. The ERP is not where intelligence lives. It is where data lands, gets validated, and becomes the official version of what happened.</p>
@@ -267,7 +273,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
 <section class="section" id="sap-oracle">
-      <p class="section-eyebrow">Topic 02 · SAP and Oracle</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><p class="section-eyebrow">Topic 02 · SAP and Oracle</p></div>
       <h2>SAP S/4HANA and Oracle Fusion — what GBS needs to know</h2>
       <p class="section-hook">You do not need to be an ERP consultant. But you need to understand why your leadership cares about the migration timeline and what changes for your daily work.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">SAP <strong style="color:var(--gold)">S/4HANA</strong> is the successor to SAP ECC (ERP Central Component), built on an in-memory database (HANA) that eliminates the need for aggregate tables and enables real-time reporting. The migration deadline from SAP ECC has been a major driver of enterprise <strong style="color:var(--gold)">transformation</strong> programs globally. For GBS teams, the shift means faster reporting, simplified data models, and new capabilities like embedded analytics — but also significant process re-engineering and retraining.</p>
@@ -290,7 +296,7 @@ a.gloss:hover .tooltip{display:block;}
 
     </section>
 <section class="section" id="ticketing">
-      <p class="section-eyebrow">Topic 03 · Service Management Platforms</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><p class="section-eyebrow">Topic 03 · Service Management Platforms</p></div>
       <h2>Ticketing and case management — ServiceNow and Zendesk</h2>
       <p class="section-hook">If ERP is where transactions live, the ticketing system is where service requests, incidents, and escalations are tracked. In GBS, this is how you prove you delivered.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">ServiceNow dominates enterprise IT service management (<strong style="color:var(--gold)">ITSM</strong>) and is increasingly used for HR service delivery, finance shared services, and cross-functional workflow <strong style="color:var(--gold)">automation</strong>. Its strength is the platform model — a single system for incident management, request fulfillment, knowledge management, and service-level tracking across multiple GBS functions. For large GBS organizations, ServiceNow often becomes the operational command center.</p>
@@ -343,7 +349,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="workflow">
-      <p class="section-eyebrow">Topic 04 · Workflow and Task Management</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="10" y="18" width="8" height="8" rx="1.5"/><rect x="26" y="18" width="8" height="8" rx="1.5"/><path d="M18 22 H25"/><path d="M23 20 L25 22 L23 24"/></svg></span><p class="section-eyebrow">Topic 04 · Workflow and Task Management</p></div>
       <h2>Jira, Asana, and the project layer</h2>
       <p class="section-hook">Not everything belongs in the ERP or the ticketing system. Projects, initiatives, and cross-functional work need their own coordination layer.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">Jira</strong> started as a software development tool but has expanded into business project management, particularly for GBS transformation programs, automation initiatives, and <strong style="color:var(--gold)">continuous improvement</strong> projects. Its strength is structured workflows — every task moves through defined statuses with clear ownership, and the board view makes bottlenecks visible. For GBS teams running lean or agile improvement programs, Jira provides the discipline that spreadsheet trackers cannot.</p>
@@ -413,7 +419,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="glossary">
-      <p class="section-eyebrow">Reference</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Reference</p></div>
       <h2>Glossary</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

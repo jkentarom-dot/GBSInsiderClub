@@ -149,6 +149,12 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -200,7 +206,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
 <section class="section" id="raci">
-      <p class="section-eyebrow">Topic 01 · Role Clarity</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><p class="section-eyebrow">Topic 01 · Role Clarity</p></div>
       <h2>RACI matrix — mapping roles and responsibilities</h2>
       <p class="section-hook">When everyone is responsible, nobody is responsible. <strong style="color:var(--gold)">RACI</strong> prevents ambiguity by defining exactly who does the work, who owns the outcome, who provides input, and who needs to be kept aware.</p>
 <!-- SVG DIAGRAM -->
@@ -270,7 +276,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 </section>
 <section class="section" id="benefits">
-      <p class="section-eyebrow">Topic 02 · Value Tracking</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14 31 V27"/><path d="M19.3 31 V23"/><path d="M24.6 31 V19"/><path d="M30 31 V15"/><path d="M27 16 L30 13 L33 16"/></svg></span><p class="section-eyebrow">Topic 02 · Value Tracking</p></div>
       <h2>Benefits realization — tracking ROI post-project</h2>
       <p class="section-hook">The project business case promises benefits. <strong style="color:var(--gold)">Benefits realization</strong> tracks whether those benefits actually materialized after the project ended.</p>
       <div class="card gold">
@@ -321,7 +327,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="steering">
-      <p class="section-eyebrow">Topic 03 · <strong style="color:var(--gold)">Governance</strong></p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><p class="section-eyebrow">Topic 03 · <strong style="color:var(--gold)">Governance</strong></p></div>
       <h2>Managing executive sponsors and steering committees</h2>
       <p class="section-hook">Steering committees are where projects get approved, funded, and protected. Managing them well is the difference between a project with air cover and a project that gets defunded at the first obstacle.</p>
       <div class="card teal">
@@ -409,7 +415,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="glossary">
-      <p class="section-eyebrow">Reference</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Reference</p></div>
       <h2>Glossary</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

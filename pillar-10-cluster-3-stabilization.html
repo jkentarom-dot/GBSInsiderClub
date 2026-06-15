@@ -149,6 +149,12 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -223,7 +229,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
     <section class="section" id="hypercare">
-      <p class="section-eyebrow">Topic 01 · Transition Support</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14 24 A9 9 0 1 1 23 33"/><path d="M23 33 L18.6 32.4 M23 33 L21.8 28.7"/></svg></span><p class="section-eyebrow">Topic 01 · Transition Support</p></div>
       <h2>Hypercare management and exit criteria</h2>
       <p class="section-hook"><strong style="color:var(--gold)">Hypercare</strong> is the intensive support period immediately after go-live when the transition team remains engaged, escalation paths are shortened, and performance is monitored daily.</p>
       <div class="card teal">
@@ -272,7 +278,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 </section>
 <section class="section" id="baselining">
-      <p class="section-eyebrow">Topic 02 · Performance Measurement</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><p class="section-eyebrow">Topic 02 · Performance Measurement</p></div>
       <h2>Baselining performance post-go-live</h2>
       <p class="section-hook">You cannot improve what you have not measured. Establishing reliable performance baselines in the first 3-6 months after go-live creates the foundation for <strong style="color:var(--gold)">continuous improvement</strong>.</p>
       <div class="card teal">
@@ -327,7 +333,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="resilience">
-      <p class="section-eyebrow">Topic 03 · <strong style="color:var(--gold)">Operational Resilience</strong></p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><p class="section-eyebrow">Topic 03 · <strong style="color:var(--gold)">Operational Resilience</strong></p></div>
       <h2>Building operational resilience</h2>
       <p class="section-hook">A transitioned process needs to survive staff turnover, volume spikes, system outages, and organizational change without reverting to crisis mode.</p>
       <div class="card teal">
@@ -380,7 +386,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="glossary">
-      <p class="section-eyebrow">Reference</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Reference</p></div>
       <h2>Glossary</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

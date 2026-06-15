@@ -149,6 +149,12 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -213,7 +219,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
     <section class="section" id="linkedin-strategy">
-      <p class="section-eyebrow">Topic 01 · Digital Presence</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 12 L24.6 18.4 L31.5 19 L26.3 23.6 L27.9 30.4 L22 26.8 L16.1 30.4 L17.7 23.6 L12.5 19 L19.4 18.4 Z"/></svg></span><p class="section-eyebrow">Topic 01 · Digital Presence</p></div>
       <h2>LinkedIn strategy for GBS professionals</h2>
       <p class="section-hook">Your LinkedIn profile is your public professional resume. It speaks for you when you are not in the room.</p>
       <div class="card teal">
@@ -245,7 +251,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
 <section class="section" id="internal-reputation">
-      <p class="section-eyebrow">Topic 02 · Organizational Visibility</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="14" r="2.6"/><circle cx="14" cy="31" r="2.6"/><circle cx="30" cy="31" r="2.6"/><path d="M22 16.6 V24"/><path d="M14 28.4 V24"/><path d="M30 28.4 V24"/><path d="M14 24 H30"/></svg></span><p class="section-eyebrow">Topic 02 · Organizational Visibility</p></div>
       <h2>Building an internal reputation</h2>
       <p class="section-hook"><strong style="color:var(--gold)">Sponsorship</strong> beats <strong style="color:var(--gold)">mentorship</strong> for career acceleration. Mentors give advice. Sponsors put your name forward when opportunities arise — and you are not in the room.</p>
       <div class="formula-grid">
@@ -272,7 +278,7 @@ a.gloss:hover .tooltip{display:block;}
 
     </section>
 <section class="section" id="uvp">
-      <p class="section-eyebrow">Topic 03 · Value Proposition</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14 31 V27"/><path d="M19.3 31 V23"/><path d="M24.6 31 V19"/><path d="M30 31 V15"/><path d="M27 16 L30 13 L33 16"/></svg></span><p class="section-eyebrow">Topic 03 · Value Proposition</p></div>
       <h2>Personal value proposition design</h2>
       <p class="section-hook">What do you bring that nobody else on the team brings? Your <strong style="color:var(--gold)">UVP</strong> answers this question in one sentence.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">A personal value proposition (UVP) is the intersection of three things: what you are excellent at, what your organization needs, and what differentiates you from others with similar titles. It is not a generic statement about being a team player or a hard worker. It is a specific, provable claim about the unique value you create. "I reduce month-end close cycle time by redesigning manual processes into automated workflows" is a UVP. "I am a dedicated finance professional" is not.</p>
@@ -326,7 +332,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="thought-leadership">
-      <p class="section-eyebrow">Topic 04 · Visibility</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 12 L24.6 18.4 L31.5 19 L26.3 23.6 L27.9 30.4 L22 26.8 L16.1 30.4 L17.7 23.6 L12.5 19 L19.4 18.4 Z"/></svg></span><p class="section-eyebrow">Topic 04 · Visibility</p></div>
       <h2>Public speaking and thought leadership</h2>
       <p class="section-hook">Speaking at conferences, writing articles, and contributing to industry discussions positions you as an expert — not just a practitioner.</p>
       <div class="card teal">
@@ -382,7 +388,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="glossary">
-      <p class="section-eyebrow">Reference</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Reference</p></div>
       <h2>Glossary</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

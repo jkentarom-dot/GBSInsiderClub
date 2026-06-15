@@ -158,6 +158,12 @@
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -231,7 +237,7 @@
     </div>
 
     <section class="section" id="itil-cobit">
-      <div class="section-eyebrow">Topic 01</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>ITIL and COBIT — what they are and why GBS professionals encounter them</h2>
       <p class="section-hook">Two frameworks, two different purposes. One tells you how to deliver services well. The other tells you how to govern them responsibly. Both show up in <strong style="color:var(--gold)">GBS</strong> environments, especially as centers mature.</p>
 
@@ -318,7 +324,7 @@
     </div>
 
     <section class="section" id="itil-practices">
-      <div class="section-eyebrow">Topic 02</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>ITIL 4 — the key practices GBS professionals actually use</h2>
       <p class="section-hook">ITIL 4 defines 34 management practices. You do not need to know all of them. These six show up regularly in GBS environments and are worth understanding by name.</p>
 
@@ -424,7 +430,7 @@
     </details>
 
     <section class="section" id="service-transition">
-      <div class="section-eyebrow">Topic 03</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14 24 A9 9 0 1 1 23 33"/><path d="M23 33 L18.6 32.4 M23 33 L21.8 28.7"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Managing <a class="gloss" href="#g-transition">service transitions<span class="tooltip">Service transition — the structured process of migrating a process or service from the business or a previous provider into GBS operations, while maintaining service quality throughout.</span></a> — the most dangerous phase in GBS</h2>
       <p class="section-hook">A <strong style="color:var(--gold)">service transition</strong> is when GBS takes on a process that was previously run somewhere else. The migration window is when the most things go wrong — and when the service relationship is most fragile.</p>
 
@@ -542,7 +548,7 @@
     </details>
 
     <section class="section" id="glossary">
-      <div class="section-eyebrow">Glossary</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><div class="section-eyebrow">Glossary</div></div>
       <h2>Key terms in this cluster</h2>
       <p class="section-hook">Full cross-pillar glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide glossary</a>.</p>
       <div class="glossary-grid">

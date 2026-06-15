@@ -147,6 +147,12 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -222,7 +228,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
     <section class="section" id="excel-role">
-      <div class="section-eyebrow">Topic 01</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>Excel in GBS — essential tool, not a permanent solution</h2>
       <p class="section-hook">Excel is the Swiss army knife of <strong style="color:var(--gold)">GBS</strong>. Versatile, fast, and universally available. But knowing when to use it — and when to replace it — separates analysts who contribute from analysts who become bottlenecks.</p>
       <div class="card">
@@ -297,7 +303,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="xlookup">
-      <div class="section-eyebrow">Topic 02</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>VLOOKUP vs XLOOKUP — why the upgrade matters</h2>
       <p class="section-hook">VLOOKUP has been the default lookup function for 30 years. XLOOKUP, available since 2019, fixes every limitation VLOOKUP had. If you are still using VLOOKUP, this section shows you why — and how — to switch.</p>
       <div class="formula-grid">
@@ -333,7 +339,7 @@ a.gloss:hover .tooltip{display:block;}
 
     <!-- SECTION 3: PIVOTS -->
     <section class="section" id="pivots">
-      <div class="section-eyebrow">Topic 03</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Pivot tables — the single most valuable Excel skill in GBS</h2>
       <p class="section-hook">Pivot tables turn raw transaction data into structured analysis in minutes. They are the fastest way to answer questions like "how many invoices per vendor per month?" or "what is the aging breakdown by entity?" without writing a single formula.</p>
       <div class="pivot-steps">
@@ -392,7 +398,7 @@ a.gloss:hover .tooltip{display:block;}
 
     <!-- SECTION 4: AUDIT TRAIL -->
     <section class="section" id="audit-trail">
-      <div class="section-eyebrow">Topic 04</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>The analyst's audit trail — documenting your work properly</h2>
       <p class="section-hook">Creating a graph is not the skill. Creating a graph that someone else can trust, verify, and reproduce six months later — that is the skill. The difference is an audit trail.</p>
       <div class="audit-flow">
@@ -436,7 +442,7 @@ a.gloss:hover .tooltip{display:block;}
 
     <!-- SECTION 5: MDM -->
     <section class="section" id="mdm">
-      <div class="section-eyebrow">Topic 05</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2><a class="gloss" href="#g-mdm">Master Data Management<span class="tooltip">MDM — the governance of the critical reference data (vendors, customers, materials, GL accounts) that all transactions depend on. Clean master data = reliable processes. Dirty master data = errors, rework, audit findings.</span></a> — what nobody explains to new joiners</h2>
       <p class="section-hook">Master data is the foundation data that every transaction references — vendor records, customer records, material numbers, GL accounts. When it is clean, processes run smoothly. When it is not, errors cascade through every downstream step. Garbage in, garbage out.</p>
 
@@ -507,7 +513,7 @@ a.gloss:hover .tooltip{display:block;}
 
     <!-- SECTION 6: POWER BI -->
     <section class="section" id="powerbi">
-      <div class="section-eyebrow">Topic 06</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>Power BI and dashboards — what makes them useful versus decorative</h2>
       <p class="section-hook">GBS centers are full of dashboards. Most of them are opened once, admired, and never used for a decision. The difference between a useful dashboard and a decorative one is not design — it is whether there is a process, an owner, and an action behind it.</p>
 
@@ -551,7 +557,7 @@ a.gloss:hover .tooltip{display:block;}
 
     <!-- SECTION 7: INTERPRETATION -->
     <section class="section" id="interpretation">
-      <div class="section-eyebrow">Topic 07</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 32 H33"/><rect x="14" y="24" width="4.5" height="8" rx="1"/><rect x="20.5" y="20" width="4.5" height="12" rx="1"/><rect x="27" y="16" width="4.5" height="16" rx="1"/></svg></span><div class="section-eyebrow">Topic 07</div></div>
       <h2>Data interpretation — the skill that separates analysts from processors</h2>
       <p class="section-hook">Creating graphs and tables is a technical skill. Interpreting what they mean — and communicating that interpretation clearly — is the analytical skill that GBS organizations actually need and consistently lack.</p>
 
@@ -623,7 +629,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="glossary">
-      <div class="section-eyebrow">Glossary</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><div class="section-eyebrow">Glossary</div></div>
       <h2>Key terms in this cluster</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

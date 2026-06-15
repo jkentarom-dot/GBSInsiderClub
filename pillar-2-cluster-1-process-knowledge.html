@@ -225,6 +225,12 @@
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -318,7 +324,7 @@
     </div>
 
     <section class="section" id="doc-layers">
-      <div class="section-eyebrow">Topic 01</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>The three document layers — what they are and how they connect</h2>
       <p class="section-hook">Most <strong style="color:var(--gold)">GBS</strong> professionals use these documents every day without knowing their names. Understanding the hierarchy helps you know which document to look in — and which one to update.</p>
 <!-- SVG DIAGRAM -->
@@ -431,7 +437,7 @@
 
     <!-- SECTION 2: SOP VS DTP COMPARE -->
     <section class="section" id="sop-vs-dtp">
-      <div class="section-eyebrow">Topic 02</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="10" y="18" width="8" height="8" rx="1.5"/><rect x="26" y="18" width="8" height="8" rx="1.5"/><path d="M18 22 H25"/><path d="M23 20 L25 22 L23 24"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>SOP vs <a class="gloss" href="#g-dtp">DTP<span class="tooltip">Desktop Procedure — a step-by-step execution manual with screenshots, used by the person performing the task. More detailed than an SOP.</span></a> — side by side</h2>
       <p class="section-hook">The same process has two documents describing it. Here is what belongs in each.</p>
 
@@ -481,7 +487,7 @@
 
     <!-- SECTION 3: GOVERNANCE -->
     <section class="section" id="governance">
-      <div class="section-eyebrow">Topic 03</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Governance: keeping documentation alive</h2>
       <p class="section-hook">Documentation that is not maintained becomes a liability — not just an asset. An outdated SOP fails audits. An outdated DTP trains people incorrectly. The governance cycle is what prevents both.</p>
 
@@ -567,7 +573,7 @@
 
     <!-- SECTION 4: GPO -->
     <section class="section" id="gpo">
-      <div class="section-eyebrow">Topic 04</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>The <a class="gloss" href="#g-gpo">Global Process Owner<span class="tooltip">GPO — Global Process Owner. Accountable for end-to-end process design, standardization, governance, and improvement across all GBS and business unit touchpoints for a given process.</span></a> — what the role actually is</h2>
       <p class="section-hook">The GPO title sounds clear. In practice, what it means varies enormously by organization. Here is what the role should do — and the different ways it gets set up.</p>
 
@@ -748,7 +754,7 @@
     </details>
 
     <section class="section" id="service-catalog">
-      <div class="section-eyebrow">Topic 05</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2>The service catalog — GBS's menu of services</h2>
       <p class="section-hook">Think of the <strong style="color:var(--gold)">service catalog</strong> as the GBS equivalent of a restaurant menu. It tells stakeholders what is available, what is not, who can order it, and what standard comes with it.</p>
 
@@ -791,7 +797,7 @@
 
     <!-- SECTION 6: XLA -->
     <section class="section" id="xla">
-      <div class="section-eyebrow">Topic 06</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>XLAs — measuring how the service feels, not just how it performs</h2>
       <p class="section-hook">SLAs measure whether GBS hit its targets. XLAs measure whether the people receiving the service actually had a good experience. These are not the same thing.</p>
 
@@ -863,7 +869,7 @@
 
     <!-- SECTION 7: FEEDBACK SURVEYS -->
     <section class="section" id="feedback">
-      <div class="section-eyebrow">Topic 07</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 07</div></div>
       <h2>Feedback and satisfaction surveys — doing it right</h2>
       <p class="section-hook">Whether called <strong style="color:var(--gold)">NPS</strong>, <strong style="color:var(--gold)">CES</strong>, or just "the annual survey" — asking for feedback is necessary. How it is designed and used determines whether it builds or damages the service relationship.</p>
 
@@ -934,7 +940,7 @@
     </details>
 
     <section class="section" id="glossary">
-      <div class="section-eyebrow">Glossary</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><div class="section-eyebrow">Glossary</div></div>
       <h2>Key terms in this cluster</h2>
       <p class="section-hook">Underlined terms throughout this page link here. Full cross-pillar glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide glossary</a>.</p>
       <div class="glossary-grid">

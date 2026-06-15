@@ -131,6 +131,12 @@
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -204,7 +210,7 @@
     </div>
 
     <section class="section" id="eisenhower">
-      <div class="section-eyebrow">Topic 01</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="14" r="2.6"/><circle cx="14" cy="31" r="2.6"/><circle cx="30" cy="31" r="2.6"/><path d="M22 16.6 V24"/><path d="M14 28.4 V24"/><path d="M30 28.4 V24"/><path d="M14 24 H30"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>The Eisenhower Matrix — stop being busy, start being effective</h2>
       <p class="section-hook">Named after US President Dwight D. Eisenhower: "What is important is seldom urgent and what is urgent is seldom important." Four quadrants. Every task you have belongs in one of them.</p>
 <!-- SVG DIAGRAM -->
@@ -320,7 +326,7 @@
     </div>
 
     <section class="section" id="time-blocking">
-      <div class="section-eyebrow">Topic 02</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>Time blocking and deep work in a service environment</h2>
       <p class="section-hook">Deep work — concentrated, uninterrupted focus on cognitively demanding tasks — is nearly impossible in a standard GBS open-plan, notification-heavy environment. Unless you design for it deliberately.</p>
 
@@ -430,7 +436,7 @@
     </details>
 
     <section class="section" id="email">
-      <div class="section-eyebrow">Topic 03</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="10"/><path d="M22 22 V16"/><path d="M22 22 L27 24.5"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Email management — taming the most common productivity drain in GBS</h2>
       <p class="section-hook">The average GBS professional receives 80–120 emails per day. Without a system, email becomes the primary driver of your agenda — responding to everyone else's priorities rather than managing your own.</p>
 
@@ -542,7 +548,7 @@
     </details>
 
     <section class="section" id="glossary">
-      <div class="section-eyebrow">Glossary</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><div class="section-eyebrow">Glossary</div></div>
       <h2>Key terms in this cluster</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

@@ -140,6 +140,12 @@
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -214,7 +220,7 @@
     </div>
 
     <section class="section" id="four-eyes">
-      <div class="section-eyebrow">Topic 01</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="17" cy="16" r="3.4"/><path d="M11 31 C11 24 23 24 23 31"/><circle cx="28" cy="18" r="3"/><path d="M23 31 C23 25.5 33 25.5 33 31"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>The <a class="gloss" href="#g-four-eyes">four-eyes principle<span class="tooltip">A control requiring that a second, independent person reviews and approves any significant action before it is executed. The most widely applied internal control in GBS finance processes.</span></a> — why two people are better than one</h2>
       <p class="section-hook">The <strong style="color:var(--gold)">four-eyes</strong> principle is the simplest and most universal internal control in <strong style="color:var(--gold)">GBS</strong>. One person acts. A second person, independent of the first, reviews and approves. Neither can complete the transaction alone.</p>
 
@@ -285,7 +291,7 @@
     </div>
 
     <section class="section" id="sod">
-      <div class="section-eyebrow">Topic 02</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2><a class="gloss" href="#g-sod">Segregation of duties<span class="tooltip">SoD — the principle that no single person should have end-to-end control over a critical financial process. Separating create, approve, and release roles prevents fraud and reduces error risk.</span></a> — the architecture behind the four-eyes principle</h2>
       <p class="section-hook">If the four-eyes principle is the rule, Segregation of Duties (<strong style="color:var(--gold)">SoD</strong>) is the system design that makes it possible. SoD means that no single person controls a complete financial cycle from start to finish.</p>
 <!-- SVG DIAGRAM -->
@@ -378,7 +384,7 @@
     </section>
 
     <section class="section" id="audit-ready">
-      <div class="section-eyebrow">Topic 03</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Audit readiness — being "audit ready" every day, not just when auditors arrive</h2>
       <p class="section-hook">The goal is not to pass audits. The goal is to operate in a way that makes passing audits a byproduct of how you normally work — not a sprint you do once a year.</p>
 
@@ -453,7 +459,7 @@
     </details>
 
     <section class="section" id="escalation">
-      <div class="section-eyebrow">Topic 04</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="14" y="12" width="16" height="20" rx="2"/><path d="M17 19 H27"/><path d="M17 23 H27"/><path d="M17 27 L19.5 29.5 L24 24.5"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>Handling escalations, volume spikes, and SLA breaches</h2>
       <p class="section-hook">In GBS, things go wrong. Systems fail, volumes spike unexpectedly, team members are absent at exactly the wrong time. How you respond to these events defines your operational maturity — and your professional reputation.</p>
 
@@ -558,7 +564,7 @@
     </details>
 
     <section class="section" id="glossary">
-      <div class="section-eyebrow">Glossary</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><div class="section-eyebrow">Glossary</div></div>
       <h2>Key terms in this cluster</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

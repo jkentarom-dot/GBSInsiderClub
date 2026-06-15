@@ -187,6 +187,12 @@
   .sub-diagram-row .sub-diagram { flex: 1; min-width: 200px; max-width: 350px; margin: 0; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -283,7 +289,7 @@
 
     <!-- SECTION 1: WHY -->
     <section class="section" id="why-metrics">
-      <div class="section-eyebrow">Topic 01</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>Why metrics matter — and what they actually do</h2>
       <p class="section-hook">Measurement provides an objective basis for a conversation that would otherwise be purely political.</p>
       <div class="card">
@@ -311,7 +317,7 @@
 
     <!-- SECTION 2: FRAMEWORK -->
     <section class="section" id="framework">
-      <div class="section-eyebrow">Topic 02</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="14" width="18" height="20" rx="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5"/><path d="M17 22 H27 M17 26 H27 M17 30 H23"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>The three-layer KPI framework: input, operational, output</h2>
       <p class="section-hook">A flat list of metrics misses causality. A layered framework tells you not just what happened — but why, and where to look to fix it.</p>
 <!-- SVG DIAGRAM -->
@@ -416,7 +422,7 @@
     </section>
     <!-- SECTION 3: KPI BY PROCESS -->
     <section class="section" id="kpi-by-process">
-      <div class="section-eyebrow">Topic 03</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><ellipse cx="22" cy="16" rx="9" ry="3.2"/><path d="M13 16 V24 C13 25.8 17 27.2 22 27.2 C27 27.2 31 25.8 31 24 V16"/><path d="M13 20 C13 21.8 17 23.2 22 23.2 C27 23.2 31 21.8 31 20"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Standard KPIs by process — <a class="gloss" href="#g-p2p">P2P<span class="tooltip">Procure-to-Pay — end-to-end process from purchase requisition through supplier payment. Core AP process in GBS.</span></a>, <a class="gloss" href="#g-o2c">O2C<span class="tooltip">Order-to-Cash — end-to-end process from customer order through cash collection. Core AR process in GBS.</span></a>, <a class="gloss" href="#g-r2r">R2R<span class="tooltip">Record-to-Report — end-to-end process covering general ledger, reconciliations, period close, and financial reporting.</span></a></h2>
       <p class="section-hook">Naming conventions vary. Calculation methodologies vary more. What follows is the standard set — expect 5–10 of these per workstream, selected based on what the underlying system landscape can reliably provide.</p>
 
@@ -484,7 +490,7 @@
 </section>
     <!-- SECTION 4: BACKLOG TRAP -->
     <section class="section" id="backlog-risk">
-      <div class="section-eyebrow">Topic 04</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>The backlog trap — why it compounds faster than you expect</h2>
       <p class="section-hook">Backlog is not a static problem. It is an accelerating one. Most teams underestimate how quickly a manageable backlog becomes a recovery crisis.</p>
 
@@ -518,7 +524,7 @@
     </section>
     <!-- SECTION 5: PERCEPTION GAP -->
     <section class="section" id="perception-gap">
-      <div class="section-eyebrow">Topic 05</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="17" cy="16" r="3.4"/><path d="M11 31 C11 24 23 24 23 31"/><circle cx="28" cy="18" r="3"/><path d="M23 31 C23 25.5 33 25.5 33 31"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2>The perception gap — when green metrics meet unhappy stakeholders</h2>
       <p class="section-hook">You can be technically compliant and operationally failing at the same time. Understanding why requires looking at what metrics cannot capture.</p>
 
@@ -595,7 +601,7 @@
     </details>
 
     <section class="section" id="reporting">
-      <div class="section-eyebrow">Topic 06</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>Reporting and performance conversations that actually work</h2>
       <p class="section-hook">A performance meeting where KPIs are read aloud is not a performance meeting. It is a presentation. The distinction matters.</p>
 
@@ -687,7 +693,7 @@
 </section>
     <!-- SECTION 7: AI FORWARD -->
     <section class="section" id="ai-forward">
-      <div class="section-eyebrow">Topic 07</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 07</div></div>
       <h2>AI and the future of performance measurement</h2>
       <p class="section-hook">Traditional KPI reports are backwards-looking. AI-enabled measurement changes what is possible — and GBS should be leading this shift, not waiting for it.</p>
 
@@ -762,7 +768,7 @@
     </details>
 
     <section class="section" id="glossary">
-      <div class="section-eyebrow">Glossary</div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><div class="section-eyebrow">Glossary</div></div>
       <h2>Key terms in this cluster</h2>
       <p class="section-hook">Underlined terms throughout this page link here. Full cross-pillar glossary at the <a href="glossary.html" style="color:var(--teal); text-decoration:none; border-bottom: 1px dotted var(--teal);">GBS Insider Club Field Guide glossary</a>.</p>
       <div class="glossary-grid">

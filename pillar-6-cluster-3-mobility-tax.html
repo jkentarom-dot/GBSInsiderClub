@@ -149,6 +149,12 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -211,7 +217,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
     <section class="section" id="expat-packages">
-      <p class="section-eyebrow">Topic 01 · Global Mobility</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 31 H17 V26 H22 V21 H27 V16 H32"/><path d="M29 16 H32 V19"/></svg></span><p class="section-eyebrow">Topic 01 · Global Mobility</p></div>
       <h2>Expat packages and relocation — what is covered</h2>
       <p class="section-hook">International assignments come with compensation structures designed to make the move cost-neutral for the employee. Understanding the components prevents surprises.</p>
       <div class="card teal">
@@ -283,7 +289,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="cross-border-tax">
-      <p class="section-eyebrow">Topic 02 · Tax Compliance</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 12 L31 16 V22.5 C31 27.5 27 30.8 22 32.6 C17 30.8 13 27.5 13 22.5 V16 Z"/><path d="M17.5 22 L20.8 25.2 L27 19"/></svg></span><p class="section-eyebrow">Topic 02 · Tax Compliance</p></div>
       <h2>Cross-border work — tax and compliance implications</h2>
       <p class="section-hook">Working from a different country for even a few days can create tax obligations, <strong style="color:var(--gold)">permanent establishment</strong> risks, and social security complications. This is not theoretical — it is a growing compliance challenge.</p>
       <div class="card amber">
@@ -352,7 +358,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="glossary">
-      <p class="section-eyebrow">Reference</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Reference</p></div>
       <h2>Glossary</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

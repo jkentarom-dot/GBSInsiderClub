@@ -149,6 +149,12 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -220,7 +226,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
     <section class="section" id="sod">
-      <p class="section-eyebrow">Topic 01 · Access Controls</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="21" width="18" height="12" rx="2"/><path d="M17 21 V17 A5 5 0 0 1 27 17 V21"/><circle cx="22" cy="27" r="1.6"/></svg></span><p class="section-eyebrow">Topic 01 · Access Controls</p></div>
       <h2>Segregation of Duties and toxic combinations</h2>
       <p class="section-hook">No single person should be able to create a vendor, enter an invoice, approve the payment, and execute the bank transfer. <strong style="color:var(--gold)">SoD</strong> prevents fraud by splitting critical actions across different individuals.</p>
       <div class="card teal">
@@ -249,7 +255,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 </section>
 <section class="section" id="gdpr-sox">
-      <p class="section-eyebrow">Topic 02 · Regulatory Frameworks</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><p class="section-eyebrow">Topic 02 · Regulatory Frameworks</p></div>
       <h2>GDPR and SOX — the two compliance pillars</h2>
       <p class="section-hook">GDPR governs how you handle personal data. <strong style="color:var(--gold)">SOX</strong> governs the accuracy and integrity of financial reporting. Both carry severe consequences for violations.</p>
 <!-- SVG DIAGRAM -->
@@ -311,7 +317,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 </section>
 <section class="section" id="aml">
-      <p class="section-eyebrow">Topic 03 · Financial Crime</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 12 L31 16 V22.5 C31 27.5 27 30.8 22 32.6 C17 30.8 13 27.5 13 22.5 V16 Z"/><path d="M17.5 22 L20.8 25.2 L27 19"/></svg></span><p class="section-eyebrow">Topic 03 · Financial Crime</p></div>
       <h2>AML and sanctions screening basics</h2>
       <p class="section-hook">Anti-Money Laundering and sanctions compliance are not just for banks. GBS centers processing payments, onboarding vendors, or managing customer data have screening obligations.</p>
       <div class="card teal">
@@ -353,7 +359,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="retention">
-      <p class="section-eyebrow">Topic 04 · Records Management</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Topic 04 · Records Management</p></div>
       <h2>Document retention and archiving policies</h2>
       <p class="section-hook">Keeping documents too long creates liability. Deleting them too early creates compliance violations. Retention policies define the rules for every document type.</p>
       <div class="card teal">
@@ -415,7 +421,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="glossary">
-      <p class="section-eyebrow">Reference</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Reference</p></div>
       <h2>Glossary</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

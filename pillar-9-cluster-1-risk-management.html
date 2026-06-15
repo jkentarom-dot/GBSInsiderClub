@@ -149,6 +149,12 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -227,7 +233,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
     <section class="section" id="bcp">
-      <p class="section-eyebrow">Topic 01 · Business Continuity</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 L33 31 H11 Z"/><path d="M22 20 V25"/><path d="M22 28 V28.3"/></svg></span><p class="section-eyebrow">Topic 01 · Business Continuity</p></div>
       <h2>Business Continuity Planning in GBS</h2>
       <p class="section-hook">When your <strong style="color:var(--gold)">GBS</strong> center goes offline — power failure, pandemic, natural disaster, cyberattack — what happens to the 50,000 invoices, payroll runs, and customer orders that depend on it?</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Business Continuity Planning (<strong style="color:var(--gold)">BCP</strong>) is the discipline of ensuring critical business processes can continue during and after a disruption. For GBS operations, this means identifying which processes are critical, defining acceptable downtime, establishing backup capabilities, and testing the plan regularly. A BCP that has never been tested is not a plan — it is a document.</p>
@@ -259,7 +265,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 </section>
 <section class="section" id="vendor-risk">
-      <p class="section-eyebrow">Topic 02 · Third-Party Risk</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 L33 31 H11 Z"/><path d="M22 20 V25"/><path d="M22 28 V28.3"/></svg></span><p class="section-eyebrow">Topic 02 · Third-Party Risk</p></div>
       <h2>Vendor risk — third and fourth party exposure</h2>
       <p class="section-hook">Your GBS operation depends on vendors who depend on their own vendors. A failure three layers deep in the supply chain can still shut down your operations.</p>
       <div class="card teal">
@@ -323,7 +329,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="incident-mgmt">
-      <p class="section-eyebrow">Topic 03 · Crisis Response</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 L33 31 H11 Z"/><path d="M22 20 V25"/><path d="M22 28 V28.3"/></svg></span><p class="section-eyebrow">Topic 03 · Crisis Response</p></div>
       <h2>Incident management and crisis escalation</h2>
       <p class="section-hook">When something goes wrong at scale — a data breach, a system outage, a regulatory violation — the quality of your escalation playbook determines whether it stays an incident or becomes a crisis.</p>
 <!-- SVG DIAGRAM -->
@@ -411,7 +417,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="glossary">
-      <p class="section-eyebrow">Reference</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Reference</p></div>
       <h2>Glossary</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">

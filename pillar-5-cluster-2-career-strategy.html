@@ -149,6 +149,12 @@ a.gloss:hover .tooltip{display:block;}
   .sub-diagram .sd-caption { font-size: 12px; color: var(--text-3); margin-top: 8px; font-style: italic; }
 
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+.topic-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.topic-head .section-eyebrow{margin:0;border-left:0;padding:0;}
+.topic-ico{flex:0 0 auto;line-height:0;}
+.topic-ico svg{display:block;}
+@media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -213,7 +219,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
     <section class="section" id="t-shaped">
-      <p class="section-eyebrow">Topic 01 · Skill Architecture</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><p class="section-eyebrow">Topic 01 · Skill Architecture</p></div>
       <h2>T-shaped skills — the GBS career advantage</h2>
       <p class="section-hook">Deep expertise in one area plus broad understanding across adjacent domains. That is the T-shape that makes you valuable beyond your current role.</p>
 <!-- SVG DIAGRAM -->
@@ -271,7 +277,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 
 <section class="section" id="internal-mobility">
-      <p class="section-eyebrow">Topic 02 · Career Navigation</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 31 H17 V26 H22 V21 H27 V16 H32"/><path d="M29 16 H32 V19"/></svg></span><p class="section-eyebrow">Topic 02 · Career Navigation</p></div>
       <h2>Internal mobility — navigating transfers and promotions</h2>
       <p class="section-hook">The best career opportunities in GBS are often internal — new functions, new geographies, new projects. But internal moves require strategy, not just availability.</p>
       <div class="card teal">
@@ -305,7 +311,7 @@ a.gloss:hover .tooltip{display:block;}
     </div>
 </section>
 <section class="section" id="ops-to-projects">
-      <p class="section-eyebrow">Topic 03 · Career Pivots</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 31 H17 V26 H22 V21 H27 V16 H32"/><path d="M29 16 H32 V19"/></svg></span><p class="section-eyebrow">Topic 03 · Career Pivots</p></div>
       <h2>From operations to projects — making the pivot</h2>
       <p class="section-hook">The transition from running processes to leading projects is the most common — and most challenging — career pivot in GBS. It requires a fundamental shift in how you define success.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">In operations, success is consistency — hitting SLAs, maintaining quality, managing volume. In projects, success is change — delivering new capabilities, hitting milestones, managing stakeholders through uncertainty. The skills overlap (discipline, communication, attention to detail) but the mindset is different. Project work is temporary, ambiguous, and politically exposed in ways that <strong style="color:var(--gold)">BAU</strong> operations are not.</p>
@@ -348,7 +354,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="exit-strategies">
-      <p class="section-eyebrow">Topic 04 · Long-term Planning</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.2"/></svg></span><p class="section-eyebrow">Topic 04 · Long-term Planning</p></div>
       <h2>GBS to corporate — career exit strategies</h2>
       <p class="section-hook">GBS is not a career dead-end. It is a launchpad — if you build the right skills and relationships. Many corporate functions value GBS experience precisely because it combines operational depth with cross-functional exposure.</p>
       <div class="card teal">
@@ -407,7 +413,7 @@ a.gloss:hover .tooltip{display:block;}
     </details>
 
     <section class="section" id="glossary">
-      <p class="section-eyebrow">Reference</p>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Reference</p></div>
       <h2>Glossary</h2>
       <p class="section-hook">Full glossary at the <a href="glossary.html" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">GBS Insider Club Field Guide</a>.</p>
       <div class="glossary-grid">
