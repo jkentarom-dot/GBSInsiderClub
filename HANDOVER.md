@@ -1,180 +1,126 @@
-# GBS Insider Club — Session Handover Document
+# GBS Insider Club — Session Handover
 
-**Date:** 2026-06-08 (extended session)
-**Status:** Free tier site complete. AI Field Guide overhauled. Auth system operational. Next priority: paid tier architecture and content build.
-
----
-
-## 1. Current Site State — What Exists
-
-### Free Tier (LIVE)
-- **54 HTML files** auto-deployed via Cloudflare Pages from GitHub
-- **10 pillar landing pages** — Julian's Take blocks, restyled curriculum toggles, cluster counts on tiles
-- **38 cluster pages** — concept SVGs, inline sub-diagram SVGs, Julian's Take blocks, 2× Self-Check blocks, numbered topic headings (156 topics) with teal accent, glossaries
-- **1 AI Field Guide** (guide.html) — 37 chapters behind auth gate:
-  - 853 keyword highlights (gold)
-  - 21 section breaker images (people photos + AI-generated)
-  - 34 inline SVG diagrams
-  - 36 self-check question blocks (109 questions)
-  - Advanced RAG strategies section (GraphRAG, Agentic RAG, Adaptive RAG with decision matrix)
-  - Tier gating (free/paid chapter visibility)
-- **1 landing page** (index.html) — pillar explanation with cluster counts, career map, audience cards, hooks grid, CTA section
-
-### Auth System (OPERATIONAL)
-- 5 edge functions deployed with `--no-verify-jwt`
-- Free tier: auto-invite + Julian notification via Resend
-- Paid tier: Julian gets email with 1-click approve link
-- Invite emails redirect to guide.html (where auth processing happens)
-- Users: Anna Zaborowicz, Maciej Kuczko, djschmechel, michaelpenndorf, jkentarom, julian.magata@gmx.de
-
-### What Does NOT Exist Yet
-- Paid tier content (learning paths, templates, exercises)
-- Paid tier landing page / experience
-- Payment processing
-- Cluster page keyword highlighting (guide has it, cluster pages don't)
+**Date:** 2026-06-16
+**Status:** Free tier live. Paid tier live with hard gating (templates + gated text). 4 career paths + 3 cross-path topics shipped. Site-wide AI data-safety disclaimer in place. Stripe go-live blocked on one Julian task (see §6).
 
 ---
 
-## 2. Architecture Reference
+## 1. Current site state
 
-### Infrastructure
+### Free tier (LIVE)
+- ~55 HTML files, auto-deployed via Cloudflare Pages from GitHub on push to `main` (~2 min).
+- 10 pillar pages, 38 cluster pages (concept SVGs, Julian's Take blocks, self-checks, glossaries).
+- `guide.html` — AI Field Guide, 37 chapters behind auth gate; tier-gated chapter visibility. Approved accent colour `#ff6b35` (orange) is intentional here.
+- `landing.html` DELETED this session (orphan page; was the only file with a real emoji).
+
+### Paid tier (LIVE)
+- **4 career paths:** Associate Accelerator (11 modules), Team Lead Playbook (16), Project SME (8), Project Leadership (11).
+- **3 cross-path gated topics** (shared, linked from all 4 paths):
+  - `path-social-media.html` — Personal Brand / visibility (5 modules, key `path-social-media`)
+  - `path-promotion-plateau.html` — IC→leader inflection (4 modules, key `path-promotion-plateau`)
+  - `path-sap.html` — SAP system literacy (5 modules, key `path-sap`) **[new this session]**
+- **Manager Track:** still flagged as a possible separate premium product — decision pending.
+
+### Gating (LIVE — hard gating deployed)
+- **Text content:** `gated_content` table (cols: `page` PK, `html`, `updated_at`), 15 gated pages. Served by `get-gated-content` edge function (validates user JWT + `user_tiers.tier='full_access'`). Public pages contain only the gate panel; no gated text leaks (verified).
+- **Templates:** private Supabase bucket `templates` (17 files). `download-template` edge function (verify_jwt=false) validates JWT + tier → returns 120s signed URL. Download cards wired across path pages via shared script using `closest(".tpl-gated")` + `data-file`. Public `templates/*.xlsx` removed from repo (leak closed).
+- **17 templates:** 8 PM/SME (Project Charter, RAID Log, Stakeholder Map, A3, Status Report, SME Participation Agreement, KT Checklist, UAT Script, Go-Live Readiness, SME-to-Career Sheet) + Brag Sheet, Career Chessboard, 90-Day Roadmap (Associate), 90-Day Leadership Plan (TL), Team Capacity Model, SBI Feedback Prep + `Status_Report.pptx`.
+
+### AI data-safety disclaimer (LIVE — site-wide)
+- Standard gold-accented block in **every** AI exercise: 34 gated blocks + 6 public free-preview blocks + the 3 cross-path topics.
+- Message: neutralise data first — strip company/people/client/product names, use find-and-replace to swap for `[Company]`/`[Client]`/`[Name]` before pasting into a public AI model.
+- Reusable string lives in build scripts (`DISC`); injected via `<div class="ai-block">…</div>` regex sweep.
+
+### SVG legibility (improved this session)
+- Path/gated diagrams use `.minifig` (`viewBox 0 0 640 210`, scales to container).
+- Fix: `.minifig` max-width 680→840; SVG max-width cap removed (fills container); `.callout-right:has(.minifig)` now breaks out to full width (the screenshotted "JD → Action Plan" diagram was trapped at half-width in a side callout).
+- Grey sublabels lifted `#7a8799`→`#a3aec0` in path diagrams (gated + public) for contrast.
+- Cluster-page diagrams already render full content-width (inline-styled wrapper, no `.minifig`) — lower priority. A full font-bump QA pass across all ~107 SVGs remains optional.
+
+---
+
+## 2. Architecture & infra
+
 | Component | Service | Notes |
 |-----------|---------|-------|
-| Hosting | Cloudflare Pages | Auto-deploy on push to main |
-| Repo | GitHub: jkentarom-dot/GBSInsiderClub | Branch: main |
-| Auth | Supabase | Edge functions, user management |
-| Email | Resend | Domain verified: gbsinsiderclub.com |
-| Domain | Namecheap | DNS via Cloudflare |
-| PAT | /mnt/project/PAT_for_github | |
-| Supabase token | /mnt/project/Supabase_Claude_token | sbp_... format |
-| Curriculum | /mnt/project/GBS_Curriculum_Final_2026_01_28_v01.xlsx | |
-| Learning paths | /mnt/project/LEARNING_PATHS_MASTER.md | Architecture doc |
-| Brand | /mnt/skills/user/brand/SKILL.md | Single source of truth |
+| Hosting | Cloudflare Pages | Auto-deploy on push to `main` |
+| Repo | GitHub `jkentarom-dot/GBSInsiderClub` | Branch `main` |
+| Auth/backend | Supabase, ref `wgdcfgknnentriqlajqe` | Edge functions, storage, gated content, JWT tier gating |
+| Email | Resend | Domain verified gbsinsiderclub.com |
+| PAT | `/mnt/project/PAT_for_github` | `https://x-access-token:${PAT}@github.com/...` |
+| Supabase mgmt token (sbp_) | `/mnt/project/Supabase_Claude_token` | Use `api.supabase.com` (CLI fails in container) |
+| Supabase service role key | `/mnt/project/Supabase_service_role_key` | REST + storage admin |
+| Curriculum | `/mnt/project/GBS_Curriculum_Final_2026_01_28_v01.xlsx` | sheet `FInal` |
+| Brand skill | `/mnt/skills/user/brand/SKILL.md` | Single source of truth (read at session start) |
 
-### Git Session Setup (every new session)
+### Git session setup
 ```bash
-cd /home/claude
-git clone https://github.com/jkentarom-dot/GBSInsiderClub.git
-cd GBSInsiderClub
+cd /home/claude && git clone https://github.com/jkentarom-dot/GBSInsiderClub.git && cd GBSInsiderClub
 PAT=$(cat /mnt/project/PAT_for_github)
 git remote set-url origin "https://x-access-token:${PAT}@github.com/jkentarom-dot/GBSInsiderClub.git"
-git config user.email "claude@gbsinsiderclub.com"
-git config user.name "GBS Content Bot"
+git config user.email "claude@gbsinsiderclub.com"; git config user.name "Claude"
 ```
+Never embed the PAT in repo file content (secret scanner blocks pushes).
 
-### Supabase Edge Function Deploy
+### Edge function deploy (CLI unavailable → Management API)
 ```bash
-cd GBSInsiderClub && git pull
-supabase functions deploy handle-access-request --project-ref wgdcfgknnentriqlajqe --no-verify-jwt
-supabase functions deploy send-email --project-ref wgdcfgknnentriqlajqe --no-verify-jwt
-supabase functions deploy approve-paid-user --project-ref wgdcfgknnentriqlajqe --no-verify-jwt
+curl -X POST "https://api.supabase.com/v1/projects/$REF/functions/deploy?slug=NAME" \
+ -H "Authorization: Bearer $MGMT" \
+ -F 'metadata={"entrypoint_path":"index.ts","name":"NAME","verify_jwt":false};type=application/json' \
+ -F 'file=@index.ts;type=application/typescript'
 ```
-**CRITICAL:** Always use `--no-verify-jwt`. Always `git pull` first. Claude can deploy if `api.supabase.com` is in domain allowlist.
+File MUST be named `index.ts`. **Always deploy with `verify_jwt=false`** (else 401 on unauth requests).
 
 ---
 
-## 3. Next Priority: Paid Tier Build
+## 3. Repeatable patterns
 
-### Architecture Decision (confirmed 2026-06-08)
-**Separate experience, not baked into existing structure.**
+### New gated cross-path topic
+1. `cp path-sme.html path-NAME.html`; replace title, canonical, hero block, and the content region between `<!-- ====== MODEL RECAP NAV ====== -->` and the wrapper close with an intro `<section>` + `<div id="gmount">` gate panel.
+2. Replace `PAGE="path-sme"`→`PAGE="path-NAME"` and `'gbs-progress-sme'`→`'gbs-progress-NAME'`.
+3. Module HTML → upsert to `gated_content` (curl POST to `/rest/v1/gated_content`, headers `apikey`+`Authorization` service role + `Prefer: resolution=merge-duplicates`).
+4. Add a `toolkit-card` link in all 4 path toolkits; add sitemap entry.
+5. Verify: paid-user fetch via `get-gated-content` returns modules; leak-check gated text NOT in public page; tag balance; secret scan = 0.
 
-Rationale: Users will get lost if paid content is mixed into the 38 cluster pages. The paid tier should be a distinct, guided experience with its own landing page, learning paths, and progression — while linking back to free tier theory as reference material.
+### Module HTML
+`<details class="module"><summary><span class="mod-code">X.Y</span><span class="mod-title">…</span><span class="mod-arrow">▾</span></summary><div class="mod-body">…</div></details>` with `<p>`, `<span class="mod-label">`, `<table class="data-table">`, `<div class="callout-right">`, `<div class="jt-block">`, and `<div class="ai-block">` (always append the AI disclaimer block inside ai-block).
 
-**Structure:**
-- New paid tier landing page (aligned to 10 pillars visual language)
-- 13 role-based learning paths (7 Core, 3 Project, 3 Add-On)
-- Each path: weekly modules with AI exercises, homework, templates, quizzes
-- Links back to free tier cluster pages for theory foundations
-- Full architecture in LEARNING_PATHS_MASTER.md
-
-### Open Questions Requiring Julian Decision
-See LEARNING_PATHS_MASTER.md Section 9 for full list. Top 5:
-1. **Q1:** Confirm 13 paths lineup — add, remove, or rename?
-2. **Q2:** Which 2 paths to build first? (Recommended: C3 New Team Lead + C1 New Associate)
-3. **Q3:** Price point — $19 founding / $29 launch / $39 premium?
-4. **Q9:** Linear-only or allow "pick your week"?
-5. **Q10:** Certificate of completion?
-
-### Build Sequence (proposed)
-1. Julian reviews LEARNING_PATHS_MASTER.md, answers Q1-Q11
-2. Design learning path page template (HTML)
-3. Build first 2 paths (content + exercises + templates)
-4. Add payment/gating (Stripe or manual approval)
-5. Build paid tier landing page
+### Disposable test user (verification)
+Create via `POST /auth/v1/admin/users` (service role, `email_confirm:true`) → insert `user_tiers` tier `full_access` → sign in `POST /auth/v1/token?grant_type=password` (anon key) for access token → test → DELETE `user_tiers` row + DELETE user. (urllib gets CF 1010-blocked on api.supabase.com — use `curl --data @file.json`.)
 
 ---
 
-## 4. Remaining Action List
-
-### HIGH PRIORITY
-1. **Paid tier architecture review** — Julian reviews LEARNING_PATHS_MASTER.md, confirms path lineup, pricing, first 2 paths
-2. **Keyword highlighting on 38 cluster pages** — same treatment as guide (853 terms). Large task, full session.
-3. **Landing page paid tier value prop** — needs compelling free-vs-paid comparison. Blocked on paid tier decisions.
-4. **Edge function redeployment** — invite redirect fix (index.html → guide.html) needs deploying
-
-### MEDIUM PRIORITY
-5. **Deeper cluster treatment** — work examples, practical tips, PDF templates for performance-critical clusters
-6. **Visual-first layout** across cluster pages
-7. **Landing page design unification** to current brand system
-
-### LOWER PRIORITY
-8. YouTube production
-9. Sidebar font fix (grey→white, mobile)
-10. One people photo gap (solo early-career at laptop)
-
-### OPEN SECURITY/OPS
-- Namecheap mailbox password change + SMTP_PASS update in Supabase
-- Supabase 2FA enable
+## 4. Voice / brand guardrails
+- Punchy practitioner tone, short declarative sentences, no filler. Body text white/bright (`#dde3ec`), not grey.
+- **Banned tone:** negation-contrast ("is not X. It is Y" / "not X, but Y"), colon-reveal ("[noun]: reveal"), exclamations, emojis anywhere, "probably won't", cynical framing of managers/orgs.
+- **Banned words:** leverage, unlock, enable, drive, facilitate, streamline, robust, seamless, crucial, comprehensive, foster, etc.
+- Abbreviations spelled on first use in HTML (ERP, R2R/P2P/O2C, t-code). No "cheat-code" framing — deliver real capability. Free = theory; paid = actionable.
 
 ---
 
-## 5. Key Learnings & Principles
-
-### Technical
-- Supabase edge functions MUST deploy with `--no-verify-jwt` — anon key auth returns 401 without it
-- Always `git pull` before `supabase functions deploy`
-- Always grep exact alt text before SVG replacement scripts
-- Always re-fetch SHA before GitHub PUT; stale SHAs cause 409
-- Python urllib.request more reliable than curl for large file pushes
-- Keyword highlighting: always verify no highlights leaked into SVGs, headings, or code blocks
-- Invite emails must redirect to guide.html (not index.html) — index.html has no Supabase auth code
-
-### Layout & Design Rules
-- **No dead space.** Text sections must use available width (min 960px max-width). Add visuals or restructure to fill.
-- Section breaker photos: 100% width, 200-220px height, object-fit:cover, filter:brightness(0.85), gradient overlay
-- Topic numbering: "Topic 01 · Label" in teal 14px with 3px left border accent
-- Keyword highlighting: gold `var(--yellow)` or `#e8b800`, first occurrence per chapter/section
-- Three visual rhythm elements per cluster page: content (blue) > Take (gold) > Self-Check (sky blue)
-
-### Product
-- Paid tier = separate experience with own landing page, not mixed into free tier structure
-- Julian's voice: punchy, practitioner-direct, un-textbook
-- Self-Check tone: challenging but encouraging, scenario-based, no trivia
-- Paid tier bridge: natural "next step" positioning, not "buy now"
-
-### Working Style
-- Single handover doc — older versions deleted, not accumulated
-- Handover fully self-contained
-- Speed-first with explicit handoffs when scope exceeds session
+## 5. Decisions logged this session
+- **Currency = USD $99** (checkout hardcodes `currency:"usd"`, `unit_amount:9900`; Stripe account is EUR — conversion risk accepted, no change).
+- `guide.html` orange `#ff6b35` = approved accent.
+- `landing.html` deleted.
+- Career-map roles: sr-associate folds into Associate; GPO + Domain Expert/CoE Lead tabled; director/head-gbs deferred (reframe as leader-facing content); Manager Track pending.
+- Promotion Plateau reframed: "hero / individual contributor" instead of the game analogy; PR.3 centres on finding/developing/challenging talent and building high-performing teams (softened the "friction/hard conversations" framing).
 
 ---
 
-## 6. Commit History (2026-06-08 full session)
+## 6. Julian's open tasks (NOT Claude's)
+- **STRIPE WEBHOOK BUG (blocks go-live):** `stripe-webhook` function reads secret `STRIPE_WEBHOOK_SECRET`, which is **missing** (only `WEBHOOK_SECRET` exists). Webhook returns 503 → grants access to nobody. Fix:
+  1. Stripe Dashboard (Live mode) → Webhooks → add endpoint `https://wgdcfgknnentriqlajqe.supabase.co/functions/v1/stripe-webhook`, event `checkout.session.completed` → copy the `whsec_…` signing secret.
+  2. Supabase → Edge Functions secrets: set `STRIPE_SECRET_KEY=sk_live_…` and **add** `STRIPE_WEBHOOK_SECRET=whsec_…`.
+  - `create-checkout-session` is correct (one-time payment, `mode=payment`, sets `client_reference_id`). It is NOT a subscription — ignore Stripe's recurring/billing wizard. Optional: swap cosmetic `pk_live_` in `paid-tier.html` (~line 562).
+- **UX confirm:** log in as a `full_access` user → open the 3 cross-path topics (modules render) and download one template (signed URL works).
 
-| # | SHA | Description |
-|---|-----|-------------|
-| 1 | 9ff3766 | Free tier signup notification to Julian via Resend |
-| 2 | 662f6f2 | DEPLOY.md + HANDOVER with --no-verify-jwt docs |
-| 3 | 89a9ef3 | Action list update |
-| 4 | f4410a4 | Guide keyword highlighting — 296 terms |
-| 5 | b35e545 | Guide people photos — 6 section breakers |
-| 6 | 2d919c1 | Landing page pillar explanation + 156 cluster topic numbers |
-| 7 | 496a00d | 8 generated images + landing page text width fix |
-| 8 | c97ed40 | Handover rewrite |
-| 9 | c027dc3 | Self-check questions — 109 across 36 guide chapters |
-| 10 | ac4ba0f | Expand keyword highlighting — 853 total |
-| 11 | 6024e21 | Fix ch15 LLM label + 7 new guide images (batch 2) |
-| 12 | 2244a41 | Advanced RAG strategies — GraphRAG, Agentic RAG, Adaptive RAG |
-| 13 | ae31c19 | Fix guide topbar line-breaking |
-| 14 | 755408a | Handover update |
-| 15 | 35e6e33 | Fix "See what's inside" link + invite redirect |
+---
+
+## 7. On the horizon
+- Manager Track: separate premium product or part of the £99/$99 offering — decide.
+- Julian's Take interview blocks across cluster pages (blocked on Julian's raw answers; high priority).
+- Landing page redesign — current paid section undersells; needs a free-vs-paid comparison concept + brand unification.
+- **SAP positioning:** currently gated. Could be repositioned to FREE tier as a funnel/SEO/YouTube magnet (foundational literacy) if desired — flag for decision.
+- Optional full SVG font-bump QA pass across all ~107 diagrams (needs visual QA to avoid overflow).
+- YouTube/HeyGen batch recording (scripts banked first); "agentic-AI gap" script done, #3+ queued.
+- P2C3 Continuous Improvement and other performance-impact clusters: deeper treatment (work examples, tips, downloadable guides — PDFs co-designed with Julian first).
