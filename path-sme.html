@@ -322,12 +322,12 @@
     <h2>Templates &amp; tools</h2>
     <p class="section-intro">Every template is built to be edited and used on your real project.</p>
     <div class="grid-3">
-      <a class="card tpl-dl" href="templates/SME_Participation_Agreement.xlsx" download><h3>SME Participation Agreement</h3><p>One page to agree protected time and BAU coverage with your manager.</p><span class="dl-go">Download .xlsx →</span></a>
-      <a class="card tpl-dl" href="templates/KT_Checklist_4Phase.xlsx" download><h3>KT Checklist (4-Phase)</h3><p>Move every process through document, demonstrate, practise, validate.</p><span class="dl-go">Download .xlsx →</span></a>
-      <a class="card tpl-dl" href="templates/UAT_Test_Script.xlsx" download><h3>UAT Test Script</h3><p>Structured test cases with happy path plus exceptions and expected results.</p><span class="dl-go">Download .xlsx →</span></a>
-      <a class="card tpl-dl" href="templates/RAID_Log.xlsx" download><h3>RAID Log</h3><p>Capture risks, assumptions, issues, dependencies — with mitigations.</p><span class="dl-go">Download .xlsx →</span></a>
-      <a class="card tpl-dl" href="templates/Go_Live_Readiness_Check.xlsx" download><h3>Go-Live Readiness Check</h3><p>Honest readiness assessment for your area before go-live.</p><span class="dl-go">Download .xlsx →</span></a>
-      <a class="card tpl-dl" href="templates/SME_to_Career_Positioning_Sheet.xlsx" download><h3>SME-to-Career Positioning Sheet</h3><p>Turn project contributions into evidence and a concrete next-role ask.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl tpl-gated" href="#" data-file="SME_Participation_Agreement.xlsx"><h3>SME Participation Agreement</h3><p>One page to agree protected time and BAU coverage with your manager.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl tpl-gated" href="#" data-file="KT_Checklist_4Phase.xlsx"><h3>KT Checklist (4-Phase)</h3><p>Move every process through document, demonstrate, practise, validate.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl tpl-gated" href="#" data-file="UAT_Test_Script.xlsx"><h3>UAT Test Script</h3><p>Structured test cases with happy path plus exceptions and expected results.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl tpl-gated" href="#" data-file="RAID_Log.xlsx"><h3>RAID Log</h3><p>Capture risks, assumptions, issues, dependencies — with mitigations.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl tpl-gated" href="#" data-file="Go_Live_Readiness_Check.xlsx"><h3>Go-Live Readiness Check</h3><p>Honest readiness assessment for your area before go-live.</p><span class="dl-go">Download .xlsx →</span></a>
+      <a class="card tpl-dl tpl-gated" href="#" data-file="SME_to_Career_Positioning_Sheet.xlsx"><h3>SME-to-Career Positioning Sheet</h3><p>Turn project contributions into evidence and a concrete next-role ask.</p><span class="dl-go">Download .xlsx →</span></a>
     </div>
   </section>
 
@@ -436,4 +436,5 @@
 })();
 </script>
 
+<script>(function(){var U="https://wgdcfgknnentriqlajqe.supabase.co",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo",DT=U+"/functions/v1/download-template";function go(file,el){if(typeof supabase==="undefined"){location.href="paid-tier.html#pricing";return;}var sb=supabase.createClient(U,K);if(el)el.classList.add("dl-loading");sb.auth.getSession().then(function(res){var s=res&&res.data&&res.data.session;if(!s){location.href="paid-tier.html#pricing";return;}fetch(DT,{method:"POST",headers:{"apikey":K,"Authorization":"Bearer "+s.access_token,"Content-Type":"application/json"},body:JSON.stringify({file:file})}).then(function(r){if(r.status===200)return r.json();if(r.status===401||r.status===403){location.href="paid-tier.html#pricing";}throw 0;}).then(function(d){if(d&&d.url){var a=document.createElement("a");a.href=d.url;a.download=file;document.body.appendChild(a);a.click();a.remove();}}).catch(function(){}).finally(function(){if(el)el.classList.remove("dl-loading");});});}document.addEventListener("click",function(e){var el=e.target.closest&&e.target.closest(".tpl-gated");if(!el)return;e.preventDefault();go(el.getAttribute("data-file"),el);});})();</script>
 </body>
