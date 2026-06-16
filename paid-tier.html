@@ -569,19 +569,23 @@
 
   function setBtn(text, disabled) { checkoutBtn.textContent = text; checkoutBtn.disabled = !!disabled; }
 
-  // If already full access, show owned state
+  // If already full access, switch CTA to "go to your paths"
+  let hasFullAccess = false;
   async function checkTier() {
     const { data: { session } } = await sb.auth.getSession();
     if (!session) return;
     const { data } = await sb.from('user_tiers').select('tier').eq('user_id', session.user.id).maybeSingle();
     if (data && data.tier === 'full_access') {
-      setBtn('You have Full Access', true);
+      hasFullAccess = true;
+      setBtn('Go to your learning paths →', false);
       checkoutBtn.style.background = '#34d399';
+      checkoutBtn.style.color = '#080b10';
     }
   }
   checkTier();
 
   checkoutBtn.addEventListener('click', async function() {
+    if (hasFullAccess) { window.location.href = '#paths'; return; }
     setBtn('Loading...', true);
     try {
       const { data: { session } } = await sb.auth.getSession();
