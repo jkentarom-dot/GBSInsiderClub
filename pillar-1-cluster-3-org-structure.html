@@ -364,6 +364,7 @@
 @media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
@@ -679,7 +680,15 @@
 
       <div class="tension-box">
         <div class="tension-label">The core tension</div>
-        <p>Efficiency demands a shorter bench. A shorter bench increases attrition risk. Attrition creates backlogs. Backlogs damage service quality. Damaged service quality triggers escalations that cost more to resolve than the efficiency saved. This is not a failure of GBS — it is the structural tension that every GBS professional works inside. Understanding it helps you read why certain decisions get made.</p>
+        <p class="chunk-lead">Each efficiency gain feeds the next problem:</p>
+        <ul class="chunk-list">
+          <li>Efficiency demands a <strong style="color:var(--gold)">shorter bench</strong>.</li>
+          <li>A shorter bench raises <strong style="color:var(--gold)">attrition risk</strong>.</li>
+          <li>Attrition creates <strong style="color:var(--gold)">backlogs</strong>.</li>
+          <li>Backlogs damage <strong style="color:var(--gold)">service quality</strong>.</li>
+          <li>Poor quality triggers <strong style="color:var(--gold)">escalations</strong> that cost more than the efficiency saved.</li>
+        </ul>
+        <p style="margin-top:12px;">Not a failure of GBS — it is the structural tension every professional works inside. Reading it helps you understand why certain decisions get made.</p>
       </div>
 
       <div class="insight-block">
@@ -876,32 +885,58 @@
         <div class="gov-card">
           <div class="gov-number">01</div>
           <h4>Process standards and controls</h4>
-          <p>The guardrails around how work is executed. Defines what steps are mandatory, what requires approval, what gets documented, and what triggers an exception. Directly linked to audit readiness and <a class="gloss" href="#g-sox">SOX<span class="tooltip">Sarbanes-Oxley Act — US legislation requiring financial reporting controls in publicly listed companies. SOX compliance is a core GBS accountability.</span></a> compliance where applicable.</p>
+          <p class="lead">The guardrails around how work gets executed.</p>
+          <ul>
+            <li>Define what is <strong>mandatory</strong>, what needs <strong>approval</strong>, what gets <strong>documented</strong>, and what triggers an <strong>exception</strong>.</li>
+            <li>Tied directly to <strong>audit readiness</strong> and <a class="gloss" href="#g-sox">SOX<span class="tooltip">Sarbanes-Oxley Act — US legislation requiring financial reporting controls in publicly listed companies. SOX compliance is a core GBS accountability.</span></a> compliance where applicable.</li>
+          </ul>
         </div>
         <div class="gov-card">
           <div class="gov-number">02</div>
           <h4>Policies and codes of conduct</h4>
-          <p>The behavioral and ethical standards the center operates by. Includes anti-corruption policy, code of conduct, equal rights and diversity commitments, whistleblower and <a class="gloss" href="#g-ombudsman">ombudsman<span class="tooltip">Ombudsman — an independent function providing confidential channels for employees to raise concerns without fear of retaliation</span></a> mechanisms, and mandatory training requirements. Most centers publish these externally.</p>
+          <p class="lead">The behavioural and ethical standards the center runs by.</p>
+          <ul>
+            <li>Anti-corruption policy, <strong>code of conduct</strong>, equal-rights and diversity commitments.</li>
+            <li>Whistleblower and <a class="gloss" href="#g-ombudsman">ombudsman<span class="tooltip">Ombudsman — an independent function providing confidential channels for employees to raise concerns without fear of retaliation</span></a> mechanisms, plus <strong>mandatory training</strong>.</li>
+            <li>Most centers <strong>publish these externally</strong>.</li>
+          </ul>
         </div>
         <div class="gov-card">
           <div class="gov-number">03</div>
           <h4>Decision rights and escalation paths</h4>
-          <p>Who can approve what, at what threshold, and what happens when an exception falls outside normal parameters. Poorly defined decision rights are one of the most common causes of operational friction — work stalls because nobody is clear who can say yes.</p>
+          <p class="lead">Who can approve what, at what threshold — and what happens past it.</p>
+          <ul>
+            <li>Covers approval authority and the route for exceptions outside normal parameters.</li>
+            <li><strong>Poorly defined decision rights</strong> are a top cause of operational friction — work stalls when nobody is clear who can say yes.</li>
+          </ul>
         </div>
         <div class="gov-card">
           <div class="gov-number">04</div>
           <h4>Culture, values, and center principles</h4>
-          <p>Every established GBS center publishes a set of values or cornerstone principles. These govern how people are expected to work, how performance is framed, and what behaviors get rewarded. In mature centers, culture is considered part of governance — not separate from it.</p>
+          <p class="lead">Every established GBS center publishes cornerstone values.</p>
+          <ul>
+            <li>They govern how people work, how <strong>performance is framed</strong>, and what behaviours get rewarded.</li>
+            <li>In mature centers, <strong>culture is part of governance</strong> — not separate from it.</li>
+          </ul>
         </div>
         <div class="gov-card">
           <div class="gov-number">05</div>
           <h4>Stakeholder and service governance</h4>
-          <p>The formal structures through which GBS and its business customers interact — governance forums, service review meetings, escalation committees. Typically more formalized at higher maturity stages. At Stage 1, these are informal conversations. At Stage 3+, they are structured, documented, and tied to SLA performance.</p>
+          <p class="lead">The formal structures where GBS and its business customers interact.</p>
+          <ul>
+            <li>Governance forums, <strong>service review meetings</strong>, escalation committees.</li>
+            <li><strong>Stage 1:</strong> informal conversations. <strong>Stage 3+:</strong> structured, documented, tied to <strong>SLA performance</strong>.</li>
+          </ul>
         </div>
         <div class="gov-card">
           <div class="gov-number">06</div>
           <h4>HR and workforce governance</h4>
-          <p>The standards that apply to employment at the site level — hiring criteria, salary band management, career path frameworks, training requirements, talent review processes. Owned by GBS site leadership regardless of which functional owner manages the work. This is what keeps the center cohesive when scope is split across multiple functional owners.</p>
+          <p class="lead">The standards for employment at the site level.</p>
+          <ul>
+            <li>Hiring criteria, <strong>salary-band management</strong>, career-path frameworks, training, talent reviews.</li>
+            <li>Owned by <strong>GBS site leadership</strong>, whoever manages the work.</li>
+            <li>Keeps the center <strong>cohesive</strong> when scope is split across functional owners.</li>
+          </ul>
         </div>
       </div>
 
@@ -1175,6 +1210,7 @@
 
   </main>
 </div>
+<script src="/assets/site.js" defer></script>
 
 </body>
 </html>

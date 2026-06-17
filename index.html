@@ -649,6 +649,7 @@
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
@@ -704,13 +705,13 @@
 <div style="margin:-24px 0 48px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:12px;">
   <svg viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;display:block;margin:0 auto;">
     <rect x="0" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1"/>
-    <text x="90" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#1d6aff">10</text>
+    <text x="90" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#1d6aff" data-count="10">10</text>
     <text x="90" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Career pillars</text>
     <rect x="210" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1"/>
-    <text x="300" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#e8b800">145+</text>
+    <text x="300" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#e8b800" data-count="145" data-suffix="+">145+</text>
     <text x="300" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Actionable topics</text>
     <rect x="420" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#38bdf8" stroke-width="1"/>
-    <text x="510" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#38bdf8">37</text>
+    <text x="510" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#38bdf8" data-count="37">37</text>
     <text x="510" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">AI Field Guide chapters</text>
     <rect x="630" y="10" width="170" height="60" rx="8" fill="#141922" stroke="#ff3355" stroke-width="1"/>
     <text x="715" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#ff3355">Free</text>
@@ -725,19 +726,19 @@
 
   <div class="why-grid">
     <div class="why-card featured" data-num="01">
-      <h3>You don't know the unwritten rules</h3>
+      <h3><img class="h-icon" src="images/icons-line/08-search.webp" alt="" aria-hidden="true">You don't know the unwritten rules</h3>
       <p>How corporations actually make decisions. What gets you promoted versus what keeps you busy. The difference between performing well and being seen to perform well. Nobody teaches this. And it determines everything.</p>
     </div>
     <div class="why-card" data-num="02">
-      <h3>You want to earn more but don't know how to ask</h3>
+      <h3><img class="h-icon" src="images/icons-line/04-growth.webp" alt="" aria-hidden="true">You want to earn more but don't know how to ask</h3>
       <p>Salary progression in GBS is faster when you understand what drives it — skills, visibility, timing, and positioning. Most people wait. The ones who move up act deliberately.</p>
     </div>
     <div class="why-card" data-num="03">
-      <h3>Your organization doesn't train you well enough</h3>
+      <h3><img class="h-icon" src="images/icons-line/10-idea.webp" alt="" aria-hidden="true">Your organization doesn't train you well enough</h3>
       <p>Most GBS teams are under-invested in capability development. The training exists. The time and structure rarely do. GBS Insider Club fills that gap — organized, actionable, and built for how you actually learn.</p>
     </div>
     <div class="why-card" data-num="04">
-      <h3>Your progress depends too much on who you work for</h3>
+      <h3><img class="h-icon" src="images/icons-line/07-handshake.webp" alt="" aria-hidden="true">Your progress depends too much on who you work for</h3>
       <p>Great managers sponsor talent. Average managers manage it. Most professionals don't get to choose, and career outcomes reflect it. We teach you how to compensate for that gap, regardless of who your manager is.</p>
     </div>
     <div class="why-card full" data-num="">
@@ -1329,6 +1330,7 @@ function closeRole() {
 
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeRole(); });
 </script>
+<script src="/assets/site.js" defer></script>
 
 </body>
 </html>

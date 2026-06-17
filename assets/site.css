@@ -1,0 +1,168 @@
+/* ============================================================
+   site.css — GBS Insider Club dynamic + glassmorphism layer
+   Additive & reversible: remove the <link> to revert.
+   Targets EXISTING class names so most effects need no markup.
+   Pilot: index.html + pillar-1-gbs-fundamentals.html
+   ============================================================ */
+
+/* ---- shared tokens (fallbacks; pages define their own too) ---- */
+:root {
+  --glass-bg: rgba(20, 25, 34, 0.55);
+  --glass-brd: rgba(255, 255, 255, 0.08);
+  --glass-blur: 14px;
+  --gold-line: #e8b800;
+  --ease: cubic-bezier(.16, .84, .44, 1);
+}
+
+/* ============================================================
+   1. SCROLL REVEAL  (JS adds .is-in when element enters view)
+   ============================================================ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+  will-change: opacity, transform;
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+/* stagger children */
+[data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+[data-reveal-group].is-in > * { opacity: 1; transform: none; }
+[data-reveal-group].is-in > *:nth-child(2) { transition-delay: .06s; }
+[data-reveal-group].is-in > *:nth-child(3) { transition-delay: .12s; }
+[data-reveal-group].is-in > *:nth-child(4) { transition-delay: .18s; }
+[data-reveal-group].is-in > *:nth-child(5) { transition-delay: .24s; }
+[data-reveal-group].is-in > *:nth-child(6) { transition-delay: .30s; }
+
+/* ============================================================
+   2. GLASSMORPHISM  — applied to existing card classes
+   ============================================================ */
+.why-card,
+.audience-card,
+.stats-panel,
+.cluster-card,
+.pillar-tile,
+.gov-card,
+.owner-card,
+.topic-tile,
+.mat-stage,
+.axis-card {
+  background: var(--glass-bg) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(125%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(125%);
+  border: 1px solid var(--glass-brd) !important;
+  transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+
+/* hover lift + gold edge */
+.why-card:hover,
+.audience-card:hover,
+.cluster-card:hover,
+.pillar-tile:hover,
+.gov-card:hover,
+.owner-card:hover,
+.topic-tile:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232, 184, 0, 0.45) !important;
+  box-shadow: 0 14px 40px -18px rgba(0, 0, 0, 0.8),
+              0 0 0 1px rgba(232, 184, 0, 0.10);
+}
+/* gov-card number glows gold on hover */
+.gov-card:hover .gov-number { color: var(--gold-line); transition: color .35s var(--ease); }
+
+/* crisp bullets inside chunked cards — reusable */
+.gov-card .lead, .chunk-lead { margin: 0 0 10px; font-weight: 500; color: #fff; }
+.gov-card ul, .chunk-list { margin: 0; padding-left: 1.05em; list-style: none; }
+.gov-card ul li, .chunk-list li { position: relative; margin: 0 0 7px; padding-left: 0.2em; line-height: 1.55; }
+.gov-card ul li::before, .chunk-list li::before {
+  content: ""; position: absolute; left: -0.85em; top: 0.62em;
+  width: 5px; height: 5px; border-radius: 1px;
+  background: var(--gold-line); transform: rotate(45deg);
+}
+
+/* ============================================================
+   3. AURORA HERO  — drifting gradient behind hero text
+   ============================================================ */
+.hero { position: relative; isolation: isolate; }
+.hero::before {
+  content: "";
+  position: absolute; inset: -10% -10% auto -10%; height: 130%;
+  z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(40% 55% at 18% 25%, rgba(29,106,255,0.20), transparent 70%),
+    radial-gradient(38% 50% at 82% 30%, rgba(232,184,0,0.14), transparent 72%),
+    radial-gradient(45% 55% at 60% 80%, rgba(56,189,248,0.12), transparent 75%);
+  filter: blur(20px);
+  animation: aurora 22s var(--ease) infinite alternate;
+}
+@keyframes aurora {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(2%, 1.5%, 0) scale(1.08); }
+  100% { transform: translate3d(-2%, -1%, 0) scale(1.04); }
+}
+
+/* ============================================================
+   4. CONCEPT FIGURE  — small inline gold line-art that teaches
+   ============================================================ */
+.concept-fig {
+  margin: 8px auto 28px;
+  max-width: 340px;
+  text-align: center;
+}
+.concept-fig.wide { max-width: 460px; }
+.concept-fig img {
+  width: 100%; height: auto; display: block;
+  border-radius: 14px;
+  background: rgba(8, 11, 16, 0.6);
+  border: 1px solid var(--glass-brd);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  padding: 14px;
+}
+.concept-fig figcaption {
+  margin-top: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: #aeb9c9;
+}
+
+/* ============================================================
+   5. PHOTO BAND  — human photo with dark legibility overlay
+   ============================================================ */
+.photo-band {
+  position: relative; margin: 0 0 48px;
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--glass-brd);
+}
+.photo-band img { width: 100%; display: block; }
+.photo-band::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(8,11,16,0.25), rgba(8,11,16,0.78));
+}
+
+/* ============================================================
+   6. INLINE HEADING ICON  — breaks up text-heavy passages
+   ============================================================ */
+.h-icon {
+  width: 1.7em; height: 1.7em;
+  vertical-align: -0.34em; margin-right: 0.55em;
+  object-fit: contain; flex-shrink: 0;
+  opacity: 0.95;
+}
+.cluster-heading h3 { display: flex; align-items: center; }
+
+/* ============================================================
+   7. COUNT-UP  (JS drives the number; this just steadies layout)
+   ============================================================ */
+.cu, [data-count] { font-variant-numeric: tabular-nums; }
+
+/* ============================================================
+   8. ACCESSIBILITY — honour reduced-motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], [data-reveal-group] > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero::before { animation: none; }
+  * { scroll-behavior: auto !important; }
+}
