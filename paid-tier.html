@@ -558,8 +558,8 @@
 <!-- ============ STRIPE CHECKOUT ============ -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // Stripe publishable key (test mode) — used for future embedded checkout; redirect flow doesn't need it client-side
-  const STRIPE_PK = 'pk_test_51ThWtv6mItRCsuhhHkbjJxiHffR1GXGVMHZV1V2NioPouhAFvDsHMPuKS8IZYUy07MSLbB0HMhQqheckacNpduLf003Olq2GRT';
+  // Stripe publishable key (live mode) — used for future embedded checkout; redirect flow doesn't need it client-side
+  const STRIPE_PK = 'pk_live_51ThWti8XdaNq7YI5I9sfTVgIGfMfgIFL2ZBUCghl8rwbToGdMPdkMnYMkogEL8MquKCM2nxxTvBxdgPMHoPckn7Z000tpRs5Hk';
   const SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
   const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
