@@ -1,0 +1,104 @@
+/* ============================================================
+   GBS Insider Club — Global Readability Layer
+   Loaded LAST in <head> on every page, so equal-specificity
+   rules win on source order. Additive only: no layout structure
+   is changed. Remove the single <link> line to revert any page.
+
+   Fixes (all reported by Julian, 2026-06):
+   1. Thin Light (300) body text on near-black  -> heavier weight
+   2. 12-13px content text                      -> 15-16px floor
+   3. Tight spacing between dense blocks         -> more air
+   4. Low-contrast grey secondary text           -> lifted contrast
+   ============================================================ */
+
+/* 1 ── CONTRAST: lift the secondary/muted greys site-wide ─────
+   Dark themes (Stripe/Linear) win on CONTRAST, not dimness.     */
+:root {
+  --text-2: #dbe2ec;   /* was #c8d0de — brighter body contrast   */
+  --muted:  #97a4b8;   /* lift any muted greys used for meta text */
+  --border:   #232c3e;  /* slightly clearer card edges            */
+  --border-2: #2c374c;
+}
+
+/* 2 ── WEIGHT: kill the thin Light-300 body everywhere ──────── */
+body,
+p, li, td, .card, .card *, .section, .section p,
+.dash-card p, .af-step p, .mdm-body li, .pivot-body p,
+.formula-side li, .insight-body, .insight-body li,
+.stat-label, .glossary, .sidebar-item, .nav-label {
+  font-weight: 400;
+}
+/* keep deliberate headings/labels bold */
+h1, h2, h3, h4, h5, b, strong,
+.eyebrow, .section-eyebrow, .hero-eyebrow,
+.insight-label, .tension-label, .formula-tag,
+.sidebar-group-label, .brand-name { font-weight: 600; }
+
+/* 3 ── SIZE: raise genuine CONTENT text to a readable floor ──
+   Targets prose/list/data-card text only. Mono eyebrows, badges,
+   and uppercase labels are intentionally small and left alone.   */
+.section p, .card p, .card li,
+.dash-card p, .af-step p, .af-step h4,
+.mdm-body li, .mdm-header,
+.pivot-body p, .formula-side li,
+.insight-body, .insight-body li,
+.glossary-def, .gloss .tooltip,
+.lead, .stat-label, .sidebar-item span.nav-label {
+  font-size: 16px;
+  line-height: 1.72;
+}
+/* lead / intro paragraphs a touch larger */
+.lead, .section > p:first-of-type, .hero-sub { font-size: 18px; line-height: 1.68; }
+/* sidebar nav: more legible, brighter */
+.sidebar-item span.nav-label { font-size: 14px; color: #eef2f8; }
+.sidebar-on-page a { font-size: 14px; }
+
+/* list items: bump 12px lists used inside data cards */
+.mdm-body ul li, .formula-side ul li,
+.af-step p, .dash-card p { font-size: 16px; line-height: 1.7; }
+
+/* 4 ── SPACING: give dense text room to breathe ─────────────── */
+.section p, .card p, .pivot-body p, .insight-body p { margin-bottom: 14px; }
+.section p:last-child, .card p:last-child { margin-bottom: 0; }
+
+/* space between list items */
+.card ul li, .insight-body ul li,
+.formula-side ul li, .mdm-body ul li { padding-top: 7px; padding-bottom: 7px; }
+
+/* more air around major content cards / sections */
+.card { padding: 28px; }
+.card + .card { margin-top: 20px; }
+
+/* 5 ── MEASURE & RHYTHM: keep long prose readable ───────────── */
+.section p, .lead { max-width: 68ch; }      /* comfortable line length */
+h2 { line-height: 1.25; margin-bottom: 14px; }
+h3 { line-height: 1.3;  margin-bottom: 10px; }
+
+/* 5b ── HIERARCHY & RHYTHM: Stripe/Linear-grade type scale ─────
+   Clearer step between heading levels + more space between the
+   dense stacked sections that currently run together.           */
+h2 { font-size: clamp(26px, 3vw, 34px); letter-spacing: -0.5px; }
+h3 { font-size: clamp(19px, 2vw, 22px); letter-spacing: -0.2px; }
+h4 { font-size: 16px; letter-spacing: 0; }
+
+/* breathing room between the major stacked content blocks
+   (.section is a wrapper with no padding of its own, so add
+   separation via margin — additive, won't compound inner pads) */
+.section + .section { margin-top: 32px; }
+
+/* eyebrow-to-heading and heading-to-body spacing */
+.eyebrow, .section-eyebrow { margin-bottom: 14px; }
+
+/* 6 ── LINKS in body copy: clearer affordance ───────────────── */
+.section a:not(.nav-cta):not([class*="btn"]):not([class*="tile"]) {
+  text-underline-offset: 3px;
+}
+
+/* 7 ── MOBILE: bump the smallest text up one more notch ─────── */
+@media (max-width: 640px) {
+  .section p, .card p, .card li, .dash-card p, .af-step p,
+  .mdm-body li, .pivot-body p, .formula-side li, .insight-body li {
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+}
