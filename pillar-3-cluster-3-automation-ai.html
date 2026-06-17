@@ -231,8 +231,18 @@ a.gloss:hover .tooltip{display:block;}
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="15" y="15" width="14" height="14" rx="2"/><rect x="19.5" y="19.5" width="5" height="5" rx="1"/><path d="M19 15 V12.5 M22 15 V12.5 M25 15 V12.5 M19 29 V31.5 M22 29 V31.5 M25 29 V31.5 M15 19 H12.5 M15 22 H12.5 M15 25 H12.5 M29 19 H31.5 M29 22 H31.5 M29 25 H31.5"/></svg></span><p class="section-eyebrow">Topic 01 · <strong style="color:var(--gold)">Robotic Process Automation</strong></p></div>
       <h2>RPA — what it actually does and where it breaks</h2>
       <p class="section-hook"><strong style="color:var(--gold)">RPA</strong> automates the clicks, not the thinking. That distinction defines where it works, where it fails, and why clean data matters more than clever bots.</p>
-      <p style="margin-bottom:20px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">What it does:</strong> Robotic Process <strong style="color:var(--gold)">Automation</strong> uses software robots to mimic human interactions with applications, clicking buttons, copying data between systems, filling forms, and running predefined sequences. The key word is "predefined." RPA excels at high-volume, rule-based, stable processes where the steps are identical every time. Invoice data entry from a structured template, payroll file uploads between systems, and report distribution to fixed distribution lists are textbook RPA candidates.</p>
-<p style="margin-bottom:20px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">Where it breaks:</strong> Processes with frequent exceptions, unstructured inputs, or unstable user interfaces break bots constantly. A bot trained to click the third button on screen four will crash when a system update moves that button. RPA does not understand context. It follows instructions. If the data is dirty, the process is inconsistent, or the system changes without notice, the bot produces errors at machine speed.</p>
+      <p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">What it does:</strong> Robotic Process <strong style="color:var(--gold)">Automation</strong> uses software robots to mimic human interactions with applications — the key word is "predefined."</p>
+      <ul class="chunk-list" style="margin-bottom:20px;padding-left:20px;color:var(--text);line-height:1.75;">
+        <li>Clicks buttons, copies data between systems, fills forms, and runs predefined sequences</li>
+        <li>Excels at <strong>high-volume, rule-based, stable processes</strong> where the steps are identical every time</li>
+        <li>Textbook candidates: invoice data entry from a structured template, payroll file uploads between systems, report distribution to fixed distribution lists</li>
+      </ul>
+<p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">Where it breaks:</strong> RPA does not understand context — it follows instructions. Exceptions, unstructured inputs, and unstable interfaces break bots constantly.</p>
+<ul class="chunk-list" style="margin-bottom:20px;padding-left:20px;color:var(--text);line-height:1.75;">
+  <li>A bot trained to click the third button on screen four crashes when a system update moves that button</li>
+  <li><strong>Dirty data</strong> = dirty outputs, now produced at machine speed with an automated timestamp</li>
+  <li>Inconsistent processes and unannounced system changes are the top bot-killers in GBS</li>
+</ul>
 <div class="card teal">
       <div class="card-title">RPA suitability criteria — what makes a good candidate</div>
       <ul>
@@ -288,7 +298,13 @@ a.gloss:hover .tooltip{display:block;}
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 32 H33"/><rect x="14" y="24" width="4.5" height="8" rx="1"/><rect x="20.5" y="20" width="4.5" height="12" rx="1"/><rect x="27" y="16" width="4.5" height="16" rx="1"/></svg></span><p class="section-eyebrow">Topic 02 · Intelligent Document Processing</p></div>
       <h2>IDP and OCR — reading what bots cannot</h2>
       <p class="section-hook">When documents arrive as PDFs, scanned images, or email attachments, standard RPA cannot process them. That is where intelligent document processing fills the gap.</p>
-      <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Optical Character Recognition (<strong style="color:var(--gold)">OCR</strong>) converts images of text into machine-readable data. Intelligent Document Processing (<strong style="color:var(--gold)">IDP</strong>) goes further — it uses <strong style="color:var(--gold)">machine learning</strong> to identify document types, extract specific fields (invoice number, amount, date, vendor name), validate the extracted data against business rules, and flag exceptions for human review. In GBS finance operations, IDP is the bridge between paper-based or PDF-based inputs and structured ERP transactions.</p>
+      <p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;">Optical Character Recognition (<strong style="color:var(--gold)">OCR</strong>) converts images of text into machine-readable data. Intelligent Document Processing (<strong style="color:var(--gold)">IDP</strong>) goes further — using <strong style="color:var(--gold)">machine learning</strong> to turn documents into structured ERP transactions.</p>
+<ul class="chunk-list" style="margin-bottom:20px;padding-left:20px;color:var(--text);line-height:1.75;">
+  <li>Identifies document types automatically</li>
+  <li>Extracts specific fields: invoice number, amount, date, vendor name</li>
+  <li>Validates extracted data against business rules</li>
+  <li>Flags exceptions for human review — keeping humans on edge cases, not data entry</li>
+</ul>
 <div class="card teal">
       <div class="card-title">IDP in GBS — typical use cases</div>
       <ul>
@@ -361,7 +377,12 @@ a.gloss:hover .tooltip{display:block;}
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="15" y="15" width="14" height="14" rx="2"/><rect x="19.5" y="19.5" width="5" height="5" rx="1"/><path d="M19 15 V12.5 M22 15 V12.5 M25 15 V12.5 M19 29 V31.5 M22 29 V31.5 M25 29 V31.5 M15 19 H12.5 M15 22 H12.5 M15 25 H12.5 M29 19 H31.5 M29 22 H31.5 M29 25 H31.5"/></svg></span><p class="section-eyebrow">Topic 04 · <strong style="color:var(--gold)">No-Code</strong> and Low-Code</p></div>
       <h2>No-code tools — automating without engineering</h2>
       <p class="section-hook">Power Automate, Make, and Zapier let GBS analysts build automations without writing code. The risk is ungoverned proliferation.</p>
-      <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">No-code automation platforms allow business users to connect applications, trigger workflows, and move data between systems using visual drag-and-drop interfaces. In GBS, this means an analyst can build a flow that automatically saves email attachments to SharePoint, creates a Teams notification when an SLA breach occurs, or routes approval requests based on amount thresholds — all without submitting an IT development request.</p>
+      <p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;">No-code automation platforms let business users connect applications, trigger workflows, and move data between systems using visual drag-and-drop — no IT development request needed.</p>
+<ul class="chunk-list" style="margin-bottom:20px;padding-left:20px;color:var(--text);line-height:1.75;">
+  <li>Auto-save email attachments to <strong>SharePoint</strong></li>
+  <li>Fire a Teams notification when an <strong>SLA breach</strong> occurs</li>
+  <li>Route approval requests based on amount thresholds</li>
+</ul>
 <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">The power is obvious. The risk is less visible. When every team builds their own automations without central oversight, you get <strong style="color:var(--gold)">Shadow IT</strong> at scale: undocumented workflows that break silently, duplicate data across systems, and bypass security controls.</p>
 <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">The answer is not to ban no-code tools. It is to establish a lightweight governance framework: a central registry of automations, naming conventions, error notification standards, and periodic reviews.</p>
 <div class="card gold">
@@ -406,7 +427,12 @@ a.gloss:hover .tooltip{display:block;}
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="15" y="15" width="14" height="14" rx="2"/><rect x="19.5" y="19.5" width="5" height="5" rx="1"/><path d="M19 15 V12.5 M22 15 V12.5 M25 15 V12.5 M19 29 V31.5 M22 29 V31.5 M25 29 V31.5 M15 19 H12.5 M15 22 H12.5 M15 25 H12.5 M29 19 H31.5 M29 22 H31.5 M29 25 H31.5"/></svg></span><p class="section-eyebrow">Topic 05 · Process Intelligence</p></div>
       <h2>Process mining — seeing what actually happens</h2>
       <p class="section-hook"><strong style="color:var(--gold)">Process mining</strong> tools like Celonis and UiPath Process Mining read event logs from your ERP and show you the actual process flow, not the one documented in the SOP.</p>
-      <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Process mining extracts event logs from transactional systems (SAP, Oracle, ServiceNow) and reconstructs the actual process as it was executed — every step, every handoff, every deviation, every rework loop. The output is a visual process map that shows where the real bottlenecks are, which variants consume the most time, and where compliance violations occur. For GBS operations, this is transformative because it replaces opinion-based process improvement with data-driven evidence.</p>
+      <p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;">Process mining extracts event logs from transactional systems (SAP, Oracle, ServiceNow) and reconstructs the actual process as it was executed — replacing opinion-based improvement with <strong style="color:var(--gold)">data-driven evidence</strong>.</p>
+<ul class="chunk-list" style="margin-bottom:20px;padding-left:20px;color:var(--text);line-height:1.75;">
+  <li>Captures every step, every handoff, every deviation, every rework loop</li>
+  <li>Output is a <strong>visual process map</strong> showing real bottlenecks and process variants by time consumed</li>
+  <li>Surfaces compliance violations that process documentation would never reveal</li>
+</ul>
 <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">The technology works. The challenge is organizational. Process mining reveals uncomfortable truths:</p>
 <ul>
 <li>that the "standard" process has 47 variants;</li>
@@ -462,7 +488,13 @@ a.gloss:hover .tooltip{display:block;}
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Hyperautomation is not a single technology. It is the orchestration of multiple automation capabilities: RPA for structured tasks, IDP for document processing, AI for decision support, process mining for discovery, and workflow engines for routing. The goal is <strong style="color:var(--gold)">end-to-end</strong> process automation rather than point solutions.</p>
 <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">In GBS, this means an invoice can be received, classified by IDP, validated by business rules, matched by RPA, flagged by AI for anomalies, and posted to the ERP, with human intervention only for genuine exceptions.</p>
 <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Agentic AI represents the emerging frontier. Unlike traditional automation that follows predefined scripts, AI agents can plan multi-step actions, access multiple tools and data sources, and adapt their approach based on what they find.</p>
-<p style="margin-bottom:20px;color:var(--text);line-height:1.75;">In a GBS context, an agent might investigate a payment discrepancy by querying the ERP, checking the contract management system, reviewing email correspondence, drafting a resolution proposal, and escalating if the amount exceeds a threshold. This is moving from automation that does to AI that thinks and acts. Governance, audit trails, and human oversight remain critical, particularly for finance-critical processes.</p>
+<p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;">In a GBS context, an agent might investigate a payment discrepancy end-to-end — without a human touching it until a genuine decision point is reached.</p>
+<ul class="chunk-list" style="margin-bottom:20px;padding-left:20px;color:var(--text);line-height:1.75;">
+  <li>Queries the ERP, checks the contract management system, reviews email correspondence</li>
+  <li>Drafts a resolution proposal and escalates if the amount exceeds a threshold</li>
+  <li>This is the shift from <strong>automation that does</strong> to <strong style="color:var(--gold)">AI that thinks and acts</strong></li>
+  <li>Governance, audit trails, and human oversight remain critical — especially for finance-critical processes</li>
+</ul>
 <div class="card teal">
       <div class="card-title">Hyperautomation maturity levels</div>
       <ul>
