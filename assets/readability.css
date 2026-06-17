@@ -102,3 +102,18 @@ h4 { font-size: 16px; letter-spacing: 0; }
     line-height: 1.75;
   }
 }
+
+/* 8 ── SUB-DIAGRAM SVG LEGIBILITY (site-wide) ──────────────────
+   The inline diagram SVGs hard-code tiny font sizes and a very
+   dim grey (#7a8799). Author CSS overrides SVG presentation
+   attributes, so we lift the dim greys and bump the small label
+   fonts without touching gold/white text or diagram geometry.   */
+.sub-diagram svg text[fill="#7a8799"] { fill: #aeb9c9; }   /* dim grey → readable */
+.sub-diagram svg text[fill="#c8d0de"] { fill: #dbe2ec; }   /* lift body grey */
+.sub-diagram svg text[font-size="8"]  { font-size: 10px; }
+.sub-diagram svg text[font-size="9"]  { font-size: 11px; }
+.sub-diagram svg text[font-size="10"] { font-size: 12px; }
+.sub-diagram svg text[font-size="11"] { font-size: 12.5px; }
+.sub-diagram svg text[font-size="12"] { font-size: 13.5px; }
+/* let diagrams use a touch more width on desktop so they read larger */
+.sub-diagram svg { max-width: 760px !important; }

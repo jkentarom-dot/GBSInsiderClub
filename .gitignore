@@ -4,3 +4,7 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# Local session handover (do NOT publish to public repo)
+HANDOVER.md
+.claude/
