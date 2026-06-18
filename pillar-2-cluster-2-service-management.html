@@ -436,6 +436,7 @@
       <h2>Managing <a class="gloss" href="#g-transition">service transitions<span class="tooltip">Service transition — the structured process of migrating a process or service from the business or a previous provider into GBS operations, while maintaining service quality throughout.</span></a> — the most dangerous phase in GBS</h2>
       <p class="section-hook">A <strong style="color:var(--gold)">service transition</strong> is when GBS takes on a process that was previously run somewhere else. The migration window is when the most things go wrong — and when the service relationship is most fragile.</p>
 
+      <div class="media-row">
       <div class="transition-stages">
         <div class="ts-row">
           <div class="ts-stage">Discovery</div>
@@ -483,6 +484,42 @@
             <p>Resolve issues, close knowledge gaps, normalize volumes, and build team confidence. SLA targets may be relaxed during this window — formalize what "full service" looks like and when the stabilization period officially ends. Transition is not over until metrics are consistently meeting BAU targets.</p>
           </div>
         </div>
+      </div>
+      <figure class="side-visual">
+        <svg viewBox="0 0 230 248" role="img" aria-label="Service transition: five stages from Discovery to Stabilization">
+          <defs>
+            <marker id="ar-transition" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#6b7891"/>
+            </marker>
+          </defs>
+          <!-- Stage 1: Discovery -->
+          <rect x="20" y="8" width="190" height="32" rx="8" fill="#141922" stroke="#c8d0de" stroke-width="1.2"/>
+          <text x="115" y="28" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#c8d0de">Discovery</text>
+          <!-- Arrow -->
+          <line x1="115" y1="40" x2="115" y2="52" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-transition)"/>
+          <!-- Stage 2: Design -->
+          <rect x="20" y="54" width="190" height="32" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+          <text x="115" y="74" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Design</text>
+          <!-- Arrow -->
+          <line x1="115" y1="86" x2="115" y2="98" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-transition)"/>
+          <!-- Stage 3: Build -->
+          <rect x="20" y="100" width="190" height="32" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+          <text x="115" y="120" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Build</text>
+          <!-- Warning label -->
+          <text x="115" y="133" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#aeb9c9" letter-spacing="0.08em">most-compressed phase</text>
+          <!-- Arrow -->
+          <line x1="115" y1="144" x2="115" y2="156" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-transition)"/>
+          <!-- Stage 4: Go-Live -->
+          <rect x="20" y="158" width="190" height="32" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.4"/>
+          <text x="115" y="178" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#e8b800">Go-Live + Hypercare</text>
+          <!-- Arrow -->
+          <line x1="115" y1="190" x2="115" y2="202" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-transition)"/>
+          <!-- Stage 5: Stabilization -->
+          <rect x="20" y="204" width="190" height="32" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+          <text x="115" y="224" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Stabilization → BAU</text>
+        </svg>
+        <figcaption>Build phase is the <strong>highest-risk compression point</strong>.</figcaption>
+      </figure>
       </div>
 
       <div class="tension-box">
