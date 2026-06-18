@@ -297,6 +297,7 @@ a.gloss:hover .tooltip{display:block;}
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><p class="section-eyebrow">Topic 03 · AI Governance</p></div>
       <h2>Ethical AI — governance of automated decisions</h2>
       <p class="section-hook">When AI makes or influences decisions in GBS — invoice approval routing, hiring screening, performance analytics — the organization needs governance to ensure those decisions are fair, transparent, and auditable.</p>
+      <div class="media-row">
       <div class="card gold">
       <div class="card-title">AI governance principles for GBS</div>
       <ul>
@@ -307,6 +308,45 @@ a.gloss:hover .tooltip{display:block;}
         <li>Human oversight — critical decisions (hiring, performance ratings, financial approvals) require human review, not full <strong style="color:var(--gold)">automation</strong></li>
       </ul>
     </div>
+      <figure class="side-visual">
+        <svg viewBox="0 0 230 248" role="img" aria-label="AI governance vertical flow: Transparency → Fairness → Accountability → Auditability → Human Oversight">
+          <defs>
+            <marker id="ar-aigov" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#6b7891"/>
+            </marker>
+          </defs>
+          <!-- Node 1: Transparency -->
+          <rect x="15" y="8" width="200" height="34" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+          <text x="115" y="21" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Transparency</text>
+          <text x="115" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#aeb9c9">Users know AI is involved</text>
+          <!-- Arrow -->
+          <line x1="115" y1="42" x2="115" y2="55" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-aigov)"/>
+          <!-- Node 2: Fairness -->
+          <rect x="15" y="57" width="200" height="34" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+          <text x="115" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Fairness</text>
+          <text x="115" y="83" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#aeb9c9">Test for bias, all groups</text>
+          <!-- Arrow -->
+          <line x1="115" y1="91" x2="115" y2="104" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-aigov)"/>
+          <!-- Node 3: Accountability -->
+          <rect x="15" y="106" width="200" height="34" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+          <text x="115" y="119" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Accountability</text>
+          <text x="115" y="132" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#aeb9c9">Human owner per decision</text>
+          <!-- Arrow -->
+          <line x1="115" y1="140" x2="115" y2="153" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-aigov)"/>
+          <!-- Node 4: Auditability -->
+          <rect x="15" y="155" width="200" height="34" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+          <text x="115" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Auditability</text>
+          <text x="115" y="181" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#aeb9c9">Decisions documented</text>
+          <!-- Arrow -->
+          <line x1="115" y1="189" x2="115" y2="202" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-aigov)"/>
+          <!-- Node 5: Human Oversight (gold emphasis) -->
+          <rect x="15" y="204" width="200" height="34" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.4"/>
+          <text x="115" y="217" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Human Oversight</text>
+          <text x="115" y="230" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#aeb9c9">Review critical decisions</text>
+        </svg>
+        <figcaption>AI governance requires <strong>human oversight always</strong>.</figcaption>
+      </figure>
+      </div>
 
     
     <div class="sub-diagram narrow">
