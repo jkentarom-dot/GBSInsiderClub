@@ -11,14 +11,17 @@
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---- 1. auto-tag elements for reveal (no markup edits needed) ---- */
+  // NOTE: never reveal-tag collapsible content (e.g. .topics-container and the
+  // .tile-grid inside it). Collapsed elements never trigger the IntersectionObserver,
+  // so opacity:0 would stick and the toggled-open content would stay invisible.
   var revealSelectors = [
     "section#why", "section#who", "section#career-map", "section#inside",
-    "section.cluster-nav", ".topics-container", ".photo-band", ".concept-fig",
+    "section.cluster-nav", ".photo-band", ".concept-fig",
     ".section > h2", ".section > .section-hook", ".section > .card"
   ];
   var groupSelectors = [
     ".why-grid", ".audience-grid", ".pillars-grid", ".cluster-cards",
-    ".gov-grid", ".owner-grid", ".tile-grid", ".glossary-grid",
+    ".gov-grid", ".owner-grid", ".glossary-grid",
     ".maturity-track", ".axis-diagram"
   ];
 
