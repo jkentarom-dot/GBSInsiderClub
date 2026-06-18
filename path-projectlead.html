@@ -320,13 +320,17 @@
   <section class="section">
     <h2>The project toolkit</h2>
     <p class="section-intro">A complete, editable set for running a real initiative. Built to look professional and to be adapted — or mapped to your company's branded equivalents.</p>
+    <p class="section-intro" style="margin-top:-8px;font-size:13px;color:var(--text-3);">Tap any tile to see what is inside and how to use it.</p>
     <div class="grid-3">
-      <div class="card"><h3>Project Charter</h3><p>One page: problem, objectives, scope, success criteria, sponsor. Your scope-creep shield.</p></div>
-      <div class="card"><h3>WBS / Master Plan</h3><p>Break the outcome into workstreams, work packages, owners, and dates.</p></div>
-      <div class="card"><h3>RAID Log</h3><p>Live tracker for risks, assumptions, issues, dependencies — with mitigations.</p></div>
-      <div class="card"><h3>Stakeholder Map</h3><p>Power/interest grid with a management plan for each key player.</p></div>
-      <div class="card"><h3>A3 Problem-Solving</h3><p>One-page structured problem-solving for the heart of your project.</p></div>
-      <div class="card"><h3>Status Report</h3><p>Clean weekly status with RAG, progress, risks, and a benefits section.</p></div>
+      <details class="tk-tile"><summary><h3>Project Charter</h3><p>One page: problem, objectives, scope, success criteria, sponsor. Your scope-creep shield.</p></summary><div class="tk-detail"><span class="tk-tag">What's inside</span>A one-page charter with a budget tab and linked-document references. Get it signed off before any work starts — it is what you point to when scope creeps.</div></details>
+      <details class="tk-tile"><summary><h3>WBS / Master Plan</h3><p>Break the outcome into workstreams, work packages, owners, and dates.</p></summary><div class="tk-detail"><span class="tk-tag">How to use it</span>Decompose the outcome top-down until every work package has one owner and a date. The master plan becomes the single source of truth for who delivers what, and when.</div></details>
+      <details class="tk-tile"><summary><h3>RAID Log</h3><p>Live tracker for risks, assumptions, issues, dependencies — with mitigations.</p></summary><div class="tk-detail"><span class="tk-tag">How to use it</span>Review it weekly. Every open risk has an owner and a mitigation; every issue has a resolution date. RAID is where delivery problems surface early instead of at the tollgate.</div></details>
+      <details class="tk-tile"><summary><h3>Stakeholder Map</h3><p>Power/interest grid with a management plan for each key player.</p></summary><div class="tk-detail"><span class="tk-tag">How to use it</span>Score each stakeholder on influence and interest. The quadrant tells you who to manage closely, keep satisfied, keep informed, or simply monitor — and sets your comms cadence.</div></details>
+      <details class="tk-tile"><summary><h3>A3 Problem-Solving</h3><p>One-page structured problem-solving for the heart of your project.</p></summary><div class="tk-detail"><span class="tk-tag">What's inside</span>Background, current state, target, root cause, countermeasures, and plan — on a single page. It forces the thinking before the doing.</div></details>
+      <details class="tk-tile"><summary><h3>Status Report</h3><p>Clean weekly status with RAG, progress, risks, and a benefits section.</p></summary><div class="tk-detail"><span class="tk-tag">What's inside</span>A one-page, four-box layout with a RAG header. Built to brief leadership in two minutes — progress, risks, decisions needed, and benefits tracked.</div></details>
+      <details class="tk-tile"><summary><h3>Project Org Chart</h3><p>Who does what — roles, reporting lines, and the RACI behind them.</p></summary><div class="tk-detail"><span class="tk-tag">What's inside</span>The project structure: sponsor, project lead, workstream leads, and SMEs. Pair it with a RACI so every deliverable has exactly one accountable owner.</div></details>
+      <details class="tk-tile"><summary><h3>Risk Assessment</h3><p>Score risks by likelihood × impact and prioritise mitigations.</p></summary><div class="tk-detail"><span class="tk-tag">How to use it</span>Rate each risk, plot it on a likelihood × impact matrix, and act on the top-right before it bites. Feeds straight into the RAID log.</div></details>
+      <details class="tk-tile"><summary><h3>Change Management Plan</h3><p>The people side: stakeholders, comms, training, and adoption.</p></summary><div class="tk-detail"><span class="tk-tag">How to use it</span>Plan adoption with a model like ADKAR — awareness, desire, knowledge, ability, reinforcement. A technically perfect project still fails if people do not adopt it.</div></details>
     </div>
   </section>
 
@@ -346,6 +350,18 @@
   .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-2); white-space: nowrap; letter-spacing: 0.04em; }
   .progress-label strong { color: var(--gold); font-weight: 600; }
   @media (max-width: 1024px) { .progress-bar-inner { padding: 0 24px; } }
+  /* expandable toolkit tiles */
+  .tk-tile { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  .tk-tile:hover { transform: translateY(-3px); border-color: rgba(232,184,0,0.4); box-shadow: 0 12px 30px -16px rgba(0,0,0,.8); }
+  .tk-tile[open] { border-color: rgba(232,184,0,0.45); }
+  .tk-tile > summary { list-style: none; cursor: pointer; padding: 18px 20px 16px; display: block; }
+  .tk-tile > summary::-webkit-details-marker { display: none; }
+  .tk-tile > summary h3 { font-size: 16px; margin: 0 0 6px; color: var(--text); display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .tk-tile > summary h3::after { content: '+'; color: var(--gold); font-weight: 400; font-size: 20px; line-height: 1; }
+  .tk-tile[open] > summary h3::after { content: '\2212'; }
+  .tk-tile > summary p { font-size: 13.5px; color: var(--text-2); margin: 0; line-height: 1.6; }
+  .tk-detail { padding: 14px 20px 18px; font-size: 13.5px; color: var(--text-2); line-height: 1.7; border-top: 1px solid var(--border); }
+  .tk-tag { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
 </style>
 <script>
 (function() {
