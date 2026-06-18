@@ -195,11 +195,11 @@
 
   /* ── TCO TABLE ── */
   .tco-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
-  .tco-header { display: grid; grid-template-columns: 1fr 120px 120px; background: var(--surface-2); border-bottom: 1px solid var(--border-2); }
+  .tco-header { display: grid; grid-template-columns: 1.1fr 104px 1.9fr; background: var(--surface-2); border-bottom: 1px solid var(--border-2); }
   .tco-header div { padding: 11px 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); }
   .tco-header .h-yes { color: var(--teal); }
   .tco-header .h-miss { color: var(--ruby); }
-  .tco-row { display: grid; grid-template-columns: 1fr 120px 120px; border-bottom: 1px solid var(--border); }
+  .tco-row { display: grid; grid-template-columns: 1.1fr 104px 1.9fr; border-bottom: 1px solid var(--border); }
   .tco-row:last-child { border-bottom: none; }
   .tco-row:hover { background: var(--surface-2); }
   .tco-cost { padding: 13px 18px; font-size: 14px; color: var(--text-2); border-right: 1px solid var(--border); }
@@ -348,7 +348,8 @@
     .stat { border-right: none; border-bottom: 1px solid var(--border); }
     .stat:last-child { border-bottom: none; }
     .glossary-grid { grid-template-columns: 1fr; }
-    .tco-header, .tco-row { grid-template-columns: 1fr 80px 80px; }
+    .tco-header, .tco-row { grid-template-columns: 1fr 62px 1.7fr; }
+    .tco-cost, .tco-cell { padding: 11px 12px; font-size: 12.5px; }
   }
 
   /* Sub-diagram inline visuals */
