@@ -177,6 +177,8 @@
 .cluster-heading h3 { display: flex; align-items: center; }
 /* larger icons in the homepage why-cards */
 .why-card h3 .h-icon { width: 2.1em; height: 2.1em; vertical-align: -0.5em; margin-right: 0.55em; }
+/* why-card bullets one notch smaller than body */
+.why-card .chunk-list li { font-size: 15px; }
 
 /* ============================================================
    7. COUNT-UP  (JS drives the number; this just steadies layout)
