@@ -509,6 +509,7 @@
         <p>The result: a team spending significant capacity on recovery while simultaneously falling further behind on current work. The longer the backlog runs, the harder recovery becomes, and the deeper the reputational damage with the business.</p>
       </div>
 
+<div class="media-row">
       <div class="card amber">
         <div class="card-title">What to track to catch it early</div>
         <ul>
@@ -519,6 +520,36 @@
           <li><strong>Throughput per FTE:</strong> a declining throughput trend while volume holds steady is the clearest signal of a team under pressure before attrition or absence makes it visible</li>
         </ul>
       </div>
+      <figure class="side-visual">
+        <svg viewBox="0 0 230 248" role="img" aria-label="Backlog aging: items cascade from 0-30 days (watch) to 31-60 days (warn) to 60+ days (escalate)">
+          <defs><marker id="ar-perf" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6b7891"/></marker></defs>
+          <text x="115" y="16" text-anchor="middle" fill="#aeb9c9" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="0.08em">AGING BUCKETS</text>
+          <!-- 0-30 days -->
+          <rect x="30" y="26" width="170" height="52" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.4"/>
+          <text x="115" y="46" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-size="12" font-weight="600">0 – 30 days</text>
+          <text x="115" y="62" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Watch: volume vs. capacity gap</text>
+          <text x="115" y="75" text-anchor="middle" fill="#1d6aff" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">LEADING SIGNAL</text>
+          <!-- arrow -->
+          <line x1="115" y1="80" x2="115" y2="100" stroke="#6b7891" stroke-width="1.4" marker-end="url(#ar-perf)"/>
+          <!-- 31-60 days -->
+          <rect x="40" y="102" width="150" height="52" rx="8" fill="#141922" stroke="#f59e0b" stroke-width="1.4"/>
+          <text x="115" y="122" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-size="12" font-weight="600">31 – 60 days</text>
+          <text x="115" y="138" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Warn: exception rate rising</text>
+          <text x="115" y="151" text-anchor="middle" fill="#f59e0b" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">LAGGING SIGNAL</text>
+          <!-- arrow -->
+          <line x1="115" y1="156" x2="115" y2="176" stroke="#6b7891" stroke-width="1.4" marker-end="url(#ar-perf)"/>
+          <!-- 60+ days -->
+          <rect x="52" y="178" width="126" height="52" rx="8" fill="#141922" stroke="#e84560" stroke-width="1.4"/>
+          <text x="115" y="198" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-size="12" font-weight="600">60 + days</text>
+          <text x="115" y="214" text-anchor="middle" fill="#c8d0de" font-family="Inter,sans-serif" font-size="10">Escalate: recovery crisis</text>
+          <text x="115" y="227" text-anchor="middle" fill="#e84560" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">ESCALATION</text>
+          <!-- bottom label -->
+          <rect x="14" y="240" width="202" height="2" rx="1" fill="rgba(232,184,0,0.25)"/>
+          <text x="115" y="248" text-anchor="middle" fill="#e8b800" font-family="Inter,sans-serif" font-size="9">act early — recovery cost compounds</text>
+        </svg>
+        <figcaption>Backlog ages into <strong>exponentially harder</strong> recovery.</figcaption>
+      </figure>
+</div>
 
       <div class="insight-block">
         <div class="insight-icon">✦</div>
