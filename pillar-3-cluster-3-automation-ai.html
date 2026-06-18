@@ -243,6 +243,7 @@ a.gloss:hover .tooltip{display:block;}
   <li><strong>Dirty data</strong> = dirty outputs, now produced at machine speed with an automated timestamp</li>
   <li>Inconsistent processes and unannounced system changes are the top bot-killers in GBS</li>
 </ul>
+<div class="media-row">
 <div class="card teal">
       <div class="card-title">RPA suitability criteria — what makes a good candidate</div>
       <ul>
@@ -254,6 +255,44 @@ a.gloss:hover .tooltip{display:block;}
         <li>Defined trigger — the process starts from a clear event (file arrival, time schedule, email receipt)</li>
       </ul>
     </div>
+  <figure class="side-visual">
+    <svg viewBox="0 0 230 248" role="img" aria-label="RPA suitability checklist: Rule-based, High volume, Stable inputs, Structured data">
+      <defs>
+        <marker id="ar-rpa" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L8,3 L0,6" fill="#6b7891"/>
+        </marker>
+      </defs>
+      <!-- title eyebrow -->
+      <text x="115" y="16" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#1d6aff" letter-spacing="0.08em">RPA FIT CHECK</text>
+      <!-- node 1 -->
+      <rect x="18" y="26" width="194" height="36" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+      <text x="115" y="41" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Rule-based</text>
+      <text x="115" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#aeb9c9">if/then, no judgment</text>
+      <!-- arrow -->
+      <line x1="115" y1="62" x2="115" y2="75" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-rpa)"/>
+      <!-- node 2 -->
+      <rect x="18" y="77" width="194" height="36" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+      <text x="115" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">High volume</text>
+      <text x="115" y="106" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#aeb9c9">justify build &amp; maintenance</text>
+      <!-- arrow -->
+      <line x1="115" y1="113" x2="115" y2="126" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-rpa)"/>
+      <!-- node 3 -->
+      <rect x="18" y="128" width="194" height="36" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.3"/>
+      <text x="115" y="143" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Stable inputs</text>
+      <text x="115" y="157" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#aeb9c9">format &amp; layout unchanged</text>
+      <!-- arrow -->
+      <line x1="115" y1="164" x2="115" y2="177" stroke="#6b7891" stroke-width="1.2" marker-end="url(#ar-rpa)"/>
+      <!-- node 4 -->
+      <rect x="18" y="179" width="194" height="36" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1.3"/>
+      <text x="115" y="194" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Structured data</text>
+      <text x="115" y="208" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#aeb9c9">predictable fields, no free-text</text>
+      <!-- all-pass label -->
+      <rect x="50" y="224" width="130" height="20" rx="6" fill="rgba(29,106,255,0.12)" stroke="#1d6aff" stroke-width="1"/>
+      <text x="115" y="238" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600" fill="#1d6aff" letter-spacing="0.06em">ALL 4 = AUTOMATE</text>
+    </svg>
+    <figcaption>All four criteria must hold — <strong>stable &amp; structured</strong> is the gate.</figcaption>
+  </figure>
+</div>
 <div class="card amber">
       <div class="card-title">Common RPA failure patterns in GBS</div>
       <ul>
