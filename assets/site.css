@@ -129,6 +129,30 @@
 }
 
 /* ============================================================
+   4b. MEDIA ROW  — dense card + small side visual, side by side
+   (stacks on mobile). Visual encodes the idea to aid digestion.
+   ============================================================ */
+.media-row { display: flex; gap: 22px; align-items: stretch; margin: 0 0 8px; }
+.media-row > .card,
+.media-row > .tension-box { flex: 1 1 auto; min-width: 0; margin: 0; }
+.side-visual {
+  flex: 0 0 248px; align-self: center; text-align: center; margin: 0;
+  padding: 16px 14px; border-radius: 14px;
+  background: rgba(8, 11, 16, 0.5);
+  border: 1px solid var(--glass-brd);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.side-visual svg { width: 100%; height: auto; display: block; }
+.side-visual figcaption {
+  margin-top: 10px; font-size: 12px; line-height: 1.45; color: #aeb9c9;
+}
+.side-visual figcaption strong { color: var(--gold-line); font-weight: 600; }
+@media (max-width: 760px) {
+  .media-row { flex-direction: column; }
+  .side-visual { flex-basis: auto; max-width: 300px; margin: 4px auto 0; }
+}
+
+/* ============================================================
    5. PHOTO BAND  — human photo with dark legibility overlay
    ============================================================ */
 .photo-band {
