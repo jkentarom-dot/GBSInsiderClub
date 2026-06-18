@@ -115,5 +115,6 @@ h4 { font-size: 16px; letter-spacing: 0; }
 .sub-diagram svg text[font-size="10"] { font-size: 12px; }
 .sub-diagram svg text[font-size="11"] { font-size: 12.5px; }
 .sub-diagram svg text[font-size="12"] { font-size: 13.5px; }
-/* let diagrams use a touch more width on desktop so they read larger */
-.sub-diagram svg { max-width: 760px !important; }
+/* NOTE: do NOT force a blanket max-width on .sub-diagram svg — each diagram
+   sets its own inline max-width sized to its viewBox. A blanket override
+   stretches narrow-viewBox diagrams (340/400 wide) ~2x and blows up their text. */
