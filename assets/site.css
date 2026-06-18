@@ -133,8 +133,7 @@
    (stacks on mobile). Visual encodes the idea to aid digestion.
    ============================================================ */
 .media-row { display: flex; gap: 22px; align-items: stretch; margin: 0 0 8px; }
-.media-row > .card,
-.media-row > .tension-box { flex: 1 1 auto; min-width: 0; margin: 0; }
+.media-row > :not(.side-visual) { flex: 1 1 auto; min-width: 0; margin: 0; }
 .side-visual {
   flex: 0 0 248px; align-self: center; text-align: center; margin: 0;
   padding: 16px 14px; border-radius: 14px;
