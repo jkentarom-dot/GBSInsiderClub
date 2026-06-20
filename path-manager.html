@@ -180,6 +180,9 @@
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
 .hero{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;}@media(min-width:920px){.hero:not(.no-fig){grid-template-columns:1fr 320px;}}.hero.no-fig{grid-template-columns:1fr;}.hero-figure{display:flex;justify-content:center;}.hero.no-fig .hero-figure{display:none;}.hero-img{width:100%;max-width:320px;border-radius:14px;border:1px solid var(--border-2);box-shadow:0 14px 44px rgba(0,0,0,.45);object-fit:cover;aspect-ratio:4/5;}
 .toolkit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}@media(max-width:820px){.toolkit-grid{grid-template-columns:1fr;}}.toolkit-card{display:block;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:22px;text-decoration:none;transition:border-color .2s,transform .2s;}.toolkit-card:hover{border-color:var(--teal);transform:translateY(-2px);}.tk-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}.toolkit-card h3{font-size:18px;font-weight:500;color:var(--text);margin:6px 0 8px;}.toolkit-card p{font-size:14px;color:var(--text-2);line-height:1.55;margin-bottom:14px;max-width:none;}.tk-go{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);}
+  .photo-band { padding-top: 10px; padding-bottom: 10px; }
+  .path-photo { margin: 0; }
+  .path-photo img { width: 100%; height: auto; max-height: 380px; object-fit: cover; border-radius: 14px; border: 1px solid var(--border); display: block; }
 </style>
 <style>
   /* glassmorphism + dynamic tiles (applies to static and JS-rendered cards by class) */
@@ -216,7 +219,7 @@
     <p class="hero-lead">A manager is not a senior team lead. You run multiple teams, you lead through your team leads, and you own the call when the rules run out. The jump is a judgment jump.</p>
     <p class="hero-body">The free tier gives you the frameworks. This path is the behavioral playbook for what changes when you stop running a team and start running an operation — service across teams, calibration and reward, business partnering, and the decisions that earn you scope. Guided by the Manager Career Chessboard, structured by the 5-step Manager Path, measured by a 90-day roadmap with a real tollgate.</p>
   </div>
-    <div class="hero-figure"><img class="hero-img" src="images/people-mentorship.webp" alt="A GBS manager leading through their team leads" loading="lazy" onerror="this.closest('.hero').classList.add('no-fig')"></div>
+    <div class="hero-figure"><img class="hero-img" src="images/manager-hero-townhall.webp" alt="A GBS manager presenting the operation to the wider team" loading="lazy" onerror="this.closest('.hero').classList.add('no-fig')"></div>
   </section>
 
   <!-- ============ MODEL RECAP NAV ============ -->
@@ -241,6 +244,11 @@
         <span class="spine-label">Decisions &amp; Judgment</span>
       </a>
     </div>
+  </section>
+
+  <!-- ============ PHOTO BAND ============ -->
+  <section class="section photo-band">
+    <figure class="path-photo"><img src="images/manager-collaboration.webp" alt="GBS managers and team leads in conversation" loading="lazy"></figure>
   </section>
 
   <!-- ============ HOW THIS WORKS ============ -->
@@ -407,6 +415,11 @@
 
         <div id="gmount"><div class="preview-banner"><strong>Free preview:</strong> the first two modules are open. The full path unlocks with Full Access &mdash; <a href="paid-tier.html#pricing" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">see pricing</a>.</div><div class="gate-panel" id="gate-panel"><h3>You have seen the first two modules. More are waiting.</h3><p>The remaining modules contain the practical core: the hard conversations, the templates, the AI applications, and the 90-day roadmap with tollgate. One payment, lifetime access, all current and future paths included.</p><a class="gate-btn" href="paid-tier.html#pricing">Unlock Full Access &mdash; $99 &rarr;</a></div></div>
 
+  </section>
+
+  <!-- ============ PHOTO BAND 2 ============ -->
+  <section class="section photo-band">
+    <figure class="path-photo"><img src="images/manager-service-review.webp" alt="A GBS manager walking leadership through service performance" loading="lazy"></figure>
   </section>
 
   <!-- ============ ROADMAP ============ -->
