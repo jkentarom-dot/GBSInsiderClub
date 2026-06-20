@@ -197,6 +197,7 @@
     </div>
     <div class="sidebar-on-page">
       <div class="sidebar-on-page-label">On this page</div>
+      <a href="#service-catalog">The service catalog — what every entry needs</a>
       <a href="#itil-cobit">ITIL and COBIT — what they are</a>
       <a href="#itil-practices">ITIL 4 key practices for GBS</a>
       <a href="#service-transition">Managing service transitions</a>
@@ -239,8 +240,69 @@
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Service Management Foundations</div>
     </div>
 
+    <section class="section" id="service-catalog">
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="11" y="10" width="22" height="24" rx="2"/><path d="M15 16 H29 M15 21 H29 M15 26 H24"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
+      <h2>The Service Catalog — what your GBS actually offers, written down</h2>
+      <p class="section-hook">A <strong style="color:var(--gold)">service catalog</strong> is the published list of everything your GBS delivers — each service, who it serves, and what it commits to. Without one, the business cannot see what it is paying for, and the GBS struggles to manage demand or demonstrate its value. The catalog is where service management starts, before any framework.</p>
+
+      <p>Most teams can describe their work in conversation but have never written it down in a form a customer can read. A catalog closes that gap. It turns "we do AP" into a clear set of named services, each with an owner, a scope, and a commitment. Building one forces useful conversations about what is genuinely in scope and what quietly became someone else's expectation over the years.</p>
+
+      <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">What every catalog entry needs</div>
+        <ul style="list-style:none;margin:0;padding:0;display:grid;gap:12px;">
+          <li style="color:#dde3ec;line-height:1.55;"><strong style="color:#fff;">Service name.</strong> A clear, consistent label the business will recognise and use when requesting it.</li>
+          <li style="color:#dde3ec;line-height:1.55;"><strong style="color:#fff;">Plain-language description.</strong> What the service does, in words a non-specialist understands — no internal jargon.</li>
+          <li style="color:#dde3ec;line-height:1.55;"><strong style="color:#fff;">Customer.</strong> Who the service is for — the business units, regions, or roles that consume it.</li>
+          <li style="color:#dde3ec;line-height:1.55;"><strong style="color:#fff;">Scope (in and out).</strong> What the service explicitly covers, and what it does not. The "out" list prevents most scope disputes.</li>
+          <li style="color:#dde3ec;line-height:1.55;"><strong style="color:#fff;">Owner.</strong> The named person or role accountable for delivery and for the entry being kept current.</li>
+          <li style="color:#dde3ec;line-height:1.55;"><strong style="color:#fff;">Inputs required.</strong> What the customer must provide for the service to run — the data, approvals, or documents the team depends on.</li>
+          <li style="color:#dde3ec;line-height:1.55;"><strong style="color:#fff;">Request channel.</strong> How the service is requested — the ticket type, catalog item, or mailbox that starts the work.</li>
+          <li style="color:#dde3ec;line-height:1.55;"><strong style="color:#fff;">SLA committed.</strong> The service level the entry promises — turnaround, accuracy, or availability — so expectations are set before the work begins.</li>
+        </ul>
+      </div>
+
+      <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:24px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Anatomy of a catalog entry</div>
+        <svg viewBox="0 0 680 372" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <rect x="8" y="8" width="664" height="356" rx="12" fill="#0e131b" stroke="rgba(29,106,255,0.30)" stroke-width="1"/>
+          <rect x="8" y="8" width="664" height="46" rx="12" fill="rgba(29,106,255,0.08)"/>
+          <text x="28" y="30" fill="#8da2c0" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="0.12em">CATALOG ENTRY</text>
+          <text x="28" y="46" fill="#ffffff" font-family="Inter,sans-serif" font-size="14" font-weight="600">Vendor Invoice Processing</text>
+          <line x1="28" y1="100" x2="652" y2="100" stroke="#1b2130" stroke-width="1"/>
+          <text x="28" y="83" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.08em">SERVICE NAME</text>
+          <text x="28" y="97" fill="#dde3ec" font-family="Inter,sans-serif" font-size="12">Vendor Invoice Processing</text>
+          <line x1="28" y1="137" x2="652" y2="137" stroke="#1b2130" stroke-width="1"/>
+          <text x="28" y="120" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.08em">DESCRIPTION</text>
+          <text x="28" y="134" fill="#dde3ec" font-family="Inter,sans-serif" font-size="12">Receive, validate and post supplier invoices to the ERP</text>
+          <line x1="28" y1="174" x2="652" y2="174" stroke="#1b2130" stroke-width="1"/>
+          <text x="28" y="157" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.08em">CUSTOMER</text>
+          <text x="28" y="171" fill="#dde3ec" font-family="Inter,sans-serif" font-size="12">Procurement and business units (EMEA)</text>
+          <line x1="28" y1="211" x2="652" y2="211" stroke="#1b2130" stroke-width="1"/>
+          <text x="28" y="194" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.08em">SCOPE (IN / OUT)</text>
+          <text x="28" y="208" fill="#dde3ec" font-family="Inter,sans-serif" font-size="12">In: PO and non-PO invoices  ·  Out: employee expenses</text>
+          <line x1="28" y1="248" x2="652" y2="248" stroke="#1b2130" stroke-width="1"/>
+          <text x="28" y="231" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.08em">OWNER</text>
+          <text x="28" y="245" fill="#dde3ec" font-family="Inter,sans-serif" font-size="12">Accounts Payable Team Lead, Krakow hub</text>
+          <line x1="28" y1="285" x2="652" y2="285" stroke="#1b2130" stroke-width="1"/>
+          <text x="28" y="268" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.08em">INPUTS REQUIRED</text>
+          <text x="28" y="282" fill="#dde3ec" font-family="Inter,sans-serif" font-size="12">Valid invoice, PO number, named approver</text>
+          <line x1="28" y1="322" x2="652" y2="322" stroke="#1b2130" stroke-width="1"/>
+          <text x="28" y="305" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.08em">REQUEST CHANNEL</text>
+          <text x="28" y="319" fill="#dde3ec" font-family="Inter,sans-serif" font-size="12">ServiceNow catalog item  /  AP shared mailbox</text>
+          <line x1="28" y1="359" x2="652" y2="359" stroke="#1b2130" stroke-width="1"/>
+          <text x="28" y="342" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.08em">SLA COMMITTED</text>
+          <text x="28" y="356" fill="#dde3ec" font-family="Inter,sans-serif" font-size="12">Posted within 3 business days  ·  99% accuracy</text>
+        </svg>
+        <p class="sd-caption">One worked entry — every field a customer needs to understand and request the service</p>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong style="color:var(--amber);">Why the SLA belongs in the catalog:</strong> every entry carries a committed service level, so the promise lives next to the service rather than in a separate contract nobody reads. That single line — turnaround, accuracy, or availability — is what makes the catalog a management tool rather than a brochure. The frameworks below (ITIL and COBIT) give you structure on top of this foundation, but the catalog is what makes a GBS legible to the business it serves.
+      </div>
+    </section>
+
     <section class="section" id="itil-cobit">
-      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>ITIL and COBIT — what they are and why GBS professionals encounter them</h2>
       <p class="section-hook">Two frameworks, two different purposes. One tells you how to deliver services well. The other tells you how to govern them responsibly. Both show up in <strong style="color:var(--gold)">GBS</strong> environments, especially as centers mature.</p>
 
@@ -327,7 +389,7 @@
     </div>
 
     <section class="section" id="itil-practices">
-      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="10" y="18" width="8" height="8" rx="1.5"/><rect x="26" y="18" width="8" height="8" rx="1.5"/><path d="M18 22 H25"/><path d="M23 20 L25 22 L23 24"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="10" y="18" width="8" height="8" rx="1.5"/><rect x="26" y="18" width="8" height="8" rx="1.5"/><path d="M18 22 H25"/><path d="M23 20 L25 22 L23 24"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>ITIL 4 — the key practices GBS professionals actually use</h2>
       <p class="section-hook">ITIL 4 defines 34 management practices. You do not need to know all of them. These six show up regularly in GBS environments and are worth understanding by name.</p>
 
@@ -433,7 +495,7 @@
     </details>
 
     <section class="section" id="service-transition">
-      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14 24 A9 9 0 1 1 23 33"/><path d="M23 33 L18.6 32.4 M23 33 L21.8 28.7"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14 24 A9 9 0 1 1 23 33"/><path d="M23 33 L18.6 32.4 M23 33 L21.8 28.7"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>Managing <a class="gloss" href="#g-transition">service transitions<span class="tooltip">Service transition — the structured process of migrating a process or service from the business or a previous provider into GBS operations, while maintaining service quality throughout.</span></a> — the most dangerous phase in GBS</h2>
       <p class="section-hook">A <strong style="color:var(--gold)">service transition</strong> is when GBS takes on a process that was previously run somewhere else. The migration window is when the most things go wrong — and when the service relationship is most fragile.</p>
 
