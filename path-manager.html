@@ -40,9 +40,9 @@
   .hero h1 strong { font-weight: 600; color: var(--teal); }
   .hero-lead { font-size: 19px; color: var(--text); line-height: 1.7; margin-bottom: 18px; max-width: 1040px; }
   .hero-body { font-size: 17px; color: var(--text-2); line-height: 1.85; max-width: 1040px; }
-  .section { padding: 72px 0; border-top: 1px solid var(--border); }
+  .section { padding: 92px 0; border-top: 1px solid var(--border); }
   .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
-  .section-intro { font-size: 17px; color: var(--text); line-height: 1.8; max-width: 1040px; margin-bottom: 36px; }
+  .section-intro { font-size: 17px; color: var(--text); line-height: 1.85; max-width: 1040px; margin-bottom: 44px; }
   .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
   .svg-frame svg { display: block; width: 100%; height: auto; min-width: 680px; max-width: 980px; margin: 0 auto; }
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
@@ -59,7 +59,7 @@
   .step-num { width: 52px; height: 52px; border-radius: 10px; background: rgba(29,106,255,0.08); border: 1px solid rgba(29,106,255,0.3); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--teal); flex-shrink: 0; }
   .step-num.gold { color: var(--gold); border-color: rgba(232,184,0,0.35); background: rgba(232,184,0,0.06); }
   .step-kicker { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); letter-spacing: 0.12em; text-transform: uppercase; }
-  .module { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
+  .module { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
   .module summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 18px 22px; transition: background 0.2s; }
   .module summary::-webkit-details-marker { display: none; }
   .module summary:hover { background: var(--surface-3); }
@@ -84,7 +84,8 @@
   .checkpoint-block .cp-box { width: 14px; height: 14px; border: 1px solid var(--border-2); border-radius: 3px; flex-shrink: 0; margin-top: 3px; }
   .jt-block { background: rgba(232,184,0,0.06); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; max-width: 1040px; }
   .jt-block .jt-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
-  .jt-block p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin: 0; }
+  .jt-block p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin: 0 0 14px; }
+  .jt-block p:last-child { margin-bottom: 0; }
   .milestone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
   .milestone-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
   .milestone-card .ms-month { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
@@ -104,7 +105,7 @@
   .mod-body table.data-table td { font-size: 14px; color: #dde3ec; }
   .mod-body table.data-table th { font-size: 13px; }
   .mod-label { font-size: 13px; }
-  .module { margin-bottom: 18px; }
+  .module { margin-bottom: 28px; }
   .step-header { margin-bottom: 14px; }
   .jt-block, .ai-block, .exercise-block, .checkpoint-block { margin: 22px 0; }
   .jt-block p, .ai-block p, .exercise-block p { font-size: 15px; line-height: 1.8; color: #dde3ec; }
@@ -260,6 +261,25 @@
       <div class="card"><h3>One behavior per week</h3><ul class="tile-bullets"><li>Each module ends in something you do <strong>with your team</strong></li><li>Pick <strong>one leadership behavior</strong>, apply it, repeat until natural</li><li>Reading about delegation <strong>does not make you a delegator</strong></li></ul></div>
       <div class="card"><h3>AI in every module</h3><ul class="tile-bullets"><li>Each exercise has an <strong>AI application</strong> (Prompt Reversal, Session Document, Interview Mode)</li><li>AI restricted? Every exercise has a <strong>manual alternative</strong></li><li><strong>AI prepares you, reality tests you</strong></li></ul></div>
     </div>
+    <div style="margin:36px 0 8px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:24px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">The weekly rhythm</div>
+      <svg viewBox="0 0 680 184" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="How the path works: study 30 to 60 minutes daily, apply it with your team, hit a milestone every 90 days, and repeat until it is natural">
+  <defs><marker id="alp" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M1 1 L7 4 L1 7 Z" fill="#6b7891"/></marker></defs>
+  <rect x="24" y="32" width="180" height="58" rx="10" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+  <text x="114" y="58" fill="#ffffff" font-family="Inter,sans-serif" font-size="13" font-weight="600" text-anchor="middle">Study</text>
+  <text x="114" y="76" fill="#aeb9c9" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">30&ndash;60 min daily</text>
+  <line x1="206" y1="61" x2="246" y2="61" stroke="#6b7891" stroke-width="1.4" marker-end="url(#alp)"/>
+  <rect x="250" y="32" width="180" height="58" rx="10" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
+  <text x="340" y="58" fill="#ffffff" font-family="Inter,sans-serif" font-size="13" font-weight="600" text-anchor="middle">Apply</text>
+  <text x="340" y="76" fill="#aeb9c9" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">with your team</text>
+  <line x1="432" y1="61" x2="472" y2="61" stroke="#6b7891" stroke-width="1.4" marker-end="url(#alp)"/>
+  <rect x="476" y="32" width="180" height="58" rx="10" fill="#1b2130" stroke="#e8b800" stroke-width="1.4"/>
+  <text x="566" y="58" fill="#e8b800" font-family="Inter,sans-serif" font-size="13" font-weight="600" text-anchor="middle">Milestone</text>
+  <text x="566" y="76" fill="#aeb9c9" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">every 90 days</text>
+  <path d="M566 92 C566 138 114 138 114 92" fill="none" stroke="#6b7891" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#alp)"/>
+  <text x="340" y="166" fill="#8da2c0" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="0.08em" text-anchor="middle">REPEAT UNTIL IT IS NATURAL</text>
+</svg>
+    </div>
     <p style="margin-top:18px; font-size:14px; color:var(--text-3);">New to the foundation techniques? Read <a href="paid-tier.html#foundations" style="color:var(--teal); text-decoration:none;">How to Learn &amp; AI Foundations</a> first — it applies to every path.</p>
   </section>
 
@@ -311,7 +331,7 @@
             <tr><td>Strategic Thinking</td><td>Have you proposed an operating-model change — how the work is structured — not just a process fix?</td></tr>
           </tbody>
         </table>
-        <div class="media-row"><div class="jt-block"><span class="jt-label">Reality Check</span><p>There are two ways the step up stalls, and they are opposites. One: you get the title, but the role barely changes — same work, a little more scope — and you plateau, because nothing new is being asked of you and no new skill is getting built. Two: you take a bigger team and the weight of it — people, performance issues, service recipients — arrives faster than the support to carry it, and it starts to overwhelm. Both are real. Both are survivable. The move is the same: name which one you are in, then go get the missing piece — a stretch challenge if you are under-used, backup and a mentor if you are under water. Part of this is your manager getting the dose of challenge and support right. Do not wait for them to. Own it.</p></div><figure class="side-visual"><svg viewBox="0 0 240 272" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The right dose of challenge and support: too little stalls you, too much overwhelms you, the middle is where you grow">
+        <div class="media-row"><div class="jt-block"><span class="jt-label">Reality Check</span><p>There are two ways the step up stalls, and they are opposites. One: you get the title, but the role barely changes &mdash; same work, a little more scope &mdash; and you plateau, because nothing new is being asked of you and no new skill is getting built. Two: you take a bigger team and the weight of it &mdash; people, performance issues, service recipients &mdash; arrives faster than the support to carry it, and it starts to overwhelm.</p><p>Both are real. Both are survivable. The move is the same: name which one you are in, then go get the missing piece &mdash; a stretch challenge if you are under-used, backup and a mentor if you are under water.</p><p>Part of this is your manager getting the dose of challenge and support right. Do not wait for them to. Own it.</p></div><figure class="side-visual"><svg viewBox="0 0 240 272" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The right dose of challenge and support: too little stalls you, too much overwhelms you, the middle is where you grow">
   <text x="64" y="22" font-family="JetBrains Mono, monospace" font-size="10" fill="#1d6aff" letter-spacing="2">THE RIGHT DOSE</text>
   <line x1="48" y1="40" x2="48" y2="262" stroke="#2a3347" stroke-width="1.5"/>
   <text x="42" y="50" font-family="JetBrains Mono, monospace" font-size="9" fill="#7a8799" text-anchor="end">MORE</text>
