@@ -185,6 +185,27 @@
   .data-table { margin: 24px 0 36px; }
   .data-table + .data-table, p + .data-table { margin-top: 8px; }
 </style>
+<style>
+/* Readability + spacing pass v2 — more decompression across modules */
+.mod-body { padding: 30px 36px 46px; }
+.mod-body > p { max-width: 68ch; margin-bottom: 26px; line-height: 1.9; }
+.mod-body ul { margin: 4px 0 26px 20px; }
+.mod-body li { margin-bottom: 10px; line-height: 1.8; }
+.mod-body .mod-label { margin: 48px 0 16px; }
+.mod-body .data-table { margin: 18px 0 38px; }
+.mod-body .data-table th, .mod-body .data-table td { padding: 16px 20px; line-height: 1.7; }
+.mod-body .media-row { margin: 44px 0 46px; align-items: flex-start; gap: 32px; }
+.mod-body .jt-block { padding: 22px 26px; }
+.mod-body > .jt-block { margin: 44px 0; }
+.mod-body .jt-block p { line-height: 1.9; }
+.mod-body .ai-block, .mod-body .exercise-block { margin: 42px 0 8px; padding: 22px 26px; }
+.mod-body .ai-block p, .mod-body .exercise-block p { line-height: 1.85; }
+.module { margin-bottom: 44px; }
+.module summary { padding: 20px 26px; }
+.callout-right { margin: 4px 0 30px 40px; }
+.step-header { margin: 18px 0 26px; }
+@media (max-width: 760px){ .mod-body { padding: 22px 22px 34px; } .mod-body .media-row { margin: 30px 0; } .mod-body .mod-label { margin: 34px 0 14px; } .callout-right { margin: 8px 0 22px; } }
+</style>
 </head>
 <body>
 <nav class="topbar">
