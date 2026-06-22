@@ -233,6 +233,10 @@
 .mod-body > .mod-label::before { content:""; display:inline-block; width:16px; height:16px; margin-right:11px; vertical-align:-3px; background:var(--teal); -webkit-mask:var(--ms-sec) no-repeat center/contain; mask:var(--ms-sec) no-repeat center/contain; }
 .mod-body > .mod-label { --ms-sec:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223.5%22%20y%3D%223.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2213.5%22%20y%3D%223.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%223.5%22%20y%3D%2213.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2213.5%22%20y%3D%2213.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3C%2Fsvg%3E"); }
 .mod-body .media-row .side-visual { flex: 0 0 320px; max-width: 320px; }
+.path-strip { position: relative; margin: 12px 0 2px; }
+.path-strip img { width: 100%; height: 150px; object-fit: cover; object-position: center 35%; border-radius: 12px; border: 1px solid var(--border); display: block; filter: saturate(0.92) brightness(0.97); }
+.path-strip::after { content: ""; position: absolute; inset: 0; border-radius: 12px; background: linear-gradient(180deg, rgba(8,11,16,0) 52%, rgba(8,11,16,0.5) 100%); pointer-events: none; }
+@media (max-width: 760px){ .path-strip img { height: 118px; } }
 @media (max-width: 760px){ .mod-body .media-row .side-visual { flex-basis: auto; max-width: 320px; margin: 6px auto 0; } }
 @media (max-width: 760px){ .mod-body { padding: 22px 22px 34px; } .mod-body .media-row { margin: 30px 0; } .mod-body > .mod-label { margin: 38px 0 14px; font-size: 16px; } .callout-right { margin: 8px 0 22px; } }
 </style>
@@ -285,8 +289,8 @@
   </section>
 
   <!-- ============ PHOTO BAND ============ -->
-  <section class="section photo-band">
-    <figure class="path-photo"><img src="images/manager-collaboration.webp" alt="GBS managers and team leads in conversation" loading="lazy"></figure>
+  <section class="section">
+    <figure class="path-strip"><img src="images/mgr-hub.webp" alt="A busy global shared-services floor" loading="lazy"></figure>
   </section>
 
   <!-- ============ HOW THIS WORKS ============ -->
@@ -476,8 +480,8 @@
   </section>
 
   <!-- ============ PHOTO BAND 2 ============ -->
-  <section class="section photo-band">
-    <figure class="path-photo"><img src="images/manager-service-review.webp" alt="A GBS manager walking leadership through service performance" loading="lazy"></figure>
+  <section class="section">
+    <figure class="path-strip"><img src="images/mgr-shift.webp" alt="A newly promoted manager taking in the operation" loading="lazy"></figure>
   </section>
 
   <!-- ============ ROADMAP ============ -->
