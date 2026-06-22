@@ -234,6 +234,10 @@
 .neutralise-note strong { color: var(--gold); font-weight: 600; }
 /* Click-to-zoom affordance (lightbox wired in assets/zoom.js) */
 .side-visual svg, .svg-frame svg, .minifig svg, .mod-body figure svg { cursor: zoom-in; }
+.mod-body > .mod-label::before { content:""; display:inline-block; width:16px; height:16px; margin-right:11px; vertical-align:-3px; background:var(--teal); -webkit-mask:var(--ms-sec) no-repeat center/contain; mask:var(--ms-sec) no-repeat center/contain; }
+.mod-body > .mod-label { --ms-sec:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223.5%22%20y%3D%223.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2213.5%22%20y%3D%223.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%223.5%22%20y%3D%2213.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2213.5%22%20y%3D%2213.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3C%2Fsvg%3E"); }
+.mod-body .media-row .side-visual { flex: 0 0 320px; max-width: 320px; }
+@media (max-width: 760px){ .mod-body .media-row .side-visual { flex-basis: auto; max-width: 320px; margin: 6px auto 0; } }
 @media (max-width: 760px){ .mod-body { padding: 22px 22px 34px; } .mod-body .media-row { margin: 30px 0; } .mod-body > .mod-label { margin: 38px 0 14px; font-size: 16px; } .callout-right { margin: 8px 0 22px; } }
 </style>
 </head>
@@ -368,66 +372,66 @@
         <p>Your eight competency scores collapse into two numbers: average Impact (the four delivery competencies) and average Readiness (the four next-role competencies). Plot them, and you land on one of nine squares. Your square determines your focus for the entire path.</p>
         <div class="svg-frame">
           <svg viewBox="0 0 880 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Career Chessboard — Impact in Current Role versus Readiness for Next Role">
-            <text x="440" y="36" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="#1d6aff" letter-spacing="4">THE CAREER CHESSBOARD</text>
+            <text x="440" y="36" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="19" fill="#1d6aff" letter-spacing="4">THE CAREER CHESSBOARD</text>
             <!-- Y axis -->
             <line x1="150" y1="80" x2="150" y2="560" stroke="#2a3347" stroke-width="1.5"/>
-            <text x="64" y="320" font-family="JetBrains Mono, monospace" font-size="13" fill="#c8d0de" letter-spacing="2" transform="rotate(-90 64 320)" text-anchor="middle">READINESS FOR NEXT ROLE</text>
-            <text x="120" y="140" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="end">HIGH</text>
-            <text x="120" y="324" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="end">MID</text>
-            <text x="120" y="508" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="end">LOW</text>
+            <text x="64" y="320" font-family="JetBrains Mono, monospace" font-size="13" fill="#e3e8f0" letter-spacing="2" transform="rotate(-90 64 320)" text-anchor="middle">READINESS FOR NEXT ROLE</text>
+            <text x="120" y="140" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="end">HIGH</text>
+            <text x="120" y="324" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="end">MID</text>
+            <text x="120" y="508" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="end">LOW</text>
             <!-- X axis -->
             <line x1="150" y1="560" x2="850" y2="560" stroke="#2a3347" stroke-width="1.5"/>
-            <text x="500" y="616" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#c8d0de" letter-spacing="2">IMPACT IN CURRENT ROLE</text>
-            <text x="265" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="middle">LOW</text>
-            <text x="500" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="middle">SOLID</text>
-            <text x="735" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="middle">HIGH</text>
+            <text x="500" y="616" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#e3e8f0" letter-spacing="2">IMPACT IN CURRENT ROLE</text>
+            <text x="265" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="middle">LOW</text>
+            <text x="500" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="middle">SOLID</text>
+            <text x="735" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="middle">HIGH</text>
             <!-- Row 1: High readiness (y 88-240) -->
             <rect x="158" y="88" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="178" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Wrong Square</text>
-            <text x="178" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Skills present, delivery absent.</text>
-            <text x="178" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Something is misaligned.</text>
+            <text x="178" y="142" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Skills present, delivery absent.</text>
+            <text x="178" y="160" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Something is misaligned.</text>
             <text x="178" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: FIX EXECUTION FIRST</text>
             <rect x="392" y="88" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="412" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Ready Position</text>
-            <text x="412" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Performing well, next-level</text>
-            <text x="412" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">skills building.</text>
+            <text x="412" y="142" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Performing well, next-level</text>
+            <text x="412" y="160" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">skills building.</text>
             <text x="412" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: START POSITIONING</text>
             <rect x="626" y="88" width="214" height="152" rx="8" fill="#1b2130" stroke="#e8b800" stroke-width="1.5"/>
             <text x="646" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#e8b800">Checkmate</text>
-            <text x="646" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Operating above your level</text>
-            <text x="646" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">already.</text>
+            <text x="646" y="142" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Operating above your level</text>
+            <text x="646" y="160" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">already.</text>
             <text x="646" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: MAKE THE ASK</text>
             <!-- Row 2: Mid readiness (y 248-400) -->
             <rect x="158" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="178" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Opening Move</text>
-            <text x="178" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Early days. Foundations not</text>
-            <text x="178" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">yet solid.</text>
+            <text x="178" y="302" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Early days. Foundations not</text>
+            <text x="178" y="320" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">yet solid.</text>
             <text x="178" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: DELIVERY + RELATIONSHIPS</text>
             <rect x="392" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
             <text x="412" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#1d6aff">Mid-Game</text>
-            <text x="412" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Delivering and developing.</text>
-            <text x="412" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">On track.</text>
+            <text x="412" y="302" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Delivering and developing.</text>
+            <text x="412" y="320" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">On track.</text>
             <text x="412" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: PUSH ONE AXIS</text>
             <rect x="626" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="646" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Powerhouse</text>
-            <text x="646" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Strong performer. Next-level</text>
-            <text x="646" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">capability still forming.</text>
+            <text x="646" y="302" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Strong performer. Next-level</text>
+            <text x="646" y="320" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">capability still forming.</text>
             <text x="646" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: BUILD READINESS</text>
             <!-- Row 3: Low readiness (y 408-560) -->
             <rect x="158" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="178" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Starting Position</text>
-            <text x="178" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">New or struggling. No shame —</text>
-            <text x="178" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">but no drift either.</text>
+            <text x="178" y="462" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">New or struggling. No shame —</text>
+            <text x="178" y="480" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">but no drift either.</text>
             <text x="178" y="506" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: FUNDAMENTALS</text>
             <rect x="392" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="412" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Steady Pawn</text>
-            <text x="412" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Reliable in role. Growth</text>
-            <text x="412" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">direction unclear.</text>
+            <text x="412" y="462" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Reliable in role. Growth</text>
+            <text x="412" y="480" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">direction unclear.</text>
             <text x="412" y="506" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: CLARIFY AMBITION</text>
             <rect x="626" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="646" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Anchor</text>
-            <text x="646" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Exceptional executor who</text>
-            <text x="646" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">hasn't stretched yet.</text>
+            <text x="646" y="462" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Exceptional executor who</text>
+            <text x="646" y="480" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">hasn't stretched yet.</text>
             <text x="646" y="506" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: EXPAND SCOPE</text>
           </svg>
         </div>

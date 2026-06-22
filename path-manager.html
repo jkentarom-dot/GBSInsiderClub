@@ -230,6 +230,10 @@
 .neutralise-note strong { color: var(--gold); font-weight: 600; }
 /* Click-to-zoom affordance (lightbox wired in assets/zoom.js) */
 .side-visual svg, .svg-frame svg, .minifig svg, .mod-body figure svg { cursor: zoom-in; }
+.mod-body > .mod-label::before { content:""; display:inline-block; width:16px; height:16px; margin-right:11px; vertical-align:-3px; background:var(--teal); -webkit-mask:var(--ms-sec) no-repeat center/contain; mask:var(--ms-sec) no-repeat center/contain; }
+.mod-body > .mod-label { --ms-sec:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223.5%22%20y%3D%223.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2213.5%22%20y%3D%223.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%223.5%22%20y%3D%2213.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2213.5%22%20y%3D%2213.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3C%2Fsvg%3E"); }
+.mod-body .media-row .side-visual { flex: 0 0 320px; max-width: 320px; }
+@media (max-width: 760px){ .mod-body .media-row .side-visual { flex-basis: auto; max-width: 320px; margin: 6px auto 0; } }
 @media (max-width: 760px){ .mod-body { padding: 22px 22px 34px; } .mod-body .media-row { margin: 30px 0; } .mod-body > .mod-label { margin: 38px 0 14px; font-size: 16px; } .callout-right { margin: 8px 0 22px; } }
 </style>
 </head>
@@ -300,17 +304,17 @@
   <defs><marker id="alp" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M1 1 L7 4 L1 7 Z" fill="#6b7891"/></marker></defs>
   <rect x="24" y="32" width="180" height="58" rx="10" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
   <text x="114" y="58" fill="#ffffff" font-family="Inter,sans-serif" font-size="13" font-weight="600" text-anchor="middle">Study</text>
-  <text x="114" y="76" fill="#aeb9c9" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">30&ndash;60 min daily</text>
+  <text x="114" y="76" fill="#d7dee9" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">30&ndash;60 min daily</text>
   <line x1="206" y1="61" x2="246" y2="61" stroke="#6b7891" stroke-width="1.4" marker-end="url(#alp)"/>
   <rect x="250" y="32" width="180" height="58" rx="10" fill="#141922" stroke="#1d6aff" stroke-width="1.3"/>
   <text x="340" y="58" fill="#ffffff" font-family="Inter,sans-serif" font-size="13" font-weight="600" text-anchor="middle">Apply</text>
-  <text x="340" y="76" fill="#aeb9c9" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">with your team</text>
+  <text x="340" y="76" fill="#d7dee9" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">with your team</text>
   <line x1="432" y1="61" x2="472" y2="61" stroke="#6b7891" stroke-width="1.4" marker-end="url(#alp)"/>
   <rect x="476" y="32" width="180" height="58" rx="10" fill="#1b2130" stroke="#e8b800" stroke-width="1.4"/>
   <text x="566" y="58" fill="#e8b800" font-family="Inter,sans-serif" font-size="13" font-weight="600" text-anchor="middle">Milestone</text>
-  <text x="566" y="76" fill="#aeb9c9" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">every 90 days</text>
+  <text x="566" y="76" fill="#d7dee9" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">every 90 days</text>
   <path d="M566 92 C566 138 114 138 114 92" fill="none" stroke="#6b7891" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#alp)"/>
-  <text x="340" y="166" fill="#8da2c0" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="0.08em" text-anchor="middle">REPEAT UNTIL IT IS NATURAL</text>
+  <text x="340" y="166" fill="#c2ccda" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="0.08em" text-anchor="middle">REPEAT UNTIL IT IS NATURAL</text>
 </svg>
     </div>
     <p style="margin-top:18px; font-size:14px; color:var(--text-3);">New to the foundation techniques? Read <a href="paid-tier.html#foundations" style="color:var(--teal); text-decoration:none;">How to Learn &amp; AI Foundations</a> first — it applies to every path.</p>
@@ -354,7 +358,7 @@
             <tr><td>Developing Leads</td><td>Name a team lead who is stronger this year because of how you coached them.</td></tr>
           </tbody>
         </table>
-        <div style="text-align:center;margin:10px auto 16px;"><svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Your two scores, impact and readiness, set one square on the chessboard" style="width:240px;max-width:100%;height:auto;"><text x="120" y="15" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.12em" fill="#1d6aff">TWO LENSES, ONE SQUARE</text><line x1="58" y1="32" x2="58" y2="118" stroke="#2a3347" stroke-width="1.3"/><line x1="58" y1="118" x2="206" y2="118" stroke="#2a3347" stroke-width="1.3"/><path d="M58 32 l-3.5 7 h7 z" fill="#6b7891"/><path d="M206 118 l-7 -3.5 v7 z" fill="#6b7891"/><rect x="150" y="46" width="40" height="34" rx="6" fill="#1b2130" stroke="#e8b800" stroke-width="1.4"/><circle cx="170" cy="63" r="4.5" fill="#e8b800"/><text x="34" y="78" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#8da2c0" letter-spacing="0.08em" transform="rotate(-90 34 78)" text-anchor="middle">READINESS</text><text x="132" y="135" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#8da2c0" letter-spacing="0.08em" text-anchor="middle">IMPACT</text></svg></div>
+        <div style="text-align:center;margin:10px auto 16px;"><svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Your two scores, impact and readiness, set one square on the chessboard" style="width:240px;max-width:100%;height:auto;"><text x="120" y="15" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="0.12em" fill="#1d6aff">TWO LENSES, ONE SQUARE</text><line x1="58" y1="32" x2="58" y2="118" stroke="#2a3347" stroke-width="1.3"/><line x1="58" y1="118" x2="206" y2="118" stroke="#2a3347" stroke-width="1.3"/><path d="M58 32 l-3.5 7 h7 z" fill="#6b7891"/><path d="M206 118 l-7 -3.5 v7 z" fill="#6b7891"/><rect x="150" y="46" width="40" height="34" rx="6" fill="#1b2130" stroke="#e8b800" stroke-width="1.4"/><circle cx="170" cy="63" r="4.5" fill="#e8b800"/><text x="34" y="78" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#c2ccda" letter-spacing="0.08em" transform="rotate(-90 34 78)" text-anchor="middle">READINESS</text><text x="132" y="135" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#c2ccda" letter-spacing="0.08em" text-anchor="middle">IMPACT</text></svg></div>
         <span class="mod-label">Readiness — could you run a function?</span>
         <table class="data-table">
           <thead><tr><th>Competency</th><th>Evidence question</th></tr></thead>
@@ -365,21 +369,21 @@
             <tr><td>Strategic Thinking</td><td>Have you proposed an operating-model change — how the work is structured — not just a process fix?</td></tr>
           </tbody>
         </table>
-        <div class="media-row"><div class="jt-block"><span class="jt-label">Reality Check</span><p>There are two ways the step up stalls, and they are opposites. One: you get the title, but the role barely changes &mdash; same work, a little more scope &mdash; and you plateau, because nothing new is being asked of you and no new skill is getting built. Two: you take a bigger team and the weight of it &mdash; people, performance issues, service recipients &mdash; arrives faster than the support to carry it, and it starts to overwhelm.</p><p>Both are real. Both are survivable. The move is the same: name which one you are in, then go get the missing piece &mdash; a stretch challenge if you are under-used, backup and a mentor if you are under water.</p><p>Part of this is your manager getting the dose of challenge and support right. Do not wait for them to. Own it.</p></div><figure class="side-visual"><svg viewBox="0 0 240 272" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The right dose of challenge and support: too little stalls you, too much overwhelms you, the middle is where you grow">
+        <div class="media-row"><div class="jt-block"><span class="jt-label">Reality Check</span><p>There are two ways the step up stalls, and they are opposites. One: you get the title, but the role barely changes &mdash; same work, a little more scope &mdash; and you plateau, because nothing new is being asked of you and no new skill is getting built. Two: you take a bigger team and the weight of it &mdash; people, performance issues, service recipients &mdash; arrives faster than the support to carry it, and it starts to overwhelm.</p><p>Both are real. Both are survivable. The move is the same: <strong style="color:var(--gold);">name which one you are in</strong>, then go get the missing piece &mdash; a stretch challenge if you are under-used, backup and a mentor if you are under water.</p><p>Part of this is your manager getting the dose of challenge and support right. Do not wait for them to. <strong style="color:var(--gold);">Own it.</strong></p></div><figure class="side-visual"><svg viewBox="0 0 240 272" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The right dose of challenge and support: too little stalls you, too much overwhelms you, the middle is where you grow">
   <text x="64" y="22" font-family="JetBrains Mono, monospace" font-size="10" fill="#1d6aff" letter-spacing="2">THE RIGHT DOSE</text>
   <line x1="48" y1="40" x2="48" y2="262" stroke="#2a3347" stroke-width="1.5"/>
-  <text x="42" y="50" font-family="JetBrains Mono, monospace" font-size="9" fill="#7a8799" text-anchor="end">MORE</text>
-  <text x="42" y="258" font-family="JetBrains Mono, monospace" font-size="9" fill="#7a8799" text-anchor="end">LESS</text>
-  <text x="20" y="150" font-family="JetBrains Mono, monospace" font-size="9" fill="#7a8799" letter-spacing="1" transform="rotate(-90 20 150)" text-anchor="middle">CHALLENGE + LOAD</text>
+  <text x="42" y="50" font-family="JetBrains Mono, monospace" font-size="9" fill="#b3bdcc" text-anchor="end">MORE</text>
+  <text x="42" y="258" font-family="JetBrains Mono, monospace" font-size="9" fill="#b3bdcc" text-anchor="end">LESS</text>
+  <text x="20" y="150" font-family="JetBrains Mono, monospace" font-size="9" fill="#b3bdcc" letter-spacing="1" transform="rotate(-90 20 150)" text-anchor="middle">CHALLENGE + LOAD</text>
   <rect x="64" y="40" width="158" height="64" rx="8" fill="#141922" stroke="#1e2636"/>
   <text x="76" y="70" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Too much</text>
-  <text x="76" y="90" font-family="Inter, sans-serif" font-size="11" fill="#aeb9c9">overwhelmed, no support</text>
+  <text x="76" y="90" font-family="Inter, sans-serif" font-size="11" fill="#d7dee9">overwhelmed, no support</text>
   <rect x="64" y="112" width="158" height="64" rx="8" fill="#1b2130" stroke="#e8b800" stroke-width="1.5"/>
   <text x="76" y="142" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#e8b800">Right dose</text>
-  <text x="76" y="162" font-family="Inter, sans-serif" font-size="11" fill="#c8d0de">stretch + support &#8594; grow</text>
+  <text x="76" y="162" font-family="Inter, sans-serif" font-size="11" fill="#e3e8f0">stretch + support &#8594; grow</text>
   <rect x="64" y="184" width="158" height="64" rx="8" fill="#141922" stroke="#1e2636"/>
   <text x="76" y="214" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Too little</text>
-  <text x="76" y="234" font-family="Inter, sans-serif" font-size="11" fill="#aeb9c9">no challenge, you stall</text>
+  <text x="76" y="234" font-family="Inter, sans-serif" font-size="11" fill="#d7dee9">no challenge, you stall</text>
 </svg><figcaption>Two failures, opposite ends. <strong>Aim for the middle.</strong></figcaption></figure></div>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Upload two things — a Manager job description from your organization, and your own up-to-date CV. Ask: <em>"Match my CV against this JD. For each competency, ask me for a concrete example involving the operation I run, across teams, before you score me. Then show me where I am strong, where I have a gap, and what evidence I am still missing."</em></p><div class="neutralise-note"><div class="nn-head"><svg class="nn-ico" viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 6 V11 C19 15.5 16 18.5 12 20 C8 18.5 5 15.5 5 11 V6 Z"/><path d="M9 11.5 11 13.5 15 9.5"/></svg>Before you paste anything in</div><ul class="nn-list"><li>Strip out the <strong>company name</strong>, people's names, and any client or product names.</li><li>Swap them for placeholders with find-and-replace &mdash; <strong>[Company]</strong>, <strong>[Client]</strong>, <strong>[Name]</strong>.</li><li>You get the same quality of help on a neutralised version, and nothing sensitive leaves the building.</li></ul></div></div>
       </div>
@@ -392,77 +396,77 @@
         <p>Same framework, different axes. Your eight scores collapse into Impact (does the operation run across your teams?) and Readiness (could you run a tower or a function?). The square you land on sets your focus for the entire path.</p>
         <div class="svg-frame">
 <svg viewBox="0 0 880 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Career Chessboard — Manager Edition: Multi-team operation impact versus readiness for Director">
-  <text x="440" y="36" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="#1d6aff" letter-spacing="4">THE CAREER CHESSBOARD — MANAGER</text>
+  <text x="440" y="36" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="19" fill="#1d6aff" letter-spacing="4">THE CAREER CHESSBOARD — MANAGER</text>
   <line x1="150" y1="80" x2="150" y2="560" stroke="#2a3347" stroke-width="1.5"/>
-  <text x="64" y="320" font-family="JetBrains Mono, monospace" font-size="13" fill="#c8d0de" letter-spacing="2" transform="rotate(-90 64 320)" text-anchor="middle">READINESS FOR DIRECTOR</text>
-  <text x="120" y="140" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="end">HIGH</text>
-  <text x="120" y="324" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="end">MID</text>
-  <text x="120" y="508" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="end">LOW</text>
+  <text x="64" y="320" font-family="JetBrains Mono, monospace" font-size="13" fill="#e3e8f0" letter-spacing="2" transform="rotate(-90 64 320)" text-anchor="middle">READINESS FOR DIRECTOR</text>
+  <text x="120" y="140" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="end">HIGH</text>
+  <text x="120" y="324" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="end">MID</text>
+  <text x="120" y="508" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="end">LOW</text>
   <line x1="150" y1="560" x2="850" y2="560" stroke="#2a3347" stroke-width="1.5"/>
-  <text x="500" y="616" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#c8d0de" letter-spacing="2">MULTI-TEAM OPERATION IMPACT</text>
-  <text x="265" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="middle">LOW</text>
-  <text x="500" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="middle">SOLID</text>
-  <text x="735" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec0" text-anchor="middle">HIGH</text>
+  <text x="500" y="616" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#e3e8f0" letter-spacing="2">MULTI-TEAM OPERATION IMPACT</text>
+  <text x="265" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="middle">LOW</text>
+  <text x="500" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="middle">SOLID</text>
+  <text x="735" y="586" font-family="JetBrains Mono, monospace" font-size="11" fill="#cdd5e1" text-anchor="middle">HIGH</text>
 
   <!-- Row 1: High readiness -->
   <rect x="158" y="88" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
   <text x="178" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Wrong Square</text>
-  <text x="178" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Director instincts, but the</text>
-  <text x="178" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">operation isn't holding.</text>
+  <text x="178" y="142" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Director instincts, but the</text>
+  <text x="178" y="160" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">operation isn't holding.</text>
   <text x="178" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: STABILISE THE OPERATION</text>
 
   <rect x="392" y="88" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
   <text x="412" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Ready Position</text>
-  <text x="412" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Operation runs. Commercial</text>
-  <text x="412" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">and strategic range building.</text>
+  <text x="412" y="142" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Operation runs. Commercial</text>
+  <text x="412" y="160" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">and strategic range building.</text>
   <text x="412" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: SEEK STRATEGIC SCOPE</text>
 
   <rect x="626" y="88" width="214" height="152" rx="8" fill="#1b2130" stroke="#e8b800" stroke-width="1.5"/>
   <text x="646" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#e8b800">Checkmate</text>
-  <text x="646" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Operating at Director</text>
-  <text x="646" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">altitude already.</text>
+  <text x="646" y="142" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Operating at Director</text>
+  <text x="646" y="160" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">altitude already.</text>
   <text x="646" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: MAKE THE MOVE</text>
 
   <!-- Row 2: Mid readiness -->
   <rect x="158" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
   <text x="178" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Scrambling</text>
-  <text x="178" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Firefighting across teams.</text>
-  <text x="178" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Your leads feel the wobble.</text>
+  <text x="178" y="302" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Firefighting across teams.</text>
+  <text x="178" y="320" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Your leads feel the wobble.</text>
   <text x="178" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: FIX THE OPERATION FIRST</text>
 
   <rect x="392" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
   <text x="412" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#1d6aff">Mid-Game</text>
-  <text x="412" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Operation delivers. Judgment</text>
-  <text x="412" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">and commercial lens growing.</text>
+  <text x="412" y="302" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Operation delivers. Judgment</text>
+  <text x="412" y="320" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">and commercial lens growing.</text>
   <text x="412" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: PUSH ONE AXIS</text>
 
   <rect x="626" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
   <text x="646" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Operator</text>
-  <text x="646" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Strong operation, pure ops</text>
-  <text x="646" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">lens. No strategic range yet.</text>
+  <text x="646" y="302" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Strong operation, pure ops</text>
+  <text x="646" y="320" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">lens. No strategic range yet.</text>
   <text x="646" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: BUILD BUSINESS ACUMEN</text>
 
   <!-- Row 3: Low readiness -->
   <rect x="158" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
   <text x="178" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">New Manager</text>
-  <text x="178" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Just stepped up to leading</text>
-  <text x="178" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">through leads. Act fast.</text>
+  <text x="178" y="462" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Just stepped up to leading</text>
+  <text x="178" y="480" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">through leads. Act fast.</text>
   <text x="178" y="506" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: THE MANAGER SHIFT</text>
 
   <rect x="392" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
   <text x="412" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Comfortable</text>
-  <text x="412" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Operation ticks along. No</text>
-  <text x="412" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">stretch pressure felt — yet.</text>
+  <text x="412" y="462" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Operation ticks along. No</text>
+  <text x="412" y="480" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">stretch pressure felt — yet.</text>
   <text x="412" y="506" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: CREATE AMBITION</text>
 
   <rect x="626" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
   <text x="646" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Senior-TL Trap</text>
-  <text x="646" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Running it like a big team.</text>
-  <text x="646" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Hands-on, not through leads.</text>
+  <text x="646" y="462" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Running it like a big team.</text>
+  <text x="646" y="480" font-family="Inter, sans-serif" font-size="13" fill="#e3e8f0">Hands-on, not through leads.</text>
   <text x="646" y="506" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: LEAD THROUGH LEADS</text>
 </svg>
         </div>
-        <p>The square that catches strong people is bottom-right — the <strong>Senior-TL Trap</strong>. The operation delivers, but it delivers because you are still in it: hands-on, making the calls a lead should make, doing the work instead of building the people who do it. High output, no altitude. It looks like strength and reads like a ceiling. Module 1.3 — Lead Through Leads — is the way out.</p>
+        <p>The square that catches strong people is bottom-right — the <strong>Senior-TL Trap</strong>. The operation delivers, but it delivers because you are still in it: hands-on, making the calls a lead should make, doing the work instead of building the people who do it. High output, no altitude. It looks like strength and <strong style="color:var(--gold);">reads like a ceiling.</strong> Module 1.3 — Lead Through Leads — is the way out.</p>
         <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Give AI your eight scores and the square you landed on. Ask: <em>"Interview me about my operation and my team leads, then tell me which two competencies, if I improved them, would move my position fastest — and what my director would need to see as evidence."</em></p><div class="neutralise-note"><div class="nn-head"><svg class="nn-ico" viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 6 V11 C19 15.5 16 18.5 12 20 C8 18.5 5 15.5 5 11 V6 Z"/><path d="M9 11.5 11 13.5 15 9.5"/></svg>Before you paste anything in</div><ul class="nn-list"><li>Strip out the <strong>company name</strong>, people's names, and any client or product names.</li><li>Swap them for placeholders with find-and-replace &mdash; <strong>[Company]</strong>, <strong>[Client]</strong>, <strong>[Name]</strong>.</li><li>You get the same quality of help on a neutralised version, and nothing sensitive leaves the building.</li></ul></div></div>
       </div>
     </details>
