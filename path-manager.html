@@ -199,6 +199,23 @@
   .data-table + .data-table, p + .data-table { margin-top: 8px; }
 </style>
   <link rel="stylesheet" href="assets/site.css">
+<style>
+/* Readability + spacing pass — expand vertical rhythm, shorten line length, fix media-row crowding */
+.mod-body { padding: 24px 32px 40px; }
+.mod-body > p { max-width: 70ch; margin-bottom: 22px; line-height: 1.85; }
+.mod-body .mod-label { margin: 38px 0 14px; }
+.mod-body .data-table { margin: 16px 0 30px; }
+.mod-body .data-table th, .mod-body .data-table td { padding: 14px 18px; line-height: 1.65; }
+.mod-body .media-row { margin: 34px 0 36px; align-items: flex-start; gap: 28px; }
+.mod-body .ai-block, .mod-body .exercise-block { margin: 34px 0 6px; padding: 18px 22px; }
+.mod-body .ai-block p, .mod-body .exercise-block p { line-height: 1.8; }
+.mod-body .jt-block { padding: 18px 22px; }
+.mod-body .jt-block p { line-height: 1.85; }
+.callout-right { margin: 4px 0 26px 38px; }
+.module { margin-bottom: 36px; }
+.step-header { margin: 14px 0 20px; }
+@media (max-width: 760px){ .mod-body { padding: 20px 20px 32px; } .mod-body .media-row { margin: 28px 0; } .callout-right { margin: 8px 0 20px; } }
+</style>
 </head>
 <body>
 <nav class="topbar">
