@@ -195,14 +195,15 @@
   .data-table + .data-table, p + .data-table { margin-top: 8px; }
 </style>
 <style>
-/* Readability + spacing pass v2 — more decompression across modules */
+/* Readability + spacing pass v3 — decompression + bigger section headings + AI-note redesign + zoom affordance */
 .mod-body { padding: 30px 36px 46px; }
 .mod-body > p { max-width: 68ch; margin-bottom: 26px; line-height: 1.9; }
 .mod-body ul { margin: 4px 0 26px 20px; }
 .mod-body li { margin-bottom: 10px; line-height: 1.8; }
-.mod-body .mod-label { margin: 48px 0 16px; }
+.mod-body > .mod-label { font-size: 18px; letter-spacing: .05em; margin: 54px 0 18px; }
 .mod-body .data-table { margin: 18px 0 38px; }
 .mod-body .data-table th, .mod-body .data-table td { padding: 16px 20px; line-height: 1.7; }
+.mod-body .data-table th { font-size: 12px; }
 .mod-body .media-row { margin: 44px 0 46px; align-items: flex-start; gap: 32px; }
 .mod-body .jt-block { padding: 22px 26px; }
 .mod-body > .jt-block { margin: 44px 0; }
@@ -213,7 +214,18 @@
 .module summary { padding: 20px 26px; }
 .callout-right { margin: 4px 0 30px 40px; }
 .step-header { margin: 18px 0 26px; }
-@media (max-width: 760px){ .mod-body { padding: 22px 22px 34px; } .mod-body .media-row { margin: 30px 0; } .mod-body .mod-label { margin: 34px 0 14px; } .callout-right { margin: 8px 0 22px; } }
+/* AI Application — neutralise note as a bold, bulleted callout */
+.neutralise-note { margin-top: 20px; padding: 18px 22px; border: 1px solid var(--border-2); border-radius: 10px; background: rgba(232,184,0,0.07); }
+.neutralise-note .nn-head { display: flex; align-items: center; gap: 11px; color: var(--gold); font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; margin-bottom: 14px; }
+.neutralise-note .nn-ico { width: 24px; height: 24px; flex: 0 0 auto; }
+.neutralise-note .nn-list { margin: 0; padding: 0; list-style: none; }
+.neutralise-note .nn-list li { position: relative; padding-left: 26px; font-size: 15px; line-height: 1.6; color: var(--text); margin-bottom: 12px; max-width: none; }
+.neutralise-note .nn-list li:last-child { margin-bottom: 0; }
+.neutralise-note .nn-list li::before { content: ""; position: absolute; left: 4px; top: 8px; width: 9px; height: 9px; border-radius: 2px; background: var(--gold); }
+.neutralise-note strong { color: var(--gold); font-weight: 600; }
+/* Click-to-zoom affordance (lightbox wired in assets/zoom.js) */
+.side-visual svg, .svg-frame svg, .minifig svg, .mod-body figure svg { cursor: zoom-in; }
+@media (max-width: 760px){ .mod-body { padding: 22px 22px 34px; } .mod-body .media-row { margin: 30px 0; } .mod-body > .mod-label { margin: 38px 0 14px; font-size: 16px; } .callout-right { margin: 8px 0 22px; } }
 </style>
 </head>
 <body>
@@ -323,7 +335,7 @@
           </tbody>
         </table>
         <div class="jt-block"><span class="jt-label">Reality Check</span><p>The shift is real: strong individual contributors can score low here. Direction, accountability, and team building are learned skills, not personality traits. If your Impact scores are weak, the path starts there — managing people well is the prerequisite to everything that follows.</p></div>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Upload two things — a Team Lead or Supervisor job description for your organization, and your own up-to-date CV with your skills and experience. Ask: <em>"Match my CV against this JD. For each factor, ask me for a concrete example involving my team before you score me. Then show me where I am strong, where I have a gap, and what evidence I am still missing."</em></p><div style="margin-top:12px;padding:11px 14px;border:1px solid var(--border-2);border-radius:8px;background:rgba(232,184,0,0.06);"><strong style="color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.06em;">Before you paste anything in</strong><p style="margin:6px 0 0;color:var(--text-2);font-size:13px;line-height:1.5;">Neutralise the data first. Strip out the company name, people's names, and any client or product names &mdash; anything that identifies your employer. Open the file or prompt in a text editor and use find-and-replace to swap real names for placeholders like [Company], [Client], [Name] before it goes near a public AI model. You get the same quality of help on a generic version, and nothing sensitive leaves the building.</p></div></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Upload two things — a Team Lead or Supervisor job description for your organization, and your own up-to-date CV with your skills and experience. Ask: <em>"Match my CV against this JD. For each factor, ask me for a concrete example involving my team before you score me. Then show me where I am strong, where I have a gap, and what evidence I am still missing."</em></p><div class="neutralise-note"><div class="nn-head"><svg class="nn-ico" viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 6 V11 C19 15.5 16 18.5 12 20 C8 18.5 5 15.5 5 11 V6 Z"/><path d="M9 11.5 11 13.5 15 9.5"/></svg>Before you paste anything in</div><ul class="nn-list"><li>Strip out the <strong>company name</strong>, people's names, and any client or product names.</li><li>Swap them for placeholders with find-and-replace &mdash; <strong>[Company]</strong>, <strong>[Client]</strong>, <strong>[Name]</strong>.</li><li>You get the same quality of help on a neutralised version, and nothing sensitive leaves the building.</li></ul></div></div>
       </div>
     </details>
 
@@ -350,53 +362,53 @@
             <text x="178" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Wrong Square</text>
             <text x="178" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Manager skills visible, but</text>
             <text x="178" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">team isn't delivering.</text>
-            <text x="178" y="186" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: FIX TEAM PERFORMANCE</text>
+            <text x="178" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: FIX TEAM PERFORMANCE</text>
             <rect x="392" y="88" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="412" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Ready Position</text>
             <text x="412" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Team runs well. Strategic</text>
             <text x="412" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">skills building.</text>
-            <text x="412" y="186" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: SEEK BROADER SCOPE</text>
+            <text x="412" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: SEEK BROADER SCOPE</text>
             <rect x="626" y="88" width="214" height="152" rx="8" fill="#1b2130" stroke="#e8b800" stroke-width="1.5"/>
             <text x="646" y="118" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#e8b800">Checkmate</text>
             <text x="646" y="142" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Operating at Manager level</text>
             <text x="646" y="160" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">already.</text>
-            <text x="646" y="186" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: MAKE THE MOVE</text>
+            <text x="646" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: MAKE THE MOVE</text>
             <!-- Row 2: Mid readiness -->
             <rect x="158" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="178" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Scrambling</text>
             <text x="178" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Still finding your footing.</text>
             <text x="178" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Team feels the uncertainty.</text>
-            <text x="178" y="346" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: STABILIZE + DELEGATE</text>
+            <text x="178" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: STABILIZE + DELEGATE</text>
             <rect x="392" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1.5"/>
             <text x="412" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#1d6aff">Mid-Game</text>
             <text x="412" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Team delivers. You're</text>
             <text x="412" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">growing into the role.</text>
-            <text x="412" y="346" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: PUSH ONE AXIS</text>
+            <text x="412" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: PUSH ONE AXIS</text>
             <rect x="626" y="248" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="646" y="278" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Operator</text>
             <text x="646" y="302" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Strong team output. Haven't</text>
             <text x="646" y="320" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">stretched beyond operations.</text>
-            <text x="646" y="346" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: BUILD STRATEGIC SKILLS</text>
+            <text x="646" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: BUILD STRATEGIC SKILLS</text>
             <!-- Row 3: Low readiness -->
             <rect x="158" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="178" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">New Appointment</text>
             <text x="178" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Just promoted. Everything is</text>
             <text x="178" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">new. Normal — but act fast.</text>
-            <text x="178" y="506" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: FIRST 90 DAYS</text>
+            <text x="178" y="506" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: FIRST 90 DAYS</text>
             <rect x="392" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="412" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Comfortable</text>
             <text x="412" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Team ticks along. No growth</text>
             <text x="412" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">pressure felt — yet.</text>
-            <text x="412" y="506" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: CREATE AMBITION</text>
+            <text x="412" y="506" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: CREATE AMBITION</text>
             <rect x="626" y="408" width="214" height="152" rx="8" fill="#141922" stroke="#1e2636"/>
             <text x="646" y="438" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Super-IC</text>
             <text x="646" y="462" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">Delivering through personal</text>
             <text x="646" y="480" font-family="Inter, sans-serif" font-size="12" fill="#c8d0de">effort, not through the team.</text>
-            <text x="646" y="506" font-family="JetBrains Mono, monospace" font-size="11" fill="#e8b800" letter-spacing="1">FOCUS: LET GO + DEVELOP PEOPLE</text>
+            <text x="646" y="506" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8b800">FOCUS: LET GO + DEVELOP PEOPLE</text>
           </svg>
         </div>
         <p>The "Super-IC" square is the most common trap for promoted associates. High personal output, low team development. Module 2.2 addresses this directly.</p>
-        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Give AI your eight scores and your square. Ask: <em>"Interview me about my team context, then tell me which two competencies, if improved, would move my position fastest — and what my manager would need to see as evidence."</em></p><div style="margin-top:12px;padding:11px 14px;border:1px solid var(--border-2);border-radius:8px;background:rgba(232,184,0,0.06);"><strong style="color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.06em;">Before you paste anything in</strong><p style="margin:6px 0 0;color:var(--text-2);font-size:13px;line-height:1.5;">Neutralise the data first. Strip out the company name, people's names, and any client or product names &mdash; anything that identifies your employer. Open the file or prompt in a text editor and use find-and-replace to swap real names for placeholders like [Company], [Client], [Name] before it goes near a public AI model. You get the same quality of help on a generic version, and nothing sensitive leaves the building.</p></div></div>
+        <div class="ai-block"><span class="mod-label" style="margin-top:0;">AI Application</span><p>Give AI your eight scores and your square. Ask: <em>"Interview me about my team context, then tell me which two competencies, if improved, would move my position fastest — and what my manager would need to see as evidence."</em></p><div class="neutralise-note"><div class="nn-head"><svg class="nn-ico" viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 6 V11 C19 15.5 16 18.5 12 20 C8 18.5 5 15.5 5 11 V6 Z"/><path d="M9 11.5 11 13.5 15 9.5"/></svg>Before you paste anything in</div><ul class="nn-list"><li>Strip out the <strong>company name</strong>, people's names, and any client or product names.</li><li>Swap them for placeholders with find-and-replace &mdash; <strong>[Company]</strong>, <strong>[Client]</strong>, <strong>[Name]</strong>.</li><li>You get the same quality of help on a neutralised version, and nothing sensitive leaves the building.</li></ul></div></div>
       </div>
     </details>
 
