@@ -560,8 +560,189 @@
     </div>
 </section>
 
+    <section class="section" id="rca-capa">
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 12 L31 16 V22.5 C31 27.5 27 30.8 22 32.6 C17 30.8 13 27.5 13 22.5 V16 Z"/><path d="M17.5 22 L20.8 25.2 L27 19"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
+      <h2>Root cause analysis and CAPA — finding the real cause, and making the fix stick</h2>
+      <p class="section-hook">When something keeps going wrong, fixing the symptom buys you a quiet week and the same problem next month. Root cause analysis finds why it happened. CAPA makes the fix hold.</p>
+
+      <p>Root cause analysis (RCA) is a structured way to find the real reason a problem happened, instead of stopping at the first visible cause. CAPA — corrective and preventive action — is what you do with that finding: remove the cause so the problem cannot come back, and act on the same weakness elsewhere before it bites. In GBS the two work as a pair. RCA without CAPA gives you a diagnosis and no treatment. CAPA without RCA treats a symptom, and the problem returns.</p>
+
+      <p>Most GBS problems that reach your manager are repeat problems — the same SLA breach, the same error type, the same escalation. Leadership and auditors do not want to hear that you fixed it again. They want to hear that you found why it happened and closed it for good. RCA and CAPA turn a recurring fire into a closed issue, with a record that stands up in an audit.</p>
+
+      <h3>The 5 Whys</h3>
+      <p>Start with the problem exactly as it was reported, and ask why it happened. Answer with evidence, not a guess. Then ask why of that answer, and keep going — usually four to six steps — until you reach a cause you can actually act on. Toyota popularised five as a rule of thumb.</p>
+      <p>The example below walks a double payment down to its real cause. Notice where it ends — at the process gap that let a duplicate through, rather than at the person who keyed the invoice. Stop too early, at "the analyst made a mistake," and you fix nothing. One more rule: a problem can have more than one chain of causes, so follow each one.</p>
+      <div class="sub-diagram medium">
+      <svg viewBox="0 0 720 392" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:720px;height:auto;">
+  <text x="360" y="22" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="13" letter-spacing="0.1em">THE 5 WHYS · AP WORKED EXAMPLE</text>
+  <!-- row template: x=90 w=540 h=38 -->
+  <!-- symptom -->
+  <rect x="90" y="40" width="540" height="40" rx="8" fill="#1c0d12" stroke="#ff3355" stroke-width="1.4"/>
+  <text x="110" y="58" fill="#ff6b85" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.08em">SYMPTOM</text>
+  <text x="110" y="73" fill="#ffffff" font-family="Inter,sans-serif" font-size="13" font-weight="600">Supplier paid twice</text>
+  <!-- why arrows + rungs -->
+  <g font-family="Inter,sans-serif">
+    <rect x="90" y="96" width="540" height="40" rx="8" fill="#101722" stroke="#1d6aff" stroke-width="1.2"/>
+    <text x="110" y="121" fill="#e3e8f0" font-size="13">Same invoice picked up in two payment runs</text>
+    <rect x="90" y="152" width="540" height="40" rx="8" fill="#101722" stroke="#1d6aff" stroke-width="1.2"/>
+    <text x="110" y="177" fill="#e3e8f0" font-size="13">Invoice entered under two different numbers</text>
+    <rect x="90" y="208" width="540" height="40" rx="8" fill="#101722" stroke="#1d6aff" stroke-width="1.2"/>
+    <text x="110" y="233" fill="#e3e8f0" font-size="13">It arrived by email and by portal — both were keyed</text>
+    <rect x="90" y="264" width="540" height="40" rx="8" fill="#101722" stroke="#1d6aff" stroke-width="1.2"/>
+    <text x="110" y="289" fill="#e3e8f0" font-size="13">No check for duplicates across intake channels</text>
+  </g>
+  <!-- root cause -->
+  <rect x="90" y="324" width="540" height="44" rx="8" fill="#1b1406" stroke="#e8b800" stroke-width="1.6"/>
+  <text x="110" y="343" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600" letter-spacing="0.08em">ROOT CAUSE — ACT HERE</text>
+  <text x="110" y="359" fill="#ffffff" font-family="Inter,sans-serif" font-size="13" font-weight="600">Intake has no single de-duplication point</text>
+  <!-- why connectors -->
+  <g font-family="JetBrains Mono,monospace" font-size="9" fill="#8da2c0" letter-spacing="0.08em">
+    <text x="650" y="92" text-anchor="end">WHY ↓</text>
+    <text x="650" y="148" text-anchor="end">WHY ↓</text>
+    <text x="650" y="204" text-anchor="end">WHY ↓</text>
+    <text x="650" y="260" text-anchor="end">WHY ↓</text>
+    <text x="650" y="320" text-anchor="end">WHY ↓</text>
+  </g>
+</svg>
+      <p class="sd-caption">Five whys — from symptom down to an actionable root cause</p>
+    </div>
+
+      <h3>Fishbone (Ishikawa) diagram</h3>
+      <p>When a problem could have several contributing causes, a fishbone diagram lays them out so you do not lock onto the first idea. Put the problem at the head. The bones are categories of cause. Manufacturing uses six Ms; for GBS and service work, useful categories are people, process, policy, systems, data and inputs, and environment. Brainstorm possible causes under each bone, then test which ones the evidence actually supports. It is named after Kaoru Ishikawa. A quick Pareto view — the idea that roughly 80% of failures come from 20% of causes — then helps you spend effort where it pays.</p>
+      <div class="sub-diagram medium">
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:760px;height:auto;">
+  <text x="380" y="22" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="13" letter-spacing="0.1em">FISHBONE (ISHIKAWA) DIAGRAM</text>
+  <!-- spine -->
+  <line x1="60" y1="150" x2="588" y2="150" stroke="#6b7891" stroke-width="2"/>
+  <polygon points="586,144 600,150 586,156" fill="#6b7891"/>
+  <!-- head -->
+  <rect x="600" y="122" width="150" height="56" rx="8" fill="#1b1406" stroke="#e8b800" stroke-width="1.6"/>
+  <text x="675" y="147" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="13">Recurring</text>
+  <text x="675" y="165" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="600" font-size="13">problem</text>
+  <!-- top bones -->
+  <g stroke="#1d6aff" stroke-width="1.4">
+    <line x1="210" y1="150" x2="150" y2="70"/>
+    <line x1="360" y1="150" x2="315" y2="70"/>
+    <line x1="510" y1="150" x2="480" y2="70"/>
+  </g>
+  <g stroke="#1d6aff" stroke-width="1.4">
+    <line x1="210" y1="150" x2="150" y2="230"/>
+    <line x1="360" y1="150" x2="315" y2="230"/>
+    <line x1="510" y1="150" x2="480" y2="230"/>
+  </g>
+  <!-- top labels -->
+  <g font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" letter-spacing="0.04em">
+    <rect x="96" y="46" width="108" height="24" rx="6" fill="#141922" stroke="#1d6aff" stroke-width="1"/><text x="150" y="62" text-anchor="middle" fill="#9fc0ff">PEOPLE</text>
+    <rect x="261" y="46" width="108" height="24" rx="6" fill="#141922" stroke="#1d6aff" stroke-width="1"/><text x="315" y="62" text-anchor="middle" fill="#9fc0ff">PROCESS</text>
+    <rect x="426" y="46" width="108" height="24" rx="6" fill="#141922" stroke="#1d6aff" stroke-width="1"/><text x="480" y="62" text-anchor="middle" fill="#9fc0ff">POLICY</text>
+  </g>
+  <!-- bottom labels -->
+  <g font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" letter-spacing="0.04em">
+    <rect x="96" y="230" width="108" height="24" rx="6" fill="#141922" stroke="#1d6aff" stroke-width="1"/><text x="150" y="246" text-anchor="middle" fill="#9fc0ff">SYSTEMS</text>
+    <rect x="255" y="230" width="120" height="24" rx="6" fill="#141922" stroke="#1d6aff" stroke-width="1"/><text x="315" y="246" text-anchor="middle" fill="#9fc0ff">DATA / INPUTS</text>
+    <rect x="420" y="230" width="120" height="24" rx="6" fill="#141922" stroke="#1d6aff" stroke-width="1"/><text x="480" y="246" text-anchor="middle" fill="#9fc0ff">ENVIRONMENT</text>
+  </g>
+  <!-- sub causes -->
+  <g font-family="Inter,sans-serif" font-size="10" fill="#9aa6b8">
+    <text x="196" y="104" text-anchor="end">training gaps</text>
+    <text x="350" y="104" text-anchor="end">no dedup check</text>
+    <text x="500" y="104" text-anchor="end">unclear rules</text>
+    <text x="196" y="200" text-anchor="end">two intake channels</text>
+    <text x="350" y="200" text-anchor="end">duplicate keys</text>
+    <text x="500" y="200" text-anchor="end">month-end peak</text>
+  </g>
+  <text x="380" y="288" text-anchor="middle" fill="#7d8aa0" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">ORGANISE POSSIBLE CAUSES · TEST EACH AGAINST EVIDENCE</text>
+</svg>
+      <p class="sd-caption">Fishbone — six cause categories feeding one problem</p>
+    </div>
+
+      <h3>CAPA — corrective and preventive action</h3>
+      <p>Once you know the cause, CAPA is the disciplined response. It has a few moving parts that people often blur together.</p>
+      <div class="card gold">
+        <div class="card-title">The CAPA loop</div>
+        <ul>
+          <li><strong>Containment</strong> — the immediate action that stops the harm now: hold the payment run, flag the affected accounts. It buys time, and it is not the fix.</li>
+          <li><strong>Corrective action</strong> — remove the root cause so this exact problem cannot recur: add a cross-channel duplicate-invoice check.</li>
+          <li><strong>Preventive action</strong> — apply the same fix to related work before it fails: put the duplicate check on every intake queue that shares the weakness.</li>
+          <li><strong style="color:var(--gold)">Verify effectiveness</strong> — the step most teams skip. Come back after a set period and confirm the problem actually stopped. If it did not, the cause was wrong, so reopen.</li>
+          <li><strong>Close</strong> — document and close only once effectiveness is proven.</li>
+        </ul>
+      </div>
+      <p>ISO 9001:2015 folded the older idea of "preventive action" into risk-based thinking across the whole management system. The principle holds: act on causes and risks, not only on symptoms.</p>
+      <div class="sub-diagram medium">
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:760px;height:auto;">
+  <defs><marker id="ca-ah" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7" fill="#6b7891"/></marker></defs>
+  <text x="380" y="24" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="13" letter-spacing="0.1em">RCA → CAPA — CLOSED-LOOP CONTROL</text>
+  <!-- node helper: w=150 h=64 -->
+  <!-- TOP ROW (left to right) -->
+  <g font-family="Inter,sans-serif">
+    <!-- Detect -->
+    <rect x="30" y="54" width="150" height="64" rx="9" fill="#101722" stroke="#1d6aff" stroke-width="1.3"/>
+    <text x="105" y="82" text-anchor="middle" fill="#9fc0ff" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" letter-spacing="0.06em">DETECT</text>
+    <text x="105" y="102" text-anchor="middle" fill="#c2ccda" font-size="11">issue spotted</text>
+    <!-- Contain -->
+    <rect x="210" y="54" width="150" height="64" rx="9" fill="#101722" stroke="#1d6aff" stroke-width="1.3"/>
+    <text x="285" y="82" text-anchor="middle" fill="#9fc0ff" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" letter-spacing="0.06em">CONTAIN</text>
+    <text x="285" y="102" text-anchor="middle" fill="#c2ccda" font-size="11">stop the bleed</text>
+    <!-- RCA -->
+    <rect x="390" y="54" width="150" height="64" rx="9" fill="#0f1a2e" stroke="#1d6aff" stroke-width="1.8"/>
+    <text x="465" y="82" text-anchor="middle" fill="#9fc0ff" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" letter-spacing="0.06em">FIND ROOT CAUSE</text>
+    <text x="465" y="102" text-anchor="middle" fill="#c2ccda" font-size="11">RCA — 5 Whys, fishbone</text>
+    <!-- Corrective -->
+    <rect x="570" y="54" width="150" height="64" rx="9" fill="#101722" stroke="#1d6aff" stroke-width="1.3"/>
+    <text x="645" y="82" text-anchor="middle" fill="#9fc0ff" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" letter-spacing="0.06em">CORRECTIVE</text>
+    <text x="645" y="102" text-anchor="middle" fill="#c2ccda" font-size="11">remove the cause</text>
+  </g>
+  <!-- top arrows -->
+  <line x1="182" y1="86" x2="206" y2="86" stroke="#6b7891" stroke-width="1.4" marker-end="url(#ca-ah)"/>
+  <line x1="362" y1="86" x2="386" y2="86" stroke="#6b7891" stroke-width="1.4" marker-end="url(#ca-ah)"/>
+  <line x1="542" y1="86" x2="566" y2="86" stroke="#6b7891" stroke-width="1.4" marker-end="url(#ca-ah)"/>
+  <!-- drop arrow right (corrective -> preventive) -->
+  <line x1="645" y1="120" x2="645" y2="174" stroke="#6b7891" stroke-width="1.4" marker-end="url(#ca-ah)"/>
+  <!-- BOTTOM ROW (right to left) -->
+  <g font-family="Inter,sans-serif">
+    <!-- Preventive -->
+    <rect x="570" y="176" width="150" height="64" rx="9" fill="#101722" stroke="#1d6aff" stroke-width="1.3"/>
+    <text x="645" y="204" text-anchor="middle" fill="#9fc0ff" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" letter-spacing="0.06em">PREVENTIVE</text>
+    <text x="645" y="224" text-anchor="middle" fill="#c2ccda" font-size="11">fix related risks</text>
+    <!-- Verify (GOLD) -->
+    <rect x="300" y="176" width="150" height="64" rx="9" fill="#1b1406" stroke="#e8b800" stroke-width="1.8"/>
+    <text x="375" y="204" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" letter-spacing="0.06em">VERIFY EFFECTIVENESS</text>
+    <text x="375" y="224" text-anchor="middle" fill="#ffffff" font-size="11">confirm it stopped</text>
+    <!-- Close -->
+    <rect x="30" y="176" width="150" height="64" rx="9" fill="#101722" stroke="#1d6aff" stroke-width="1.3"/>
+    <text x="105" y="204" text-anchor="middle" fill="#9fc0ff" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" letter-spacing="0.06em">CLOSE</text>
+    <text x="105" y="224" text-anchor="middle" fill="#c2ccda" font-size="11">evidence on file</text>
+  </g>
+  <!-- bottom arrows (leftward) -->
+  <line x1="566" y1="208" x2="454" y2="208" stroke="#6b7891" stroke-width="1.4" marker-end="url(#ca-ah)"/>
+  <line x1="296" y1="208" x2="184" y2="208" stroke="#6b7891" stroke-width="1.4" marker-end="url(#ca-ah)"/>
+  <!-- return arrow left (close -> detect) -->
+  <line x1="105" y1="174" x2="105" y2="120" stroke="#8da2c0" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#ca-ah)"/>
+  <text x="118" y="150" fill="#8da2c0" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">MONITOR</text>
+  <text x="380" y="284" text-anchor="middle" fill="#7d8aa0" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">CORRECTIVE FIXES THIS ONE · PREVENTIVE STOPS THE NEXT</text>
+</svg>
+      <p class="sd-caption">From detection to a verified, closed fix — preventive action included</p>
+    </div>
+
+      <h3>How this connects to DMAIC</h3>
+      <p>If you have read the DMAIC topic above, RCA and CAPA are the tools you reach for inside it. RCA powers the Analyze phase. Corrective and preventive action sit in Improve, and verifying effectiveness belongs in Control. The structure of DMAIC keeps you honest about doing both.</p>
+
+      <div class="tension-box">
+        <div class="tension-label">Where RCA and CAPA go wrong</div>
+        <ul>
+          <li>Jumping to a solution before the cause is proven.</li>
+          <li>Stopping at human error — naming a person instead of the process gap that let the error through.</li>
+          <li>Skipping the effectiveness check — closing an action on the day it is implemented, before there is any proof it worked.</li>
+          <li>A CAPA log that opens items and never closes them, which signals control on paper only.</li>
+        </ul>
+      </div>
+
+      <p class="sd-caption" style="text-align:left;margin-top:18px;">Sources: ASQ (Ishikawa diagram, CAPA) &middot; Taiichi Ohno / Toyota Production System (5 Whys) &middot; ISO 9001:2015 (corrective action, risk-based thinking).</p>
+    </section>
+
     <section class="section" id="belts">
-      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 31 H17 V26 H22 V21 H27 V16 H32"/><path d="M29 16 H32 V19"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 31 H17 V26 H22 V21 H27 V16 H32"/><path d="M29 16 H32 V19"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2>The Six Sigma belt system — what it actually means for your career</h2>
       <p class="section-hook">Belts are not mandatory in GBS. But they signal something real: this person can run a structured improvement project, not just describe one.</p>
 
@@ -749,7 +930,7 @@
     </section>
 
     <section class="section" id="savings">
-      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><ellipse cx="22" cy="16" rx="9" ry="3.2"/><path d="M13 16 V24 C13 25.8 17 27.2 22 27.2 C27 27.2 31 25.8 31 24 V16"/><path d="M13 20 C13 21.8 17 23.2 22 23.2 C27 23.2 31 21.8 31 20"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
+      <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><ellipse cx="22" cy="16" rx="9" ry="3.2"/><path d="M13 16 V24 C13 25.8 17 27.2 22 27.2 C27 27.2 31 25.8 31 24 V16"/><path d="M13 20 C13 21.8 17 23.2 22 23.2 C27 23.2 31 21.8 31 20"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>Hard vs soft savings — how GBS proves its impact</h2>
       <p class="section-hook">This is where improvement initiatives get political. Not all savings are equal. Finance wants to see <strong style="color:var(--gold)">hard savings</strong>. Operations often generates <strong style="color:var(--gold)">soft savings</strong>. Understanding the difference, and how to communicate across it, is a real career skill.</p>
 
