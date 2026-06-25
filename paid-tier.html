@@ -140,6 +140,18 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
 .vp-btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;color:var(--text-2);font-size:13px;text-decoration:none;border:1px solid var(--border-2);border-radius:6px}
 .vp-cta-note{font-size:13px;color:var(--text-3)}
 @media(max-width:720px){.vp-cols{grid-template-columns:1fr}}
+
+/* === coaching guarantee (gr-) === */
+#guarantee{text-align:left}
+.gr-badge{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:8px 18px;margin-bottom:16px}
+.gr-badge .gr-ck{color:var(--gold);font-size:14px}
+.gr-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.gr-step{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;display:flex;flex-direction:column;gap:8px}
+.gr-num{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--teal);width:30px;height:30px;border:1px solid var(--border-2);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.gr-step h4{font-size:15px;font-weight:500;color:var(--text)}
+.gr-step p{font-size:14px;color:var(--text-2);line-height:1.6}
+.gr-micro{margin-top:18px;font-size:13px;color:var(--text-3)}
+@media(max-width:720px){.gr-steps{grid-template-columns:1fr}}
 </style>
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"><script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
@@ -638,6 +650,32 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
 <img src="images/img-coaching-call.jpg" alt="A coaching video call between mentor and member" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border);"><p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.08em;text-transform:uppercase;margin:8px 0 0;">Your case, challenged and sharpened in 1:1 sessions</p>
 </figure>
   </section>
+
+  <section class="section" id="guarantee">
+    <span class="eyebrow">The guarantee</span>
+    <div class="gr-badge"><span class="gr-ck">✓</span> 30-Day Money-Back Guarantee</div>
+    <h2>Personal Coaching has to be a fit</h2>
+    <p class="section-intro">Coaching is personal — it works best when my approach fits how you think and work. You get 30 days from the day you join to find that out. If it's not the right fit, reach out and I'll refund you.</p>
+    <div class="gr-steps">
+      <div class="gr-step">
+        <span class="gr-num">1</span>
+        <h4>Reach out</h4>
+        <p>Within 30 days of joining, tell me it's not working for you.</p>
+      </div>
+      <div class="gr-step">
+        <span class="gr-num">2</span>
+        <h4>We talk it through</h4>
+        <p>I'll get on a call to understand and try to make it right.</p>
+      </div>
+      <div class="gr-step">
+        <span class="gr-num">3</span>
+        <h4>I refund you</h4>
+        <p>If it's still not a fit, I start your refund and we part on good terms.</p>
+      </div>
+    </div>
+    <p class="gr-micro">Applies to Personal Coaching. Full terms shared when you join.</p>
+  </section>
+
 
   <!-- ============ WHAT IF ============ -->
   <section class="section">
