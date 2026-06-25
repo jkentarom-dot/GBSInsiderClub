@@ -98,6 +98,48 @@
   @media (max-width: 1024px) { .content-wrap { padding: 0 24px; } .topbar { padding: 0 24px; } .grid-5 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); } }
   @media (max-width: 600px) { .hero h1 { font-size: 32px; } }
 .tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+
+/* === Free vs VIP value-prop (vp-) === */
+.vp-proof{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:6px}
+.vp-head{padding:16px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.vp-head .vp-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
+.vp-head .vp-topic{font-size:16px;font-weight:600;color:var(--text)}
+.vp-cols{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.vp-col{background:var(--surface);padding:26px 24px;display:flex;flex-direction:column;gap:14px}
+.vp-col.vp-vip{background:var(--surface-3);position:relative}
+.vp-col .vp-lbl{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.vp-col.vp-free .vp-lbl{color:var(--text-3)}
+.vp-col.vp-vip .vp-lbl{color:var(--gold)}
+.vp-col h3{font-size:15px;font-weight:500;color:var(--text);line-height:1.4}
+.vp-col p{font-size:14.5px;color:var(--text-2)}
+.vp-col .vp-quote{font-size:14px;color:var(--text-3);font-style:italic;border-left:2px solid var(--border-2);padding-left:12px}
+.vp-assets{list-style:none;display:flex;flex-direction:column;gap:9px;margin:2px 0 0;padding:0}
+.vp-assets li{font-size:14px;color:var(--text-2);display:flex;gap:10px;align-items:flex-start}
+.vp-assets li .vp-ck{color:var(--green);flex:0 0 auto;font-weight:600;margin-top:1px}
+.vp-col .vp-foot{margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.vp-col.vp-free .vp-foot{color:var(--text-3)}
+.vp-col.vp-vip .vp-foot{color:var(--teal)}
+.vp-flag{position:absolute;top:0;right:0;background:var(--gold);color:var(--void);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.08em;padding:4px 12px;border-bottom-left-radius:10px}
+.vp-voice{margin-top:22px;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:20px 24px}
+.vp-voice .vp-vk{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.vp-voice p{font-size:15px;color:var(--text);line-height:1.65}
+.vp-voice .vp-src{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:10px}
+.vp-cmp-wrap{margin-top:40px;overflow-x:auto}
+table.vp-cmp{width:100%;border-collapse:collapse;min-width:640px}
+table.vp-cmp th,table.vp-cmp td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--border);font-size:14.5px}
+table.vp-cmp thead th{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);font-weight:400;border-bottom:1px solid var(--border-2)}
+table.vp-cmp thead th.vp-vipcol{color:var(--gold)}
+table.vp-cmp td.vp-cap{color:var(--text-2)}
+table.vp-cmp td.vp-center{text-align:center;width:120px}
+table.vp-cmp .vp-yes{color:var(--green);font-weight:600}
+table.vp-cmp .vp-no{color:var(--text-3)}
+table.vp-cmp .vp-partial{color:var(--text-3);font-size:13px}
+table.vp-cmp tbody tr:hover{background:var(--surface)}
+table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
+.vp-cta{margin-top:34px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.vp-btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;color:var(--text-2);font-size:13px;text-decoration:none;border:1px solid var(--border-2);border-radius:6px}
+.vp-cta-note{font-size:13px;color:var(--text-3)}
+@media(max-width:720px){.vp-cols{grid-template-columns:1fr}}
 </style>
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"><script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
@@ -121,6 +163,83 @@
 <img src="images/img-hero-focus.jpg" alt="A focused GBS professional ready to make her next career move" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border);">
 </figure>
   </section>
+
+  <section class="section" id="compare">
+    <span class="eyebrow">Free vs VIP</span>
+    <h2>See the difference before you pay</h2>
+    <p class="section-intro">The free tier teaches you the <strong style="color:var(--gold)">theory</strong> — the frameworks, models, and vocabulary of GBS. VIP takes the same topics and turns them into <strong style="color:var(--gold)">work you can ship this week</strong>: playbooks, real examples, templates, and field-tested calls from someone who did the job.</p>
+
+    <div class="vp-proof">
+      <div class="vp-head">
+        <span class="vp-tag">One topic ·</span>
+        <span class="vp-topic">The peer-to-boss transition</span>
+        <span class="vp-tag">· two depths</span>
+      </div>
+      <div class="vp-cols">
+        <div class="vp-col vp-free">
+          <span class="vp-lbl">Free — Learn it</span>
+          <h3>What changes when you manage former peers</h3>
+          <p>Moving from individual contributor to manager changes everything — your relationship with former peers, your success metrics, and the skills that made you successful. The first 90 days define your credibility.</p>
+          <p class="vp-quote">Yesterday you were part of the team. Today you lead it. The fastest way to fail is to pretend nothing changed.</p>
+          <svg width="280" height="78" viewBox="0 0 280 78" xmlns="http://www.w3.org/2000/svg" aria-label="Identity shift diagram">
+            <rect x="2" y="20" width="104" height="38" rx="8" fill="#141922" stroke="#1e2636"/>
+            <text x="54" y="38" text-anchor="middle" font-family="Inter" font-size="12" fill="#c8d0de">Individual</text>
+            <text x="54" y="52" text-anchor="middle" font-family="Inter" font-size="12" fill="#c8d0de">contributor</text>
+            <path d="M112 39 L162 39" stroke="#6b7891" stroke-width="1.5" marker-end="url(#vpah)"/>
+            <text x="137" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#7a8799">SHIFT</text>
+            <rect x="170" y="20" width="104" height="38" rx="8" fill="#1b2130" stroke="#1d6aff"/>
+            <text x="222" y="44" text-anchor="middle" font-family="Inter" font-size="12" fill="#ffffff">Manager</text>
+            <defs><marker id="vpah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#6b7891"/></marker></defs>
+          </svg>
+          <span class="vp-foot">Theory · Framework · Vocabulary · Diagram</span>
+        </div>
+        <div class="vp-col vp-vip">
+          <span class="vp-flag">VIP</span>
+          <span class="vp-lbl">VIP — Do it</span>
+          <h3>2.4 · The Authority Shift: Peer to Boss, Equal Treatment, Professional Distance</h3>
+          <ul class="vp-assets">
+            <li><span class="vp-ck">✓</span> A step-by-step playbook for your first two weeks of authority</li>
+            <li><span class="vp-ck">✓</span> A real From-the-Field story — how the shift goes wrong, in Julian's words</li>
+            <li><span class="vp-ck">✓</span> An AI exercise: draft your first-week team message, then make it yours</li>
+            <li><span class="vp-ck">✓</span> A comparison table — equal treatment vs. old-peer habits to drop</li>
+            <li><span class="vp-ck">✓</span> A template you adapt and use, not just read</li>
+          </ul>
+          <span class="vp-foot">Applied · Templates · Julian's field calls</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vp-voice">
+      <div class="vp-vk">What VIP sounds like</div>
+      <p>"The TL-to-Manager gap is wider than it looks. What the next level actually requires: stronger stakeholder management — more senior, more demanding, more political. Comfort with complexity across multiple teams, not depth in one. Breadth of experience — having led different teams, not just one — significantly strengthens your case."</p>
+      <div class="vp-src">From the Field · Team Lead path</div>
+    </div>
+
+    <div class="vp-cmp-wrap">
+      <table class="vp-cmp">
+        <thead>
+          <tr><th>What you get</th><th class="vp-center">Free</th><th class="vp-center vp-vipcol">VIP</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="vp-cap">Frameworks, models &amp; vocabulary</td><td class="vp-center vp-yes">✓</td><td class="vp-center vp-vipcol vp-yes">✓</td></tr>
+          <tr><td class="vp-cap">Concept diagrams</td><td class="vp-center vp-yes">✓</td><td class="vp-center vp-vipcol vp-yes">✓</td></tr>
+          <tr><td class="vp-cap">Step-by-step playbooks</td><td class="vp-center vp-no">—</td><td class="vp-center vp-vipcol vp-yes">✓</td></tr>
+          <tr><td class="vp-cap">Worked examples from real GBS work</td><td class="vp-center vp-no">—</td><td class="vp-center vp-vipcol vp-yes">✓</td></tr>
+          <tr><td class="vp-cap">From-the-Field stories &amp; Reality Checks (Julian)</td><td class="vp-center vp-no">—</td><td class="vp-center vp-vipcol vp-yes">✓</td></tr>
+          <tr><td class="vp-cap">AI exercises</td><td class="vp-center vp-partial">Theory guide</td><td class="vp-center vp-vipcol vp-yes">✓ Applied</td></tr>
+          <tr><td class="vp-cap">Role-based learning paths<br><span style="font-size:12px;color:var(--text-3)">Associate · Team Lead · Project Lead · SME</span></td><td class="vp-center vp-no">—</td><td class="vp-center vp-vipcol vp-yes">✓</td></tr>
+          <tr><td class="vp-cap">Templates, action cards &amp; proof-of-work</td><td class="vp-center vp-no">—</td><td class="vp-center vp-vipcol vp-yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="vp-cta">
+      <a class="btn-primary" href="#pricing">See what's inside →</a>
+      <a class="vp-btn-ghost" href="#paths">Browse the four paths</a>
+      <span class="vp-cta-note">One-time purchase. No subscription.</span>
+    </div>
+  </section>
+
 
   <!-- ============ 5-STEP CAREER BOOSTER ============ -->
   <section class="section" id="career-booster">
