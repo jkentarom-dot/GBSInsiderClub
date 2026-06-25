@@ -653,7 +653,7 @@
           email: session.user.email,
           tier: REGION.tier,
           success_url: window.location.origin + '/paid-tier.html?payment=success',
-          cancel_url: window.location.origin + '/paid-tier.html?payment=cancelled'
+          cancel_url: window.location.origin + '/paid-tier.html?payment=canceled'
         })
       });
 
@@ -703,7 +703,7 @@
         setBtn(BTN_DEFAULT, false);
       }
     })();
-  } else if (params.get('payment') === 'cancelled') {
+  } else if (params.get('payment') === 'canceled') {
     setBtn(BTN_DEFAULT, false);
   }
 </script>
