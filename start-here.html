@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Here — GBS Insider Club</title>
+<meta name="description" content="Everything in the free tier, in one place. No login needed to read. Join free for downloads, saved progress, and weekly content.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--teal:#1d6aff;--gold:#e8b800;--sky:#38bdf8;--green:#34d399;--text:#fff;--text-2:#c8d0de;--text-3:#7a8799;--border:#1e2636;--border-2:#2a3347;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--void);color:var(--text-2);font-family:Inter,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(8,11,16,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .lock{display:flex;align-items:center;gap:10px;font-weight:500;color:var(--text)}
+  .mark{width:26px;height:26px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center}
+  .mark svg{width:15px;height:15px}
+  .topbar a.alt{font-size:13px;color:var(--text-2);border:1px solid var(--border-2);padding:8px 14px;border-radius:8px}
+  .hero{padding:64px 0 40px;text-align:center}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;color:var(--sky);text-transform:uppercase}
+  .hero h1{font-size:46px;font-weight:300;letter-spacing:-1.4px;color:var(--text);margin:14px 0 14px;line-height:1.08}
+  .hero h1 b{font-weight:500;color:var(--gold)}
+  .hero p{max-width:620px;margin:0 auto;font-size:17px;color:var(--text-2)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 0 8px}
+  .card{display:block;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:26px 26px 24px;transition:border-color .15s,transform .15s}
+  .card:hover{border-color:var(--border-2);transform:translateY(-2px)}
+  .card .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--green);text-transform:uppercase}
+  .card h3{font-size:21px;font-weight:500;color:var(--text);margin:10px 0 8px}
+  .card p{font-size:14.5px;color:var(--text-2)}
+  .card .go{margin-top:14px;font-size:13px;color:var(--sky)}
+  .join{margin:26px 0 60px;background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--border-2);border-radius:14px;padding:30px 28px;text-align:center}
+  .join h2{font-size:24px;font-weight:400;color:var(--text);margin-bottom:8px}
+  .join p{max-width:560px;margin:0 auto 18px;font-size:15px;color:var(--text-2)}
+  .btn{display:inline-block;background:var(--gold);color:#1a1400;font-weight:600;font-size:15px;padding:13px 26px;border-radius:10px}
+  .foot{border-top:1px solid var(--border);padding:22px 0;text-align:center;font-size:12px;color:var(--text-3)}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:34px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a href="index.html" class="lock"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg></span>GBS Insider Club</a>
+  <a href="paid-tier.html" class="alt">Explore Full Access</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Free — no login needed</div>
+    <h1>You're in.<br><b>Start here.</b></h1>
+    <p>Everything below is free to read. No account required. Create a free account only when you want downloads, saved progress, and new content each week.</p>
+  </section>
+
+  <section class="grid">
+    <a class="card" href="index.html#inside">
+      <div class="tag">Free</div><h3>The 10 Pillars</h3>
+      <p>The full GBS knowledge base — operating models, operational excellence, stakeholders, career, leadership, projects, and more.</p>
+      <div class="go">Browse the pillars →</div>
+    </a>
+    <a class="card" href="guide.html">
+      <div class="tag">Free</div><h3>AI Field Guide</h3>
+      <p>Practical chapters on using AI in real GBS work — prompting, drafting SOPs, dashboards, and where automation fits. Free to read.</p>
+      <div class="go">Open the guide →</div>
+    </a>
+    <a class="card" href="glossary.html">
+      <div class="tag">Free</div><h3>GBS Glossary</h3>
+      <p>Every acronym and term, defined in plain English. The fastest way to stop feeling lost in meetings.</p>
+      <div class="go">Open the glossary →</div>
+    </a>
+    <a class="card" href="index.html#career-map">
+      <div class="tag">Free</div><h3>Career Map</h3>
+      <p>See the GBS roles and how people actually move between them — from Associate to Director.</p>
+      <div class="go">View the map →</div>
+    </a>
+  </section>
+
+  <section class="join">
+    <h2>Join the Insider Club — free</h2>
+    <p>Create a free account to save your progress, download templates, and get new content each week. Instant, no waiting.</p>
+    <a class="btn" href="guide.html#join">Create your free account</a>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap">GBS Insider Club · Practitioner-led career development for GBS professionals</div></footer>
+</body>
+</html>

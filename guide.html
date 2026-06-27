@@ -535,12 +535,12 @@
 <!-- ═══════════════════════════════════════════════ -->
 <!-- AUTH GATE — Login screen (shown by default)    -->
 <!-- ═══════════════════════════════════════════════ -->
-<div id="auth-gate" style="display:flex; justify-content:center; align-items:center; min-height:100vh; background:#05080f; font-family:'IBM Plex Sans',sans-serif;">
+<div id="auth-gate" style="display:none; justify-content:center; align-items:center; min-height:100vh; background:#05080f; font-family:'IBM Plex Sans',sans-serif;"><button onclick="document.getElementById('auth-gate').style.display='none'" aria-label="Close" style="position:fixed; top:18px; right:20px; z-index:11; background:#141922; color:#c8d0de; border:1px solid #2a3347; border-radius:8px; width:40px; height:40px; font-size:22px; line-height:1; cursor:pointer;">&times;</button>
 
   <!-- Background subtle grid -->
   <div style="position:fixed; inset:0; background-image:radial-gradient(circle at 20% 50%, rgba(184,148,56,0.04) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(0,214,143,0.03) 0%, transparent 50%); pointer-events:none;"></div>
 
-  <div style="position:relative; width:90%; max-width:460px;">
+  <div style="position:relative; width:90%; max-width:460px;"><div style="text-align:center; margin-bottom:18px; font-family:'IBM Plex Sans',sans-serif; color:#9aa6b8; font-size:13px; line-height:1.5;">The guide is free to read — no account needed. Create a free account to save progress and unlock downloads, or log in.</div>
 
     <!-- Logo area -->
     <div style="text-align:center; margin-bottom:32px;">
@@ -688,7 +688,7 @@
 <!-- ═══════════════════════════════════════════════ -->
 <!-- APP CONTENT — Hidden until authenticated       -->
 <!-- ═══════════════════════════════════════════════ -->
-<div id="app-content" style="display:none;">
+<div id="app-content" style="display:block;">
 
 <div class="topbar">
   <a href="index.html" style="text-decoration:none;" title="Back to GBS Insider Club">
@@ -9563,6 +9563,7 @@ Diagnose:
   function showApp(tier) {
     gate.style.display = 'none';
     content.style.display = 'block';
+    var __jp=document.getElementById('join-pill'); if(__jp){ __jp.style.display = (tier && tier!=='free') ? 'none' : ''; }
     // Apply restrictions after content renders
     if (!tier || tier === 'free') {
       requestAnimationFrame(() => applyFreeTier());
@@ -9641,7 +9642,7 @@ Diagnose:
       if (session) {
         const tier = session.user?.user_metadata?.tier || 'free';
         showApp(tier);
-      }
+      } else { showApp('free'); if (location.hash === '#join') gate.style.display = 'flex'; }
     });
   }
 
@@ -9682,11 +9683,9 @@ Diagnose:
   // ── AUTH STATE LISTENER ──────────────────────────
   sb.auth.onAuthStateChange((event, session) => {
     if (event === 'SIGNED_OUT') {
-      content.style.display = 'none';
-      gate.style.display = 'flex';
-      // Remove upgrade banner if present
       const b = document.getElementById('upgrade-banner');
       if (b) b.remove();
+      showApp('free');
     }
   });
 
@@ -9840,5 +9839,6 @@ Diagnose:
 })();
 </script>
 
+<button id="join-pill" onclick="document.getElementById('auth-gate').style.display='flex'" style="position:fixed; bottom:20px; right:20px; z-index:60; background:#1d6aff; color:#fff; border:none; border-radius:999px; padding:12px 20px; font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:14px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,.45);">Log in / Join free</button>
 </body>
 </html>
