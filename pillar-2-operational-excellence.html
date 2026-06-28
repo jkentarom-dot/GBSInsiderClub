@@ -190,8 +190,8 @@
 <p style="font-size:15.5px; color:var(--text-2); line-height:1.75; margin:0 0 14px;">And, more importantly, learn to spot the weak signals before they become tomorrow’s KPI problem. It’s one of the highest-value habits you can build early.</p>
 <p style="font-size:15.5px; color:var(--text-2); line-height:1.75; margin:0 0 14px;">Because the people who create the biggest impact aren’t the ones with perfect dashboards. They’re the ones who can untangle complex problems, bring the right people together, and improve the system — not just the score.</p>
 <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:18px; border-top:1px solid rgba(232,184,0,0.18);">
-<img src="images/julian-avatar.webp" alt="Julian" style="width:48px; height:48px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--border-2,#2a3347);">
-<div><div style="color:#fff; font-weight:600; font-size:14px;">Julian</div><div style="color:#7a8799; font-size:12.5px;">GBS Insider Club · written from the field</div></div>
+<img src="images/julian-avatar.webp" alt="Julian — view bio" onclick="jbioOpen()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jbioOpen()}" title="About Julian" style="width:48px; height:48px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--border-2,#2a3347); cursor:pointer;">
+<div onclick="jbioOpen()" style="cursor:pointer;"><div style="color:#fff; font-weight:600; font-size:14px; display:inline-flex; align-items:center; gap:7px;">Julian <span style="color:var(--gold); font-size:10.5px; font-weight:500; border:1px solid rgba(232,184,0,0.45); border-radius:20px; padding:1px 8px; font-family:'JetBrains Mono',monospace; letter-spacing:0.03em;">ABOUT</span></div><div style="color:#7a8799; font-size:12.5px; margin-top:3px;">GBS Insider Club · written from the field</div></div>
 </div>
 </div>
 <div class="section-toggle" onclick="toggleTopics(this)"><span class="arrow">&#9660;</span><span>Full topic curriculum — 28 subtopics by cluster</span></div>
@@ -296,5 +296,25 @@ function toggleTopics(btn){const c=document.getElementById('topicsContainer');bt
 function toggleTile(tile){const w=tile.classList.contains('open');tile.closest('.tile-grid').querySelectorAll('.topic-tile.open').forEach(t=>t.classList.remove('open'));if(!w)tile.classList.add('open');}
 </script>
 <script src="/assets/site.js" defer></script>
+
+<!-- Julian bio modal (reusable; include on any page with a story byline) -->
+<div id="jbio-overlay" onclick="if(event.target===this)jbioClose()" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(4,6,11,0.72); align-items:center; justify-content:center; padding:20px;">
+<div role="dialog" aria-modal="true" aria-label="About Julian" style="max-width:440px; width:100%; background:var(--surface-2,#141922); border:1px solid var(--border-2,#2a3347); border-radius:16px; padding:28px; box-shadow:0 24px 70px rgba(0,0,0,0.5); position:relative;">
+<button onclick="jbioClose()" aria-label="Close" style="position:absolute; top:12px; right:14px; width:30px; height:30px; border:none; background:transparent; color:var(--text-2,#c8d0de); font-size:24px; cursor:pointer; line-height:1;">&times;</button>
+<div style="display:flex; align-items:center; gap:14px; margin-bottom:18px;">
+<img src="images/julian-avatar.webp" alt="Julian" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:1px solid var(--border-2,#2a3347);">
+<div><div style="color:#fff; font-weight:600; font-size:18px;">Julian</div>
+<div style="color:var(--gold); font-size:12px; font-family:'JetBrains Mono',monospace; letter-spacing:0.04em; margin-top:2px;">FOUNDER, GBS INSIDER CLUB</div></div>
+</div>
+<p style="font-size:14.5px; color:var(--text-2,#c8d0de); line-height:1.7; margin:0 0 12px;">Julian started out in finance — a Big 4 firm, then controller at the head office of a US automotive company — before moving into large-scale SAP and finance transformation. From there he built a global Shared Services organization from the ground up: blueprinting the model, selecting the in-house center and the outsourcing partner, and transitioning 14 countries in waves, with system rollouts and GBS roll-ins along the way — including integrating a more mature GBS operation picked up through an acquisition.</p>
+<p style="font-size:14.5px; color:var(--text-2,#c8d0de); line-height:1.7; margin:0;">He went on to lead large operational teams across three locations — one of them the outsourcing provider — and co-led several transformations and reorganizations. More than 25 years in, and over a decade as a director, he started GBS Insider Club to give people earlier in their careers the guidance he had to learn the hard way.</p>
+</div>
+</div>
+<script>
+function jbioOpen(){var o=document.getElementById('jbio-overlay');o.style.display='flex';document.body.style.overflow='hidden';}
+function jbioClose(){document.getElementById('jbio-overlay').style.display='none';document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')jbioClose();});
+</script>
+
 </body>
 </html>
