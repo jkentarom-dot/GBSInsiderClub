@@ -185,7 +185,7 @@
   .data-table { margin: 24px 0 36px; }
   .data-table + .data-table, p + .data-table { margin-top: 8px; }
 </style>
-  <link rel="stylesheet" href="/assets/mobile.css">
+  <link rel="stylesheet" href="/assets/mobile.css?v=4">
 </head>
 <body>
 <nav class="topbar">
@@ -326,5 +326,5 @@
 </script>
 
 <script>(function(){var U="https://wgdcfgknnentriqlajqe.supabase.co",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo",DT=U+"/functions/v1/download-template";function go(file,el){if(typeof supabase==="undefined"){location.href="paid-tier.html#pricing";return;}var sb=supabase.createClient(U,K);if(el)el.classList.add("dl-loading");sb.auth.getSession().then(function(res){var s=res&&res.data&&res.data.session;if(!s){location.href="paid-tier.html#pricing";return;}fetch(DT,{method:"POST",headers:{"apikey":K,"Authorization":"Bearer "+s.access_token,"Content-Type":"application/json"},body:JSON.stringify({file:file})}).then(function(r){if(r.status===200)return r.json();if(r.status===401||r.status===403){location.href="paid-tier.html#pricing";}throw 0;}).then(function(d){if(d&&d.url){var a=document.createElement("a");a.href=d.url;a.download=file;document.body.appendChild(a);a.click();a.remove();}}).catch(function(){}).finally(function(){if(el)el.classList.remove("dl-loading");});});}document.addEventListener("click",function(e){var el=e.target.closest&&e.target.closest(".tpl-gated");if(!el)return;e.preventDefault();go(el.getAttribute("data-file"),el);});})();</script>
-<script src="/assets/mobile.js" defer></script>
+<script src="/assets/mobile.js?v=4" defer></script>
 </body>
