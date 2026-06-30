@@ -99,6 +99,7 @@
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/mobile.css">
 </head>
 <body>
 <nav class="topbar">
@@ -412,5 +413,6 @@ function toggleTopics(btn) { const c = document.getElementById('topicsContainer'
 function toggleTile(tile) { const wasOpen = tile.classList.contains('open'); tile.closest('.tile-grid').querySelectorAll('.topic-tile.open').forEach(t => t.classList.remove('open')); if (!wasOpen) tile.classList.add('open'); }
 </script>
 <script src="/assets/site.js" defer></script>
+<script src="/assets/mobile.js" defer></script>
 </body>
 </html>

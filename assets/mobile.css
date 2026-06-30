@@ -1,17 +1,13 @@
 /* ============================================================
-   mobile.css — GBS Insider Club mobile/readability layer (Batch 1)
+   mobile.css — GBS Insider Club mobile/readability layer
    Additive & reversible: remove the <link> to revert any page.
-   Provides:
-     1. Reading-mode LIGHT theme (html[data-theme="light"])  — user toggle
-     2. Theme-toggle control styles
-     3. Diagram "tap to zoom" badge + zoom overlay styles
+   Batch 1: reading-mode light theme, theme toggle, diagram zoom.
+   Batch 2: 1A mobile navigation (bottom bar + slide-up sheet).
    Loaded LAST in <head> so token overrides win on source order.
-   Default (no attribute / dark) changes NOTHING — brand intact.
+   Default (dark, desktop) is unchanged — brand & desktop intact.
    ============================================================ */
 
-/* 1 ── READING MODE: LIGHT THEME ─────────────────────────────
-   Higher specificity than :root, so it overrides per-page tokens.
-   Gentle off-white base (not stark white) to reduce glare.        */
+/* 1 -- READING MODE: LIGHT THEME ----------------------------- */
 html[data-theme="light"]{
   --void:#eef1f6; --surface:#ffffff; --surface-2:#f6f8fb; --surface-3:#eef2f7;
   --teal:#1558d6; --gold:#9a6b00; --sky:#0e8fd6; --green:#0f9d63; --purple:#6d4df0;
@@ -20,9 +16,6 @@ html[data-theme="light"]{
   --teal-glow:rgba(21,88,214,.10); --gold-bg:rgba(154,107,0,.10);
 }
 html[data-theme="light"] body{ background:var(--void); color:var(--text-2); }
-
-/* defensive: chrome/text that hardcodes white would vanish on light —
-   force these known containers back to the themed (dark-in-light) text. */
 html[data-theme="light"] .brand-name,
 html[data-theme="light"] .brand b,
 html[data-theme="light"] .topbar-title,
@@ -33,15 +26,12 @@ html[data-theme="light"] h1, html[data-theme="light"] h2,
 html[data-theme="light"] h3, html[data-theme="light"] h4, html[data-theme="light"] h5{
   color:var(--text) !important;
 }
-html[data-theme="light"] .lead,
-html[data-theme="light"] .section p,
-html[data-theme="light"] .card p,
-html[data-theme="light"] p, html[data-theme="light"] li{
+html[data-theme="light"] .lead, html[data-theme="light"] .section p,
+html[data-theme="light"] .card p, html[data-theme="light"] p, html[data-theme="light"] li{
   color:var(--text-2);
 }
 
-/* 2 ── THEME TOGGLE CONTROL ──────────────────────────────────
-   Fixed top-right so it works regardless of each page's header. */
+/* 2 -- THEME TOGGLE CONTROL (fixed, header-independent) ------ */
 .gbs-theme-toggle{
   position:fixed; top:10px; right:12px; z-index:60;
   display:inline-flex; align-items:center; gap:7px;
@@ -55,11 +45,10 @@ html[data-theme="light"] p, html[data-theme="light"] li{
 .gbs-theme-toggle:hover{ border-color:var(--teal); }
 @media(max-width:600px){
   .gbs-theme-toggle{ padding:7px 10px; }
-  .gbs-theme-toggle .gbs-tt-label{ display:none; } /* icon-only on small phones */
+  .gbs-theme-toggle .gbs-tt-label{ display:none; }
 }
 
-/* 3 ── DIAGRAM TAP-TO-ZOOM ───────────────────────────────────
-   Visible affordance so users know a diagram can be opened.       */
+/* 3 -- DIAGRAM TAP-TO-ZOOM ----------------------------------- */
 .gbs-zoomable{ position:relative; display:block; }
 .gbs-zoomable .gbs-zbadge{
   position:absolute; top:10px; right:10px; z-index:2;
@@ -70,20 +59,63 @@ html[data-theme="light"] p, html[data-theme="light"] li{
 }
 .gbs-zoomable .gbs-zbadge svg{ width:13px; height:13px; }
 .gbs-zoomable > svg{ cursor:zoom-in; }
-
-.gbs-zoomov{
-  position:fixed; inset:0; z-index:9999;
-  background:rgba(6,9,14,.95); display:none;
-  flex-direction:column; align-items:center; justify-content:center; padding:16px;
-}
+.gbs-zoomov{ position:fixed; inset:0; z-index:9999; background:rgba(6,9,14,.95);
+  display:none; flex-direction:column; align-items:center; justify-content:center; padding:16px; }
 .gbs-zoomov.show{ display:flex; }
-.gbs-zoomov svg{
-  width:100%; max-height:80vh; background:#0e131b;
-  border:1px solid #2a3347; border-radius:12px; padding:14px; box-sizing:border-box;
-}
-.gbs-zoomov .gbs-zclose{
-  margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:11px;
-  text-transform:uppercase; letter-spacing:.1em; color:#c8d0de;
-  background:#141922; border:1px solid #2a3347; border-radius:7px;
-  padding:9px 16px; cursor:pointer;
+.gbs-zoomov svg{ width:100%; max-height:80vh; background:#0e131b; border:1px solid #2a3347;
+  border-radius:12px; padding:14px; box-sizing:border-box; }
+.gbs-zoomov .gbs-zclose{ margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:11px;
+  text-transform:uppercase; letter-spacing:.1em; color:#c8d0de; background:#141922;
+  border:1px solid #2a3347; border-radius:7px; padding:9px 16px; cursor:pointer; }
+
+/* 4 -- 1A MOBILE NAVIGATION (mobile only, <=1024px) ---------- */
+.gbs-bottombar, .gbs-scrim, .gbs-sheet{ display:none; }
+
+@media(max-width:1024px){
+  body.gbs-nav-on{ padding-bottom:78px; }
+
+  .gbs-bottombar{
+    display:flex; position:fixed; left:0; right:0; bottom:0; z-index:55;
+    background:var(--surface); border-top:1px solid var(--border-2);
+    padding:7px 6px calc(7px + env(safe-area-inset-bottom));
+  }
+  .gbs-bb-item{ flex:1; background:none; border:0; color:var(--text-3);
+    display:flex; flex-direction:column; align-items:center; gap:3px; padding:6px 2px;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; cursor:pointer; }
+  .gbs-bb-item svg{ width:21px; height:21px; }
+  .gbs-bb-item.cur{ color:var(--teal); }
+
+  .gbs-scrim{ display:block; position:fixed; inset:0; background:rgba(5,7,10,.65);
+    opacity:0; pointer-events:none; transition:opacity .2s; z-index:70; }
+  .gbs-scrim.show{ opacity:1; pointer-events:auto; }
+
+  .gbs-sheet{ display:flex; position:fixed; left:0; right:0; bottom:0; z-index:80;
+    max-height:80vh; flex-direction:column; background:var(--surface);
+    border:1px solid var(--border-2); border-radius:16px 16px 0 0;
+    transform:translateY(110%); transition:transform .28s cubic-bezier(.2,.7,.2,1); }
+  .gbs-sheet.show{ transform:translateY(0); }
+  .gbs-grab{ width:38px; height:4px; border-radius:99px; background:var(--border-2); margin:9px auto 4px; }
+  .gbs-sheet-head{ display:flex; gap:8px; padding:10px 14px 12px; border-bottom:1px solid var(--border); }
+  .gbs-sheet-head button{ flex:1; background:transparent; border:1px solid var(--border);
+    color:var(--text-3); border-radius:7px; padding:8px; font-size:12px; font-weight:500;
+    cursor:pointer; font-family:inherit; }
+  .gbs-sheet-head button.on{ background:var(--teal-glow); border-color:var(--teal); color:var(--text); }
+  .gbs-sheet-search{ padding:10px 14px; border-bottom:1px solid var(--border); }
+  .gbs-sheet-search input{ width:100%; background:var(--surface-2); border:1px solid var(--border-2);
+    color:var(--text); border-radius:7px; padding:9px 11px; font-size:14px; font-family:inherit; }
+  .gbs-sheet-body{ overflow:auto; padding:6px 0 16px; }
+  .gbs-grouplbl{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--text-3); padding:12px 16px 6px; }
+  .gbs-nav-item{ display:flex; align-items:center; gap:11px; padding:11px 16px;
+    text-decoration:none; color:var(--text-2); font-size:14px; }
+  .gbs-nav-item .gbs-num{ width:22px; height:22px; border-radius:50%; background:var(--surface-3);
+    border:1px solid var(--border-2); display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); flex-shrink:0; }
+  .gbs-nav-item.active{ color:var(--text); }
+  .gbs-nav-item.active .gbs-num{ border-color:var(--teal); color:var(--teal); background:var(--teal-glow); }
+  .gbs-nav-item .gbs-dot{ width:6px; height:6px; border-radius:50%; background:var(--text-3);
+    flex-shrink:0; margin:0 8px 0 6px; }
+  .gbs-nav-item.cur{ color:var(--text); }
+  .gbs-nav-item.cur .gbs-dot{ background:var(--gold); }
 }
