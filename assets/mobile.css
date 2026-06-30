@@ -9,10 +9,10 @@
 /* 1 -- READING MODE: LIGHT THEME ----------------------------------------
    White "tile" cards on a soft cool page; tokens flip via custom props. */
 html[data-theme="light"]{
-  --void:#eef2f8; --surface:#ffffff; --surface-2:#f6f9fd; --surface-3:#eef3fb;
+  --void:#f4f6fb; --surface:#ffffff; --surface-2:#fbfcfe; --surface-3:#f2f5fb;
   --teal:#1558d6; --gold:#9a6b00; --sky:#0e8fd6; --green:#0f9d63; --purple:#6d4df0;
   --text:#11161f; --text-2:#3a4660; --text-3:#64718a;
-  --border:#e4e9f1; --border-2:#d4dde9;
+  --border:#e6eaf2; --border-2:#d7dde9;
   --teal-glow:rgba(21,88,214,.10); --gold-bg:rgba(154,107,0,.09);
 }
 html[data-theme="light"] body{ background:var(--void); color:var(--text-2); }
@@ -33,44 +33,28 @@ html[data-theme="light"] .lead, html[data-theme="light"] p,
 html[data-theme="light"] li, html[data-theme="light"] td, html[data-theme="light"] dd{
   color:var(--text-2);
 }
-/* crisp tiles: subtle shadow + clean edges on cards in light mode */
+/* keep intentionally-dark belt badges readable (don't flip their text) */
+html[data-theme="light"] .belt-badge.black,
+html[data-theme="light"] .belt-badge.master{ color:#fff !important; }
+/* crisp white tiles: clean border + soft shadow so cards read as tiles */
 html[data-theme="light"] .card,
 html[data-theme="light"] .cta-block,
-html[data-theme="light"] [class$="-card"]{
-  box-shadow:0 1px 2px rgba(16,24,40,.04), 0 3px 10px rgba(16,24,40,.05);
+html[data-theme="light"] .tension-box,
+html[data-theme="light"] .disclaimer-box,
+html[data-theme="light"] [class$="-card"],
+html[data-theme="light"] [class$="-box"]{
+  border:1px solid var(--border);
+  box-shadow:0 1px 2px rgba(16,24,40,.04), 0 4px 12px rgba(16,24,40,.05);
 }
 
-/* 1b -- LIGHT-MODE DIAGRAM RECOLOR (scoped to content diagrams only) ----
-   The wrapped diagrams use a consistent dark palette. CSS fill/stroke
-   override the inline presentation attributes, so we can flip them light.
-   Logo + line icons are NOT inside .gbs-zoomable, so they're untouched. */
-html[data-theme="light"] .gbs-zoomable svg [fill="#141922"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#101722"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#0e1219"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#11161f"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#1a1a2e"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#0a0e15"]{ fill:#ffffff; }
-html[data-theme="light"] .gbs-zoomable svg [fill="#1b1406"]{ fill:#fbf3da; }
-html[data-theme="light"] .gbs-zoomable svg [fill="#c8d0de"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#ffffff"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#c2ccda"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#e3e8f0"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#d4dbe8"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#aeb9c9"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#8da2c0"],
-html[data-theme="light"] .gbs-zoomable svg [fill="#7d8aa0"]{ fill:#33405a; }
-html[data-theme="light"] .gbs-zoomable svg [fill="#7a8799"]{ fill:#5d6a7e; }
-html[data-theme="light"] .gbs-zoomable svg [fill="#9fc0ff"]{ fill:#3b6fd6; }
-html[data-theme="light"] .gbs-zoomable svg [fill="#38bdf8"]{ fill:#0e8fd6; }
-html[data-theme="light"] .gbs-zoomable svg [fill="#34d399"]{ fill:#0f9d63; }
-html[data-theme="light"] .gbs-zoomable svg [stroke="#1e2636"],
-html[data-theme="light"] .gbs-zoomable svg [stroke="#2a3347"]{ stroke:#d4dde9; }
-html[data-theme="light"] .gbs-zoomable svg [stroke="#6b7891"]{ stroke:#94a0b3; }
-html[data-theme="light"] .gbs-zoomable svg [stroke="#38bdf8"]{ stroke:#0e8fd6; }
-/* frame the (now light) diagram so it has a clean edge on the page */
+/* 1b -- DIAGRAMS IN LIGHT MODE: frame as intentional dark panels --------
+   Robust by design: we do NOT recolor each SVG's internals (that is
+   fragile — it misses fills and can cause white-on-white). The diagram
+   keeps its native, internally-consistent dark palette, placed inside a
+   tidy dark card so it reads as a deliberate figure on the light page. */
 html[data-theme="light"] .gbs-zoomable{
-  background:#ffffff; border:1px solid var(--border-2); border-radius:12px;
-  padding:8px; box-shadow:0 1px 2px rgba(16,24,40,.04);
+  background:#0e1219; border:1px solid #222c3e; border-radius:14px;
+  padding:12px; box-shadow:0 2px 12px rgba(16,24,40,.10);
 }
 
 /* 2 -- THEME TOGGLE CONTROL (fixed, above the sticky topbar) ------------- */
@@ -105,7 +89,7 @@ html[data-theme="light"] .gbs-zoomov{ background:rgba(20,28,42,.92); }
 .gbs-zoomov.show{ display:flex; }
 .gbs-zoomov svg{ width:100%; max-height:80vh; background:#0e131b; border:1px solid #2a3347;
   border-radius:12px; padding:14px; box-sizing:border-box; }
-html[data-theme="light"] .gbs-zoomov svg{ background:#ffffff; border-color:var(--border-2); }
+html[data-theme="light"] .gbs-zoomov svg{ background:#0e1219; border-color:#222c3e; }
 .gbs-zoomov .gbs-zclose{ margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:11px;
   text-transform:uppercase; letter-spacing:.1em; color:#c8d0de; background:#141922;
   border:1px solid #2a3347; border-radius:7px; padding:9px 16px; cursor:pointer; }
