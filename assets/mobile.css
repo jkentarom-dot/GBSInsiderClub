@@ -91,6 +91,17 @@ html[data-theme="light"] .tile-link,
 html[data-theme="light"] .path-card a.pc-link{ background:var(--teal) !important; }
 html[data-theme="light"] .tier-applied{ background:#9a6b00 !important; color:#fff !important; }
 
+/* 1d -- PILLAR TILES: faint cool grey-blue tint + border + soft shadow so the
+   tiles read as distinct cards against the light page (page is #f4f6fb; tiles
+   sit a shade deeper and lift on a shadow). Light mode only; scoped to
+   .pillar-tile so the white cluster/stats cards are untouched. */
+html[data-theme="light"] .pillar-tile{
+  background:#edf1f9 !important;
+  border:1px solid #d7dfee !important;
+  box-shadow:0 1px 2px rgba(16,24,40,.05), 0 6px 16px rgba(16,24,40,.07) !important;
+  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
+}
+
 /* 1d -- PILLAR TILES (homepage / overview grid): frosted white reads as flat
    against the light page. Give them a subtle cool tint + clear border + soft
    lift so each tile reads as a distinct card. Content stays dark/readable.
