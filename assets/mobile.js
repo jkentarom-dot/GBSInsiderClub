@@ -20,7 +20,7 @@
   function buildToggle(){
     var btn = document.createElement("button");
     btn.className = "gbs-theme-toggle"; btn.type = "button";
-    function render(){ btn.innerHTML = (isLight()?sun:moon) + '<span class="gbs-tt-label">' + (isLight()?"Light":"Dark") + '</span>';
+    function render(){ btn.innerHTML = (isLight()?moon:sun) + '<span class="gbs-tt-label">' + (isLight()?"Dark":"Light") + '</span>';
       btn.setAttribute("aria-label", isLight()?"Switch to dark mode":"Switch to light mode"); }
     render();
     btn.addEventListener("click", function(){

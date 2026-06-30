@@ -29,7 +29,8 @@ body{background:#05070b;font-family:'Inter',system-ui,sans-serif;color:var(--tex
  @page{size:A5 landscape;margin:0;}
 }
 .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:11px 24px;background:rgba(8,11,16,.94);backdrop-filter:blur(12px);border-bottom:1px solid #1e2636;font-family:'Inter',system-ui,sans-serif;}.sb-back{color:#1d6aff;text-decoration:none;font-size:13px;font-weight:500;}.sb-back:hover{text-decoration:underline;}.sb-sp{margin-left:auto;}.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}@media print{.site-bar{display:none;}}
-</style></head><body>
+</style>  <link rel="stylesheet" href="/assets/mobile.css">
+</head><body>
 <div id="gmount"></div>
 <!-- VIP full_access gate (fail-closed; reuses path-page check) -->
 <style>#vipgate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(8,11,16,0.975);padding:24px;text-align:center;font-family:Inter,system-ui,sans-serif}#vipgate .vg-card{max-width:440px;background:#0e1219;border:1px solid #2a3347;border-radius:14px;padding:34px 28px}#vipgate h2{color:#fff;font-size:20px;margin:0 0 10px;font-weight:600}#vipgate p{color:#c8d0de;font-size:14px;line-height:1.6;margin:0 0 22px}#vipgate a.vg-btn{display:inline-block;background:#e8b800;color:#080b10;font-weight:600;text-decoration:none;padding:12px 22px;border-radius:8px;font-size:14px}#vipgate a.vg-back{display:block;margin-top:14px;color:#7a8799;font-size:12px;text-decoration:none}body.vip-unlocked #vipgate{display:none}</style><div id="vipgate"><div class="vg-card"><h2>Full Access required</h2><p>These tools unlock with Full Access &mdash; one payment, lifetime access to every path and toolkit.</p><a class="vg-btn" href="paid-tier.html#pricing">Unlock Full Access &mdash; $99 &rarr;</a><a class="vg-back" href="paid-tier.html">Back to the VIP overview</a></div></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
@@ -49,4 +50,5 @@ body{background:#05070b;font-family:'Inter',system-ui,sans-serif;color:var(--tex
   }catch(e){}
 })();
 </script>
+<script src="/assets/mobile.js" defer></script>
 </body></html>

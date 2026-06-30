@@ -33,7 +33,7 @@ html[data-theme="light"] .card p, html[data-theme="light"] p, html[data-theme="l
 
 /* 2 -- THEME TOGGLE CONTROL (fixed, header-independent) ------ */
 .gbs-theme-toggle{
-  position:fixed; top:10px; right:12px; z-index:60;
+  position:fixed; top:10px; right:12px; z-index:9990;
   display:inline-flex; align-items:center; gap:7px;
   background:var(--surface-2); border:1px solid var(--border-2);
   color:var(--text-2); border-radius:99px; padding:7px 12px 7px 10px;
@@ -44,8 +44,7 @@ html[data-theme="light"] .card p, html[data-theme="light"] p, html[data-theme="l
 .gbs-theme-toggle svg{ width:15px; height:15px; flex-shrink:0; }
 .gbs-theme-toggle:hover{ border-color:var(--teal); }
 @media(max-width:600px){
-  .gbs-theme-toggle{ padding:7px 10px; }
-  .gbs-theme-toggle .gbs-tt-label{ display:none; }
+  .gbs-theme-toggle{ padding:7px 11px; }
 }
 
 /* 3 -- DIAGRAM TAP-TO-ZOOM ----------------------------------- */
