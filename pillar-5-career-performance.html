@@ -48,7 +48,7 @@ body{background:var(--void);color:var(--text-2);font-family:'Inter',sans-serif;o
 @media(max-width:600px){.cluster-cards{grid-template-columns:1fr}.hero h1{font-size:32px}}.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
 </style>  <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/mobile.css?v=4">
+  <link rel="stylesheet" href="/assets/mobile.css?v=5">
 </head><body>
 <nav class="topbar"><a href="index.html" class="topbar-brand"><div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div></a>
   <span class="tier-badge tier-free">Free</span><div class="topbar-nav"><a href="index.html">All Pillars</a><a href="guide.html" class="btn-primary" style="font-size:12px;padding:6px 16px;">Field Guide</a></div></nav>
@@ -117,5 +117,5 @@ body{background:var(--void);color:var(--text-2);font-family:'Inter',sans-serif;o
 function toggleTopics(btn){const c=document.getElementById('topicsContainer');btn.classList.toggle('open');c.classList.toggle('visible');}
 function toggleTile(tile){const w=tile.classList.contains('open');tile.closest('.tile-grid').querySelectorAll('.topic-tile.open').forEach(t=>t.classList.remove('open'));if(!w)tile.classList.add('open');}
 </script><script src="/assets/site.js" defer></script>
-<script src="/assets/mobile.js?v=4" defer></script>
+<script src="/assets/mobile.js?v=5" defer></script>
 </body></html>

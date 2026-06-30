@@ -1,37 +1,79 @@
 /* ============================================================
    mobile.css — GBS Insider Club mobile/readability layer
    Additive & reversible: remove the <link> to revert any page.
-   Batch 1: reading-mode light theme, theme toggle, diagram zoom.
-   Batch 2: 1A mobile navigation (bottom bar + slide-up sheet).
+   Reading-mode light theme, theme toggle, diagram zoom, 1A nav.
    Loaded LAST in <head> so token overrides win on source order.
    Default (dark, desktop) is unchanged — brand & desktop intact.
    ============================================================ */
 
-/* 1 -- READING MODE: LIGHT THEME ----------------------------- */
+/* 1 -- READING MODE: LIGHT THEME ----------------------------------------
+   White "tile" cards on a soft cool page; tokens flip via custom props. */
 html[data-theme="light"]{
-  --void:#eef1f6; --surface:#ffffff; --surface-2:#f6f8fb; --surface-3:#eef2f7;
+  --void:#eef2f8; --surface:#ffffff; --surface-2:#f6f9fd; --surface-3:#eef3fb;
   --teal:#1558d6; --gold:#9a6b00; --sky:#0e8fd6; --green:#0f9d63; --purple:#6d4df0;
-  --text:#10151f; --text-2:#33405a; --text-3:#5d6a7e;
-  --border:#dde3ec; --border-2:#c7d0dd;
-  --teal-glow:rgba(21,88,214,.10); --gold-bg:rgba(154,107,0,.10);
+  --text:#11161f; --text-2:#3a4660; --text-3:#64718a;
+  --border:#e4e9f1; --border-2:#d4dde9;
+  --teal-glow:rgba(21,88,214,.10); --gold-bg:rgba(154,107,0,.09);
 }
 html[data-theme="light"] body{ background:var(--void); color:var(--text-2); }
-html[data-theme="light"] .brand-name,
-html[data-theme="light"] .brand b,
-html[data-theme="light"] .topbar-title,
-html[data-theme="light"] .topbar-edition,
+
+/* readable text: force the known white/near-white text classes dark.
+   Safe because in light mode no section keeps a dark background. */
+html[data-theme="light"] h1, html[data-theme="light"] h2, html[data-theme="light"] h3,
+html[data-theme="light"] h4, html[data-theme="light"] h5, html[data-theme="light"] h6,
+html[data-theme="light"] .card-title,
+html[data-theme="light"] [class$="-title"],
+html[data-theme="light"] [class$="-name"],
+html[data-theme="light"] .brand-name, html[data-theme="light"] .brand b,
 html[data-theme="light"] .nav-label,
-html[data-theme="light"] .sidebar-item span.nav-label,
-html[data-theme="light"] h1, html[data-theme="light"] h2,
-html[data-theme="light"] h3, html[data-theme="light"] h4, html[data-theme="light"] h5{
+html[data-theme="light"] .sidebar-item span.nav-label{
   color:var(--text) !important;
 }
-html[data-theme="light"] .lead, html[data-theme="light"] .section p,
-html[data-theme="light"] .card p, html[data-theme="light"] p, html[data-theme="light"] li{
+html[data-theme="light"] .lead, html[data-theme="light"] p,
+html[data-theme="light"] li, html[data-theme="light"] td, html[data-theme="light"] dd{
   color:var(--text-2);
 }
+/* crisp tiles: subtle shadow + clean edges on cards in light mode */
+html[data-theme="light"] .card,
+html[data-theme="light"] .cta-block,
+html[data-theme="light"] [class$="-card"]{
+  box-shadow:0 1px 2px rgba(16,24,40,.04), 0 3px 10px rgba(16,24,40,.05);
+}
 
-/* 2 -- THEME TOGGLE CONTROL (fixed, header-independent) ------ */
+/* 1b -- LIGHT-MODE DIAGRAM RECOLOR (scoped to content diagrams only) ----
+   The wrapped diagrams use a consistent dark palette. CSS fill/stroke
+   override the inline presentation attributes, so we can flip them light.
+   Logo + line icons are NOT inside .gbs-zoomable, so they're untouched. */
+html[data-theme="light"] .gbs-zoomable svg [fill="#141922"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#101722"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#0e1219"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#11161f"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#1a1a2e"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#0a0e15"]{ fill:#ffffff; }
+html[data-theme="light"] .gbs-zoomable svg [fill="#1b1406"]{ fill:#fbf3da; }
+html[data-theme="light"] .gbs-zoomable svg [fill="#c8d0de"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#ffffff"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#c2ccda"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#e3e8f0"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#d4dbe8"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#aeb9c9"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#8da2c0"],
+html[data-theme="light"] .gbs-zoomable svg [fill="#7d8aa0"]{ fill:#33405a; }
+html[data-theme="light"] .gbs-zoomable svg [fill="#7a8799"]{ fill:#5d6a7e; }
+html[data-theme="light"] .gbs-zoomable svg [fill="#9fc0ff"]{ fill:#3b6fd6; }
+html[data-theme="light"] .gbs-zoomable svg [fill="#38bdf8"]{ fill:#0e8fd6; }
+html[data-theme="light"] .gbs-zoomable svg [fill="#34d399"]{ fill:#0f9d63; }
+html[data-theme="light"] .gbs-zoomable svg [stroke="#1e2636"],
+html[data-theme="light"] .gbs-zoomable svg [stroke="#2a3347"]{ stroke:#d4dde9; }
+html[data-theme="light"] .gbs-zoomable svg [stroke="#6b7891"]{ stroke:#94a0b3; }
+html[data-theme="light"] .gbs-zoomable svg [stroke="#38bdf8"]{ stroke:#0e8fd6; }
+/* frame the (now light) diagram so it has a clean edge on the page */
+html[data-theme="light"] .gbs-zoomable{
+  background:#ffffff; border:1px solid var(--border-2); border-radius:12px;
+  padding:8px; box-shadow:0 1px 2px rgba(16,24,40,.04);
+}
+
+/* 2 -- THEME TOGGLE CONTROL (fixed, above the sticky topbar) ------------- */
 .gbs-theme-toggle{
   position:fixed; top:10px; right:12px; z-index:9990;
   display:inline-flex; align-items:center; gap:7px;
@@ -43,52 +85,47 @@ html[data-theme="light"] .card p, html[data-theme="light"] p, html[data-theme="l
 }
 .gbs-theme-toggle svg{ width:15px; height:15px; flex-shrink:0; }
 .gbs-theme-toggle:hover{ border-color:var(--teal); }
-@media(max-width:600px){
-  .gbs-theme-toggle{ padding:7px 11px; }
-}
+@media(max-width:600px){ .gbs-theme-toggle{ padding:7px 11px; } }
 
-/* 3 -- DIAGRAM TAP-TO-ZOOM ----------------------------------- */
+/* 3 -- DIAGRAM TAP-TO-ZOOM ---------------------------------------------- */
 .gbs-zoomable{ position:relative; display:block; }
 .gbs-zoomable .gbs-zbadge{
   position:absolute; top:10px; right:10px; z-index:2;
   display:inline-flex; align-items:center; gap:5px;
-  background:var(--gold); color:#080b10;
+  background:var(--gold); color:#fff;
   font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.04em;
   padding:3px 8px; border-radius:4px; pointer-events:none;
 }
+html[data-theme="light"] .gbs-zoomable .gbs-zbadge{ color:#fff; }
 .gbs-zoomable .gbs-zbadge svg{ width:13px; height:13px; }
 .gbs-zoomable > svg{ cursor:zoom-in; }
 .gbs-zoomov{ position:fixed; inset:0; z-index:9999; background:rgba(6,9,14,.95);
   display:none; flex-direction:column; align-items:center; justify-content:center; padding:16px; }
+html[data-theme="light"] .gbs-zoomov{ background:rgba(20,28,42,.92); }
 .gbs-zoomov.show{ display:flex; }
 .gbs-zoomov svg{ width:100%; max-height:80vh; background:#0e131b; border:1px solid #2a3347;
   border-radius:12px; padding:14px; box-sizing:border-box; }
+html[data-theme="light"] .gbs-zoomov svg{ background:#ffffff; border-color:var(--border-2); }
 .gbs-zoomov .gbs-zclose{ margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:11px;
   text-transform:uppercase; letter-spacing:.1em; color:#c8d0de; background:#141922;
   border:1px solid #2a3347; border-radius:7px; padding:9px 16px; cursor:pointer; }
 
-/* 4 -- 1A MOBILE NAVIGATION (mobile only, <=1024px) ---------- */
+/* 4 -- 1A MOBILE NAVIGATION (mobile only, <=1024px) --------------------- */
 .gbs-bottombar, .gbs-scrim, .gbs-sheet{ display:none; }
-
 @media(max-width:1024px){
   body.gbs-nav-on{ padding-bottom:78px; }
-
-  .gbs-bottombar{
-    display:flex; position:fixed; left:0; right:0; bottom:0; z-index:55;
+  .gbs-bottombar{ display:flex; position:fixed; left:0; right:0; bottom:0; z-index:55;
     background:var(--surface); border-top:1px solid var(--border-2);
-    padding:7px 6px calc(7px + env(safe-area-inset-bottom));
-  }
+    padding:7px 6px calc(7px + env(safe-area-inset-bottom)); }
   .gbs-bb-item{ flex:1; background:none; border:0; color:var(--text-3);
     display:flex; flex-direction:column; align-items:center; gap:3px; padding:6px 2px;
     font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.04em;
     text-transform:uppercase; cursor:pointer; }
   .gbs-bb-item svg{ width:21px; height:21px; }
   .gbs-bb-item.cur{ color:var(--teal); }
-
   .gbs-scrim{ display:block; position:fixed; inset:0; background:rgba(5,7,10,.65);
     opacity:0; pointer-events:none; transition:opacity .2s; z-index:70; }
   .gbs-scrim.show{ opacity:1; pointer-events:auto; }
-
   .gbs-sheet{ display:flex; position:fixed; left:0; right:0; bottom:0; z-index:80;
     max-height:80vh; flex-direction:column; background:var(--surface);
     border:1px solid var(--border-2); border-radius:16px 16px 0 0;
