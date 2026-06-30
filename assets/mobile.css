@@ -61,6 +61,36 @@ html[data-theme="light"] .side-visual{
   background:#0e1219 !important; border-color:#222c3e !important;
 }
 
+/* 1c -- WHITE-TEXT CARD-HEADER BANDS ----------------------------------------
+   Several card components set color:#fff on the header and a PALE tint as the
+   header background (var(--teal-glow)/--gold-bg/low-alpha rgba). In light mode
+   the tint goes pale, so the white title disappears. Design call: give these
+   header bands a solid dark background and keep white text; the colored
+   top-border (var(--teal/gold/sky/purple)) preserves the colour coding. */
+html[data-theme="light"] .audience-card-header,
+html[data-theme="light"] .career-card-header,
+html[data-theme="light"] .cfo-card-header,
+html[data-theme="light"] .owner-card-header,
+html[data-theme="light"] .method-col-head--ls,
+html[data-theme="light"] .method-col-head--tt{
+  background:#141922 !important;
+  border-bottom-color:#222c3e !important;
+}
+html[data-theme="light"] .audience-card-header,
+html[data-theme="light"] .career-card-header,
+html[data-theme="light"] .cfo-card-header,
+html[data-theme="light"] .owner-card-header,
+html[data-theme="light"] .method-col-head h4{
+  color:#fff !important;
+}
+/* recognition bar is a LIGHT section banner -> its white texts go dark */
+html[data-theme="light"] .recognition-header-text h3,
+html[data-theme="light"] .recognition-conclusion{ color:var(--text) !important; }
+/* small white-on-pale link/badge chips -> solid accent so white reads */
+html[data-theme="light"] .tile-link,
+html[data-theme="light"] .path-card a.pc-link{ background:var(--teal) !important; }
+html[data-theme="light"] .tier-applied{ background:#9a6b00 !important; color:#fff !important; }
+
 /* 1b -- DIAGRAMS IN LIGHT MODE: frame as intentional dark panels --------
    Robust by design: we do NOT recolor each SVG's internals (that is
    fragile — it misses fills and can cause white-on-white). The diagram
