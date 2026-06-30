@@ -1,0 +1,89 @@
+/* ============================================================
+   mobile.css — GBS Insider Club mobile/readability layer (Batch 1)
+   Additive & reversible: remove the <link> to revert any page.
+   Provides:
+     1. Reading-mode LIGHT theme (html[data-theme="light"])  — user toggle
+     2. Theme-toggle control styles
+     3. Diagram "tap to zoom" badge + zoom overlay styles
+   Loaded LAST in <head> so token overrides win on source order.
+   Default (no attribute / dark) changes NOTHING — brand intact.
+   ============================================================ */
+
+/* 1 ── READING MODE: LIGHT THEME ─────────────────────────────
+   Higher specificity than :root, so it overrides per-page tokens.
+   Gentle off-white base (not stark white) to reduce glare.        */
+html[data-theme="light"]{
+  --void:#eef1f6; --surface:#ffffff; --surface-2:#f6f8fb; --surface-3:#eef2f7;
+  --teal:#1558d6; --gold:#9a6b00; --sky:#0e8fd6; --green:#0f9d63; --purple:#6d4df0;
+  --text:#10151f; --text-2:#33405a; --text-3:#5d6a7e;
+  --border:#dde3ec; --border-2:#c7d0dd;
+  --teal-glow:rgba(21,88,214,.10); --gold-bg:rgba(154,107,0,.10);
+}
+html[data-theme="light"] body{ background:var(--void); color:var(--text-2); }
+
+/* defensive: chrome/text that hardcodes white would vanish on light —
+   force these known containers back to the themed (dark-in-light) text. */
+html[data-theme="light"] .brand-name,
+html[data-theme="light"] .brand b,
+html[data-theme="light"] .topbar-title,
+html[data-theme="light"] .topbar-edition,
+html[data-theme="light"] .nav-label,
+html[data-theme="light"] .sidebar-item span.nav-label,
+html[data-theme="light"] h1, html[data-theme="light"] h2,
+html[data-theme="light"] h3, html[data-theme="light"] h4, html[data-theme="light"] h5{
+  color:var(--text) !important;
+}
+html[data-theme="light"] .lead,
+html[data-theme="light"] .section p,
+html[data-theme="light"] .card p,
+html[data-theme="light"] p, html[data-theme="light"] li{
+  color:var(--text-2);
+}
+
+/* 2 ── THEME TOGGLE CONTROL ──────────────────────────────────
+   Fixed top-right so it works regardless of each page's header. */
+.gbs-theme-toggle{
+  position:fixed; top:10px; right:12px; z-index:60;
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--surface-2); border:1px solid var(--border-2);
+  color:var(--text-2); border-radius:99px; padding:7px 12px 7px 10px;
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; cursor:pointer; line-height:1;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+}
+.gbs-theme-toggle svg{ width:15px; height:15px; flex-shrink:0; }
+.gbs-theme-toggle:hover{ border-color:var(--teal); }
+@media(max-width:600px){
+  .gbs-theme-toggle{ padding:7px 10px; }
+  .gbs-theme-toggle .gbs-tt-label{ display:none; } /* icon-only on small phones */
+}
+
+/* 3 ── DIAGRAM TAP-TO-ZOOM ───────────────────────────────────
+   Visible affordance so users know a diagram can be opened.       */
+.gbs-zoomable{ position:relative; display:block; }
+.gbs-zoomable .gbs-zbadge{
+  position:absolute; top:10px; right:10px; z-index:2;
+  display:inline-flex; align-items:center; gap:5px;
+  background:var(--gold); color:#080b10;
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.04em;
+  padding:3px 8px; border-radius:4px; pointer-events:none;
+}
+.gbs-zoomable .gbs-zbadge svg{ width:13px; height:13px; }
+.gbs-zoomable > svg{ cursor:zoom-in; }
+
+.gbs-zoomov{
+  position:fixed; inset:0; z-index:9999;
+  background:rgba(6,9,14,.95); display:none;
+  flex-direction:column; align-items:center; justify-content:center; padding:16px;
+}
+.gbs-zoomov.show{ display:flex; }
+.gbs-zoomov svg{
+  width:100%; max-height:80vh; background:#0e131b;
+  border:1px solid #2a3347; border-radius:12px; padding:14px; box-sizing:border-box;
+}
+.gbs-zoomov .gbs-zclose{
+  margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:11px;
+  text-transform:uppercase; letter-spacing:.1em; color:#c8d0de;
+  background:#141922; border:1px solid #2a3347; border-radius:7px;
+  padding:9px 16px; cursor:pointer;
+}
