@@ -107,18 +107,30 @@ html[data-theme="light"] .pillar-tile:hover{
   box-shadow:0 2px 4px rgba(16,24,40,.06), 0 10px 24px rgba(16,24,40,.10);
 }
 
-/* 1e -- HOMEPAGE HERO: the ::before overlay hard-codes a dark gradient
-   (rgba(8,11,16,.6)) across the middle, which becomes a black block over the
-   photo on the light page. Repaint it as a LIGHT fade — solid light page
-   colour over the text column, fading to transparent so the photo shows clean
-   on the right (and the photo's bottom edge melts into the page). Also flip
-   the white highlight in the sub-copy to dark so it reads on the light side. */
+/* 1e -- HOMEPAGE HERO stays a dark cinematic band in light mode too.
+   hero-julian.webp is intrinsically dark (the boardroom's left side is near
+   black), so a translucent light overlay only muddied it into a grey block.
+   Instead, scope the DARK palette tokens onto .hero (and give it a dark base
+   colour): every hero descendant that uses var(--text/gold/teal/void) now
+   resolves to its dark-mode value, so the text is white/bright, the ::before
+   overlay goes dark again, and the photo blends — identical to dark mode. The
+   rest of the light page is untouched. */
+html[data-theme="light"] .hero{
+  --void:#080b10; --surface:#0e1219; --surface-2:#141922; --surface-3:#1b2130;
+  --text:#ffffff; --text-2:#c8d0de; --text-3:#7a8799;
+  --teal:#1d6aff; --gold:#e8b800; --sky:#38bdf8; --purple:#a78bfa;
+  --border:#1e2636; --border-2:#2a3347;
+  background-color:#080b10;
+}
+/* re-assert the original DARK overlay (overrides any lighter attempt) */
 html[data-theme="light"] .hero::before{
   background:
-    linear-gradient(90deg, var(--void) 0%, var(--void) 42%, rgba(244,246,251,.72) 56%, transparent 78%),
-    linear-gradient(180deg, transparent 0%, transparent 84%, var(--void) 100%) !important;
+    linear-gradient(90deg, var(--void) 0%, rgba(8,11,16,0.6) 60%, rgba(8,11,16,0.3) 100%),
+    linear-gradient(180deg, rgba(8,11,16,0.3) 0%, transparent 15%, transparent 85%, var(--void) 100%) !important;
 }
-html[data-theme="light"] .hero-sub strong{ color:var(--text) !important; }
+/* the global light-mode heading/lead flips use var(--text*), which now resolve
+   dark-on-hero -> white; this keeps the white sub-copy highlight white too. */
+html[data-theme="light"] .hero-sub strong{ color:#fff !important; }
 
 /* 1b -- DIAGRAMS IN LIGHT MODE: frame as intentional dark panels --------
    Robust by design: we do NOT recolor each SVG's internals (that is
