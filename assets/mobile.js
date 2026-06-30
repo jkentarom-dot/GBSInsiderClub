@@ -127,6 +127,22 @@
     var search = sheet.querySelector("input");
     var tabOn = sheet.querySelector('[data-tab="onpage"]');
     var tabCl = sheet.querySelector('[data-tab="clusters"]');
+    var searchMode=false, idx=null, idxState=0;
+    function loadIndex(cb){
+      if(idxState===2){cb(idx);return;}
+      if(idxState===1){setTimeout(function(){loadIndex(cb);},120);return;}
+      idxState=1;
+      fetch("/assets/search-index.json?v=6").then(function(r){return r.json();})
+        .then(function(d){idx=d;idxState=2;cb(d);}).catch(function(){idxState=0;cb([]);});
+    }
+    function siteSearchHTML(list,q){
+      var ql=q.toLowerCase();
+      var hits=list.filter(function(r){return (r.t+" "+(r.pn||"")+" "+(r.k||"")).toLowerCase().indexOf(ql)>-1;}).slice(0,25);
+      if(!hits.length) return '<div class="gbs-grouplbl">No matches</div>';
+      return '<div class="gbs-grouplbl">Results across all pillars</div>'+hits.map(function(r){
+        return '<a class="gbs-nav-item" href="'+r.u+'"><span class="gbs-num">'+(r.p||'?')+'</span>'+r.t+'</a>';
+      }).join('');
+    }
 
     function onpageHTML(){
       return '<div class="gbs-grouplbl">On this page</div>' + onpage.map(function(s){
@@ -149,13 +165,28 @@
       });
     }
     function filter(){
-      var q = (search.value||"").toLowerCase();
+      var q=(search.value||"").trim();
+      if(searchMode){
+        if(q.length<2){ body.innerHTML='<div class="gbs-grouplbl">Type to search every pillar, cluster and topic</div>'; return; }
+        loadIndex(function(list){ body.innerHTML=siteSearchHTML(list,q); });
+        return;
+      }
+      var ql=q.toLowerCase();
       Array.prototype.forEach.call(body.querySelectorAll(".gbs-nav-item"), function(it){
-        it.style.display = it.textContent.toLowerCase().indexOf(q) > -1 ? "" : "none";
+        it.style.display = it.textContent.toLowerCase().indexOf(ql) > -1 ? "" : "none";
       });
     }
     search.addEventListener("input", filter);
+    function openSearch(){
+      searchMode=true;
+      tabOn.classList.remove("on"); if(tabCl) tabCl.classList.remove("on");
+      search.value=""; search.placeholder="Search all topics\u2026";
+      body.innerHTML='<div class="gbs-grouplbl">Type to search every pillar, cluster and topic</div>';
+      scrim.classList.add("show"); sheet.classList.add("show");
+      setTimeout(function(){ search.focus(); },250);
+    }
     function render(tab){
+      searchMode=false; search.placeholder="Filter this list\u2026";
       tabOn.classList.toggle("on", tab==="onpage");
       if (tabCl) tabCl.classList.toggle("on", tab==="clusters");
       body.innerHTML = (tab==="clusters" && hasClusters) ? clustersHTML() : onpageHTML();
@@ -169,7 +200,7 @@
       scrim.classList.add("show"); sheet.classList.add("show");
       if (focusSearch) setTimeout(function(){ search.focus(); }, 250);
     }
-    function closeSheet(){ scrim.classList.remove("show"); sheet.classList.remove("show"); search.value=""; }
+    function closeSheet(){ scrim.classList.remove("show"); sheet.classList.remove("show"); search.value=""; searchMode=false; }
     scrim.addEventListener("click", closeSheet);
 
     // bottom bar
@@ -190,7 +221,7 @@
       btn.addEventListener("click", function(){
         var act = btn.getAttribute("data-act"); setCur(btn);
         if (act === "top") { window.scrollTo({top:0, behavior:"smooth"}); return; }
-        if (act === "search") { openSheet("onpage", true); return; }
+        if (act === "search") { openSearch(); return; }
         openSheet(act, false);
       });
     });

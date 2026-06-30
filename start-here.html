@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Start Here — GBS Insider Club</title>
-<meta name="description" content="Everything in the free tier, in one place. No login needed to read. Join free for downloads, saved progress, and weekly content.">
+<meta name="description" content="New to GBS? Start here. Search every topic, read the three things that matter first, then pick your role. Free, no login needed.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
@@ -19,26 +19,56 @@
   .mark{width:26px;height:26px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center}
   .mark svg{width:15px;height:15px}
   .topbar a.alt{font-size:13px;color:var(--text-2);border:1px solid var(--border-2);padding:8px 14px;border-radius:8px}
-  .hero{padding:64px 0 40px;text-align:center}
+  .hero{padding:54px 0 22px;text-align:center}
   .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;color:var(--sky);text-transform:uppercase}
-  .hero h1{font-size:46px;font-weight:300;letter-spacing:-1.4px;color:var(--text);margin:14px 0 14px;line-height:1.08}
+  .hero h1{font-size:44px;font-weight:300;letter-spacing:-1.4px;color:var(--text);margin:14px 0 14px;line-height:1.08}
   .hero h1 b{font-weight:500;color:var(--gold)}
-  .hero p{max-width:620px;margin:0 auto;font-size:17px;color:var(--text-2)}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 0 8px}
-  .card{display:block;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:26px 26px 24px;transition:border-color .15s,transform .15s}
+  .hero p{max-width:600px;margin:0 auto;font-size:17px;color:var(--text-2)}
+
+  /* numbered steps */
+  .step{margin:30px 0}
+  .step-h{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .step-n{width:30px;height:30px;flex-shrink:0;border-radius:50%;border:1px solid var(--teal);color:var(--teal);background:rgba(29,106,255,.12);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500}
+  .step-h h2{font-size:21px;font-weight:500;color:var(--text);letter-spacing:-.3px}
+  .step-h .sub{font-size:13.5px;color:var(--text-3)}
+
+  /* search */
+  .searchbox{position:relative}
+  .searchbox input{width:100%;background:var(--surface-2);border:1px solid var(--border-2);color:var(--text);border-radius:12px;padding:15px 16px 15px 46px;font-size:16px;font-family:inherit}
+  .searchbox input::placeholder{color:var(--text-3)}
+  .searchbox .si{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--text-3)}
+  .sresults{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+  .sres{display:flex;align-items:center;gap:11px;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:11px 13px;font-size:14.5px;color:var(--text-2)}
+  .sres:hover{border-color:var(--teal)}
+  .sres .p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);border:1px solid var(--border-2);border-radius:5px;padding:2px 6px;flex-shrink:0}
+  .sres .pn{margin-left:auto;font-size:12px;color:var(--text-3)}
+  .sres.muted{color:var(--text-3);justify-content:center}
+
+  /* first reads + explore cards */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{display:block;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:12px;padding:22px 22px 20px;transition:border-color .15s,transform .15s}
   .card:hover{border-color:var(--border-2);transform:translateY(-2px)}
   .card .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--green);text-transform:uppercase}
-  .card h3{font-size:21px;font-weight:500;color:var(--text);margin:10px 0 8px}
-  .card p{font-size:14.5px;color:var(--text-2)}
-  .card .go{margin-top:14px;font-size:13px;color:var(--sky)}
-  .join{margin:26px 0 60px;background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--border-2);border-radius:14px;padding:30px 28px;text-align:center}
-  .join h2{font-size:24px;font-weight:400;color:var(--text);margin-bottom:8px}
-  .join p{max-width:560px;margin:0 auto 18px;font-size:15px;color:var(--text-2)}
+  .card h3{font-size:19px;font-weight:500;color:var(--text);margin:9px 0 7px}
+  .card p{font-size:14px;color:var(--text-2)}
+  .card .go{margin-top:12px;font-size:13px;color:var(--sky)}
+  .card .rn{color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:12px}
+
+  /* role picker */
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .role{display:flex;flex-direction:column;gap:3px;background:var(--surface);border:1px solid var(--border-2);border-radius:11px;padding:16px 18px}
+  .role:hover{border-color:var(--teal);background:var(--surface-2)}
+  .role b{color:var(--text);font-weight:500;font-size:15.5px}
+  .role span{font-size:12.5px;color:var(--text-3)}
+
+  .join{margin:30px 0 56px;background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--border-2);border-radius:14px;padding:28px;text-align:center}
+  .join h2{font-size:23px;font-weight:400;color:var(--text);margin-bottom:8px}
+  .join p{max-width:540px;margin:0 auto 16px;font-size:15px;color:var(--text-2)}
   .btn{display:inline-block;background:var(--gold);color:#1a1400;font-weight:600;font-size:15px;padding:13px 26px;border-radius:10px}
   .foot{border-top:1px solid var(--border);padding:22px 0;text-align:center;font-size:12px;color:var(--text-3)}
-  @media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:34px}}
+  @media(max-width:760px){.grid,.roles{grid-template-columns:1fr}.hero h1{font-size:33px}.hero{padding:40px 0 18px}}
 </style>
-  <link rel="stylesheet" href="/assets/mobile.css?v=6">
+  <link rel="stylesheet" href="/assets/mobile.css?v=7">
 </head>
 <body>
 <header class="topbar"><div class="wrap">
@@ -49,31 +79,60 @@
 <main class="wrap">
   <section class="hero">
     <div class="eyebrow">Free — no login needed</div>
-    <h1>You're in.<br><b>Start here.</b></h1>
-    <p>Everything below is free to read. No account required. Create a free account only when you want downloads, saved progress, and new content each week.</p>
+    <h1>New to GBS?<br><b>Start here.</b></h1>
+    <p>There's a lot here. You don't need to read it all. Search for what you need, read the three things that matter first, then pick your role.</p>
   </section>
 
-  <section class="grid">
-    <a class="card" href="index.html#inside">
-      <div class="tag">Free</div><h3>The 10 Pillars</h3>
-      <p>The full GBS knowledge base — operating models, operational excellence, stakeholders, career, leadership, projects, and more.</p>
-      <div class="go">Browse the pillars →</div>
-    </a>
-    <a class="card" href="guide.html">
-      <div class="tag">Free</div><h3>AI Field Guide</h3>
-      <p>Practical chapters on using AI in real GBS work — prompting, drafting SOPs, dashboards, and where automation fits. Free to read.</p>
-      <div class="go">Open the guide →</div>
-    </a>
-    <a class="card" href="glossary.html">
-      <div class="tag">Free</div><h3>GBS Glossary</h3>
-      <p>Every acronym and term, defined in plain English. The fastest way to stop feeling lost in meetings.</p>
-      <div class="go">Open the glossary →</div>
-    </a>
-    <a class="card" href="index.html#career-map">
-      <div class="tag">Free</div><h3>Career Map</h3>
-      <p>See the GBS roles and how people actually move between them — from Associate to Director.</p>
-      <div class="go">View the map →</div>
-    </a>
+  <section class="step">
+    <div class="step-h"><span class="step-n">1</span><div><h2>Search for anything</h2><div class="sub">Type a topic, acronym, or question — find the right page across all 10 pillars.</div></div></div>
+    <div class="searchbox">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="shq" type="text" placeholder="e.g. SLA, DMAIC, first 90 days, getting promoted…" autocomplete="off">
+    </div>
+    <div class="sresults" id="shr"></div>
+  </section>
+
+  <section class="step">
+    <div class="step-h"><span class="step-n">2</span><div><h2>Read these three first</h2><div class="sub">If you read nothing else this week, read these.</div></div></div>
+    <div class="grid">
+      <a class="card" href="pillar-1-gbs-fundamentals.html">
+        <div class="rn">Read 1</div><h3>What GBS actually is</h3>
+        <p>Shared services, captive vs BPO, who your stakeholders are — the map of the world you just joined.</p>
+        <div class="go">Start reading →</div>
+      </a>
+      <a class="card" href="pillar-2-operational-excellence.html">
+        <div class="rn">Read 2</div><h3>How your work is measured</h3>
+        <p>SLAs, KPIs, quality, and what "good" looks like day to day — so you know what you're being judged on.</p>
+        <div class="go">Start reading →</div>
+      </a>
+      <a class="card" href="pillar-5-career-performance.html">
+        <div class="rn">Read 3</div><h3>How to get noticed and grow</h3>
+        <p>Tracking your wins, performance reviews, and the moves that actually lead to promotion.</p>
+        <div class="go">Start reading →</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-h"><span class="step-n">3</span><div><h2>Pick your role</h2><div class="sub">Jump straight to what matters most for where you are now.</div></div></div>
+    <div class="roles">
+      <a class="role" href="pillar-1-gbs-fundamentals.html"><b>New joiner (0–1 yr)</b><span>Find your feet fast → GBS Fundamentals</span></a>
+      <a class="role" href="pillar-2-operational-excellence.html"><b>Senior Associate</b><span>Own your process → Operational Excellence</span></a>
+      <a class="role" href="pillar-7-leadership-people.html"><b>Team Lead / Manager</b><span>Lead people → Leadership &amp; People</span></a>
+      <a class="role" href="pillar-8-projects-transformation.html"><b>On a project</b><span>Deliver it well → Projects &amp; Transformation</span></a>
+      <a class="role" href="index.html#inside"><b>Just exploring</b><span>See all 10 pillars →</span></a>
+      <a class="role" href="glossary.html"><b>Lost in acronyms</b><span>Every term, plain English → Glossary</span></a>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-h"><span class="step-n">+</span><div><h2>Or explore everything</h2><div class="sub">The full free tier, any time.</div></div></div>
+    <div class="grid">
+      <a class="card" href="index.html#inside"><div class="tag">Free</div><h3>The 10 Pillars</h3><p>The complete GBS knowledge base — operating models, operations, stakeholders, career, leadership, projects, and more.</p><div class="go">Browse the pillars →</div></a>
+      <a class="card" href="guide.html"><div class="tag">Free</div><h3>AI Field Guide</h3><p>Practical chapters on using AI in real GBS work — prompting, drafting SOPs, dashboards, and where automation fits.</p><div class="go">Open the guide →</div></a>
+      <a class="card" href="glossary.html"><div class="tag">Free</div><h3>GBS Glossary</h3><p>Every acronym and term, defined in plain English. The fastest way to stop feeling lost in meetings.</p><div class="go">Open the glossary →</div></a>
+      <a class="card" href="index.html#career-map"><div class="tag">Free</div><h3>Career Map</h3><p>See the GBS roles and how people actually move between them — from Associate to Director.</p><div class="go">View the map →</div></a>
+    </div>
   </section>
 
   <section class="join">
@@ -84,6 +143,20 @@
 </main>
 
 <footer class="foot"><div class="wrap">GBS Insider Club · Practitioner-led career development for GBS professionals</div></footer>
-<script src="/assets/mobile.js?v=6" defer></script>
+
+<script>
+(function(){
+  var inp=document.getElementById('shq'), out=document.getElementById('shr'), data=null, st=0;
+  function load(cb){ if(st===2){cb(data);return;} if(st===1){setTimeout(function(){load(cb);},120);return;}
+    st=1; fetch('/assets/search-index.json?v=7').then(function(r){return r.json();}).then(function(d){data=d;st=2;cb(d);}).catch(function(){st=0;cb([]);}); }
+  function run(){ var q=inp.value.trim(); if(q.length<2){out.innerHTML='';return;}
+    load(function(list){ var ql=q.toLowerCase();
+      var hits=list.filter(function(r){return (r.t+' '+(r.pn||'')+' '+(r.k||'')).toLowerCase().indexOf(ql)>-1;}).slice(0,12);
+      out.innerHTML = hits.length ? hits.map(function(r){return '<a class="sres" href="'+r.u+'"><span class="p">P'+r.p+'</span>'+r.t+'<span class="pn">'+(r.pn||'')+'</span></a>';}).join('')
+        : '<div class="sres muted">No matches for \u201c'+q+'\u201d — try a different word</div>'; }); }
+  inp.addEventListener('input', run);
+})();
+</script>
+<script src="/assets/mobile.js?v=7" defer></script>
 </body>
 </html>
