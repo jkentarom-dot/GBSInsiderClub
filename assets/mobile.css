@@ -14,6 +14,12 @@ html[data-theme="light"]{
   --text:#11161f; --text-2:#3a4660; --text-3:#64718a;
   --border:#e6eaf2; --border-2:#d7dde9;
   --teal-glow:rgba(21,88,214,.10); --gold-bg:rgba(154,107,0,.09);
+  /* site.css glass layer applies background:var(--glass-bg)!important to
+     .cluster-card/.stats-panel/.why-card/etc. Default --glass-bg is a
+     translucent DARK that never flips, so those cards render grey on light
+     pages. Redefining the tokens here (html[data-theme] beats :root) makes the
+     same !important rule resolve to frosted white. One fix, all glass cards. */
+  --glass-bg:rgba(255,255,255,.85); --glass-brd:rgba(16,24,40,.12);
 }
 html[data-theme="light"] body{ background:var(--void); color:var(--text-2); }
 
@@ -45,6 +51,14 @@ html[data-theme="light"] [class$="-card"],
 html[data-theme="light"] [class$="-box"]{
   border:1px solid var(--border);
   box-shadow:0 1px 2px rgba(16,24,40,.04), 0 4px 12px rgba(16,24,40,.05);
+}
+/* site.css gives .concept-fig img / .side-visual a translucent-DARK backing
+   (rgba(8,11,16,.5-.6)) that reads as grey on a light page. These hold
+   diagrams, so frame them as solid dark panels — consistent with the
+   dark-framed zoomable diagrams. */
+html[data-theme="light"] .concept-fig img,
+html[data-theme="light"] .side-visual{
+  background:#0e1219 !important; border-color:#222c3e !important;
 }
 
 /* 1b -- DIAGRAMS IN LIGHT MODE: frame as intentional dark panels --------
