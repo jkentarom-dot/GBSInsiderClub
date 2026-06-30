@@ -107,6 +107,19 @@ html[data-theme="light"] .pillar-tile:hover{
   box-shadow:0 2px 4px rgba(16,24,40,.06), 0 10px 24px rgba(16,24,40,.10);
 }
 
+/* 1e -- HOMEPAGE HERO: the ::before overlay hard-codes a dark gradient
+   (rgba(8,11,16,.6)) across the middle, which becomes a black block over the
+   photo on the light page. Repaint it as a LIGHT fade — solid light page
+   colour over the text column, fading to transparent so the photo shows clean
+   on the right (and the photo's bottom edge melts into the page). Also flip
+   the white highlight in the sub-copy to dark so it reads on the light side. */
+html[data-theme="light"] .hero::before{
+  background:
+    linear-gradient(90deg, var(--void) 0%, var(--void) 42%, rgba(244,246,251,.72) 56%, transparent 78%),
+    linear-gradient(180deg, transparent 0%, transparent 84%, var(--void) 100%) !important;
+}
+html[data-theme="light"] .hero-sub strong{ color:var(--text) !important; }
+
 /* 1b -- DIAGRAMS IN LIGHT MODE: frame as intentional dark panels --------
    Robust by design: we do NOT recolor each SVG's internals (that is
    fragile — it misses fills and can cause white-on-white). The diagram
