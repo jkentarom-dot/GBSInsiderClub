@@ -91,6 +91,21 @@ html[data-theme="light"] .tile-link,
 html[data-theme="light"] .path-card a.pc-link{ background:var(--teal) !important; }
 html[data-theme="light"] .tier-applied{ background:#9a6b00 !important; color:#fff !important; }
 
+/* 1d -- PILLAR TILES (homepage / overview grid): frosted white reads as flat
+   against the light page. Give them a subtle cool tint + clear border + soft
+   lift so each tile reads as a distinct card. Content stays dark/readable.
+   Uniform tint by choice; trivially switchable to per-pillar accents. */
+html[data-theme="light"] .pillar-tile{
+  background:#eef2fb !important;
+  border-color:#d4ddf0 !important;
+  box-shadow:0 1px 2px rgba(16,24,40,.04), 0 6px 16px rgba(16,24,40,.06);
+}
+html[data-theme="light"] .pillar-tile:hover{
+  background:#e4eafb !important;
+  border-color:var(--teal) !important;
+  box-shadow:0 2px 4px rgba(16,24,40,.06), 0 10px 24px rgba(16,24,40,.10);
+}
+
 /* 1b -- DIAGRAMS IN LIGHT MODE: frame as intentional dark panels --------
    Robust by design: we do NOT recolor each SVG's internals (that is
    fragile — it misses fills and can cause white-on-white). The diagram
