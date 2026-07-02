@@ -170,6 +170,113 @@
 .topic-ico{flex:0 0 auto;line-height:0;}
 .topic-ico svg{display:block;}
 @media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sw-avatar{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:16px;overflow:hidden;flex-shrink:0}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:14px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -220,7 +327,7 @@
       <h1>Continuous Improvement
         <span class="gold-line">The discipline that separates GBS centers that stay efficient from those that drift.</span>
       </h1>
-      <p class="hero-tagline">Continuous improvement is not a project. It is a culture. Every analyst who spots a repeating error, every team lead who maps a wasteful handoff, every manager who asks "why does this step exist?" is practicing CI — with or without a Six Sigma belt.</p>
+      <p class="hero-tagline">Continuous improvement is a working culture — and a career skill. Every analyst who spots a repeating error, every team lead who maps a wasteful handoff, every manager who asks "why does this step exist?" is practicing CI — with or without a Six Sigma belt.</p>
       <div class="stats-row">
         <div class="stat"><span class="stat-number">8</span><span class="stat-label">categories of waste in the Lean framework — known by the acronym DOWNTIME — visible in every GBS process</span></div>
         <div class="stat"><span class="stat-number">DMAIC</span><span class="stat-label">Define → Measure → Analyze → Improve → Control — the five-step CI project framework used globally in GBS</span></div>
@@ -228,6 +335,20 @@
       </div>
     </div>
 
+
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the tool that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#rca-capa"><span class="sw-av"><img src="images/cast/amara-frustrated.webp" alt="" onerror="this.remove()">A</span><span class="sw-q">You fix the same error every week. It always comes back.</span><span class="sw-go">T4 &rarr;</span></a>
+        <a class="sw-rcard" href="#eight-wastes"><span class="sw-av"><img src="images/cast/ravi-frustrated.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">Your process feels slow, but you can't point at where.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#dmaic"><span class="sw-av"><img src="images/cast/klaudia-frustrated.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">You told your team lead the process is broken. Nothing happened.</span><span class="sw-go">T3 &rarr;</span></a>
+        <a class="sw-rcard" href="#belts"><span class="sw-av"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">Everyone says "do Six Sigma." You don't know if a belt is worth the effort.</span><span class="sw-go">T5 &rarr;</span></a>
+        <a class="sw-rcard" href="#savings"><span class="sw-av"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">You improved something real. Leadership never heard about it.</span><span class="sw-go">T6 &rarr;</span></a>
+        <a class="sw-rcard" href="#lean-six-sigma"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">You have an improvement idea and no clue how to pitch it.</span><span class="sw-go">T1 &rarr;</span></a>
+      </div>
+    </div>
 
     <!-- OVERVIEW SVG -->
     <div style="margin:0 0 48px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
@@ -256,7 +377,28 @@
     <section class="section" id="lean-six-sigma">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14.5 17.5 A10 10 0 0 1 30 16.5"/><path d="M27.5 14.5 L30.5 16.5 L29 19.5"/><path d="M29.5 26.5 A10 10 0 0 1 14 27.5"/><path d="M16.5 29.5 L13.5 27.5 L15 24.5"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>Lean vs Six Sigma — what each one does</h2>
-      <p class="section-hook">These two methodologies are often combined into "<strong style="color:var(--gold)">Lean</strong> <strong style="color:var(--gold)">Six Sigma</strong>" — but they target different problems. Understanding each separately helps you pick the right tool.</p>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Lean removes <strong>slow</strong>. Six Sigma removes <strong>wrong</strong>. Ask which one your problem is, and you have chosen your tool. Skip to <strong style="color:var(--green)">THE FIX</strong> for the one-question test.</p></div>
+      <h3 class="sw-hook">Everyone says "lean it out."<br><em>Nobody explains what that means.</em></h3>
+      <div class="sw-hook-sub">3 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-frustrated.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>A CI kickoff meeting. Ravi's team lead opens with a plan.</p>
+  <p class="sw-quote">"We should lean out the invoice process this quarter."</p>
+  <p>A visiting Black Belt pushes back.</p>
+  <p class="sw-quote">"Where is your baseline data? What is the defect rate?"</p>
+  <p class="sw-beat">Ravi has an idea about the approval step.<br>He has had it for weeks.</p>
+  <p>Two experts. Two vocabularies. Ravi understands neither well enough to speak.<br>He feels <span class="sw-hl-g">invisible</span> in a meeting about his own process.</p>
+  <p class="sw-beat">The meeting ends. The idea stays in his notebook.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You stay quiet in these meetings because you lack the <span class="sw-hl-g">vocabulary</span>, and never because you lack ideas. The idea dies anyway.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Both experts were right. They were solving <span class="sw-hl-t">two different problems</span> — and each method has a name.</p>
+  <div class="sw-split2">
+    <div class="sw-col sw-a"><h4>Lean — kills SLOW</h4><ul><li><b>Target:</b> waste, waiting, handoffs</li><li><b>Question:</b> which steps add no value?</li><li><b>Tools:</b> VSM, 5S, Kaizen, Kanban</li><li><b>GBS case:</b> cut AP cycle time</li></ul></div>
+    <div class="sw-col sw-b"><h4>Six Sigma — kills WRONG</h4><ul><li><b>Target:</b> errors, variation, defects</li><li><b>Question:</b> why do outputs differ?</li><li><b>Tools:</b> DMAIC, fishbone, control charts</li><li><b>GBS case:</b> cut invoice error rate</li></ul></div>
+  </div>
+  <p>The one-question test before any pitch: <span class="sw-hl-t">"Is my problem slow, or wrong?"</span><br>Slow &rarr; speak Lean. Wrong &rarr; speak Six Sigma. Both &rarr; Lean Six Sigma, the standard GBS toolkit.</p>
+  <p>At the next huddle, Ravi tries it. <span class="sw-hl-grn">"Our problem is flow — of six days cycle time, five are waiting."</span> The Black Belt turns around. Now they are talking.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The full comparison — when each method wins, and why GBS combines them</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <!-- SVG: Lean vs Six Sigma -->
       <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:24px;">
@@ -321,7 +463,10 @@
 </svg>
       <p class="sd-caption">Value stream mapping — see the waste before you fix it</p>
     </div>
-</section>
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Take one process you touch daily. Complete one sentence in writing: <b>"This process is slow because ___"</b> or <b>"wrong because ___."</b> You just chose your tool.</p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Chose "slow" but can't point at where the time goes? <a href="#eight-wastes">The 8 wastes are the flashlight.</a></p></div>
+    </section>
 
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p2c3-continuous-improvement.webp" alt="GBS Continuous Improvement Toolkit — DMAIC cycle, 8 wastes, Lean Six Sigma belt system, value stream mapping, A3 problem solving, 5 Whys, fishbone diagram, SIPOC"
@@ -332,7 +477,32 @@
     <section class="section" id="eight-wastes">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="17" cy="16" r="3.4"/><path d="M11 31 C11 24 23 24 23 31"/><circle cx="28" cy="18" r="3"/><path d="M23 31 C23 25.5 33 25.5 33 31"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>The 8 wastes — <a class="gloss" href="#g-downtime">DOWNTIME<span class="tooltip">Acronym for the 8 wastes: Defects, Overproduction, Waiting, Non-Utilized Talent, Transportation, Inventory, Motion, Extra-Processing.</span></a></h2>
-      <p class="section-hook">Every GBS process contains waste. The 8-waste framework — remembered by the acronym <strong style="color:var(--gold)">DOWNTIME</strong> — gives you a checklist for finding it. Once you know these, you will spot them everywhere.</p>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Waste hides inside busy days. The <strong>DOWNTIME</strong> checklist gives all 8 waste types a name — and named waste becomes visible, fixable, and worth mentioning in your review. The grid is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your day is full.<br><em>Your output says otherwise.</em></h3>
+      <div class="sw-hook-sub">4 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-frustrated.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Tuesday, reconstructed.</p>
+  <p class="sw-beat">Ravi opens five systems to verify one transaction.<br>He waits until 2 PM for a single approval.<br>He retypes data from a PDF into the ERP. Field by field.</p>
+  <p>6:30 PM. On the bus home, he asks himself one question.</p>
+  <p class="sw-quote">"What did I actually produce today?"</p>
+  <p>He cannot answer. He worked nine hours and feels <span class="sw-hl-g">drained</span> — and somehow behind.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>Busy feels like performing. Your review will measure <span class="sw-hl-g">output</span>, and much of your day is being consumed by the process itself — invisibly, because nobody taught you the names.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Lean gives every type of waste a name — eight of them, remembered as <span class="sw-hl-t">DOWNTIME</span>. Four of them ate Ravi's Tuesday (highlighted).</p>
+  <div class="sw-dgrid">
+    <div class="sw-dcell"><div class="sw-ltr">D</div><div><div class="sw-nm">Defects</div><div class="sw-ex">Errors needing rework — wrong invoice data corrected by hand</div></div></div>
+    <div class="sw-dcell"><div class="sw-ltr">O</div><div><div class="sw-nm">Overproduction</div><div class="sw-ex">Daily report generated, read monthly</div></div></div>
+    <div class="sw-dcell sw-hit"><div class="sw-ltr">W</div><div><div class="sw-nm">Waiting</div><div class="sw-ex">Ravi's 2 PM approval — often the largest waste in GBS</div></div></div>
+    <div class="sw-dcell sw-hit"><div class="sw-ltr">N</div><div><div class="sw-nm">Non-utilized talent</div><div class="sw-ex">An analyst with automation skills doing manual entry</div></div></div>
+    <div class="sw-dcell"><div class="sw-ltr">T</div><div><div class="sw-nm">Transportation</div><div class="sw-ex">Invoice emailed &rarr; printed &rarr; scanned &rarr; rekeyed</div></div></div>
+    <div class="sw-dcell"><div class="sw-ltr">I</div><div><div class="sw-nm">Inventory</div><div class="sw-ex">400 unmatched invoices aging past 30 days — your backlog</div></div></div>
+    <div class="sw-dcell sw-hit"><div class="sw-ltr">M</div><div><div class="sw-nm">Motion</div><div class="sw-ex">Ravi's five systems for one verification</div></div></div>
+    <div class="sw-dcell sw-hit"><div class="sw-ltr">E</div><div><div class="sw-nm">Extra-processing</div><div class="sw-ex">Triple-checking what needs one check — Ravi's PDF rekeying</div></div></div>
+  </div>
+  <p>Named waste stops being "just how it is." It becomes something you can <span class="sw-hl-t">point at</span>.</p>
+  <p>Ravi walks his own day with the checklist and brings three findings to his team lead — by name, with examples. <span class="sw-hl-grn">For the first time, he sounds like someone who studies the process, and someone worth pulling into improvement work.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">All 8 wastes in depth — full GBS examples</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
 
       <div class="waste-grid">
         <div class="waste-card">
@@ -409,7 +579,10 @@
 </svg>
       <p class="sd-caption">The 8 wastes — DOWNTIME in GBS operations</p>
     </div>
-</section>
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Track <b>one workday in 30-minute blocks</b>. Label each block with a DOWNTIME letter where one fits. <b>Count the W's.</b> That number is your conversation starter.</p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Found the waste, told your team lead, and nothing moved? <a href="#dmaic">Complaints need structure.</a></p></div>
+    </section>
     
     <!-- Self-Check -->
     <details style="background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.25);border-left:4px solid #38bdf8;border-radius:10px;padding:0;margin:32px 0;overflow:hidden;">
@@ -443,7 +616,35 @@
     <section class="section" id="dmaic">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 12 L31 16 V22.5 C31 27.5 27 30.8 22 32.6 C17 30.8 13 27.5 13 22.5 V16 Z"/><path d="M17.5 22 L20.8 25.2 L27 19"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>The <a class="gloss" href="#g-dmaic">DMAIC<span class="tooltip">Define, Measure, Analyze, Improve, Control — the five-phase Six Sigma project framework used for structured improvement initiatives in GBS and other service environments.</span></a> framework — how structured improvement projects work</h2>
-      <p class="section-hook">DMAIC is the backbone of every formal improvement project in GBS. Five phases, each with a purpose. Think of it as a structured way to go from "we have a problem" to "the problem is solved and won't come back."</p>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>A complaint hands your manager a problem. A <strong>Define + Measure</strong> one-pager hands them a decision. DMAIC is the structure — and you can use its first two phases <strong>without a belt or a mandate</strong>. See <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">You reported the broken process.<br><em>Three times. Nothing moved.</em></h3>
+      <div class="sw-hook-sub">4 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-frustrated.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>Team meeting, March. Klaudia raises it.</p>
+  <p class="sw-quote">"We keep getting duplicate vendor requests. It creates rework."</p>
+  <p class="sw-quote">"Good point. We'll look into it."</p>
+  <p class="sw-beat">April. Same duplicates. She raises it again.<br>May. She stops raising it.</p>
+  <p>A colleague shrugs at her.</p>
+  <p class="sw-quote">"Why bother? Nothing changes here."</p>
+  <p>The worst part: Klaudia is starting to agree. She feels <span class="sw-hl-g">stuck</span> — right when she wanted to prove she is ready for more.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>Raising a problem in a meeting feels like initiative. To a busy manager, it lands as <span class="sw-hl-g">one more open loop</span> with no size, no owner, and no next step — so it loses to everything that has all three.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>DMAIC is the backbone of every formal improvement project — five phases from "we have a problem" to "it stays solved." The career unlock sits at the front: <span class="sw-hl-t">the first two phases need no belt, no mandate, no permission</span>.</p>
+  <div class="sw-phases">
+    <div class="sw-phase sw-lit"><div class="sw-pl">D</div><div class="sw-pn">Define</div><div class="sw-pd">What happens, to whom, how often</div></div>
+    <div class="sw-phase sw-lit"><div class="sw-pl">M</div><div class="sw-pn">Measure</div><div class="sw-pd">Baseline it with real counts</div></div>
+    <div class="sw-phase"><div class="sw-pl">A</div><div class="sw-pn">Analyze</div><div class="sw-pd">Root cause with data, never opinions</div></div>
+    <div class="sw-phase"><div class="sw-pl">I</div><div class="sw-pn">Improve</div><div class="sw-pd">Test and implement countermeasures</div></div>
+    <div class="sw-phase"><div class="sw-pl">C</div><div class="sw-pn">Control</div><div class="sw-pd">Monitor so gains hold</div></div>
+  </div>
+  <p>Klaudia's complaint, run through Define and Measure, becomes one page:</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">DEFINE</span><span class="sw-means"><b>Duplicate vendor creation requests</b> reach the master data queue from two intake channels, causing rework for three analysts.</span></div>
+    <div class="sw-def"><span class="sw-term">MEASURE</span><span class="sw-means"><b>12 duplicates last month</b> — roughly 4 hours of rework, counted from the ticket log.</span></div>
+  </div>
+  <p>Same problem. Different object. <span class="sw-hl-grn">Her team lead forwards the one-pager to the CI lead the same day — and Klaudia is invited to the scoping call.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">All five phases in depth — tools and outputs per phase</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
 <!-- SVG DIAGRAM -->
 <div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
 <svg viewBox="0 0 780 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:780px;display:block;margin:0 auto;">
@@ -559,12 +760,45 @@
 </svg>
       <p class="sd-caption">DMAIC — define, measure, analyze, improve, control</p>
     </div>
-</section>
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Take the problem you have complained about most. Write its <b>Define line</b> — what happens, to whom, how often — and attach <b>one week of real counts</b>. Then hand it over, on one page.</p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Structure gets you into the project. <a href="#rca-capa">Finding the real cause is how you win it.</a></p></div>
+    </section>
 
     <section class="section" id="rca-capa">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 12 L31 16 V22.5 C31 27.5 27 30.8 22 32.6 C17 30.8 13 27.5 13 22.5 V16 Z"/><path d="M17.5 22 L20.8 25.2 L27 19"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>Root cause analysis and CAPA — finding the real cause, and making the fix stick</h2>
-      <p class="section-hook">When something keeps going wrong, fixing the symptom buys you a quiet week and the same problem next month. Root cause analysis finds why it happened. CAPA makes the fix hold.</p>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>A repeated error means an <strong>unfound root cause</strong>. Five whys finds it. <strong>CAPA</strong> makes the fix permanent. Skip to <strong style="color:var(--green)">THE FIX</strong> if you just want the method.</p></div>
+      <h3 class="sw-hook">You fix it. It comes back.<br><em>You fix it again.</em></h3>
+      <div class="sw-hook-sub">4 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-frustrated.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>Every Thursday, the same invoices fail validation.</p>
+  <p class="sw-beat">Every Thursday, Amara fixes them by hand.<br>40 minutes. Gone.</p>
+  <p class="sw-quote">"You're so fast with these," her team lead says. "Great job."</p>
+  <p>Amara smiles. Inside, she is <span class="sw-hl-g">furious</span>.<br>She has fixed this exact error <span class="sw-hl-g">31 times</span>.<br>Nobody has ever asked the only question that matters:</p>
+  <p class="sw-quote"><span class="sw-hl-t">"Why Thursday?"</span></p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>Amara is being <span class="sw-hl-g">praised for treating a symptom</span>. The praise feels good. The problem stays — and so does her Thursday.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The real cause sits <span class="sw-hl-t">one system upstream</span> — a customer master field set wrong eight months ago, by a team Amara has never spoken to.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">RCA</span><span class="sw-means"><b>is the asking.</b> Follow the error backwards until the chain stops.</span></div>
+    <div class="sw-def"><span class="sw-term">CAPA</span><span class="sw-means"><b>is the keeping.</b> Remove the cause so the error cannot return — here, and anywhere else it hides.</span></div>
+  </div>
+  <p>Here is Amara's Thursday, run through <span class="sw-hl-grn">five whys</span>:</p>
+  <div class="sw-whys">
+    <div class="sw-why"><div class="sw-n">1</div><div><div class="sw-q">Why do the invoices fail?</div><div class="sw-a">Wrong tax code on the order.</div></div></div>
+    <div class="sw-why-line"><span></span></div>
+    <div class="sw-why"><div class="sw-n">2</div><div><div class="sw-q">Why is the tax code wrong?</div><div class="sw-a">It is pulled from the customer master record.</div></div></div>
+    <div class="sw-why-line"><span></span></div>
+    <div class="sw-why"><div class="sw-n">3</div><div><div class="sw-q">Why is the master record wrong?</div><div class="sw-a">A field was set incorrectly at customer onboarding.</div></div></div>
+    <div class="sw-why-line"><span></span></div>
+    <div class="sw-why"><div class="sw-n">4</div><div><div class="sw-q">Why was it never caught?</div><div class="sw-a">No validation rule checks that field.</div></div></div>
+    <div class="sw-why-line"><span></span></div>
+    <div class="sw-why sw-root"><div class="sw-n">5</div><div><div class="sw-q">Why is there no rule?</div><div class="sw-a">Nobody owns master data quality checks.<span class="sw-root-tag">&larr; root cause</span></div></div></div>
+  </div>
+  <p style="margin-top:18px">One master data fix. One new validation rule. One owner.<br><span class="sw-hl-grn">Amara's Thursday is hers again</span> — and the same fix just prevented the error for every customer onboarded next year.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The full method — 5 Whys rules, fishbone diagram, and the CAPA loop</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
 
       <p>Root cause analysis (RCA) is a structured way to find the real reason a problem happened, instead of stopping at the first visible cause. CAPA — corrective and preventive action — is what you do with that finding: remove the cause so the problem cannot come back, and act on the same weakness elsewhere before it bites. In GBS the two work as a pair. RCA without CAPA gives you a diagnosis and no treatment. CAPA without RCA treats a symptom, and the problem returns.</p>
 
@@ -740,12 +974,37 @@
       </div>
 
       <p class="sd-caption" style="text-align:left;margin-top:18px;">Sources: ASQ (Ishikawa diagram, CAPA) &middot; Taiichi Ohno / Toyota Production System (5 Whys) &middot; ISO 9001:2015 (corrective action, risk-based thinking).</p>
+    </div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Pick your most repeated fix. Ask <b>"why" five times — in writing</b>. Bring the <b>fifth answer</b>, not the first, to your team lead.</p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Found the cause, but the fix keeps sliding after two quiet weeks? That is a control problem — <a href="#dmaic">DMAIC's Control phase</a> exists for exactly this.</p></div>
     </section>
 
     <section class="section" id="belts">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 31 H17 V26 H22 V21 H27 V16 H32"/><path d="M29 16 H32 V19"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2>The Six Sigma belt system — what it actually means for your career</h2>
-      <p class="section-hook">Belts are not mandatory in GBS. But they signal something real: this person can run a structured improvement project, not just describe one.</p>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Yellow and Green Belt training is often <strong>employer-funded and inside working hours</strong> — the real question is whether a <strong>project comes attached</strong>. The delivered project is the career story; the belt formalizes it. Ladder in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Is a Six Sigma belt<br><em>worth the effort?</em></h3>
+      <div class="sw-hook-sub">3 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>Sunday evening, LinkedIn.</p>
+  <p class="sw-beat">A former teammate posts a Green Belt certificate.<br>84 reactions. "Congratulations!" everywhere.</p>
+  <p>Klaudia checks the intranet. Her company runs a Green Belt program — employer-funded, during working hours. Applications close Friday.</p>
+  <p>Half her feed says a belt changed their career.<br>A colleague calls them <span style="font-style:italic">"certificate wallpaper."</span></p>
+  <p>She feels <span class="sw-hl-g">torn</span>: real career move, or twelve training days for a PDF?</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>A belt with no project behind it is a certificate. A delivered project with no belt is still a <span class="sw-hl-g">career story</span>. Many people collect the certificate and skip the story.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Belts are optional in GBS — and they still signal something real: <span class="sw-hl-t">this person can run a structured improvement project</span>, and can do more than describe one.</p>
+  <div class="sw-belts">
+    <div class="sw-belt sw-y"><div class="sw-bn">Yellow Belt</div><div class="sw-bd">Awareness. Knows DMAIC and the 8 wastes. Project team member. 1&ndash;2 days. Right for every analyst.</div></div>
+    <div class="sw-belt sw-g"><div class="sw-bn">Green Belt</div><div class="sw-bd">Leads a DMAIC project. Often employer-funded, inside working hours. Right for team leads and OpEx-bound roles &mdash; when a project comes attached.</div></div>
+    <div class="sw-belt sw-bb"><div class="sw-bn">Black Belt</div><div class="sw-bd">Full-time CI specialist. A big commitment on both sides &mdash; right when CI is the job you want. 1&ndash;3 per major center.</div></div>
+    <div class="sw-belt sw-m"><div class="sw-bn">Master BB</div><div class="sw-bd">Trains belts, designs the CI program. Regional or global leadership level. 2+ years of project work.</div></div>
+  </div>
+  <p>The pairing that pays: <span class="sw-hl-t">training plus a real project</span>. Companies usually try to staff belts on improvement projects during and after certification &mdash; say yes to those. The certificate formalizes what the project proves.</p>
+  <div class="sw-jtake"><div class="sw-j">J</div><div><div class="sw-lbl">Julian's Take</div><p>I have watched many Green Belts end up doing regular project management. The analytical tools that separate Six Sigma from standard project work often get reduced in training, or never applied afterwards. I still rate the programs. The toolkit and the discipline lift how people run everything else they touch. Go in for the tools. Treat the certificate as the bonus.</p></div></div>
+  <p><span class="sw-hl-grn">Klaudia applies &mdash; and asks one question in the intake call: which project would she run.</span> The answer makes the training real.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Each belt in depth — training scope and which GBS roles they serve</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
 <div class="media-row">
       <div class="belt-row">
@@ -878,7 +1137,10 @@
 </svg>
       <p class="sd-caption">Belt system — from Yellow Belt awareness to Black Belt leadership</p>
     </div>
-</section>
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Before enrolling in any belt program, ask your manager one question: <b>"Which improvement project would I run with it?"</b> The answer tells you whether it is a career move or a calendar entry.</p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Project delivered? <a href="#savings">Now make the value count where it matters.</a></p></div>
+    </section>
 
     <section class="section" id="capability">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 L33 18 L22 23 L11 18 Z"/><path d="M15 20.5 V26 C15 28 18.5 29.5 22 29.5 C25.5 29.5 29 28 29 26 V20.5"/></svg></span><div class="section-eyebrow">Go Deeper</div></div>
@@ -933,7 +1195,31 @@
     <section class="section" id="savings">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><ellipse cx="22" cy="16" rx="9" ry="3.2"/><path d="M13 16 V24 C13 25.8 17 27.2 22 27.2 C27 27.2 31 25.8 31 24 V16"/><path d="M13 20 C13 21.8 17 23.2 22 23.2 C27 23.2 31 21.8 31 20"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>Hard vs soft savings — how GBS proves its impact</h2>
-      <p class="section-hook">This is where improvement initiatives get political. Not all savings are equal. Finance wants to see <strong style="color:var(--gold)">hard savings</strong>. Operations often generates <strong style="color:var(--gold)">soft savings</strong>. Understanding the difference, and how to communicate across it, is a real career skill.</p>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Finance counts <strong>hard savings</strong> — money traceable in the P&amp;L. Most improvements create <strong>soft savings</strong> — real value that needs translation. Learn to state where freed capacity went, and your work becomes visible upward. Split in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">You saved the team 300 hours.<br><em>Finance counted zero.</em></h3>
+      <div class="sw-hook-sub">4 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>Quarterly ops review. Peter presents his team's win: an automated reconciliation step.</p>
+  <p class="sw-beat">300 hours a year, freed.<br>Big number on the slide. He is proud of this one.</p>
+  <p>The finance controller looks up.</p>
+  <p class="sw-quote">"Which cost line goes down?"</p>
+  <p class="sw-beat">Silence.</p>
+  <p>The big number suddenly feels small. Peter leaves the room <span class="sw-hl-g">deflated</span> — the work was real, and the room moved on.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>Effort impresses your team. The P&amp;L impresses leadership. Present hours saved without saying <span class="sw-hl-g">where the value landed</span>, and the room hears "nice to have."</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Savings come in two currencies, and Finance only banks one of them.</p>
+  <div class="sw-split2">
+    <div class="sw-col sw-a"><h4>Hard — lives in the P&amp;L</h4><ul><li><b>Headcount reduction</b> — fewer FTEs, same volume</li><li><b>Vendor cost down</b> — renegotiated contracts</li><li><b>Penalties eliminated</b> — late-payment fees gone</li><li><b>Rework cost removed</b> — traceable to a line</li></ul></div>
+    <div class="sw-col sw-b"><h4>Soft — real, not in the ledger</h4><ul><li><b>Capacity created</b> — absorb growth without hiring</li><li><b>Risk avoided</b> — lower audit exposure</li><li><b>Time upgraded</b> — analysis instead of rekeying</li><li><b>Errors prevented</b> — costs that never appear</li></ul></div>
+  </div>
+  <p>The career skill is <span class="sw-hl-t">translation</span>. Two rules:</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">RULE 1</span><span class="sw-means">Claim hard savings <b>only with a signed-off change</b> — a contract ended, a role removed. Finance has heard too many claims that never landed.</span></div>
+    <div class="sw-def"><span class="sw-term">RULE 2</span><span class="sw-means">For soft savings, <b>document where the freed time went</b>. Untracked capacity evaporates; tracked capacity is evidence.</span></div>
+  </div>
+  <p>Peter reworks one line for the next review: <span class="sw-hl-grn">"The freed capacity absorbed this year's 12% volume growth — zero additional headcount requested."</span> The controller writes it down.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The full picture — validating savings with Finance, innovation vs CI, and the A3 one-pager</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
 
       <div class="savings-split">
         <div class="savings-side hard">
@@ -999,7 +1285,10 @@
 </svg>
       <p class="sd-caption">A3 thinking — one-page problem solving</p>
     </div>
-</section>
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Take your last improvement. Write two lines: <b>one hard-savings claim only if provable</b>, and <b>one capacity line stating exactly where the freed time went</b>. Keep both ready for your next review.</p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Translating value upward is how improvement work becomes promotion currency — <a href="pillar-5-career-performance.html">Pillar 5 picks this thread up from here.</a></p></div>
+    </section>
 
     
     <!-- Julian's Take -->
