@@ -162,6 +162,114 @@ a.gloss:hover .tooltip{display:block;}
 .sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
 @media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -242,10 +350,41 @@ a.gloss:hover .tooltip{display:block;}
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Knowledge Transfer Phases</div>
     </div>
 
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#kt-model"><span class="sw-av"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">The KT plan is recordings and hope.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#cultural-resistance"><span class="sw-av"><img src="images/cast/amara-frustrated.webp" alt="" onerror="this.remove()">A</span><span class="sw-q">The sending team answers questions and volunteers nothing.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#sac"><span class="sw-av"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</span><span class="sw-q">You are asked to sign acceptance with items still open.</span><span class="sw-go">T3 &rarr;</span></a>
+      </div>
+    </div>
+
     <section class="section" id="kt-model">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="14" width="18" height="20" rx="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5"/><path d="M17 22 H27 M17 26 H27 M17 30 H23"/></svg></span><p class="section-eyebrow">Topic 01 · Methodology</p></div>
       <h2>The 4-phase KT model</h2>
-      <figure class="sw-fig"><img src="images/cast/priya-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Priya documents, shadows, reverse-shadows, then signs off.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Knowledge transfer runs in four phases: document, shadow, reverse-shadow, sign off. Skipping one is how go-lives inherit chaos. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Knowledge does not transfer.<br><em>It gets rebuilt, phase by phase.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Priya</div><div class="sw-role">Process SME &middot; Migration + BAU &middot; Bangalore</div></div></div>
+  <p>Priya&rsquo;s KT plan gets challenged: "Four phases? Just record some sessions and send the SOPs."</p>
+  <p class="sw-beat">She has seen that movie: go-live day, receiving team frozen on the first real exception, recordings useless.<br>She holds the line: documentation, then watching, then doing-while-watched, then proof.</p>
+  <p class="sw-quote">"Reading about swimming, watching swimming, swimming with a lifeguard — then the deep end."</p>
+  <p>She feels <span class="sw-hl-g">insistent</span> — and right to be.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You compress KT to documents and recordings — and discover at go-live that knowledge was never in them.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The four-phase model builds capability <span class="sw-hl-t">in layers</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">DOCUMENT</span><span class="sw-means"><b>SOPs and DTPs current and complete.</b> The foundation, never the whole.</span></div>
+    <div class="sw-def"><span class="sw-term">SHADOW</span><span class="sw-means"><b>Receiver watches sender.</b> Real work, real exceptions, questions live.</span></div>
+    <div class="sw-def"><span class="sw-term">REVERSE SHADOW</span><span class="sw-means"><b>Receiver does, sender watches.</b> Where the gaps actually surface — the phase most often skipped.</span></div>
+    <div class="sw-def"><span class="sw-term">SIGN-OFF</span><span class="sw-means"><b>Demonstrated, not assumed.</b> Defined scenarios executed solo before the gate.</span></div>
+  </div>
+  <p>Go-live lands on a team that has already done the work under supervision. <span class="sw-hl-grn">The first exception meets someone who has seen it before.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The 4-phase KT model in depth</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Each phase has a specific purpose, defined exit criteria, and common failure modes. Skipping or compressing phases to meet deadlines is the leading cause of transition failure.</p>
 <!-- SVG DIAGRAM -->
 <div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
@@ -338,11 +477,34 @@ a.gloss:hover .tooltip{display:block;}
 <text x="350" y="140" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="7" letter-spacing="0.06em">TRACK EVERY PROCESS &middot; NO PROCESS GOES LIVE WITHOUT SIGN-OFF</text></svg>
       <p class="sd-caption">KT tracker — real-time visibility of completion by workstream</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Check your nearest KT plan for phase three. <b>Missing reverse-shadow? That is your risk, named.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>The mechanics can be perfect — <a href="#cultural-resistance">and the humans still hesitant.</a></p></div>
+    </section>
 <section class="section" id="cultural-resistance">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="17" cy="16" r="3.4"/><path d="M11 31 C11 24 23 24 23 31"/><circle cx="28" cy="18" r="3"/><path d="M23 31 C23 25.5 33 25.5 33 31"/></svg></span><p class="section-eyebrow">Topic 02 · People Challenges</p></div>
       <h2>Managing cultural resistance during transition</h2>
-      <figure class="sw-fig"><img src="images/cast/amara-frustrated.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara felt the sending team's hesitation in every handover call.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Sending teams train the people taking over their work. That tension is human — acknowledge it and manage the incentives, or KT quality pays. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">They are training you<br><em>to take their work.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-frustrated.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>Amara receives a process. Her counterpart is polite, punctual — and every answer is minimal.</p>
+  <p class="sw-beat">Questions get exact answers, never context. Workarounds surface only when Amara stumbles into them.<br>Then she gets it: he is documenting himself out of relevance, and everyone pretends otherwise.</p>
+  <p class="sw-quote">"He was not hiding knowledge from me. He was holding on to mattering."</p>
+  <p>She feels <span class="sw-hl-g">compassion</span> — and adjusts how she asks.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You treat thin KT answers as bad faith when the sending side&rsquo;s incentives were never addressed.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>KT resistance is managed with <span class="sw-hl-t">acknowledgment and incentives</span>, not pressure.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">NAME THE TENSION</span><span class="sw-means"><b>Out loud, at kickoff.</b> "This is hard for the sending team" — said by leadership, not whispered.</span></div>
+    <div class="sw-def"><span class="sw-term">REAL INCENTIVES</span><span class="sw-means"><b>The sender&rsquo;s future matters.</b> Retention terms, next roles, KT quality in their goals.</span></div>
+    <div class="sw-def"><span class="sw-term">RESPECT IN METHOD</span><span class="sw-means"><b>Expert treatment.</b> Credit their mastery openly; people transfer more of what feels honored.</span></div>
+  </div>
+  <p>Amara asks about his hardest saves instead of his task list. <span class="sw-hl-grn">The context she needed arrives wrapped in stories he is proud of.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Cultural resistance in transitions in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">The sending team is losing their jobs or their scope. The receiving team is inheriting work they did not design. Both sides have reasons to resist — and the transition succeeds only when both are managed.</p>
       <div class="card teal">
       <div class="card-title">Sending team resistance patterns</div>
@@ -372,7 +534,11 @@ a.gloss:hover .tooltip{display:block;}
 <text x="350" y="138" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">BAD KT IS THE #1 REASON TRANSITIONS FAIL &middot; PROTECT THE KT TIMELINE</text></svg>
       <p class="sd-caption">KT failure modes — documentation without practice, rushed timelines, SME unavailability</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>In your next handover, ask the sender: <b>"What save are you proudest of?" Real knowledge follows pride.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Knowledge flowing. <a href="#sac">Sign-off decides when it counts.</a></p></div>
+    </section>
 
     <!-- Self-Check -->
     <details style="background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.25);border-left:4px solid #38bdf8;border-radius:10px;padding:0;margin:32px 0;overflow:hidden;">
@@ -402,7 +568,26 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="sac">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14 24 A9 9 0 1 1 23 33"/><path d="M23 33 L18.6 32.4 M23 33 L21.8 28.7"/></svg></span><p class="section-eyebrow">Topic 03 · Acceptance</p></div>
       <h2>Service Acceptance Criteria</h2>
-      <figure class="sw-fig"><img src="images/cast/miguel-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Miguel signs acceptance only when the criteria are truly met.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Service acceptance criteria define "done" before the transition starts. Signing acceptance means the criteria are met — not that the date arrived. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your signature means ready.<br><em>Not that the calendar says so.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</div><div><div class="sw-who">Miguel</div><div class="sw-role">New team lead &middot; Week 6 &middot; Manila</div></div></div>
+  <p>Go-live minus three days. Miguel is asked to sign service acceptance. Two criteria are open: one system access batch, one unfinished KT scenario.</p>
+  <p class="sw-beat">"Sign now, we fix it in hypercare" — the oldest sentence in transitions.<br>He signs with documented conditions instead: named owners, dated fixes, escalation if missed.</p>
+  <p class="sw-quote">"My name certifies readiness. It does not decorate a deadline."</p>
+  <p>He feels <span class="sw-hl-g">solid</span> — and so does the paper trail.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You sign acceptance under date pressure and convert open items into your team&rsquo;s invisible debt.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Acceptance discipline is <span class="sw-hl-t">criteria, conditions, consequences</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">CRITERIA UPFRONT</span><span class="sw-means"><b>Defined before transition starts.</b> Access, knowledge, volumes, quality — measurable.</span></div>
+    <div class="sw-def"><span class="sw-term">CONDITIONS IN WRITING</span><span class="sw-means"><b>Open items documented at signing.</b> Owner, date, escalation path — or no signature.</span></div>
+    <div class="sw-def"><span class="sw-term">CONSEQUENCES CLEAR</span><span class="sw-means"><b>Unmet conditions escalate automatically.</b> The agreement enforces itself.</span></div>
+  </div>
+  <p>Both open items close on their documented dates — <span class="sw-hl-grn">because for once, someone&rsquo;s name depended on it</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Service acceptance criteria in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">SAC defines what "ready" means in measurable terms. Without it, go-live becomes a negotiation based on pressure and opinion rather than evidence.</p>
       <div class="media-row">
       <div class="card teal">
@@ -456,6 +641,10 @@ a.gloss:hover .tooltip{display:block;}
       </figure>
       </div>
 
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Before any sign-off this quarter: <b>list the open items with owners and dates on the signing page itself.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Accepted and live. <a href="pillar-10-cluster-3-stabilization.html">Cluster 3: now make it boring — in the best way.</a></p></div>
     </section>
     
     <!-- Julian's Take -->
