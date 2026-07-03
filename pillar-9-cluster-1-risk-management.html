@@ -156,6 +156,12 @@ a.gloss:hover .tooltip{display:block;}
 .topic-ico{flex:0 0 auto;line-height:0;}
 .topic-ico svg{display:block;}
 @media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
+
+/* --- sw-fig: identification portraits in text zones --- */
+.sw-fig{float:right;width:112px;margin:6px 0 14px 22px;text-align:center}
+.sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
+@media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -239,6 +245,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="bcp">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 L33 31 H11 Z"/><path d="M22 20 V25"/><path d="M22 28 V28.3"/></svg></span><p class="section-eyebrow">Topic 01 · Business Continuity</p></div>
       <h2>Business Continuity Planning in GBS</h2>
+      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter's continuity plan got tested the day the office flooded.</figcaption></figure>
       <p class="section-hook">When your <strong style="color:var(--gold)">GBS</strong> center goes offline — power failure, pandemic, natural disaster, cyberattack — what happens to the 50,000 invoices, payroll runs, and customer orders that depend on it?</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">A BCP that has never been tested is not a plan. It is a document.</strong> Business Continuity Planning (<strong style="color:var(--gold)">BCP</strong>) is the discipline of ensuring critical business processes can continue during and after a disruption. For GBS operations, this means:</p>
       <ul>
@@ -318,6 +325,7 @@ a.gloss:hover .tooltip{display:block;}
 <section class="section" id="vendor-risk">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 L33 31 H11 Z"/><path d="M22 20 V25"/><path d="M22 28 V28.3"/></svg></span><p class="section-eyebrow">Topic 02 · Third-Party Risk</p></div>
       <h2>Vendor risk — third and fourth party exposure</h2>
+      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia's vendor depends on a vendor nobody had checked.</figcaption></figure>
       <p class="section-hook">Your GBS operation depends on vendors who depend on their own vendors. A failure three layers deep in the supply chain can still shut down your operations.</p>
       <div class="card teal">
       <div class="card-title">Vendor risk management framework</div>
@@ -382,6 +390,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="incident-mgmt">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 L33 31 H11 Z"/><path d="M22 20 V25"/><path d="M22 28 V28.3"/></svg></span><p class="section-eyebrow">Topic 03 · Crisis Response</p></div>
       <h2>Incident management and crisis escalation</h2>
+      <figure class="sw-fig"><img src="images/cast/amara-frustrated.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara's outage became a crisis in under an hour.</figcaption></figure>
       <p class="section-hook">When something goes wrong at scale — a data breach, a system outage, a regulatory violation — the quality of your escalation playbook determines whether it stays an incident or becomes a crisis.</p>
 <!-- SVG DIAGRAM -->
 <div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
