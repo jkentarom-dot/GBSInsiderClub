@@ -162,6 +162,114 @@ a.gloss:hover .tooltip{display:block;}
 .sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
 @media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -229,10 +337,41 @@ a.gloss:hover .tooltip{display:block;}
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Enterprise Technology Stack</div>
     </div>
 
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#erp-role"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">You use the ERP daily and understand none of it.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#sap-oracle"><span class="sw-av"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">Leadership obsesses over an ERP migration. You wonder why.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#ticketing"><span class="sw-av"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</span><span class="sw-q">If it is not in the ticket, it did not happen.</span><span class="sw-go">T3 &rarr;</span></a>
+        <a class="sw-rcard" href="#workflow"><span class="sw-av"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">Your project lives in a tool your BAU never touches.</span><span class="sw-go">T4 &rarr;</span></a>
+      </div>
+    </div>
+
     <section class="section" id="erp-role">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><p class="section-eyebrow">Topic 01 · Enterprise Resource Planning</p></div>
       <h2>Why ERP is the backbone, not the brain</h2>
-      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi's every task starts and ends inside the ERP.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>ERP value is integration, not features — one database where every function&rsquo;s transactions meet. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">The backbone, not the brain.<br><em>Every task ends inside it.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Ravi posts an invoice.</p>
+  <p class="sw-beat">Procurement sees the PO close. Treasury sees the payment queue. Accounting sees the accrual move.<br>He never told any of them.</p>
+  <p class="sw-quote">"One entry, and half the company&rsquo;s data moved."</p>
+  <p>He feels <span class="sw-hl-g">connected</span> to teams he has never met.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You treat the ERP as your screen. It is everyone&rsquo;s single source of record.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The ERP&rsquo;s value is <span class="sw-hl-t">integration</span> — which makes your discipline everyone&rsquo;s data quality.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">INTEGRATION</span><span class="sw-means"><b>One database, all functions.</b> Finance, procurement, HR, supply chain share the same records.</span></div>
+    <div class="sw-def"><span class="sw-term">DISCIPLINE</span><span class="sw-means"><b>Your entry quality travels.</b> A sloppy posting becomes someone else&rsquo;s reconciliation.</span></div>
+    <div class="sw-def"><span class="sw-term">LITERACY</span><span class="sw-means"><b>Know your downstream.</b> Which teams consume what your module produces.</span></div>
+  </div>
+  <p>Ravi learns which three teams consume his postings. <span class="sw-hl-grn">His error rate suddenly has faces attached.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">ERP as backbone — in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">The value of an <strong style="color:var(--gold)">ERP</strong> is integration across functions, not the features of any single module. That distinction changes how you think about every process you touch.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;">Every transaction in a <strong style="color:var(--gold)">GBS</strong> center eventually touches an ERP — it is where data lands, gets validated, and becomes the official version of what happened.</p>
       <ul class="chunk-list" style="margin-bottom:20px;padding-left:0;list-style:none;">
@@ -323,7 +462,11 @@ a.gloss:hover .tooltip{display:block;}
 </svg>
       <p class="sd-caption">ERP layer — SAP, Oracle, and the GBS backbone</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Find out which teams consume your ERP entries downstream. <b>Ask one of them what breaks when you err.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>One backbone, two giants. <a href="#sap-oracle">Why leadership obsesses over the migration.</a></p></div>
+    </section>
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p3c2-enterprise-stack.webp" alt="GBS Enterprise Technology Ecosystem — ERP core (SAP, Oracle), ticketing (ServiceNow, Zendesk), workflow management (Asana, Jira), and integration layer"
         style="width:100%; max-width:960px; border-radius:10px; border:1px solid rgba(29,106,255,0.2);">
@@ -333,7 +476,26 @@ a.gloss:hover .tooltip{display:block;}
 <section class="section" id="sap-oracle">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><p class="section-eyebrow">Topic 02 · SAP and Oracle</p></div>
       <h2>SAP S/4HANA and Oracle Fusion — what GBS needs to know</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia knows enough SAP to ask the right questions.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>S/4HANA and Oracle Fusion migrations reshape GBS daily work. You need migration literacy, not consultant depth. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">The migration obsession upstairs<br><em>lands on your desk eventually.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>Every townhall mentions the S/4 migration. Klaudia tunes out — an IT topic.</p>
+  <p class="sw-beat">Then her transaction codes change. Her reports move. Her SOPs expire in one weekend.</p>
+  <p class="sw-quote">"That IT topic just rewrote my job."</p>
+  <p>She feels <span class="sw-hl-g">unprepared</span> — once.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You file ERP migrations under IT until they rewrite your daily work.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>You need <span class="sw-hl-t">migration literacy</span>: three things, no consultant depth required.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">WHY</span><span class="sw-means"><b>Old versions lose support.</b> The deadlines are real and expensive.</span></div>
+    <div class="sw-def"><span class="sw-term">WHAT CHANGES</span><span class="sw-means"><b>Screens, codes, reports, SOPs.</b> Your daily muscle memory, in short.</span></div>
+    <div class="sw-def"><span class="sw-term">YOUR MOVE</span><span class="sw-means"><b>Volunteer for testing.</b> Migration exposure is career fuel — and early access to the new world.</span></div>
+  </div>
+  <p>She joins UAT for her process. <span class="sw-hl-grn">When go-live lands, she is the one who already knows the new screens.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">S/4HANA and Oracle Fusion — what GBS needs to know, in depth</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">You do not need to be an ERP consultant. But you need to understand why your leadership cares about the migration timeline and what changes for your daily work.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">SAP <strong style="color:var(--gold)">S/4HANA</strong> is the successor to SAP ECC (ERP Central Component), built on an in-memory database (HANA) that eliminates the need for aggregate tables and enables real-time reporting. The migration deadline from SAP ECC has been a major driver of enterprise <strong style="color:var(--gold)">transformation</strong> programs globally. For GBS teams, the shift cuts two ways:</p>
 <ul><li>Upside: faster reporting, simplified data models, and new capabilities like embedded analytics.</li><li>Cost: significant process re-engineering and retraining.</li></ul>
@@ -358,11 +520,34 @@ a.gloss:hover .tooltip{display:block;}
       <p>ERP migrations in GBS are rarely about technology. They are about change management, data cleansing, and process standardization. The system goes live in months; the organization takes years to catch up. Every GBS professional should understand that an ERP migration will change their daily work — screen flows, approval hierarchies, reporting logic, and exception handling all shift. Prepare for the disruption, not just the training.</p>
     </div>
 
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Ask your team lead where your center is on the ERP roadmap. <b>Volunteer for testing when it comes.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Transactions live in the ERP. <a href="#ticketing">Proof of service lives somewhere else.</a></p></div>
     </section>
 <section class="section" id="ticketing">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><p class="section-eyebrow">Topic 03 · Service Management Platforms</p></div>
       <h2>Ticketing and case management — ServiceNow and Zendesk</h2>
-      <figure class="sw-fig"><img src="images/cast/amara-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara's whole day flows through one ticketing queue.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>The ticketing system is where service delivery gets proven. In GBS: no ticket, no evidence. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">If it is not in the ticket,<br><em>it did not happen.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>A stakeholder claims Amara&rsquo;s team missed a request from last week.</p>
+  <p class="sw-beat">She checks the queue. No ticket.<br>It came by chat, to a colleague, on leave since Tuesday.<br>The work was promised, invisible, and now late.</p>
+  <p class="sw-quote">"The queue cannot manage what never entered it."</p>
+  <p>She feels <span class="sw-hl-g">firm</span> about the new rule forming in her head.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>Side-channel requests feel faster and cost you the evidence of your own delivery.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The queue does <span class="sw-hl-t">three jobs</span> — and all three need everything inside it.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">INTAKE</span><span class="sw-means"><b>Everything enters the queue.</b> Chat and hallway requests included — convert them.</span></div>
+    <div class="sw-def"><span class="sw-term">TRACK</span><span class="sw-means"><b>Status, owner, aging visible.</b> Nothing depends on one person&rsquo;s memory or presence.</span></div>
+    <div class="sw-def"><span class="sw-term">PROVE</span><span class="sw-means"><b>Your delivery record.</b> At review time, the queue speaks for you.</span></div>
+  </div>
+  <p>New team rule: chat requests get a ticket in two minutes, or a polite redirect. <span class="sw-hl-grn">Nothing invisible, nothing lost.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Ticketing and case management in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">If ERP is where transactions live, the ticketing system is where service requests, incidents, and escalations are tracked. In GBS, this is how you prove you delivered.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">ServiceNow</strong> dominates enterprise IT service management (<strong style="color:var(--gold)">ITSM</strong>) and is increasingly used for HR service delivery, finance shared services, and cross-functional workflow <strong style="color:var(--gold)">automation</strong>.</p>
       <ul class="chunk-list" style="margin-bottom:20px;padding-left:0;list-style:none;">
@@ -394,6 +579,10 @@ a.gloss:hover .tooltip{display:block;}
       </ul>
     </div>
 
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Convert your next side-channel request into a ticket immediately. <b>Send the ticket number back as your yes.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>BAU tracked. <a href="#workflow">Projects need their own layer.</a></p></div>
     </section>
 
     <!-- Self-Check -->
@@ -424,7 +613,26 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="workflow">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="10" y="18" width="8" height="8" rx="1.5"/><rect x="26" y="18" width="8" height="8" rx="1.5"/><path d="M18 22 H25"/><path d="M23 20 L25 22 L23 24"/></svg></span><p class="section-eyebrow">Topic 04 · Workflow and Task Management</p></div>
       <h2>Jira, Asana, and the project layer</h2>
-      <figure class="sw-fig"><img src="images/cast/priya-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Priya tracks her migration tasks in a different system entirely.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Projects need their own coordination layer — Jira, Asana — separate from ERP transactions and service tickets. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Three systems, three worlds.<br><em>Know which one your work lives in.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Priya</div><div class="sw-role">Process SME &middot; Migration + BAU &middot; Bangalore</div></div></div>
+  <p>Priya&rsquo;s migration tasks live in Jira. Her BAU lives in the ticketing queue. Transactions live in the ERP.</p>
+  <p class="sw-beat">Her manager asks for one status. She used to stitch it together by hand, badly.</p>
+  <p class="sw-quote">"Which system is the truth?" &mdash; "Each one, for its own layer."</p>
+  <p>She feels <span class="sw-hl-g">organized</span> for the first time in weeks.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You force project work into ticket queues or spreadsheets and lose the plan.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Three layers, <span class="sw-hl-t">three different questions</span> answered.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">ERP</span><span class="sw-means"><b>Transactions.</b> What was posted, paid, booked.</span></div>
+    <div class="sw-def"><span class="sw-term">TICKETS</span><span class="sw-means"><b>Service requests and incidents.</b> What was asked, and did we deliver.</span></div>
+    <div class="sw-def"><span class="sw-term">PROJECT LAYER</span><span class="sw-means"><b>Initiatives.</b> Milestones, dependencies, who does what by when.</span></div>
+  </div>
+  <p>Status stops being archaeology: <span class="sw-hl-grn">each layer answers its own question</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Jira, Asana, and the project layer in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Not everything belongs in the ERP or the ticketing system. Projects, initiatives, and cross-functional work need their own coordination layer.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">Jira</strong> started as a software development tool but has expanded into business project management — particularly for GBS transformation programs, automation initiatives, and <strong style="color:var(--gold)">continuous improvement</strong> projects.</p>
       <ul class="chunk-list" style="margin-bottom:20px;padding-left:0;list-style:none;">
@@ -472,7 +680,11 @@ a.gloss:hover .tooltip{display:block;}
 </svg>
       <p class="sd-caption">Integration layer — connecting the enterprise stack</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Sort your current work into the three layers. <b>Move the misfiled items this week.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>The stack is mapped. <a href="pillar-3-cluster-3-automation-ai.html">Cluster 3: the machines that work inside it.</a></p></div>
+    </section>
     
     <!-- Self-Check -->
     <details style="background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.25);border-left:4px solid #38bdf8;border-radius:10px;padding:0;margin:32px 0;overflow:hidden;">
