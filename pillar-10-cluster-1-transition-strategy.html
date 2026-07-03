@@ -187,6 +187,12 @@ a.gloss:hover .tooltip{display:block;}
 .topic-ico{flex:0 0 auto;line-height:0;}
 .topic-ico svg{display:block;}
 @media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
+
+/* --- sw-fig: identification portraits in text zones --- */
+.sw-fig{float:right;width:112px;margin:6px 0 14px 22px;text-align:center}
+.sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
+@media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -245,6 +251,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="lift-shift">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="14" width="18" height="20" rx="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5"/><path d="M17 22 H27 M17 26 H27 M17 30 H23"/></svg></span><p class="section-eyebrow">Topic 01 · Methodology</p></div>
       <h2>Lift and Shift vs Transform and Transfer</h2>
+      <figure class="sw-fig"><img src="images/cast/priya-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Priya's migration chose lift and shift. Transformation comes later.</figcaption></figure>
       <p class="section-hook">The fundamental strategic choice: move the process as-is and improve later, or redesign before migrating. Each approach has trade-offs in speed, risk, and long-term value.</p>
 
       <p class="method-intro">Every organization standing up a <strong style="color:var(--gold)">GBS</strong> faces the same binary choice: migrate first and improve later, or redesign first and migrate to the new standard.</p>
@@ -431,6 +438,7 @@ a.gloss:hover .tooltip{display:block;}
 <section class="section" id="due-diligence">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="14" width="18" height="20" rx="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5"/><path d="M17 22 H27 M17 26 H27 M17 30 H23"/></svg></span><p class="section-eyebrow">Topic 02 · Scoping</p></div>
       <h2>Due diligence and scope validation</h2>
+      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia validated scope before the transition plan got signed.</figcaption></figure>
       <p class="section-hook">Before committing to a transition, you need to know exactly what you are taking on — volume, complexity, exceptions, dependencies, and the political landscape.</p>
       <div class="card teal">
       <div class="card-title">Due diligence checklist</div>
@@ -494,6 +502,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="governance">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><p class="section-eyebrow">Topic 03 · <strong style="color:var(--gold)">Governance</strong></p></div>
       <h2>Transition governance and gate reviews</h2>
+      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter's gate review stopped a go-live that was not ready.</figcaption></figure>
       <p class="section-hook">Gate reviews are the governance mechanism that prevents transitions from advancing when they are not ready. Each gate requires defined exit criteria to be met before proceeding.</p>
       <div class="media-row">
       <div class="pivot-steps"><div class="pivot-step">
