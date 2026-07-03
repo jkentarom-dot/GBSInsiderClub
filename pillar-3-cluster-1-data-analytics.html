@@ -160,6 +160,114 @@ a.gloss:hover .tooltip{display:block;}
 .sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
 @media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -237,10 +345,43 @@ a.gloss:hover .tooltip{display:block;}
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Data Analytics Progression</div>
     </div>
 
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#excel-role"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">You live in a spreadsheet you know will break someday.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#xlookup"><span class="sw-av"><img src="images/cast/klaudia-frustrated.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">Your VLOOKUP broke again when a column moved.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#pivots"><span class="sw-av"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</span><span class="sw-q">Simple volume questions take you an hour.</span><span class="sw-go">T3 &rarr;</span></a>
+        <a class="sw-rcard" href="#audit-trail"><span class="sw-av"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">You cannot reproduce your own analysis from March.</span><span class="sw-go">T4 &rarr;</span></a>
+        <a class="sw-rcard" href="#mdm"><span class="sw-av"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">The same vendor exists four times in the system.</span><span class="sw-go">T5 &rarr;</span></a>
+        <a class="sw-rcard" href="#interpretation"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">Your numbers get reported. Never explained.</span><span class="sw-go">T7 &rarr;</span></a>
+      </div>
+    </div>
+
     <section class="section" id="excel-role">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 32 H33"/><rect x="14" y="24" width="4.5" height="8" rx="1"/><rect x="20.5" y="20" width="4.5" height="12" rx="1"/><rect x="27" y="16" width="4.5" height="16" rx="1"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>Excel in GBS — essential tool, not a permanent solution</h2>
-      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi lives in Excel. He knows it will not scale.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Excel is essential and temporary at once. The skill is knowing which jobs it fits — and which it will fail. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Excel runs your day.<br><em>It should not run your process.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Ravi&rsquo;s team tracker is a workbook. <span class="sw-beat">Seventeen tabs. Four owners.</span></p>
+  <p class="sw-beat">It broke twice this month. Both times, nobody noticed for days.</p>
+  <p class="sw-quote">"The process works — as long as nobody touches cell C7."</p>
+  <p>He feels <span class="sw-hl-g">uneasy</span> every month-end.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>The tool that made you fast quietly became infrastructure nobody governs.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Excel has a <span class="sw-hl-t">right zone</span> — and a failure zone. One test separates them.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">RIGHT</span><span class="sw-means"><b>Ad-hoc analysis.</b> One-off checks, quick answers, prototyping.</span></div>
+    <div class="sw-def"><span class="sw-term">WRONG</span><span class="sw-means"><b>Multi-user processes.</b> Recurring reports, shared trackers, anything with versions.</span></div>
+    <div class="sw-def"><span class="sw-term">THE TEST</span><span class="sw-means"><b>Runs monthly with more than one user?</b> It wants a real tool.</span></div>
+  </div>
+  <p>Ravi flags the tracker as a process, not a file. <span class="sw-hl-grn">The conversation about a proper tool finally starts.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Excel in GBS — full guidance on fit and limits</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Excel is the Swiss army knife of <strong style="color:var(--gold)">GBS</strong>. Versatile, fast, and universally available. But knowing when to use it — and when to replace it — separates analysts who contribute from analysts who become bottlenecks.</p>
       <div class="card">
         <div class="card-title">When Excel is the right tool</div>
@@ -274,7 +415,11 @@ a.gloss:hover .tooltip{display:block;}
 </svg>
       <p class="sd-caption">Data foundation — from raw data to insight</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Find one workbook doing a system&rsquo;s job. <b>Name it in your next team meeting.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Staying in Excel for now? <a href="#xlookup">At least stop using the function that lies.</a></p></div>
+    </section>
 
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p3c1-data-analytics.webp" alt="GBS Data Strategy & Analytics Stack — data foundation, analytics tools (Excel, Power Query, Power BI), financial modeling, and data visualization"
@@ -316,7 +461,26 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="xlookup">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="10" y="18" width="8" height="8" rx="1.5"/><rect x="26" y="18" width="8" height="8" rx="1.5"/><path d="M18 22 H25"/><path d="M23 20 L25 22 L23 24"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>VLOOKUP vs XLOOKUP — why the upgrade matters</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia swapped VLOOKUP for XLOOKUP and stopped breaking sheets.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>XLOOKUP fixes every VLOOKUP limitation: no column counting, no breakage on inserts, built-in error handling. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your lookup broke again.<br><em>The 30-year-old function is why.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-frustrated.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>Month-end. A colleague inserts one column into the source sheet.</p>
+  <p class="sw-beat">Klaudia&rsquo;s VLOOKUPs shift silently — wrong values, no error.<br>The report goes out. The correction email follows.</p>
+  <p class="sw-quote">"The formula did not fail. It lied."</p>
+  <p>She feels <span class="sw-hl-g">burned</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>VLOOKUP fails silently — and silent failures reach stakeholders.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>XLOOKUP exists because <span class="sw-hl-t">every one of those failures</span> has a fix.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">MATCH</span><span class="sw-means"><b>Search any direction.</b> No column counting, no fragile indexes.</span></div>
+    <div class="sw-def"><span class="sw-term">STABLE</span><span class="sw-means"><b>Column inserts do not break it.</b> References follow the data.</span></div>
+    <div class="sw-def"><span class="sw-term">HONEST</span><span class="sw-means"><b>if_not_found built in.</b> Errors surface instead of hiding.</span></div>
+  </div>
+  <p>One afternoon of converting formulas. <span class="sw-hl-grn">The silent-lie failure mode is gone from her reports.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">VLOOKUP vs XLOOKUP in depth — full syntax comparison</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">VLOOKUP has been the default lookup function for 30 years. XLOOKUP, available since 2019, fixes every limitation VLOOKUP had. If you are still using VLOOKUP, this section shows you why — and how — to switch.</p>
       <div class="formula-grid">
         <div class="formula-side old">
@@ -347,13 +511,36 @@ a.gloss:hover .tooltip{display:block;}
       <div class="disclaimer-box">
         <strong style="color:var(--amber);">Compatibility note:</strong> XLOOKUP requires Microsoft 365 or Excel 2021+. If your GBS operates on older Excel versions, VLOOKUP or INDEX/MATCH remains your option. Check your environment before switching — and document which version your files require.
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Convert one active VLOOKUP report to XLOOKUP. <b>Add if_not_found to every lookup.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Lookups fixed. <a href="#pivots">Now answer volume questions in minutes.</a></p></div>
     </section>
 
     <!-- SECTION 3: PIVOTS -->
     <section class="section" id="pivots">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Pivot tables — the single most valuable Excel skill in GBS</h2>
-      <figure class="sw-fig"><img src="images/cast/amara-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara answers volume questions in minutes with one pivot.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Pivot tables turn raw transactions into answers in minutes — the highest-value Excel skill in GBS. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">"How many per vendor per month?"<br><em>That should take two minutes.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>A stakeholder asks Amara for aging by entity.</p>
+  <p class="sw-beat">Her colleague starts filtering and copying. Forty minutes.<br>Amara drops the raw data into a pivot. Three fields. Done before the coffee cools.</p>
+  <p class="sw-quote">"What took you so long last time?"</p>
+  <p>She feels <span class="sw-hl-g">proud</span> — and a little guilty for the colleague.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You answer data questions by hand while a pivot answers them by design.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Every pivot is <span class="sw-hl-t">three decisions</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">ROWS</span><span class="sw-means"><b>The dimension you group by.</b> Vendor, entity, month.</span></div>
+    <div class="sw-def"><span class="sw-term">VALUES</span><span class="sw-means"><b>The number you aggregate.</b> Count, sum, average.</span></div>
+    <div class="sw-def"><span class="sw-term">FILTERS</span><span class="sw-means"><b>The slice you need.</b> Period, status, region.</span></div>
+  </div>
+  <p>Volume questions stop being work and <span class="sw-hl-grn">become lookups</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Pivot tables in depth — from raw data to analysis</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Pivot tables turn raw transaction data into structured analysis in minutes. They are the fastest way to answer questions like "how many invoices per vendor per month?" or "what is the aging breakdown by entity?" without writing a single formula.</p>
       <div class="pivot-steps">
         <div class="pivot-step">
@@ -407,13 +594,36 @@ a.gloss:hover .tooltip{display:block;}
 </svg>
       <p class="sd-caption">Analytics tools beyond Excel</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Take your most-asked volume question. <b>Build the pivot that answers it permanently.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Fast answers need trustworthy sources. <a href="#audit-trail">Can you prove yours?</a></p></div>
+    </section>
 
     <!-- SECTION 4: AUDIT TRAIL -->
     <section class="section" id="audit-trail">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="14" width="18" height="20" rx="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5"/><path d="M17 22 H27 M17 26 H27 M17 30 H23"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>The analyst's audit trail — documenting your work properly</h2>
-      <figure class="sw-fig"><img src="images/cast/priya-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Priya documents every step. Auditors follow her work easily.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Analysis someone can verify and reproduce months later is the real skill. The audit trail makes it possible. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your March analysis is correct.<br><em>Can you prove it in September?</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Priya</div><div class="sw-role">Process SME &middot; Migration + BAU &middot; Bangalore</div></div></div>
+  <p>An auditor asks Priya where a March number came from.</p>
+  <p class="sw-beat">Six months, three file versions, one changed extract later —<br>her documentation answers in five minutes: source, date, filters, steps.</p>
+  <p class="sw-quote">"Most people cannot show us this."</p>
+  <p>She feels <span class="sw-hl-g">solid</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You trust your memory to reconstruct what your documentation should have kept.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>An audit trail is <span class="sw-hl-t">three notes</span>, written at work time.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">SOURCE</span><span class="sw-means"><b>Where the data came from.</b> System, date, extract criteria.</span></div>
+    <div class="sw-def"><span class="sw-term">STEPS</span><span class="sw-means"><b>What you did to it.</b> Transformations, filters, exclusions.</span></div>
+    <div class="sw-def"><span class="sw-term">VERSION</span><span class="sw-means"><b>What changed since.</b> When, why, by whom.</span></div>
+  </div>
+  <p>Trust in her numbers becomes <span class="sw-hl-grn">trust in her</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The analyst&rsquo;s audit trail in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Creating a graph is not the skill. Creating a graph that someone else can trust, verify, and reproduce six months later — that is the skill. The difference is an audit trail.</p>
       <div class="audit-flow">
         <div class="af-step">
@@ -458,13 +668,36 @@ a.gloss:hover .tooltip{display:block;}
 </svg>
       <p class="sd-caption">Visualization — dashboards that drive decisions</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Add a source note to your current analysis: system, date, filters. <b>Three lines, permanent habit.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Clean analysis needs clean inputs. <a href="#mdm">Meet the layer nobody explains.</a></p></div>
+    </section>
 
     <!-- SECTION 5: MDM -->
     <section class="section" id="mdm">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2><a class="gloss" href="#g-mdm">Master Data Management<span class="tooltip">MDM — the governance of the critical reference data (vendors, customers, materials, GL accounts) that all transactions depend on. Clean master data = reliable processes. Dirty master data = errors, rework, audit findings.</span></a> — what nobody explains to new joiners</h2>
-      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter traced a reporting error back to one bad master record.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Master data — vendors, customers, GL accounts — is the reference layer every transaction depends on. Dirty masters mean dirty everything. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">The report was wrong.<br><em>The transaction was right.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>The spend report shows a top vendor twice — under two names.</p>
+  <p class="sw-beat">Peter traces it: the vendor exists <span class="sw-beat">four times</span> in the master. Different spellings, same company.<br>Every transaction was correct. Every report built on them was wrong.</p>
+  <p class="sw-quote">"We did not have a reporting problem. We had a master data problem."</p>
+  <p>He feels <span class="sw-hl-g">sobered</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You fix reports downstream while the error lives in the reference data upstream.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Master data is the <span class="sw-hl-t">reference layer</span> — everything transactional inherits its quality.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">MASTERS</span><span class="sw-means"><b>The reference records.</b> Vendors, customers, materials, GL accounts.</span></div>
+    <div class="sw-def"><span class="sw-term">DEPENDENCE</span><span class="sw-means"><b>Every transaction inherits their quality.</b> One bad master, hundreds of misleading rows.</span></div>
+    <div class="sw-def"><span class="sw-term">GOVERNANCE</span><span class="sw-means"><b>Creation controls, deduplication, ownership.</b> The unglamorous work that keeps reports true.</span></div>
+  </div>
+  <p>The dedup request fixes twelve reports at once. <span class="sw-hl-grn">Upstream beats downstream.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Master Data Management in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Master data is the foundation data that every transaction references — vendor records, customer records, material numbers, GL accounts. When it is clean, processes run smoothly. When it is not, errors cascade through every downstream step. Garbage in, garbage out.</p>
 
       <div class="mdm-grid">
@@ -530,13 +763,36 @@ a.gloss:hover .tooltip{display:block;}
           </ul>
         </div>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Pick one recurring report error. <b>Trace it upstream: transaction or master data?</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Clean data deserves a good surface. <a href="#powerbi">Most dashboards waste it.</a></p></div>
     </section>
 
     <!-- SECTION 6: POWER BI -->
     <section class="section" id="powerbi">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>Power BI and dashboards — what makes them useful versus decorative</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia's dashboard answers questions before leaders ask them.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Useful dashboards answer a recurring decision. Decorative ones get admired once. The difference is the process behind them. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Another dashboard shipped.<br><em>Opened once. Admired. Abandoned.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>Klaudia builds a dashboard for team leads. Weeks of work. Praise at the demo.</p>
+  <p class="sw-beat">Usage stats after a month: four views. Two are hers.</p>
+  <p class="sw-quote">"What decision was this supposed to feed?"</p>
+  <p>Nobody had asked that at the start. She feels <span class="sw-hl-g">deflated</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You build the dashboard first and hope a decision finds it.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Useful dashboards start from the <span class="sw-hl-t">decision</span>, not the data.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">DECISION</span><span class="sw-means"><b>Which recurring choice does it feed?</b> Staffing, prioritization, escalation.</span></div>
+    <div class="sw-def"><span class="sw-term">CADENCE</span><span class="sw-means"><b>Who looks, when, in which meeting?</b> A dashboard without a meeting is a poster.</span></div>
+    <div class="sw-def"><span class="sw-term">ACTION</span><span class="sw-means"><b>What changes when a number turns red?</b> If nothing, remove the number.</span></div>
+  </div>
+  <p>Version two starts from one weekly decision. <span class="sw-hl-grn">It opens every Monday — because a meeting depends on it.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Dashboards in depth — useful versus decorative</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">GBS centers are full of dashboards. Most of them are opened once, admired, and never used for a decision. The difference between a useful dashboard and a decorative one is not design — it is whether there is a process, an owner, and an action behind it.</p>
 
       <div class="media-row">
@@ -627,13 +883,36 @@ a.gloss:hover .tooltip{display:block;}
       <div class="disclaimer-box">
         <strong style="color:var(--amber);">Power BI learning path for GBS analysts:</strong> Start with Power BI Desktop (free). Connect to an Excel data source. Build a simple bar chart showing volume by month. Add a slicer for entity or vendor. Publish to a shared workspace. That is your first dashboard — and it probably already outperforms the manual Excel report it replaces. Power Query (built into Power BI) handles the data transformation layer; learn it alongside Power BI, not separately.
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Name the decision your dashboard feeds. <b>Cannot name one? That is the redesign.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>The chart exists. <a href="#interpretation">Now the skill that makes it matter.</a></p></div>
     </section>
 
     <!-- SECTION 7: INTERPRETATION -->
     <section class="section" id="interpretation">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 32 H33"/><rect x="14" y="24" width="4.5" height="8" rx="1"/><rect x="20.5" y="20" width="4.5" height="12" rx="1"/><rect x="27" y="16" width="4.5" height="16" rx="1"/></svg></span><div class="section-eyebrow">Topic 07</div></div>
       <h2>Data interpretation — the skill that separates analysts from processors</h2>
-      <figure class="sw-fig"><img src="images/cast/ravi-satisfied.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi stopped reporting numbers and started explaining them.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Producing charts is technical. Explaining what they mean — and what to do — is the skill GBS lacks most. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Anyone can chart the numbers.<br><em>Few can explain them.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-satisfied.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Two analysts, same data.</p>
+  <p class="sw-beat">One sends the chart. The other sends the chart plus three lines: what changed, why, what to watch.<br>Guess whose email leadership forwards.</p>
+  <p class="sw-quote">"The numbers went up" is not analysis.</p>
+  <p>Ravi starts writing the three lines. He feels <span class="sw-hl-g">valued</span> in a new way.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You deliver numbers and let the reader guess the meaning. The guess becomes the story.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Interpretation is <span class="sw-hl-t">three sentences</span>, every time.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">WHAT</span><span class="sw-means"><b>The change, in one sentence.</b> Plain words, real magnitude.</span></div>
+    <div class="sw-def"><span class="sw-term">WHY</span><span class="sw-means"><b>The most likely driver.</b> Honestly qualified — "likely," not "definitely," unless proven.</span></div>
+    <div class="sw-def"><span class="sw-term">SO WHAT</span><span class="sw-means"><b>The action or watch item.</b> What the reader should do with this.</span></div>
+  </div>
+  <p>His reports start conversations <span class="sw-hl-grn">instead of ending in folders</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Data interpretation in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Creating graphs and tables is a technical skill. Interpreting what they mean — and communicating that interpretation clearly — is the analytical skill that GBS organizations actually need and consistently lack.</p>
 
       <div class="card gold">
@@ -657,6 +936,10 @@ a.gloss:hover .tooltip{display:block;}
           </ul>
         </div>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Add three lines to your next report: what changed, why, so what. <b>Every report, from now on.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>You can read the data. <a href="pillar-3-cluster-2-enterprise-stack.html">Cluster 2: the systems it lives in.</a></p></div>
     </section>
 
     <!-- GLOSSARY -->
