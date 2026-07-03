@@ -156,6 +156,12 @@ a.gloss:hover .tooltip{display:block;}
 .topic-ico{flex:0 0 auto;line-height:0;}
 .topic-ico svg{display:block;}
 @media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
+
+/* --- sw-fig: identification portraits in text zones --- */
+.sw-fig{float:right;width:112px;margin:6px 0 14px 22px;text-align:center}
+.sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
+@media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -225,6 +231,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="cloud-basics">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><p class="section-eyebrow">Topic 01 · Cloud Computing</p></div>
       <h2>Cloud models — SaaS, IaaS, PaaS decoded</h2>
+      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi's tools run in the cloud. The model decides ownership.</figcaption></figure>
       <p class="section-hook">You use cloud services every day. Understanding the differences between <strong style="color:var(--gold)">SaaS</strong>, <strong style="color:var(--gold)">IaaS</strong>, and <strong style="color:var(--gold)">PaaS</strong> changes how you think about data residency, security responsibility, and vendor dependency.</p>
 <!-- SVG DIAGRAM -->
 <div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
@@ -314,6 +321,7 @@ a.gloss:hover .tooltip{display:block;}
 <section class="section" id="gdpr-pii">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="21" width="18" height="12" rx="2"/><path d="M17 21 V17 A5 5 0 0 1 27 17 V21"/><circle cx="22" cy="27" r="1.6"/></svg></span><p class="section-eyebrow">Topic 02 · Data Privacy</p></div>
       <h2>GDPR and PII handling — the non-negotiable rules</h2>
+      <figure class="sw-fig"><img src="images/cast/amara-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara handles customer data daily. GDPR sets her hard rules.</figcaption></figure>
       <p class="section-hook">If you process personal data in GBS, you are bound by data privacy regulations. <strong style="color:var(--gold)">GDPR</strong> is the baseline, but every country you serve may have additional requirements.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">GDPR sets the global baseline for personal data.</strong> The General Data Protection Regulation is the EU's data privacy framework — but its reach is global.</p>
       <ul class="chunk-list" style="margin-bottom:20px;padding-left:0;list-style:none;">
@@ -450,6 +458,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="zero-trust">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="21" width="18" height="12" rx="2"/><path d="M17 21 V17 A5 5 0 0 1 27 17 V21"/><circle cx="22" cy="27" r="1.6"/></svg></span><p class="section-eyebrow">Topic 03 · Security Architecture</p></div>
       <h2>Zero Trust — the security model for distributed operations</h2>
+      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter's team logs in from three countries. Trust gets verified.</figcaption></figure>
       <p class="section-hook">The old model assumed everything inside the corporate network was safe. Zero Trust assumes nothing is safe until verified. For GBS with remote teams, cloud apps, and automation bots, this is the only model that works.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;">Zero Trust Architecture operates on a simple principle: <strong style="color:var(--gold)">never trust, always verify</strong>.</p>
       <ul class="chunk-list" style="margin-bottom:20px;padding-left:0;list-style:none;">

@@ -156,6 +156,12 @@ a.gloss:hover .tooltip{display:block;}
 .topic-ico{flex:0 0 auto;line-height:0;}
 .topic-ico svg{display:block;}
 @media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
+
+/* --- sw-fig: identification portraits in text zones --- */
+.sw-fig{float:right;width:112px;margin:6px 0 14px 22px;text-align:center}
+.sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
+@media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -226,6 +232,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="erp-role">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><p class="section-eyebrow">Topic 01 · Enterprise Resource Planning</p></div>
       <h2>Why ERP is the backbone, not the brain</h2>
+      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi's every task starts and ends inside the ERP.</figcaption></figure>
       <p class="section-hook">The value of an <strong style="color:var(--gold)">ERP</strong> is integration across functions, not the features of any single module. That distinction changes how you think about every process you touch.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;">Every transaction in a <strong style="color:var(--gold)">GBS</strong> center eventually touches an ERP — it is where data lands, gets validated, and becomes the official version of what happened.</p>
       <ul class="chunk-list" style="margin-bottom:20px;padding-left:0;list-style:none;">
@@ -326,6 +333,7 @@ a.gloss:hover .tooltip{display:block;}
 <section class="section" id="sap-oracle">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><p class="section-eyebrow">Topic 02 · SAP and Oracle</p></div>
       <h2>SAP S/4HANA and Oracle Fusion — what GBS needs to know</h2>
+      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia knows enough SAP to ask the right questions.</figcaption></figure>
       <p class="section-hook">You do not need to be an ERP consultant. But you need to understand why your leadership cares about the migration timeline and what changes for your daily work.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">SAP <strong style="color:var(--gold)">S/4HANA</strong> is the successor to SAP ECC (ERP Central Component), built on an in-memory database (HANA) that eliminates the need for aggregate tables and enables real-time reporting. The migration deadline from SAP ECC has been a major driver of enterprise <strong style="color:var(--gold)">transformation</strong> programs globally. For GBS teams, the shift cuts two ways:</p>
 <ul><li>Upside: faster reporting, simplified data models, and new capabilities like embedded analytics.</li><li>Cost: significant process re-engineering and retraining.</li></ul>
@@ -354,6 +362,7 @@ a.gloss:hover .tooltip{display:block;}
 <section class="section" id="ticketing">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><p class="section-eyebrow">Topic 03 · Service Management Platforms</p></div>
       <h2>Ticketing and case management — ServiceNow and Zendesk</h2>
+      <figure class="sw-fig"><img src="images/cast/amara-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara's whole day flows through one ticketing queue.</figcaption></figure>
       <p class="section-hook">If ERP is where transactions live, the ticketing system is where service requests, incidents, and escalations are tracked. In GBS, this is how you prove you delivered.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">ServiceNow</strong> dominates enterprise IT service management (<strong style="color:var(--gold)">ITSM</strong>) and is increasingly used for HR service delivery, finance shared services, and cross-functional workflow <strong style="color:var(--gold)">automation</strong>.</p>
       <ul class="chunk-list" style="margin-bottom:20px;padding-left:0;list-style:none;">
@@ -415,6 +424,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="workflow">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="10" y="18" width="8" height="8" rx="1.5"/><rect x="26" y="18" width="8" height="8" rx="1.5"/><path d="M18 22 H25"/><path d="M23 20 L25 22 L23 24"/></svg></span><p class="section-eyebrow">Topic 04 · Workflow and Task Management</p></div>
       <h2>Jira, Asana, and the project layer</h2>
+      <figure class="sw-fig"><img src="images/cast/priya-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Priya tracks her migration tasks in a different system entirely.</figcaption></figure>
       <p class="section-hook">Not everything belongs in the ERP or the ticketing system. Projects, initiatives, and cross-functional work need their own coordination layer.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">Jira</strong> started as a software development tool but has expanded into business project management — particularly for GBS transformation programs, automation initiatives, and <strong style="color:var(--gold)">continuous improvement</strong> projects.</p>
       <ul class="chunk-list" style="margin-bottom:20px;padding-left:0;list-style:none;">

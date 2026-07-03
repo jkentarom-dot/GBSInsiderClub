@@ -154,6 +154,12 @@ a.gloss:hover .tooltip{display:block;}
 .topic-ico{flex:0 0 auto;line-height:0;}
 .topic-ico svg{display:block;}
 @media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
+
+/* --- sw-fig: identification portraits in text zones --- */
+.sw-fig{float:right;width:112px;margin:6px 0 14px 22px;text-align:center}
+.sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
+@media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -234,6 +240,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="excel-role">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 32 H33"/><rect x="14" y="24" width="4.5" height="8" rx="1"/><rect x="20.5" y="20" width="4.5" height="12" rx="1"/><rect x="27" y="16" width="4.5" height="16" rx="1"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>Excel in GBS — essential tool, not a permanent solution</h2>
+      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi lives in Excel. He knows it will not scale.</figcaption></figure>
       <p class="section-hook">Excel is the Swiss army knife of <strong style="color:var(--gold)">GBS</strong>. Versatile, fast, and universally available. But knowing when to use it — and when to replace it — separates analysts who contribute from analysts who become bottlenecks.</p>
       <div class="card">
         <div class="card-title">When Excel is the right tool</div>
@@ -309,6 +316,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="xlookup">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="10" y="18" width="8" height="8" rx="1.5"/><rect x="26" y="18" width="8" height="8" rx="1.5"/><path d="M18 22 H25"/><path d="M23 20 L25 22 L23 24"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>VLOOKUP vs XLOOKUP — why the upgrade matters</h2>
+      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia swapped VLOOKUP for XLOOKUP and stopped breaking sheets.</figcaption></figure>
       <p class="section-hook">VLOOKUP has been the default lookup function for 30 years. XLOOKUP, available since 2019, fixes every limitation VLOOKUP had. If you are still using VLOOKUP, this section shows you why — and how — to switch.</p>
       <div class="formula-grid">
         <div class="formula-side old">
@@ -345,6 +353,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="pivots">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Pivot tables — the single most valuable Excel skill in GBS</h2>
+      <figure class="sw-fig"><img src="images/cast/amara-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara answers volume questions in minutes with one pivot.</figcaption></figure>
       <p class="section-hook">Pivot tables turn raw transaction data into structured analysis in minutes. They are the fastest way to answer questions like "how many invoices per vendor per month?" or "what is the aging breakdown by entity?" without writing a single formula.</p>
       <div class="pivot-steps">
         <div class="pivot-step">
@@ -404,6 +413,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="audit-trail">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="14" width="18" height="20" rx="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5"/><path d="M17 22 H27 M17 26 H27 M17 30 H23"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>The analyst's audit trail — documenting your work properly</h2>
+      <figure class="sw-fig"><img src="images/cast/priya-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Priya documents every step. Auditors follow her work easily.</figcaption></figure>
       <p class="section-hook">Creating a graph is not the skill. Creating a graph that someone else can trust, verify, and reproduce six months later — that is the skill. The difference is an audit trail.</p>
       <div class="audit-flow">
         <div class="af-step">
@@ -454,6 +464,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="mdm">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2><a class="gloss" href="#g-mdm">Master Data Management<span class="tooltip">MDM — the governance of the critical reference data (vendors, customers, materials, GL accounts) that all transactions depend on. Clean master data = reliable processes. Dirty master data = errors, rework, audit findings.</span></a> — what nobody explains to new joiners</h2>
+      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter traced a reporting error back to one bad master record.</figcaption></figure>
       <p class="section-hook">Master data is the foundation data that every transaction references — vendor records, customer records, material numbers, GL accounts. When it is clean, processes run smoothly. When it is not, errors cascade through every downstream step. Garbage in, garbage out.</p>
 
       <div class="mdm-grid">
@@ -525,6 +536,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="powerbi">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>Power BI and dashboards — what makes them useful versus decorative</h2>
+      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia's dashboard answers questions before leaders ask them.</figcaption></figure>
       <p class="section-hook">GBS centers are full of dashboards. Most of them are opened once, admired, and never used for a decision. The difference between a useful dashboard and a decorative one is not design — it is whether there is a process, an owner, and an action behind it.</p>
 
       <div class="media-row">
@@ -621,6 +633,7 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="interpretation">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 32 H33"/><rect x="14" y="24" width="4.5" height="8" rx="1"/><rect x="20.5" y="20" width="4.5" height="12" rx="1"/><rect x="27" y="16" width="4.5" height="16" rx="1"/></svg></span><div class="section-eyebrow">Topic 07</div></div>
       <h2>Data interpretation — the skill that separates analysts from processors</h2>
+      <figure class="sw-fig"><img src="images/cast/ravi-satisfied.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi stopped reporting numbers and started explaining them.</figcaption></figure>
       <p class="section-hook">Creating graphs and tables is a technical skill. Interpreting what they mean — and communicating that interpretation clearly — is the analytical skill that GBS organizations actually need and consistently lack.</p>
 
       <div class="card gold">
