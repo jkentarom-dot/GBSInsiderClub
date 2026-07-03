@@ -239,6 +239,114 @@
 .sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
 @media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
 
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -318,10 +426,44 @@
 
     <!-- OVERVIEW SVG -->
     
-<section class="section" id="process-foundations">
+
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#process-foundations"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">You run processes all day and call them a pile of tasks.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#doc-layers"><span class="sw-av"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">Someone asks for "the documentation" and chaos follows.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#sop-vs-dtp"><span class="sw-av"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</span><span class="sw-q">You know every click and none of the rules.</span><span class="sw-go">T3 &rarr;</span></a>
+        <a class="sw-rcard" href="#governance"><span class="sw-av"><img src="images/cast/klaudia-frustrated.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">Three versions of the SOP. All outdated.</span><span class="sw-go">T4 &rarr;</span></a>
+        <a class="sw-rcard" href="#gpo"><span class="sw-av"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">Your local process change got reversed from above.</span><span class="sw-go">T5 &rarr;</span></a>
+        <a class="sw-rcard" href="#xla"><span class="sw-av"><img src="images/cast/amara-frustrated.webp" alt="" onerror="this.remove()">A</span><span class="sw-q">Green dashboard, cold stakeholder.</span><span class="sw-go">T7 &rarr;</span></a>
+        <a class="sw-rcard" href="#feedback"><span class="sw-av"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</span><span class="sw-q">Survey scores collected, archived, forgotten.</span><span class="sw-go">T8 &rarr;</span></a>
+      </div>
+    </div>
+
+    <section class="section" id="process-foundations">
 <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="9" y="18" width="7" height="7" rx="1.5"/><circle cx="24" cy="21.5" r="4.5"/><rect x="28" y="18" width="7" height="7" rx="1.5"/><path d="M16 21.5 H19.5 M28.5 21.5 H28" /><path d="M16 21.5 H19.5"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
 <h2>What a process is — and why managing it matters</h2>
-      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi runs AP invoices in Pune. Every task he touches is a process.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Everything you touch in GBS is a process — inputs, steps, outputs, repeated. Knowing which ones deserve standardization is the starting skill. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">You do not have tasks.<br><em>You have processes.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Ravi describes his job as "handling invoices." A process consultant asks him to walk through one.</p>
+  <p class="sw-beat">Receive, validate, match, resolve, post — five steps, three systems, two decision points.<br>He had never seen his own work as a structure. Just as a pile.</p>
+  <p class="sw-quote">"I run a process 40 times a day. I just called it my job."</p>
+  <p>He feels <span class="sw-hl-g">curious</span> about work he thought he knew.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You execute steps without seeing the structure — and cannot improve what you cannot see.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>A process is <span class="sw-hl-t">three parts, repeated</span> — and repetition decides its treatment.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">INPUT &rarr; STEPS &rarr; OUTPUT</span><span class="sw-means"><b>The universal shape.</b> What arrives, what happens, what leaves.</span></div>
+    <div class="sw-def"><span class="sw-term">STANDARDIZE</span><span class="sw-means"><b>High volume, high repetition.</b> These earn documentation and controls.</span></div>
+    <div class="sw-def"><span class="sw-term">LEAVE FLEXIBLE</span><span class="sw-means"><b>Rare, judgment-heavy work.</b> Over-documenting these wastes effort.</span></div>
+  </div>
+  <p>Ravi sketches his invoice flow in five boxes. <span class="sw-hl-grn">The pile becomes a structure — and structures can be improved.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">What a process is — in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
 <p class="section-hook">Before you document anything, it helps to know what a process actually is, and why some are worth standardizing while others are left alone. This is the ground the rest of the cluster stands on.</p>
 <h3 style="font-size:19px; font-weight:600; color:var(--text); margin:30px 0 10px;">What a process is</h3>
 <p style="color:var(--text-2); line-height:1.8; font-size:15.5px; margin:0 0 14px;">A process is a set of steps that turns inputs into an output for a customer. In GBS, that customer is usually another part of the business. <strong style="color:var(--gold)">Service delivery</strong> is the day-to-day work of running these processes reliably, at the agreed quality and speed.</p>
@@ -374,7 +516,11 @@
 </svg></div>
 <p style="color:var(--text-2); line-height:1.8; font-size:15.5px; margin:0 0 14px;">Knowing where a process sits tells you what to work on next. A fragmented process needs standardizing before it is worth automating — trying to automate chaos just makes faster chaos. Most of the documentation, ownership, and improvement topics in this cluster are the work of moving a process up these stages.</p>
 <p style="color:var(--text-2); line-height:1.8; font-size:15.5px; margin:0 0 14px;">With that grounding in place, the next topics cover how you capture a process so it can be standardized and shared: the document layers, SOPs and DTPs, and the governance that keeps them alive.</p>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Draw your most frequent task as boxes and arrows. <b>Five minutes, one sheet.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Processes seen. <a href="#doc-layers">Now the documents that describe them.</a></p></div>
+    </section>
 <div style="margin:0 0 48px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
     <svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;display:block;margin:0 auto;">
       
@@ -397,7 +543,26 @@
     <section class="section" id="doc-layers">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="14" width="18" height="20" rx="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5"/><path d="M17 22 H27 M17 26 H27 M17 30 H23"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>The three document layers — what they are and how they connect</h2>
-      <figure class="sw-fig"><img src="images/cast/priya-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Priya writes the DTPs her migration team will depend on.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Process documentation comes in three layers — map, SOP, DTP — from bird&rsquo;s-eye to keystroke. Know which layer answers which question. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Three documents, one process.<br><em>Each answers a different question.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Priya</div><div class="sw-role">Process SME &middot; Migration + BAU &middot; Bangalore</div></div></div>
+  <p>Priya&rsquo;s migration needs documentation. The receiving team asks for "the documents" — singular confusion follows.</p>
+  <p class="sw-beat">She sorts it: the process map shows the flow, the SOP sets the rules, the DTP walks the keystrokes.<br>Three layers, three audiences, three levels of zoom.</p>
+  <p class="sw-quote">"A manager reads the map. An auditor reads the SOP. A new joiner needs the DTP."</p>
+  <p>She feels <span class="sw-hl-g">orderly</span> — and so does the handover.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You write one document trying to serve every reader — and serve none of them.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Three layers, <span class="sw-hl-t">three zoom levels</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">PROCESS MAP</span><span class="sw-means"><b>The flow, visually.</b> Boxes, arrows, handoffs — the bird&rsquo;s-eye view.</span></div>
+    <div class="sw-def"><span class="sw-term">SOP</span><span class="sw-means"><b>The rules.</b> Scope, roles, controls, exceptions — the blueprint.</span></div>
+    <div class="sw-def"><span class="sw-term">DTP</span><span class="sw-means"><b>The keystrokes.</b> Step-by-step with screenshots — the execution manual.</span></div>
+  </div>
+  <p>Her handover package has all three layers, labeled. <span class="sw-hl-grn">Every reader finds their altitude.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The three document layers in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Most <strong style="color:var(--gold)">GBS</strong> professionals use these documents every day without knowing their names. Understanding the hierarchy helps you know which document to look in — and which one to update.</p>
 <!-- SVG DIAGRAM -->
 <div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
@@ -514,7 +679,11 @@
 </svg>
       <p class="sd-caption">Documentation layers — process maps, SOPs, DTPs</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Check your process: do all three layers exist? <b>Name the missing one.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Two of those layers get confused daily. <a href="#sop-vs-dtp">SOP vs DTP, settled.</a></p></div>
+    </section>
 
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p2c1-process-knowledge.webp" alt="GBS Process & Knowledge Management Ecosystem — documentation, centralized knowledge hub, E2E process ownership, and continuous improvement cycle"
@@ -526,7 +695,26 @@
     <section class="section" id="sop-vs-dtp">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="10" y="18" width="8" height="8" rx="1.5"/><rect x="26" y="18" width="8" height="8" rx="1.5"/><path d="M18 22 H25"/><path d="M23 20 L25 22 L23 24"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>SOP vs <a class="gloss" href="#g-dtp">DTP<span class="tooltip">Desktop Procedure — a step-by-step execution manual with screenshots, used by the person performing the task. More detailed than an SOP.</span></a> — side by side</h2>
-      <figure class="sw-fig"><img src="images/cast/amara-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara learned her process from a DTP on day one.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>The SOP is the blueprint; the DTP is the execution manual with screenshots. Same process, different altitude, different reader. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Same process, two documents.<br><em>Stop confusing them.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>Day one, Amara learns her process from a DTP: every click, every screen, every field.</p>
+  <p class="sw-beat">Month three, an auditor asks about controls and exceptions. The DTP has no answer — that lives in the SOP she never opened.<br>Two documents, one process, and she only knew half the pair.</p>
+  <p class="sw-quote">"The DTP taught me the clicks. The SOP explains why the clicks exist."</p>
+  <p>She feels <span class="sw-hl-g">complete</span> after reading both.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You learn the keystrokes and skip the rulebook — until a question arrives that keystrokes cannot answer.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>One pair, <span class="sw-hl-t">cleanly split</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">SOP</span><span class="sw-means"><b>Why and what.</b> Scope, roles, controls, exception rules. Audit-facing, stable.</span></div>
+    <div class="sw-def"><span class="sw-term">DTP</span><span class="sw-means"><b>How, exactly.</b> Screenshots, clicks, field values. Training-facing, updated with every system change.</span></div>
+    <div class="sw-def"><span class="sw-term">THE LINK</span><span class="sw-means"><b>DTP implements the SOP.</b> If they disagree, one of them is wrong — flag it.</span></div>
+  </div>
+  <p>Amara reads the SOP behind her DTP. <span class="sw-hl-grn">The next audit question gets an answer instead of a shrug.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">SOP vs DTP in depth — side by side</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">The same process has two documents describing it. Here is what belongs in each.</p>
 
       <div class="compare-table">
@@ -571,13 +759,36 @@
           <div class="ct-cell">Team Lead / Senior Processor — with GPO approval</div>
         </div>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Open the SOP behind your daily DTP. <b>Find one rule the DTP never told you.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Documents written once. <a href="#governance">Kept alive is the harder part.</a></p></div>
     </section>
 
     <!-- SECTION 3: GOVERNANCE -->
     <section class="section" id="governance">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>Governance: keeping documentation alive</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-frustrated.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia found three versions of the same SOP. All outdated.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Unmaintained documentation becomes a liability — failing audits and training people wrong. Ownership, review cycles, and one source fix it. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Three versions of the SOP.<br><em>All of them outdated.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-frustrated.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>Klaudia needs the current SOP. She finds one on the shared drive, one in email, one on the team site.</p>
+  <p class="sw-beat">All three differ. None match the process as it runs today.<br>A new joiner trained on version two last month. The auditor sampled version one.</p>
+  <p class="sw-quote">"We do not have documentation. We have documentation archaeology."</p>
+  <p>She feels <span class="sw-hl-g">exasperated</span> — at a fully preventable mess.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You treat documentation as a writing task. It is a maintenance contract — or it is decay.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Living documentation needs <span class="sw-hl-t">three mechanisms</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">OWNER</span><span class="sw-means"><b>One name per document.</b> Accountability for accuracy, not just authorship.</span></div>
+    <div class="sw-def"><span class="sw-term">REVIEW CYCLE</span><span class="sw-means"><b>Dated and triggered.</b> Annual minimum, plus every system or process change.</span></div>
+    <div class="sw-def"><span class="sw-term">SINGLE SOURCE</span><span class="sw-means"><b>One location, everything else links.</b> Copies are future contradictions.</span></div>
+  </div>
+  <p>One owner, one home, one review date per document. <span class="sw-hl-grn">The archaeology ends; the audit trail begins.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Documentation governance in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Documentation that is not maintained becomes a liability — not just an asset. An outdated SOP fails audits. An outdated DTP trains people incorrectly. The governance cycle is what prevents both.</p>
 
       <div class="gov-cycle">
@@ -658,13 +869,36 @@
 </svg>
       <p class="sd-caption">Knowledge hub — centralized, searchable, governed</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Find your process&rsquo;s SOP copies. <b>Kill all but one; make the rest links.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Governance per document. <a href="#gpo">One role owns it per process — globally.</a></p></div>
+    </section>
 
     <!-- SECTION 4: GPO -->
     <section class="section" id="gpo">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2>The <a class="gloss" href="#g-gpo">Global Process Owner<span class="tooltip">GPO — Global Process Owner. Accountable for end-to-end process design, standardization, governance, and improvement across all GBS and business unit touchpoints for a given process.</span></a> — what the role actually is</h2>
-      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter's process runs in four hubs. One owner keeps it consistent.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>The Global Process Owner is accountable for one process end-to-end, across every hub — design, standards, improvement. Know yours. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your process runs in four hubs.<br><em>One person owns its design.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>Peter&rsquo;s team wants to change a process step. Site leadership approves. Two weeks later, the change is reversed.</p>
+  <p class="sw-beat">The reversal comes from a role Peter had never dealt with: the Global Process Owner.<br>The process runs in four hubs — and local changes break global standards.</p>
+  <p class="sw-quote">"We changed our copy of the process. The process has one owner, and it was not us."</p>
+  <p>He feels <span class="sw-hl-g">enlightened</span> about a layer of the org he had only heard named.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You change your local slice of a global process and discover the owner by collision.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The GPO holds <span class="sw-hl-t">end-to-end accountability</span> — three things follow.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">DESIGN</span><span class="sw-means"><b>The process blueprint is theirs.</b> Across every hub, every variant.</span></div>
+    <div class="sw-def"><span class="sw-term">STANDARDS</span><span class="sw-means"><b>Deviations need their yes.</b> Local optimization is global fragmentation without it.</span></div>
+    <div class="sw-def"><span class="sw-term">YOUR ROUTE</span><span class="sw-means"><b>Improvement ideas flow to them.</b> A good idea with the GPO&rsquo;s backing scales to four hubs.</span></div>
+  </div>
+  <p>Peter re-submits the change through the GPO — <span class="sw-hl-grn">and it ships globally, with his team credited as origin</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The GPO role in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">The GPO title sounds clear. In practice, what it means varies enormously by organization. Here is what the role should do — and the different ways it gets set up.</p>
 
       <div class="media-row">
@@ -861,7 +1095,11 @@
 </svg>
       <p class="sd-caption"><strong style="color:var(--gold)">End-to-end</strong> ownership — GPO accountability model</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Find out who owns your process globally. <b>One name. Write it down.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Processes owned. <a href="#service-catalog">Services get a menu.</a></p></div>
+    </section>
 
     <!-- SECTION 5: SERVICE CATALOG -->
     
@@ -893,7 +1131,27 @@
     <section class="section" id="service-catalog">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>The service catalog — GBS's menu of services</h2>
-      <figure class="sw-fig"><img src="images/cast/miguel-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Miguel's team delivers twelve services. The catalog names every one.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>The service catalog is GBS&rsquo;s menu: what is offered, to whom, on what terms. Twelve services stop being folklore when they are written down. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Twelve services, zero menu.<br><em>Stakeholders order off-card anyway.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</div><div><div class="sw-who">Miguel</div><div class="sw-role">New team lead &middot; Week 6 &middot; Manila</div></div></div>
+  <p>Miguel inherits a team delivering "about twelve" services. Nobody can list them precisely — including the stakeholders consuming them.</p>
+  <p class="sw-beat">He writes the menu: each service named, described, scoped, with its turnaround and its consumer.<br>Two surprises: one service nobody remembered promising, one delivered for a team that no longer exists.</p>
+  <p class="sw-quote">"You cannot manage a menu that lives in people&rsquo;s heads."</p>
+  <p>He feels <span class="sw-hl-g">clear-eyed</span> about what his team actually is.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You deliver services from memory — and scope, demand, and credit all leak.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>A catalog entry is <span class="sw-hl-t">four lines per service</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">WHAT</span><span class="sw-means"><b>The service, named and described.</b> Specific enough to point at.</span></div>
+    <div class="sw-def"><span class="sw-term">WHO</span><span class="sw-means"><b>The consumers.</b> Which teams may order it.</span></div>
+    <div class="sw-def"><span class="sw-term">TERMS</span><span class="sw-means"><b>Turnaround and boundaries.</b> What is included, what is extra.</span></div>
+    <div class="sw-def"><span class="sw-term">HOW</span><span class="sw-means"><b>The intake path.</b> Where requests enter — and where they do not.</span></div>
+  </div>
+  <p>The dead service retires; the forgotten one gets terms. <span class="sw-hl-grn">Demand finally has a front door.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The service catalog in depth — the menu model</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Think of the <strong style="color:var(--gold)">service catalog</strong> as the GBS equivalent of a restaurant menu. It tells stakeholders what is available, what is not, who can order it, and what standard comes with it.</p>
 
       <div class="card">
@@ -931,13 +1189,36 @@
       <div class="disclaimer-box">
         <strong style="color: var(--amber);">In practice:</strong> Many GBS organizations do not have a formal, standalone service catalog. The service definition exists as part of the SLA or the transition documentation from when the process was set up. This works until <strong style="color:var(--gold)">scope creep</strong> accumulates, new stakeholders join, or processes are restructured. The service catalog should be reviewed in the same cycle as the SOP, not treated as a one-time setup document.
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>List your team&rsquo;s services from memory, then verify. <b>The gaps are the finding.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>The menu says what you serve. <a href="#xla">XLAs ask how it tasted.</a></p></div>
     </section>
 
     <!-- SECTION 6: XLA -->
     <section class="section" id="xla">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><div class="section-eyebrow">Topic 07</div></div>
       <h2>XLAs — measuring how the service feels, not just how it performs</h2>
-      <figure class="sw-fig"><img src="images/cast/amara-frustrated.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara's SLA was green. Her customer was still unhappy.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>SLAs measure whether targets were hit; XLAs measure how the service felt to receive. Green SLAs with unhappy customers is the gap XLAs close. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">The SLA was green.<br><em>The customer was still cold.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-frustrated.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>Amara&rsquo;s dashboard: 96% on-time, targets met, everything green.</p>
+  <p class="sw-beat">Her stakeholder&rsquo;s reality: chasing updates, re-explaining context to every new handler, effort on their side the SLA never counts.<br>Compliant service. Poor experience. Both true at once.</p>
+  <p class="sw-quote">"We measured our promise. Nobody measured their experience."</p>
+  <p>She feels <span class="sw-hl-g">unsettled</span> by a green that lies.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You defend the SLA while the stakeholder describes the experience — two conversations passing in the dark.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>XLAs add the <span class="sw-hl-t">receiving side</span> to the measurement.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">SLA</span><span class="sw-means"><b>Did we hit the target?</b> Time, volume, accuracy — the provider&rsquo;s view.</span></div>
+    <div class="sw-def"><span class="sw-term">XLA</span><span class="sw-means"><b>How did it feel to receive?</b> Effort required, clarity, confidence — the consumer&rsquo;s view.</span></div>
+    <div class="sw-def"><span class="sw-term">TOGETHER</span><span class="sw-means"><b>Green needs both.</b> A hit target with a burned stakeholder is half a service.</span></div>
+  </div>
+  <p>One experience question joins the scorecard. <span class="sw-hl-grn">The dashboard starts telling the whole truth.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">XLAs in depth — experience-level agreements</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">SLAs measure whether GBS hit its targets. XLAs measure whether the people receiving the service actually had a good experience. These are not the same thing.</p>
 
       <div class="xla-versus">
@@ -1004,13 +1285,36 @@
           <li>Discussed in service review meetings alongside SLA data — giving both the quantitative and qualitative view of performance</li>
         </ul>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Ask one stakeholder: "How much effort does working with us cost you?" <b>Log the answer next to your SLA.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Experience measured once is a snapshot. <a href="#feedback">Surveys make it a signal.</a></p></div>
     </section>
 
     <!-- SECTION 7: FEEDBACK SURVEYS -->
     <section class="section" id="feedback">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 08</div></div>
       <h2>Feedback and satisfaction surveys — doing it right</h2>
-      <figure class="sw-fig"><img src="images/cast/miguel-satisfied.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Miguel reads every survey comment. Scores alone say little.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Surveys build trust or destroy it depending on one thing: whether anything visibly changes. Scores are the start; comments and follow-through are the value. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">They filled in the survey.<br><em>Then watched nothing change.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</div><div><div class="sw-who">Miguel</div><div class="sw-role">New team lead &middot; Week 6 &middot; Manila</div></div></div>
+  <p>Miguel inherits last year&rsquo;s stakeholder survey: decent scores, twenty written comments, zero follow-up actions.</p>
+  <p class="sw-beat">This year&rsquo;s response rate is half. The message was received: feedback goes nowhere here.<br>He runs it differently — reads every comment, picks three fixes, and reports back what changed.</p>
+  <p class="sw-quote">"The survey is a promise. Answering it costs them trust — spend it on something."</p>
+  <p>He feels <span class="sw-hl-g">accountable</span> to twenty comments nobody had answered.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You collect feedback and archive it — training everyone that honesty here is wasted effort.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Feedback that builds trust runs a <span class="sw-hl-t">closed loop</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">READ THE WORDS</span><span class="sw-means"><b>Comments over scores.</b> A 3.8 says little; the comments say everything.</span></div>
+    <div class="sw-def"><span class="sw-term">PICK VISIBLY</span><span class="sw-means"><b>Three fixes, announced.</b> "You said, we did" — named and dated.</span></div>
+    <div class="sw-def"><span class="sw-term">REPORT BACK</span><span class="sw-means"><b>Close the loop publicly.</b> The next survey&rsquo;s response rate is your grade.</span></div>
+  </div>
+  <p>Response rates recover the following cycle — <span class="sw-hl-grn">because this time, answering did something</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Feedback and satisfaction surveys in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Whether called <strong style="color:var(--gold)">NPS</strong>, <strong style="color:var(--gold)">CES</strong>, or just "the annual survey" — asking for feedback is necessary. How it is designed and used determines whether it builds or damages the service relationship.</p>
 
       <div class="card">
@@ -1036,6 +1340,10 @@
           </ul>
         </div>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Find last cycle&rsquo;s comments. <b>Pick one fix. Tell the commenters it happened.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Cluster complete. <a href="pillar-2-cluster-2-service-management.html">Cluster 2: the frameworks that run the services.</a></p></div>
     </section>
 
     <!-- GLOSSARY -->
