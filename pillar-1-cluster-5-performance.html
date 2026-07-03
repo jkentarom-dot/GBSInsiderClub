@@ -200,6 +200,114 @@
 .sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
 @media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -298,10 +406,43 @@
     </div>
 
     <!-- SECTION 1: WHY -->
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#why-metrics"><span class="sw-av"><img src="images/cast/ravi-frustrated.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">You are judged by numbers you never chose.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#framework"><span class="sw-av"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">The dashboard says what happened. Never why.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#backlog-risk"><span class="sw-av"><img src="images/cast/priya-frustrated.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">Your backlog was fine last month. Now it is a crisis.</span><span class="sw-go">T4 &rarr;</span></a>
+        <a class="sw-rcard" href="#perception-gap"><span class="sw-av"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">Metrics green, stakeholder unhappy.</span><span class="sw-go">T5 &rarr;</span></a>
+        <a class="sw-rcard" href="#reporting"><span class="sw-av"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</span><span class="sw-q">Your performance meeting is numbers read aloud.</span><span class="sw-go">T6 &rarr;</span></a>
+        <a class="sw-rcard" href="#ai-forward"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">Your KPI report tells you about last month. Too late.</span><span class="sw-go">T7 &rarr;</span></a>
+      </div>
+    </div>
+
     <section class="section" id="why-metrics">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>Why metrics matter — and what they actually do</h2>
-      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi's month is judged by numbers he never chose.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Metrics replace politics with evidence — they manage, improve, and prove the process. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Numbers you never chose<br><em>decide your month.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-frustrated.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Review day. Ravi&rsquo;s month is <span class="sw-beat">three numbers</span> on a screen.</p>
+  <p class="sw-beat">He did more than three numbers. Nobody measured the rest.</p>
+  <p class="sw-quote">"Is this all they see?"</p>
+  <p>He feels <span class="sw-hl-g">reduced</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You resent the metrics instead of learning the job they do.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Metrics exist because the alternative is politics. They do <span class="sw-hl-t">three jobs</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">MANAGE</span><span class="sw-means"><b>Real-time visibility.</b> Volume, quality, speed — is the process running as designed?</span></div>
+    <div class="sw-def"><span class="sw-term">IMPROVE</span><span class="sw-means"><b>Trend data.</b> Degradation shows up in the numbers before it shows up as a crisis.</span></div>
+    <div class="sw-def"><span class="sw-term">PROVE</span><span class="sw-means"><b>Objective ground.</b> Without measurement, performance conversations run on opinion and rank.</span></div>
+  </div>
+  <p>Ravi starts tracking one number himself, before the review does. <span class="sw-hl-grn">The conversation shifts from defense to explanation.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Why metrics matter — the full framework</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Measurement provides an objective basis for a conversation that would otherwise be purely political.</p>
       <div class="card">
         <div class="card-title">What a well-designed metrics framework enables</div>
@@ -319,6 +460,10 @@
         <p><strong style="color:var(--gold)">Metrics are only as good as the data feeding them.</strong> Most GBS organizations run on <a class="gloss" href="#g-erp">ERP<span class="tooltip">Enterprise Resource Planning — integrated software system managing core business processes. SAP and Oracle are the dominant GBS ERP platforms.</span></a> systems (SAP, Oracle) that contain rich transaction data.</p>
         <p>But many also have workflow tools, legacy systems from acquired entities, and manual enrichment layers that create <strong style="color:var(--gold)">reliability gaps</strong>. A metric built on poor source data produces confident-looking numbers that do not reflect reality. Before debating what to measure, establish whether you can measure it reliably.</p>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Pick your most-watched KPI. Track it weekly yourself. <b>Never be surprised in a review.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Metrics have jobs. <a href="#framework">They also have layers.</a></p></div>
     </section>
 
     <div style="margin:48px 0; text-align:center;">
@@ -331,7 +476,26 @@
     <section class="section" id="framework">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="14" width="18" height="20" rx="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5"/><path d="M17 22 H27 M17 26 H27 M17 30 H23"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>The three-layer KPI framework: input, operational, output</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia tracks inputs and outputs. The layers tell different stories.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Input, operational, output — three KPI layers with causality between them. Flat lists miss the why. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">The output dipped.<br><em>The cause sits two layers up.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>SLA compliance drops. Leadership asks Klaudia why.</p>
+  <p class="sw-beat">The output number cannot answer.<br>She digs: inbound data quality fell two weeks earlier. Error rate followed. Then the SLA.</p>
+  <p class="sw-quote">"The dip started upstream — we just measured it downstream."</p>
+  <p>She feels <span class="sw-hl-g">vindicated</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You stare at output KPIs and hunt for causes where only effects live.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Stack the metrics in <span class="sw-hl-t">three layers</span> and causality appears.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">INPUT</span><span class="sw-means"><b>What arrives.</b> Volume received, inbound data quality, staffing available.</span></div>
+    <div class="sw-def"><span class="sw-term">OPERATIONAL</span><span class="sw-means"><b>What happens inside.</b> Cycle time, error rate, backlog age, utilization.</span></div>
+    <div class="sw-def"><span class="sw-term">OUTPUT</span><span class="sw-means"><b>What the stakeholder sees.</b> SLA compliance, satisfaction, cost per transaction.</span></div>
+  </div>
+  <p>Her review answer traces the chain, not the symptom. <span class="sw-hl-grn">Leadership hears an analyst, not an excuse.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The three-layer framework in depth — with diagram</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">A flat list of metrics misses causality. A layered framework tells you not just what happened — but why, and where to look to fix it.</p>
 <!-- SVG DIAGRAM -->
 <div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
@@ -432,12 +596,35 @@
       <div class="disclaimer-box">
         <strong style="color: var(--amber);">Input vs. output KPIs:</strong> Output KPIs (<strong style="color:var(--gold)">DSO</strong>, SLA compliance rate, <strong style="color:var(--gold)">FPY</strong>) measure the result. Input KPIs (volume received, data completeness from the business, upstream approval cycle time) measure what fed into the process. When GBS misses an output KPI, the root cause is often an input problem — data arriving late, incomplete, or incorrect from the business side. A framework that only tracks outputs cannot diagnose causes.
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Sort your team&rsquo;s KPIs into the three layers. <b>Find one output with no input above it.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Layers are universal. <a href="#kpi-by-process">Labels are not.</a></p></div>
     </section>
     <!-- SECTION 3: KPI BY PROCESS -->
     <section class="section" id="kpi-by-process">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><ellipse cx="22" cy="16" rx="9" ry="3.2"/><path d="M13 16 V24 C13 25.8 17 27.2 22 27.2 C27 27.2 31 25.8 31 24 V16"/><path d="M13 20 C13 21.8 17 23.2 22 23.2 C27 23.2 31 21.8 31 20"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Standard KPIs by process — <a class="gloss" href="#g-p2p">P2P<span class="tooltip">Procure-to-Pay — end-to-end process from purchase requisition through supplier payment. Core AP process in GBS.</span></a>, <a class="gloss" href="#g-o2c">O2C<span class="tooltip">Order-to-Cash — end-to-end process from customer order through cash collection. Core AR process in GBS.</span></a>, <a class="gloss" href="#g-r2r">R2R<span class="tooltip">Record-to-Report — end-to-end process covering general ledger, reconciliations, period close, and financial reporting.</span></a></h2>
-      <figure class="sw-fig"><img src="images/cast/amara-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara's O2C queue has its own set of standard measures.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>P2P, O2C, R2R each carry standard KPI sets — names vary, logic repeats. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Different tower, different acronyms.<br><em>Same logic underneath.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>Amara moves from AR support to a mixed queue.</p>
+  <p class="sw-beat">New KPI names everywhere. FPY? Touchless rate? Close timeline?</p>
+  <p class="sw-quote">"Did I just change professions?"</p>
+  <p>Then she sees it: quality, speed, volume, cost — every tower, the same four families. She feels <span class="sw-hl-g">relieved</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You relearn measurement from zero when only the labels changed.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Every tower&rsquo;s scorecard is the <span class="sw-hl-t">same four families</span> wearing local names.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">P2P</span><span class="sw-means"><b>Procure-to-Pay.</b> Touchless rate, payment-on-time, invoice cycle time.</span></div>
+    <div class="sw-def"><span class="sw-term">O2C</span><span class="sw-means"><b>Order-to-Cash.</b> DSO, collection effectiveness, dispute cycle time.</span></div>
+    <div class="sw-def"><span class="sw-term">R2R</span><span class="sw-means"><b>Record-to-Report.</b> Close timeline, reconciliation quality, first-pass yield.</span></div>
+  </div>
+  <p>One page of mapping, and the new tower&rsquo;s scorecard <span class="sw-hl-grn">reads like her old one with new labels</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Standard KPIs by process — full reference</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Naming conventions vary. Calculation methodologies vary more. What follows is the standard set — expect 5–10 of these per workstream, selected based on what the underlying system landscape can reliably provide.</p>
 
       <div class="process-table">
@@ -501,12 +688,35 @@
 </svg>
       <p class="sd-caption">Operational metrics — how we perform</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Map your process&rsquo;s KPIs to quality, speed, volume, cost. <b>One line each.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>One number deserves special fear. <a href="#backlog-risk">The backlog.</a></p></div>
+    </section>
     <!-- SECTION 4: BACKLOG TRAP -->
     <section class="section" id="backlog-risk">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 L33 31 H11 Z"/><path d="M22 20 V25"/><path d="M22 28 V28.3"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>The backlog trap — why it compounds faster than you expect</h2>
-      <figure class="sw-fig"><img src="images/cast/priya-frustrated.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Priya watched a small backlog compound into a bad quarter.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Backlog compounds — aged items cost far more to clear than fresh ones, so recovery effort grows faster than the pile. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">A small backlog is never small.<br><em>It is early.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/priya-frustrated.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Priya</div><div class="sw-role">Process SME &middot; Migration + BAU &middot; Bangalore</div></div></div>
+  <p>Week 1: <span class="sw-beat">60 items</span> over. Manageable.</p>
+  <p class="sw-beat">Week 4: 300 — and the old ones need investigation, callbacks, exceptions.<br>Clearing one aged item costs a multiple of a fresh one.</p>
+  <p class="sw-quote">"We are working harder and falling further behind."</p>
+  <p>Priya feels <span class="sw-hl-g">overwhelmed</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You size the backlog by count. It compounds by age.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Backlog is not a pile. It is a <span class="sw-hl-t">curve</span> — and age is the slope.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">FRESH</span><span class="sw-means"><b>Routine handling.</b> Standard effort, standard time.</span></div>
+    <div class="sw-def"><span class="sw-term">AGING</span><span class="sw-means"><b>Escalating effort.</b> Investigation, stakeholder contact, exception handling.</span></div>
+    <div class="sw-def"><span class="sw-term">RECOVERY</span><span class="sw-means"><b>Deliberate design.</b> Split capacity: hold the line on new work, clear aged items oldest-first, control inflow.</span></div>
+  </div>
+  <p>Priya splits the queue: one stream keeps new work current, one clears aged items oldest-first. <span class="sw-hl-grn">The curve bends within weeks.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The backlog trap in depth — the compounding math</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Backlog is not a static problem. It is an accelerating one. Most teams underestimate how quickly a manageable backlog becomes a recovery crisis.</p>
 
       <div class="backlog-visual">
@@ -574,12 +784,35 @@
           </ul>
         </div>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Age-profile your backlog today: under 7 days, 7&ndash;30, over 30. <b>The over-30 bucket is the fire.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Some fires never show on the dashboard at all. <a href="#perception-gap">Green and failing.</a></p></div>
     </section>
     <!-- SECTION 5: PERCEPTION GAP -->
     <section class="section" id="perception-gap">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="17" cy="16" r="3.4"/><path d="M11 31 C11 24 23 24 23 31"/><circle cx="28" cy="18" r="3"/><path d="M23 31 C23 25.5 33 25.5 33 31"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2>The perception gap — when green metrics meet unhappy stakeholders</h2>
-      <figure class="sw-fig"><img src="images/cast/peter-frustrated.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter's dashboard said green. His stakeholder said otherwise.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>You can be compliant and failing at once — KPIs miss the effort the business spends making you succeed. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Everything is green.<br><em>Everyone is unhappy.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>Quarterly review. Peter presents a green dashboard.</p>
+  <p class="sw-beat">The business lead cuts in.</p>
+  <p class="sw-quote">"Your numbers are fine. Working with your team is not."</p>
+  <p>Chasing, reminding, re-sending, enriching data — none of it on any chart. Peter feels <span class="sw-hl-g">ambushed</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You defend the metrics while the stakeholder is describing the experience.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>KPIs measure the service. They do not measure <span class="sw-hl-t">the effort it takes to receive it</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">MEASURED</span><span class="sw-means"><b>Targets, volumes, SLAs.</b> Necessary — and genuinely green.</span></div>
+    <div class="sw-def"><span class="sw-term">UNMEASURED</span><span class="sw-means"><b>Business-side friction.</b> Chasing, reminding, rework loops, data enrichment done for you.</span></div>
+    <div class="sw-def"><span class="sw-term">CLOSE THE GAP</span><span class="sw-means"><b>Ask about effort.</b> Add experience signals next to the compliance ones.</span></div>
+  </div>
+  <p>Peter asks one question: "What do we make you do that you shouldn&rsquo;t have to?" <span class="sw-hl-grn">The list he gets is worth more than the dashboard.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The perception gap in depth — what KPIs cannot capture</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">You can be technically compliant and operationally failing at the same time. Understanding why requires looking at what metrics cannot capture.</p>
 
       <div class="card">
@@ -621,7 +854,11 @@
 </svg>
       <p class="sd-caption">Output metrics — what we deliver</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Ask one stakeholder: "What do we make you do that you shouldn&rsquo;t have to?" <b>Write down every answer.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Better signals deserve better meetings. <a href="#reporting">Stop reading numbers aloud.</a></p></div>
+    </section>
 
     <!-- SECTION 6: REPORTING -->
     
@@ -657,7 +894,26 @@
     <section class="section" id="reporting">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>Reporting and performance conversations that actually work</h2>
-      <figure class="sw-fig"><img src="images/cast/miguel-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Miguel turns raw numbers into a story leaders can act on.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Reading KPIs aloud is a presentation. A performance conversation explains, decides, and assigns. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Numbers read aloud<br><em>is not a meeting.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</div><div><div class="sw-who">Miguel</div><div class="sw-role">New team lead &middot; Week 6 &middot; Manila</div></div></div>
+  <p>Monthly review. Twelve slides, each a chart, each read aloud.</p>
+  <p class="sw-beat">Minute 40: no decision made. None coming.<br>Miguel watches the stakeholders check their phones.</p>
+  <p class="sw-quote">"What do we want them to DO with this?"</p>
+  <p>He feels <span class="sw-hl-g">determined</span> to run it differently.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You report everything and land nothing.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Two cadences, <span class="sw-hl-t">two different rooms</span> — and only one of them wants your charts.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">CONTINUOUS</span><span class="sw-means"><b>The engine room.</b> Volume vs capacity, aging, throughput — internal, daily or weekly, early warning.</span></div>
+    <div class="sw-def"><span class="sw-term">PERIODIC</span><span class="sw-means"><b>The stakeholder room.</b> A story: what changed, why, and the decision needed.</span></div>
+    <div class="sw-def"><span class="sw-term">THE RULE</span><span class="sw-means"><b>Every chart earns its slide by ending in a sentence.</b> No sentence, no slide.</span></div>
+  </div>
+  <p>His next review: three numbers, one story, one ask. <span class="sw-hl-grn">It ends early — with a decision.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Reporting cadences in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">A performance meeting where KPIs are read aloud is not a performance meeting. It is a presentation. The distinction matters.</p>
 
       <div class="cadence-stack">
@@ -760,12 +1016,35 @@
 </svg>
       <p class="sd-caption">Reporting cadence — daily to quarterly</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Cut your next report to three numbers, one story, one ask. <b>End with the ask.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>And the report itself is changing under your feet. <a href="#ai-forward">AI reads first now.</a></p></div>
+    </section>
     <!-- SECTION 7: AI FORWARD -->
     <section class="section" id="ai-forward">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 30 A10 10 0 0 1 32 30"/><path d="M22 30 L28 22"/><circle cx="22" cy="30" r="1.6"/></svg></span><div class="section-eyebrow">Topic 07</div></div>
       <h2>AI and the future of performance measurement</h2>
-      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi's scorecard builds itself now. Reading it is his job.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>AI moves measurement from backward-looking reports to prediction and anomaly alerts. Reading and acting on the signal is the new skill. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">The report says last month.<br><em>The problem is next week.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Ravi&rsquo;s scorecard builds itself now. Anomaly flags arrive before month-end.</p>
+  <p class="sw-beat">A colleague ignores them — "the real report comes later."<br>Ravi opens one flag: a supplier&rsquo;s error pattern climbing for nine days.</p>
+  <p class="sw-quote">"By the time the report says it, it will be a backlog."</p>
+  <p>He acts early and feels <span class="sw-hl-g">ahead</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You wait for the report while the signal is already flashing.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The shift is not the dashboard. It is <span class="sw-hl-t">when you get to act</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">FROM</span><span class="sw-means"><b>Monthly, backward, manual.</b> You explain what already happened.</span></div>
+    <div class="sw-def"><span class="sw-term">TO</span><span class="sw-means"><b>Continuous, predictive, flagged.</b> Patterns surface weeks before they hit the KPI.</span></div>
+    <div class="sw-def"><span class="sw-term">YOUR JOB</span><span class="sw-means"><b>Interpret, verify, act.</b> The analysts who read signals early become the ones leaders ask first.</span></div>
+  </div>
+  <p>The flag becomes a fixed supplier issue instead of next month&rsquo;s backlog. <span class="sw-hl-grn">Acting early is the new accuracy.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">AI and performance measurement — the full shift</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Traditional KPI reports are backwards-looking. AI-enabled measurement changes what is possible — and GBS should be leading this shift, not waiting for it.</p>
 
       <div class="ai-grid">
@@ -795,6 +1074,10 @@
         <div class="tension-label">The GBS opportunity</div>
         <p>New GBS teams are positioned to build AI-enabled measurement from the start — without legacy reporting infrastructure to displace. The insight opportunity is significant: GBS sits at the intersection of transaction data, financial data, and workforce data. The organizations that learn to use this data proactively — rather than just reporting on it retrospectively — will be the ones that make the shift from cost center to genuine strategic partner credible.</p>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Find one automated alert or trend view in your tooling. <b>Check it before your next report does.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Measured well, work travels. <a href="pillar-1-cluster-6-location-strategy.html">Cluster 6: where it lands — and why.</a></p></div>
     </section>
 
     <!-- GLOSSARY -->
