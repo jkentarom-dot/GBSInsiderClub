@@ -200,6 +200,114 @@
 .sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
 @media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -296,10 +404,43 @@
     </div>
 
     <!-- SECTION 1: DECISION PROCESS -->
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#decision-process"><span class="sw-av"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">You wonder why your center exists in your city at all.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#criteria"><span class="sw-av"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">You assume the location was picked on price alone.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#nearshore-offshore"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">Your stakeholders live eight time zones away.</span><span class="sw-go">T3 &rarr;</span></a>
+        <a class="sw-rcard" href="#hub-design"><span class="sw-av"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">One hub or five? It shapes your daily work.</span><span class="sw-go">T4 &rarr;</span></a>
+        <a class="sw-rcard" href="#legacy-reality"><span class="sw-av"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</span><span class="sw-q">The tidy hub model does not match the mess you inherited.</span><span class="sw-go">T5 &rarr;</span></a>
+        <a class="sw-rcard" href="#career-implications"><span class="sw-av"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">You never asked what your location says about your career.</span><span class="sw-go">T6 &rarr;</span></a>
+      </div>
+    </div>
+
     <section class="section" id="decision-process">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="10"/><path d="M22 12 C16.5 15.5 16.5 28.5 22 32"/><path d="M22 12 C27.5 15.5 27.5 28.5 22 32"/><path d="M12 22 H32"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>How the location decision actually gets made</h2>
-      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter's hub won the work on more than labor cost.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Location decisions mix a formal analytical process with leadership preference and politics. Both halves are real. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">A spreadsheet chose your city.<br><em>So did a preference.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>Peter asks a director why the center landed in Budapest.</p>
+  <p class="sw-beat">He expects a cost model.<br>He gets: "The model shortlisted three cities. Leadership knew this one."</p>
+  <p class="sw-quote">"So the spreadsheet narrowed it — and people picked it."</p>
+  <p>He feels <span class="sw-hl-g">intrigued</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You assume pure analysis and miss the human half of the decision.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Every location decision has <span class="sw-hl-t">two halves</span> — and only one lives in a spreadsheet.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">FORMAL</span><span class="sw-means"><b>The analytical half.</b> Cross-functional team, weighted criteria, external advisors, a shortlist.</span></div>
+    <div class="sw-def"><span class="sw-term">HUMAN</span><span class="sw-means"><b>The judgment half.</b> Existing footprint, leadership familiarity, organizational politics.</span></div>
+    <div class="sw-def"><span class="sw-term">OUTCOME</span><span class="sw-means"><b>A defensible choice.</b> Rarely a purely optimal one — and that is normal.</span></div>
+  </div>
+  <p>Knowing both halves, Peter reads his center&rsquo;s mandate more accurately — <span class="sw-hl-grn">and pitches proposals that match it</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The location decision process in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">The formal process is structured and analytical. The actual decision is also shaped by leadership preferences, existing footprint, and organizational politics. Both parts matter.</p>
 
 <div class="media-row">
@@ -350,6 +491,10 @@
           <li>If all relevant stakeholders had access to the same data and the decision was transparent, disagreement about outcome is survivable. <strong>Surprise is not.</strong></li>
         </ul>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Ask a senior colleague why your location was chosen. <b>Note the non-cost reasons.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>The process is half the story. <a href="#criteria">The criteria are the other half.</a></p></div>
     </section>
 
     <div style="margin:48px 0; text-align:center;">
@@ -362,7 +507,25 @@
     <section class="section" id="criteria">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="10"/><path d="M22 12 C16.5 15.5 16.5 28.5 22 32"/><path d="M22 12 C27.5 15.5 27.5 28.5 22 32"/><path d="M12 22 H32"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>Location criteria — what gets weighted and what gets underweighted</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia's city made the shortlist for talent, not price.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Location criteria go far past labor cost — talent depth, attrition, language, risk, cost direction. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Cheap city, easy answer.<br><em>Wrong question.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>A colleague grumbles: "They only picked Krakow because it is cheap."</p>
+  <p class="sw-beat">Klaudia checks the original business case in the archive.<br>Talent pipeline. Language coverage. University output. Attrition. Stability.<br>Cost is one row of nine.</p>
+  <p class="sw-quote">"Cheap was the tiebreaker — not the reason."</p>
+  <p>She feels <span class="sw-hl-g">corrected</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You explain your center with one criterion and misjudge what it was built to be good at.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The criteria list is long. What separates good decisions is <span class="sw-hl-t">what gets weighted honestly</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">WEIGHTED</span><span class="sw-means"><b>Cost direction, talent depth, attrition.</b> Where the cost will be in five years matters more than today.</span></div>
+    <div class="sw-def"><span class="sw-term">UNDERWEIGHTED</span><span class="sw-means"><b>Time-zone fit, cultural distance, single-country concentration.</b> The factors that hurt later.</span></div>
+  </div>
+  <p>The "why us" answer becomes her intro line for new joiners — <span class="sw-hl-grn">it explains what the center is expected to be good at</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Location criteria in depth — the full weighting table</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">The standard criteria are well-known. What separates good location decisions from regrettable ones is typically how honestly the risk and trend factors are assessed — not whether cost was on the list.</p>
 
       <div class="criteria-table">
@@ -475,12 +638,35 @@
 </svg>
       <p class="sd-caption">Site selection decision matrix — five weighted criteria</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>List three non-cost reasons your location wins work. <b>Ask around if you cannot name three.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>One criterion deserves its own topic. <a href="#nearshore-offshore">Distance.</a></p></div>
+    </section>
     <!-- SECTION 3: NEARSHORE VS OFFSHORE -->
     <section class="section" id="nearshore-offshore">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="10"/><path d="M22 12 C16.5 15.5 16.5 28.5 22 32"/><path d="M22 12 C27.5 15.5 27.5 28.5 22 32"/><path d="M12 22 H32"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Nearshore vs. offshore — when each model wins</h2>
-      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi's team is offshore. His stakeholders sit eight hours away.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Nearshore buys proximity and cultural fit; offshore buys scale and cost. The work type decides. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Eight time zones from your stakeholder.<br><em>By design.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Ravi&rsquo;s queries wait overnight for US answers.</p>
+  <p class="sw-beat">A nearshore colleague resolves hers on live calls.</p>
+  <p class="sw-quote">"Why are we the far ones?"</p>
+  <p>Then he sees the volumes: his tower runs thousands of standard transactions. Hers runs judgment calls. The distance is a design choice. He feels <span class="sw-hl-g">reassured</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You read distance as disadvantage instead of task design.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The models buy <span class="sw-hl-t">different things</span> — and most networks buy both on purpose.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">NEARSHORE</span><span class="sw-means"><b>Proximity.</b> Interaction-heavy work, language coverage, change-sensitive scope.</span></div>
+    <div class="sw-def"><span class="sw-term">OFFSHORE</span><span class="sw-means"><b>Scale.</b> High-volume, standardized, cost-driven processing.</span></div>
+    <div class="sw-def"><span class="sw-term">THE MIX</span><span class="sw-means"><b>Deliberate.</b> Judgment work near, volume work far — the same network, two speeds.</span></div>
+  </div>
+  <p>Ravi structures async handovers so overnight waits stop hurting — <span class="sw-hl-grn">playing the model instead of resenting it</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Nearshore vs offshore in depth — when each wins</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Cost is not the only variable. The right choice depends on what kind of work the center will do, how much interaction it requires, and how much change management the organization can absorb.</p>
 
       <div class="versus-block">
@@ -535,12 +721,35 @@
           </ul>
         </div>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Label your top tasks: interaction-heavy or volume-standard. <b>See which model your work fits.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Location chosen. <a href="#hub-design">Now the network gets designed.</a></p></div>
     </section>
     <!-- SECTION 4: HUB DESIGN -->
     <section class="section" id="hub-design">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="10"/><path d="M22 12 C16.5 15.5 16.5 28.5 22 32"/><path d="M22 12 C27.5 15.5 27.5 28.5 22 32"/><path d="M12 22 H32"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>Hub design — what happens after the location is chosen</h2>
-      <figure class="sw-fig"><img src="images/cast/priya-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Priya joined a hub built long after the location call.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Single hub, hub-and-spoke, or distributed — the network design shapes cross-training, resilience, and your mobility. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">One hub or five?<br><em>It decides your options.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Priya</div><div class="sw-role">Process SME &middot; Migration + BAU &middot; Bangalore</div></div></div>
+  <p>Priya&rsquo;s migration adds a second delivery site.</p>
+  <p class="sw-beat">Suddenly: split processes, duplicate roles, new handovers.</p>
+  <p class="sw-quote">"Why not keep everything here?"</p>
+  <p>Then a storm closes the other site for two days — and her hub absorbs the work without stakeholders noticing. The design earns its cost. She feels <span class="sw-hl-g">convinced</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You judge the network by your hub&rsquo;s inconvenience, not its purpose.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Three designs, <span class="sw-hl-t">three trade-offs</span> — and your career moves along the same map.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">SINGLE HUB</span><span class="sw-means"><b>Simplest.</b> One culture, one leadership team — and one point of failure.</span></div>
+    <div class="sw-def"><span class="sw-term">HUB-AND-SPOKE</span><span class="sw-means"><b>Scale plus specialization.</b> A core hub with satellite capabilities.</span></div>
+    <div class="sw-def"><span class="sw-term">DISTRIBUTED</span><span class="sw-means"><b>Resilience and coverage.</b> Higher coordination cost, no single point of failure.</span></div>
+  </div>
+  <p>Knowing the design, Priya plans her career across it — <span class="sw-hl-grn">spokes need leads, and she intends to be one</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Hub design in depth — all three network models</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Choosing a location is the first structural decision. How the network is designed — single hub, hub-and-spoke, or distributed — determines how the GBS actually operates at scale.</p>
 
       <div class="hub-grid">
@@ -651,13 +860,36 @@
 </svg>
       <p class="sd-caption">Multi-hub architecture — primary, regional, and satellite centers</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Sketch your center&rsquo;s network: hubs, spokes, sites. <b>Mark where your role could travel.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>That is the design on the slide. <a href="#legacy-reality">Here is the one you inherited.</a></p></div>
+    </section>
 
     <!-- SECTION 5: LEGACY REALITY -->
     <section class="section" id="legacy-reality">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="12" y="14" width="20" height="6" rx="1.5"/><rect x="12" y="24" width="20" height="6" rx="1.5"/><circle cx="16" cy="17" r="0.9"/><circle cx="16" cy="27" r="0.9"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2>The legacy reality most GBS professionals actually inherit</h2>
-      <figure class="sw-fig"><img src="images/cast/miguel-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Miguel inherited a footprint someone chose ten years ago.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Most professionals inherit a grown footprint — acquisitions, mixed ERPs, half-migrated scope. Normal, not failure. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">The slide shows a clean hub.<br><em>You inherited a patchwork.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</div><div><div class="sw-who">Miguel</div><div class="sw-role">New team lead &middot; Week 6 &middot; Manila</div></div></div>
+  <p>Miguel&rsquo;s team supports three ERPs. Two came from acquisitions.</p>
+  <p class="sw-beat">A consultant slide calls the target state "one global template."<br>His daily reality: swivel-chair work between systems that never met.</p>
+  <p class="sw-quote">"Is every center this messy?"</p>
+  <p>Mostly, yes. He feels <span class="sw-hl-g">relieved</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You measure your center against slides, not against how footprints actually grow.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The patchwork is the norm — and bridging it is <span class="sw-hl-t">scarce, valuable knowledge</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">REALITY</span><span class="sw-means"><b>How footprints grow.</b> M&amp;A layers, fragmented systems, partially migrated scope.</span></div>
+    <div class="sw-def"><span class="sw-term">VALUE</span><span class="sw-means"><b>The bridge people.</b> Those who navigate the mess keep the operation running.</span></div>
+    <div class="sw-def"><span class="sw-term">CAREER</span><span class="sw-means"><b>The combination that wins.</b> Legacy knowledge plus an improvement mindset.</span></div>
+  </div>
+  <p>Miguel stops apologizing for the landscape and starts documenting the bridges — <span class="sw-hl-grn">the map only he can draw</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The legacy reality in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Clean organizational design and strategic hub architecture exist in advisory presentations. The reality most GBS professionals walk into looks different.</p>
 
       <div class="card amber">
@@ -680,6 +912,10 @@
           <li>The <strong>strategic direction</strong> is consolidation and standardization. The practical work is managing operations while that consolidation happens incrementally.</li>
         </ul>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>List the systems your process actually touches. <b>That map is expertise. Keep it current.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>One question left: <a href="#career-implications">what does your city say about your career?</a></p></div>
     </section>
 
     <!-- SECTION 6: CAREER IMPLICATIONS -->
@@ -712,7 +948,26 @@
     <section class="section" id="career-implications">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="10"/><path d="M22 12 C16.5 15.5 16.5 28.5 22 32"/><path d="M22 12 C27.5 15.5 27.5 28.5 22 32"/><path d="M12 22 H32"/></svg></span><div class="section-eyebrow">Topic 06</div></div>
       <h2>What location strategy means for your career</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-satisfied.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia reads location strategy to see where careers grow.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Your location&rsquo;s selection reasons reveal what the organization values in your center — and where your growth sits. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your city was a decision.<br><em>Read what it means for you.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-satisfied.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>Klaudia rereads the location rationale with new eyes.</p>
+  <p class="sw-beat">Talent depth. Language coverage. University pipeline.<br>Her center was built to grow capability, not only to cut cost.</p>
+  <p class="sw-quote">"They planned for people like me to advance here."</p>
+  <p>She feels <span class="sw-hl-g">encouraged</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You plan your growth without reading what your center was built for.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The selection reasons are a <span class="sw-hl-t">career signal</span> — decode them.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">COST SITE</span><span class="sw-means"><b>Operational excellence is the currency.</b> Efficiency wins get noticed here.</span></div>
+    <div class="sw-def"><span class="sw-term">CAPABILITY SITE</span><span class="sw-means"><b>Depth pays.</b> Languages, specialization, analytical scope grow careers here.</span></div>
+    <div class="sw-def"><span class="sw-term">SIGNALS</span><span class="sw-means"><b>Watch the investments.</b> New scope, leadership presence, training budgets show the direction.</span></div>
+  </div>
+  <p>Her development plan now matches the center&rsquo;s mandate — <span class="sw-hl-grn">growth with the grain, not against it</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Career implications in depth — reading your location</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Your location was chosen for specific reasons. Understanding those reasons tells you what your organization values about your center — and what that means for your growth.</p>
 
       <div class="card gold">
@@ -725,6 +980,10 @@
           <li><strong>Your location ceiling is not fixed:</strong> centers that started as cost-arbitrage operations and evolved toward strategic contribution exist. The shift requires deliberate investment from leadership — and individuals who push that agenda internally accelerate it. Understanding location strategy gives you the language to do that.</li>
         </ul>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Answer one question: was your center built for cost, capability, or both? <b>Aim your growth accordingly.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Pillar 1 complete. Next: how the work itself gets excellent. <a href="pillar-2-operational-excellence.html">Pillar 2: Operational Excellence.</a></p></div>
     </section>
 
     <!-- GLOSSARY -->
