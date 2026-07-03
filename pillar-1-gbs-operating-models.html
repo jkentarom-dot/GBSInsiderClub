@@ -754,6 +754,114 @@
 .topic-ico{flex:0 0 auto;line-height:0;}
 .topic-ico svg{display:block;}
 @media(max-width:520px){.topic-ico svg{width:30px;height:30px;}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -873,9 +981,43 @@
     </div>
 
     <!-- SECTION 1: SSC vs GBS vs CoE -->
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#model-types"><span class="sw-av"><img src="images/cast/ravi-frustrated.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">You call it SSC, GBS, CoE — and could not explain the difference.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#delivery-models"><span class="sw-av"><img src="images/cast/amara-frustrated.webp" alt="" onerror="this.remove()">A</span><span class="sw-q">Your badge says one company. Your orders come from another.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#landlord-model"><span class="sw-av"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">You escalated a real problem and nobody seems to own it.</span><span class="sw-go">T3 &rarr;</span></a>
+        <a class="sw-rcard" href="#comparison"><span class="sw-av"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">A recruiter pinged you. You cannot tell if the move is up.</span><span class="sw-go">T4 &rarr;</span></a>
+        <a class="sw-rcard" href="#career-guide"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">You work hard but do not know which skills your center rewards.</span><span class="sw-go">T5 &rarr;</span></a>
+      </div>
+    </div>
+
     <section class="section" id="model-types">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 25 A9 9 0 0 1 31 25"/><rect x="11.5" y="25" width="4" height="7" rx="2"/><rect x="28.5" y="25" width="4" height="7" rx="2"/><path d="M30.5 32 V33 Q30.5 35 26.5 35"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2><a class="gloss" href="#g-ssc">SSC<span class="tooltip">Shared Services Center — inhouse unit delivering standardized, transactional services to multiple business units</span></a>, <a class="gloss" href="#g-gbs">GBS<span class="tooltip">Global Business Services — evolved SSC; multi-function, strategic delivery model at scale</span></a>, and <a class="gloss" href="#g-coe">CoE<span class="tooltip">Center of Excellence — specialist inhouse unit for complex, judgment-intensive processes like Tax, Treasury, and Audit</span></a> — what is the actual difference?</h2>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>SSC, GBS, and CoE are three different purposes — volume, scale with insight, judgment. Knowing which one you sit in explains how you are measured. The three-line model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Three names for your workplace.<br><em>You can define none of them.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-frustrated.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Monthly operations call. <span class="sw-beat">14 people</span> on the line.</p>
+  <p class="sw-beat">Ravi gives his update: "Our SSC processed the full volume on time."<br>A director cuts in.</p>
+  <p class="sw-quote">"We are not an SSC. We are GBS. There is a difference."</p>
+  <p>Silence. Ravi mutes himself.</p>
+  <p>Eight months in the building — and he cannot say what kind of building it is. He feels <span class="sw-hl-g">exposed</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You describe your workplace with a word you cannot define. Your development plan is built on that word.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The three terms name three different <span class="sw-hl-t">purposes</span> — not three sizes of the same thing.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">SSC</span><span class="sw-means"><b>Standardized volume.</b> Repetitive, rule-based transactions consolidated into one team. Measured on speed and accuracy.</span></div>
+    <div class="sw-def"><span class="sw-term">GBS</span><span class="sw-means"><b>Scale plus insight.</b> Multi-function. Runs the transaction and analyzes what it means. Measured on value delivered.</span></div>
+    <div class="sw-def"><span class="sw-term">CoE</span><span class="sw-means"><b>Judgment.</b> Deep expertise that cannot be standardized — Tax, Treasury, Audit. Measured on the quality of decisions.</span></div>
+  </div>
+  <p>On the next call, Ravi says "our GBS" — and understands why his scorecard tracks more than volume. <span class="sw-hl-grn">Small word. Different game.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">SSC, GBS, and CoE in depth — definitions, CoE scope, diagram</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Three terms. Used interchangeably. None of them mean the same thing.</p>
 
       <div class="evolution-track">
@@ -965,12 +1107,37 @@
         <figcaption>CoE keeps what needs <strong>judgment, not volume</strong>.</figcaption>
       </figure>
 </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Pull up your center&rsquo;s service scope. Decide which of the three models it matches. <b>Ask your team lead if you got it right.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Named the model? The next question is who actually delivers the work. <a href="#delivery-models">That answer decides who signs your paycheck.</a></p></div>
     </section>
 
     <!-- SECTION 2: Delivery Models -->
     <section class="section" id="delivery-models">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 L33 31 H11 Z"/><path d="M22 20 V25"/><path d="M22 28 V28.3"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>Captive, <a class="gloss" href="#g-bpo">BPO<span class="tooltip">Business Process Outsourcing — third-party delivery of business processes on behalf of a client. You work for the BPO; the client evaluates you.</span></a>, and Hybrid — who actually delivers the work?</h2>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>The delivery model — captive, BPO, or hybrid — decides who employs you, who evaluates you, and how you move. The split is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your badge says one company.<br><em>Your day belongs to another.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-frustrated.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>Amara&rsquo;s badge says the provider&rsquo;s name.<br>Her inbox says the client&rsquo;s.</p>
+  <p class="sw-beat">9:40 AM — client escalation: "We need this resolved today."<br>11:00 AM — her BPO manager stops by.</p>
+  <p class="sw-quote">"Watch the handling time on that account. The margin matters."</p>
+  <p>Same ticket. Two answers.</p>
+  <p>She is <span class="sw-hl-g">torn</span> between the boss she sees every day and the one who signs off her rating.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You optimize for the boss you see — and get evaluated by the one you don&rsquo;t.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The <span class="sw-hl-t">delivery model</span> decides who employs you, who evaluates you, and how you move.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">CAPTIVE</span><span class="sw-means"><b>One employer, one line.</b> The company owns the center. Deep institutional knowledge, broader internal mobility.</span></div>
+    <div class="sw-def"><span class="sw-term">BPO</span><span class="sw-means"><b>Two bosses in practice.</b> The provider employs you; the client sets your daily reality and the performance bar.</span></div>
+    <div class="sw-def"><span class="sw-term">HYBRID</span><span class="sw-means"><b>The industry default.</b> Captive core plus outsourced scale. Your experience depends on which side you sit on.</span></div>
+  </div>
+  <p>Amara names her side of the model — and starts managing <span class="sw-hl-grn">both audiences on purpose instead of by accident</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Captive, BPO, and hybrid in depth — structures, trade-offs, diagrams</span><span class="sw-meta">THEORY &middot; 7 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">The model type tells you what gets done. The delivery model tells you who does it — and who signs your paycheck.</p>
 
       <div class="model-grid">
@@ -1200,6 +1367,9 @@
         </div>
     </div>
 
+      
+    
+</div></details></div>
       <div class="insight-block">
         <div class="insight-icon">✦</div>
         <div class="insight-body">
@@ -1212,6 +1382,8 @@
           </ul>
         </div>
       </div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Write two names down: who employs you, and who actually evaluates your work. <b>If they differ, manage both on purpose.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Delivery answered. But some functions sit in the hub without belonging to it. <a href="#landlord-model">Meet the landlord.</a></p></div>
     </section>
 
     <div style="margin:48px 0; text-align:center;">
@@ -1224,6 +1396,26 @@
     <section class="section" id="landlord-model">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="17" cy="16" r="3.4"/><path d="M11 31 C11 24 23 24 23 31"/><circle cx="28" cy="18" r="3"/><path d="M23 31 C23 25.5 33 25.5 33 31"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>The <a class="gloss" href="#g-landlord">landlord model<span class="tooltip">Landlord model — GBS provides the hub, infrastructure, and enabling services while business units retain full ownership of people, processes, and delivery risk</span></a> — when GBS hosts but does not own</h2>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>In the landlord model, GBS owns the building and functions own the process. Route your asks to the tenant, not the landlord. The split is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your ask bounced for weeks.<br><em>Nobody owns it.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>Peter needs one extra analyst. He asks hub leadership.</p>
+  <p class="sw-quote">"Headcount for your function is not ours. Ask the function."</p>
+  <p class="sw-beat">He asks the function.<br>"That sounds like a site topic. Ask your hub."</p>
+  <p><span class="sw-beat">Three weeks. Four emails. Zero owners.</span></p>
+  <p>His request is not rejected — it just circles. He is <span class="sw-hl-g">stuck</span> between two owners who each point at the other.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You escalate to the landlord when your problem belongs to the tenant.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>In the <span class="sw-hl-t">landlord model</span>, GBS provides the building. The functions living in it own the work.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">LANDLORD</span><span class="sw-means"><b>GBS owns the site.</b> Infrastructure, workplace, shared enablement, standards. It hosts the functions — it does not run them.</span></div>
+    <div class="sw-def"><span class="sw-term">TENANT</span><span class="sw-means"><b>The function owns the process.</b> Priorities, performance, people — and your headcount ask — sit with the function, wherever it reports.</span></div>
+  </div>
+  <p>Peter re-routes the ask to the function owner, with the site&rsquo;s cost data attached. <span class="sw-hl-grn">An answer lands within days — and it is a real one.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The landlord model in depth — full structure and diagrams</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Same building. Same badge on the door. Different boss. Thousands of people work inside a landlord model without knowing it has a name.</p>
 
       <p class="chunk-lead" style="font-size:15px;color:var(--text-2);line-height:1.8;max-width:960px;margin-bottom:8px;">Captive, BPO, and Hybrid answer one question: <strong style="color:var(--gold)">who delivers the work</strong>. The landlord model answers a different one: <strong style="color:var(--gold)">who owns it</strong>.</p>
@@ -1378,6 +1570,10 @@
           </ul>
         </div>
       </details>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Write two names: who owns your process, and who owns your desk. <b>Route your next ask to the right one.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Three models, two delivery setups, one landlord. <a href="#comparison">Time to compare them side by side.</a></p></div>
     </section>
 
 
@@ -1385,6 +1581,27 @@
     <section class="section" id="comparison">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 17 L22 13 L31 17 L22 21 Z"/><path d="M13 23 L22 27 L31 23"/><path d="M13 28.5 L22 32.5 L31 28.5"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>How the models compare</h2>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>The models differ on four dimensions: scope, evaluation, mobility, depth. Read any role — including your next offer — through that lens. The matrix is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">A better title.<br><em>Maybe a slower career.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full matrix in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>A recruiter message on Tuesday. A CoE role. Better title.</p>
+  <p class="sw-beat">Klaudia sits in an SSC, year 3.<br>She reads the posting twice.</p>
+  <p class="sw-quote">"Is this a step up — or a step sideways with nicer words?"</p>
+  <p>She has no way to tell. She feels <span class="sw-hl-g">stuck</span> between a real signal and a shiny one.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>A better title in the wrong model can be a slower career.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Compare models on <span class="sw-hl-t">four dimensions</span>, and any role — including an offer — becomes readable.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">SCOPE</span><span class="sw-means">What work the model actually does — volume, multi-function, or specialist.</span></div>
+    <div class="sw-def"><span class="sw-term">EVALUATION</span><span class="sw-means">What gets measured — speed and accuracy, value delivered, or quality of judgment.</span></div>
+    <div class="sw-def"><span class="sw-term">MOBILITY</span><span class="sw-means">Where you can move next — across functions, into the business, or deeper into the domain.</span></div>
+    <div class="sw-def"><span class="sw-term">DEPTH</span><span class="sw-means">Which expertise compounds over time — process, analytical, or domain.</span></div>
+  </div>
+  <p>Klaudia scores the CoE role on all four lines. The move is real — narrower scope, deeper currency — and now she chooses it <span class="sw-hl-grn">with open eyes</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The full model comparison matrix</span><span class="sw-meta">THEORY &middot; 2 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">A directional guide — not a rulebook. Every organization runs this differently.</p>
 
       <div class="tl-wrap">
@@ -1433,12 +1650,36 @@
         </div>
       </div>
       <p class="table-disclaimer">Green = advantage &nbsp;·&nbsp; Amber = neutral or variable &nbsp;·&nbsp; Red = watch-out &nbsp;·&nbsp; All ratings are directional. Your organization may differ significantly.</p>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Place your current role on the four dimensions — one line each. <b>Keep it. It is your baseline for every future offer.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>The comparison shows one more thing: which skills each model pays for. <a href="#career-guide">That is your next hour, decided.</a></p></div>
     </section>
 
     <!-- SECTION 5: Career Guide -->
     <section class="section" id="career-guide">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M12 31 H17 V26 H22 V21 H27 V16 H32"/><path d="M29 16 H32 V19"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2>What this means for your career</h2>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Each model rewards a different skill currency. Name your model, then build the skill it pays for. The mapping is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your center pays for one skill.<br><em>Do you know which?</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full guidance in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-satisfied.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Ravi drafts his development plan. A generic list: Excel, communication, "leadership."</p>
+  <p class="sw-beat">He stops.<br>His center is GBS — the scorecard tracks insight, not only volume.</p>
+  <p class="sw-quote">"So the skill that gets rewarded here is analysis. Not faster typing."</p>
+  <p>He rewrites the plan around that one line. For the first time it feels like his — and he feels <span class="sw-hl-g">confident</span> presenting it.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You plan your career for the company you imagine, not the model you work in.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Each model pays a different <span class="sw-hl-t">skill currency</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">SSC</span><span class="sw-means"><b>Process discipline.</b> Accuracy, throughput, documentation quality — the fundamentals that make you reliable at scale.</span></div>
+    <div class="sw-def"><span class="sw-term">GBS</span><span class="sw-means"><b>Analytics plus partnering.</b> Turning transactions into insight and insight into stakeholder conversations.</span></div>
+    <div class="sw-def"><span class="sw-term">CoE</span><span class="sw-means"><b>Domain depth.</b> Judgment in a specialty — the knowledge that is the asset.</span></div>
+  </div>
+  <p>Ravi&rsquo;s next review opens with the skills his model actually rewards. <span class="sw-hl-grn">The plan finally points somewhere.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Career implications in depth — per model</span><span class="sw-meta">THEORY &middot; 2 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Directional takeaways based on where you work. Every organization is different — use this as orientation, not a prescription.</p>
 
       <div class="career-grid">
@@ -1484,6 +1725,10 @@
         Leadership priorities, company culture, and the maturity of your shared services organization all shape the actual experience.
         Use this as a starting frame — then learn how your specific organization works.
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Complete one sentence: "My center is X, so the skill it pays for is Y." <b>Build your next learning hour around Y.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>You know the model. Next: how the center proves its value — and how you prove yours. <a href="pillar-1-cluster-2-value-creation.html">Cluster 2: Value Creation.</a></p></div>
     </section>
 
     
