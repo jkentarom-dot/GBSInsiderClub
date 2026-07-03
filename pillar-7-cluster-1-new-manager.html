@@ -162,6 +162,114 @@ a.gloss:hover .tooltip{display:block;}
 .sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
 @media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -233,10 +341,41 @@ a.gloss:hover .tooltip{display:block;}
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">New Manager Transition</div>
     </div>
 
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#peer-to-boss"><span class="sw-av"><img src="images/cast/miguel-frustrated.webp" alt="" onerror="this.remove()">M</span><span class="sw-q">Your friends became your reports on Monday.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#delegation"><span class="sw-av"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">You still do the work because you are fastest.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#first-90"><span class="sw-av"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</span><span class="sw-q">Every move you make is being read as precedent.</span><span class="sw-go">T3 &rarr;</span></a>
+        <a class="sw-rcard" href="#emotional-intelligence"><span class="sw-av"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">Your bad meeting became the whole team&rsquo;s bad day.</span><span class="sw-go">T4 &rarr;</span></a>
+      </div>
+    </div>
+
     <section class="section" id="peer-to-boss">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14 24 A9 9 0 1 1 23 33"/><path d="M23 33 L18.6 32.4 M23 33 L21.8 28.7"/></svg></span><p class="section-eyebrow">Topic 01 · Role Transition</p></div>
       <h2>The peer-to-boss transition</h2>
-      <figure class="sw-fig"><img src="images/cast/miguel-frustrated.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Miguel led peers on Monday who were friends on Friday.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Yesterday you were one of the team. Today you lead it. Pretending nothing changed is the fastest way to fail — reset the relationships early. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Peer on Friday.<br><em>Boss on Monday.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/miguel-frustrated.webp" alt="" onerror="this.remove()">M</div><div><div class="sw-who">Miguel</div><div class="sw-role">New team lead &middot; Week 6 &middot; Manila</div></div></div>
+  <p>Week one. Miguel assigns work to the friend he had lunch with every day for a year.</p>
+  <p class="sw-beat">The friend jokes it away. The task slips.<br>Correcting him feels like betrayal. Not correcting him is failing the job.</p>
+  <p class="sw-quote">"If I act like the boss, I lose the friend. If I act like the friend, I lose the team."</p>
+  <p>He feels <span class="sw-hl-g">trapped</span> between two roles wearing one face.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You avoid the awkward reset conversation — and the ambiguity does more damage than the conversation ever could.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The transition is managed with <span class="sw-hl-t">one honest reset</span>, done early.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">NAME IT</span><span class="sw-means"><b>One conversation, each person.</b> "The relationship changes at work. I want to do this fairly and openly."</span></div>
+    <div class="sw-def"><span class="sw-term">EQUAL RULES</span><span class="sw-means"><b>Same standards for friends.</b> The team watches your closest relationships for favoritism first.</span></div>
+    <div class="sw-def"><span class="sw-term">NEW DISTANCE</span><span class="sw-means"><b>Some access ends.</b> Venting about management, sharing everything — that channel closes.</span></div>
+  </div>
+  <p>The reset talk is awkward for ten minutes. <span class="sw-hl-grn">The ambiguity it removes would have cost months.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The peer-to-boss transition in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Yesterday you were part of the team. Today you lead it. The fastest way to fail is to pretend nothing changed.</p>
       <div class="card teal">
       <div class="card-title">Navigating the peer-to-boss shift</div>
@@ -258,7 +397,11 @@ a.gloss:hover .tooltip{display:block;}
 <text x="350" y="148" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">LISTEN FIRST &middot; OBSERVE &middot; THEN ACT WITH CONTEXT</text></svg>
       <p class="sd-caption">Common traps — doing vs delegating, friend vs leader, micromanaging</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Have the reset conversation with your closest former peer. <b>Ten honest minutes this week.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Role reset. <a href="#delegation">Now stop doing your old job.</a></p></div>
+    </section>
     <div style="margin:48px 0; text-align:center;">
       <img src="images/p7c1-new-manager.webp" alt="New Manager Transition Framework — the identity shift, first 90 days, common traps, manager operating system, and the 4 Cs"
         style="width:100%; max-width:960px; border-radius:10px; border:1px solid rgba(29,106,255,0.2);">
@@ -297,7 +440,26 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="delegation">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="17" cy="16" r="3.4"/><path d="M11 31 C11 24 23 24 23 31"/><circle cx="28" cy="18" r="3"/><path d="M23 31 C23 25.5 33 25.5 33 31"/></svg></span><p class="section-eyebrow">Topic 02 · Core Skill</p></div>
       <h2>Delegation — the art of letting go</h2>
-      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter delegates outcomes, then resists the urge to hover.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>You were promoted for doing the work. The new job is making others excellent at it — and doing it yourself is now a failure mode. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">You were the best at the work.<br><em>That skill is now a trap.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>A tricky reconciliation lands. Peter knows he can do it in an hour.</p>
+  <p class="sw-beat">Teaching someone takes three hours. He does it himself. Again.<br>Six months later: his evenings are full, and nobody on the team has grown an inch.</p>
+  <p class="sw-quote">"Every task I keep is a lesson I stole."</p>
+  <p>He feels <span class="sw-hl-g">stretched</span> — by his own reflex.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>Doing it yourself feels efficient every single time — and bankrupts the team over a year.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Delegation is an investment with <span class="sw-hl-t">three rules</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">OUTCOME, NOT METHOD</span><span class="sw-means"><b>Define done, not how.</b> Their path may differ from yours. Let it.</span></div>
+    <div class="sw-def"><span class="sw-term">MATCH THE STRETCH</span><span class="sw-means"><b>Slightly above current level.</b> Too easy teaches nothing; too hard breaks trust.</span></div>
+    <div class="sw-def"><span class="sw-term">RESIST THE HOVER</span><span class="sw-means"><b>Checkpoints, not surveillance.</b> Agreed check-ins replace shoulder-watching.</span></div>
+  </div>
+  <p>The three-hour teaching investment repays weekly. <span class="sw-hl-grn">By quarter-end, the tricky reconciliation has three owners.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Delegation in depth — the letting-go framework</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">You got promoted because you were excellent at the work. Your new job is making others excellent at the work. Doing it yourself is now a failure mode.</p>
       <div class="pivot-steps"><div class="pivot-step">
       <div class="pivot-num">1</div>
@@ -335,11 +497,34 @@ a.gloss:hover .tooltip{display:block;}
 <text x="350" y="148" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">PROVIDE THESE FOUR AND YOUR TEAM WILL RUN THROUGH WALLS FOR YOU</text></svg>
       <p class="sd-caption">What your team actually needs — clarity, context, cover, coaching</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Pick one task you keep because you are fastest. <b>Delegate it with a defined outcome and one checkpoint.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Delegating buys you time. <a href="#first-90">The first 90 days decide what you buy with it.</a></p></div>
+    </section>
 <section class="section" id="first-90">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="17" cy="16" r="3.4"/><path d="M11 31 C11 24 23 24 23 31"/><circle cx="28" cy="18" r="3"/><path d="M23 31 C23 25.5 33 25.5 33 31"/></svg></span><p class="section-eyebrow">Topic 03 · Onboarding Yourself</p></div>
       <h2>The first 90 days — building credibility</h2>
-      <figure class="sw-fig"><img src="images/cast/miguel-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Miguel's first 90 days set his reputation as a lead.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>The first 90 days set the precedent for your management style, decisions, and reliability. The team is watching — design what they see. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your team is deciding<br><em>who you are as a boss.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</div><div><div class="sw-who">Miguel</div><div class="sw-role">New team lead &middot; Week 6 &middot; Manila</div></div></div>
+  <p>Day 10. Miguel realizes every small act is being read as a signal.</p>
+  <p class="sw-beat">He cancels one 1:1 — "he does not prioritize us."<br>He handles one escalation calmly — "he protects the team."<br>Nothing is neutral.</p>
+  <p class="sw-quote">"They are not watching what I say. They are watching what I repeat."</p>
+  <p>He feels <span class="sw-hl-g">observed</span> — and decides to use it.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You treat the first 90 days as survival. The team treats them as your permanent definition.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Ninety days, <span class="sw-hl-t">three phases</span>, each with one job.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">DAYS 1&ndash;30</span><span class="sw-means"><b>Listen and map.</b> 1:1 with every person. Change nothing yet.</span></div>
+    <div class="sw-def"><span class="sw-term">DAYS 31&ndash;60</span><span class="sw-means"><b>Fix one visible thing.</b> A pain the team named — solved, credited to them.</span></div>
+    <div class="sw-def"><span class="sw-term">DAYS 61&ndash;90</span><span class="sw-means"><b>Set the rhythm.</b> Your huddle, your 1:1 cadence, your escalation rules — now permanent.</span></div>
+  </div>
+  <p>At day 90 the team can predict him — <span class="sw-hl-grn">and predictability is the first name of trust</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The first 90 days in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Your team is watching closely. The first 90 days set the precedent for your management style, your decision-making, and your reliability.</p>
 <!-- SVG DIAGRAM -->
 <div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
@@ -396,11 +581,34 @@ a.gloss:hover .tooltip{display:block;}
 <text x="350" y="138" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">THE FIRST 90 DAYS SET YOUR REPUTATION FOR THE NEXT 900</text></svg>
       <p class="sd-caption">First 90 days — listen, quick wins, systems, strategic priorities</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Whatever your day count: book the missing 1:1s this week. <b>Listening is never too late to restart.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>The team reads your actions. <a href="#emotional-intelligence">They also read your mood.</a></p></div>
+    </section>
     <section class="section" id="emotional-intelligence">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="22" cy="22" r="10"/><path d="M22 22 V16"/><path d="M22 22 L27 24.5"/></svg></span><p class="section-eyebrow">Topic 04 · Self-Management</p></div>
       <h2>Self-awareness and stress management</h2>
-      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter noticed his stress leaked into his team's mood.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>A manager&rsquo;s emotional state is contagious. Managing your energy and composure is a professional skill, not a personality gift. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Your stress has an audience.<br><em>All of them report to you.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-frustrated.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>A brutal steering call ends. Peter walks back to his team, jaw tight, answers clipped.</p>
+  <p class="sw-beat">Within an hour the whole row is quiet. Two people postpone questions they needed answered today.<br>Nobody knows what happened. Everybody absorbed it.</p>
+  <p class="sw-quote">"I did not say a word about the call. I broadcast it anyway."</p>
+  <p>He feels <span class="sw-hl-g">responsible</span> for weather he did not mean to make.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You think composure is private discipline. In a lead role, it is team infrastructure.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Emotional management is <span class="sw-hl-t">a buffer function</span> — pressure comes down through you, filtered.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">NOTICE</span><span class="sw-means"><b>Know your leak signals.</b> Clipped answers, closed door, skipped greetings.</span></div>
+    <div class="sw-def"><span class="sw-term">BUFFER</span><span class="sw-means"><b>Absorb, then translate.</b> The team gets the information, not the impact.</span></div>
+    <div class="sw-def"><span class="sw-term">RESET</span><span class="sw-means"><b>A deliberate gap.</b> Ten minutes between the hard call and the team floor.</span></div>
+  </div>
+  <p>He builds the ten-minute reset into his calendar. <span class="sw-hl-grn">The team gets the news without the storm.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Self-awareness and stress management in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Your emotional state is now contagious. When the manager is stressed, the team feels it. Managing your energy and composure is a professional skill, not a personal luxury.</p>
 <div class="media-row">
       <div class="card gold">
@@ -450,6 +658,10 @@ a.gloss:hover .tooltip{display:block;}
   </figure>
 </div>
 
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Identify your top stress leak signal. <b>Tell one trusted person to flag it when they see it.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>You steady. <a href="pillar-7-cluster-2-team-operations.html">Cluster 2: now run the machine.</a></p></div>
     </section>
     
 <div style="margin:24px 0 32px; padding:24px; background:rgba(232,184,0,0.06); border-left:3px solid var(--gold); border-radius:0 10px 10px 0;">
