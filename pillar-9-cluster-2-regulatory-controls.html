@@ -162,6 +162,114 @@ a.gloss:hover .tooltip{display:block;}
 .sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
 @media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -235,10 +343,41 @@ a.gloss:hover .tooltip{display:block;}
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">Regulatory Control Framework</div>
     </div>
 
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#sod"><span class="sw-av"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">Access accumulated into a combination nobody approved.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#gdpr-sox"><span class="sw-av"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">You follow the rules but cannot name which rule is which.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#aml"><span class="sw-av"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</span><span class="sw-q">A screening alert, a pushy deadline, and your name on the clearance.</span><span class="sw-go">T3 &rarr;</span></a>
+        <a class="sw-rcard" href="#retention"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">You keep everything forever. That is also a violation.</span><span class="sw-go">T4 &rarr;</span></a>
+      </div>
+    </div>
+
     <section class="section" id="sod">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><rect x="13" y="21" width="18" height="12" rx="2"/><path d="M17 21 V17 A5 5 0 0 1 27 17 V21"/><circle cx="22" cy="27" r="1.6"/></svg></span><p class="section-eyebrow">Topic 01 · Access Controls</p></div>
       <h2>Segregation of Duties and toxic combinations</h2>
-      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter hunts for access combinations no one person should hold.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Toxic access combinations — create plus approve, vendor plus payment — are findable before auditors find them. Review access, not intentions. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Nobody plans the toxic combination.<br><em>It accumulates.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>Access review season. Peter checks his team&rsquo;s roles line by line.</p>
+  <p class="sw-beat">One analyst, through two role changes and one coverage emergency, can now create vendors and approve payments to them.<br>Nobody decided that. It grew.</p>
+  <p class="sw-quote">"Every toxic combination has an innocent history."</p>
+  <p>He feels <span class="sw-hl-g">uneasy</span> — and glad he looked before an auditor did.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You trust that access matches roles. Access accumulates; roles change; nobody subtracts.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>SoD review hunts <span class="sw-hl-t">combinations</span>, not individuals.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">THE PAIRS</span><span class="sw-means"><b>Known toxic combos.</b> Create + approve, vendor master + payment run, order + goods receipt.</span></div>
+    <div class="sw-def"><span class="sw-term">THE DRIFT</span><span class="sw-means"><b>How they form.</b> Role changes, coverage, "temporary" access that never expired.</span></div>
+    <div class="sw-def"><span class="sw-term">THE REVIEW</span><span class="sw-means"><b>Quarterly subtraction.</b> Finding it yourself is a control working; an auditor finding it is a finding.</span></div>
+  </div>
+  <p>The combination is split the same week — documented as self-identified. <span class="sw-hl-grn">In audit language, that is the best sentence there is.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">SoD and toxic combinations in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">No single person should be able to create a vendor, enter an invoice, approve the payment, and execute the bank transfer. <strong style="color:var(--gold)">SoD</strong> prevents fraud by splitting critical actions across different individuals.</p>
       <div class="card teal">
       <div class="card-title">Common SoD conflicts in GBS finance</div>
@@ -270,11 +409,34 @@ a.gloss:hover .tooltip{display:block;}
 <text x="350" y="164" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">YOU ARE THE FIRST LINE &middot; CONTROLS START WITH YOU</text></svg>
       <p class="sd-caption">Three lines of defense — operations, risk & compliance, internal audit</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Review your own access for one toxic pair. <b>Found one? Report it — self-found counts in your favor.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Access is one rulebook. <a href="#gdpr-sox">Two bigger ones govern the data and the numbers.</a></p></div>
+    </section>
 <section class="section" id="gdpr-sox">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 V31"/><path d="M16 31 H28"/><path d="M13.5 17 H30.5"/><path d="M13.5 17 L11.5 22"/><path d="M13.5 17 L15.5 22"/><path d="M11 22 A2.5 2.5 0 0 0 16 22"/><path d="M30.5 17 L28.5 22"/><path d="M30.5 17 L32.5 22"/><path d="M28 22 A2.5 2.5 0 0 0 33 22"/><circle cx="22" cy="13" r="1.6"/></svg></span><p class="section-eyebrow">Topic 02 · Regulatory Frameworks</p></div>
       <h2>GDPR and SOX — the two compliance pillars</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia's controls answer to both GDPR and SOX.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>GDPR protects personal data; SOX protects financial reporting integrity. Different laws, different logic — your controls serve both. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Two rulebooks on your desk.<br><em>They are not the same book.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>An auditor asks Klaudia which of her controls are SOX-relevant. She points at the GDPR training certificate.</p>
+  <p class="sw-beat">Wrong book. One protects people&rsquo;s data; the other protects investors&rsquo; numbers.<br>Her four-eyes check serves SOX. Her data-retention discipline serves GDPR. She had never sorted which was which.</p>
+  <p class="sw-quote">"I follow both. I just could not name which rule I was serving."</p>
+  <p>She feels <span class="sw-hl-g">clearer</span> after one sorting exercise.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You lump all compliance into one blur — and cannot explain your own controls when asked.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Two regimes, <span class="sw-hl-t">two different protections</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">GDPR</span><span class="sw-means"><b>Protects people.</b> Personal data: minimization, consent basis, retention limits, breach duties.</span></div>
+    <div class="sw-def"><span class="sw-term">SOX</span><span class="sw-means"><b>Protects the numbers.</b> Financial reporting: access controls, approvals, evidence, change management.</span></div>
+    <div class="sw-def"><span class="sw-term">YOUR MAP</span><span class="sw-means"><b>Sort your controls once.</b> Each daily control serves one regime, sometimes both — know which.</span></div>
+  </div>
+  <p>Her control list gains two columns: GDPR, SOX. <span class="sw-hl-grn">The next audit question gets a ten-second answer.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">GDPR and SOX in depth</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">GDPR governs how you handle personal data. <strong style="color:var(--gold)">SOX</strong> governs the accuracy and integrity of financial reporting. Both carry severe consequences for violations.</p>
 <!-- SVG DIAGRAM -->
 <div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
@@ -333,11 +495,34 @@ a.gloss:hover .tooltip{display:block;}
 <text x="350" y="142" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">THE GLOBAL STANDARD FOR INTERNAL CONTROLS</text></svg>
       <p class="sd-caption">COSO framework — foundation of SOX compliance in GBS</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Take your three main controls. <b>Label each: GDPR, SOX, or both.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Some transactions face a third rulebook. <a href="#aml">The one with sanctions lists.</a></p></div>
+    </section>
 <section class="section" id="aml">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 12 L31 16 V22.5 C31 27.5 27 30.8 22 32.6 C17 30.8 13 27.5 13 22.5 V16 Z"/><path d="M17.5 22 L20.8 25.2 L27 19"/></svg></span><p class="section-eyebrow">Topic 03 · Financial Crime</p></div>
       <h2>AML and sanctions screening basics</h2>
-      <figure class="sw-fig"><img src="images/cast/amara-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara screens new customers before any order moves.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>AML and sanctions screening block transactions with prohibited parties. In GBS, the alert queue is where the law meets your day. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">A name matches a list.<br><em>Your next click is regulated.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>A new customer setup hits a screening alert on Amara&rsquo;s queue. Partial name match, sanctions list.</p>
+  <p class="sw-beat">The sales team pushes: "It is obviously a false positive, just clear it."<br>Amara works the protocol instead: secondary identifiers, documentation, escalation to compliance. Cleared properly — in hours, not seconds.</p>
+  <p class="sw-quote">"False positive is a conclusion, not a starting assumption."</p>
+  <p>She feels <span class="sw-hl-g">firm</span> under pressure that had a deadline attached.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You treat screening alerts as friction to clear fast — and inherit personal exposure with every shortcut.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Alert handling is <span class="sw-hl-t">protocol over pressure</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">VERIFY</span><span class="sw-means"><b>Secondary identifiers.</b> Dates, addresses, registration numbers — match or clear on evidence.</span></div>
+    <div class="sw-def"><span class="sw-term">DOCUMENT</span><span class="sw-means"><b>Every disposition recorded.</b> The trail is the protection — yours and the company&rsquo;s.</span></div>
+    <div class="sw-def"><span class="sw-term">ESCALATE</span><span class="sw-means"><b>Doubt goes to compliance.</b> Speed pressure is never a valid clearing criterion.</span></div>
+  </div>
+  <p>The match proves false — on evidence, on record. <span class="sw-hl-grn">The pressure evaporates; the paper trail stays.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">AML and sanctions screening in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Anti-Money Laundering and sanctions compliance are not just for banks. GBS centers processing payments, onboarding vendors, or managing customer data have screening obligations.</p>
       <div class="media-row">
       <div class="card teal">
@@ -392,6 +577,10 @@ a.gloss:hover .tooltip{display:block;}
       </figure>
       </div>
 
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Know your escalation path for a screening doubt. <b>Name and channel, before you need them.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>What you keep matters as much as what you block. <a href="#retention">Retention has rules too.</a></p></div>
     </section>
 
     <!-- Self-Check -->
@@ -422,7 +611,26 @@ a.gloss:hover .tooltip{display:block;}
     <section class="section" id="retention">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 15 V32"/><path d="M22 15 C19 13 14 13 12 14 V31 C14 30 19 30 22 32 C25 30 30 30 32 31 V14 C30 13 25 13 22 15"/></svg></span><p class="section-eyebrow">Topic 04 · Records Management</p></div>
       <h2>Document retention and archiving policies</h2>
-      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi keeps records exactly as long as policy demands.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Records have legal lifespans — keeping too short breaks the law, keeping too long breaks GDPR. The schedule decides, not habit. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Keep everything forever?<br><em>That is also a violation.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Ravi hoards everything — every file, every email, "just in case." A colleague deletes freely to keep folders clean.</p>
+  <p class="sw-beat">The records team explains: both habits are violations. Invoices carry statutory minimums; personal data carries GDPR maximums.<br>The lifespan is set by a schedule, not by personality.</p>
+  <p class="sw-quote">"There is a date for keeping and a date for deleting. Neither is mine to choose."</p>
+  <p>He feels <span class="sw-hl-g">relieved</span> — the rule replaces the guesswork.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You retain by instinct — hoarder or cleaner — when both instincts violate a schedule that already exists.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Retention runs on <span class="sw-hl-t">three dates</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">MINIMUM</span><span class="sw-means"><b>Statutory keep-until.</b> Financial records: often 7&ndash;10 years by law.</span></div>
+    <div class="sw-def"><span class="sw-term">MAXIMUM</span><span class="sw-means"><b>GDPR delete-by.</b> Personal data past its purpose must go.</span></div>
+    <div class="sw-def"><span class="sw-term">THE SCHEDULE</span><span class="sw-means"><b>Your org&rsquo;s retention policy.</b> Per document type — look it up instead of guessing.</span></div>
+  </div>
+  <p>Ravi checks the schedule once and labels his folders by class. <span class="sw-hl-grn">Keeping and deleting both become compliance instead of personality.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Records retention in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p class="section-hook">Keeping documents too long creates liability. Deleting them too early creates compliance violations. Retention policies define the rules for every document type.</p>
       <div class="card teal">
       <div class="card-title">Retention period guidance by category</div>
@@ -453,7 +661,11 @@ a.gloss:hover .tooltip{display:block;}
 <text x="350" y="138" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="0.06em">CONTROLS PROTECT YOU AS MUCH AS THE COMPANY</text></svg>
       <p class="sd-caption">Your role — approvals, reconciliations, documentation, compliance</p>
     </div>
-</section>
+
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Find your retention schedule and look up one document type you handle. <b>Note both dates.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>The classic rules covered. <a href="pillar-9-cluster-3-emerging-risk.html">Cluster 3: the risks still being written.</a></p></div>
+    </section>
     
 <div style="margin:24px 0 32px; padding:24px; background:rgba(232,184,0,0.06); border-left:3px solid var(--gold); border-radius:0 10px 10px 0;">
   <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--gold); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:12px;">PRACTITIONER'S LENS</div>
