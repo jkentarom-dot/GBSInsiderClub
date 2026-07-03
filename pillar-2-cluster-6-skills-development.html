@@ -144,6 +144,114 @@
 .sw-fig img{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .sw-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;color:var(--text-3);margin-top:8px;letter-spacing:.02em}
 @media(max-width:640px){.sw-fig{width:92px;margin-left:14px}.sw-fig img{width:76px;height:76px}}
+
+/* --- sitewriter anatomy (problem-first rewrite) --- */
+.sw-tldr{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:16px 20px;margin:18px 0 26px}
+.sw-tldr .sw-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--sky);white-space:nowrap;padding-top:3px}
+.sw-tldr p{color:var(--text-2);margin:0}
+.sw-tldr strong{color:var(--text);font-weight:500}
+h3.sw-hook{font-weight:300;font-size:28px;letter-spacing:-0.6px;color:var(--text);line-height:1.3;margin:0 0 6px}
+h3.sw-hook em{font-style:normal;color:var(--gold)}
+.sw-hook-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:26px}
+.sw-sec-label{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+.sw-sec-label .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-sec-label .sw-ic svg{width:16px;height:16px}
+.sw-sec-label span{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.sw-lbl-problem .sw-ic{border-color:var(--gold)}.sw-lbl-problem span{color:var(--gold)}
+.sw-lbl-fix .sw-ic{border-color:var(--green)}.sw-lbl-fix span{color:var(--green)}
+.sw-scene,.sw-fix{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:24px 26px;position:relative}
+.sw-scene::before,.sw-fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px}
+.sw-scene::before{background:var(--gold)}.sw-fix::before{background:var(--green)}
+.sw-scene p,.sw-fix p{margin:0 0 14px;max-width:68ch}
+.sw-scene p:last-child,.sw-fix p:last-child{margin-bottom:0}
+.sw-scene-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sw-avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:30px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(0,0,0,.35)}@media(max-width:640px){.sw-avatar{width:72px;height:72px}}
+.sw-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-scene-head .sw-who{font-size:17px;color:var(--text);font-weight:500}
+.sw-scene-head .sw-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.sw-beat{color:var(--text);font-weight:500}
+.sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
+.sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-grn{color:var(--green);font-weight:500}
+.sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
+.sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-trap .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
+.sw-deflist{margin:16px 0;display:grid;gap:10px}
+.sw-def{display:flex;gap:12px;align-items:baseline}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-means{color:var(--text-2)}
+.sw-def .sw-means b{color:var(--text);font-weight:500}
+.sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.sw-split2 .sw-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.sw-split2 .sw-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+.sw-split2 .sw-col.sw-a h4{color:var(--teal)}.sw-split2 .sw-col.sw-b h4{color:var(--sky)}
+.sw-split2 .sw-col ul{list-style:none;margin:0;padding:0}
+.sw-split2 .sw-col li{padding:4px 0;font-size:14px;color:var(--text-2)}
+.sw-split2 .sw-col li b{color:var(--text);font-weight:500}
+.sw-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.sw-dcell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 15px;display:flex;gap:12px}
+.sw-dcell .sw-ltr{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-dcell .sw-nm{color:var(--text);font-weight:500;font-size:13px}
+.sw-dcell .sw-ex{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-dcell.sw-hit{border-color:rgba(232,184,0,.5)}
+.sw-dcell.sw-hit .sw-ltr{border-color:var(--gold);color:var(--gold)}
+.sw-phases{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-phase{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-phase .sw-pl{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.sw-phase .sw-pn{color:var(--text);font-weight:500;font-size:13px;margin-bottom:3px}
+.sw-phase .sw-pd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-phase.sw-lit{border-color:rgba(52,211,153,.5)}
+.sw-phase.sw-lit .sw-pl{border-color:var(--green);color:var(--green)}
+.sw-whys{margin:20px 0 8px;display:flex;flex-direction:column}
+.sw-why{display:flex;gap:14px;align-items:flex-start}
+.sw-why .sw-n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-why .sw-q{font-size:13px;color:var(--text-3)}
+.sw-why .sw-a{color:var(--text);font-weight:500;font-size:14px}
+.sw-why-line{width:26px;display:flex;justify-content:center}
+.sw-why-line span{width:1.5px;height:16px;background:var(--border-2)}
+.sw-why.sw-root .sw-n{border-color:var(--gold);color:var(--gold)}
+.sw-why.sw-root .sw-a{color:var(--gold)}
+.sw-root-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-left:8px}
+.sw-belts{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.sw-belt{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px}
+.sw-belt .sw-bn{font-weight:500;font-size:13px;margin-bottom:4px}
+.sw-belt .sw-bd{color:var(--text-3);font-size:12px;line-height:1.5}
+.sw-belt.sw-y .sw-bn{color:var(--gold)}.sw-belt.sw-g .sw-bn{color:var(--green)}.sw-belt.sw-bb .sw-bn{color:var(--text)}.sw-belt.sw-m .sw-bn{color:var(--purple)}
+.sw-jtake{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.2);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:20px 0 6px}
+.sw-jtake .sw-j{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-jtake .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.sw-jtake p{font-style:italic;color:var(--text-2);max-width:68ch;margin:0}
+details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
+details.sw-theory summary::-webkit-details-marker{display:none}
+details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
+details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
+details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
+.sw-monday{margin-top:28px;background:var(--surface-3);border:1px solid var(--border-2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.sw-monday .sw-ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-monday .sw-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:6px}
+.sw-monday p{color:var(--text);max-width:66ch;margin:0}
+.sw-monday b{color:var(--gold);font-weight:500}
+.sw-bridge{margin-top:24px;display:flex;gap:10px;align-items:baseline}
+.sw-bridge .sw-arrow{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.sw-bridge p{color:var(--text-3);font-size:14px;margin:0}
+.sw-bridge a{color:var(--teal);text-decoration:none;font-weight:500}
+.sw-router{margin:0 0 56px}
+.sw-router h2{margin-bottom:4px}
+.sw-router .sw-rsub{color:var(--text-3);font-size:14px;margin-bottom:18px}
+.sw-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px}
+.sw-rcard{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:15px 17px;text-decoration:none;transition:border-color .15s}
+.sw-rcard:hover{border-color:var(--teal)}
+.sw-rcard .sw-av{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500}
+.sw-rcard .sw-av img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-rcard .sw-q{color:var(--text);font-size:14px;line-height:1.5}
+.sw-rcard .sw-go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-left:auto;white-space:nowrap}
+@media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
+
+
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -227,10 +335,42 @@
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:16px;">The Skill Development Loop</div>
     </div>
 
+    
+    <div class="sw-router">
+      <h2>Sound familiar?</h2>
+      <div class="sw-rsub">Start with your problem. Each one routes to the topic that solves it.</div>
+      <div class="sw-rgrid">
+        <a class="sw-rcard" href="#why-skills"><span class="sw-av"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">Promotions follow skills now, not years served.</span><span class="sw-go">T1 &rarr;</span></a>
+        <a class="sw-rcard" href="#map-assess"><span class="sw-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="sw-q">You cannot name what your role actually rewards.</span><span class="sw-go">T2 &rarr;</span></a>
+        <a class="sw-rcard" href="#strengths"><span class="sw-av"><img src="images/cast/amara-satisfied.webp" alt="" onerror="this.remove()">A</span><span class="sw-q">You keep grinding weaknesses. Growth stays slow.</span><span class="sw-go">T3 &rarr;</span></a>
+        <a class="sw-rcard" href="#depth"><span class="sw-av"><img src="images/cast/klaudia-frustrated.webp" alt="" onerror="this.remove()">K</span><span class="sw-q">Useful at everything, known for nothing.</span><span class="sw-go">T4 &rarr;</span></a>
+        <a class="sw-rcard" href="#mentors"><span class="sw-av"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</span><span class="sw-q">The fastest accelerator is not a course.</span><span class="sw-go">T5 &rarr;</span></a>
+      </div>
+    </div>
+
     <section class="section" id="why-skills">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M14 30 L20 22 L25 26 L31 16"/><circle cx="31" cy="16" r="1.6" fill="#e8b800"/></svg></span><div class="section-eyebrow">Topic 01</div></div>
       <h2>Why your skills decide your next move</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia's next role depends on skills she builds now.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Careers moved from tenure-based to skills-first. What you can demonstrate outweighs years served — and learning speed compounds. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Years served used to count.<br><em>Skills demonstrated count now.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>Internal posting. Klaudia, year 3, applies alongside a year-6 colleague.</p>
+  <p class="sw-beat">The role goes to her: the dashboards she built, the documented process work.<br>Tenure lost to evidence.</p>
+  <p class="sw-quote">"They did not count years. They counted what we could show."</p>
+  <p>She feels <span class="sw-hl-g">affirmed</span> — and a little warned. The same rule will judge her next move.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You wait for tenure to promote you while others assemble proof.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Three shifts define the <span class="sw-hl-t">skills-first</span> market.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">SKILLS-FIRST</span><span class="sw-means"><b>Mobility follows demonstrated ability.</b> Internal and external hiring both.</span></div>
+    <div class="sw-def"><span class="sw-term">EVIDENCE</span><span class="sw-means"><b>Artifacts beat adjectives.</b> A dashboard outweighs "strong analytical skills."</span></div>
+    <div class="sw-def"><span class="sw-term">AGILITY</span><span class="sw-means"><b>Learning speed is the meta-skill.</b> How fast you pick up the next thing compounds.</span></div>
+  </div>
+  <p>Her brag sheet becomes <span class="sw-hl-grn">the career document that actually matters</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The skills-first shift in depth — with sources</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p>Promotions used to follow tenure. Now they follow demonstrated skill. Hiring and internal mobility are going skills-first &mdash; what you can show you can do matters more than how long you have done it, and learning agility (how fast you pick up the next thing) is valued over years in a legacy system. That is good news: it means you can move faster than your years suggest, if you build the right skills on purpose.</p>
       <p>Skills come in two kinds, and you need both:</p>
       <ul>
@@ -259,12 +399,35 @@
         <text x="300" y="152" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#38bdf8">their value</text>
       </svg>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>List three skills you can prove with an artifact. <b>No artifact? That is your gap.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Skills-first needs a target. <a href="#map-assess">Name what your role rewards.</a></p></div>
     </section>
 
     <section class="section" id="map-assess">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="20" cy="20" r="7"/><path d="M25 25 L31 31"/></svg></span><div class="section-eyebrow">Topic 02</div></div>
       <h2>Know what your role needs &mdash; and where you stand</h2>
-      <figure class="sw-fig"><img src="images/cast/ravi-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Ravi mapped his role's demands against his own gaps.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Development starts with two questions: what does my role reward, and where am I against it. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">You cannot develop<br><em>what you have not named.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</div><div><div class="sw-who">Ravi</div><div class="sw-role">AP analyst &middot; Month 8 &middot; Pune</div></div></div>
+  <p>Ravi&rsquo;s development goal reads "improve Excel."</p>
+  <p class="sw-quote">"Improve it against what? For what?"</p>
+  <p class="sw-beat">His team lead&rsquo;s question has no answer — just a vague sense of not-enough.<br>So he reads the job profile one level up as a skills list. Six named items. Two he owns.</p>
+  <p>Now he feels <span class="sw-hl-g">focused</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>Vague goals produce vague growth. Name the target skill or stay generally busy.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Two honest questions do <span class="sw-hl-t">most of the work</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">MAP</span><span class="sw-means"><b>What does the role reward?</b> Read the level-above profile as a skills list.</span></div>
+    <div class="sw-def"><span class="sw-term">ASSESS</span><span class="sw-means"><b>Where am I against it?</b> Honest rating, item by item.</span></div>
+    <div class="sw-def"><span class="sw-term">GAP</span><span class="sw-means"><b>Pick one or two.</b> The ones that move the needle — not all six at once.</span></div>
+  </div>
+  <p>"Improve Excel" becomes "build one automated reconciliation." <span class="sw-hl-grn">Progress becomes checkable.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Mapping and self-assessment in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p>You cannot develop what you have not named. Two honest questions do most of the work: <strong>what does my role actually reward</strong>, and <strong>where am I against that</strong>?</p>
       <p><strong>Map what the role rewards.</strong> Read your role profile or the job description for the level above as a skills list, not a wish list. Watch your top performers &mdash; what do the people who get promoted out of this role do that you do not? And ask your manager the direct question: what separates a strong performer at the next level from an average one?</p>
       <p><strong>Find where you stand.</strong> Rate yourself honestly against that list. Then use two signals most people ignore:</p>
@@ -273,12 +436,35 @@
         <li><strong>Outside feedback.</strong> Your own read is biased. Ask one person you trust where they think you are strongest and where you hold yourself back. One honest answer beats ten self-ratings.</li>
       </ul>
       <p>Keep it simple &mdash; a short table is enough to start: the skill, whether your role rewards it, your honest level, and whether it gives or drains energy. That single page tells you where to aim before you spend a minute developing anything.</p>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Read the job profile one level up. Extract the skills list. <b>Rate yourself honestly against it.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Gaps named. <a href="#strengths">Now the counterintuitive part: do not start with the weakest.</a></p></div>
     </section>
 
     <section class="section" id="strengths">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M22 13 l2.5 5.5 6 .6 -4.5 4 1.3 5.9 -5.3 -3.1 -5.3 3.1 1.3 -5.9 -4.5 -4 6 -.6 z"/></svg></span><div class="section-eyebrow">Topic 03</div></div>
       <h2>Play to your strengths &mdash; the modern view</h2>
-      <figure class="sw-fig"><img src="images/cast/amara-satisfied.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Amara grows fastest where she is already strong.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Amplify strengths toward excellent, hold weaknesses at good enough, hard-fix only true blockers. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Grinding weaknesses feels virtuous.<br><em>Amplifying strengths works.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/amara-satisfied.webp" alt="" onerror="this.remove()">A</div><div><div class="sw-who">Amara</div><div class="sw-role">O2C analyst &middot; Year 1 &middot; Lagos</div></div></div>
+  <p>Amara&rsquo;s review says: improve presentations.</p>
+  <p class="sw-beat">She spends three months on it. Progress: modest. Energy: gone.<br>Meanwhile her real strength — spotting root causes in messy data — sits unused.</p>
+  <p class="sw-quote">"Grow where you are already strong."</p>
+  <p>Her mentor flips the plan. She feels <span class="sw-hl-g">energized</span> for the first time in a quarter.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You invest where you are weakest and wonder why growth is slow and joyless.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The evidence points one way: <span class="sw-hl-t">strengths compound</span>. Three moves.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">AMPLIFY</span><span class="sw-means"><b>Push strengths toward excellent.</b> That is where your ceiling is highest.</span></div>
+    <div class="sw-def"><span class="sw-term">MAINTAIN</span><span class="sw-means"><b>Hold weaknesses at good enough.</b> Passable presentations, not keynote level.</span></div>
+    <div class="sw-def"><span class="sw-term">FIX</span><span class="sw-means"><b>Grind only true blockers.</b> A weakness that gates your next role gets the effort.</span></div>
+  </div>
+  <p>Six months later she is the person pulled into every quality investigation — <span class="sw-hl-grn">known for the strength, not the gap</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Strengths-based development in depth — the research</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+
       <p>The old advice was to hunt down your weaknesses and grind on them. The better-evidenced model is the opposite. Decades of research point the same way: amplify the strengths you already have toward <em>excellent</em>, hold most weaknesses at <em>good enough</em>, and only hard-fix a weakness if it is actively derailing you.</p>
       <p>The reason is simple. Effort spent on a weakness moves you from poor to average; it rarely reaches good, and almost never reaches exceptional. The same effort spent on a genuine strength can take you to a level few people in your function reach &mdash; and strengths-based development raises performance by roughly 8 to 18 percent on average, while people who use their strengths daily are far more engaged.</p>
       <div style="margin:24px 0; padding:22px 20px 14px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
@@ -300,12 +486,35 @@
         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--gold); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">The honest version</div>
         <p style="margin:0; color:var(--text-2);">Get genuinely excellent at two or three things you are already good at. Keep the rest good enough. Only hard-fix a weakness if it is holding you back. Average everywhere beats no one &mdash; exceptional at a few gets you promoted.</p>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Name your one strongest skill. <b>Plan one visible way to use it this month.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Strength chosen. <a href="#depth">Now give it a shape: the T.</a></p></div>
     </section>
 
     <section class="section" id="depth">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><path d="M13 16 H31"/><path d="M22 16 V31"/></svg></span><div class="section-eyebrow">Topic 04</div></div>
       <h2>Go deep on a few &mdash; the T-shaped professional</h2>
-      <figure class="sw-fig"><img src="images/cast/klaudia-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Klaudia goes deep on two skills, broad on the rest.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>T-shaped wins: broad competence across the operation plus one or two deep spikes. Breadth keeps you useful; depth makes you valuable. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">Useful at everything.<br><em>Known for nothing.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-frustrated.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Year 3 &middot; Krakow</div></div></div>
+  <p>Klaudia can cover any desk on the team. Managers love it.</p>
+  <p class="sw-beat">Promotion round: the automation specialist advances. The reporting expert advances.<br>Klaudia — the universal backup — stays.</p>
+  <p class="sw-quote">"Everyone needs me. Nobody names me for anything."</p>
+  <p>She feels <span class="sw-hl-g">overlooked</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>Pure breadth makes you indispensable in place — and invisible in promotion rounds.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The professionals who advance are <span class="sw-hl-t">T-shaped</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">BASE</span><span class="sw-means"><b>Broad competence.</b> You can work across the process and speak every desk&rsquo;s language.</span></div>
+    <div class="sw-def"><span class="sw-term">SPIKE</span><span class="sw-means"><b>One or two areas of real depth.</b> Where you are genuinely excellent.</span></div>
+    <div class="sw-def"><span class="sw-term">NAME</span><span class="sw-means"><b>Be known for the spike.</b> Deliberately, publicly, repeatedly.</span></div>
+  </div>
+  <p>She keeps the breadth, builds one spike — process automation — and attaches her name to it. <span class="sw-hl-grn">The next round reads differently.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The T-shaped professional in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p>Breadth keeps you useful. Depth makes you valuable. The professionals who stand out are <strong>T-shaped</strong>: a broad base of competence across the whole operation, plus one or two deep spikes where they are genuinely excellent. The base means you can work across the process and talk to anyone. The spike means there is a reason they call <em>you</em>.</p>
       <p>Two things make the spike pay off:</p>
       <ul>
@@ -322,12 +531,35 @@
         <text x="260" y="276" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#aeb9c9">where you are genuinely excellent</text>
       </svg>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Choose your spike: the one skill you want your name attached to. <b>Say it out loud to your team lead.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>One accelerator is faster than any course. <a href="#mentors">Proximity.</a></p></div>
     </section>
 
     <section class="section" id="mentors">
       <div class="topic-head"><span class="topic-ico"><svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#e8b800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="9" fill="#141922" stroke="#2a3347" stroke-width="1"/><circle cx="16" cy="18" r="3.4"/><circle cx="28" cy="18" r="3.4"/><path d="M11 31 c0 -4 3 -6 5 -6 s5 2 5 6"/><path d="M23 31 c0 -4 3 -6 5 -6 s5 2 5 6"/></svg></span><div class="section-eyebrow">Topic 05</div></div>
       <h2>Role models and mentors</h2>
-      <figure class="sw-fig"><img src="images/cast/peter-neutral.webp" alt="" loading="lazy" onerror="this.parentElement.remove()"><figcaption>Peter found a mentor two levels up. It changed his view.</figcaption></figure>
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>Proximity to better people accelerates faster than courses. Find role models; use the mentoring program if one exists. The model is in <strong style="color:var(--green)">THE FIX</strong>.</p></div>
+      <h3 class="sw-hook">The fastest accelerator<br><em>is not a course.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; full theory in the expandable</div>
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</div><div><div class="sw-who">Peter</div><div class="sw-role">Team lead &middot; Year 2 &middot; Budapest</div></div></div>
+  <p>Peter watches a director run a brutal steering meeting with total calm.</p>
+  <p class="sw-beat">Afterward he asks: how did you decide when to concede?<br>Twenty minutes of answers worth more than a training day.<br>He asks for a monthly slot. He gets it.</p>
+  <p class="sw-quote">"Nobody good was ever offended by being asked how they do it."</p>
+  <p>He feels <span class="sw-hl-g">motivated</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You buy courses for what proximity teaches free.</p></div></div></div>
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>Three forms of proximity, <span class="sw-hl-t">ranked by effort</span>.</p>
+  <div class="sw-deflist">
+    <div class="sw-def"><span class="sw-term">ROLE MODELS</span><span class="sw-means"><b>Watch how the best operate.</b> Meetings, emails, decisions — study them like material.</span></div>
+    <div class="sw-def"><span class="sw-term">MENTOR</span><span class="sw-means"><b>A standing slot with someone two levels up.</b> One specific question per session.</span></div>
+    <div class="sw-def"><span class="sw-term">PROGRAM</span><span class="sw-means"><b>Use the formal one if it exists.</b> It removes the awkward ask.</span></div>
+  </div>
+  <p>One monthly half hour <span class="sw-hl-grn">reshapes how he runs his own meetings within a quarter</span>.</p>
+  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Role models and mentoring in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+
       <p>The fastest accelerator is not a course. It is proximity to people who are better than you. Actively seek out role models in your job, and find a mentor.</p>
       <ul>
         <li><strong>Use the program if there is one.</strong> If your organization runs a mentoring program, use it &mdash; it removes the awkwardness of asking.</li>
@@ -358,6 +590,10 @@
         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Go deeper in the paths</div>
         <p style="margin:0; color:var(--text-2);">This free guide teaches you how to think about your skills. The <a href="paid-tier.html" style="color:var(--teal); text-decoration:none;">career paths</a> hand you the role-by-role skill maps, the self-assessment templates, and a 90-day development plan built for your exact level.</p>
       </div>
+    
+</div></details></div>
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>Identify one person whose skills you want. <b>Ask them one specific how-question this week.</b></p></div></div>
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>Pillar 2 complete. The work runs well — now the tools take over. <a href="pillar-3-digital-technology.html">Pillar 3: Digital &amp; Technology.</a></p></div>
     </section>
 
     <section class="section" id="glossary">
