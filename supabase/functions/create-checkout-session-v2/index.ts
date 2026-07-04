@@ -11,11 +11,11 @@ const CORS = {
   "Access-Control-Allow-Methods": "POST, OPTIONS"
 };
 
-// USD cents. t1 ~55% off, t2 ~35% off, t3 full. Fail-safe default is full price.
+// USD cents. Flat single price ($45) for all tiers. Fail-safe default is $45.
 const TIER_AMOUNTS: Record<string, number> = {
   t1: 4500,
-  t2: 6400,
-  t3: 9900
+  t2: 4500,
+  t3: 4500
 };
 
 Deno.serve(async (req) => {

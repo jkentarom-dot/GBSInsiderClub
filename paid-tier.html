@@ -468,8 +468,8 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
   <!-- ============ ROI CALCULATOR ============ -->
   <section class="section" id="roi">
     <span class="eyebrow eyebrow-gold">The Investment Case</span>
-    <h2>What does <span class="gbs-price-tok">$99</span> actually buy? Run your numbers.</h2>
-    <p class="section-intro">A salary increase compounds. Every future raise, bonus, and job offer builds on your new base. Pick your market, enter your salary, and see what even a modest increase is worth over five years against a one-time <span class="gbs-price-tok">$99</span>.</p>
+    <h2>What does <span class="gbs-price-tok">$45</span> actually buy? Run your numbers.</h2>
+    <p class="section-intro">A salary increase compounds. Every future raise, bonus, and job offer builds on your new base. Pick your market, enter your salary, and see what even a modest increase is worth over five years against a one-time <span class="gbs-price-tok">$45</span>.</p>
 
     <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:32px;">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:28px;">
@@ -509,7 +509,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
           <div id="roi-monthly" style="font-size:26px;font-weight:600;color:var(--text);">&mdash;</div>
         </div>
         <div style="background:var(--surface);border:1px solid rgba(232,184,0,0.35);border-radius:10px;padding:20px 22px;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Payback on <span class="gbs-price-tok">$99</span></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Payback on <span class="gbs-price-tok">$45</span></div>
           <div id="roi-payback" style="font-size:26px;font-weight:600;color:var(--gold);">&mdash;</div>
         </div>
         <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;">
@@ -621,7 +621,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
     <div class="price-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
       <div class="price-card featured">
         <div class="tier-name">Full Access</div>
-        <div class="price" id="price-display">$99</div>
+        <div class="price" id="price-display">$45</div>
         <div class="price-meta" id="price-meta">One-time / lifetime access</div>
         <ul>
           <li>All <strong style="color:var(--gold)">learning paths</strong> — current and future updates included</li>
@@ -629,7 +629,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
           <li>Career Chessboard with re-assessment tracking</li>
           <li>Every Julian's Take, every module</li>
         </ul>
-        <button id="checkout-btn" class="btn-primary" style="width:100%; justify-content:center; margin-top:16px; padding:14px 24px; font-size:15px; border:none; cursor:pointer;">Get Full Access — $99</button>
+        <button id="checkout-btn" class="btn-primary" style="width:100%; justify-content:center; margin-top:16px; padding:14px 24px; font-size:15px; border:none; cursor:pointer;">Get Full Access — $45</button>
       </div>
       <div class="price-card">
         <div class="tier-name">Personal Coaching</div>
@@ -645,11 +645,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
         <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/jkentarom/30min'});return false;" class="btn-primary" style="width:100%; justify-content:center; margin-top:16px; padding:14px 24px; font-size:15px; text-align:center;">Book a Free Intro Call</a>
       </div>
     </div>
-    <div class="ppp-note">
-      <span class="label">Fair Global Pricing</span>
-      GBS careers are global — pricing should be too. If you're in India, the Philippines, Malaysia, or other qualifying countries, adjusted regional pricing applies automatically. Same content, same lifetime access, priced for your market.
-    </div>
-  <figure style="margin:20px 0;padding:0;">
+<figure style="margin:20px 0;padding:0;">
 <img src="images/img-coaching-call.jpg" alt="A coaching video call between mentor and member" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border);"><p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:0.08em;text-transform:uppercase;margin:8px 0 0;">Your case, challenged and sharpened in 1:1 sessions</p>
 </figure>
   </section>
@@ -732,19 +728,19 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
   const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   const checkoutBtn = document.getElementById('checkout-btn');
-  let BTN_DEFAULT = 'Get Full Access — $99';
+  let BTN_DEFAULT = 'Get Full Access — $45';
   let hasFullAccess = false;
 
   function setBtn(text, disabled) { checkoutBtn.textContent = text; checkoutBtn.disabled = !!disabled; }
 
   // ----- Regional (PPP) pricing: detect country, show the local price, pass tier to checkout -----
-  const TIER_PRICE = { t1: 45, t2: 64, t3: 99 };
+  const TIER_PRICE = { t1: 45, t2: 45, t3: 45 };
   const TIER_MAP = {
     t1: ['IN','PH','PK','BD','NG','EG','ID','VN'],
     t2: ['BR','MX','CO','ZA','PL','MY','TH','TR']
   };
-  let REGION = { tier: 't3', price: 99, country: '' };
-  window.GBS_PRICE = 99;
+  let REGION = { tier: 't3', price: 45, country: '' };
+  window.GBS_PRICE = 45;
 
   function countryToTier(cc) {
     if (TIER_MAP.t1.indexOf(cc) !== -1) return 't1';
@@ -752,14 +748,14 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
     return 't3';
   }
   function applyRegion() {
-    const p = TIER_PRICE[REGION.tier] || 99;
+    const p = TIER_PRICE[REGION.tier] || 45;
     REGION.price = p;
     window.GBS_PRICE = p;
     BTN_DEFAULT = 'Get Full Access — $' + p;
     const pd = document.getElementById('price-display');
-    if (pd) pd.innerHTML = (REGION.tier === 't3') ? '$' + p : '$' + p + ' <span style="font-size:20px;color:var(--text-3);text-decoration:line-through;font-weight:400;">$99</span>';
+    if (pd) pd.innerHTML = '$' + p;
     const pm = document.getElementById('price-meta');
-    if (pm) pm.textContent = (REGION.tier === 't3') ? 'One-time / lifetime access' : 'One-time / lifetime access · regional pricing';
+    if (pm) pm.textContent = 'One-time / lifetime access';
     document.querySelectorAll('.gbs-price-tok').forEach(function(el) { el.textContent = '$' + p; });
     if (!hasFullAccess) setBtn(BTN_DEFAULT, false);
     if (window.gbsRecalcROI) window.gbsRecalcROI();
