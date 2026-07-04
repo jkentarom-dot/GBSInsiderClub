@@ -255,7 +255,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-beat{color:var(--text);font-weight:500}
 .sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
 .sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
-.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--sky);font-weight:500;font-style:normal}
 .sw-hl-grn{color:var(--green);font-weight:500}
 .sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
 .sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -263,7 +263,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
 .sw-deflist{margin:16px 0;display:grid;gap:10px}
 .sw-def{display:flex;gap:12px;align-items:baseline}
-.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky);white-space:nowrap;min-width:86px;text-align:right}
 .sw-def .sw-means{color:var(--text-2)}
 .sw-def .sw-means b{color:var(--text);font-weight:500}
 .sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
@@ -309,7 +309,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
 details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
 details.sw-theory summary::-webkit-details-marker{display:none}
-details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-plus{width:32px;height:32px;border-radius:8px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease,background .2s ease}details.sw-theory summary .sw-plus svg{width:17px;height:17px;stroke:var(--gold);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}details.sw-theory summary:hover .sw-plus{background:rgba(232,184,0,0.22)}details.sw-theory[open] summary .sw-plus{transform:rotate(90deg)}
 details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
 details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
 details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
@@ -498,7 +498,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">MSA / SOW</span><span class="sw-means"><b>When a BPO is involved.</b> The commercial layer with an external provider.</span></div>
   </div>
   <p>Ravi asks for the SLA covering his process. <span class="sw-hl-grn">Twenty minutes of reading explains rules he had never questioned.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">SLA names and variants in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">SLA names and variants in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook"><strong style="color:var(--gold)">SLA</strong> is the standard name. But the document covering the <strong style="color:var(--gold)">GBS</strong>-to-business relationship can appear under several labels depending on the organization and context.</p>
 
@@ -589,7 +589,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">MANAGEMENT</span><span class="sw-means"><b>How the relationship runs.</b> Escalation chains, review cadence, change process — the half that saves you at 5 PM on a bad Friday.</span></div>
   </div>
   <p>Her team runs one dry read of the escalation path. <span class="sw-hl-grn">The next incident follows a script instead of panic.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Anatomy of a complete SLA — all elements</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Anatomy of a complete SLA — all elements</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">A well-structured SLA covers two categories: service elements and management elements. Both are necessary. Management elements are the ones most often skipped — and most often missed when things go wrong.</p>
 
@@ -740,7 +740,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">REVIEW</span><span class="sw-means"><b>Annual cycle.</b> Changes route through the change process — with data, not drama.</span></div>
   </div>
   <p>Next cycle, Peter brings evidence on one unrealistic target. <span class="sw-hl-grn">It gets adjusted — because he showed up at the right meeting with numbers.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">How SLAs get agreed — the full process</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">How SLAs get agreed — the full process</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">The formal negotiation most people imagine does not usually happen. The reality is more collaborative — and more pragmatic — than that.</p>
 
@@ -809,7 +809,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">CHANGE CONTROL</span><span class="sw-means"><b>A new service in disguise.</b> Route it formally — that is what the process exists for.</span></div>
   </div>
   <p>Amara answers with the triage: happy to help once — recurring goes through the change process. <span class="sw-hl-grn">The stakeholder respects the clarity.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Out-of-scope requests in depth — full decision guide</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Out-of-scope requests in depth — full decision guide</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">It will happen. "Can you just also handle this?" is one of the most common conversations in GBS. How you respond depends on what kind of request it actually is.</p>
 
@@ -956,7 +956,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">THE RELATIONSHIP</span><span class="sw-means"><b>The daily experience.</b> Trust, early warnings, benefit of the doubt — nothing a signature can produce.</span></div>
   </div>
   <p>Miguel starts a monthly 20-minute call with no agenda beyond "how is it going." <span class="sw-hl-grn">Three months later, escalations come to him first — not around him.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Contract vs relationship in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Contract vs relationship in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">This is the thing most textbooks on GBS governance get wrong. The SLA is a reference document. The service relationship is what actually determines the daily experience on both sides.</p>
 
@@ -1036,7 +1036,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">SCOPE EDGES</span><span class="sw-means"><b>What is in, what is out, what counts as exception.</b> The boundary that turns a reflex yes into a professional answer.</span></div>
   </div>
   <p>Knowing the agreement turned a people-pleaser reflex into <span class="sw-hl-grn">a professional answer that raised his standing</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Career implications in depth</span><span class="sw-meta">THEORY &middot; 2 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Career implications in depth</span><span class="sw-meta">THEORY &middot; 2 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">You are probably not writing SLAs at analyst or specialist level. But you are living inside them every day. Two things matter most.</p>
 

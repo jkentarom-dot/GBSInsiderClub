@@ -267,7 +267,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-beat{color:var(--text);font-weight:500}
 .sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
 .sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
-.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--sky);font-weight:500;font-style:normal}
 .sw-hl-grn{color:var(--green);font-weight:500}
 .sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
 .sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -275,7 +275,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
 .sw-deflist{margin:16px 0;display:grid;gap:10px}
 .sw-def{display:flex;gap:12px;align-items:baseline}
-.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky);white-space:nowrap;min-width:86px;text-align:right}
 .sw-def .sw-means{color:var(--text-2)}
 .sw-def .sw-means b{color:var(--text);font-weight:500}
 .sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
@@ -321,7 +321,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
 details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
 details.sw-theory summary::-webkit-details-marker{display:none}
-details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-plus{width:32px;height:32px;border-radius:8px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease,background .2s ease}details.sw-theory summary .sw-plus svg{width:17px;height:17px;stroke:var(--gold);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}details.sw-theory summary:hover .sw-plus{background:rgba(232,184,0,0.22)}details.sw-theory[open] summary .sw-plus{transform:rotate(90deg)}
 details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
 details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
 details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
@@ -462,7 +462,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">LEAVE FLEXIBLE</span><span class="sw-means"><b>Rare, judgment-heavy work.</b> Over-documenting these wastes effort.</span></div>
   </div>
   <p>Ravi sketches his invoice flow in five boxes. <span class="sw-hl-grn">The pile becomes a structure — and structures can be improved.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">What a process is — in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">What a process is — in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
 <p class="section-hook">Before you document anything, it helps to know what a process actually is, and why some are worth standardizing while others are left alone. This is the ground the rest of the cluster stands on.</p>
 <h3 style="font-size:19px; font-weight:600; color:var(--text); margin:30px 0 10px;">What a process is</h3>
@@ -561,7 +561,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">DTP</span><span class="sw-means"><b>The keystrokes.</b> Step-by-step with screenshots — the execution manual.</span></div>
   </div>
   <p>Her handover package has all three layers, labeled. <span class="sw-hl-grn">Every reader finds their altitude.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The three document layers in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The three document layers in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Most <strong style="color:var(--gold)">GBS</strong> professionals use these documents every day without knowing their names. Understanding the hierarchy helps you know which document to look in — and which one to update.</p>
 <!-- SVG DIAGRAM -->
@@ -713,7 +713,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">THE LINK</span><span class="sw-means"><b>DTP implements the SOP.</b> If they disagree, one of them is wrong — flag it.</span></div>
   </div>
   <p>Amara reads the SOP behind her DTP. <span class="sw-hl-grn">The next audit question gets an answer instead of a shrug.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">SOP vs DTP in depth — side by side</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">SOP vs DTP in depth — side by side</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">The same process has two documents describing it. Here is what belongs in each.</p>
 
@@ -787,7 +787,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">SINGLE SOURCE</span><span class="sw-means"><b>One location, everything else links.</b> Copies are future contradictions.</span></div>
   </div>
   <p>One owner, one home, one review date per document. <span class="sw-hl-grn">The archaeology ends; the audit trail begins.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Documentation governance in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Documentation governance in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Documentation that is not maintained becomes a liability — not just an asset. An outdated SOP fails audits. An outdated DTP trains people incorrectly. The governance cycle is what prevents both.</p>
 
@@ -897,7 +897,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">YOUR ROUTE</span><span class="sw-means"><b>Improvement ideas flow to them.</b> A good idea with the GPO&rsquo;s backing scales to four hubs.</span></div>
   </div>
   <p>Peter re-submits the change through the GPO — <span class="sw-hl-grn">and it ships globally, with his team credited as origin</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The GPO role in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The GPO role in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">The GPO title sounds clear. In practice, what it means varies enormously by organization. Here is what the role should do — and the different ways it gets set up.</p>
 
@@ -1150,7 +1150,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">HOW</span><span class="sw-means"><b>The intake path.</b> Where requests enter — and where they do not.</span></div>
   </div>
   <p>The dead service retires; the forgotten one gets terms. <span class="sw-hl-grn">Demand finally has a front door.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The service catalog in depth — the menu model</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The service catalog in depth — the menu model</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Think of the <strong style="color:var(--gold)">service catalog</strong> as the GBS equivalent of a restaurant menu. It tells stakeholders what is available, what is not, who can order it, and what standard comes with it.</p>
 
@@ -1217,7 +1217,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">TOGETHER</span><span class="sw-means"><b>Green needs both.</b> A hit target with a burned stakeholder is half a service.</span></div>
   </div>
   <p>One experience question joins the scorecard. <span class="sw-hl-grn">The dashboard starts telling the whole truth.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">XLAs in depth — experience-level agreements</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">XLAs in depth — experience-level agreements</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">SLAs measure whether GBS hit its targets. XLAs measure whether the people receiving the service actually had a good experience. These are not the same thing.</p>
 
@@ -1313,7 +1313,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">REPORT BACK</span><span class="sw-means"><b>Close the loop publicly.</b> The next survey&rsquo;s response rate is your grade.</span></div>
   </div>
   <p>Response rates recover the following cycle — <span class="sw-hl-grn">because this time, answering did something</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Feedback and satisfaction surveys in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Feedback and satisfaction surveys in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Whether called <strong style="color:var(--gold)">NPS</strong>, <strong style="color:var(--gold)">CES</strong>, or just "the annual survey" — asking for feedback is necessary. How it is designed and used determines whether it builds or damages the service relationship.</p>
 

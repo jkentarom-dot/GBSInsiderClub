@@ -188,7 +188,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-beat{color:var(--text);font-weight:500}
 .sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
 .sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
-.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--sky);font-weight:500;font-style:normal}
 .sw-hl-grn{color:var(--green);font-weight:500}
 .sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
 .sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -196,7 +196,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
 .sw-deflist{margin:16px 0;display:grid;gap:10px}
 .sw-def{display:flex;gap:12px;align-items:baseline}
-.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky);white-space:nowrap;min-width:86px;text-align:right}
 .sw-def .sw-means{color:var(--text-2)}
 .sw-def .sw-means b{color:var(--text);font-weight:500}
 .sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
@@ -242,7 +242,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
 details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
 details.sw-theory summary::-webkit-details-marker{display:none}
-details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-plus{width:32px;height:32px;border-radius:8px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease,background .2s ease}details.sw-theory summary .sw-plus svg{width:17px;height:17px;stroke:var(--gold);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}details.sw-theory summary:hover .sw-plus{background:rgba(232,184,0,0.22)}details.sw-theory[open] summary .sw-plus{transform:rotate(90deg)}
 details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
 details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
 details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
@@ -380,7 +380,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">THE TEST</span><span class="sw-means"><b>Runs monthly with more than one user?</b> It wants a real tool.</span></div>
   </div>
   <p>Ravi flags the tracker as a process, not a file. <span class="sw-hl-grn">The conversation about a proper tool finally starts.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Excel in GBS — full guidance on fit and limits</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Excel in GBS — full guidance on fit and limits</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Excel is the Swiss army knife of <strong style="color:var(--gold)">GBS</strong>. Versatile, fast, and universally available. But knowing when to use it — and when to replace it — separates analysts who contribute from analysts who become bottlenecks.</p>
       <div class="card">
@@ -479,7 +479,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">HONEST</span><span class="sw-means"><b>if_not_found built in.</b> Errors surface instead of hiding.</span></div>
   </div>
   <p>One afternoon of converting formulas. <span class="sw-hl-grn">The silent-lie failure mode is gone from her reports.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">VLOOKUP vs XLOOKUP in depth — full syntax comparison</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">VLOOKUP vs XLOOKUP in depth — full syntax comparison</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">VLOOKUP has been the default lookup function for 30 years. XLOOKUP, available since 2019, fixes every limitation VLOOKUP had. If you are still using VLOOKUP, this section shows you why — and how — to switch.</p>
       <div class="formula-grid">
@@ -539,7 +539,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">FILTERS</span><span class="sw-means"><b>The slice you need.</b> Period, status, region.</span></div>
   </div>
   <p>Volume questions stop being work and <span class="sw-hl-grn">become lookups</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Pivot tables in depth — from raw data to analysis</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Pivot tables in depth — from raw data to analysis</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Pivot tables turn raw transaction data into structured analysis in minutes. They are the fastest way to answer questions like "how many invoices per vendor per month?" or "what is the aging breakdown by entity?" without writing a single formula.</p>
       <div class="pivot-steps">
@@ -622,7 +622,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">VERSION</span><span class="sw-means"><b>What changed since.</b> When, why, by whom.</span></div>
   </div>
   <p>Trust in her numbers becomes <span class="sw-hl-grn">trust in her</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The analyst&rsquo;s audit trail in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The analyst&rsquo;s audit trail in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Creating a graph is not the skill. Creating a graph that someone else can trust, verify, and reproduce six months later — that is the skill. The difference is an audit trail.</p>
       <div class="audit-flow">
@@ -696,7 +696,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">GOVERNANCE</span><span class="sw-means"><b>Creation controls, deduplication, ownership.</b> The unglamorous work that keeps reports true.</span></div>
   </div>
   <p>The dedup request fixes twelve reports at once. <span class="sw-hl-grn">Upstream beats downstream.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Master Data Management in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Master Data Management in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Master data is the foundation data that every transaction references — vendor records, customer records, material numbers, GL accounts. When it is clean, processes run smoothly. When it is not, errors cascade through every downstream step. Garbage in, garbage out.</p>
 
@@ -791,7 +791,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">ACTION</span><span class="sw-means"><b>What changes when a number turns red?</b> If nothing, remove the number.</span></div>
   </div>
   <p>Version two starts from one weekly decision. <span class="sw-hl-grn">It opens every Monday — because a meeting depends on it.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Dashboards in depth — useful versus decorative</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Dashboards in depth — useful versus decorative</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">GBS centers are full of dashboards. Most of them are opened once, admired, and never used for a decision. The difference between a useful dashboard and a decorative one is not design — it is whether there is a process, an owner, and an action behind it.</p>
 
@@ -911,7 +911,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">SO WHAT</span><span class="sw-means"><b>The action or watch item.</b> What the reader should do with this.</span></div>
   </div>
   <p>His reports start conversations <span class="sw-hl-grn">instead of ending in folders</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Data interpretation in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Data interpretation in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Creating graphs and tables is a technical skill. Interpreting what they mean — and communicating that interpretation clearly — is the analytical skill that GBS organizations actually need and consistently lack.</p>
 

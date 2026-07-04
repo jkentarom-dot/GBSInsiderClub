@@ -190,7 +190,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-beat{color:var(--text);font-weight:500}
 .sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
 .sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
-.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--sky);font-weight:500;font-style:normal}
 .sw-hl-grn{color:var(--green);font-weight:500}
 .sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
 .sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -198,7 +198,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
 .sw-deflist{margin:16px 0;display:grid;gap:10px}
 .sw-def{display:flex;gap:12px;align-items:baseline}
-.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky);white-space:nowrap;min-width:86px;text-align:right}
 .sw-def .sw-means{color:var(--text-2)}
 .sw-def .sw-means b{color:var(--text);font-weight:500}
 .sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
@@ -244,7 +244,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
 details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
 details.sw-theory summary::-webkit-details-marker{display:none}
-details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-plus{width:32px;height:32px;border-radius:8px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease,background .2s ease}details.sw-theory summary .sw-plus svg{width:17px;height:17px;stroke:var(--gold);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}details.sw-theory summary:hover .sw-plus{background:rgba(232,184,0,0.22)}details.sw-theory[open] summary .sw-plus{transform:rotate(90deg)}
 details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
 details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
 details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
@@ -357,7 +357,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">THE SWITCH</span><span class="sw-means"><b>Know which hat is on.</b> Ask: is this task protecting today or building tomorrow?</span></div>
   </div>
   <p>She labels every calendar block BAU or project. <span class="sw-hl-grn">The right instincts start showing up at the right meetings.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Project vs BAU in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Project vs BAU in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">If everything is a project, nothing is a project. The distinction matters because projects have different <strong style="color:var(--gold)">governance</strong>, funding, and success criteria than ongoing operations.</p>
       <div class="formula-grid">
@@ -410,7 +410,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">CLOSE</span><span class="sw-means"><b>Land and learn.</b> Handover, lessons, benefits tracking begins.</span></div>
   </div>
   <p>Her next suggestion arrives during planning — <span class="sw-hl-grn">and shapes the project instead of bouncing off it</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The project lifecycle in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The project lifecycle in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Every project follows the same fundamental arc: define what you are doing, plan how to do it, execute the plan, and close properly. Skipping phases creates downstream problems.</p>
 <!-- SVG DIAGRAM -->
@@ -516,7 +516,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">DEPENDENCIES</span><span class="sw-means"><b>Waiting on others.</b> The lines that make your delay someone else&rsquo;s crisis.</span></div>
   </div>
   <p>Her next concern goes in the log, dated and owned. <span class="sw-hl-grn">When it materializes, the record shows who saw it first.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">RAID logs in depth — with template structure</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">RAID logs in depth — with template structure</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">A RAID log is the single most important project management artifact. It is where you track everything that could go wrong, everything you are assuming, and everything you depend on.</p>
       <div class="card teal">
@@ -591,7 +591,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">CHANGE CONTROL</span><span class="sw-means"><b>Additions route formally.</b> The sponsor decides trades — that is what sponsors are for.</span></div>
   </div>
   <p>Request six meets the sentence. The sponsor drops it in ten seconds — <span class="sw-hl-grn">the trade was never worth it once it was visible</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Scope management in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Scope management in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Scope creep is the leading cause of project failure in <strong style="color:var(--gold)">GBS</strong>. It happens when changes are accepted without assessing their impact on timeline, budget, and resources.</p>
       <div class="media-row">

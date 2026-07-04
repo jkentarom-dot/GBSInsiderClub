@@ -199,7 +199,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-beat{color:var(--text);font-weight:500}
 .sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
 .sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
-.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--sky);font-weight:500;font-style:normal}
 .sw-hl-grn{color:var(--green);font-weight:500}
 .sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
 .sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -207,7 +207,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
 .sw-deflist{margin:16px 0;display:grid;gap:10px}
 .sw-def{display:flex;gap:12px;align-items:baseline}
-.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky);white-space:nowrap;min-width:86px;text-align:right}
 .sw-def .sw-means{color:var(--text-2)}
 .sw-def .sw-means b{color:var(--text);font-weight:500}
 .sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
@@ -253,7 +253,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
 details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
 details.sw-theory summary::-webkit-details-marker{display:none}
-details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-plus{width:32px;height:32px;border-radius:8px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease,background .2s ease}details.sw-theory summary .sw-plus svg{width:17px;height:17px;stroke:var(--gold);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}details.sw-theory summary:hover .sw-plus{background:rgba(232,184,0,0.22)}details.sw-theory[open] summary .sw-plus{transform:rotate(90deg)}
 details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
 details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
 details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
@@ -399,7 +399,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
   </div>
   <p>The one-question test before any pitch: <span class="sw-hl-t">"Is my problem slow, or wrong?"</span><br>Slow &rarr; speak Lean. Wrong &rarr; speak Six Sigma. Both &rarr; Lean Six Sigma, the standard GBS toolkit.</p>
   <p>At the next huddle, Ravi tries it. <span class="sw-hl-grn">"Our problem is flow — of six days cycle time, five are waiting."</span> The Black Belt turns around. Now they are talking.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The full comparison — when each method wins, and why GBS combines them</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The full comparison — when each method wins, and why GBS combines them</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <!-- SVG: Lean vs Six Sigma -->
       <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:24px;">
@@ -503,7 +503,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
   </div>
   <p>Named waste stops being "just how it is." It becomes something you can <span class="sw-hl-t">point at</span>.</p>
   <p>Ravi walks his own day with the checklist and brings three findings to his team lead — by name, with examples. <span class="sw-hl-grn">For the first time, he sounds like someone who studies the process, and someone worth pulling into improvement work.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">All 8 wastes in depth — full GBS examples</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">All 8 wastes in depth — full GBS examples</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
 
       <div class="waste-grid">
         <div class="waste-card">
@@ -645,7 +645,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">MEASURE</span><span class="sw-means"><b>12 duplicates last month</b> — roughly 4 hours of rework, counted from the ticket log.</span></div>
   </div>
   <p>Same problem. Different object. <span class="sw-hl-grn">Her team lead forwards the one-pager to the CI lead the same day — and Klaudia is invited to the scoping call.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">All five phases in depth — tools and outputs per phase</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">All five phases in depth — tools and outputs per phase</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
 <!-- SVG DIAGRAM -->
 <div style="margin:32px 0 40px; padding:28px 24px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
 <svg viewBox="0 0 780 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:780px;display:block;margin:0 auto;">
@@ -799,7 +799,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-why sw-root"><div class="sw-n">5</div><div><div class="sw-q">Why is there no rule?</div><div class="sw-a">Nobody owns master data quality checks.<span class="sw-root-tag">&larr; root cause</span></div></div></div>
   </div>
   <p style="margin-top:18px">One master data fix. One new validation rule. One owner.<br><span class="sw-hl-grn">Amara's Thursday is hers again</span> — and the same fix just prevented the error for every customer onboarded next year.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The full method — 5 Whys rules, fishbone diagram, and the CAPA loop</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The full method — 5 Whys rules, fishbone diagram, and the CAPA loop</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
 
       <p>Root cause analysis (RCA) is a structured way to find the real reason a problem happened, instead of stopping at the first visible cause. CAPA — corrective and preventive action — is what you do with that finding: remove the cause so the problem cannot come back, and act on the same weakness elsewhere before it bites. In GBS the two work as a pair. RCA without CAPA gives you a diagnosis and no treatment. CAPA without RCA treats a symptom, and the problem returns.</p>
 
@@ -1005,7 +1005,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
   <p>The pairing that pays: <span class="sw-hl-t">training plus a real project</span>. Companies usually try to staff belts on improvement projects during and after certification &mdash; say yes to those. The certificate formalizes what the project proves.</p>
   <div class="sw-jtake"><div class="sw-j">J</div><div><div class="sw-lbl">Julian's Take</div><p>I have watched many Green Belts end up doing regular project management. The analytical tools that separate Six Sigma from standard project work often get reduced in training, or never applied afterwards. I still rate the programs. The toolkit and the discipline lift how people run everything else they touch. Go in for the tools. Treat the certificate as the bonus.</p></div></div>
   <p><span class="sw-hl-grn">Klaudia applies &mdash; and asks one question in the intake call: which project would she run.</span> The answer makes the training real.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Each belt in depth — training scope and which GBS roles they serve</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Each belt in depth — training scope and which GBS roles they serve</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
 <div class="media-row">
       <div class="belt-row">
@@ -1220,7 +1220,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">RULE 2</span><span class="sw-means">For soft savings, <b>document where the freed time went</b>. Untracked capacity evaporates; tracked capacity is evidence.</span></div>
   </div>
   <p>Peter reworks one line for the next review: <span class="sw-hl-grn">"The freed capacity absorbed this year's 12% volume growth — zero additional headcount requested."</span> The controller writes it down.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The full picture — validating savings with Finance, innovation vs CI, and the A3 one-pager</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The full picture — validating savings with Finance, innovation vs CI, and the A3 one-pager</span><span class="sw-meta">THEORY &middot; 6 MIN</span></summary><div class="sw-inner">
 
       <div class="savings-split">
         <div class="savings-side hard">

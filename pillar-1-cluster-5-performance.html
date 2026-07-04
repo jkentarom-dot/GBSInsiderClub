@@ -228,7 +228,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-beat{color:var(--text);font-weight:500}
 .sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
 .sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
-.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--sky);font-weight:500;font-style:normal}
 .sw-hl-grn{color:var(--green);font-weight:500}
 .sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
 .sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -236,7 +236,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
 .sw-deflist{margin:16px 0;display:grid;gap:10px}
 .sw-def{display:flex;gap:12px;align-items:baseline}
-.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky);white-space:nowrap;min-width:86px;text-align:right}
 .sw-def .sw-means{color:var(--text-2)}
 .sw-def .sw-means b{color:var(--text);font-weight:500}
 .sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
@@ -282,7 +282,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
 details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
 details.sw-theory summary::-webkit-details-marker{display:none}
-details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-plus{width:32px;height:32px;border-radius:8px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease,background .2s ease}details.sw-theory summary .sw-plus svg{width:17px;height:17px;stroke:var(--gold);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}details.sw-theory summary:hover .sw-plus{background:rgba(232,184,0,0.22)}details.sw-theory[open] summary .sw-plus{transform:rotate(90deg)}
 details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
 details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
 details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
@@ -441,7 +441,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">PROVE</span><span class="sw-means"><b>Objective ground.</b> Without measurement, performance conversations run on opinion and rank.</span></div>
   </div>
   <p>Ravi starts tracking one number himself, before the review does. <span class="sw-hl-grn">The conversation shifts from defense to explanation.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Why metrics matter — the full framework</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Why metrics matter — the full framework</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Measurement provides an objective basis for a conversation that would otherwise be purely political.</p>
       <div class="card">
@@ -494,7 +494,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">OUTPUT</span><span class="sw-means"><b>What the stakeholder sees.</b> SLA compliance, satisfaction, cost per transaction.</span></div>
   </div>
   <p>Her review answer traces the chain, not the symptom. <span class="sw-hl-grn">Leadership hears an analyst, not an excuse.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The three-layer framework in depth — with diagram</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The three-layer framework in depth — with diagram</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">A flat list of metrics misses causality. A layered framework tells you not just what happened — but why, and where to look to fix it.</p>
 <!-- SVG DIAGRAM -->
@@ -623,7 +623,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">R2R</span><span class="sw-means"><b>Record-to-Report.</b> Close timeline, reconciliation quality, first-pass yield.</span></div>
   </div>
   <p>One page of mapping, and the new tower&rsquo;s scorecard <span class="sw-hl-grn">reads like her old one with new labels</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Standard KPIs by process — full reference</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Standard KPIs by process — full reference</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Naming conventions vary. Calculation methodologies vary more. What follows is the standard set — expect 5–10 of these per workstream, selected based on what the underlying system landscape can reliably provide.</p>
 
@@ -715,7 +715,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">RECOVERY</span><span class="sw-means"><b>Deliberate design.</b> Split capacity: hold the line on new work, clear aged items oldest-first, control inflow.</span></div>
   </div>
   <p>Priya splits the queue: one stream keeps new work current, one clears aged items oldest-first. <span class="sw-hl-grn">The curve bends within weeks.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The backlog trap in depth — the compounding math</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The backlog trap in depth — the compounding math</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Backlog is not a static problem. It is an accelerating one. Most teams underestimate how quickly a manageable backlog becomes a recovery crisis.</p>
 
@@ -811,7 +811,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">CLOSE THE GAP</span><span class="sw-means"><b>Ask about effort.</b> Add experience signals next to the compliance ones.</span></div>
   </div>
   <p>Peter asks one question: "What do we make you do that you shouldn&rsquo;t have to?" <span class="sw-hl-grn">The list he gets is worth more than the dashboard.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">The perception gap in depth — what KPIs cannot capture</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">The perception gap in depth — what KPIs cannot capture</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">You can be technically compliant and operationally failing at the same time. Understanding why requires looking at what metrics cannot capture.</p>
 
@@ -912,7 +912,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">THE RULE</span><span class="sw-means"><b>Every chart earns its slide by ending in a sentence.</b> No sentence, no slide.</span></div>
   </div>
   <p>His next review: three numbers, one story, one ask. <span class="sw-hl-grn">It ends early — with a decision.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Reporting cadences in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Reporting cadences in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">A performance meeting where KPIs are read aloud is not a performance meeting. It is a presentation. The distinction matters.</p>
 
@@ -1043,7 +1043,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">YOUR JOB</span><span class="sw-means"><b>Interpret, verify, act.</b> The analysts who read signals early become the ones leaders ask first.</span></div>
   </div>
   <p>The flag becomes a fixed supplier issue instead of next month&rsquo;s backlog. <span class="sw-hl-grn">Acting early is the new accuracy.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">AI and performance measurement — the full shift</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">AI and performance measurement — the full shift</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Traditional KPI reports are backwards-looking. AI-enabled measurement changes what is possible — and GBS should be leading this shift, not waiting for it.</p>
 

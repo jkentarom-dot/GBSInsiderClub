@@ -190,7 +190,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-beat{color:var(--text);font-weight:500}
 .sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
 .sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
-.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--sky);font-weight:500;font-style:normal}
 .sw-hl-grn{color:var(--green);font-weight:500}
 .sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
 .sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -198,7 +198,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
 .sw-deflist{margin:16px 0;display:grid;gap:10px}
 .sw-def{display:flex;gap:12px;align-items:baseline}
-.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky);white-space:nowrap;min-width:86px;text-align:right}
 .sw-def .sw-means{color:var(--text-2)}
 .sw-def .sw-means b{color:var(--text);font-weight:500}
 .sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
@@ -244,7 +244,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
 details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
 details.sw-theory summary::-webkit-details-marker{display:none}
-details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-plus{width:32px;height:32px;border-radius:8px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease,background .2s ease}details.sw-theory summary .sw-plus svg{width:17px;height:17px;stroke:var(--gold);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}details.sw-theory summary:hover .sw-plus{background:rgba(232,184,0,0.22)}details.sw-theory[open] summary .sw-plus{transform:rotate(90deg)}
 details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
 details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
 details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
@@ -368,7 +368,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">IaaS</span><span class="sw-means"><b>Their hardware, your stack.</b> Maximum control, maximum responsibility.</span></div>
   </div>
   <p>Next outage, Ravi knows <span class="sw-hl-grn">who owns the clock before he asks</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Cloud models in depth — SaaS, PaaS, IaaS decoded</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Cloud models in depth — SaaS, PaaS, IaaS decoded</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">You use cloud services every day. Understanding the differences between <strong style="color:var(--gold)">SaaS</strong>, <strong style="color:var(--gold)">IaaS</strong>, and <strong style="color:var(--gold)">PaaS</strong> changes how you think about data residency, security responsibility, and vendor dependency.</p>
 <!-- SVG DIAGRAM -->
@@ -481,7 +481,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">REPORT</span><span class="sw-means"><b>Suspected exposure escalates fast.</b> Reporting duties have clocks on them.</span></div>
   </div>
   <p>The weekend work happens inside the system. <span class="sw-hl-grn">Slower by minutes, safer by miles.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">GDPR and PII handling in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">GDPR and PII handling in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">If you process personal data in GBS, you are bound by data privacy regulations. <strong style="color:var(--gold)">GDPR</strong> is the baseline, but every country you serve may have additional requirements.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">GDPR sets the global baseline for personal data.</strong> The General Data Protection Regulation is the EU's data privacy framework — but its reach is global.</p>
@@ -641,7 +641,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">ASSUME BREACH</span><span class="sw-means"><b>Design as if attackers are inside.</b> Contain damage by default.</span></div>
   </div>
   <p>The re-verify prompt stops being an annoyance and becomes <span class="sw-hl-grn">what lets a three-country team work at all</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Zero Trust in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Zero Trust in depth</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">The old model assumed everything inside the corporate network was safe. Zero Trust assumes nothing is safe until verified. For GBS with remote teams, cloud apps, and automation bots, this is the only model that works.</p>
       <p class="chunk-lead" style="margin-bottom:12px;color:var(--text);line-height:1.75;">Zero Trust Architecture operates on a simple principle: <strong style="color:var(--gold)">never trust, always verify</strong>.</p>

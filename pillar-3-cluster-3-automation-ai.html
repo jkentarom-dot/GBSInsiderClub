@@ -190,7 +190,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-beat{color:var(--text);font-weight:500}
 .sw-quote{color:var(--text);border-left:2px solid var(--border-2);padding-left:14px;font-style:italic}
 .sw-hl-g{color:var(--gold);font-weight:500;font-style:normal}
-.sw-hl-t{color:var(--teal);font-weight:500;font-style:normal}
+.sw-hl-t{color:var(--sky);font-weight:500;font-style:normal}
 .sw-hl-grn{color:var(--green);font-weight:500}
 .sw-trap{display:flex;gap:14px;background:rgba(232,184,0,0.06);border:1px solid rgba(232,184,0,0.25);border-radius:8px;padding:16px 20px;margin-top:20px}
 .sw-trap .sw-ic{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -198,7 +198,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 .sw-trap p{color:var(--text-2);max-width:68ch;margin:0}
 .sw-deflist{margin:16px 0;display:grid;gap:10px}
 .sw-def{display:flex;gap:12px;align-items:baseline}
-.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);white-space:nowrap;min-width:86px;text-align:right}
+.sw-def .sw-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky);white-space:nowrap;min-width:86px;text-align:right}
 .sw-def .sw-means{color:var(--text-2)}
 .sw-def .sw-means b{color:var(--text);font-weight:500}
 .sw-split2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
@@ -244,7 +244,7 @@ h3.sw-hook em{font-style:normal;color:var(--gold)}
 details.sw-theory{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
 details.sw-theory summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;list-style:none}
 details.sw-theory summary::-webkit-details-marker{display:none}
-details.sw-theory summary .sw-plus{width:22px;height:22px;border-radius:4px;border:1px solid var(--border-2);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+details.sw-theory summary .sw-plus{width:32px;height:32px;border-radius:8px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease,background .2s ease}details.sw-theory summary .sw-plus svg{width:17px;height:17px;stroke:var(--gold);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}details.sw-theory summary:hover .sw-plus{background:rgba(232,184,0,0.22)}details.sw-theory[open] summary .sw-plus{transform:rotate(90deg)}
 details.sw-theory summary .sw-t{color:var(--text);font-weight:500;font-size:14px}
 details.sw-theory summary .sw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;letter-spacing:.08em;white-space:nowrap;padding-left:12px}
 details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--border)}
@@ -378,7 +378,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">YOUR ROLE</span><span class="sw-means"><b>Exceptions and input quality.</b> The human work is upstream and at the edges.</span></div>
   </div>
   <p>Ravi starts monitoring input quality upstream. <span class="sw-hl-grn">The bot stalls less because he feeds it better.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">RPA in depth — what it does and where it breaks</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">RPA in depth — what it does and where it breaks</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook"><strong style="color:var(--gold)">RPA</strong> automates the clicks, not the thinking. That distinction defines where it works, where it fails, and why clean data matters more than clever bots.</p>
       <p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;"><strong style="color:var(--gold)">What it does:</strong> Robotic Process <strong style="color:var(--gold)">Automation</strong> uses software robots to mimic human interactions with applications — the key word is "predefined."</p>
@@ -508,7 +508,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">CONFIDENCE</span><span class="sw-means"><b>The routing score.</b> High goes straight through; low routes to human review.</span></div>
   </div>
   <p>Her role shifts to the low-confidence queue — <span class="sw-hl-grn">the judgment work the engine cannot do</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">IDP and OCR in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">IDP and OCR in depth</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">When documents arrive as PDFs, scanned images, or email attachments, standard RPA cannot process them. That is where intelligent document processing fills the gap.</p>
       <p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;">Optical Character Recognition (<strong style="color:var(--gold)">OCR</strong>) converts images of text into machine-readable data. Intelligent Document Processing (<strong style="color:var(--gold)">IDP</strong>) goes further — using <strong style="color:var(--gold)">machine learning</strong> to turn documents into structured ERP transactions.</p>
@@ -565,7 +565,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">CONSTANT</span><span class="sw-means"><b>Human verification.</b> Your process knowledge is the quality gate.</span></div>
   </div>
   <p>Her rule: AI drafts, she verifies drivers and numbers. <span class="sw-hl-grn">Speed without the silent errors.</span></p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">GenAI and Copilot in depth — the value tiers</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">GenAI and Copilot in depth — the value tiers</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Generative AI is not one thing. The value depends on how it is deployed, what data it accesses, and whether the organization has built the governance to use it safely.</p>
       <p style="margin-bottom:20px;color:var(--text);line-height:1.75;">Generative AI in GBS operations falls into distinct tiers, each with a different ceiling on value:</p>
@@ -636,7 +636,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">HANDOVER</span><span class="sw-means"><b>Document before you rotate.</b> Your successor inherits the flow, not the mystery.</span></div>
   </div>
   <p>A one-line registry entry turns his orphan flow into <span class="sw-hl-grn">a governed asset</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">No-code automation in depth — tools and governance</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">No-code automation in depth — tools and governance</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook">Power Automate, Make, and Zapier let GBS analysts build automations without writing code. The risk is ungoverned proliferation.</p>
       <p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;">No-code automation platforms let business users connect applications, trigger workflows, and move data between systems using visual drag-and-drop — no IT development request needed.</p>
@@ -710,7 +710,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">TARGETS</span><span class="sw-means"><b>Loops and detours become backlog.</b> Improvement work chosen by data.</span></div>
   </div>
   <p>The 800-loop becomes the quarter&rsquo;s improvement project — <span class="sw-hl-grn">found by evidence, not opinion</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Process mining in depth — Celonis and the discovery method</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Process mining in depth — Celonis and the discovery method</span><span class="sw-meta">THEORY &middot; 4 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook"><strong style="color:var(--gold)">Process mining</strong> tools like Celonis and UiPath Process Mining read event logs from your ERP and show you the actual process flow, not the one documented in the SOP.</p>
       <p class="chunk-lead" style="margin-bottom:8px;color:var(--text);line-height:1.75;">Process mining extracts event logs from transactional systems (SAP, Oracle, ServiceNow) and reconstructs the actual process as it was executed — replacing opinion-based improvement with <strong style="color:var(--gold)">data-driven evidence</strong>.</p>
@@ -767,7 +767,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
     <div class="sw-def"><span class="sw-term">LEASH</span><span class="sw-means"><b>Human checkpoints.</b> Placed exactly where errors are expensive.</span></div>
   </div>
   <p>Her team&rsquo;s role moves up a level: <span class="sw-hl-grn">designing the checkpoints instead of doing the steps</span>.</p>
-  <details class="sw-theory"><summary><span class="sw-plus">+</span><span class="sw-t">Hyperautomation and agentic AI in depth — the tier model</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Hyperautomation and agentic AI in depth — the tier model</span><span class="sw-meta">THEORY &middot; 5 MIN</span></summary><div class="sw-inner">
 
       <p class="section-hook"><strong style="color:var(--gold)">Hyperautomation</strong> combines RPA, AI, process mining, and workflow orchestration into integrated automation platforms. Agentic AI adds the ability to plan and adapt.</p>
 <!-- SVG DIAGRAM -->
