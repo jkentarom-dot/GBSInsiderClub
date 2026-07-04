@@ -5266,6 +5266,38 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
       <h2>Prompt Engineering &amp; Token Economics <span class="tier-badge tier-applied">Advanced</span><span class="read-time">~5 min</span></h2>
       <p class="section-tagline">You now know how <strong style="color:var(--yellow)">transformers</strong> process <strong style="color:var(--yellow)">tokens</strong>, calculate attention, and generate output. This chapter turns that understanding into your most practical skill.</p>
 
+      <div class="sw-tldr"><span class="sw-tag">TL;DR</span><p>The model picks each next word by <strong>likelihood</strong>, and your input reshapes those odds. The answer is mostly decided by what you put in — and by whether you push back on the first draft. Skip to <strong style="color:var(--green)">THE FIX</strong> for the three moves.</p></div>
+      <h3 class="sw-hook">Two people ask the same AI the same thing.<br><em>They get completely different answers. Here is why.</em></h3>
+      <div class="sw-hook-sub">2 min read &middot; mechanics in the expandable</div>
+
+      <div class="sw-sec-label sw-lbl-problem"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17.5" r="0.5" fill="#e8b800"/></svg></div><span>The Problem</span></div>
+      <div class="sw-scene"><div class="sw-scene-head"><div class="sw-avatar"><img src="images/cast/klaudia-frustrated.webp" alt="" onerror="this.remove()">K</div><div><div class="sw-who">Klaudia</div><div class="sw-role">Senior associate &middot; Analytics &middot; Krakow</div></div></div>
+  <p>Klaudia needs a stakeholder update on the migration. She opens the AI and types one line.</p>
+  <p class="sw-quote">"Write an update about the migration."</p>
+  <p>Back comes a wall of padding. Generic. Nothing she can send.</p>
+  <p class="sw-beat">She tries once more — this time with her role, the audience, three facts, and the tone she wants.</p>
+  <p>Same model. Same minute. The second draft is sharp enough to send with two edits.</p>
+  <p>An hour earlier she had written the tool off as <span class="sw-hl-g">useless</span>.</p>
+<div class="sw-trap"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b800" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div><div><div class="sw-lbl">The Trap</div><p>You judge the AI by its first answer to a lazy prompt, and conclude the <span class="sw-hl-g">tool</span> is weak — when it was the input.</p></div></div></div>
+
+      <div class="sw-sec-label sw-lbl-fix"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"><path d="M14.7 6.3a5 5 0 0 0-6.6 6.6L3 18v3h3l5.1-5.1a5 5 0 0 0 6.6-6.6l-3 3-2.5-.5-.5-2.5 3-3z"/></svg></div><span>The Fix</span></div>
+      <div class="sw-fix"><p>The model predicts the next word by <span class="sw-hl-t">likelihood</span>. Every word you add reshapes those odds. Vague in, vague out. The AI was never the variable — the input was. Three moves put you in control.</p>
+  <div class="sw-def"><span class="sw-term">INFLUENCE</span><span class="sw-means"><b>Shape the odds.</b> Give your role, the context, one example of what "good" looks like, and the format you want. Each specific narrows the model toward your answer; vagueness leaves it drifting.</span></div>
+  <div class="sw-def"><span class="sw-term">ITERATE</span><span class="sw-means"><b>The first answer is a draft, not a verdict.</b> Re-prompt. Ask <em>"what did you assume?"</em>, <em>"argue the opposite,"</em> and <em>"what's missing?"</em> — then end with <em>"TL;DR first, then the detail"</em> to force the core and cut the drift.</span></div>
+  <div class="sw-def"><span class="sw-term">BE CRITICAL</span><span class="sw-means"><b>Confident tone does not mean correct.</b> The model optimizes for plausible, not true. Check facts, numbers, names, and sources yourself — hardest on anything rare, recent, or highly specific, where it is guessing most.</span></div>
+  <p>Klaudia stopped blaming the tool and started engineering the input. <span class="sw-hl-grn">Her drafts went from unusable to a two-minute edit.</span></p>
+  <details class="sw-theory"><summary><span class="sw-plus"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg></span><span class="sw-t">Why your words move the odds — next-token prediction, temperature, context window</span><span class="sw-meta">THEORY &middot; 3 MIN</span></summary><div class="sw-inner">
+    <p>The model holds a probability distribution over the next token and samples from it. Your prompt is the condition on that distribution — more specific input collapses it toward a narrower, higher-quality set of continuations.</p>
+    <p style="margin-top:10px;"><b>Temperature</b> is the randomness dial: lower is safer and more repeatable, higher is more varied and more prone to invention. <b>The context window</b> is everything the model can "see" at once — your prompt, the conversation, any pasted material; outside it, the model has nothing to condition on.</p>
+    <p style="margin-top:10px;">This is also why it errs where it does: common, well-covered ground is high-likelihood and reliable; rare, specific, or recent facts are low-likelihood and where guessing creeps in. The detailed mechanics and the cost angle continue below.</p>
+  </div></details>
+</div>
+
+      <div class="sw-monday"><div class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div><div><div class="sw-lbl">Monday Move</div><p>On your next real task, end the prompt with <b>"TL;DR first, then the detail."</b> Then challenge the first answer once — "what's missing?" — before you use it.</p></div></div>
+
+      <div class="sw-bridge"><span class="sw-arrow">&rarr;</span><p>The mechanics and the cost angle — why a sharp prompt to a cheap model beats a lazy prompt to a frontier one — continue in the deep-dive below.</p></div>
+
+
       <div class="card">
         <div class="card-header ch-green">Why <strong style="color:var(--yellow)">prompting</strong> is the highest-impact skill you can build</div>
         <p>Parts I and II explained the mechanics: the model predicts one token at a time, using attention to decide which parts of your input matter most. Every word in your prompt literally shapes the probability distribution the model samples from. A vague prompt produces vague probabilities. A precise prompt narrows the distribution toward exactly what you need.</p>
