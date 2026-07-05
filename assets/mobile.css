@@ -108,6 +108,42 @@ html[data-theme="light"] .pillar-tile:hover{
   box-shadow:0 2px 4px rgba(16,24,40,.06), 0 10px 24px rgba(16,24,40,.10);
 }
 
+/* 1f -- DAYLIGHT GLASS CARDS (path pages) --------------------------------
+   Path pages set .card/.step-card/.mod-card to a translucent DARK glass
+   with !important (rgba(20,25,34,.55) + backdrop blur). Over the dark void
+   it reads as frosted glass; over a light page it reads as a muddy grey
+   slab. Light-mode counterpart keeps the same material language, lit:
+   glossy white gradient tile + teal->sky gradient hairline (signature)
+   + soft blue-tinted lift. Specificity beats the page rule among
+   !important declarations (html[data-theme] .card > .card). */
+html[data-theme="light"] .card,
+html[data-theme="light"] .step-card,
+html[data-theme="light"] .mod-card{
+  background:linear-gradient(180deg,#ffffff 0%,#f6f8fc 100%) !important;
+  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
+  border-color:#dfe6f2 !important;
+  position:relative; overflow:hidden;
+  box-shadow:0 1px 2px rgba(16,24,40,.05), 0 10px 28px -12px rgba(21,88,214,.14);
+}
+html[data-theme="light"] .card::before,
+html[data-theme="light"] .step-card::before,
+html[data-theme="light"] .mod-card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--teal),var(--sky));
+  opacity:.85; pointer-events:none;
+}
+html[data-theme="light"] .card:hover,
+html[data-theme="light"] .step-card:hover,
+html[data-theme="light"] .mod-card:hover{
+  border-color:#bcd0f0 !important;
+  box-shadow:0 2px 4px rgba(16,24,40,.06), 0 18px 40px -14px rgba(21,88,214,.22) !important;
+}
+html[data-theme="light"] .card:hover::before,
+html[data-theme="light"] .step-card:hover::before,
+html[data-theme="light"] .mod-card:hover::before{ opacity:1; }
+/* gated template tiles keep their download affordance readable */
+html[data-theme="light"] .tpl-dl .dl-go{ color:var(--teal); }
+
 /* 1e -- HOMEPAGE HERO stays a dark cinematic band in light mode too.
    hero-julian.webp is intrinsically dark (the boardroom's left side is near
    black), so a translucent light overlay only muddied it into a grey block.
