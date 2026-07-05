@@ -261,3 +261,13 @@ html[data-theme="light"] .gbs-zoomov svg{ background:#0e1219; border-color:#222c
   .gbs-nav-item.cur{ color:var(--text); }
   .gbs-nav-item.cur .gbs-dot{ background:var(--gold); }
 }
+
+
+/* 1g -- MOBILE DIAGRAM FIT: inline diagrams were forced to min-width 680px inside an
+   overflow-x frame -> squeezed/scrollable and unreadable on phones. Let them scale to
+   fit; the "Tap to zoom" badge opens the full-size readable version. */
+@media(max-width:768px){
+  .svg-frame svg,.side-visual svg{ min-width:0 !important; }
+  .svg-frame{ overflow-x:visible !important; padding:16px !important; }
+  .gbs-zoomable .gbs-zbadge{ top:8px; right:8px; border-radius:6px; box-shadow:0 2px 8px rgba(8,11,16,.4); }
+}

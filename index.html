@@ -666,10 +666,17 @@
   .hook-cast .hc-name{font-size:13px;color:var(--text-2);font-weight:500}
   .hook-cast .hc-role{color:#8a96ab;font-weight:400}
 .ss-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;max-width:1180px;margin:0 auto}.ss-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;text-decoration:none;transition:border-color .2s,transform .2s}.ss-card:hover{border-color:var(--teal);transform:translateY(-2px)}.ss-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}.ss-av{width:88px;height:88px;border-radius:50%;overflow:hidden;border:1.5px solid var(--gold);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500;font-size:30px}.ss-av img{width:100%;height:100%;object-fit:cover;display:block}.ss-tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--text-3);text-transform:uppercase;line-height:1.6}.ss-name{display:block;font-size:13px;color:var(--text-2);font-family:Inter,sans-serif;letter-spacing:0;text-transform:none}.ss-story{font-size:15px;color:var(--text);line-height:1.65;font-style:italic;margin:0 0 12px}.ss-story .ss-em{color:var(--gold);font-style:italic}.ss-fix{font-size:13.5px;color:var(--text-2);line-height:1.55;margin:0}.ss-fix .ss-arrow{color:var(--teal);font-family:"JetBrains Mono",monospace;margin-right:6px}@media(max-width:640px){.ss-av{width:72px;height:72px;font-size:24px}}
+
+@media (max-width:768px){
+  .hero::before{ background: linear-gradient(180deg, var(--void) 0%, var(--void) 40%, rgba(8,11,16,.80) 60%, rgba(8,11,16,.55) 100%) !important; }
+  .hero-sub{ text-shadow: 0 1px 14px rgba(8,11,16,.92); }
+  .hero-actions .btn-ghost{ background: rgba(8,11,16,.72); }
+  .hero{ padding-bottom: 220px; }
+}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/mobile.css?v=15">
+  <link rel="stylesheet" href="/assets/mobile.css?v=16">
 </head>
 <body>
 
@@ -1490,6 +1497,6 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 </script>
 <script src="/assets/site.js" defer></script>
 
-<script src="/assets/mobile.js?v=15" defer></script>
+<script src="/assets/mobile.js?v=16" defer></script>
 </body>
 </html>
