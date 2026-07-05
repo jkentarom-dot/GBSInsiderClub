@@ -270,3 +270,26 @@
   function run(){Array.prototype.forEach.call(document.querySelectorAll(".pc"),init);}
   if(document.readyState!=="loading")run();else document.addEventListener("DOMContentLoaded",run);
 })();
+
+/* ---- AUTH/VIP STATE: flag <html> so the UI can suppress upsell for members ---- */
+(function(){
+  try{
+    var REF="wgdcfgknnentriqlajqe";
+    var ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo";
+    var raw=null;
+    try{ raw=localStorage.getItem("sb-"+REF+"-auth-token"); }catch(e){}
+    if(!raw){
+      // fallback: scan for any sb-*-auth-token key
+      try{ for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i); if(k&&k.indexOf("-auth-token")>-1&&k.indexOf("sb-")===0){raw=localStorage.getItem(k);break;}} }catch(e){}
+    }
+    if(!raw) return;
+    var sess; try{ sess=JSON.parse(raw); }catch(e){ return; }
+    var token=sess&&(sess.access_token||(sess.currentSession&&sess.currentSession.access_token));
+    if(!token) return;
+    document.documentElement.classList.add("gbs-authed");
+    fetch("https://"+REF+".supabase.co/functions/v1/get-user-tier",{method:"POST",headers:{"apikey":ANON,"Authorization":"Bearer "+token}})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(j){ if(j&&j.tier&&j.tier!=="free") document.documentElement.classList.add("gbs-vip"); })
+      .catch(function(){});
+  }catch(e){}
+})();

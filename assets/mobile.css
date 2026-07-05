@@ -291,3 +291,12 @@ html[data-theme="light"] .gbs-zoomov svg{ background:#0e1219; border-color:#222c
 .pc-item-date{font-size:11px;color:var(--text-3,#4e5a6e);margin-left:8px;font-family:"JetBrains Mono",monospace}
 .pc-item-body{font-size:14px;color:var(--text-2,#8a96ab);line-height:1.55;margin:4px 0 0;white-space:pre-wrap}
 .pc-empty{font-size:13px;color:var(--text-3,#4e5a6e);font-style:italic}
+
+/* 1i -- MEMBER UI SUPPRESSION: hide upsell for VIPs, signup prompts for logged-in users.
+   Real content is server-gated (fail-closed) so this is UI-only. gbs-vip / gbs-authed
+   set on <html> by mobile.js. data-vip-hide / data-authed-hide = manual opt-in hooks. */
+html.gbs-vip .gate-panel,
+html.gbs-vip .preview-banner,
+html.gbs-vip .lock-tag,
+html.gbs-vip [data-vip-hide]{ display:none !important; }
+html.gbs-authed [data-authed-hide]{ display:none !important; }
