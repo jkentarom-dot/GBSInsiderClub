@@ -115,7 +115,7 @@ html[data-theme="light"] .pillar-tile:hover{
    resolves to its dark-mode value, so the text is white/bright, the ::before
    overlay goes dark again, and the photo blends — identical to dark mode. The
    rest of the light page is untouched. */
-html[data-theme="light"] .hero{
+html[data-theme="light"] #hero{
   --void:#080b10; --surface:#0e1219; --surface-2:#141922; --surface-3:#1b2130;
   --text:#ffffff; --text-2:#c8d0de; --text-3:#7a8799;
   --teal:#1d6aff; --gold:#e8b800; --sky:#38bdf8; --purple:#a78bfa;
@@ -123,14 +123,14 @@ html[data-theme="light"] .hero{
   background-color:#080b10;
 }
 /* re-assert the original DARK overlay (overrides any lighter attempt) */
-html[data-theme="light"] .hero::before{
+html[data-theme="light"] #hero::before{
   background:
     linear-gradient(90deg, var(--void) 0%, rgba(8,11,16,0.6) 60%, rgba(8,11,16,0.3) 100%),
     linear-gradient(180deg, rgba(8,11,16,0.3) 0%, transparent 15%, transparent 85%, var(--void) 100%) !important;
 }
 /* the global light-mode heading/lead flips use var(--text*), which now resolve
    dark-on-hero -> white; this keeps the white sub-copy highlight white too. */
-html[data-theme="light"] .hero-sub strong{ color:#fff !important; }
+html[data-theme="light"] #hero .hero-sub strong{ color:#fff !important; }
 
 /* 1b -- DIAGRAMS IN LIGHT MODE: frame as intentional dark panels --------
    Robust by design: we do NOT recolor each SVG's internals (that is
