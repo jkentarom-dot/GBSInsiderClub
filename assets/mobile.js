@@ -231,3 +231,42 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
+
+
+/* ---- COMMENTS module (page_comments): submit -> moderation, expand -> approved ---- */
+(function(){
+  var U="https://wgdcfgknnentriqlajqe.supabase.co/rest/v1/page_comments";
+  var K="sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp";
+  function esc(s){return (s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+  function fmt(d){try{return new Date(d).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});}catch(e){return "";}}
+  function init(pc){
+    var page=pc.getAttribute("data-page");
+    var name=pc.querySelector(".pc-name"),body=pc.querySelector(".pc-body"),submit=pc.querySelector(".pc-submit"),msg=pc.querySelector(".pc-msg"),toggle=pc.querySelector(".pc-toggle"),list=pc.querySelector(".pc-list");
+    var loaded=false;
+    if(submit)submit.addEventListener("click",function(){
+      var n=(name.value||"").trim(),b=(body.value||"").trim();
+      if(!n||!b){msg.style.color="var(--amber,#f59e0b)";msg.textContent="Add your name and a comment.";return;}
+      submit.disabled=true;msg.textContent="";
+      fetch(U,{method:"POST",headers:{"apikey":K,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({page_id:page,name:n.slice(0,80),body:b.slice(0,2000)})})
+      .then(function(r){if(r.ok){msg.style.color="var(--green,#34d399)";msg.textContent="Thanks \u2014 your comment is awaiting review.";name.value="";body.value="";}else{msg.style.color="var(--ruby,#e84560)";msg.textContent="Could not post \u2014 try again later.";submit.disabled=false;}})
+      .catch(function(){msg.style.color="var(--ruby,#e84560)";msg.textContent="Could not post \u2014 try again later.";submit.disabled=false;});
+    });
+    function load(){
+      fetch(U+"?page_id=eq."+encodeURIComponent(page)+"&approved=eq.true&select=name,body,created_at&order=created_at.desc",{headers:{"apikey":K}})
+      .then(function(r){return r.json();})
+      .then(function(rows){
+        var c=pc.querySelector(".pc-count");if(c)c.textContent="("+rows.length+")";
+        if(!rows.length){list.innerHTML='<div class="pc-empty">No comments yet. Be the first.</div>';return;}
+        list.innerHTML=rows.map(function(x){return '<div class="pc-item"><span class="pc-item-name">'+esc(x.name)+'</span><span class="pc-item-date">'+fmt(x.created_at)+'</span><p class="pc-item-body">'+esc(x.body)+'</p></div>';}).join("");
+      }).catch(function(){list.innerHTML='<div class="pc-empty">Comments unavailable right now.</div>';});
+    }
+    if(toggle)toggle.addEventListener("click",function(){
+      var open=toggle.getAttribute("aria-expanded")==="true";
+      toggle.setAttribute("aria-expanded",open?"false":"true");
+      list.hidden=open;
+      if(!open&&!loaded){loaded=true;load();}
+    });
+  }
+  function run(){Array.prototype.forEach.call(document.querySelectorAll(".pc"),init);}
+  if(document.readyState!=="loading")run();else document.addEventListener("DOMContentLoaded",run);
+})();
