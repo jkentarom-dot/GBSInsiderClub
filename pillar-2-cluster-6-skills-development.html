@@ -622,5 +622,16 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
 </div>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/mobile.js?v=12" defer></script>
+<style>.pf{display:flex;align-items:center;gap:12px;margin:34px 0 10px;padding:14px 18px;background:var(--surface-2,#141922);border:1px solid var(--border,#1e2535);border-radius:8px;flex-wrap:wrap}.pf-q{font-size:14px;color:var(--text-2,#8a96ab)}.pf-btn{font-family:inherit;font-size:13px;color:var(--text,#d4dbe8);background:transparent;border:1px solid var(--border-2,#252e40);border-radius:6px;padding:7px 16px;cursor:pointer}.pf-btn:hover{border-color:var(--teal,#1d6aff)}.pf-done{font-size:13px;color:var(--green,#34d399)}</style>
+<div class="pf" data-page="pillar-2-cluster-6-skills-development"><span class="pf-q">Was this helpful?</span><button class="pf-btn" data-v="up" type="button">Yes</button><button class="pf-btn" data-v="down" type="button">Not really</button></div>
+<script>
+(function(){var U='https://wgdcfgknnentriqlajqe.supabase.co/rest/v1/page_feedback',K='sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp';
+function done(w){w.innerHTML='<span class="pf-done">Thanks — noted.</span>';}
+document.addEventListener('click',function(e){var b=e.target.closest('.pf-btn');if(!b)return;var w=b.closest('.pf'),p=w.getAttribute('data-page');
+try{if(localStorage.getItem('pf_'+p)){done(w);return;}}catch(_){}
+fetch(U,{method:'POST',headers:{'apikey':K,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({page_id:p,vote:b.getAttribute('data-v')})}).catch(function(){});
+try{localStorage.setItem('pf_'+p,'1');}catch(_){}
+done(w);});})();
+</script>
 </body>
 </html>
