@@ -185,6 +185,7 @@
   .photo-band { padding-top: 10px; padding-bottom: 10px; }
   .path-photo { margin: 0; }
   .path-photo img { width: 100%; height: auto; max-height: 380px; object-fit: cover; border-radius: 14px; border: 1px solid var(--border); display: block; }
+.gq{display:flex;gap:16px;align-items:center;margin:0 0 30px;padding:16px 18px;background:var(--surface-2,#141922);border:1px solid var(--border,#1e2535);border-left:3px solid var(--gold,#e8b800);border-radius:8px}.gq-av{width:132px;height:132px;border-radius:50%;overflow:hidden;border:1.5px solid var(--gold,#e8b800);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold,#e8b800);font-weight:500;font-size:48px}.gq-av img{width:100%;height:100%;object-fit:cover;display:block;max-width:none}.gq-body{flex:1;min-width:0}.gq-ask{margin:0 0 7px;font-size:17px;font-weight:300;color:var(--text,#d4dbe8);line-height:1.5}.gq-name{color:var(--text-3,#4e5a6e);font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.gq-ask em{font-style:italic;color:var(--gold,#e8b800)}.gq-bridge{margin:0;font-size:14px;color:var(--text-2,#8a96ab);line-height:1.55}.gq-arrow{color:var(--teal,#1d6aff);font-family:"JetBrains Mono",monospace;margin-right:7px}@media(max-width:640px){.gq{flex-direction:column;align-items:flex-start;padding:16px 15px;gap:12px}.gq-av{width:120px;height:120px}.gq-ask{font-size:16px}}.pf{display:flex;align-items:center;gap:12px;margin:34px 0 10px;padding:14px 18px;background:var(--surface-2,#141922);border:1px solid var(--border,#1e2535);border-radius:8px;flex-wrap:wrap}.pf-q{font-size:14px;color:var(--text-2,#8a96ab)}.pf-btn{font-family:inherit;font-size:13px;color:var(--text,#d4dbe8);background:transparent;border:1px solid var(--border-2,#252e40);border-radius:6px;padding:7px 16px;cursor:pointer}.pf-btn:hover{border-color:var(--teal,#1d6aff)}.pf-done{font-size:13px;color:var(--green,#34d399)}
 </style>
 <style>
   /* glassmorphism + dynamic tiles (applies to static and JS-rendered cards by class) */
@@ -268,6 +269,8 @@
 
   <!-- ============ MODEL RECAP NAV ============ -->
   <section class="section spine-section" style="padding-top:40px;">
+    <div class="gq"><div class="gq-av"><img src="images/cast/peter-neutral.webp" alt="Peter" onerror="this.parentNode.textContent='P'"></div><div class="gq-body"><p class="gq-ask"><span class="gq-name">Peter asks</span> &mdash; <em>"I hit every target. The promotion still went to someone else."</em></p><p class="gq-bridge"><span class="gq-arrow">&rarr;</span>Targets get you considered. This path builds what gets you chosen.</p></div></div>
+
     <span class="eyebrow eyebrow-gold">The Path at a Glance</span>
     <p class="spine-intro">The 5-step Manager Path — your spine for this path. Click any step to jump to it.</p>
     <div class="spine-strip">
@@ -677,5 +680,15 @@
 <script>(function(){var U="https://wgdcfgknnentriqlajqe.supabase.co",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo",DT=U+"/functions/v1/download-template";function go(file,el){if(typeof supabase==="undefined"){location.href="paid-tier.html#pricing";return;}var sb=supabase.createClient(U,K);if(el)el.classList.add("dl-loading");sb.auth.getSession().then(function(res){var s=res&&res.data&&res.data.session;if(!s){location.href="paid-tier.html#pricing";return;}fetch(DT,{method:"POST",headers:{"apikey":K,"Authorization":"Bearer "+s.access_token,"Content-Type":"application/json"},body:JSON.stringify({file:file})}).then(function(r){if(r.status===200)return r.json();if(r.status===401||r.status===403){location.href="paid-tier.html#pricing";}throw 0;}).then(function(d){if(d&&d.url){var a=document.createElement("a");a.href=d.url;a.download=file;document.body.appendChild(a);a.click();a.remove();}}).catch(function(){}).finally(function(){if(el)el.classList.remove("dl-loading");});});}document.addEventListener("click",function(e){var el=e.target.closest&&e.target.closest(".tpl-gated");if(!el)return;e.preventDefault();go(el.getAttribute("data-file"),el);});})();</script>
 <script defer src="assets/site.js"></script>
 <script src="/assets/mobile.js?v=12" defer></script>
+<div class="pf" data-page="path-manager" style="max-width:1040px;margin-left:auto;margin-right:auto;"><span class="pf-q">Was this page helpful?</span><button class="pf-btn" data-v="up" type="button">Yes</button><button class="pf-btn" data-v="down" type="button">Not really</button></div>
+<script>
+(function(){var U='https://wgdcfgknnentriqlajqe.supabase.co/rest/v1/page_feedback',K='sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp';
+function done(w){w.innerHTML='<span class="pf-done">Thanks — noted.</span>';}
+document.addEventListener('click',function(e){var b=e.target.closest('.pf-btn');if(!b)return;var w=b.closest('.pf'),p=w.getAttribute('data-page');
+try{if(localStorage.getItem('pf_'+p)){done(w);return;}}catch(_){}
+fetch(U,{method:'POST',headers:{'apikey':K,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({page_id:p,vote:b.getAttribute('data-v')})}).catch(function(){});
+try{localStorage.setItem('pf_'+p,'1');}catch(_){}
+done(w);});})();
+</script>
 </body>
 </html>
