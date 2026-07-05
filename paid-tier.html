@@ -155,7 +155,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
 @media(max-width:720px){.gr-steps{grid-template-columns:1fr}}
 </style>
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"><script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <link rel="stylesheet" href="/assets/mobile.css?v=18">
+  <link rel="stylesheet" href="/assets/mobile.css?v=19">
 </head>
 <body>
 <nav class="topbar">
@@ -170,6 +170,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <div class="vip-only" style="margin:0 0 22px;background:linear-gradient(135deg,rgba(52,211,153,0.12),rgba(29,106,255,0.06));border:1px solid rgba(52,211,153,0.4);border-radius:12px;padding:20px 26px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green,#34d399);display:block;margin-bottom:8px;">Member Access &middot; Active</span><p style="font-size:17px;color:var(--text,#d4dbe8);font-weight:500;margin:0 0 14px;line-height:1.5;">You have full access. Every path, template, and the complete Field Guide are open.</p><a href="#paths" style="display:inline-flex;align-items:center;gap:8px;background:var(--green,#34d399);color:var(--void,#080b10);font-size:14px;font-weight:600;padding:10px 24px;border-radius:8px;text-decoration:none;">Go to your paths &rarr;</a></div>
     <span class="eyebrow">GBS Insider Club — Career Paths</span>
     <h1>Your Career <strong>Starts Here!</strong></h1>
     <p class="hero-lead">Learn how you unlock your <strong style="color:var(--gold)">true potential</strong> at work. Role-based career programs for GBS professionals — built around one system that takes you from where you are to where you want to be.</p>
@@ -247,7 +248,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
       </table>
     </div>
 
-    <div class="vp-cta">
+    <div class="vp-cta" data-vip-hide>
       <a class="btn-primary" href="#pricing">See what's inside →</a>
       <a class="vp-btn-ghost" href="#paths">Browse the four paths</a>
       <span class="vp-cta-note">One-time purchase. No subscription.</span>
@@ -610,7 +611,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
 </script>
 
   <!-- ============ PRICING ============ -->
-  <section class="section" id="pricing">
+  <section class="section" id="pricing" data-vip-hide>
     <span class="eyebrow">Pricing</span>
     <h2>One-time purchase. No subscription.</h2>
     <p class="section-intro">You buy it once, you keep it. No monthly fee, no "am I getting my money's worth this month" anxiety. The content is a complete program, not a feed.</p>
@@ -868,6 +869,6 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
   }
 </script>
 
-<script src="/assets/mobile.js?v=18" defer></script>
+<script src="/assets/mobile.js?v=19" defer></script>
 </body>
 </html>

@@ -300,3 +300,5 @@ html.gbs-vip .preview-banner,
 html.gbs-vip .lock-tag,
 html.gbs-vip [data-vip-hide]{ display:none !important; }
 html.gbs-authed [data-authed-hide]{ display:none !important; }
+.vip-only{ display:none !important; }
+html.gbs-vip .vip-only{ display:block !important; }
