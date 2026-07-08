@@ -9830,6 +9830,7 @@ Diagnose:
   // ────────────────────────────────────────────────
 
   function applyFreeTier() {
+    return; // OPEN: all 37 chapters visible to everyone (guide = free theory, no gating). Disables sidebar dimming, section hiding, and locked indicators.
     // Hide Advanced and Expert sidebar items
     document.querySelectorAll('.sidebar-item').forEach(item => {
       if (item.querySelector('.tier-applied') || item.querySelector('.tier-deep')) {
