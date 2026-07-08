@@ -293,3 +293,16 @@
       .catch(function(){});
   }catch(e){}
 })();
+
+/* ---- first-party pageview beacon (page_views): cookieless, no PII ---- */
+(function(){
+  try{
+    var U="https://wgdcfgknnentriqlajqe.supabase.co/rest/v1/page_views";
+    var K="sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp";
+    var sid;
+    try{ sid=localStorage.getItem("gbs_sid"); if(!sid){ sid=(Date.now().toString(36)+Math.random().toString(36).slice(2,10)); localStorage.setItem("gbs_sid",sid); } }catch(e){ sid="anon"; }
+    var page=location.pathname.replace(/\/+$/,"")||"/";
+    var ref=""; try{ ref=document.referrer?new URL(document.referrer).hostname:""; }catch(e){}
+    fetch(U,{method:"POST",headers:{"apikey":K,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({page:page,sid:sid,ref:ref}),keepalive:true}).catch(function(){});
+  }catch(e){}
+})();

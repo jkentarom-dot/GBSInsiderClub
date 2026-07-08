@@ -650,7 +650,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
 @media(max-width:640px){h3.sw-hook{font-size:23px}.sw-scene,.sw-fix{padding:19px 17px}.sw-split2{grid-template-columns:1fr}}
   </style>
   <link rel="stylesheet" href="/assets/readability.css">
-  <link rel="stylesheet" href="/assets/mobile.css?v=19">
+  <link rel="stylesheet" href="/assets/mobile.css?v=20">
 </head>
 <body>
 
@@ -921,7 +921,7 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
       </p>
       <div class="hero-stats">
         <div class="stat"><span class="stat-num">8</span><span class="stat-label">Parts</span></div>
-        <div class="stat"><span class="stat-num">36</span><span class="stat-label">Chapters</span></div>
+        <div class="stat"><span class="stat-num">37</span><span class="stat-label">Chapters</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">Prerequisites</span></div>
       </div>
     </div>
@@ -9848,21 +9848,7 @@ Diagnose:
       }
     });
 
-    // Show upgrade banner (bottom right, persistent)
-    const banner = document.createElement('div');
-    banner.id = 'upgrade-banner';
-    banner.innerHTML = `
-      <div style="position:fixed; bottom:24px; right:24px; background:#0d1117; border:1px solid #b89438; border-radius:8px; padding:20px 22px; max-width:290px; z-index:9999; box-shadow:0 8px 40px rgba(0,0,0,0.5); font-family:'IBM Plex Sans',sans-serif;">
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
-          <div style="height:2px; width:20px; background:#b89438; border-radius:2px;"></div>
-          <span style="font-size:12px; color:#b89438; font-family:'IBM Plex Mono',monospace; letter-spacing:0.12em; text-transform:uppercase; font-weight:600;">Free Member</span>
-        </div>
-        <p style="color:#d4dbe8; font-size:13px; line-height:1.65; margin-bottom:14px;">You're viewing the <strong style="color:#fff;">Beginner chapters</strong>. Upgrade to get all 37 chapters including Advanced, Expert, and the full Practitioner's Playbook.</p>
-        <a href="mailto:jkentarom@gmail.com?subject=Upgrade%20GBS%20Insider%20Club%20Access&body=Hi%2C%20I'd%20like%20to%20upgrade%20my%20access%20to%20the%20full%20AI%20Field%20Guide."
-          style="display:block; text-align:center; background:linear-gradient(135deg,#b89438,#d4a843); color:#05080f; font-weight:700; font-size:13px; padding:9px 16px; border-radius:5px; text-decoration:none; letter-spacing:0.03em;">Upgrade Access →</a>
-        <button onclick="document.getElementById('upgrade-banner').style.display='none'" style="position:absolute; top:10px; right:12px; background:none; border:none; color:#8a96ab; font-size:16px; cursor:pointer; padding:0; line-height:1;">×</button>
-      </div>`;
-    document.body.appendChild(banner);
+    // Upgrade banner removed (guide content is open theory; no gate, no upsell nag).
 
     // Also show locked indicator in sidebar header
     const sidebarGroups = document.querySelectorAll('.sidebar-group-label');
@@ -10154,7 +10140,7 @@ Diagnose:
 </script>
 
 <button id="join-pill" onclick="document.getElementById('auth-gate').style.display='flex'" style="position:fixed; bottom:20px; right:20px; z-index:60; background:#1d6aff; color:#fff; border:none; border-radius:999px; padding:12px 20px; font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:14px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,.45);">Log in / Join free</button>
-<script src="/assets/mobile.js?v=19" defer></script>
+<script src="/assets/mobile.js?v=20" defer></script>
 <script>
 (function(){var U='https://wgdcfgknnentriqlajqe.supabase.co/rest/v1/page_feedback',K='sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp';
 function done(w){w.innerHTML='<span class="pf-done">Thanks — noted.</span>';}
