@@ -663,6 +663,29 @@ details.sw-theory .sw-inner{padding:6px 20px 22px;border-top:1px solid var(--bor
   .gd-bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal,#1d6aff),var(--sky,#38bdf8));border-radius:2px;transition:width .3s}
   .sidebar-item.sb-done .sidebar-num{color:var(--green,#34d399)}
   .sidebar-item .sb-check{margin-left:auto;color:var(--green,#34d399);font-size:12px;padding-left:6px}
+
+  /* ── Light-mode readability fixes (2026-07-09): flip guide-local tokens
+     + override hard-coded whites. html[data-theme] beats :root and bare classes. ── */
+  html[data-theme="light"]{
+    --bg:#f4f6fb; --surface2:#fbfcfe; --border2:#d7dde9;
+    --accent:#1558d6; --blue:#0e8fd6;
+    --text:#11161f; --text2:#11161f; --text3:#64718a;
+  }
+  html[data-theme="light"] .sidebar-group-label{color:#3a4660}
+  html[data-theme="light"] .sidebar-item{color:#26314a}
+  html[data-theme="light"] .sidebar-item:hover{color:#11161f;background:rgba(21,88,214,.06)}
+  html[data-theme="light"] .sidebar-item.active{color:#1558d6;background:rgba(21,88,214,.06)}
+  html[data-theme="light"] .sidebar-num{color:#64718a}
+  html[data-theme="light"] .hero h1,
+  html[data-theme="light"] .section h2,
+  html[data-theme="light"] .bullets li strong,
+  html[data-theme="light"] td strong,
+  html[data-theme="light"] .callout strong,
+  html[data-theme="light"] .step-body h4,
+  html[data-theme="light"] .timeline-body h4,
+  html[data-theme="light"] .hbox-title,
+  html[data-theme="light"] .myth-truth strong,
+  html[data-theme="light"] .gloss:hover{color:#11161f}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/mobile.css?v=20">
