@@ -147,6 +147,11 @@ textarea::placeholder{color:var(--text-3);}
 .mail p{margin:0 0 11px;}
 .mail p:last-child{margin-bottom:0;}
 .mail-note{margin-top:10px;font-size:13.5px;color:var(--text-3);line-height:1.55;}
+
+.dgm{margin:18px 0 0;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:18px 18px 14px;}
+.dgm-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;}
+.dgm svg{width:100%;height:auto;display:block;}
+.dgm .cap{font-size:13px;color:var(--text-3);line-height:1.5;margin-top:11px;}
 </style>
 </head>
 <body>
@@ -164,16 +169,16 @@ textarea::placeholder{color:var(--text-3);}
 <div class="wrap">
 
   <div class="hero">
-    <div class="eyebrow">Free track &middot; No login</div>
+    <div class="eyebrow">Free track · No login</div>
     <h1>How do I sound confident <b>in meetings?</b></h1>
     <p class="sub">Five working days. About 20 minutes a day. Confidence is a small set of habits, not a personality you are born with. One of them does the most work, and it is on Day 3.</p>
-    <div class="meta">5 days &middot; ~20 min per day &middot; Saves on this device</div>
+    <div class="meta">5 days · ~20 min per day · Saves on this device</div>
   </div>
 
   <div class="scene">
     <div class="scene-top">
       <span class="av"><img src="images/cast/miguel-frustrated.webp" alt="Miguel" onerror="this.parentNode.textContent='M'"></span>
-      <span class="who">Miguel<span>New team lead &middot; Week 6 &middot; Manila</span></span>
+      <span class="who">Miguel<span>New team lead · Week 6 · Manila</span></span>
     </div>
     <p>Miguel has the number in front of him. He knows he is right.</p>
     <p>He waits for a gap. The talk moves fast, in a second language.</p>
@@ -206,7 +211,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">1</span>
       <span>
         <h2>Walk in with one point ready</h2>
-        <div class="day-time">Monday &middot; 20 min</div>
+        <div class="day-time">Monday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">People who sound confident are not thinking faster than you. They decided what to say before the meeting started. You can do the same thing.</p>
@@ -217,6 +222,19 @@ textarea::placeholder{color:var(--text-3);}
       <li>Decide <b>when</b> you will say it. Which agenda item. Do not wait for a perfect gap that never comes.</li>
       <li>Read your sentence <b>out loud once</b> before the meeting. The first time you hear your own voice say it should not be in the room.</li>
     </ul>
+
+    <div class="dgm">
+      <div class="dgm-l">Loaded before you walk in</div>
+      <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <circle cx="90" cy="60" r="42" fill="none" stroke="#1e2535" stroke-width="1.5"/>
+        <circle cx="90" cy="60" r="26" fill="none" stroke="#252e40" stroke-width="1.5"/>
+        <circle cx="90" cy="60" r="10" fill="#e8b800"/>
+        <text x="170" y="48" fill="#c8d0de" font-size="14">One point.</text>
+        <text x="170" y="72" fill="#c8d0de" font-size="14">One sentence.</text>
+        <text x="170" y="94" fill="#7a8799" font-size="12">Decided before the meeting starts.</text>
+      </svg>
+      <div class="cap">People who sound quick are not quick. They decided their one line in advance.</div>
+    </div>
 
     <div class="ex">
       <div class="ex-l">One point, one sentence</div>
@@ -235,7 +253,7 @@ textarea::placeholder{color:var(--text-3);}
       <p>One prepared point beats five improvised ones. Say your line, and if nothing else comes, that is a good meeting. You spoke once and it mattered.</p>
     </div>
 
-    <div class="note-l">Your one point &middot; for your next meeting</div>
+    <div class="note-l">Your one point · for your next meeting</div>
     <textarea data-note="1" placeholder="The point (one sentence):&#10;The fact behind it:&#10;When I will say it:"></textarea>
     <div class="day-foot"><button class="btn-done" data-day="1">Mark day 1 done</button></div>
   </div>
@@ -246,7 +264,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">2</span>
       <span>
         <h2>Say it early</h2>
-        <div class="day-time">Tuesday &middot; 20 min</div>
+        <div class="day-time">Tuesday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">The longer you wait to speak, the harder it gets. Every minute of silence raises the price of the first word. So lower the price. Speak early, while it is still cheap.</p>
@@ -257,6 +275,21 @@ textarea::placeholder{color:var(--text-3);}
       <li><b>Do not apologize for speaking.</b> No "sorry, just quickly". You have the same right to the air as everyone else in the room.</li>
       <li>Deliver your Day 1 point <b>early</b>, not at the end. The best moment is usually sooner than you think.</li>
     </ul>
+
+    <div class="dgm">
+      <div class="dgm-l">Speak while it is cheap</div>
+      <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <line x1="30" y1="80" x2="570" y2="80" stroke="#252e40" stroke-width="1.5"/>
+        <text x="30" y="102" fill="#7a8799" font-size="11">start</text>
+        <text x="540" y="102" fill="#7a8799" font-size="11">end</text>
+        <path d="M60 80 C 200 78, 380 40, 560 20" fill="none" stroke="#e8b800" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="470" y="30" fill="#e8b800" font-size="11">cost of speaking</text>
+        <circle cx="90" cy="80" r="7" fill="#34d399"/>
+        <text x="90" y="66" fill="#34d399" font-size="11" text-anchor="middle">speak here</text>
+        <text x="300" y="112" fill="#7a8799" font-size="12" text-anchor="middle">every minute of silence raises the price of the first word</text>
+      </svg>
+      <div class="cap">The first word is hardest after long silence. Speak early and pay less for it.</div>
+    </div>
 
     <div class="ex">
       <div class="ex-l">Claim the floor &mdash; patterns, not scripts</div>
@@ -278,7 +311,7 @@ textarea::placeholder{color:var(--text-3);}
       <p>Cut "just", "sorry", "maybe", and "does that make sense?" from how you speak up. Each one tells the room to take you less seriously, and they will.</p>
     </div>
 
-    <div class="note-l">When you spoke &middot; how early</div>
+    <div class="note-l">When you spoke · how early</div>
     <textarea data-note="2" placeholder="Which meeting:&#10;How many minutes in:&#10;What I said:"></textarea>
     <div class="day-foot"><button class="btn-done" data-day="2">Mark day 2 done</button></div>
   </div>
@@ -289,7 +322,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">3</span>
       <span>
         <h2>Point first, then stop</h2>
-        <div class="day-time">Wednesday &middot; 20 min</div>
+        <div class="day-time">Wednesday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">This is the habit that does the most work. Most people bury the point in the middle of a long run-up. Put it first. Then stop talking. The stop is the confident part.</p>
@@ -300,6 +333,26 @@ textarea::placeholder{color:var(--text-3);}
       <li><b>Let the pause sit.</b> Two seconds of quiet feels like ten to you and normal to everyone else.</li>
       <li>Practice on <b>one email today</b>. Answer in the first line, reasons after. Writing the habit trains the speaking habit.</li>
     </ul>
+
+    <div class="dgm">
+      <div class="dgm-l">Where the point goes</div>
+      <svg viewBox="0 0 600 138" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <text x="16" y="18" fill="#7a8799" font-size="11" font-family="'JetBrains Mono',monospace">BURIED</text>
+        <rect x="16" y="26" width="70" height="22" rx="5" fill="#141922" stroke="#1e2535"/>
+        <rect x="92" y="26" width="70" height="22" rx="5" fill="#141922" stroke="#1e2535"/>
+        <rect x="168" y="26" width="90" height="22" rx="5" fill="#141922" stroke="#e8b800"/>
+        <text x="213" y="41" fill="#e8b800" font-size="11" text-anchor="middle">the point</text>
+        <rect x="264" y="26" width="70" height="22" rx="5" fill="#141922" stroke="#1e2535"/>
+        <text x="360" y="41" fill="#7a8799" font-size="12">they stopped listening</text>
+        <text x="16" y="84" fill="#7a8799" font-size="11" font-family="'JetBrains Mono',monospace">POINT FIRST</text>
+        <rect x="16" y="92" width="120" height="26" rx="6" fill="#141922" stroke="#34d399"/>
+        <text x="76" y="109" fill="#34d399" font-size="12" text-anchor="middle">the point</text>
+        <rect x="142" y="92" width="70" height="26" rx="6" fill="#141922" stroke="#1e2535"/>
+        <rect x="218" y="92" width="70" height="26" rx="6" fill="#141922" stroke="#1e2535"/>
+        <text x="304" y="109" fill="#7a8799" font-size="12">reasons, if they want them</text>
+      </svg>
+      <div class="cap">Buried, they stop before they reach it. First, they hear it while still listening.</div>
+    </div>
 
     <div class="ex">
       <div class="ex-l">Point first</div>
@@ -319,7 +372,7 @@ textarea::placeholder{color:var(--text-3);}
       <p>If you need a way to signal you are done, use "That is my point" and stop. It is a full stop other people can hear.</p>
     </div>
 
-    <div class="note-l">Rewrite one thing &middot; point first</div>
+    <div class="note-l">Rewrite one thing · point first</div>
     <textarea data-note="3" placeholder="Something you said or wrote this week, buried:&#10;&#10;Rewritten, point first:"></textarea>
     <div class="day-foot"><button class="btn-done" data-day="3">Mark day 3 done</button></div>
   </div>
@@ -330,7 +383,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">4</span>
       <span>
         <h2>Fix the body, not just the words</h2>
-        <div class="day-time">Thursday &middot; 20 min</div>
+        <div class="day-time">Thursday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">Two things you have been told contradict each other. Slow down so you sound calm. Also: speak up, do not be quiet. Both are right. The rule that joins them is at the bottom of this day.</p>
@@ -341,6 +394,21 @@ textarea::placeholder{color:var(--text-3);}
       <li><b>Sit up and forward.</b> Your body tells your voice what to do. A slumped posture produces a small voice.</li>
       <li><b>Let your sentences land.</b> Full stops, not commas. Short sentences sound sure. Long ones sound like you are still deciding.</li>
     </ul>
+
+    <div class="dgm">
+      <div class="dgm-l">Same idea, two deliveries</div>
+      <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="14" y="20" width="280" height="90" rx="10" fill="#141922" stroke="#1e2535"/>
+        <text x="30" y="42" fill="#8a96ab" font-size="12" font-family="'JetBrains Mono',monospace">NERVOUS</text>
+        <text x="30" y="64" fill="#7a8799" font-size="12">rushed · hedged · upspeak?</text>
+        <text x="30" y="84" fill="#7a8799" font-size="12">"sorry, does that make sense?"</text>
+        <rect x="306" y="20" width="280" height="90" rx="10" fill="#141922" stroke="#34d399"/>
+        <text x="322" y="42" fill="#34d399" font-size="12" font-family="'JetBrains Mono',monospace">STEADY</text>
+        <text x="322" y="64" fill="#c8d0de" font-size="12">slow · short · full stops.</text>
+        <text x="322" y="84" fill="#c8d0de" font-size="12">breathe, then the first word.</text>
+      </svg>
+      <div class="cap">The words barely change. The pace, the stops, and the missing "sorry" change everything.</div>
+    </div>
 
     <div class="ex">
       <div class="ex-l">Before and after</div>
@@ -379,7 +447,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">5</span>
       <span>
         <h2>Rehearse the hard one</h2>
-        <div class="day-time">Friday &middot; 20 min</div>
+        <div class="day-time">Friday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">There is one meeting you dread. A senior audience, a hard question, a moment you might freeze. Confident people are not fearless there. They rehearsed.</p>
@@ -390,6 +458,26 @@ textarea::placeholder{color:var(--text-3);}
       <li>Answer <b>out loud</b>, in one or two sentences. If you cannot answer in two, you do not know your point well enough yet.</li>
       <li>Rehearse the <b>freeze recovery</b>: "Let me come back to you on that with the number." A calm deferral beats a panicked guess every time.</li>
     </ul>
+
+    <div class="dgm">
+      <div class="dgm-l">Where to freeze</div>
+      <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="20" y="48" width="150" height="40" rx="8" fill="#141922" stroke="#38bdf8"/>
+        <text x="95" y="66" fill="#38bdf8" font-size="12" text-anchor="middle">Hard question</text>
+        <text x="95" y="81" fill="#7a8799" font-size="10.5" text-anchor="middle">the one you fear</text>
+        <rect x="225" y="48" width="150" height="40" rx="8" fill="#141922" stroke="#1e2535"/>
+        <text x="300" y="66" fill="#c8d0de" font-size="12" text-anchor="middle">AI, hostile room</text>
+        <text x="300" y="81" fill="#7a8799" font-size="10.5" text-anchor="middle">answer out loud</text>
+        <rect x="430" y="48" width="150" height="40" rx="8" fill="#141922" stroke="#34d399"/>
+        <text x="505" y="66" fill="#34d399" font-size="12" text-anchor="middle">Freeze once</text>
+        <text x="505" y="81" fill="#7a8799" font-size="10.5" text-anchor="middle">in private, tonight</text>
+        <path d="M174 68 L221 68" stroke="#7a8799" stroke-width="1.5" marker-end="url(#c5)"/>
+        <path d="M379 68 L426 68" stroke="#7a8799" stroke-width="1.5" marker-end="url(#c5)"/>
+        <text x="300" y="24" fill="#8a96ab" font-size="12" text-anchor="middle">freeze alone tonight, not in front of the people who decide</text>
+        <defs><marker id="c5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#7a8799"/></marker></defs>
+      </svg>
+      <div class="cap">Rehearse against a hostile room in private. Freeze there, not in the steering meeting.</div>
+    </div>
 
     <div class="ex">
       <div class="ex-l">The AI rehearsal prompt</div>
@@ -412,7 +500,7 @@ textarea::placeholder{color:var(--text-3);}
       <p>Prepare the point. The calm follows.</p>
     </div>
 
-    <div class="note-l">The moment you fear &middot; your rehearsal</div>
+    <div class="note-l">The moment you fear · your rehearsal</div>
     <textarea data-note="5" placeholder="The meeting I dread:&#10;The question I fear:&#10;My two-sentence answer:&#10;My freeze recovery line:"></textarea>
     <div class="day-foot"><button class="btn-done" data-day="5">Mark day 5 done</button></div>
   </div>

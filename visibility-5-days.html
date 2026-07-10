@@ -147,6 +147,11 @@ textarea::placeholder{color:var(--text-3);}
 .mail p{margin:0 0 11px;}
 .mail p:last-child{margin-bottom:0;}
 .mail-note{margin-top:10px;font-size:13.5px;color:var(--text-3);line-height:1.55;}
+
+.dgm{margin:18px 0 0;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:18px 18px 14px;}
+.dgm-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;}
+.dgm svg{width:100%;height:auto;display:block;}
+.dgm .cap{font-size:13px;color:var(--text-3);line-height:1.5;margin-top:11px;}
 </style>
 </head>
 <body>
@@ -164,10 +169,10 @@ textarea::placeholder{color:var(--text-3);}
 <div class="wrap">
 
   <section class="hero">
-    <div class="eyebrow">Free track &middot; No login</div>
+    <div class="eyebrow">Free track · No login</div>
     <h1>How do I get <b>more visibility?</b></h1>
     <p class="sub">Five working days. About twenty minutes each. You already know your job — this is about being seen doing it.</p>
-    <div class="meta">5 days &middot; 20 min per day &middot; Progress saves on this device</div>
+    <div class="meta">5 days · 20 min per day · Progress saves on this device</div>
   </section>
 
   <div class="scene">
@@ -175,7 +180,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="av"><img src="images/cast/klaudia-frustrated.webp" alt="Klaudia" onerror="this.parentNode.textContent='K'"></span>
       <span>
         <span class="scene-who">Klaudia</span>
-        <span class="scene-role">Year 3 &middot; Krakow</span>
+        <span class="scene-role">Year 3 · Krakow</span>
       </span>
     </div>
     <p>
@@ -211,7 +216,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">1</span>
       <span>
         <h2>Observe and learn from your role models</h2>
-        <div class="day-time">Monday &middot; 20 min</div>
+        <div class="day-time">Monday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">Before you change anything, study the people who already have what you want. Half of it is what they do. The useful half is what they never do.</p>
@@ -221,6 +226,27 @@ textarea::placeholder{color:var(--text-3);}
       <li>Watch <b>what they never do</b>. This is the half most people miss.</li>
       <li>Pick the <b>two things closest to who you already are</b>. Ignore the rest.</li>
     </ul>
+
+    <div class="dgm">
+      <div class="dgm-l">Five things to watch</div>
+      <svg viewBox="0 0 600 96" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <g>
+        <circle cx="65" cy="40" r="26" fill="#141922" stroke="#e8b800"/>
+        <text x="65" y="45" fill="#e8b800" font-size="12" text-anchor="middle">Position</text>
+        <circle cx="197" cy="40" r="26" fill="#141922" stroke="#1e2535"/>
+        <text x="197" y="45" fill="#c8d0de" font-size="12" text-anchor="middle">Body</text>
+        <circle cx="329" cy="40" r="26" fill="#141922" stroke="#1e2535"/>
+        <text x="329" y="45" fill="#c8d0de" font-size="12" text-anchor="middle">Voice</text>
+        <circle cx="461" cy="40" r="26" fill="#141922" stroke="#1e2535"/>
+        <text x="461" y="38" fill="#c8d0de" font-size="11" text-anchor="middle">Sub-</text>
+        <text x="461" y="50" fill="#c8d0de" font-size="11" text-anchor="middle">stance</text>
+        <circle cx="551" cy="40" r="26" fill="#141922" stroke="#1e2535"/>
+        <text x="551" y="45" fill="#c8d0de" font-size="12" text-anchor="middle">Room</text>
+        </g>
+        <text x="300" y="88" fill="#7a8799" font-size="12" text-anchor="middle">pick the two closest to who you already are</text>
+      </svg>
+      <div class="cap">Score each role model on the five. Two will feel natural. Work those two.</div>
+    </div>
 
     <div class="ex">
       <div class="ex-l">Five things to watch</div>
@@ -238,6 +264,25 @@ textarea::placeholder{color:var(--text-3);}
           <p class="why" style="margin-top:9px;">A quiet person does not become loud. A quiet person becomes the one whose silence has weight.</p>
         </div>
       </details>
+    </div>
+
+    <div class="dgm">
+      <div class="dgm-l">Two forms of worth saying</div>
+      <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="20" y="20" width="240" height="44" rx="8" fill="#141922" stroke="#38bdf8"/>
+        <text x="140" y="42" fill="#38bdf8" font-size="13" text-anchor="middle">A question</text>
+        <text x="140" y="58" fill="#7a8799" font-size="11" text-anchor="middle">that moves the discussion</text>
+        <rect x="20" y="74" width="240" height="44" rx="8" fill="#141922" stroke="#34d399"/>
+        <text x="140" y="96" fill="#34d399" font-size="13" text-anchor="middle">A contribution</text>
+        <text x="140" y="112" fill="#7a8799" font-size="11" text-anchor="middle">that saves someone work</text>
+        <rect x="360" y="47" width="220" height="44" rx="8" fill="#141922" stroke="#e8b800"/>
+        <text x="470" y="69" fill="#e8b800" font-size="13" text-anchor="middle">Worth listening to</text>
+        <text x="470" y="85" fill="#7a8799" font-size="11" text-anchor="middle">nobody else could say it</text>
+        <path d="M264 42 L356 63" stroke="#7a8799" stroke-width="1.5" marker-end="url(#v2)"/>
+        <path d="M264 96 L356 74" stroke="#7a8799" stroke-width="1.5" marker-end="url(#v2)"/>
+        <defs><marker id="v2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#7a8799"/></marker></defs>
+      </svg>
+      <div class="cap">A question or a contribution. Agreement is forgettable; these are not.</div>
     </div>
 
     <div class="ex">
@@ -273,7 +318,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">2</span>
       <span>
         <h2>Find something worth saying</h2>
-        <div class="day-time">Tuesday &middot; 20 min</div>
+        <div class="day-time">Tuesday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">Speaking up only works when what you say is worth the air. Build the substance first.</p>
@@ -299,7 +344,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">3</span>
       <span>
         <h2>Break your own idea</h2>
-        <div class="day-time">Wednesday &middot; 20 min</div>
+        <div class="day-time">Wednesday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">Anything you say in front of leadership gets one follow-up question. Survive it here first, in private.</p>
@@ -325,7 +370,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">4</span>
       <span>
         <h2>Say it in a small room</h2>
-        <div class="day-time">Thursday &middot; 20 min</div>
+        <div class="day-time">Thursday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">First run goes somewhere cheap. Team meeting. One-to-one. A reply that adds something instead of just agreeing.</p>
@@ -336,6 +381,30 @@ textarea::placeholder{color:var(--text-3);}
       <li>Kill the hedges. <b>"I might be wrong, but"</b> and <b>"sorry, quick question"</b> delete your point before you make it.</li>
       <li>Write down what actually happened. One line.</li>
     </ul>
+    <div class="dgm">
+      <div class="dgm-l">Three ideas in, one out</div>
+      <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="16" y="30" width="120" height="24" rx="6" fill="#141922" stroke="#1e2535"/>
+        <rect x="16" y="60" width="120" height="24" rx="6" fill="#141922" stroke="#1e2535"/>
+        <rect x="16" y="90" width="120" height="24" rx="6" fill="#141922" stroke="#1e2535"/>
+        <text x="76" y="20" fill="#8a96ab" font-size="11" text-anchor="middle">three ideas</text>
+        <rect x="230" y="48" width="140" height="48" rx="8" fill="#141922" stroke="#38bdf8"/>
+        <text x="300" y="68" fill="#38bdf8" font-size="12" text-anchor="middle">AI: challenge this</text>
+        <text x="300" y="84" fill="#7a8799" font-size="11" text-anchor="middle">a hostile director</text>
+        <rect x="450" y="54" width="134" height="36" rx="8" fill="#141922" stroke="#e8b800"/>
+        <text x="517" y="76" fill="#e8b800" font-size="12" text-anchor="middle">the one that survives</text>
+        <path d="M140 42 L226 62" stroke="#7a8799" stroke-width="1.2" marker-end="url(#v3)"/>
+        <path d="M140 72 L226 72" stroke="#7a8799" stroke-width="1.2" marker-end="url(#v3)"/>
+        <path d="M140 102 L226 82" stroke="#7a8799" stroke-width="1.2" marker-end="url(#v3)"/>
+        <path d="M372 72 L446 72" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#v3b)"/>
+        <defs>
+        <marker id="v3" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0 0 L5 3 L0 6 Z" fill="#7a8799"/></marker>
+        <marker id="v3b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#38bdf8"/></marker>
+        </defs>
+      </svg>
+      <div class="cap">Pressure-test in private so the point survives a director in public.</div>
+    </div>
+
     <div class="ex">
       <div class="ex-l">Ways in &mdash; patterns, not scripts</div>
       <q>"Can I check one assumption before we move on?"</q>
@@ -350,6 +419,26 @@ textarea::placeholder{color:var(--text-3);}
           <p class="why">Adapt the words. Keep the shape: ask for the floor, use it once, give it back.</p>
         </div>
       </details>
+    </div>
+
+    <div class="dgm">
+      <div class="dgm-l">Rehearsal that counts</div>
+      <svg viewBox="0 0 600 128" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="20" y="44" width="150" height="40" rx="8" fill="#141922" stroke="#38bdf8"/>
+        <text x="95" y="62" fill="#38bdf8" font-size="12" text-anchor="middle">Ask for the floor</text>
+        <text x="95" y="77" fill="#7a8799" font-size="10.5" text-anchor="middle">"can I add one thing?"</text>
+        <rect x="225" y="44" width="150" height="40" rx="8" fill="#141922" stroke="#1e2535"/>
+        <text x="300" y="62" fill="#c8d0de" font-size="12" text-anchor="middle">Say it once</text>
+        <text x="300" y="77" fill="#7a8799" font-size="10.5" text-anchor="middle">clearly, one point</text>
+        <rect x="430" y="44" width="150" height="40" rx="8" fill="#141922" stroke="#34d399"/>
+        <text x="505" y="62" fill="#34d399" font-size="12" text-anchor="middle">Stop talking</text>
+        <text x="505" y="77" fill="#7a8799" font-size="10.5" text-anchor="middle">the silence is yours</text>
+        <path d="M174 64 L221 64" stroke="#7a8799" stroke-width="1.5" marker-end="url(#v4)"/>
+        <path d="M379 64 L426 64" stroke="#7a8799" stroke-width="1.5" marker-end="url(#v4)"/>
+        <text x="300" y="24" fill="#8a96ab" font-size="12" text-anchor="middle">one low-stakes room, three moves</text>
+        <defs><marker id="v4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#7a8799"/></marker></defs>
+      </svg>
+      <div class="cap">A real audience, low stakes. Ask, say it once, stop. The stop is the confident part.</div>
     </div>
 
     <div class="ex">
@@ -380,7 +469,7 @@ textarea::placeholder{color:var(--text-3);}
       <span class="day-n">5</span>
       <span>
         <h2>Say it where it counts</h2>
-        <div class="day-time">Friday &middot; 20 min</div>
+        <div class="day-time">Friday · 20 min</div>
       </span>
     </div>
     <p class="day-lead">Now put it in front of people above your line. This is the day the week pays for itself. It is also where the contradiction from Day 1 gets resolved.</p>
@@ -391,6 +480,22 @@ textarea::placeholder{color:var(--text-3);}
       <li>Afterwards, write <b>two lines</b>. What landed. What you would drop.</li>
       <li>Put a reminder in your calendar. <b>Run this again next month</b>, starting at day 1. Visibility is a habit, not an event.</li>
     </ul>
+    <div class="dgm">
+      <div class="dgm-l">Each day, one step higher</div>
+      <svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="40" y="104" width="200" height="34" rx="7" fill="#141922" stroke="#1e2535"/>
+        <text x="140" y="125" fill="#8a96ab" font-size="12" text-anchor="middle">Day 4 · small room</text>
+        <rect x="200" y="58" width="200" height="34" rx="7" fill="#141922" stroke="#38bdf8"/>
+        <text x="300" y="79" fill="#38bdf8" font-size="12" text-anchor="middle">Townhall / update</text>
+        <rect x="360" y="12" width="200" height="34" rx="7" fill="#141922" stroke="#e8b800"/>
+        <text x="460" y="33" fill="#e8b800" font-size="12" text-anchor="middle">One level up</text>
+        <path d="M240 116 L280 92" stroke="#7a8799" stroke-width="1.5" marker-end="url(#v5)"/>
+        <path d="M400 70 L440 46" stroke="#7a8799" stroke-width="1.5" marker-end="url(#v5)"/>
+        <defs><marker id="v5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#7a8799"/></marker></defs>
+      </svg>
+      <div class="cap">By Friday your name reaches a room your manager does not control.</div>
+    </div>
+
     <div class="ex">
       <div class="ex-l">Illustration &mdash; the message one level up</div>
       <div class="mail">
@@ -422,7 +527,7 @@ textarea::placeholder{color:var(--text-3);}
       <div class="tip-l">The real test</div>
       <p>You will know it worked when someone repeats your point back to you weeks later and thinks it was theirs. Let them. Your name is already attached to it in the room that mattered.</p>
     </div>
-    <div class="note-l">What landed &middot; what you would drop</div>
+    <div class="note-l">What landed · what you would drop</div>
     <textarea data-note="5" placeholder="Landed:&#10;Drop:"></textarea>
     <div class="day-foot"><button class="btn-done" data-day="5">Mark day 5 done</button></div>
   </div>
