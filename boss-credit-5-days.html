@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A five-day track for GBS professionals whose good work goes unnoticed. Learn what your manager is measured on, report in three lines, and build evidence instead of bragging. Free, no login.">
+<link rel="canonical" href="https://gbsinsiderclub.com/boss-credit-5-days.html">
+<title>How do I impress my boss without bragging? — A 5-day track | GBS Insider Club</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--border:#1e2535;--border-2:#252e40;--teal:#1d6aff;--teal-glow:rgba(29,106,255,0.14);--gold:#e8b800;--gold-bg:rgba(232,184,0,0.10);--green:#34d399;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--void);color:var(--text-2);font-family:Inter,sans-serif;font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px;}
+
+/* topbar */
+.topbar{position:sticky;top:0;z-index:30;background:rgba(8,11,16,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;}
+.lock{display:flex;align-items:center;gap:9px;font-weight:500;color:var(--text);font-size:14px;}
+.mark{width:26px;height:26px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mark svg{width:14px;height:14px;}
+.topbar .alt{font-size:12.5px;color:var(--text-2);border:1px solid var(--border-2);padding:7px 13px;border-radius:8px;}
+
+/* hero */
+.hero{padding:44px 0 8px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.hero h1{font-size:38px;font-weight:300;letter-spacing:-1.2px;color:var(--text);line-height:1.1;margin:14px 0 12px;}
+.hero h1 b{font-weight:500;color:var(--gold);}
+.hero .sub{font-size:16px;color:var(--text-2);}
+.meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-top:16px;}
+
+/* scene */
+.scene{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:12px;padding:24px 24px 22px;margin:30px 0 0;}
+.scene-top{display:flex;align-items:center;gap:11px;margin-bottom:16px;}
+.av{width:38px;height:38px;border-radius:50%;overflow:hidden;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500;flex-shrink:0;}
+.av img{width:100%;height:100%;object-fit:cover;}
+.scene-who{font-size:14px;color:var(--text);font-weight:500;}
+.scene-role{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;}
+.scene p{font-size:16.5px;color:var(--text-2);line-height:1.8;margin:0;}
+.em{color:var(--gold);font-weight:500;}
+.trap{background:var(--gold-bg);border:1px solid rgba(232,184,0,.28);border-radius:10px;padding:16px 18px;margin:18px 0 0;}
+.trap-l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+.trap p{font-size:16px;color:var(--text);margin:0;font-weight:400;}
+
+/* progress */
+.prog{position:sticky;top:58px;z-index:20;background:rgba(8,11,16,.94);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:32px 0 26px;}
+.prog-row{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.prog-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);}
+.prog-c{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold);font-weight:600;}
+.bar{height:5px;background:var(--surface-3);border-radius:99px;overflow:hidden;margin-top:11px;}
+.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .35s ease;}
+.reset{background:none;border:none;color:var(--text-3);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;}
+.reset:hover{color:var(--text-2);}
+
+/* day cards */
+.day{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:26px 24px;margin:0 0 18px;transition:border-color .2s;}
+.day.done{border-color:rgba(52,211,153,.42);}
+.day-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:6px;}
+.day-n{width:34px;height:34px;flex-shrink:0;border-radius:9px;background:var(--surface-3);border:1px solid var(--border-2);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+.day.done .day-n{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4);color:var(--green);}
+.day h2{font-size:23px;font-weight:500;color:var(--text);letter-spacing:-.4px;line-height:1.2;}
+.day-time{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;margin-top:5px;}
+.day-lead{font-size:16px;color:var(--text-2);margin:12px 0 18px;}
+
+ul.steps{list-style:none;}
+ul.steps li{position:relative;padding:0 0 0 30px;margin-bottom:14px;font-size:16px;color:var(--text-2);line-height:1.62;}
+ul.steps li::before{content:"";position:absolute;left:6px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--teal);}
+ul.steps li b{color:var(--text);font-weight:500;}
+
+.tip{background:var(--surface-2);border-left:2px solid var(--teal);border-radius:0 8px 8px 0;padding:13px 16px;margin:18px 0 0;}
+.tip-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.tip p{font-size:15px;color:var(--text-2);margin:0;}
+
+.note-l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin:22px 0 8px;}
+textarea{width:100%;min-height:92px;background:var(--surface-2);border:1px solid var(--border-2);border-radius:10px;color:var(--text);font-family:inherit;font-size:15.5px;font-weight:300;line-height:1.6;padding:13px 14px;resize:vertical;}
+textarea:focus{outline:none;border-color:var(--teal);}
+textarea::placeholder{color:var(--text-3);}
+
+.day-foot{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap;}
+.btn-done{background:var(--surface-2);border:1px solid var(--border-2);color:var(--text-2);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:11px 18px;border-radius:9px;cursor:pointer;transition:all .18s;}
+.btn-done:hover{border-color:var(--teal);color:var(--text);}
+.day.done .btn-done{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--green);}
+.saved{font-size:12px;color:var(--text-3);opacity:0;transition:opacity .3s;}
+.saved.on{opacity:1;}
+
+/* close */
+.mm{background:var(--surface-3);border:1px solid var(--border-2);border-radius:14px;padding:26px 24px;margin:34px 0 0;}
+.mm-l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:9px;}
+.mm h3{font-size:20px;font-weight:500;color:var(--text);letter-spacing:-.3px;margin-bottom:10px;}
+.mm p{font-size:16px;color:var(--text-2);margin:0;}
+.mm p b{color:var(--gold);font-weight:500;}
+
+.next{display:flex;gap:12px;flex-wrap:wrap;margin:34px 0 0;}
+.next a{flex:1;min-width:230px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:border-color .2s;}
+.next a:hover{border-color:var(--teal);}
+.next .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:6px;}
+.next .v{font-size:15px;font-weight:500;color:var(--text);}
+.next .d{font-size:13.5px;color:var(--text-3);margin-top:4px;}
+
+.foot{padding:44px 0 60px;text-align:center;font-size:13px;color:var(--text-3);}
+.foot a{color:var(--teal);}
+
+@media(max-width:720px){
+  .hero h1{font-size:29px;letter-spacing:-.8px;}
+  .day{padding:22px 18px;}
+  .day h2{font-size:20px;}
+  .scene{padding:20px 18px;}
+  .scene p{font-size:16px;}
+  .prog{top:56px;}
+  .next a{min-width:100%;}
+}
+
+/* examples + expandable */
+.ex{margin:18px 0 0;background:var(--surface-2);border:1px solid var(--border-2);border-radius:11px;padding:16px 18px;}
+.ex-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.ex q{display:block;font-size:16px;color:var(--text);line-height:1.6;font-style:normal;quotes:none;padding-left:13px;border-left:2px solid var(--gold);margin-bottom:9px;}
+.ex .why{font-size:14px;color:var(--text-3);line-height:1.55;}
+.more{margin-top:12px;border-top:1px solid var(--border);padding-top:11px;}
+.more summary{cursor:pointer;list-style:none;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--sky);}
+.more summary::-webkit-details-marker{display:none;}
+.more summary::after{content:" +";}
+.more[open] summary::after{content:" \2013";}
+.more-b{padding-top:13px;}
+.more-b q{display:block;font-size:15.5px;color:var(--text-2);line-height:1.55;font-style:normal;quotes:none;padding-left:13px;border-left:2px solid var(--border-2);margin-bottom:10px;}
+.more-b li{font-size:15.5px;color:var(--text-2);line-height:1.6;margin-bottom:9px;list-style:none;padding-left:15px;position:relative;}
+.more-b li::before{content:"\2014";position:absolute;left:0;color:var(--text-3);}
+.watch{margin:18px 0 0;}
+.watch-row{display:flex;gap:13px;padding:12px 0;border-bottom:1px solid var(--border);}
+.watch-row:last-child{border-bottom:none;}
+.watch-n{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);min-width:22px;padding-top:3px;}
+.watch-t{font-size:15.5px;color:var(--text);font-weight:500;margin-bottom:3px;}
+.watch-d{font-size:14.5px;color:var(--text-2);line-height:1.55;}
+.reveal{margin:18px 0 0;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.28);border-radius:11px;padding:17px 19px;}
+.reveal-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.reveal h4{font-size:19px;font-weight:500;color:var(--text);margin:0 0 9px;letter-spacing:-.3px;}
+.reveal p{font-size:15px;color:var(--text-2);line-height:1.6;margin:0 0 8px;}
+.reveal p:last-child{margin-bottom:0;}
+.mail{margin:16px 0 0;background:var(--surface);border:1px solid var(--border-2);border-radius:11px;padding:17px 18px;font-size:15.5px;line-height:1.66;color:var(--text-2);}
+.mail .sub{color:var(--text);font-weight:500;margin-bottom:12px;}
+.mail .ph{color:var(--sky);}
+.mail p{margin:0 0 11px;}
+.mail p:last-child{margin-bottom:0;}
+.mail-note{margin-top:10px;font-size:13.5px;color:var(--text-3);line-height:1.55;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="lock" href="/">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12L22 3L18 21L12 15L2 12Z" fill="#fff"/></svg></span>
+      GBS Insider Club
+    </a>
+    <a class="alt" href="paid-tier.html">Career Paths</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Free track &middot; No login</div>
+    <h1>How do I impress my boss <b>without bragging?</b></h1>
+    <p class="sub">Five working days. About 20 minutes a day. There is one person deciding your reputation who you have probably never thought about. They show up on Day 4.</p>
+    <div class="meta">5 days &middot; ~20 min per day &middot; Saves on this device</div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-top">
+      <span class="av"><img src="images/cast/peter-frustrated.webp" alt="Peter" onerror="this.parentNode.textContent='P'"></span>
+      <span class="who">Peter<span>Team lead &middot; Year 2 &middot; Budapest</span></span>
+    </div>
+    <p>Peter cleared the month-end backlog twice this quarter.</p>
+    <p>His manager said thank you both times.</p>
+    <p>In the promotion round, his name came up once. Then the room moved on.</p>
+    <p>A team lead from another site got the slot.</p>
+    <p>Peter calls it politics. The truth is quieter.</p>
+    <p>Nobody above his manager had ever heard his name. Peter feels <em>overlooked</em>.</p>
+    <div class="trap">
+      <div class="trap-l">The trap</div>
+      <p>Your manager knows what you did. Their manager decides what it was worth.</p>
+    </div>
+  </div>
+
+  <div class="prog">
+    <div class="prog-row">
+      <span class="prog-l">Your progress</span>
+      <span class="prog-c" id="pc">0 / 5 days</span>
+    </div>
+    <div class="bar"><span id="pb"></span></div>
+    <div class="prog-row" style="margin-top:11px;">
+      <button class="reset" id="rst">Reset track</button>
+      <span class="saved" id="sv">Saved</span>
+    </div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day" id="d1">
+    <div class="day-top">
+      <span class="day-n">1</span>
+      <span>
+        <h2>Learn what your boss is measured on</h2>
+        <div class="day-time">Monday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">You have been impressing your boss against your own scorecard. They are judged on a different one.</p>
+    <ul class="steps">
+      <li>Write down the <b>three numbers your manager gets asked about</b> by their own boss. If you cannot name them, that is the finding.</li>
+      <li>Find out <b>what makes them nervous</b>. Every manager has one number they check before a meeting. Which one?</li>
+      <li>Read the <b>last status report they sent upward</b>. What did they choose to include? What did they leave out?</li>
+      <li>Compare it to <b>your own goals</b>. Mark every place the two do not touch.</li>
+      <li>Pick <b>one gap</b> where your work already helps their number, and nobody has said so out loud.</li>
+    </ul>
+
+    <div class="ex">
+      <div class="ex-l">Ways to ask &mdash; patterns, not scripts</div>
+      <q>"What do you get asked about most when you meet your manager?"</q>
+      <p class="why">Direct, flattering without flattery, and almost nobody asks it. Managers answer this one honestly.</p>
+      <details class="more">
+        <summary>More ways to ask</summary>
+        <div class="more-b">
+          <q>"Which number would cause you a problem if it moved the wrong way?"</q>
+          <q>"If our team disappeared for a month, what would break first for you?"</q>
+          <q>"What does a good quarter look like from where you sit?"</q>
+          <p class="why">Ask one. Then be quiet. The answer is worth more than the question, and most people talk over it.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="tip">
+      <div class="tip-l">Do not skip this</div>
+      <p>Work that helps you looks like ambition. Work that helps their number looks like judgment. Same effort, different word in the calibration room.</p>
+    </div>
+
+    <div class="note-l">Their three numbers &middot; your one gap</div>
+    <textarea data-note="1" placeholder="Their numbers:&#10;1)&#10;2)&#10;3)&#10;&#10;Where my work already helps:"></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="1">Mark day 1 done</button></div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day" id="d2">
+    <div class="day-top">
+      <span class="day-n">2</span>
+      <span>
+        <h2>Take one thing off their plate</h2>
+        <div class="day-time">Tuesday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">Do not ask what you can help with. Nobody knows the answer to that question, including your manager.</p>
+    <ul class="steps">
+      <li>List <b>every recurring thing your manager does by hand</b>. The weekly deck. The chase emails. The number they rebuild each Friday.</li>
+      <li>Pick <b>the smallest one</b>. Small enough that you can finish it this week without permission.</li>
+      <li>Do it once, <b>fully</b>, before you mention it. A finished thing is a gift. A half-finished thing is a request.</li>
+      <li>Hand it over in <b>one sentence</b>. No preamble about how long it took.</li>
+      <li>Then <b>keep doing it</b>. The first time is a favor. The fourth time is a role.</li>
+    </ul>
+
+    <div class="ex">
+      <div class="ex-l">The handover line</div>
+      <q>"I built the Friday number as a report. It refreshes itself. Take a look and tell me if it should stay."</q>
+      <p class="why">You gave them something. You gave them control. You never once said how hard it was.</p>
+      <details class="more">
+        <summary>What not to hand over</summary>
+        <div class="more-b">
+          <ul>
+            <li>Anything that needs your manager to make a decision before it works. That is a request wearing a gift's clothes.</li>
+            <li>Anything that only you can run. You have built yourself a cage, not a contribution.</li>
+            <li>Anything nobody upstairs sees. Pick the task that reaches their manager's inbox.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="tip">
+      <div class="tip-l">The quiet rule</div>
+      <p>Never tell your manager how many hours it took you. The hours are your problem. The result is theirs. People who mention the hours are asking for credit, and everyone hears it.</p>
+    </div>
+
+    <div class="note-l">The thing you took over</div>
+    <textarea data-note="2" placeholder="What it is. Who upstairs sees it. When you hand it over."></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="2">Mark day 2 done</button></div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day" id="d3">
+    <div class="day-top">
+      <span class="day-n">3</span>
+      <span>
+        <h2>Report in three lines</h2>
+        <div class="day-time">Wednesday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">Two rules on this page contradict each other. You have been told to bring solutions, not problems. You have also been told to escalate early. Both are correct. The rule underneath is at the bottom of this day.</p>
+    <ul class="steps">
+      <li>Write your next update in <b>three lines only</b>: where it stands, what moved, what you need.</li>
+      <li>Put the <b>answer in line one</b>. Senior readers decide in the first sentence whether to keep reading.</li>
+      <li>Give the <b>number, not the adjective</b>. "Backlog at 40, down from 120" beats "good progress".</li>
+      <li>Make the <b>ask specific</b>. "I need a decision on the supplier template by Thursday" is an ask. "Let me know your thoughts" is noise.</li>
+      <li>Send it <b>before you are asked</b>. An update you had to be chased for is a status report. One you sent yourself is a signal.</li>
+    </ul>
+
+    <div class="ex">
+      <div class="ex-l">The three-line update</div>
+      <q>"Backlog is at 40 invoices, down from 120 last week. The drop came from fixing one supplier's PO (purchase order) template. I need your call on rolling that fix to the other three suppliers by Thursday."</q>
+      <p class="why">Status. Movement. Ask. Nothing else. Read it out loud &mdash; it takes eleven seconds.</p>
+      <details class="more">
+        <summary>Turn it into a habit</summary>
+        <div class="more-b">
+          <q>Where it stands: <b>[number, not adjective]</b></q>
+          <q>What moved: <b>[the cause, in one clause]</b></q>
+          <q>What I need: <b>[decision, by date]</b></q>
+          <p class="why">Same three lines every week. Your manager learns to read them in ten seconds, which means they always read them.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="reveal">
+      <div class="reveal-l">The rule underneath the contradiction</div>
+      <h4>Early beats complete. Late and complete is a surprise.</h4>
+      <p>"Bring solutions, not problems" is advice for the end of the week. "Escalate early" is advice for the start of it. They only fight if you wait.</p>
+      <p>Bring the problem the day you see it. Bring one option with it, even a bad one. That is what "come with a solution" was always supposed to mean.</p>
+      <p>The manager who gets surprised in front of their own boss remembers who surprised them.</p>
+    </div>
+
+    <div class="note-l">Your three lines</div>
+    <textarea data-note="3" placeholder="Where it stands:&#10;What moved:&#10;What I need:"></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="3">Mark day 3 done</button></div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day" id="d4">
+    <div class="day-top">
+      <span class="day-n">4</span>
+      <span>
+        <h2>Make your boss look good upstairs</h2>
+        <div class="day-time">Thursday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">Here is the person from the top of this page. Your manager's manager. They have never met you, and they are in the room when your name comes up.</p>
+    <ul class="steps">
+      <li>Find out <b>what your manager reports upward</b>, and in what format. A deck? A number in a tracker? A monthly call?</li>
+      <li>Write <b>one slide, one paragraph, or one chart</b> that fits straight into it. No editing needed.</li>
+      <li>Send it to your manager with <b>one line</b>: "In case it is useful for the monthly."</li>
+      <li>Let them <b>forward it as theirs</b>. Do not ask for your name on it. It travels further without you standing next to it.</li>
+      <li>Do this <b>three months running</b>. By month three your manager says your name when they present it, because they need the credibility of a source.</li>
+    </ul>
+
+    <div class="ex">
+      <div class="ex-l">The forwardable paragraph</div>
+      <q>"AP (accounts payable) exceptions fell from 120 to 40 after we standardized one supplier's PO template. The same fix applies to three more suppliers, which covers roughly half the remaining queue."</q>
+      <p class="why">No adjectives. No "I". Nothing your manager has to rewrite before sending. That is what makes it travel.</p>
+      <details class="more">
+        <summary>Why you give the credit away</summary>
+        <div class="more-b">
+          <p class="why">A manager who looks good upstairs gets a bigger team, a bigger budget, and a promotion. All three of those are how you get promoted. There is no path to the room above where your manager is the obstacle.</p>
+          <p class="why" style="margin-top:9px;">And a manager who has forwarded your work three times will defend it in calibration. Not because they are generous. Because it is now their work too.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="tip">
+      <div class="tip-l">The line to watch</div>
+      <p>Giving the credit away still leaves you a record. You will use it on Day 5. Give away the applause. Keep the receipts.</p>
+    </div>
+
+    <div class="note-l">What you sent, and where it goes</div>
+    <textarea data-note="4" placeholder="The format they report in:&#10;What you wrote:&#10;Date sent:"></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="4">Mark day 4 done</button></div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day" id="d5">
+    <div class="day-top">
+      <span class="day-n">5</span>
+      <span>
+        <h2>Ask once, with evidence</h2>
+        <div class="day-time">Friday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">Four days of giving it away. Today you ask for something. Once, and never again this quarter.</p>
+    <ul class="steps">
+      <li>Open a document. Write down <b>everything from the last six months</b>: what you did, what moved, who saw it. Facts, no adjectives.</li>
+      <li>Cut it to <b>five lines</b>. The five that changed a number your manager cares about.</li>
+      <li>Book <b>twenty minutes</b>. Name the meeting for what it is: "My development".</li>
+      <li>Show the five lines. Then <b>ask one question</b> and stop talking.</li>
+      <li>Whatever the answer, <b>write it down and repeat it back</b>. "So the gap is stakeholder exposure. If I close that by Q3, we are having the promotion conversation." Now it exists.</li>
+    </ul>
+
+    <div class="ex">
+      <div class="ex-l">The one question</div>
+      <q>"Based on this, what is between me and the next level?"</q>
+      <p class="why">Asking for the gap works where asking for a promotion fails. A manager can refuse a promotion. Refusing to name the gap makes them look like they have not thought about you.</p>
+      <details class="more">
+        <summary>If the answer is vague</summary>
+        <div class="more-b">
+          <q>"What would I need to have done by our next review for that to be a yes?"</q>
+          <p class="why">Ask it once, calmly, then let the silence do the work. Vague answers survive nodding. They do not survive a follow-up question and a pen.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="reveal">
+      <div class="reveal-l">The whole page in one line</div>
+      <h4>Bragging asks for credit. Evidence gives your boss something to forward.</h4>
+      <p>Peter worked weekends and told his manager about it. That is bragging, and it lands on one person who already knew.</p>
+      <p>The alternative takes the same work and puts it into a paragraph that travels upward without your name on it, four times, until the name arrives by itself.</p>
+      <p>Then you ask once. And by then, the room above already knows the answer.</p>
+    </div>
+
+    <div class="note-l">Your five lines &middot; the gap they named</div>
+    <textarea data-note="5" placeholder="Five lines of evidence:&#10;&#10;The gap they named:&#10;What I repeated back:"></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="5">Mark day 5 done</button></div>
+  </div>
+
+  <div class="mm">
+    <div class="mm-l">Monday move</div>
+    <h3>Do one thing before you close this page.</h3>
+    <p>Message your manager: <b>"What do you get asked about most when you meet your manager?"</b> Send it now. Day 1 starts with their answer.</p>
+  </div>
+
+  <div class="next">
+    <div class="next-l">Where this goes next</div>
+    <a href="visibility-5-days.html">
+      <span class="k">Free track &rarr;</span>
+      <span class="v">How do I get more visibility?</span>
+      <span class="d">Evidence gets you considered. Visibility gets you into the room where it is read.</span>
+    </a>
+    <a href="pillar-5-cluster-1-performance-loop.html">
+      <span class="k">Free theory &rarr;</span>
+      <span class="v">How performance really gets judged</span>
+      <span class="d">Calibration, ratings, and the conversation that happens without you.</span>
+    </a>
+    <a href="paid-tier.html">
+      <span class="k">Go further &rarr;</span>
+      <span class="v">Career Paths &mdash; Full Access</span>
+      <span class="d">Templates, scripts, and worked examples for your exact role.</span>
+    </a>
+  </div>
+
+  <div class="foot">
+    Free forever. Nothing to sign up for. <a href="/">GBS Insider Club</a>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var KEY='boss5_v1', st={days:{},notes:{}};
+  try{ st=JSON.parse(localStorage.getItem(KEY))||st; }catch(e){}
+  if(!st.days)st.days={}; if(!st.notes)st.notes={};
+  var svEl=document.getElementById('sv'), tmr;
+
+  function save(){
+    try{ localStorage.setItem(KEY,JSON.stringify(st)); }catch(e){}
+    svEl.classList.add('on'); clearTimeout(tmr);
+    tmr=setTimeout(function(){svEl.classList.remove('on');},1200);
+  }
+  function paint(){
+    var n=0;
+    for(var i=1;i<=5;i++){
+      var card=document.getElementById('d'+i);
+      var btn=card.querySelector('.btn-done');
+      if(st.days[i]){ card.classList.add('done'); btn.textContent='Day '+i+' done'; n++; }
+      else{ card.classList.remove('done'); btn.textContent='Mark day '+i+' done'; }
+    }
+    document.getElementById('pc').textContent=n+' / 5 days';
+    document.getElementById('pb').style.width=(n/5*100)+'%';
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.btn-done'),function(b){
+    b.addEventListener('click',function(){
+      var d=b.getAttribute('data-day');
+      st.days[d]=!st.days[d]; save(); paint();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('textarea[data-note]'),function(t){
+    var k=t.getAttribute('data-note');
+    if(st.notes[k]) t.value=st.notes[k];
+    t.addEventListener('input',function(){ st.notes[k]=t.value; save(); });
+  });
+  document.getElementById('rst').addEventListener('click',function(){
+    if(!confirm('Clear your progress and notes on this device?')) return;
+    st={days:{},notes:{}}; save();
+    Array.prototype.forEach.call(document.querySelectorAll('textarea[data-note]'),function(t){t.value='';});
+    paint();
+  });
+  paint();
+})();
+</script>
+<script src="/assets/mobile.js?v=20" defer></script>
+</body>
+</html>
