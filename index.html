@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Career development platform for Global Business Services professionals. 146 topics across 10 pillars covering GBS operations, transformation, leadership, and career growth.">
+<meta name="description" content="Practical career playbooks, templates and AI guidance for ambitious GBS, Shared Services, BPO and transformation professionals who want to get noticed, move up and build visible career evidence.">
 <link rel="canonical" href="https://gbsinsiderclub.com/">
-<title>GBS Insider Club — The GBS Career and Performance Coach</title>
+<title>GBS Insider Club | Career Playbooks for Shared Services &amp; GBS Professionals</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -686,6 +686,35 @@
 .watch-meta h3{font-size:20px;font-weight:500;color:var(--on-dark,#fff);margin:0;line-height:1.32}
 .watch-cta{color:var(--teal);font-size:14px;font-weight:500}
 @media(max-width:640px){.watch-card{flex-direction:column}.watch-thumb{flex-basis:auto;aspect-ratio:16/9;min-height:0}.watch-meta{padding:20px 22px}}
+
+  /* ── Phase 1 components ── */
+  .proofbar{position:relative;z-index:1;margin-top:26px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3);}
+  .pq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .pq-card{display:block;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:12px;padding:24px 26px;transition:border-color .18s,transform .18s;}
+  .pq-card:hover{transform:translateY(-2px);border-color:var(--border-2);border-left-color:var(--gold);}
+  .pq-q{font-size:18px;font-weight:500;color:var(--text);line-height:1.35;letter-spacing:-.2px;margin-bottom:12px;}
+  .pq-a{font-size:15px;color:var(--text-2);line-height:1.62;margin-bottom:14px;}
+  .pq-go{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);}
+  .wb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .wb-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 18px;}
+  .wb-n{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:.12em;margin-bottom:10px;}
+  .wb-t{font-size:15px;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:6px;}
+  .wb-s{font-size:13px;color:var(--text-3);line-height:1.5;}
+  .cred-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:30px 32px;}
+  .cred-name{font-size:16px;font-weight:500;color:var(--text);}
+  .cred-role{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:4px 0 16px;}
+  .cred-card p{font-size:15.5px;color:var(--text-2);line-height:1.7;margin-bottom:12px;}
+  .cred-card a{color:var(--teal);}
+  .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;}
+  .faq-item summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:16px;font-weight:400;color:var(--text);}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item[open] summary{color:var(--gold);}
+  .faq-item p{padding:0 22px 18px;font-size:15px;color:var(--text-2);line-height:1.65;margin:0;}
+  .fcta{text-align:center;background:var(--surface);border:1px solid var(--border-2);border-radius:16px;padding:52px 28px;margin:0 0 64px;}
+  .fcta h2{font-size:32px;font-weight:300;letter-spacing:-.8px;color:var(--text);line-height:1.2;margin-bottom:14px;}
+  .fcta p{font-size:16.5px;color:var(--text-2);margin-bottom:26px;}
+  .fcta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  @media (max-width:860px){.pq-grid,.wb-grid{grid-template-columns:1fr;}.fcta h2{font-size:25px;}}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -710,70 +739,42 @@
   </a>
   <span class="tier-badge tier-free">Free</span>
   <div class="nav-links">
-    <a href="#why">Why This Exists</a>
-    <a href="#who">Who It's For</a>
-    <a href="#inside">What's Inside</a>
-    <a href="#how">How It Works</a>
+    <a href="start-here.html">Start Here</a>
     <a href="paid-tier.html" style="color:var(--gold);">Career Paths</a>
-    <a href="#join" class="nav-cta">Join Today →</a>
+    <a href="guide.html">AI Field Guide</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="#join" class="nav-cta">Join Free →</a>
   </div>
 </nav>
 
 <!-- ─── HERO ─── -->
 <section class="hero" id="hero">
-  <div class="hero-eyebrow">The GBS Career and Performance Coach</div>
+  <div class="hero-eyebrow">The practical career playbook for GBS</div>
   <h1>
-    Know the GBS career game.
-    <span class="line-gold">Play it well.</span>
-    <span class="line-muted">Rise fast.</span>
+    Stop guessing how
+    <span class="line-gold">GBS careers really work.</span>
   </h1>
   <p class="hero-sub">
-    GBS centers offer <strong>fast careers, real exposure, and genuine breadth.</strong>
-    But nobody hands you a map how to succeed.
+    Practical career playbooks for <strong>Shared Services, GBS, BPO and transformation professionals</strong> who want to get noticed, move up, and earn more — without corporate fluff.
     <br><br>
-    Join the club to amplify your career!
+    Start with your role. Get one useful action today.
   </p>
   <div class="hero-actions">
-    <a href="#join" class="btn-primary">Join Free — No Credit Card</a>
-    <a href="#inside" class="btn-ghost">See what's inside →</a>
+    <a href="start-here.html" class="btn-primary">Start Free</a>
+    <a href="#start-here" class="btn-ghost">Find My Career Path →</a>
   </div>
-  <div class="hero-photo-zone" aria-hidden="true">
-    <div class="hero-bio-cue"><b>About Julian</b> &middot; hover</div>
-    <div class="hero-bio-card">
-      <div class="hbc-name">Julian</div>
-      <div class="hbc-role">FOUNDER, GBS INSIDER CLUB</div>
-      <p>26 years in finance and Global Business Services — from a Big 4 firm and a controller role into large-scale SAP and transformation programs. He was part of the team that set up a global Shared Services operation from scratch, owning a workstream and acting as project controller across a 14-country, multi-system rollout. He later led large operational teams across three locations, and has been a director since 2011. He built GBS Insider Club to pass on what he learned to people earlier in their careers.</p>
-    </div>
-  </div>
+  <div class="proofbar">10 career pillars · 145+ topics · AI Field Guide · Templates · Free core access</div>
   <div class="hero-scroll-hint">Scroll to explore</div>
 </section>
 
 <!-- ─── SECTION 2: WHY ─── -->
-
-<div style="margin:-24px 0 48px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:12px;">
-  <svg viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;display:block;margin:0 auto;">
-    <rect x="0" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1"/>
-    <text x="90" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#1d6aff" data-count="10">10</text>
-    <text x="90" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Career pillars</text>
-    <rect x="210" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1"/>
-    <text x="300" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#e8b800" data-count="145" data-suffix="+">145+</text>
-    <text x="300" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Actionable topics</text>
-    <rect x="420" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#38bdf8" stroke-width="1"/>
-    <text x="510" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#38bdf8" data-count="37">37</text>
-    <text x="510" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">AI Field Guide chapters</text>
-    <rect x="630" y="10" width="170" height="60" rx="8" fill="#141922" stroke="#ff3355" stroke-width="1"/>
-    <text x="715" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#ff3355">Free</text>
-    <text x="715" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Core access forever</text>
-  </svg>
-</div>
-
 
 <!-- ─── SECTION: START WHERE YOU ARE ─── -->
 
 <section id="start-here">
   <div class="section-eyebrow">Start Where You Are</div>
   <h2 class="section-h2">Where are you <span class="accent">right now?</span></h2>
-  <p class="section-lead">Four moments where careers stall or accelerate. Pick yours &mdash; the fix is one click away.</p>
+  <p class="section-lead">Pick your situation. Do not read everything. Start with the problem in front of you.</p>
   <div class="ss-grid">
     <a class="ss-card" href="pillar-1-gbs-fundamentals.html">
       <div class="ss-top">
@@ -807,6 +808,71 @@
       <p class="ss-story">"The migration needs me and BAU needs me. Something is going to <span class="ss-em">slip</span>."</p>
       <p class="ss-fix"><span class="ss-arrow">&rarr;</span>Protect both &mdash; there is a method.</p>
     </a>
+  </div>
+</section>
+
+<div style="margin:-24px 0 48px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:12px;">
+  <svg viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;display:block;margin:0 auto;">
+    <rect x="0" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1"/>
+    <text x="90" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#1d6aff" data-count="10">10</text>
+    <text x="90" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Career pillars</text>
+    <rect x="210" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1"/>
+    <text x="300" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#e8b800" data-count="145" data-suffix="+">145+</text>
+    <text x="300" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Actionable topics</text>
+    <rect x="420" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#38bdf8" stroke-width="1"/>
+    <text x="510" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#38bdf8" data-count="37">37</text>
+    <text x="510" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">AI Field Guide chapters</text>
+    <rect x="630" y="10" width="170" height="60" rx="8" fill="#141922" stroke="#ff3355" stroke-width="1"/>
+    <text x="715" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#ff3355">Free</text>
+    <text x="715" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Core access forever</text>
+  </svg>
+</div>
+
+
+
+<!-- ─── POPULAR QUESTIONS ─── -->
+<section id="questions">
+  <div class="section-eyebrow">The Quiet Questions</div>
+  <h2 class="section-h2">Questions ambitious GBS professionals <span class="accent">quietly ask.</span></h2>
+  <p class="section-lead">Four answers that change how the next twelve months go.</p>
+  <div class="pq-grid">
+    <a class="pq-card" href="pillar-5-cluster-1-performance-loop.html">
+      <div class="pq-q">Why did someone less experienced get promoted before me?</div>
+      <p class="pq-a">Performance gets you considered. Visibility gets you chosen. Most people optimize only the first half.</p>
+      <span class="pq-go">Start here: build your brag sheet &rarr;</span>
+    </a>
+    <a class="pq-card" href="pillar-5-cluster-3-personal-branding.html">
+      <div class="pq-q">How do I get noticed without sounding political?</div>
+      <p class="pq-a">Make your value visible through facts, patterns, and useful updates. Self-promotion theatre reads as noise.</p>
+      <span class="pq-go">Start here: your visibility plan &rarr;</span>
+    </a>
+    <a class="pq-card" href="pillar-8-cluster-5-sme-participation.html">
+      <div class="pq-q">How do I move from BAU work into projects?</div>
+      <p class="pq-a">Stop waiting to be picked. Build project proof before the project role exists, and the ask becomes easy.</p>
+      <span class="pq-go">Start here: your transition story &rarr;</span>
+    </a>
+    <a class="pq-card" href="pillar-6-cluster-1-compensation-structure.html">
+      <div class="pq-q">How do I ask for more money?</div>
+      <p class="pq-a">Start with evidence, scope, impact, and market logic. Fairness arguments lose in a pay round.</p>
+      <span class="pq-go">Start here: prepare your salary case &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─── WHAT YOU WILL BUILD ─── -->
+<section id="build">
+  <div class="section-eyebrow">What You Will Build</div>
+  <h2 class="section-h2">Every playbook ends with <span class="accent">career evidence.</span></h2>
+  <p class="section-lead">Practical assets you can put in front of your manager, your stakeholders, a recruiter, and yourself.</p>
+  <div class="wb-grid">
+    <div class="wb-card"><div class="wb-n">01</div><div class="wb-t">Your brag sheet</div><div class="wb-s">Wins, tracked forward and tied to goals.</div></div>
+    <div class="wb-card"><div class="wb-n">02</div><div class="wb-t">Your 90-day visibility plan</div><div class="wb-s">Who needs to see your work, and when.</div></div>
+    <div class="wb-card"><div class="wb-n">03</div><div class="wb-t">Your promotion evidence file</div><div class="wb-s">The case, written before the calibration.</div></div>
+    <div class="wb-card"><div class="wb-n">04</div><div class="wb-t">Your stakeholder map</div><div class="wb-s">Influence, interest, and the gaps between.</div></div>
+    <div class="wb-card"><div class="wb-n">05</div><div class="wb-t">Your skill gap plan</div><div class="wb-s">The distance to your next role, in writing.</div></div>
+    <div class="wb-card"><div class="wb-n">06</div><div class="wb-t">Your salary discussion script</div><div class="wb-s">Evidence, scope, market. In that order.</div></div>
+    <div class="wb-card"><div class="wb-n">07</div><div class="wb-t">Your first team meeting script</div><div class="wb-s">Week one as a lead, without the fumble.</div></div>
+    <div class="wb-card"><div class="wb-n">08</div><div class="wb-t">Your project impact log</div><div class="wb-s">RAID, updates, and proof of contribution.</div></div>
   </div>
 </section>
 
@@ -1301,17 +1367,29 @@
   <div class="promise-bar">
     <div class="promise-icon">◎</div>
     <div class="promise-text">
-      <h3>Do you want to progress faster? Earn more? Have options?</h3>
-      <p>Stay attractive for employers. Build careers with real choices. This is the right platform, with <strong>3 to 6 months of consistent engagement you will have all you need for your next promotion and earn more money.</strong> Simple — because your value goes up.</p>
+      <h3>Your work is not enough if nobody can see the value.</h3>
+      <p>Build the evidence, visibility, and confidence to ask for the next step. In <strong>3 to 6 months of consistent engagement</strong> you should have a stronger evidence file, clearer role positioning, better stakeholder visibility, and a more credible case for your next move.</p>
     </div>
+  </div>
+</section>
+
+<!-- ─── WHY THIS IS CREDIBLE ─── -->
+<section id="credible">
+  <div class="section-eyebrow">Why This Is Credible</div>
+  <h2 class="section-h2">Built by someone who <span class="accent">ran the operation.</span></h2>
+  <div class="cred-card">
+    <div class="cred-name">Julian</div>
+    <div class="cred-role">Founder, GBS Insider Club</div>
+    <p>26 years in finance and Global Business Services — from a Big 4 firm and a controller role into large-scale SAP and transformation programs. Part of the team that set up a global Shared Services operation from scratch, owning a workstream and acting as project controller across a 14-country, multi-system rollout. Later led large operational teams across three locations. Director since 2011.</p>
+    <p>The content is based on what actually happens inside GBS organizations: KPIs, managers, politics, transitions, automation, visibility, and promotion decisions.</p>
   </div>
 </section>
 
 <!-- ─── SECTION 7: JOIN ─── -->
 <section id="join" class="join-section">
-  <div class="section-eyebrow" style="justify-content:center;">Join Today</div>
-  <h2 class="section-h2">Start building the career<br><span class="accent">you actually want.</span></h2>
-  <p class="section-lead">Free access. No credit card. Cancel anytime. The only thing required is the decision to invest in yourself.</p>
+  <div class="section-eyebrow" style="justify-content:center;">Free and Full Access</div>
+  <h2 class="section-h2">Start free. Upgrade when you are ready to<br><span class="accent">apply it at work.</span></h2>
+  <p class="section-lead">Free means you understand the game. Full Access means you apply it — templates, scripts, role paths, and practical tools. One payment, $45, everywhere in the world.</p>
 
 
   <div style="margin:0 0 36px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
@@ -1332,33 +1410,56 @@
 
   <div class="join-tiers">
     <div class="tier-card">
-      <div class="tier-name">Insider — Free</div>
+      <div class="tier-name">Free — Understand the game</div>
       <div class="tier-price">$0 <span>/ always</span></div>
-      <div class="tier-desc">Core curriculum access. New content every week. No commitment required.</div>
+      <div class="tier-desc">Best for starting, exploring, and learning how GBS careers actually move.</div>
       <ul class="tier-ul">
-        <li>All 10 pillar foundations</li>
-        <li>Weekly YouTube content</li>
-        <li>GBS Glossary access</li>
-        <li>Career progression map</li>
-        <li>Community access</li>
+        <li>10 pillars, 145+ topics</li>
+        <li>AI Field Guide — all 37 chapters</li>
+        <li>GBS Glossary and career map</li>
+        <li>Weekly YouTube episodes</li>
+        <li>Selected free templates</li>
       </ul>
       <a href="start-here.html" class="tier-btn tier-btn-free">Start Free</a>
     </div>
     <div class="tier-card featured">
-      <div class="tier-name">Member — Full Access</div>
+      <div class="tier-name">Full Access — Apply the game</div>
       <div class="tier-price">$45 <span>/ one-time</span></div>
-      <div class="tier-desc">Role-based career programs with the 5-Step Career Booster, practical exercises, and the skills nobody teaches you.</div>
+      <div class="tier-desc">Best for promotion prep, the team lead transition, project visibility, and salary conversations.</div>
       <ul class="tier-ul">
         <li>Everything in Free</li>
-        <li>Learning paths: Associate, Team Lead, and more</li>
-        <li>Career Chessboard self-assessment</li>
-        <li>Templates, exercises, and downloads</li>
+        <li>Five role paths: Associate to Manager</li>
+        <li>Templates, scripts, and downloads</li>
+        <li>Real work examples and worked exercises</li>
         <li>Julian's Take practitioner insights</li>
       </ul>
-      <a href="paid-tier.html" class="tier-btn tier-btn-paid">Explore Career Paths →</a>
+      <a href="paid-tier.html" class="tier-btn tier-btn-paid">Get Full Access — $45 →</a>
     </div>
   </div>
   <p class="join-note">Already a member? <a href="guide.html" style="color:var(--teal);text-decoration:none;">Access the Field Guide →</a> · <a href="paid-tier.html" style="color:var(--gold);text-decoration:none;">Career Paths →</a></p>
+</section>
+
+
+<!-- ─── FAQ ─── -->
+<section id="faq">
+  <div class="section-eyebrow">Questions</div>
+  <h2 class="section-h2">Before you <span class="accent">start.</span></h2>
+  <details class="faq-item"><summary>Is this only for finance?</summary><p>No. It covers GBS, Shared Services, BPO, consulting and transformation roles across functions — finance, HR, IT, procurement, master data, and customer service.</p></details>
+  <details class="faq-item"><summary>Is this useful if I am not a manager?</summary><p>Yes. Most tools are designed for associates, specialists, SMEs and future team leads. The leadership material sits further along the path.</p></details>
+  <details class="faq-item"><summary>Is this useful if I work in BPO?</summary><p>Yes. The career mechanics are the same: KPIs, visibility, stakeholder trust, service quality, automation and progression.</p></details>
+  <details class="faq-item"><summary>Is this useful if English is not my first language?</summary><p>Yes. The site uses plain workplace language and templates you can adapt directly.</p></details>
+  <details class="faq-item"><summary>Do I need to read everything?</summary><p>No. Start with your role or the problem in front of you. Come back when your situation changes.</p></details>
+  <details class="faq-item"><summary>What makes this different from generic career advice?</summary><p>It is built around the real mechanics of GBS work: KPIs, transitions, process ownership, service delivery, stakeholder management, automation and internal mobility.</p></details>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="fcta">
+  <h2>Career advice written for your world.</h2>
+  <p>Start free. Pick your role. Build one useful career asset today.</p>
+  <div class="fcta-actions">
+    <a href="start-here.html" class="btn-primary">Start Free</a>
+    <a href="#start-here" class="btn-ghost">Find My Career Path →</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
