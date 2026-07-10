@@ -728,6 +728,32 @@
   .qw-trap p{font-size:17px;color:var(--text);font-weight:400;line-height:1.5;margin:0 0 22px;}
   .qw-meta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:14px;}
   @media (max-width:860px){.qw{grid-template-columns:1fr;padding:24px 20px;gap:24px;}}
+
+  /* ── free track scene card ── */
+  .ft-card{display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:14px;overflow:hidden;}
+  .ft-left{padding:30px 32px;}
+  .ft-top{display:flex;align-items:center;gap:11px;margin-bottom:16px;}
+  .ft-av{width:40px;height:40px;border-radius:50%;overflow:hidden;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500;flex-shrink:0;}
+  .ft-av img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ft-who{font-size:14px;color:var(--text);font-weight:500;}
+  .ft-who span{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--text-3);font-weight:400;}
+  .ft-left p{font-size:16px;color:var(--text-2);line-height:1.72;margin-bottom:4px;}
+  .ft-left p em{font-style:normal;color:var(--gold);}
+  .ft-trap{margin-top:18px;background:rgba(232,184,0,.09);border:1px solid rgba(232,184,0,.22);border-radius:9px;padding:14px 16px;}
+  .ft-trap-l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+  .ft-trap p{font-size:15.5px;color:var(--text);margin:0;}
+  .ft-right{padding:30px 32px;background:var(--surface);border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;}
+  .ft-kick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+  .ft-right h3{font-size:24px;font-weight:400;color:var(--text);letter-spacing:-.5px;line-height:1.22;margin-bottom:12px;}
+  .ft-right>p{font-size:15px;color:var(--text-2);line-height:1.62;margin-bottom:18px;}
+  .ft-days{list-style:none;margin:0 0 22px;padding:0;}
+  .ft-days li{font-size:14.5px;color:var(--text-2);padding:7px 0;border-bottom:1px solid var(--border);display:flex;gap:11px;}
+  .ft-days li:last-child{border-bottom:none;}
+  .ft-days b{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:12px;color:var(--gold);min-width:38px;padding-top:2px;}
+  .ft-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:10px;background:var(--gold);color:#0b0d12;font-weight:500;font-size:15px;}
+  .ft-cta:hover{filter:brightness(1.08);}
+  .ft-note{margin-top:11px;font-size:12.5px;color:var(--text-3);text-align:center;}
+  @media (max-width:860px){.ft-card{grid-template-columns:1fr;}.ft-right{border-left:none;border-top:1px solid var(--border);}.ft-left,.ft-right{padding:24px 20px;}.ft-right h3{font-size:21px;}}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -753,6 +779,7 @@
   <span class="tier-badge tier-free">Free</span>
   <div class="nav-links">
     <a href="start-here.html">Start Here</a>
+    <a href="visibility-5-days.html">Free Track</a>
     <a href="paid-tier.html" style="color:var(--gold);">Career Paths</a>
     <a href="guide.html">AI Field Guide</a>
     <a href="glossary.html">Glossary</a>
@@ -871,6 +898,46 @@
       <p>Being right in your head is invisible. Nobody promotes what they cannot see.</p>
       <a href="visibility-5-days.html" class="btn-primary">Get more visibility &mdash; 5 days &rarr;</a>
       <div class="qw-meta">Free track &middot; 20 min per day &middot; Saves your progress</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── FREE TRACK: VISIBILITY ─── -->
+<section id="free-track">
+  <div class="section-eyebrow">Free &middot; Start Today</div>
+  <h2 class="section-h2">The room debates. You already know <span class="accent">the answer.</span></h2>
+  <p class="section-lead">Five working days. One action a day. About 20 minutes each.</p>
+  <div class="ft-card">
+    <div class="ft-left">
+      <div class="ft-top">
+        <span class="ft-av"><img src="images/cast/klaudia-frustrated.webp" alt="Klaudia" onerror="this.parentNode.textContent='K'"></span>
+        <span class="ft-who">Klaudia<span>Year 3 &middot; Krakow</span></span>
+      </div>
+      <p>The room debates the same problem for 20 minutes.</p>
+      <p>Klaudia has known the answer since minute two.</p>
+      <p>She waits for a clean moment to speak. It never comes.</p>
+      <p>Someone else says a weaker version of her point.</p>
+      <p>"Good thinking," says the director. He writes the name down.</p>
+      <p>Klaudia goes back to her desk and feels <em>invisible</em>.</p>
+      <div class="ft-trap">
+        <div class="ft-trap-l">The trap</div>
+        <p>Being right in your head is invisible. Nobody promotes work they never saw.</p>
+      </div>
+    </div>
+    <div class="ft-right">
+      <div class="ft-kick">The 5-day fix</div>
+      <h3>How do I get more visibility?</h3>
+      <p>You already know your job. This is about who knows it with you.</p>
+      <ul class="ft-days">
+        <li><b>Mon</b> Copy what works</li>
+        <li><b>Tue</b> Find something worth saying</li>
+        <li><b>Wed</b> Break your own idea</li>
+        <li><b>Thu</b> Say it in a small room</li>
+        <li><b>Fri</b> Say it where it counts</li>
+      </ul>
+      <a href="visibility-5-days.html" class="ft-cta">Start the 5-day track &rarr;</a>
+      <div class="ft-note">Free. No login. Saves as you go.</div>
     </div>
   </div>
 </section>
