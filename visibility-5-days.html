@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Get more visibility at work in five working days. A tactical track for GBS, Shared Services and BPO professionals who do good work nobody sees. Free, no login.">
+<link rel="canonical" href="https://gbsinsiderclub.com/visibility-5-days.html">
+<title>Get More Visibility in 5 Working Days | GBS Insider Club</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;--border:#1e2535;--border-2:#252e40;--teal:#1d6aff;--teal-glow:rgba(29,106,255,0.14);--gold:#e8b800;--gold-bg:rgba(232,184,0,0.10);--green:#34d399;--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--void);color:var(--text-2);font-family:Inter,sans-serif;font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px;}
+
+/* topbar */
+.topbar{position:sticky;top:0;z-index:30;background:rgba(8,11,16,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;}
+.lock{display:flex;align-items:center;gap:9px;font-weight:500;color:var(--text);font-size:14px;}
+.mark{width:26px;height:26px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mark svg{width:14px;height:14px;}
+.topbar .alt{font-size:12.5px;color:var(--text-2);border:1px solid var(--border-2);padding:7px 13px;border-radius:8px;}
+
+/* hero */
+.hero{padding:44px 0 8px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.hero h1{font-size:38px;font-weight:300;letter-spacing:-1.2px;color:var(--text);line-height:1.1;margin:14px 0 12px;}
+.hero h1 b{font-weight:500;color:var(--gold);}
+.hero .sub{font-size:16px;color:var(--text-2);}
+.meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-top:16px;}
+
+/* scene */
+.scene{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:12px;padding:24px 24px 22px;margin:30px 0 0;}
+.scene-top{display:flex;align-items:center;gap:11px;margin-bottom:16px;}
+.av{width:38px;height:38px;border-radius:50%;overflow:hidden;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500;flex-shrink:0;}
+.av img{width:100%;height:100%;object-fit:cover;}
+.scene-who{font-size:14px;color:var(--text);font-weight:500;}
+.scene-role{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;}
+.scene p{font-size:16.5px;color:var(--text-2);line-height:1.8;margin:0;}
+.em{color:var(--gold);font-weight:500;}
+.trap{background:var(--gold-bg);border:1px solid rgba(232,184,0,.28);border-radius:10px;padding:16px 18px;margin:18px 0 0;}
+.trap-l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+.trap p{font-size:16px;color:var(--text);margin:0;font-weight:400;}
+
+/* progress */
+.prog{position:sticky;top:58px;z-index:20;background:rgba(8,11,16,.94);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:32px 0 26px;}
+.prog-row{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.prog-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);}
+.prog-c{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold);font-weight:600;}
+.bar{height:5px;background:var(--surface-3);border-radius:99px;overflow:hidden;margin-top:11px;}
+.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .35s ease;}
+.reset{background:none;border:none;color:var(--text-3);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;}
+.reset:hover{color:var(--text-2);}
+
+/* day cards */
+.day{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:26px 24px;margin:0 0 18px;transition:border-color .2s;}
+.day.done{border-color:rgba(52,211,153,.42);}
+.day-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:6px;}
+.day-n{width:34px;height:34px;flex-shrink:0;border-radius:9px;background:var(--surface-3);border:1px solid var(--border-2);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+.day.done .day-n{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4);color:var(--green);}
+.day h2{font-size:23px;font-weight:500;color:var(--text);letter-spacing:-.4px;line-height:1.2;}
+.day-time{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;margin-top:5px;}
+.day-lead{font-size:16px;color:var(--text-2);margin:12px 0 18px;}
+
+ul.steps{list-style:none;}
+ul.steps li{position:relative;padding:0 0 0 30px;margin-bottom:14px;font-size:16px;color:var(--text-2);line-height:1.62;}
+ul.steps li::before{content:"";position:absolute;left:6px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--teal);}
+ul.steps li b{color:var(--text);font-weight:500;}
+
+.tip{background:var(--surface-2);border-left:2px solid var(--teal);border-radius:0 8px 8px 0;padding:13px 16px;margin:18px 0 0;}
+.tip-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.tip p{font-size:15px;color:var(--text-2);margin:0;}
+
+.note-l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin:22px 0 8px;}
+textarea{width:100%;min-height:92px;background:var(--surface-2);border:1px solid var(--border-2);border-radius:10px;color:var(--text);font-family:inherit;font-size:15.5px;font-weight:300;line-height:1.6;padding:13px 14px;resize:vertical;}
+textarea:focus{outline:none;border-color:var(--teal);}
+textarea::placeholder{color:var(--text-3);}
+
+.day-foot{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap;}
+.btn-done{background:var(--surface-2);border:1px solid var(--border-2);color:var(--text-2);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:11px 18px;border-radius:9px;cursor:pointer;transition:all .18s;}
+.btn-done:hover{border-color:var(--teal);color:var(--text);}
+.day.done .btn-done{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--green);}
+.saved{font-size:12px;color:var(--text-3);opacity:0;transition:opacity .3s;}
+.saved.on{opacity:1;}
+
+/* close */
+.mm{background:var(--surface-3);border:1px solid var(--border-2);border-radius:14px;padding:26px 24px;margin:34px 0 0;}
+.mm-l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:9px;}
+.mm h3{font-size:20px;font-weight:500;color:var(--text);letter-spacing:-.3px;margin-bottom:10px;}
+.mm p{font-size:16px;color:var(--text-2);margin:0;}
+.mm p b{color:var(--gold);font-weight:500;}
+
+.next{display:flex;gap:12px;flex-wrap:wrap;margin:34px 0 0;}
+.next a{flex:1;min-width:230px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:border-color .2s;}
+.next a:hover{border-color:var(--teal);}
+.next .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:6px;}
+.next .v{font-size:15px;font-weight:500;color:var(--text);}
+.next .d{font-size:13.5px;color:var(--text-3);margin-top:4px;}
+
+.foot{padding:44px 0 60px;text-align:center;font-size:13px;color:var(--text-3);}
+.foot a{color:var(--teal);}
+
+@media(max-width:720px){
+  .hero h1{font-size:29px;letter-spacing:-.8px;}
+  .day{padding:22px 18px;}
+  .day h2{font-size:20px;}
+  .scene{padding:20px 18px;}
+  .scene p{font-size:16px;}
+  .prog{top:56px;}
+  .next a{min-width:100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="lock" href="/">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12L22 3L18 21L12 15L2 12Z" fill="#fff"/></svg></span>
+      GBS Insider Club
+    </a>
+    <a class="alt" href="paid-tier.html">Career Paths</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Free track &middot; No login</div>
+    <h1>How do I get <b>more visibility?</b></h1>
+    <p class="sub">Five working days. About twenty minutes each. You already know your job — this is about being seen doing it.</p>
+    <div class="meta">5 days &middot; 20 min per day &middot; Progress saves on this device</div>
+  </section>
+
+  <div class="scene">
+    <div class="scene-top">
+      <span class="av"><img src="images/cast/klaudia-frustrated.webp" alt="Klaudia" onerror="this.parentNode.textContent='K'"></span>
+      <span>
+        <span class="scene-who">Klaudia</span>
+        <span class="scene-role">Year 3 &middot; Krakow</span>
+      </span>
+    </div>
+    <p>
+      She knows the answer.<br>
+      She waits for the right moment.<br>
+      The moment passes.<br><br>
+      Someone else says a worse version of it.<br>
+      Everyone nods.<br>
+      Her manager writes it down &mdash; under <span class="em">his</span> name.
+    </p>
+    <div class="trap">
+      <div class="trap-l">The trap</div>
+      <p>Being right in your head is invisible. Nobody promotes what they cannot see.</p>
+    </div>
+  </div>
+
+  <div class="prog">
+    <div class="prog-row">
+      <span class="prog-l">Your progress</span>
+      <span class="prog-c" id="pc">0 / 5 days</span>
+    </div>
+    <div class="bar"><span id="pb"></span></div>
+    <div class="prog-row" style="margin-top:11px;">
+      <button class="reset" id="rst">Reset track</button>
+      <span class="saved" id="sv">Saved</span>
+    </div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day" id="d1">
+    <div class="day-top">
+      <span class="day-n">1</span>
+      <span>
+        <h2>Copy what works</h2>
+        <div class="day-time">Monday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">Before you change anything, study the people who already have what you want.</p>
+    <ul class="steps">
+      <li>Pick <b>two or three people</b> who are visible and respected. Not the loudest ones. The ones whose name comes up when they are not in the room.</li>
+      <li>Watch them for one week. Write down <b>how they speak</b> &mdash; volume, pace, and when they stay quiet.</li>
+      <li>Note <b>what they attach themselves to</b>. Which topics? Which meetings? Whose messages do they answer fast?</li>
+      <li>Note <b>how they show up</b>. How they dress. How they sit. Whether they wait to be asked.</li>
+      <li>Pick the <b>two habits closest to who you already are</b>. Ignore the rest.</li>
+    </ul>
+    <div class="tip">
+      <div class="tip-l">Do not skip this</div>
+      <p>You are borrowing a pattern, not a personality. Copy the two habits that fit you. The rest will look fake and everyone will feel it.</p>
+    </div>
+    <div class="note-l">Your two habits</div>
+    <textarea data-note="1" placeholder="e.g. Asks one sharp question per meeting. Sends a short summary after every call."></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="1">Mark day 1 done</button></div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day" id="d2">
+    <div class="day-top">
+      <span class="day-n">2</span>
+      <span>
+        <h2>Find something worth saying</h2>
+        <div class="day-time">Tuesday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">Speaking up only works when what you say is worth the air. Build the substance first.</p>
+    <ul class="steps">
+      <li>Every good contribution takes one of two shapes. A <b>question that moves the discussion</b>, or <b>information that saves someone work</b>. Pick your shape.</li>
+      <li>Go get the substance. Read the <b>last three updates from a neighboring team</b>. You will find a gap nobody has named yet.</li>
+      <li>Ask a senior colleague: <b>"What do you actually think about X?"</b> People tell you more than you expect. Listen for what they are worried about.</li>
+      <li>Use AI to fill your knowledge holes. Ask it to explain the thing you pretend to understand.</li>
+      <li>Write <b>three specific things</b> you could say next week that nobody else in the room could say.</li>
+    </ul>
+    <div class="tip">
+      <div class="tip-l">Cut these</div>
+      <p>"Just to add to that." "I agree with what was said." "Good point." Empty sentences cost you more than silence.</p>
+    </div>
+    <div class="note-l">Your three things</div>
+    <textarea data-note="2" placeholder="1.&#10;2.&#10;3."></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="2">Mark day 2 done</button></div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day" id="d3">
+    <div class="day-top">
+      <span class="day-n">3</span>
+      <span>
+        <h2>Break your own idea</h2>
+        <div class="day-time">Wednesday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">Anything you say in front of leadership gets one follow-up question. Survive it here first, in private.</p>
+    <ul class="steps">
+      <li>Take your three things to AI. Tell it: <b>"Be a skeptical director. Challenge this. What do you ask me next?"</b></li>
+      <li>Answer the follow-up. If you cannot, <b>you do not have a point yet</b> &mdash; you have an opinion. Go back and get the number, the example, or the source.</li>
+      <li>Ask it to <b>argue the opposite</b>. Find out what the strongest objection sounds like before someone in the room says it.</li>
+      <li>Keep the <b>one item that survives</b>. Cut the other two, or park them.</li>
+      <li>Say your surviving point out loud. If it takes more than <b>twenty seconds</b>, it is not ready.</li>
+    </ul>
+    <div class="tip">
+      <div class="tip-l">Why this day matters</div>
+      <p>This is where your idea stops being a thought and becomes a position. A position holds up when questioned. That is the whole difference.</p>
+    </div>
+    <div class="note-l">Your surviving point, in twenty seconds</div>
+    <textarea data-note="3" placeholder="Say it out loud. Then write it exactly as you said it."></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="3">Mark day 3 done</button></div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day" id="d4">
+    <div class="day-top">
+      <span class="day-n">4</span>
+      <span>
+        <h2>Say it in a small room</h2>
+        <div class="day-time">Thursday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">First run goes somewhere cheap. Team meeting. One-to-one. A reply that adds something instead of just agreeing.</p>
+    <ul class="steps">
+      <li>Pick <b>one low-stakes room</b>. Today. Not next week.</li>
+      <li>Say your point <b>once, clearly</b>. Then stop talking. Do not soften it, do not repeat it, do not apologize for it.</li>
+      <li>Watch what happens in the <b>three seconds after</b>. Who looks up? Who writes it down? Who asks you something?</li>
+      <li>Kill the hedges. <b>"I might be wrong, but"</b> and <b>"sorry, quick question"</b> delete your point before you make it.</li>
+      <li>Write down what actually happened. One line.</li>
+    </ul>
+    <div class="tip">
+      <div class="tip-l">If your voice shakes</div>
+      <p>Slow down instead of speeding up. Nervous people rush. Senior people pause. Try one deliberate pause before your first sentence.</p>
+    </div>
+    <div class="note-l">What happened</div>
+    <textarea data-note="4" placeholder="Where you said it. Who reacted. What you would change."></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="4">Mark day 4 done</button></div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day" id="d5">
+    <div class="day-top">
+      <span class="day-n">5</span>
+      <span>
+        <h2>Say it where it counts</h2>
+        <div class="day-time">Friday &middot; 20 min</div>
+      </span>
+    </div>
+    <p class="day-lead">Now put it in front of people above your line. This is the day the week pays for itself.</p>
+    <ul class="steps">
+      <li>Pick <b>one room with seniority in it</b>. A townhall question. A project update. A written summary you send one level up.</li>
+      <li>Lead with the <b>answer, not the build-up</b>. Senior people decide in the first sentence whether to keep listening.</li>
+      <li>If speaking is not an option this week, <b>write it</b>. A four-line message to the right person does the same job.</li>
+      <li>Afterwards, write <b>two lines</b>. What landed. What you would drop.</li>
+      <li>Put a reminder in your calendar. <b>Run this again next month</b>, starting at day 1. Visibility is a habit, not an event.</li>
+    </ul>
+    <div class="tip">
+      <div class="tip-l">The real test</div>
+      <p>You will know it worked when someone repeats your point back to you weeks later and thinks it was theirs. Let them. Your name is already attached to it in the room that mattered.</p>
+    </div>
+    <div class="note-l">What landed &middot; what you would drop</div>
+    <textarea data-note="5" placeholder="Landed:&#10;Drop:"></textarea>
+    <div class="day-foot"><button class="btn-done" data-day="5">Mark day 5 done</button></div>
+  </div>
+
+  <div class="mm">
+    <div class="mm-l">Monday move</div>
+    <h3>Do one thing before you close this page.</h3>
+    <p>Open your calendar. Block <b>twenty minutes tomorrow morning</b> and name it "Day 1". A track you schedule is a track you finish.</p>
+  </div>
+
+  <div class="next">
+    <a href="pillar-5-cluster-3-personal-branding.html">
+      <span class="k">Next &rarr;</span>
+      <span class="v">Personal Branding</span>
+      <span class="d">The theory under this track. How reputation gets built and spread.</span>
+    </a>
+    <a href="paid-tier.html">
+      <span class="k">Go further &rarr;</span>
+      <span class="v">Career Paths &mdash; Full Access</span>
+      <span class="d">Templates, scripts, and worked examples for your exact role.</span>
+    </a>
+  </div>
+
+  <div class="foot">
+    Free forever. Nothing to sign up for. <a href="/">GBS Insider Club</a>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var KEY='vis5_v1', st={days:{},notes:{}};
+  try{ st=JSON.parse(localStorage.getItem(KEY))||st; }catch(e){}
+  if(!st.days)st.days={}; if(!st.notes)st.notes={};
+  var svEl=document.getElementById('sv'), tmr;
+
+  function save(){
+    try{ localStorage.setItem(KEY,JSON.stringify(st)); }catch(e){}
+    svEl.classList.add('on'); clearTimeout(tmr);
+    tmr=setTimeout(function(){svEl.classList.remove('on');},1200);
+  }
+  function paint(){
+    var n=0;
+    for(var i=1;i<=5;i++){
+      var card=document.getElementById('d'+i);
+      var btn=card.querySelector('.btn-done');
+      if(st.days[i]){ card.classList.add('done'); btn.textContent='Day '+i+' done'; n++; }
+      else{ card.classList.remove('done'); btn.textContent='Mark day '+i+' done'; }
+    }
+    document.getElementById('pc').textContent=n+' / 5 days';
+    document.getElementById('pb').style.width=(n/5*100)+'%';
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.btn-done'),function(b){
+    b.addEventListener('click',function(){
+      var d=b.getAttribute('data-day');
+      st.days[d]=!st.days[d]; save(); paint();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('textarea[data-note]'),function(t){
+    var k=t.getAttribute('data-note');
+    if(st.notes[k]) t.value=st.notes[k];
+    t.addEventListener('input',function(){ st.notes[k]=t.value; save(); });
+  });
+  document.getElementById('rst').addEventListener('click',function(){
+    if(!confirm('Clear your progress and notes on this device?')) return;
+    st={days:{},notes:{}}; save();
+    Array.prototype.forEach.call(document.querySelectorAll('textarea[data-note]'),function(t){t.value='';});
+    paint();
+  });
+  paint();
+})();
+</script>
+<script src="/assets/mobile.js?v=20" defer></script>
+</body>
+</html>
