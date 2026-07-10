@@ -147,6 +147,11 @@ textarea::placeholder{color:var(--text-3);}
 .mail p{margin:0 0 11px;}
 .mail p:last-child{margin-bottom:0;}
 .mail-note{margin-top:10px;font-size:13.5px;color:var(--text-3);line-height:1.55;}
+
+.dgm{margin:18px 0 0;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:18px 18px 14px;}
+.dgm-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;}
+.dgm svg{width:100%;height:auto;display:block;}
+.dgm .cap{font-size:13px;color:var(--text-3);line-height:1.5;margin-top:11px;}
 </style>
 </head>
 <body>
@@ -218,6 +223,24 @@ textarea::placeholder{color:var(--text-3);}
       <li>Take <b>one thing</b>. Small enough to finish. Say what you will do and by when.</li>
     </ul>
 
+    <div class="dgm">
+      <div class="dgm-l">The column that is usually thinner</div>
+      <svg viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="20" y="24" width="250" height="92" rx="8" fill="#141922" stroke="#1e2535"/>
+        <text x="145" y="46" fill="#8a96ab" font-size="12" font-family="'JetBrains Mono',monospace" text-anchor="middle">YOUR GOALS</text>
+        <line x1="40" y1="62" x2="250" y2="62" stroke="#1e2535"/>
+        <line x1="40" y1="82" x2="250" y2="82" stroke="#1e2535"/>
+        <line x1="40" y1="102" x2="250" y2="102" stroke="#1e2535"/>
+        <rect x="330" y="24" width="250" height="92" rx="8" fill="#141922" stroke="#e8b800"/>
+        <text x="455" y="46" fill="#e8b800" font-size="12" font-family="'JetBrains Mono',monospace" text-anchor="middle">THEIR GOALS</text>
+        <line x1="350" y1="62" x2="560" y2="62" stroke="#252e40"/>
+        <line x1="350" y1="82" x2="480" y2="82" stroke="#252e40" stroke-dasharray="3 3"/>
+        <text x="500" y="86" fill="#7a8799" font-size="11">gap?</text>
+        <text x="300" y="74" fill="#7a8799" font-size="18" text-anchor="middle">vs</text>
+      </svg>
+      <div class="cap">You can list your own goals fast. The gaps in the right column are today’s work.</div>
+    </div>
+
     <div class="ex">
       <div class="ex-l">The ambition question</div>
       <q>"Besides my own targets, is there anything urgent I could take on?"</q>
@@ -260,6 +283,23 @@ textarea::placeholder{color:var(--text-3);}
       <li><b>No adjectives.</b> "Anna rebuilt the check" is a fact. "Anna did an amazing job" is an opinion, and opinions do not go in reports.</li>
       <li>Do this <b>every month</b>. Put it in your calendar before you close this page.</li>
     </ul>
+
+    <div class="dgm">
+      <div class="dgm-l">Why the win has to be short</div>
+      <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="8" y="30" width="176" height="70" rx="8" fill="#141922" stroke="#1e2535"/>
+        <text x="96" y="58" fill="#c8d0de" font-size="13" text-anchor="middle">A win, with a name</text>
+        <text x="96" y="78" fill="#7a8799" font-size="11" text-anchor="middle">no adjectives</text>
+        <rect x="416" y="30" width="176" height="70" rx="8" fill="#141922" stroke="#e8b800"/>
+        <text x="504" y="58" fill="#e8b800" font-size="13" text-anchor="middle">Their report</text>
+        <text x="504" y="78" fill="#7a8799" font-size="11" text-anchor="middle">fills a blank line</text>
+        <path d="M188 65 L412 65" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#a2)"/>
+        <text x="300" y="56" fill="#8a96ab" font-size="12" text-anchor="middle">one line</text>
+        <text x="300" y="83" fill="#7a8799" font-size="11" text-anchor="middle">forwardable</text>
+        <defs><marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#38bdf8"/></marker></defs>
+      </svg>
+      <div class="cap">A one-line win with a name attached is something your manager can forward. A paragraph is not.</div>
+    </div>
 
     <div class="ex">
       <div class="ex-l">The monthly message</div>
@@ -307,6 +347,25 @@ textarea::placeholder{color:var(--text-3);}
       <li>Say <b>what it would take</b>. Hours, people, a decision from someone else. Vague proposals die politely.</li>
     </ul>
 
+    <div class="dgm">
+      <div class="dgm-l">From symptom to decision</div>
+      <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="8" y="45" width="150" height="44" rx="8" fill="#141922" stroke="#1e2535"/>
+        <text x="83" y="63" fill="#8a96ab" font-size="12" text-anchor="middle">Symptom</text>
+        <text x="83" y="79" fill="#7a8799" font-size="11" text-anchor="middle">the backlog</text>
+        <rect x="225" y="45" width="150" height="44" rx="8" fill="#141922" stroke="#38bdf8"/>
+        <text x="300" y="63" fill="#38bdf8" font-size="12" text-anchor="middle">Ask why x5</text>
+        <text x="300" y="79" fill="#7a8799" font-size="11" text-anchor="middle">the cause</text>
+        <rect x="442" y="45" width="150" height="44" rx="8" fill="#141922" stroke="#34d399"/>
+        <text x="517" y="63" fill="#34d399" font-size="12" text-anchor="middle">One option</text>
+        <text x="517" y="79" fill="#7a8799" font-size="11" text-anchor="middle">a decision</text>
+        <path d="M162 67 L221 67" stroke="#7a8799" stroke-width="1.5" marker-end="url(#a3)"/>
+        <path d="M379 67 L438 67" stroke="#7a8799" stroke-width="1.5" marker-end="url(#a3)"/>
+        <defs><marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#7a8799"/></marker></defs>
+      </svg>
+      <div class="cap">A symptom gets you a task. A cause with an option gets you a conversation.</div>
+    </div>
+
     <div class="ex">
       <div class="ex-l">Symptom, then pattern</div>
       <q>"Our SLA (service level agreement) misses cluster in the last three days of every month. The cause is late approvals upstream. One option: move the approval cut-off two days earlier."</q>
@@ -351,6 +410,25 @@ textarea::placeholder{color:var(--text-3);}
       <li><b>Cross-check before sending.</b> Is this one of the five reasons to write to your boss, or am I handing them a problem?</li>
       <li><b>The exercise:</b> open your sent folder. Read this week's emails to your manager. Count how many had no ask, no clear message, or a problem with no recommendation.</li>
     </ul>
+
+    <div class="dgm">
+      <div class="dgm-l">Answer first, evidence after</div>
+      <svg viewBox="0 0 600 210" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <text x="12" y="20" fill="#7a8799" font-size="11" font-family="'JetBrains Mono',monospace">THE EMAIL, TOP TO BOTTOM</text>
+        <rect x="12" y="32" width="576" height="34" rx="7" fill="#141922" stroke="#e8b800"/>
+        <text x="26" y="53" fill="#e8b800" font-size="13" font-weight="500">1  Label the first line</text>
+        <text x="560" y="53" fill="#7a8799" font-size="11" text-anchor="end">Decision required</text>
+        <rect x="12" y="74" width="576" height="34" rx="7" fill="#141922" stroke="#1e2535"/>
+        <text x="26" y="95" fill="#c8d0de" font-size="13">2  The topic</text>
+        <rect x="12" y="116" width="576" height="34" rx="7" fill="#141922" stroke="#1e2535"/>
+        <text x="26" y="137" fill="#c8d0de" font-size="13">3  The ask</text>
+        <text x="560" y="137" fill="#7a8799" font-size="11" text-anchor="end">what you want, by when</text>
+        <rect x="12" y="158" width="576" height="34" rx="7" fill="#141922" stroke="#1e2535"/>
+        <text x="26" y="179" fill="#8a96ab" font-size="13">4  Background</text>
+        <text x="560" y="179" fill="#7a8799" font-size="11" text-anchor="end">only if they need it</text>
+      </svg>
+      <div class="cap">The reader knows what to do from line one. This is the pyramid principle in an inbox.</div>
+    </div>
 
     <div class="ex">
       <div class="ex-l">The shape of the email</div>
@@ -413,6 +491,24 @@ textarea::placeholder{color:var(--text-3);}
       <li>Send it with <b>one line</b>: "In case it is useful for the monthly."</li>
       <li>Do this <b>three months running</b>. By month three your manager says your name when they present it, because a source makes the story stronger.</li>
     </ul>
+
+    <div class="dgm">
+      <div class="dgm-l">How your work travels upward</div>
+      <svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect x="8" y="55" width="150" height="40" rx="8" fill="#141922" stroke="#1e2535"/>
+        <text x="83" y="80" fill="#c8d0de" font-size="13" text-anchor="middle">Your three lines</text>
+        <rect x="225" y="55" width="150" height="40" rx="8" fill="#141922" stroke="#252e40"/>
+        <text x="300" y="75" fill="#c8d0de" font-size="12" text-anchor="middle">Manager forwards</text>
+        <text x="300" y="89" fill="#7a8799" font-size="11" text-anchor="middle">as their own</text>
+        <rect x="442" y="42" width="150" height="66" rx="8" fill="#141922" stroke="#e8b800"/>
+        <text x="517" y="70" fill="#e8b800" font-size="12" text-anchor="middle">Their manager</text>
+        <text x="517" y="87" fill="#7a8799" font-size="11" text-anchor="middle">learns your name</text>
+        <path d="M162 75 L221 75" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#a5)"/>
+        <path d="M379 75 L438 75" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#a5)"/>
+        <defs><marker id="a5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#38bdf8"/></marker></defs>
+      </svg>
+      <div class="cap">Three lines your manager can paste in. It reaches the room above without you in it.</div>
+    </div>
 
     <div class="ex">
       <div class="ex-l">The forwardable paragraph</div>
