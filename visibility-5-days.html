@@ -114,6 +114,38 @@ textarea::placeholder{color:var(--text-3);}
   .prog{top:56px;}
   .next a{min-width:100%;}
 }
+
+/* examples + expandable */
+.ex{margin:18px 0 0;background:var(--surface-2);border:1px solid var(--border-2);border-radius:11px;padding:16px 18px;}
+.ex-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.ex q{display:block;font-size:16px;color:var(--text);line-height:1.6;font-style:normal;quotes:none;padding-left:13px;border-left:2px solid var(--gold);margin-bottom:9px;}
+.ex .why{font-size:14px;color:var(--text-3);line-height:1.55;}
+.more{margin-top:12px;border-top:1px solid var(--border);padding-top:11px;}
+.more summary{cursor:pointer;list-style:none;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--sky);}
+.more summary::-webkit-details-marker{display:none;}
+.more summary::after{content:" +";}
+.more[open] summary::after{content:" \2013";}
+.more-b{padding-top:13px;}
+.more-b q{display:block;font-size:15.5px;color:var(--text-2);line-height:1.55;font-style:normal;quotes:none;padding-left:13px;border-left:2px solid var(--border-2);margin-bottom:10px;}
+.more-b li{font-size:15.5px;color:var(--text-2);line-height:1.6;margin-bottom:9px;list-style:none;padding-left:15px;position:relative;}
+.more-b li::before{content:"\2014";position:absolute;left:0;color:var(--text-3);}
+.watch{margin:18px 0 0;}
+.watch-row{display:flex;gap:13px;padding:12px 0;border-bottom:1px solid var(--border);}
+.watch-row:last-child{border-bottom:none;}
+.watch-n{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);min-width:22px;padding-top:3px;}
+.watch-t{font-size:15.5px;color:var(--text);font-weight:500;margin-bottom:3px;}
+.watch-d{font-size:14.5px;color:var(--text-2);line-height:1.55;}
+.reveal{margin:18px 0 0;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.28);border-radius:11px;padding:17px 19px;}
+.reveal-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.reveal h4{font-size:19px;font-weight:500;color:var(--text);margin:0 0 9px;letter-spacing:-.3px;}
+.reveal p{font-size:15px;color:var(--text-2);line-height:1.6;margin:0 0 8px;}
+.reveal p:last-child{margin-bottom:0;}
+.mail{margin:16px 0 0;background:var(--surface);border:1px solid var(--border-2);border-radius:11px;padding:17px 18px;font-size:15.5px;line-height:1.66;color:var(--text-2);}
+.mail .sub{color:var(--text);font-weight:500;margin-bottom:12px;}
+.mail .ph{color:var(--sky);}
+.mail p{margin:0 0 11px;}
+.mail p:last-child{margin-bottom:0;}
+.mail-note{margin-top:10px;font-size:13.5px;color:var(--text-3);line-height:1.55;}
 </style>
 </head>
 <body>
@@ -176,24 +208,60 @@ textarea::placeholder{color:var(--text-3);}
     <div class="day-top">
       <span class="day-n">1</span>
       <span>
-        <h2>Copy what works</h2>
+        <h2>Observe and learn from your role models</h2>
         <div class="day-time">Monday &middot; 20 min</div>
       </span>
     </div>
-    <p class="day-lead">Before you change anything, study the people who already have what you want.</p>
+    <p class="day-lead">Before you change anything, study the people who already have what you want. Half of it is what they do. The useful half is what they never do.</p>
     <ul class="steps">
-      <li>Pick <b>two or three people</b> who are visible and respected. Not the loudest ones. The ones whose name comes up when they are not in the room.</li>
-      <li>Watch them for one week. Write down <b>how they speak</b> &mdash; volume, pace, and when they stay quiet.</li>
-      <li>Note <b>what they attach themselves to</b>. Which topics? Which meetings? Whose messages do they answer fast?</li>
-      <li>Note <b>how they show up</b>. How they dress. How they sit. Whether they wait to be asked.</li>
-      <li>Pick the <b>two habits closest to who you already are</b>. Ignore the rest.</li>
+      <li>Pick <b>two or three people</b> who are visible and respected. Choose the ones whose name comes up when they are not in the room. Respected beats loud.</li>
+      <li>Watch them for one week. Use the <b>five things to watch</b> below. Take notes on your phone straight after the meeting.</li>
+      <li>Watch <b>what they never do</b>. This is the half most people miss.</li>
+      <li>Pick the <b>two things closest to who you already are</b>. Ignore the rest.</li>
     </ul>
+
+    <div class="ex">
+      <div class="ex-l">Five things to watch</div>
+      <div class="watch">
+        <div class="watch-row"><span class="watch-n">01</span><span><span class="watch-t">Position</span><span class="watch-d">Where they sit and when they arrive. Front or back. Camera on or off. Next to the decision maker, or opposite.</span></span></div>
+        <div class="watch-row"><span class="watch-n">02</span><span><span class="watch-t">Body</span><span class="watch-d">What they do while not speaking. Still or restless. Notes by hand or none. Where they look when someone disagrees with them.</span></span></div>
+        <div class="watch-row"><span class="watch-n">03</span><span><span class="watch-t">Voice</span><span class="watch-d">Volume and pace. Do they finish their sentences. How long they let a silence run before someone else fills it.</span></span></div>
+        <div class="watch-row"><span class="watch-n">04</span><span><span class="watch-t">Substance</span><span class="watch-d">Which topics they put their name on. Numbers or opinions. Do they speak first, or third, and never both.</span></span></div>
+        <div class="watch-row"><span class="watch-n">05</span><span><span class="watch-t">The room</span><span class="watch-d">Who they credit. Who they let finish. Whose question they answer first.</span></span></div>
+      </div>
+      <details class="more">
+        <summary>How to use the five</summary>
+        <div class="more-b">
+          <p class="why">Score each person on the five. Two of them will feel natural to you. Two will feel like a costume. Work on the natural two.</p>
+          <p class="why" style="margin-top:9px;">A quiet person does not become loud. A quiet person becomes the one whose silence has weight.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-l">What they never do</div>
+      <q>They never cut into someone's sentence. They wait. The wait makes the point land harder.</q>
+      <p class="why">Interrupting reads as anxious. Waiting reads as senior. Same words, different room.</p>
+      <details class="more">
+        <summary>More things they never do</summary>
+        <div class="more-b">
+          <ul>
+            <li>They never jump to a solution before they have understood the problem out loud.</li>
+            <li>They never blame a person. They describe what the process allowed to happen.</li>
+            <li>They never brag. They name the colleague who made the thing work, in front of the person who decides.</li>
+            <li>They never speak twice in one meeting just to be seen.</li>
+            <li>They never say "we" about a recommendation that is theirs. More on that on Day 5.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
     <div class="tip">
       <div class="tip-l">Do not skip this</div>
-      <p>You are borrowing a pattern, not a personality. Copy the two habits that fit you. The rest will look fake and everyone will feel it.</p>
+      <p>You are borrowing a pattern, not a personality. Take the two things that fit you. The rest will look like a costume and everyone in the room will feel it.</p>
     </div>
-    <div class="note-l">Your two habits</div>
-    <textarea data-note="1" placeholder="e.g. Asks one sharp question per meeting. Sends a short summary after every call."></textarea>
+    <div class="note-l">Your two things</div>
+    <textarea data-note="1" placeholder="Which two of the five? Example: Voice — she lets a silence run. Substance — he always brings one number."></textarea>
     <div class="day-foot"><button class="btn-done" data-day="1">Mark day 1 done</button></div>
   </div>
 
@@ -266,6 +334,35 @@ textarea::placeholder{color:var(--text-3);}
       <li>Kill the hedges. <b>"I might be wrong, but"</b> and <b>"sorry, quick question"</b> delete your point before you make it.</li>
       <li>Write down what actually happened. One line.</li>
     </ul>
+    <div class="ex">
+      <div class="ex-l">Ways in &mdash; patterns, not scripts</div>
+      <q>"Can I check one assumption before we move on?"</q>
+      <p class="why">Safest opener in any room. It buys you the floor without claiming you are right.</p>
+      <details class="more">
+        <summary>More ways in</summary>
+        <div class="more-b">
+          <q>"May I make a suggestion?"</q>
+          <q>"Can I ask a question about the volumes?"</q>
+          <q>"I want to add one thing, then I am done."</q>
+          <q>"Building on what Marta said &mdash; the same pattern shows up in our exception queue."</q>
+          <p class="why">Adapt the words. Keep the shape: ask for the floor, use it once, give it back.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-l">The exit line</div>
+      <q>"That is my whole point."</q>
+      <p class="why">Then stop. A clean stop reads as confidence. Trailing off reads as asking permission.</p>
+      <details class="more">
+        <summary>If you freeze and say nothing</summary>
+        <div class="more-b">
+          <q>"I had a thought on that. I will send it after the call."</q>
+          <p class="why">Then actually send it, in three lines, within the hour. A written contribution beats a missed spoken one, and it lands in an inbox with your name on it.</p>
+        </div>
+      </details>
+    </div>
+
     <div class="tip">
       <div class="tip-l">If your voice shakes</div>
       <p>Slow down instead of speeding up. Nervous people rush. Senior people pause. Try one deliberate pause before your first sentence.</p>
@@ -284,7 +381,7 @@ textarea::placeholder{color:var(--text-3);}
         <div class="day-time">Friday &middot; 20 min</div>
       </span>
     </div>
-    <p class="day-lead">Now put it in front of people above your line. This is the day the week pays for itself.</p>
+    <p class="day-lead">Now put it in front of people above your line. This is the day the week pays for itself. It is also where the contradiction from Day 1 gets resolved.</p>
     <ul class="steps">
       <li>Pick <b>one room with seniority in it</b>. A townhall question. A project update. A written summary you send one level up.</li>
       <li>Lead with the <b>answer, not the build-up</b>. Senior people decide in the first sentence whether to keep listening.</li>
@@ -292,6 +389,33 @@ textarea::placeholder{color:var(--text-3);}
       <li>Afterwards, write <b>two lines</b>. What landed. What you would drop.</li>
       <li>Put a reminder in your calendar. <b>Run this again next month</b>, starting at day 1. Visibility is a habit, not an event.</li>
     </ul>
+    <div class="ex">
+      <div class="ex-l">Illustration &mdash; the message one level up</div>
+      <div class="mail">
+        <div class="sub">AP exception queue &mdash; one pattern worth a few hours a week</div>
+        <p>Hi <span class="ph">[Name]</span>,</p>
+        <p>I looked at last month's exceptions in AP (accounts payable). Most of them trace back to one supplier's PO (purchase order) format.</p>
+        <p>Fixing the template upstream would remove most of the queue.</p>
+        <p>This is a good opportunity to speed up invoice processing and take pressure off the AP team. I will set up a short call to walk you through my recommendation.</p>
+        <p>&mdash; <span class="ph">[Your name]</span></p>
+      </div>
+      <p class="mail-note">Point first. Evidence second. Then a decision you have already made, instead of permission you are asking for. Swap AP for your process &mdash; the shape survives, the content is yours. Four levels up, offer the call instead of booking it.</p>
+      <details class="more">
+        <summary>Why the last line matters</summary>
+        <div class="more-b">
+          <p class="why">"Happy to help if useful" hands the decision back. "I will set up a short call" tells them you have already started. One of these gets a reply the same day.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="reveal">
+      <div class="reveal-l">The line that matters most on this page</div>
+      <h4>Say "we" for the work. Say "I" for the recommendation.</h4>
+      <p>Day 1 said the visible people never say "I". That is true, and it is about <b>team work and team results</b>. Describing what your team delivered in the "I" form puts you in front of your own team, and the room notices.</p>
+      <p>A recommendation is different. The analysis is yours. The idea is yours. Nobody shares the blame if it fails, so nobody shares the credit if it lands. Sign it.</p>
+      <p>Credit is shared. Ownership is not. The person who says <b>"we found a pattern, and I think we should fix it this way"</b> is the person who gets asked what to do next.</p>
+    </div>
+
     <div class="tip">
       <div class="tip-l">The real test</div>
       <p>You will know it worked when someone repeats your point back to you weeks later and thinks it was theirs. Let them. Your name is already attached to it in the room that mattered.</p>
