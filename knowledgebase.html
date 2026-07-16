@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Practical career playbooks, templates and AI guidance for ambitious GBS, Shared Services, BPO and transformation professionals who want to get noticed, move up and build visible career evidence.">
 <link rel="canonical" href="https://gbsinsiderclub.com/">
-<title>GBS Insider Club | Career Playbooks for Shared Services &amp; GBS Professionals</title>
+<title>Knowledgebase — GBS Insider Club</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -857,35 +857,38 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
 }
 /* footer link names are longer now (tile names) -> must wrap */
 .footer-links{ flex-wrap:wrap; row-gap:10px; }
-
-/* ═══ abbreviation tooltips (GBS / BPO) ═══ */
-abbr.gl{ position:relative; text-decoration:none; border-bottom:1px dashed var(--teal);
-  cursor:help; color:inherit; }
-abbr.gl::after{
-  content:attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 9px);
-  transform:translateX(-50%) translateY(4px); white-space:nowrap;
-  background:var(--surface-3); color:#fff; border:1px solid var(--teal);
-  border-radius:7px; padding:7px 11px; font-family:'Inter',sans-serif; font-size:13px;
-  font-weight:400; letter-spacing:0; box-shadow:0 8px 22px rgba(0,0,0,.45);
-  opacity:0; pointer-events:none; transition:opacity .16s, transform .16s; z-index:60; }
-abbr.gl::before{
-  content:''; position:absolute; left:50%; bottom:calc(100% + 4px); transform:translateX(-50%);
-  border:5px solid transparent; border-top-color:var(--teal); opacity:0; transition:opacity .16s; z-index:60; }
-abbr.gl:hover::after, abbr.gl:focus::after{ opacity:1; transform:translateX(-50%) translateY(0); }
-abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
-@media(max-width:640px){ abbr.gl::after{ white-space:normal; width:186px; text-align:center; } }
-
-/* ═══ quiet questions, merged into Why This Exists ═══ */
-.why-quiet{ margin-top:44px; padding-top:36px; border-top:1px solid var(--border); }
-.why-quiet-h{ font-size:22px; font-weight:600; color:#fff; letter-spacing:-.4px; margin:0 0 6px; }
-.why-quiet-lead{ font-size:15px; color:var(--text-3); margin:0 0 22px; }
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/mobile.css?v=20">
+
+<style>
+  .l2bar{ margin-top:64px; padding:18px 80px 0; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .l2back{ display:inline-flex; align-items:center; gap:9px; background:var(--surface);
+    border:1px solid var(--border-2); color:var(--text-2); border-radius:99px; padding:9px 18px 9px 14px;
+    text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.08em;
+    text-transform:uppercase; transition:.15s; }
+  .l2back:hover{ border-color:var(--teal); color:#fff; }
+  .l2back svg{ width:14px; height:14px; }
+  .l2crumb{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); letter-spacing:.06em; }
+  .l2crumb b{ color:var(--gold); font-weight:500; }
+  .l2foot{ margin:0 80px 64px; padding:30px; border:1px solid var(--border); border-radius:14px;
+    background:var(--surface); }
+  .l2foot-h{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
+  .l2next{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .l2next a{ display:block; text-decoration:none; background:var(--surface-2); border:1px solid var(--border-2);
+    border-radius:10px; padding:16px 18px; transition:.16s; }
+  .l2next a:hover{ border-color:var(--teal); transform:translateY(-2px); }
+  .l2next .t{ font-size:15px; font-weight:600; color:#fff; margin-bottom:4px; }
+  .l2next .d{ font-size:12.5px; color:var(--text-3); line-height:1.45; }
+  @media(max-width:900px){
+    .l2bar{ padding:16px 24px 0; } .l2foot{ margin:0 24px 48px; padding:22px; }
+    .l2next{ grid-template-columns:1fr; }
+  }
+</style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
@@ -906,244 +909,209 @@ abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
     <a href="who-is-this-for.html">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
     <a href="do-this-from-monday.html">Do this from Monday</a>
-    <a href="knowledgebase.html">Knowledgebase</a>
+    <a href="#inside">Knowledgebase</a>
     <a href="join.html" class="nav-cta">Join Free →</a>
   </div>
 </nav>
-
-<!-- ─── HERO ─── -->
-<section class="hero" id="hero">
-  <div class="hero-eyebrow">Practitioner-led · No corporate fluff</div>
-  <h1>
-    Build the GBS career
-    <span class="line-gold">nobody teaches you how to build.</span>
-  </h1>
-  <p class="hero-sub">
-    Learn what actually gets professionals noticed, trusted and promoted in Shared Services, <abbr class="gl" tabindex="0" data-tip="Global Business Services">GBS</abbr> and <abbr class="gl" tabindex="0" data-tip="Business Process Outsourcing">BPO</abbr>.
-  </p>
-  <p class="hero-plabel">Practical guidance to help you:</p>
-  <ul class="hero-bl">
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Create visible business impact</span></li>
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Avoid the career traps nobody talks about</span></li>
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Build the skills leaders value</span></li>
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Position your work for promotion</span></li>
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Move into bigger roles and earn more</span></li>
-  </ul>
-  <p class="hero-built">Built for ambitious professionals who want more than another year in the same role.</p>
-  <div class="hero-actions">
-    <a href="join.html" class="btn-primary btn-xl">Join the GBS Insider Club — free →</a>
-  </div>
-  <div class="proofbar">146 topics, free · 4 Fast Win tracks · AI Field Guide · no credit card</div>
-  <div class="hero-scroll-hint">Scroll to explore</div>
-</section>
-
-<!-- ─── NAVIGATOR (4 sections) ─── -->
-<section id="map">
-  <div class="nv-head">
-    <div class="section-eyebrow">Start Here</div>
-    <h2 class="section-h2">What do you need today? <span class="accent">Start with one.</span></h2>
-    <p class="nv-lead">Four sections, each with a different purpose. Find out what skills you need for your role to succeed. Have a look at our comprehensive topics knowledgebase. Find out what is holding you back and how to fix it. Finally, fix one thing and get instant results.</p>
-  </div>
-  <div class="nv-grid">
-    <a class="nvt a-sky" href="who-is-this-for.html">
-      <div class="nvt-ph" style="background-image:url('images/nav-qualify.webp');background-position:center 34%;"></div>
-      <div class="nvt-sc"></div>
-      <div class="nvt-chip"><svg viewBox="0 0 28 28"><circle cx="14" cy="11" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 21c1.6-3 4.2-4 7-4s5.4 1 7 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>WHO IS THIS FOR</span></div>
-      
-      <div class="nvt-panel"><div class="nvt-t">Who is this for?</div><div class="nvt-s">Shared Services, GBS, BPO — analyst to manager.</div><div class="nvt-a">→</div></div>
-    </a>
-    <a class="nvt a-green" href="do-this-from-monday.html">
-      <div class="nvt-ph" style="background-image:url('images/nav-monday.webp');background-position:42% 40%;"></div>
-      <div class="nvt-sc"></div>
-      <div class="nvt-chip"><svg viewBox="0 0 28 28"><path d="M13.5 4L6.5 15h6l-1 9 8-12h-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>ACT NOW · FREE</span></div>
-      
-      <div class="nvt-panel"><div class="nvt-t">Do this from Monday</div><div class="nvt-s">One real problem. Five working days.</div><div class="nvt-a">→</div></div>
-    </a>
-    <a class="nvt is-main a-gold" href="where-are-you-now.html">
-      <div class="nvt-ph" style="background-image:url('images/nav-role.webp');background-position:64% 38%;"></div>
-      <div class="nvt-sc"></div>
-      <div class="nvt-chip"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 9v5l3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>START HERE</span></div>
-      <span class="nvt-main">START HERE</span>
-      <div class="nvt-panel"><div class="nvt-t">Where are you right now?</div><div class="nvt-s">Your role, your problems, your fixes.</div><div class="nvt-a">→</div></div>
-    </a>
-    <a class="nvt a-teal" href="knowledgebase.html">
-      <div class="nvt-ph" style="background-image:url('images/nav-knowledgebase.webp');background-position:58% 46%;"></div>
-      <div class="nvt-sc"></div>
-      <div class="nvt-chip"><svg viewBox="0 0 28 28"><rect x="6" y="6" width="16" height="16" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 11h8M10 15h8M10 19h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>REFERENCE · FREE</span></div>
-      
-      <div class="nvt-panel"><div class="nvt-t">Knowledgebase</div><div class="nvt-s">146 topics by role. 10 pillars underneath.</div><div class="nvt-a">→</div></div>
-    </a>
-  </div>
-</section>
-
-
-<!-- ─── SECTION 2: WHY ─── -->
-
-<!-- ─── SECTION: START WHERE YOU ARE ─── -->
-
-<!-- moved to Level 2: #start-here -->
-
-<div style="margin:-24px 0 48px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:12px;">
-  <svg viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;display:block;margin:0 auto;">
-    <rect x="0" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1"/>
-    <text x="90" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#1d6aff" data-count="10">10</text>
-    <text x="90" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Career pillars</text>
-    <rect x="210" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1"/>
-    <text x="300" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#e8b800" data-count="145" data-suffix="+">145+</text>
-    <text x="300" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Actionable topics</text>
-    <rect x="420" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#38bdf8" stroke-width="1"/>
-    <text x="510" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#38bdf8" data-count="37">37</text>
-    <text x="510" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">AI Field Guide chapters</text>
-    <rect x="630" y="10" width="170" height="60" rx="8" fill="#141922" stroke="#ff3355" stroke-width="1"/>
-    <text x="715" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#ff3355">Free</text>
-    <text x="715" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Core access forever</text>
-  </svg>
+<div class="l2bar">
+  <a class="l2back" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5l-7 7 7 7M4 12h16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to start
+  </a>
+  <div class="l2crumb">START &rsaquo; <b>KNOWLEDGEBASE</b></div>
 </div>
+<section id="inside" class="inside-section">
+  <div class="section-eyebrow">The GBS Library</div>
+  <h2 class="section-h2">The reference shelf. <span class="accent">10 pillars, 146+ topics.</span></h2>
+  <p class="section-lead" style="max-width:960px;">The GBS Insider Club curriculum is built around <strong style="color:#e8b800;">10 knowledge pillars</strong> — the core areas every GBS professional needs to master. Each pillar breaks down into <strong style="color:#ffffff;">clusters</strong> (groups of related skills), and each cluster contains <strong style="color:#ffffff;">individual topics</strong> with frameworks, real-world examples, and practitioner insights.</p>
+  <p class="section-lead" style="max-width:960px; margin-top:12px; font-size:15px; color:var(--text-2);">These ten pillars are not a random library. They follow the arc of a GBS career: understand how the center works, run the work well, grow yourself, then lead and drive change. New to GBS? Start at Pillar 1. Already in a role? Go straight to the stage that fits where you are now.</p>
+      <div style="margin:26px auto 6px; padding:24px 22px 18px; max-width:1000px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow-x:auto;">
+      <svg viewBox="0 0 1000 372" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:1000px;height:auto;">
+  <text x="500" y="26" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-weight="600" font-size="14" letter-spacing="0.12em">THE GBS CAREER ARC — TEN PILLARS, ONE JOURNEY</text>
 
+  <!-- arrows between phase headers -->
+  <defs><marker id="arc-ah" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7" fill="#6b7891"/></marker></defs>
+  <line x1="240" y1="76" x2="260" y2="76" stroke="#6b7891" stroke-width="1.5" marker-end="url(#arc-ah)"/>
+  <line x1="478" y1="76" x2="498" y2="76" stroke="#6b7891" stroke-width="1.5" marker-end="url(#arc-ah)"/>
+  <line x1="716" y1="76" x2="736" y2="76" stroke="#6b7891" stroke-width="1.5" marker-end="url(#arc-ah)"/>
 
+  <!-- PHASE 1 -->
+  <rect x="24" y="48" width="214" height="56" rx="9" fill="#0f1a2e" stroke="#1d6aff" stroke-width="1.5"/>
+  <text x="131" y="72" text-anchor="middle" fill="#9fc0ff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" letter-spacing="0.06em">UNDERSTAND THE PLACE</text>
+  <text x="131" y="92" text-anchor="middle" fill="#c2ccda" font-family="Inter,sans-serif" font-size="11">How does GBS actually work?</text>
+  <g font-family="Inter,sans-serif">
+    <rect x="24" y="120" width="214" height="34" rx="7" fill="#141922" stroke="#1d6aff" stroke-width="1"/>
+    <text x="40" y="142" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">01</text><text x="64" y="142" fill="#e3e8f0" font-size="12.5">Fundamentals</text>
+  </g>
 
-<!-- ─── FREE TRACK: VISIBILITY ─── -->
-<!-- moved to Level 2: #free-track -->
+  <!-- PHASE 2 -->
+  <rect x="262" y="48" width="214" height="56" rx="9" fill="#0f1a2e" stroke="#1d6aff" stroke-width="1.5"/>
+  <text x="369" y="72" text-anchor="middle" fill="#9fc0ff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" letter-spacing="0.06em">DO THE WORK WELL</text>
+  <text x="369" y="92" text-anchor="middle" fill="#c2ccda" font-family="Inter,sans-serif" font-size="11">How do I deliver and improve?</text>
+  <g font-family="Inter,sans-serif">
+    <rect x="262" y="120" width="214" height="34" rx="7" fill="#141922" stroke="#1d6aff" stroke-width="1"/>
+    <text x="278" y="142" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">02</text><text x="302" y="142" fill="#e3e8f0" font-size="12.5">Operational Excellence</text>
+    <rect x="262" y="164" width="214" height="34" rx="7" fill="#141922" stroke="#1d6aff" stroke-width="1"/>
+    <text x="278" y="186" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">03</text><text x="302" y="186" fill="#e3e8f0" font-size="12.5">Digital &amp; Technology</text>
+  </g>
 
-<!-- ─── POPULAR QUESTIONS ─── -->
-<!-- moved to Level 2: #questions -->
+  <!-- PHASE 3 -->
+  <rect x="500" y="48" width="214" height="56" rx="9" fill="#0c1b22" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="607" y="72" text-anchor="middle" fill="#7dd3fc" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" letter-spacing="0.06em">BE SEEN AND GROW</text>
+  <text x="607" y="92" text-anchor="middle" fill="#c2ccda" font-family="Inter,sans-serif" font-size="11">How do I get recognized and paid?</text>
+  <g font-family="Inter,sans-serif">
+    <rect x="500" y="120" width="214" height="34" rx="7" fill="#141922" stroke="#38bdf8" stroke-width="1"/>
+    <text x="516" y="142" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">04</text><text x="540" y="142" fill="#e3e8f0" font-size="12.5">Stakeholder &amp; Comms</text>
+    <rect x="500" y="164" width="214" height="34" rx="7" fill="#141922" stroke="#38bdf8" stroke-width="1"/>
+    <text x="516" y="186" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">05</text><text x="540" y="186" fill="#e3e8f0" font-size="12.5">Career &amp; Performance</text>
+    <rect x="500" y="208" width="214" height="34" rx="7" fill="#141922" stroke="#38bdf8" stroke-width="1"/>
+    <text x="516" y="230" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">06</text><text x="540" y="230" fill="#e3e8f0" font-size="12.5">Total Rewards</text>
+  </g>
 
-<!-- ─── WHAT YOU WILL BUILD ─── -->
-<!-- moved to Level 2: #build -->
+  <!-- PHASE 4 -->
+  <rect x="738" y="48" width="214" height="56" rx="9" fill="#1b1406" stroke="#e8b800" stroke-width="1.6"/>
+  <text x="845" y="72" text-anchor="middle" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" letter-spacing="0.06em">LEAD AND TRANSFORM</text>
+  <text x="845" y="92" text-anchor="middle" fill="#e8d9a8" font-family="Inter,sans-serif" font-size="11">How do I lead and drive change?</text>
+  <g font-family="Inter,sans-serif">
+    <rect x="738" y="120" width="214" height="34" rx="7" fill="#141922" stroke="#e8b800" stroke-width="1"/>
+    <text x="754" y="142" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">07</text><text x="778" y="142" fill="#e3e8f0" font-size="12.5">Leadership &amp; People</text>
+    <rect x="738" y="164" width="214" height="34" rx="7" fill="#141922" stroke="#e8b800" stroke-width="1"/>
+    <text x="754" y="186" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">08</text><text x="778" y="186" fill="#e3e8f0" font-size="12.5">Projects &amp; Transformation</text>
+    <rect x="738" y="208" width="214" height="34" rx="7" fill="#141922" stroke="#e8b800" stroke-width="1"/>
+    <text x="754" y="230" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">09</text><text x="778" y="230" fill="#e3e8f0" font-size="12.5">Compliance &amp; Risk</text>
+    <rect x="738" y="252" width="214" height="34" rx="7" fill="#141922" stroke="#e8b800" stroke-width="1"/>
+    <text x="754" y="274" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">10</text><text x="778" y="274" fill="#e3e8f0" font-size="12.5">GBS Transition</text>
+  </g>
 
-<!-- moved to Level 2: #watch -->
-
-<section id="why">
-  <div class="section-eyebrow">Why This Exists</div>
-  <h2 class="section-h2">Nobody handed you a <span class="accent">career map.</span></h2>
-  <p class="section-lead">Most GBS professionals are talented, motivated, and stuck. Not because they lack ability — because nobody told them how the game works.</p>
-
-  <div class="why-grid">
-    <div class="why-card featured" data-num="01">
-      <h3><img class="h-icon" src="images/icons-line/08-search.webp" alt="" aria-hidden="true">You don't know the unwritten rules</h3>
-      <ul class="chunk-list">
-        <li>How decisions really get made</li>
-        <li>What gets you <strong>promoted</strong> versus what just keeps you busy</li>
-        <li>Performing well versus being <strong>seen</strong> to perform well</li>
-      </ul>
-    </div>
-    <div class="why-card" data-num="02">
-      <h3><img class="h-icon" src="images/icons-line/04-growth.webp" alt="" aria-hidden="true">You want to earn more but don't know how to ask</h3>
-      <ul class="chunk-list">
-        <li>Pay rises faster when you know what drives it: <strong>skills, visibility, timing, positioning</strong></li>
-        <li>Most people wait</li>
-        <li>The ones who move up <strong>ask deliberately</strong></li>
-      </ul>
-    </div>
-    <div class="why-card" data-num="03">
-      <h3><img class="h-icon" src="images/icons-line/10-idea.webp" alt="" aria-hidden="true">Your organization doesn't train you well enough</h3>
-      <ul class="chunk-list">
-        <li>The training exists; the <strong>time and structure</strong> rarely do</li>
-        <li>Most GBS teams are under-invested in capability</li>
-        <li>We fill the gap: <strong>organized, actionable</strong>, built for how you learn</li>
-      </ul>
-    </div>
-    <div class="why-card" data-num="04">
-      <h3><img class="h-icon" src="images/icons-line/07-handshake.webp" alt="" aria-hidden="true">Your progress depends too much on who you work for</h3>
-      <ul class="chunk-list">
-        <li>Great managers <strong>sponsor</strong> talent; average ones just manage it</li>
-        <li>Most people don't get to choose their manager</li>
-        <li>We teach you to progress <strong>regardless of who yours is</strong></li>
-      </ul>
-    </div>
-    <div class="why-card full" data-num="">
-      <div class="why-quote">
-        "I was lucky. I had good leaders who saw my potential and supported me. That should not be a matter of luck. GBS Insider Club exists to give every professional that same advantage — regardless of who they work for."
-        <span class="why-quote-source">— Julian, Host · GBS Insider Club</span>
+  <line x1="40" y1="320" x2="960" y2="320" stroke="#2a3347" stroke-width="1"/>
+  <text x="40" y="344" fill="#8da2c0" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="0.08em">EARLY CAREER</text>
+  <text x="960" y="344" text-anchor="end" fill="#e8b800" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="0.08em">LEADERSHIP &amp; TRANSFORMATION</text>
+  <polygon points="956,338 968,344 956,350" fill="#e8b800"/>
+</svg>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#8da2c0; text-transform:uppercase; letter-spacing:0.12em; text-align:center; margin-top:14px;">Each pillar tells you why it matters and what you will be able to do</div>
       </div>
+
+  <div class="pillars-grid">
+    <a href="pillar-1-gbs-fundamentals.html" class="pillar-tile">
+      <div class="pillar-num">01</div>
+      <img class="pillar-icon" src="icons/icon-gbs-fundamentals.png" alt="GBS Fundamentals icon" onerror="this.style.display='none'">
+      <div class="pillar-name">GBS Fundamentals</div>
+      <div class="pillar-topics">Understand how the center works, so you can perform instead of guessing.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">6 clusters · 16 topics</span></div>
+    </a>
+    <a href="pillar-2-operational-excellence.html" class="pillar-tile">
+      <div class="pillar-num">02</div>
+      <img class="pillar-icon" src="icons/icon-operational-excellence.png" alt="Operational Excellence icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Operational Excellence</div>
+      <div class="pillar-topics">Run your daily work to standard and improve it — this is what you are paid for.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">5 clusters · 28 topics</span></div>
+    </a>
+    <a href="pillar-3-digital-technology.html" class="pillar-tile">
+      <div class="pillar-num">03</div>
+      <img class="pillar-icon" src="icons/icon-digital-technology.png" alt="Digital and Technology icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Digital and Technology</div>
+      <div class="pillar-topics">Use the tools that handle repetitive work, so your time goes to higher-value tasks.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">4 clusters · 18 topics</span></div>
+    </a>
+    <a href="pillar-4-stakeholder-communication.html" class="pillar-tile">
+      <div class="pillar-num">04</div>
+      <img class="pillar-icon" src="icons/icon-stakeholder-comm.png" alt="Stakeholder Communication icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Stakeholder Communication</div>
+      <div class="pillar-topics">Make your work visible and your message clear across regions and cultures.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">3 clusters · 11 topics</span></div>
+    </a>
+    <a href="pillar-5-career-performance.html" class="pillar-tile">
+      <div class="pillar-num">05</div>
+      <img class="pillar-icon" src="icons/icon-career-performance.png" alt="Career and Performance icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Career and Performance</div>
+      <div class="pillar-topics">Manage your own growth on purpose, because no one else will do it for you.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">3 clusters · 13 topics</span></div>
+    </a>
+    <a href="pillar-6-total-rewards.html" class="pillar-tile">
+      <div class="pillar-num">06</div>
+      <img class="pillar-icon" src="icons/icon-total-rewards.png" alt="Total Rewards icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Total Rewards</div>
+      <div class="pillar-topics">Understand your full pay and how to discuss it, so you are paid fairly.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">3 clusters · 8 topics</span></div>
+    </a>
+    <a href="pillar-7-leadership-people.html" class="pillar-tile">
+      <div class="pillar-num">07</div>
+      <img class="pillar-icon" src="icons/icon-leadership-people.png" alt="Leadership and People icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Leadership and People</div>
+      <div class="pillar-topics">Lead a team well when it is your turn — the hardest change many people make.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">4 clusters · 17 topics</span></div>
+    </a>
+    <a href="pillar-8-projects-transformation.html" class="pillar-tile">
+      <div class="pillar-num">08</div>
+      <img class="pillar-icon" src="icons/icon-projects-transformation.png" alt="Projects and Transformation icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Projects and Transformation</div>
+      <div class="pillar-topics">Drive change, not only run the daily work. Project work builds a visible record of impact.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">5 clusters · 14 topics</span></div>
+    </a>
+    <a href="pillar-9-compliance-risk.html" class="pillar-tile">
+      <div class="pillar-num">09</div>
+      <img class="pillar-icon" src="icons/icon-compliance-risk.png" alt="Compliance and Risk icon" onerror="this.style.display='none'">
+      <div class="pillar-name">Compliance and Risk</div>
+      <div class="pillar-topics">Keep the operation safe. One control failure can damage a reputation built over years.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">3 clusters · 12 topics</span></div>
+    </a>
+    <a href="pillar-10-gbs-transition.html" class="pillar-tile">
+      <div class="pillar-num">10</div>
+      <img class="pillar-icon" src="icons/icon-gbs-transitions.png" alt="GBS Transitions icon" onerror="this.style.display='none'">
+      <div class="pillar-name">GBS Transitions</div>
+      <div class="pillar-topics">Move work into the center and run it well — a strong proof point for a senior role.<br><span style="opacity:.55;font-size:.85em;letter-spacing:.02em;">3 clusters · 9 topics</span></div>
+    </a>
+    <a href="guide.html" class="pillar-tile-guide">
+      <span class="guide-badge">AI Field Guide</span>
+      <div class="guide-body">
+        <div class="guide-title">AI Literacy for GBS Professionals — 37 Chapters</div>
+        <div class="guide-desc">From prompt engineering to agentic workflows. Everything you need to work with AI in a GBS environment — not as a technologist, but as a practitioner.</div>
+      </div>
+      <span class="guide-cta">Access the Guide →</span>
+    </a>
+  </div>
+
+  <div style="margin-top:56px;"></div>
+
+  <div class="section-eyebrow" style="margin-bottom:20px;">Questions we answer — every week</div>
+  <div class="hooks-grid">
+    <div class="hook-card">
+      <span class="hook-tag tag-question">Career Question</span>
+      <h4>Why did someone less experienced get promoted before me?</h4>
+      <p>Performance gets you considered. Visibility gets you chosen. Most people focus entirely on the wrong one.</p>
+      <div class="hook-cast"><span class="hc-av"><img src="images/cast/peter-neutral.webp" alt="" onerror="this.remove()">P</span><span class="hc-name">Peter<span class="hc-role"> &middot; Team lead, Budapest</span></span></div>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-myth">Common Myth</span>
+      <h4>GBS is just a cost center — there's no real career here.</h4>
+      <p>Wrong. The GBS professionals who understand the model build some of the most transferable careers in finance and operations.</p>
+      <div class="hook-cast"><span class="hc-av"><img src="images/cast/ravi-neutral.webp" alt="" onerror="this.remove()">R</span><span class="hc-name">Ravi<span class="hc-role"> &middot; AP analyst, Pune</span></span></div>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-insight">Insider Insight</span>
+      <h4>Your manager's standing in the organization affects your career more than your performance does.</h4>
+      <p>Unfair and still true. Here is what you can do about it.</p>
+      <div class="hook-cast"><span class="hc-av"><img src="images/cast/miguel-neutral.webp" alt="" onerror="this.remove()">M</span><span class="hc-name">Miguel<span class="hc-role"> &middot; Team lead, Manila</span></span></div>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-question">Career Question</span>
+      <h4>How do I ask for a salary increase without damaging the relationship?</h4>
+      <p>Timing, framing, and evidence. Three things most people get wrong. Covered in Pillar 6.</p>
+      <div class="hook-cast"><span class="hc-av"><img src="images/cast/priya-neutral.webp" alt="" onerror="this.remove()">P</span><span class="hc-name">Priya<span class="hc-role"> &middot; Process SME, Bangalore</span></span></div>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-myth">Common Myth</span>
+      <h4>The best way to progress is to be the best at your current job.</h4>
+      <p>Being excellent at your role is the floor, not the ceiling. What happens above that floor determines where you go.</p>
+      <div class="hook-cast"><span class="hc-av"><img src="images/cast/klaudia-neutral.webp" alt="" onerror="this.remove()">K</span><span class="hc-name">Klaudia<span class="hc-role"> &middot; Senior associate, Krakow</span></span></div>
+    </div>
+    <div class="hook-card">
+      <span class="hook-tag tag-insight">Insider Insight</span>
+      <h4>Most process steps in GBS exist because nobody questioned them.</h4>
+      <p>The professional who asks "why does this exist?" and follows through builds credibility faster than anyone around them.</p>
+      <div class="hook-cast"><span class="hc-av"><img src="images/cast/amara-neutral.webp" alt="" onerror="this.remove()">A</span><span class="hc-name">Amara<span class="hc-role"> &middot; O2C analyst, Lagos</span></span></div>
     </div>
   </div>
-
-  <div class="why-quiet">
-    <h3 class="why-quiet-h">Questions ambitious GBS professionals quietly ask</h3>
-    <p class="why-quiet-lead">Four answers that change how the next twelve months go.</p>
-<div class="pq-grid">
-    <a class="pq-card" href="pillar-5-cluster-1-performance-loop.html">
-      <div class="pq-q">Why did someone less experienced get promoted before me?</div>
-      <p class="pq-a">Performance gets you considered. Visibility gets you chosen. Most people optimize only the first half.</p>
-      <span class="pq-go">Start here: build your brag sheet &rarr;</span>
-    </a>
-    <a class="pq-card" href="pillar-5-cluster-3-personal-branding.html">
-      <div class="pq-q">How do I get noticed without sounding political?</div>
-      <p class="pq-a">Make your value visible through facts, patterns, and useful updates. Self-promotion theatre reads as noise.</p>
-      <span class="pq-go">Start here: your visibility plan &rarr;</span>
-    </a>
-    <a class="pq-card" href="pillar-8-cluster-5-sme-participation.html">
-      <div class="pq-q">How do I move from BAU work into projects?</div>
-      <p class="pq-a">Stop waiting to be picked. Build project proof before the project role exists, and the ask becomes easy.</p>
-      <span class="pq-go">Start here: your transition story &rarr;</span>
-    </a>
-    <a class="pq-card" href="pillar-6-cluster-1-compensation-structure.html">
-      <div class="pq-q">How do I ask for more money?</div>
-      <p class="pq-a">Start with evidence, scope, impact, and market logic. Fairness arguments lose in a pay round.</p>
-      <span class="pq-go">Start here: prepare your salary case &rarr;</span>
-    </a>
-  </div>
-  </div>
 </section>
-
-<div style="margin:0 0 48px; text-align:center;">
-  <img src="images/people-mentorship.webp" alt="Senior professional mentoring a junior colleague in a modern office" style="width:100%; max-width:800px; border-radius:12px; opacity:0.92;">
+<div class="l2foot">
+  <div class="l2foot-h">Go somewhere else</div>
+  <div class="l2next">
+    <a href="who-is-this-for.html"><div class="t">Who is this for?</div><div class="d">Who It's For and the typical career progression in GBS.</div></a>
+    <a href="where-are-you-now.html"><div class="t">Where are you right now?</div><div class="d">Start where you are, and see what you will build.</div></a>
+    <a href="do-this-from-monday.html"><div class="t">Do this from Monday</div><div class="d">Fast Wins you can run in five working days, plus the channel.</div></a>
+  </div>
 </div>
-
-<!-- ─── SECTION 3: WHO ─── -->
-<!-- moved to Level 2: #who -->
-
-<div style="margin:0 0 48px; text-align:center;">
-  <img src="images/people-ssc-team.webp" alt="GBS team collaborating around a shared services dashboard" style="width:100%; max-width:800px; border-radius:12px; opacity:0.92;">
-</div>
-
-<!-- ─── SECTION 4: CAREER MAP ─── -->
-<!-- moved to Level 2: #career-map -->
-
-<!-- ─── SECTION 5: WHAT'S INSIDE ─── -->
-<!-- moved to Level 2: #inside -->
-
-<!-- ─── SECTION 6: HOW IT WORKS ─── -->
-<!-- moved to Level 2: #how -->
-
-<!-- ─── WHY THIS IS CREDIBLE ─── -->
-<section id="credible">
-  <div class="section-eyebrow">Why This Is Credible</div>
-  <h2 class="section-h2">Built by someone who <span class="accent">ran the operation.</span></h2>
-  <div class="cred-card">
-    <div class="cred-name">Julian</div>
-    <div class="cred-role">Founder, GBS Insider Club</div>
-    <p>26 years in finance and Global Business Services — from a Big 4 firm and a controller role into large-scale SAP and transformation programs. Part of the team that set up a global Shared Services operation from scratch, owning a workstream and acting as project controller across a 14-country, multi-system rollout. Later led large operational teams across three locations. Director since 2011.</p>
-    <p>The content is based on what actually happens inside GBS organizations: KPIs, managers, politics, transitions, automation, visibility, and promotion decisions.</p>
-  </div>
-</section>
-
-<!-- ─── SECTION 7: JOIN ─── -->
-<!-- moved to Level 2: #join -->
-
-
-<!-- ─── FAQ ─── -->
-<section id="faq">
-  <div class="section-eyebrow">Questions</div>
-  <h2 class="section-h2">Before you <span class="accent">start.</span></h2>
-  <details class="faq-item"><summary>Is this only for finance?</summary><p>No. It covers GBS, Shared Services, BPO, consulting and transformation roles across functions — finance, HR, IT, procurement, master data, and customer service.</p></details>
-  <details class="faq-item"><summary>Is this useful if I am not a manager?</summary><p>Yes. Most tools are designed for associates, specialists, SMEs and future team leads. The leadership material sits further along the path.</p></details>
-  <details class="faq-item"><summary>Is this useful if I work in BPO?</summary><p>Yes. The career mechanics are the same: KPIs, visibility, stakeholder trust, service quality, automation and progression.</p></details>
-  <details class="faq-item"><summary>Is this useful if English is not my first language?</summary><p>Yes. The site uses plain workplace language and templates you can adapt directly.</p></details>
-  <details class="faq-item"><summary>Do I need to read everything?</summary><p>No. Start with your role or the problem in front of you. Come back when your situation changes.</p></details>
-  <details class="faq-item"><summary>What makes this different from generic career advice?</summary><p>It is built around the real mechanics of GBS work: KPIs, transitions, process ownership, service delivery, stakeholder management, automation and internal mobility.</p></details>
-</section>
-
-<!-- ─── FINAL CTA ─── -->
-<section class="fcta">
-  <h2>Career advice written for your world.</h2>
-  <p>Start free. Pick your role. Build one useful career asset today.</p>
-  <div class="fcta-actions">
-    <a href="join.html" class="btn-primary btn-xl">Join the GBS Insider Club — free →</a>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
@@ -1154,16 +1122,13 @@ abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
     <a href="who-is-this-for.html">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
     <a href="do-this-from-monday.html">Do this from Monday</a>
-    <a href="knowledgebase.html">Knowledgebase</a>
-    <a href="join.html">Join free</a>
+    <a href="#inside">Knowledgebase</a>
     <a href="guide.html">Field Guide</a>
     <a href="glossary.html">Glossary</a>
   </div>
 </footer>
 
-<!-- roleData script moved to who-is-this-for.html -->
-<script src="/assets/site.js" defer></script>
-
+<script defer src="/assets/site.js"></script>
 <script src="/assets/mobile.js?v=20" defer></script>
 </body>
 </html>

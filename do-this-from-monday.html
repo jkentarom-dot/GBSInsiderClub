@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Practical career playbooks, templates and AI guidance for ambitious GBS, Shared Services, BPO and transformation professionals who want to get noticed, move up and build visible career evidence.">
 <link rel="canonical" href="https://gbsinsiderclub.com/">
-<title>GBS Insider Club | Career Playbooks for Shared Services &amp; GBS Professionals</title>
+<title>Do this from Monday — GBS Insider Club</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -857,35 +857,38 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
 }
 /* footer link names are longer now (tile names) -> must wrap */
 .footer-links{ flex-wrap:wrap; row-gap:10px; }
-
-/* ═══ abbreviation tooltips (GBS / BPO) ═══ */
-abbr.gl{ position:relative; text-decoration:none; border-bottom:1px dashed var(--teal);
-  cursor:help; color:inherit; }
-abbr.gl::after{
-  content:attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 9px);
-  transform:translateX(-50%) translateY(4px); white-space:nowrap;
-  background:var(--surface-3); color:#fff; border:1px solid var(--teal);
-  border-radius:7px; padding:7px 11px; font-family:'Inter',sans-serif; font-size:13px;
-  font-weight:400; letter-spacing:0; box-shadow:0 8px 22px rgba(0,0,0,.45);
-  opacity:0; pointer-events:none; transition:opacity .16s, transform .16s; z-index:60; }
-abbr.gl::before{
-  content:''; position:absolute; left:50%; bottom:calc(100% + 4px); transform:translateX(-50%);
-  border:5px solid transparent; border-top-color:var(--teal); opacity:0; transition:opacity .16s; z-index:60; }
-abbr.gl:hover::after, abbr.gl:focus::after{ opacity:1; transform:translateX(-50%) translateY(0); }
-abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
-@media(max-width:640px){ abbr.gl::after{ white-space:normal; width:186px; text-align:center; } }
-
-/* ═══ quiet questions, merged into Why This Exists ═══ */
-.why-quiet{ margin-top:44px; padding-top:36px; border-top:1px solid var(--border); }
-.why-quiet-h{ font-size:22px; font-weight:600; color:#fff; letter-spacing:-.4px; margin:0 0 6px; }
-.why-quiet-lead{ font-size:15px; color:var(--text-3); margin:0 0 22px; }
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/mobile.css?v=20">
+
+<style>
+  .l2bar{ margin-top:64px; padding:18px 80px 0; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .l2back{ display:inline-flex; align-items:center; gap:9px; background:var(--surface);
+    border:1px solid var(--border-2); color:var(--text-2); border-radius:99px; padding:9px 18px 9px 14px;
+    text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.08em;
+    text-transform:uppercase; transition:.15s; }
+  .l2back:hover{ border-color:var(--teal); color:#fff; }
+  .l2back svg{ width:14px; height:14px; }
+  .l2crumb{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-3); letter-spacing:.06em; }
+  .l2crumb b{ color:var(--gold); font-weight:500; }
+  .l2foot{ margin:0 80px 64px; padding:30px; border:1px solid var(--border); border-radius:14px;
+    background:var(--surface); }
+  .l2foot-h{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
+  .l2next{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .l2next a{ display:block; text-decoration:none; background:var(--surface-2); border:1px solid var(--border-2);
+    border-radius:10px; padding:16px 18px; transition:.16s; }
+  .l2next a:hover{ border-color:var(--teal); transform:translateY(-2px); }
+  .l2next .t{ font-size:15px; font-weight:600; color:#fff; margin-bottom:4px; }
+  .l2next .d{ font-size:12.5px; color:var(--text-3); line-height:1.45; }
+  @media(max-width:900px){
+    .l2bar{ padding:16px 24px 0; } .l2foot{ margin:0 24px 48px; padding:22px; }
+    .l2next{ grid-template-columns:1fr; }
+  }
+</style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
@@ -905,245 +908,98 @@ abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
   <div class="nav-links">
     <a href="who-is-this-for.html">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
-    <a href="do-this-from-monday.html">Do this from Monday</a>
+    <a href="#free-track">Do this from Monday</a>
     <a href="knowledgebase.html">Knowledgebase</a>
     <a href="join.html" class="nav-cta">Join Free →</a>
   </div>
 </nav>
-
-<!-- ─── HERO ─── -->
-<section class="hero" id="hero">
-  <div class="hero-eyebrow">Practitioner-led · No corporate fluff</div>
-  <h1>
-    Build the GBS career
-    <span class="line-gold">nobody teaches you how to build.</span>
-  </h1>
-  <p class="hero-sub">
-    Learn what actually gets professionals noticed, trusted and promoted in Shared Services, <abbr class="gl" tabindex="0" data-tip="Global Business Services">GBS</abbr> and <abbr class="gl" tabindex="0" data-tip="Business Process Outsourcing">BPO</abbr>.
-  </p>
-  <p class="hero-plabel">Practical guidance to help you:</p>
-  <ul class="hero-bl">
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Create visible business impact</span></li>
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Avoid the career traps nobody talks about</span></li>
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Build the skills leaders value</span></li>
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Position your work for promotion</span></li>
-    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Move into bigger roles and earn more</span></li>
-  </ul>
-  <p class="hero-built">Built for ambitious professionals who want more than another year in the same role.</p>
-  <div class="hero-actions">
-    <a href="join.html" class="btn-primary btn-xl">Join the GBS Insider Club — free →</a>
-  </div>
-  <div class="proofbar">146 topics, free · 4 Fast Win tracks · AI Field Guide · no credit card</div>
-  <div class="hero-scroll-hint">Scroll to explore</div>
-</section>
-
-<!-- ─── NAVIGATOR (4 sections) ─── -->
-<section id="map">
-  <div class="nv-head">
-    <div class="section-eyebrow">Start Here</div>
-    <h2 class="section-h2">What do you need today? <span class="accent">Start with one.</span></h2>
-    <p class="nv-lead">Four sections, each with a different purpose. Find out what skills you need for your role to succeed. Have a look at our comprehensive topics knowledgebase. Find out what is holding you back and how to fix it. Finally, fix one thing and get instant results.</p>
-  </div>
-  <div class="nv-grid">
-    <a class="nvt a-sky" href="who-is-this-for.html">
-      <div class="nvt-ph" style="background-image:url('images/nav-qualify.webp');background-position:center 34%;"></div>
-      <div class="nvt-sc"></div>
-      <div class="nvt-chip"><svg viewBox="0 0 28 28"><circle cx="14" cy="11" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 21c1.6-3 4.2-4 7-4s5.4 1 7 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>WHO IS THIS FOR</span></div>
-      
-      <div class="nvt-panel"><div class="nvt-t">Who is this for?</div><div class="nvt-s">Shared Services, GBS, BPO — analyst to manager.</div><div class="nvt-a">→</div></div>
-    </a>
-    <a class="nvt a-green" href="do-this-from-monday.html">
-      <div class="nvt-ph" style="background-image:url('images/nav-monday.webp');background-position:42% 40%;"></div>
-      <div class="nvt-sc"></div>
-      <div class="nvt-chip"><svg viewBox="0 0 28 28"><path d="M13.5 4L6.5 15h6l-1 9 8-12h-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>ACT NOW · FREE</span></div>
-      
-      <div class="nvt-panel"><div class="nvt-t">Do this from Monday</div><div class="nvt-s">One real problem. Five working days.</div><div class="nvt-a">→</div></div>
-    </a>
-    <a class="nvt is-main a-gold" href="where-are-you-now.html">
-      <div class="nvt-ph" style="background-image:url('images/nav-role.webp');background-position:64% 38%;"></div>
-      <div class="nvt-sc"></div>
-      <div class="nvt-chip"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 9v5l3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>START HERE</span></div>
-      <span class="nvt-main">START HERE</span>
-      <div class="nvt-panel"><div class="nvt-t">Where are you right now?</div><div class="nvt-s">Your role, your problems, your fixes.</div><div class="nvt-a">→</div></div>
-    </a>
-    <a class="nvt a-teal" href="knowledgebase.html">
-      <div class="nvt-ph" style="background-image:url('images/nav-knowledgebase.webp');background-position:58% 46%;"></div>
-      <div class="nvt-sc"></div>
-      <div class="nvt-chip"><svg viewBox="0 0 28 28"><rect x="6" y="6" width="16" height="16" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 11h8M10 15h8M10 19h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>REFERENCE · FREE</span></div>
-      
-      <div class="nvt-panel"><div class="nvt-t">Knowledgebase</div><div class="nvt-s">146 topics by role. 10 pillars underneath.</div><div class="nvt-a">→</div></div>
-    </a>
-  </div>
-</section>
-
-
-<!-- ─── SECTION 2: WHY ─── -->
-
-<!-- ─── SECTION: START WHERE YOU ARE ─── -->
-
-<!-- moved to Level 2: #start-here -->
-
-<div style="margin:-24px 0 48px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:12px;">
-  <svg viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;display:block;margin:0 auto;">
-    <rect x="0" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#1d6aff" stroke-width="1"/>
-    <text x="90" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#1d6aff" data-count="10">10</text>
-    <text x="90" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Career pillars</text>
-    <rect x="210" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#e8b800" stroke-width="1"/>
-    <text x="300" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#e8b800" data-count="145" data-suffix="+">145+</text>
-    <text x="300" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Actionable topics</text>
-    <rect x="420" y="10" width="180" height="60" rx="8" fill="#141922" stroke="#38bdf8" stroke-width="1"/>
-    <text x="510" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#38bdf8" data-count="37">37</text>
-    <text x="510" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">AI Field Guide chapters</text>
-    <rect x="630" y="10" width="170" height="60" rx="8" fill="#141922" stroke="#ff3355" stroke-width="1"/>
-    <text x="715" y="35" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#ff3355">Free</text>
-    <text x="715" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8d0de">Core access forever</text>
-  </svg>
+<div class="l2bar">
+  <a class="l2back" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5l-7 7 7 7M4 12h16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to start
+  </a>
+  <div class="l2crumb">START &rsaquo; <b>DO THIS FROM MONDAY</b></div>
 </div>
-
-
-
-<!-- ─── FREE TRACK: VISIBILITY ─── -->
-<!-- moved to Level 2: #free-track -->
-
-<!-- ─── POPULAR QUESTIONS ─── -->
-<!-- moved to Level 2: #questions -->
-
-<!-- ─── WHAT YOU WILL BUILD ─── -->
-<!-- moved to Level 2: #build -->
-
-<!-- moved to Level 2: #watch -->
-
-<section id="why">
-  <div class="section-eyebrow">Why This Exists</div>
-  <h2 class="section-h2">Nobody handed you a <span class="accent">career map.</span></h2>
-  <p class="section-lead">Most GBS professionals are talented, motivated, and stuck. Not because they lack ability — because nobody told them how the game works.</p>
-
-  <div class="why-grid">
-    <div class="why-card featured" data-num="01">
-      <h3><img class="h-icon" src="images/icons-line/08-search.webp" alt="" aria-hidden="true">You don't know the unwritten rules</h3>
-      <ul class="chunk-list">
-        <li>How decisions really get made</li>
-        <li>What gets you <strong>promoted</strong> versus what just keeps you busy</li>
-        <li>Performing well versus being <strong>seen</strong> to perform well</li>
-      </ul>
-    </div>
-    <div class="why-card" data-num="02">
-      <h3><img class="h-icon" src="images/icons-line/04-growth.webp" alt="" aria-hidden="true">You want to earn more but don't know how to ask</h3>
-      <ul class="chunk-list">
-        <li>Pay rises faster when you know what drives it: <strong>skills, visibility, timing, positioning</strong></li>
-        <li>Most people wait</li>
-        <li>The ones who move up <strong>ask deliberately</strong></li>
-      </ul>
-    </div>
-    <div class="why-card" data-num="03">
-      <h3><img class="h-icon" src="images/icons-line/10-idea.webp" alt="" aria-hidden="true">Your organization doesn't train you well enough</h3>
-      <ul class="chunk-list">
-        <li>The training exists; the <strong>time and structure</strong> rarely do</li>
-        <li>Most GBS teams are under-invested in capability</li>
-        <li>We fill the gap: <strong>organized, actionable</strong>, built for how you learn</li>
-      </ul>
-    </div>
-    <div class="why-card" data-num="04">
-      <h3><img class="h-icon" src="images/icons-line/07-handshake.webp" alt="" aria-hidden="true">Your progress depends too much on who you work for</h3>
-      <ul class="chunk-list">
-        <li>Great managers <strong>sponsor</strong> talent; average ones just manage it</li>
-        <li>Most people don't get to choose their manager</li>
-        <li>We teach you to progress <strong>regardless of who yours is</strong></li>
-      </ul>
-    </div>
-    <div class="why-card full" data-num="">
-      <div class="why-quote">
-        "I was lucky. I had good leaders who saw my potential and supported me. That should not be a matter of luck. GBS Insider Club exists to give every professional that same advantage — regardless of who they work for."
-        <span class="why-quote-source">— Julian, Host · GBS Insider Club</span>
+<section id="free-track">
+  <div class="section-eyebrow">Fast Wins &middot; Free</div>
+  <h2 class="section-h2">Solve one thing <span class="accent">this week.</span></h2>
+  <p class="section-lead">Pick a problem. Five working days, one action a day, about 20 minutes each. No login, saves as you go.</p>
+  <div class="ft-card">
+    <div class="ft-left">
+      <div class="ft-top">
+        <span class="ft-av"><img src="images/cast/klaudia-frustrated.webp" alt="Klaudia" onerror="this.parentNode.textContent='K'"></span>
+        <span class="ft-who">Klaudia<span>Year 3 &middot; Krakow</span></span>
+      </div>
+      <p>The room debates the same problem for 20 minutes.</p>
+      <p>Klaudia has known the answer since minute two.</p>
+      <p>She waits for a clean moment to speak. It never comes.</p>
+      <p>Someone else says a weaker version of her point.</p>
+      <p>"Good thinking," says the director. He writes the name down.</p>
+      <p>Klaudia goes back to her desk and feels <em>invisible</em>.</p>
+      <div class="ft-trap">
+        <div class="ft-trap-l">The trap</div>
+        <p>Being right in your head is invisible. Nobody promotes work they never saw.</p>
       </div>
     </div>
+    <div class="ft-right">
+      <div class="ft-kick">The 5-day fix</div>
+      <h3>How do I get more visibility?</h3>
+      <p>You already know your job. This is about who knows it with you.</p>
+      <ul class="ft-days">
+        <li><b>Mon</b> Copy what works</li>
+        <li><b>Tue</b> Find something worth saying</li>
+        <li><b>Wed</b> Break your own idea</li>
+        <li><b>Thu</b> Say it in a small room</li>
+        <li><b>Fri</b> Say it where it counts</li>
+      </ul>
+      <a href="visibility-5-days.html" class="ft-cta">Start the 5-day track &rarr;</a>
+      <div class="ft-note">Free. No login. Saves as you go.</div>
+    </div>
   </div>
-
-  <div class="why-quiet">
-    <h3 class="why-quiet-h">Questions ambitious GBS professionals quietly ask</h3>
-    <p class="why-quiet-lead">Four answers that change how the next twelve months go.</p>
-<div class="pq-grid">
-    <a class="pq-card" href="pillar-5-cluster-1-performance-loop.html">
-      <div class="pq-q">Why did someone less experienced get promoted before me?</div>
-      <p class="pq-a">Performance gets you considered. Visibility gets you chosen. Most people optimize only the first half.</p>
-      <span class="pq-go">Start here: build your brag sheet &rarr;</span>
-    </a>
-    <a class="pq-card" href="pillar-5-cluster-3-personal-branding.html">
-      <div class="pq-q">How do I get noticed without sounding political?</div>
-      <p class="pq-a">Make your value visible through facts, patterns, and useful updates. Self-promotion theatre reads as noise.</p>
-      <span class="pq-go">Start here: your visibility plan &rarr;</span>
-    </a>
-    <a class="pq-card" href="pillar-8-cluster-5-sme-participation.html">
-      <div class="pq-q">How do I move from BAU work into projects?</div>
-      <p class="pq-a">Stop waiting to be picked. Build project proof before the project role exists, and the ask becomes easy.</p>
-      <span class="pq-go">Start here: your transition story &rarr;</span>
-    </a>
-    <a class="pq-card" href="pillar-6-cluster-1-compensation-structure.html">
-      <div class="pq-q">How do I ask for more money?</div>
-      <p class="pq-a">Start with evidence, scope, impact, and market logic. Fairness arguments lose in a pay round.</p>
-      <span class="pq-go">Start here: prepare your salary case &rarr;</span>
-    </a>
-  </div>
-  </div>
+  <a class="ft-more" href="boss-credit-5-days.html">
+    <div class="ft-more-k">Free track 02 &middot; Peter, Budapest</div>
+    <h3>How do I impress my boss without bragging?</h3>
+    <p>Your manager knows what you did. Their manager decides what it was worth. Five working days: ask what else you can carry, share the wins, bring the pattern, write like a leader, then give them something to forward.</p>
+    <span class="go">Start the 5-day track &rarr;</span>
+  </a>
+  <a class="ft-more" href="confidence-meetings-5-days.html">
+    <div class="ft-more-k">Free track 03 &middot; Miguel, Manila</div>
+    <h3>How do I sound confident in meetings?</h3>
+    <p>Confidence is decided before you open your mouth. Five working days: walk in with one point, say it early, say it short, fix the body, rehearse the hard one.</p>
+    <span class="go">Start the 5-day track &rarr;</span>
+  </a>
+  <a class="ft-more" href="strong-performer-5-days.html">
+    <div class="ft-more-k">Fast Win 04 &middot; Ravi, Pune</div>
+    <h3>How am I seen as a strong performer?</h3>
+    <p>Reliable and strong are two different words, and only one gets promoted. Five working days: define strong for your role, tie your work to it, show initiative, and make it visible.</p>
+    <span class="go">Start the 5-day track &rarr;</span>
+  </a>
 </section>
 
-<div style="margin:0 0 48px; text-align:center;">
-  <img src="images/people-mentorship.webp" alt="Senior professional mentoring a junior colleague in a modern office" style="width:100%; max-width:800px; border-radius:12px; opacity:0.92;">
+<section id="watch">
+  <div class="section-eyebrow">On the channel</div>
+  <h2 class="section-h2">Watch the first <span class="accent">field lesson</span></h2>
+  <p class="section-lead">Short, practical, GBS-specific. New episodes for people building a career in shared services.</p>
+  <a class="watch-card" href="https://youtu.be/HxkJz8p8kac" target="_blank" rel="noopener">
+    <div class="watch-thumb">
+      <img src="https://img.youtube.com/vi/HxkJz8p8kac/maxresdefault.jpg" alt="Get noticed in your first 90 days" loading="lazy" onerror="this.src='https://img.youtube.com/vi/HxkJz8p8kac/hqdefault.jpg'">
+      <span class="watch-play"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.5 7.5a8 8 0 0 0-5.6-5.7C56 .5 34 .5 34 .5s-22 0-26.9 1.3A8 8 0 0 0 1.5 7.5C.2 12.4.2 24 .2 24s0 11.6 1.3 16.5a8 8 0 0 0 5.6 5.7C12 47.5 34 47.5 34 47.5s22 0 26.9-1.3a8 8 0 0 0 5.6-5.7C67.8 35.6 67.8 24 67.8 24s0-11.6-1.3-16.5z" fill="#ff0000"/><path d="M27 34l18-10-18-10z" fill="#fff"/></svg></span>
+    </div>
+    <div class="watch-meta">
+      <span class="watch-ep">Episode 1</span>
+      <h3>Get noticed in your first 90 days &mdash; without flattering anyone</h3>
+      <span class="watch-cta">Watch on YouTube &rarr;</span>
+    </div>
+  </a>
+</section>
+<div class="l2foot">
+  <div class="l2foot-h">Go somewhere else</div>
+  <div class="l2next">
+    <a href="who-is-this-for.html"><div class="t">Who is this for?</div><div class="d">Who It's For and the typical career progression in GBS.</div></a>
+    <a href="where-are-you-now.html"><div class="t">Where are you right now?</div><div class="d">Start where you are, and see what you will build.</div></a>
+    <a href="knowledgebase.html"><div class="t">Knowledgebase</div><div class="d">The GBS Library: 10 pillars, topics, field guide and glossary.</div></a>
+  </div>
 </div>
-
-<!-- ─── SECTION 3: WHO ─── -->
-<!-- moved to Level 2: #who -->
-
-<div style="margin:0 0 48px; text-align:center;">
-  <img src="images/people-ssc-team.webp" alt="GBS team collaborating around a shared services dashboard" style="width:100%; max-width:800px; border-radius:12px; opacity:0.92;">
-</div>
-
-<!-- ─── SECTION 4: CAREER MAP ─── -->
-<!-- moved to Level 2: #career-map -->
-
-<!-- ─── SECTION 5: WHAT'S INSIDE ─── -->
-<!-- moved to Level 2: #inside -->
-
-<!-- ─── SECTION 6: HOW IT WORKS ─── -->
-<!-- moved to Level 2: #how -->
-
-<!-- ─── WHY THIS IS CREDIBLE ─── -->
-<section id="credible">
-  <div class="section-eyebrow">Why This Is Credible</div>
-  <h2 class="section-h2">Built by someone who <span class="accent">ran the operation.</span></h2>
-  <div class="cred-card">
-    <div class="cred-name">Julian</div>
-    <div class="cred-role">Founder, GBS Insider Club</div>
-    <p>26 years in finance and Global Business Services — from a Big 4 firm and a controller role into large-scale SAP and transformation programs. Part of the team that set up a global Shared Services operation from scratch, owning a workstream and acting as project controller across a 14-country, multi-system rollout. Later led large operational teams across three locations. Director since 2011.</p>
-    <p>The content is based on what actually happens inside GBS organizations: KPIs, managers, politics, transitions, automation, visibility, and promotion decisions.</p>
-  </div>
-</section>
-
-<!-- ─── SECTION 7: JOIN ─── -->
-<!-- moved to Level 2: #join -->
-
-
-<!-- ─── FAQ ─── -->
-<section id="faq">
-  <div class="section-eyebrow">Questions</div>
-  <h2 class="section-h2">Before you <span class="accent">start.</span></h2>
-  <details class="faq-item"><summary>Is this only for finance?</summary><p>No. It covers GBS, Shared Services, BPO, consulting and transformation roles across functions — finance, HR, IT, procurement, master data, and customer service.</p></details>
-  <details class="faq-item"><summary>Is this useful if I am not a manager?</summary><p>Yes. Most tools are designed for associates, specialists, SMEs and future team leads. The leadership material sits further along the path.</p></details>
-  <details class="faq-item"><summary>Is this useful if I work in BPO?</summary><p>Yes. The career mechanics are the same: KPIs, visibility, stakeholder trust, service quality, automation and progression.</p></details>
-  <details class="faq-item"><summary>Is this useful if English is not my first language?</summary><p>Yes. The site uses plain workplace language and templates you can adapt directly.</p></details>
-  <details class="faq-item"><summary>Do I need to read everything?</summary><p>No. Start with your role or the problem in front of you. Come back when your situation changes.</p></details>
-  <details class="faq-item"><summary>What makes this different from generic career advice?</summary><p>It is built around the real mechanics of GBS work: KPIs, transitions, process ownership, service delivery, stakeholder management, automation and internal mobility.</p></details>
-</section>
-
-<!-- ─── FINAL CTA ─── -->
-<section class="fcta">
-  <h2>Career advice written for your world.</h2>
-  <p>Start free. Pick your role. Build one useful career asset today.</p>
-  <div class="fcta-actions">
-    <a href="join.html" class="btn-primary btn-xl">Join the GBS Insider Club — free →</a>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
@@ -1153,17 +1009,14 @@ abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
   <div class="footer-links">
     <a href="who-is-this-for.html">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
-    <a href="do-this-from-monday.html">Do this from Monday</a>
+    <a href="#free-track">Do this from Monday</a>
     <a href="knowledgebase.html">Knowledgebase</a>
-    <a href="join.html">Join free</a>
     <a href="guide.html">Field Guide</a>
     <a href="glossary.html">Glossary</a>
   </div>
 </footer>
 
-<!-- roleData script moved to who-is-this-for.html -->
-<script src="/assets/site.js" defer></script>
-
+<script defer src="/assets/site.js"></script>
 <script src="/assets/mobile.js?v=20" defer></script>
 </body>
 </html>
