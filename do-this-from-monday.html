@@ -916,6 +916,42 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     .p2-lead{ font-size:15px; }
   }
 </style>
+<style>
+  /* ═══ Fast Wins — glassmorph, matching the landing navigator ═══ */
+  #free-track{ position:relative;
+    background:
+      radial-gradient(58% 52% at 16% 0%, rgba(52,211,153,.12), transparent 66%),
+      radial-gradient(48% 44% at 86% 40%, rgba(29,106,255,.09), transparent 70%),
+      var(--void); }
+  #free-track .ft-card,
+  #free-track .ft-more,
+  #watch .watch-card{
+    background: rgba(255,255,255,.06) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+    backdrop-filter: blur(16px) saturate(130%);
+    border: 1px solid rgba(255,255,255,.14) !important;
+    box-shadow: 0 12px 34px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.12);
+    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+  }
+  #free-track .ft-more:hover,
+  #watch .watch-card:hover{
+    background: rgba(255,255,255,.095) !important;
+    border-color: rgba(255,255,255,.3) !important;
+    transform: translateY(-3px);
+  }
+  #watch{ position:relative;
+    background: radial-gradient(56% 60% at 50% 0%, rgba(29,106,255,.10), transparent 70%), var(--void); }
+  html[data-theme="light"] #free-track .ft-card,
+  html[data-theme="light"] #free-track .ft-more,
+  html[data-theme="light"] #watch .watch-card{
+    background: rgba(255,255,255,.72) !important;
+    border-color: rgba(0,0,0,.09) !important;
+    box-shadow: 0 10px 26px rgba(0,0,0,.09), inset 0 1px 0 rgba(255,255,255,.6);
+  }
+  html[data-theme="light"] #free-track,
+  html[data-theme="light"] #watch{
+    background: radial-gradient(58% 52% at 16% 0%, rgba(52,211,153,.08), transparent 66%), var(--void); }
+</style>
 </head>
 <body>
 <!-- NAV -->
@@ -938,7 +974,7 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     <a href="who-is-this-for.html">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
     <a href="#free-track">Do this from Monday</a>
-    <a href="knowledgebase.html">Knowledgebase</a>
+    <a href="knowledgebase.html">Your own learning path</a>
     <a href="join.html" class="nav-cta">Join Free →</a>
   </div>
 </nav>
@@ -1037,7 +1073,7 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
   <div class="l2next">
     <a href="who-is-this-for.html"><div class="t">Who is this for?</div><div class="d">Who It's For and the typical career progression in GBS.</div></a>
     <a href="where-are-you-now.html"><div class="t">Where are you right now?</div><div class="d">Start where you are, and see what you will build.</div></a>
-    <a href="knowledgebase.html"><div class="t">Knowledgebase</div><div class="d">The GBS Library: 10 pillars, topics, field guide and glossary.</div></a>
+    <a href="knowledgebase.html"><div class="t">Your own learning path</div><div class="d">The GBS Library: 10 pillars, topics, field guide and glossary.</div></a>
   </div>
 </div>
 <!-- FOOTER -->
@@ -1050,7 +1086,7 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     <a href="who-is-this-for.html">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
     <a href="#free-track">Do this from Monday</a>
-    <a href="knowledgebase.html">Knowledgebase</a>
+    <a href="knowledgebase.html">Your own learning path</a>
     <a href="guide.html">Field Guide</a>
     <a href="glossary.html">Glossary</a>
   </div>

@@ -802,8 +802,8 @@
 #map .nv-head .section-eyebrow{ justify-content:center; }
 /* #map h2 uses the site-standard .section-h2 size — no override */
 .nv-lead{ color:var(--text-2); font-size:15.5px; margin:0 auto; max-width:680px; line-height:1.7; }
-.nv-grid{ max-width:830px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-.nvt{ position:relative; display:block; text-decoration:none; height:290px; border-radius:20px; overflow:hidden;
+.nv-grid{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.nvt{ position:relative; display:block; text-decoration:none; height:380px; border-radius:22px; overflow:hidden;
   border:1.5px solid var(--border-2); box-shadow:0 12px 38px rgba(0,0,0,.5);
   transition:transform .2s, border-color .2s, box-shadow .2s; }
 .nvt.is-main{ border-color:rgba(232,184,0,.6); }
@@ -820,19 +820,21 @@
 .a-gold .nvt-chip{ color:var(--gold); } .a-green .nvt-chip{ color:#34d399; }
 .nvt-main{ position:absolute; top:14px; right:13px; font-family:'JetBrains Mono',monospace; font-size:8.5px;
   letter-spacing:1px; background:var(--gold); color:#0b0e13; padding:4px 9px; border-radius:10px; font-weight:500; }
-.nvt-panel{ position:absolute; left:11px; right:11px; bottom:11px; padding:16px 17px; border-radius:14px;
+.nvt-panel{ position:absolute; left:13px; right:13px; bottom:13px; padding:20px 22px; border-radius:16px;
   background:rgba(255,255,255,.09); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%);
   border:1px solid rgba(255,255,255,.17); box-shadow:inset 0 1px 0 rgba(255,255,255,.16); }
 .nvt:hover .nvt-panel{ background:rgba(255,255,255,.13); }
-.nvt-t{ font-size:19px; font-weight:600; letter-spacing:-.3px; color:#fff; margin-bottom:4px; padding-right:26px; }
-.nvt-s{ font-size:12.5px; color:#d3dae3; line-height:1.45; padding-right:26px; }
+.nvt-t{ font-size:23px; font-weight:600; letter-spacing:-.4px; color:#fff; margin-bottom:5px; padding-right:30px; }
+.nvt-s{ font-size:14px; color:#d3dae3; line-height:1.5; padding-right:30px; }
 .nvt-a{ position:absolute; right:16px; bottom:15px; font-size:18px; transition:transform .2s; }
 .a-sky .nvt-a{ color:var(--sky); } .a-teal .nvt-a{ color:var(--teal-soft); }
 .a-gold .nvt-a{ color:var(--gold); } .a-green .nvt-a{ color:#34d399; }
 .nvt:hover .nvt-a{ transform:translateX(4px); }
 @media(max-width:860px){
-  .nv-grid{ grid-template-columns:1fr; max-width:420px; }
+  .nv-grid{ grid-template-columns:1fr; max-width:420px; gap:18px; }
   .nvt{ height:250px; }
+  .nvt-t{ font-size:19px; } .nvt-s{ font-size:12.5px; }
+  .nvt-panel{ left:11px; right:11px; bottom:11px; padding:16px 17px; }
   .hero-bl li{ font-size:14.5px; }
 }
 /* light mode: the tile scrim/panel are photo overlays - keep them dark for legibility,
@@ -879,6 +881,36 @@ abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
 .why-quiet{ margin-top:44px; padding-top:36px; border-top:1px solid var(--border); }
 .why-quiet-h{ font-size:22px; font-weight:600; color:#fff; letter-spacing:-.4px; margin:0 0 6px; }
 .why-quiet-lead{ font-size:15px; color:var(--text-3); margin:0 0 22px; }
+
+/* ═══ Why This Exists — glassmorph, harmonized with the navigator tiles ═══ */
+#why{ position:relative;
+  background:
+    radial-gradient(62% 55% at 18% 0%, rgba(29,106,255,.14), transparent 66%),
+    radial-gradient(50% 46% at 88% 34%, rgba(232,184,0,.07), transparent 70%),
+    var(--void); }
+#why .why-card,
+#why .why-quiet .pq-card{
+  background: rgba(255,255,255,.06) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  backdrop-filter: blur(16px) saturate(130%);
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: 0 12px 34px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.12);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+#why .why-card:hover,
+#why .why-quiet .pq-card:hover{
+  background: rgba(255,255,255,.095) !important;
+  border-color: rgba(255,255,255,.3) !important;
+  transform: translateY(-3px);
+}
+html[data-theme="light"] #why{
+  background: radial-gradient(62% 55% at 18% 0%, rgba(29,106,255,.09), transparent 66%), var(--void); }
+html[data-theme="light"] #why .why-card,
+html[data-theme="light"] #why .why-quiet .pq-card{
+  background: rgba(255,255,255,.72) !important;
+  border-color: rgba(0,0,0,.09) !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,.09), inset 0 1px 0 rgba(255,255,255,.6);
+}
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -906,7 +938,7 @@ abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
     <a href="who-is-this-for.html">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
     <a href="do-this-from-monday.html">Do this from Monday</a>
-    <a href="knowledgebase.html">Knowledgebase</a>
+    <a href="knowledgebase.html">Your own learning path</a>
     <a href="join.html" class="nav-cta">Join Free →</a>
   </div>
 </nav>
@@ -971,7 +1003,7 @@ abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
       <div class="nvt-sc"></div>
       <div class="nvt-chip"><svg viewBox="0 0 28 28"><rect x="6" y="6" width="16" height="16" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 11h8M10 15h8M10 19h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>4 · LEARN YOUR OWN WAY</span></div>
       
-      <div class="nvt-panel"><div class="nvt-t">Knowledgebase</div><div class="nvt-s">146 topics, 10 pillars, the AI Field Guide and the glossary.</div><div class="nvt-a">→</div></div>
+      <div class="nvt-panel"><div class="nvt-t">Your own learning path</div><div class="nvt-s">146 topics, 10 pillars, the AI Field Guide and the glossary.</div><div class="nvt-a">→</div></div>
     </a>
   </div>
 </section>
@@ -1154,7 +1186,7 @@ abbr.gl:hover::before, abbr.gl:focus::before{ opacity:1; }
     <a href="who-is-this-for.html">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
     <a href="do-this-from-monday.html">Do this from Monday</a>
-    <a href="knowledgebase.html">Knowledgebase</a>
+    <a href="knowledgebase.html">Your own learning path</a>
     <a href="join.html">Join free</a>
     <a href="guide.html">Field Guide</a>
     <a href="glossary.html">Glossary</a>

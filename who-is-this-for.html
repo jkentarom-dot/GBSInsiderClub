@@ -916,6 +916,14 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     .p2-lead{ font-size:15px; }
   }
 </style>
+<style>
+  .who-break{ margin:0 80px 8px; }
+  .who-break img{ width:100%; height:230px; object-fit:cover; object-position:center 38%;
+    border-radius:16px; border:1px solid var(--border-2); display:block; }
+  .who-break-cap{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em;
+    color:var(--text-3); text-align:center; margin:12px 0 0; }
+  @media(max-width:900px){ .who-break{ margin:0 24px 4px; } .who-break img{ height:160px; } }
+</style>
 </head>
 <body>
 <!-- NAV -->
@@ -938,7 +946,7 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     <a href="#who">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
     <a href="do-this-from-monday.html">Do this from Monday</a>
-    <a href="knowledgebase.html">Knowledgebase</a>
+    <a href="knowledgebase.html">Your own learning path</a>
     <a href="join.html" class="nav-cta">Join Free →</a>
   </div>
 </nav>
@@ -1025,6 +1033,11 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     </div>
   </div>
 </section>
+
+<div class="who-break">
+  <img src="images/people-strategy-meeting.webp" alt="GBS professionals talking through a career move in an office" loading="lazy">
+  <p class="who-break-cap">Every role below is held by someone who started where you are now.</p>
+</div>
 
 <section id="career-map">
   <div class="section-eyebrow">Typical Career Progression</div>
@@ -1141,7 +1154,7 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
   <div class="l2next">
     <a href="where-are-you-now.html"><div class="t">Where are you right now?</div><div class="d">Start where you are, and see what you will build.</div></a>
     <a href="do-this-from-monday.html"><div class="t">Do this from Monday</div><div class="d">Fast Wins you can run in five working days, plus the channel.</div></a>
-    <a href="knowledgebase.html"><div class="t">Knowledgebase</div><div class="d">The GBS Library: 10 pillars, topics, field guide and glossary.</div></a>
+    <a href="knowledgebase.html"><div class="t">Your own learning path</div><div class="d">The GBS Library: 10 pillars, topics, field guide and glossary.</div></a>
   </div>
 </div>
 <!-- FOOTER -->
@@ -1154,7 +1167,7 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     <a href="#who">Who is this for?</a>
     <a href="where-are-you-now.html">Where are you right now?</a>
     <a href="do-this-from-monday.html">Do this from Monday</a>
-    <a href="knowledgebase.html">Knowledgebase</a>
+    <a href="knowledgebase.html">Your own learning path</a>
     <a href="guide.html">Field Guide</a>
     <a href="glossary.html">Glossary</a>
   </div>
