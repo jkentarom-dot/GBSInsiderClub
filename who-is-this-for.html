@@ -887,6 +887,35 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     .l2next{ grid-template-columns:1fr; }
   }
 </style>
+
+<style>
+  /* ═══ Level-2 page hero — carries the tile's promise onto the page ═══ */
+  .p2hero{ position:relative; margin:18px 80px 0; border-radius:18px; overflow:hidden;
+    border:1px solid var(--border-2); min-height:230px; display:flex; align-items:flex-end; }
+  .p2-ph{ position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; }
+  .p2-sc{ position:absolute; inset:0; background:
+    linear-gradient(90deg, rgba(8,11,16,.96) 0%, rgba(8,11,16,.88) 42%, rgba(8,11,16,.5) 72%, rgba(8,11,16,.3) 100%),
+    linear-gradient(180deg, rgba(8,11,16,.35) 0%, rgba(8,11,16,.1) 40%, rgba(8,11,16,.8) 100%); }
+  .p2-in{ position:relative; padding:34px 38px; max-width:720px; }
+  .p2-eb{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; margin-bottom:12px;
+    display:flex; align-items:center; gap:12px; }
+  .p2-eb::before{ content:''; width:24px; height:1px; background:currentColor; }
+  .p2hero.a-sky .p2-eb{ color:var(--sky); }
+  .p2hero.a-green .p2-eb{ color:#34d399; }
+  .p2hero.a-gold .p2-eb{ color:var(--gold); }
+  .p2hero.a-teal .p2-eb{ color:var(--teal-soft); }
+  .p2-h1{ font-size:clamp(32px,4vw,50px); font-weight:600; letter-spacing:-1.5px;
+    line-height:1.04; color:#fff; margin:0 0 14px; }
+  .p2-lead{ font-size:16.5px; color:var(--text-2); line-height:1.65; margin:0; max-width:620px; font-weight:300; }
+  @media(max-width:900px){
+    .p2hero{ margin:14px 24px 0; min-height:auto; }
+    .p2-in{ padding:24px 22px; }
+    .p2-sc{ background:linear-gradient(180deg, rgba(8,11,16,.62) 0%, rgba(8,11,16,.9) 55%, rgba(8,11,16,.97) 100%); }
+    .p2-h1{ font-size:29px; letter-spacing:-1px; }
+    .p2-lead{ font-size:15px; }
+  }
+</style>
 </head>
 <body>
 <!-- NAV -->
@@ -920,6 +949,17 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
   </a>
   <div class="l2crumb">START &rsaquo; <b>WHO IS THIS FOR?</b></div>
 </div>
+
+
+<section class="p2hero a-sky">
+  <div class="p2-ph" style="background-image:url('images/nav-qualify.webp');background-position:center 34%;"></div>
+  <div class="p2-sc"></div>
+  <div class="p2-in">
+    <div class="p2-eb">1 &middot; For the curious!</div>
+    <h1 class="p2-h1">Who is this for?</h1>
+    <p class="p2-lead">Two minutes to find out whether this site is built for you. You will see the roles and levels we write for, and how far a GBS career can go from here.</p>
+  </div>
+</section>
 <section id="who" class="who-section">
   <div class="section-eyebrow">Who It's For</div>
   <h2 class="section-h2">Built for <span class="accent">GBS professionals</span> at every stage.</h2>
