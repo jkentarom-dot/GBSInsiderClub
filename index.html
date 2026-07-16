@@ -785,6 +785,78 @@
   .sm-btn:hover{filter:brightness(1.08);}
   .sm-foot{max-width:1040px;margin:16px auto 0;padding:15px 20px;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;font-size:13.5px;color:var(--text-3);line-height:1.55;text-align:center;}
   @media (max-width:820px){.sm-grid{grid-template-columns:1fr;}.sm-q{font-size:18px;}}
+
+/* ═══ HERO v2 (bullets + blue laser ticks) ═══ */
+.hero-exp{ color: var(--text-3); font-size: 15px; }
+.hero-plabel{ font-size: 14px; color: var(--text-2); margin: 0 0 12px; font-weight: 400; }
+.hero-bl{ list-style:none; margin:0 0 22px; padding:0; display:grid; gap:9px; max-width:540px; }
+.hero-bl li{ display:flex; align-items:center; gap:11px; font-size:15.5px; color:var(--text); }
+.hero-bl i{ color: var(--teal); flex:0 0 auto; display:flex; }
+.hero-bl i svg{ width:19px; height:19px; }
+.hero-built{ font-size:15px; color:var(--text-2); margin:0 0 24px; max-width:560px; line-height:1.55; }
+.btn-xl{ font-size:16.5px !important; padding:17px 34px !important; box-shadow:0 8px 26px rgba(29,106,255,.34); }
+.btn-xl:hover{ transform:translateY(-2px); }
+
+/* ═══ NAVIGATOR (4 sections) ═══ */
+#map .nv-head{ text-align:center; margin-bottom:38px; }
+#map .nv-head .section-eyebrow{ justify-content:center; }
+#map .nv-head .section-h2{ font-size:clamp(28px,3.6vw,44px); }
+.nv-lead{ color:var(--text-2); font-size:15.5px; margin:0 auto; max-width:680px; line-height:1.7; }
+.nv-grid{ max-width:830px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.nvt{ position:relative; display:block; text-decoration:none; height:290px; border-radius:20px; overflow:hidden;
+  border:1.5px solid var(--border-2); box-shadow:0 12px 38px rgba(0,0,0,.5);
+  transition:transform .2s, border-color .2s, box-shadow .2s; }
+.nvt.is-main{ border-color:rgba(232,184,0,.6); }
+.nvt-ph{ position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; transition:transform .5s; }
+.nvt:hover{ transform:translateY(-5px); border-color:var(--teal); box-shadow:0 20px 54px rgba(0,0,0,.6); }
+.nvt:hover .nvt-ph{ transform:scale(1.05); }
+.nvt-sc{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,11,16,.5) 0%, rgba(8,11,16,.05) 32%, rgba(8,11,16,.72) 66%, rgba(8,11,16,.96) 100%); }
+.nvt-chip{ position:absolute; top:13px; left:13px; display:flex; align-items:center; gap:7px;
+  background:rgba(8,11,16,.5); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.16); border-radius:20px; padding:6px 12px 6px 9px; }
+.nvt-chip svg{ width:15px; height:15px; }
+.nvt-chip span{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:1.5px; }
+.a-sky .nvt-chip{ color:var(--sky); } .a-teal .nvt-chip{ color:var(--teal-soft); }
+.a-gold .nvt-chip{ color:var(--gold); } .a-green .nvt-chip{ color:#34d399; }
+.nvt-main{ position:absolute; top:14px; right:13px; font-family:'JetBrains Mono',monospace; font-size:8.5px;
+  letter-spacing:1px; background:var(--gold); color:#0b0e13; padding:4px 9px; border-radius:10px; font-weight:500; }
+.nvt-panel{ position:absolute; left:11px; right:11px; bottom:11px; padding:16px 17px; border-radius:14px;
+  background:rgba(255,255,255,.09); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border:1px solid rgba(255,255,255,.17); box-shadow:inset 0 1px 0 rgba(255,255,255,.16); }
+.nvt:hover .nvt-panel{ background:rgba(255,255,255,.13); }
+.nvt-t{ font-size:19px; font-weight:600; letter-spacing:-.3px; color:#fff; margin-bottom:4px; padding-right:26px; }
+.nvt-s{ font-size:12.5px; color:#d3dae3; line-height:1.45; padding-right:26px; }
+.nvt-a{ position:absolute; right:16px; bottom:15px; font-size:18px; transition:transform .2s; }
+.a-sky .nvt-a{ color:var(--sky); } .a-teal .nvt-a{ color:var(--teal-soft); }
+.a-gold .nvt-a{ color:var(--gold); } .a-green .nvt-a{ color:#34d399; }
+.nvt:hover .nvt-a{ transform:translateX(4px); }
+@media(max-width:860px){
+  .nv-grid{ grid-template-columns:1fr; max-width:420px; }
+  .nvt{ height:250px; }
+  .hero-bl li{ font-size:14.5px; }
+}
+/* light mode: the tile scrim/panel are photo overlays - keep them dark for legibility,
+   but lift the section chrome to light tokens */
+html[data-theme="light"] .nvt{ box-shadow:0 10px 30px rgba(0,0,0,.16); }
+html[data-theme="light"] .nvt-t{ color:#fff; }
+html[data-theme="light"] .hero-bl i{ color:var(--teal); }
+html[data-theme="light"] .nv-lead{ color:var(--text-2); }
+
+/* ═══ FIX: pre-existing mobile overflow — .map-grid has min-width:700px and pushed
+   the whole page into horizontal scroll. Contain it in its own scroller instead. ═══ */
+@media(max-width:900px){
+  .career-map-container{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .career-map-container::after{
+    content:'swipe the map sideways →'; display:block; margin-top:10px;
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em;
+    color:var(--text-3); text-transform:uppercase;
+  }
+  /* .guide-cta is white-space:nowrap inside a non-wrapping flex row -> pushed past the viewport */
+  .pillar-tile-guide{ flex-wrap:wrap; }
+  .pillar-tile-guide .guide-cta{ white-space:normal; }
+}
+/* footer link names are longer now (tile names) -> must wrap */
+.footer-links{ flex-wrap:wrap; row-gap:10px; }
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
@@ -809,65 +881,76 @@
   </a>
   <span class="tier-badge tier-free">Free</span>
   <div class="nav-links">
-    <a href="start-here.html">Start Here</a>
-    <a href="#free-track">Fast Wins</a>
-    <a href="paid-tier.html" style="color:var(--gold);">Career Playbooks</a>
-    <a href="guide.html">AI Field Guide</a>
-    <a href="glossary.html">Glossary</a>
+    <a href="#who">Who is this for?</a>
+    <a href="#start-here">Where are you right now?</a>
+    <a href="#free-track">Do this from Monday</a>
+    <a href="#inside">Knowledgebase</a>
     <a href="#join" class="nav-cta">Join Free →</a>
   </div>
 </nav>
 
 <!-- ─── HERO ─── -->
 <section class="hero" id="hero">
-  <div class="hero-eyebrow">The practical career playbook for GBS</div>
+  <div class="hero-eyebrow">Practitioner-led · No corporate fluff</div>
   <h1>
-    Stop guessing how
-    <span class="line-gold">GBS careers really work.</span>
+    Build the GBS career
+    <span class="line-gold">nobody teaches you how to build.</span>
   </h1>
   <p class="hero-sub">
-    Practical career playbooks for <strong>Shared Services, GBS, BPO and transformation professionals</strong> who want to get noticed, make a lasting impact, move up, and earn more — without corporate fluff.
-    <br><br>
-    Start with your role. Get one useful action today.
+    Learn what actually gets professionals noticed, trusted and promoted in Shared Services, GBS and BPO. <span class="hero-exp">(global business services / business process outsourcing)</span>
   </p>
+  <p class="hero-plabel">Practical guidance to help you:</p>
+  <ul class="hero-bl">
+    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>create visible business impact</span></li>
+    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>avoid the career traps nobody talks about</span></li>
+    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>build the skills leaders value</span></li>
+    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>position your work for promotion</span></li>
+    <li><i><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 12.2l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>move into bigger roles and earn more</span></li>
+  </ul>
+  <p class="hero-built">Built for ambitious professionals who want more than another year in the same role.</p>
   <div class="hero-actions">
-    <a href="start-here.html" class="btn-primary">Start Free</a>
-    <a href="#start-here" class="btn-ghost">Find My Playbook →</a>
+    <a href="start-here.html" class="btn-primary btn-xl">Join the GBS Insider Club — free →</a>
   </div>
-  <div class="proofbar">10 career pillars · 145+ topics · AI Field Guide · Templates · Free core access</div>
+  <div class="proofbar">146 topics, free · 4 Fast Win tracks · AI Field Guide · no credit card</div>
   <div class="hero-scroll-hint">Scroll to explore</div>
 </section>
 
-<!-- ─── SITE MAP / TABLE OF CONTENTS ─── -->
+<!-- ─── NAVIGATOR (4 sections) ─── -->
 <section id="map">
-  <div class="section-eyebrow">Start Here</div>
-  <h2 class="section-h2">Three ways to use this site. <span class="accent">Pick your problem, not the menu.</span></h2>
-  <p class="sitemap-lead">You do not need all of it. Find where you are today, and start there.</p>
-  <div class="sitemap">
-    <div class="sm-grid">
-      <div class="sm-col free">
-        <div class="sm-tag">Fast Wins &middot; Free</div>
-        <div class="sm-q">Solve a day-to-day problem</div>
-        <div class="sm-d">One real problem, five working days, one action a day. Get more visible, impress your boss, sound confident, be seen as strong.</div>
-        <div class="sm-meta">4 tracks &middot; ~20 min/day &middot; no login</div>
-        <a href="#free-track" class="sm-btn">Browse Fast Wins &rarr;</a>
-      </div>
-      <div class="sm-col paid">
-        <div class="sm-tag">Career Playbooks &middot; $45</div>
-        <div class="sm-q">The full playbook for your role</div>
-        <div class="sm-d">One guided playbook per role, built on the 5-Step Career Booster. Templates, scripts, worked examples, and Julian's practitioner takes.</div>
-        <div class="sm-meta">5 role playbooks &middot; one-time $45</div>
-        <a href="paid-tier.html" class="sm-btn">See the Playbooks &rarr;</a>
-      </div>
-      <div class="sm-col lib">
-        <div class="sm-tag">GBS Library &middot; Free</div>
-        <div class="sm-q">Look something up</div>
-        <div class="sm-d">The reference shelf. 10 pillars, 146+ topics, the AI Field Guide, and a full GBS glossary. Frameworks and theory, when you need them.</div>
-        <div class="sm-meta">10 pillars &middot; guide &middot; glossary</div>
-        <a href="#inside" class="sm-btn">Open the Library &rarr;</a>
-      </div>
-    </div>
-    <div class="sm-foot">Fast Wins and Career Playbooks link back to the GBS Library for theory. The Library is always free reference &mdash; the Fast Wins and Playbooks are where you do the work.</div>
+  <div class="nv-head">
+    <div class="section-eyebrow">Start Here</div>
+    <h2 class="section-h2">What do you need today? <span class="accent">Start with one.</span></h2>
+    <p class="nv-lead">Four sections, each with a different purpose. Find out what skills you need for your role to succeed. Have a look at our comprehensive topics knowledgebase. Find out what is holding you back and how to fix it. Finally, fix one thing and get instant results.</p>
+  </div>
+  <div class="nv-grid">
+    <a class="nvt a-sky" href="#who">
+      <div class="nvt-ph" style="background-image:url('images/nav-qualify.webp');background-position:center 34%;"></div>
+      <div class="nvt-sc"></div>
+      <div class="nvt-chip"><svg viewBox="0 0 28 28"><circle cx="14" cy="11" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 21c1.6-3 4.2-4 7-4s5.4 1 7 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>WHO IS THIS FOR</span></div>
+      
+      <div class="nvt-panel"><div class="nvt-t">Who is this for?</div><div class="nvt-s">Shared Services, GBS, BPO — analyst to manager.</div><div class="nvt-a">→</div></div>
+    </a>
+    <a class="nvt a-teal" href="#inside">
+      <div class="nvt-ph" style="background-image:url('images/nav-knowledgebase.webp');background-position:58% 46%;"></div>
+      <div class="nvt-sc"></div>
+      <div class="nvt-chip"><svg viewBox="0 0 28 28"><rect x="6" y="6" width="16" height="16" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 11h8M10 15h8M10 19h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>REFERENCE · FREE</span></div>
+      
+      <div class="nvt-panel"><div class="nvt-t">Knowledgebase</div><div class="nvt-s">146 topics by role. 10 pillars underneath.</div><div class="nvt-a">→</div></div>
+    </a>
+    <a class="nvt is-main a-gold" href="#start-here">
+      <div class="nvt-ph" style="background-image:url('images/nav-role.webp');background-position:64% 38%;"></div>
+      <div class="nvt-sc"></div>
+      <div class="nvt-chip"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 9v5l3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>START HERE</span></div>
+      <span class="nvt-main">START HERE</span>
+      <div class="nvt-panel"><div class="nvt-t">Where are you right now?</div><div class="nvt-s">Your role, your problems, your fixes.</div><div class="nvt-a">→</div></div>
+    </a>
+    <a class="nvt a-green" href="#free-track">
+      <div class="nvt-ph" style="background-image:url('images/nav-monday.webp');background-position:42% 40%;"></div>
+      <div class="nvt-sc"></div>
+      <div class="nvt-chip"><svg viewBox="0 0 28 28"><path d="M13.5 4L6.5 15h6l-1 9 8-12h-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>ACT NOW · FREE</span></div>
+      
+      <div class="nvt-panel"><div class="nvt-t">Do this from Monday</div><div class="nvt-s">One real problem. Five working days.</div><div class="nvt-a">→</div></div>
+    </a>
   </div>
 </section>
 
@@ -1619,8 +1702,7 @@
   <h2>Career advice written for your world.</h2>
   <p>Start free. Pick your role. Build one useful career asset today.</p>
   <div class="fcta-actions">
-    <a href="start-here.html" class="btn-primary">Start Free</a>
-    <a href="#start-here" class="btn-ghost">Find My Playbook →</a>
+    <a href="start-here.html" class="btn-primary btn-xl">Join the GBS Insider Club — free →</a>
   </div>
 </section>
 
@@ -1631,11 +1713,10 @@
     <a href="https://youtube.com/@gbsinsiderclub" style="color:var(--teal);text-decoration:none;">YouTube ↗</a>
   </div>
   <div class="footer-links">
-    <a href="#why">Why</a>
-    <a href="#who">Who</a>
-    <a href="#inside">Content</a>
-    <a href="#how">How</a>
-    <a href="paid-tier.html">Career Playbooks</a>
+    <a href="#who">Who is this for?</a>
+    <a href="#start-here">Where are you right now?</a>
+    <a href="#free-track">Do this from Monday</a>
+    <a href="#inside">Knowledgebase</a>
     <a href="guide.html">Field Guide</a>
     <a href="glossary.html">Glossary</a>
   </div>
