@@ -860,7 +860,7 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/mobile.css?v=20">
+  <link rel="stylesheet" href="/assets/mobile.css?v=21">
 
 <style>
   .l2bar{ margin-top:64px; padding:18px 80px 0; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
@@ -946,6 +946,56 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
   }
   html[data-theme="light"] #inside{
     background: radial-gradient(58% 52% at 16% 0%, rgba(29,106,255,.08), transparent 66%), var(--void); }
+
+  /* ═══ Recommendation / conclusion ═══ */
+  .rec{ position:relative; padding:86px 80px 96px;
+    background:
+      radial-gradient(60% 50% at 50% 0%, rgba(29,106,255,.12), transparent 70%),
+      var(--void); }
+  .rec-head{ text-align:center; max-width:820px; margin:0 auto 44px; }
+  .rec-head .section-eyebrow{ justify-content:center; }
+  .rec-head .section-h2{ font-size:clamp(30px,3.6vw,46px); }
+  .rec-lead{ font-size:16.5px; color:var(--text-2); line-height:1.7; margin:0; }
+  .rec-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1240px; margin:0 auto; }
+  .rec-card{ position:relative; display:block; text-decoration:none; border-radius:20px; overflow:hidden;
+    border:1.5px solid rgba(255,255,255,.14); min-height:520px;
+    box-shadow:0 14px 40px rgba(0,0,0,.42);
+    transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+  .rec-card:hover{ transform:translateY(-5px); box-shadow:0 22px 56px rgba(0,0,0,.55); }
+  .rec-card.a-gold:hover{ border-color:rgba(232,184,0,.6); }
+  .rec-card.a-green:hover{ border-color:rgba(52,211,153,.6); }
+  .rec-card.a-teal:hover{ border-color:rgba(29,106,255,.6); }
+  .rec-ph{ position:absolute; top:0; left:0; right:0; height:230px;
+    background-size:cover; background-repeat:no-repeat; transition:transform .5s ease; }
+  .rec-card:hover .rec-ph{ transform:scale(1.05); }
+  .rec-sc{ position:absolute; top:0; left:0; right:0; height:230px;
+    background:linear-gradient(180deg, rgba(8,11,16,.34) 0%, rgba(8,11,16,.05) 34%, rgba(8,11,16,.86) 84%, var(--void) 100%); }
+  .rec-body{ position:absolute; left:0; right:0; bottom:0; top:186px; padding:18px;
+    display:flex; flex-direction:column; }
+  .rec-body::before{ content:''; position:absolute; inset:0; border-radius:18px; margin:6px;
+    background:rgba(255,255,255,.07);
+    -webkit-backdrop-filter:blur(18px) saturate(140%); backdrop-filter:blur(18px) saturate(140%);
+    border:1px solid rgba(255,255,255,.16); box-shadow:inset 0 1px 0 rgba(255,255,255,.16); }
+  .rec-card:hover .rec-body::before{ background:rgba(255,255,255,.11); }
+  .rec-eb, .rec-quote, .rec-then{ position:relative; z-index:2; }
+  .rec-eb{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:1.5px;
+    text-transform:uppercase; margin:14px 16px 8px; }
+  .a-gold .rec-eb{ color:var(--gold); } .a-green .rec-eb{ color:#34d399; } .a-teal .rec-eb{ color:var(--teal-soft); }
+  .rec-quote{ font-size:16px; line-height:1.5; color:#fff; font-style:italic; font-weight:400;
+    margin:0 16px 16px; letter-spacing:-.2px; }
+  .rec-then{ margin:0 16px 16px; padding-top:14px; border-top:1px solid rgba(255,255,255,.14); }
+  .rec-t{ font-size:15px; font-weight:600; color:#fff; margin-bottom:7px; }
+  .rec-d{ font-size:13.5px; color:#cfd7e2; line-height:1.55; margin-bottom:12px; }
+  .rec-go{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; }
+  .a-gold .rec-go{ color:var(--gold); } .a-green .rec-go{ color:#34d399; } .a-teal .rec-go{ color:var(--teal-soft); }
+  html[data-theme="light"] .rec-body::before{ background:rgba(255,255,255,.72); border-color:rgba(0,0,0,.09); }
+  html[data-theme="light"] .rec-quote, html[data-theme="light"] .rec-t{ color:var(--text); }
+  html[data-theme="light"] .rec-d{ color:var(--text-2); }
+  @media(max-width:1100px){ .rec-grid{ grid-template-columns:1fr; max-width:520px; } .rec-card{ min-height:0; }
+    .rec-body{ position:relative; top:0; padding:0 0 8px; } .rec-ph, .rec-sc{ position:relative; height:180px; }
+    .rec-body::before{ margin:0 8px; } }
+  @media(max-width:900px){ .rec{ padding:60px 24px 70px; } .rec-head .section-h2{ font-size:27px; } }
+
 </style>
 </head>
 <body>
@@ -1175,14 +1225,57 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     </div>
   </div>
 </section>
-<div class="l2foot">
-  <div class="l2foot-h">Go somewhere else</div>
-  <div class="l2next">
-    <a href="who-is-this-for.html"><div class="t">Who is this for?</div><div class="d">Who It's For and the typical career progression in GBS.</div></a>
-    <a href="where-are-you-now.html"><div class="t">Where are you right now?</div><div class="d">Start where you are, and see what you will build.</div></a>
-    <a href="do-this-from-monday.html"><div class="t">Do this from Monday</div><div class="d">Fast Wins you can run in five working days, plus the channel.</div></a>
+<section class="rec">
+  <div class="rec-head">
+    <div class="section-eyebrow">So, what now?</div>
+    <h2 class="section-h2">The library is open. <span class="accent">Reading it is not the same as using it.</span></h2>
+    <p class="rec-lead">146 topics is a lot to browse and very little to act on. At some point a page has to turn into something you did at work. Pick the sentence below that sounds most like you today.</p>
   </div>
-</div>
+  <div class="rec-grid">
+
+    <a class="rec-card a-green" href="do-this-from-monday.html">
+      <div class="rec-ph" style="background-image:url('images/nav-monday.webp');background-position:42% 40%;"></div>
+      <div class="rec-sc"></div>
+      <div class="rec-body">
+        <div class="rec-eb">If this sounds like you</div>
+        <p class="rec-quote">&ldquo;I have read enough. I want to do one thing this week.&rdquo;</p>
+        <div class="rec-then">
+          <div class="rec-t">Go to: Do this from Monday</div>
+          <div class="rec-d">Pick one problem and fix it in five working days, around twenty minutes a day. No login and nothing to pay. It turns reading into something you can point at on Friday.</div>
+          <span class="rec-go">Start Monday &rarr;</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="rec-card a-gold" href="where-are-you-now.html">
+      <div class="rec-ph" style="background-image:url('images/nav-role.webp');background-position:64% 38%;"></div>
+      <div class="rec-sc"></div>
+      <div class="rec-body">
+        <div class="rec-eb">If this sounds like you</div>
+        <p class="rec-quote">&ldquo;I do not want a topic. I want to know what is wrong with my career right now.&rdquo;</p>
+        <div class="rec-then">
+          <div class="rec-t">Go to: Where are you right now?</div>
+          <div class="rec-d">Ten situations, from month three to the promotion round. Find the one closest to yours, see what holds people back at that stage, and the practical way through it. This is the one to pick if you want lasting change.</div>
+          <span class="rec-go">Find your situation &rarr;</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="rec-card a-teal" href="who-is-this-for.html">
+      <div class="rec-ph" style="background-image:url('images/nav-qualify.webp');background-position:50% 38%;"></div>
+      <div class="rec-sc"></div>
+      <div class="rec-body">
+        <div class="rec-eb">If this sounds like you</div>
+        <p class="rec-quote">&ldquo;I am reading around this. I still do not know if it is meant for me.&rdquo;</p>
+        <div class="rec-then">
+          <div class="rec-t">Go to: Who is this for?</div>
+          <div class="rec-d">Two minutes to find out whether this site is built for your job, and where your role sits on the GBS career map. The library makes more sense once you know which part of it is yours.</div>
+          <span class="rec-go">Check in two minutes &rarr;</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
@@ -1200,6 +1293,6 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
 </footer>
 
 <script defer src="/assets/site.js"></script>
-<script src="/assets/mobile.js?v=20" defer></script>
+<script src="/assets/mobile.js?v=21" defer></script>
 </body>
 </html>

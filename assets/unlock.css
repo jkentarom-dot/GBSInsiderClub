@@ -1,0 +1,175 @@
+/* ─────────────────────────────────────────────────────────────
+   unlock.css — registration reveal ("next level" gate)
+   Reusable. Pair with /assets/unlock.js.
+   Markup contract:
+     <div class="ul-gate" data-gate>
+       <div class="ul-lock"> ...form... </div>
+       <div class="ul-open" hidden> ...revealed links... </div>
+     </div>
+   Tokens only. Brand skill is the source of truth.
+   ───────────────────────────────────────────────────────────── */
+
+.ul-sec {
+  position: relative;
+  background:
+    radial-gradient(58% 50% at 50% 0%, rgba(29, 106, 255, .10), transparent 70%),
+    var(--void);
+}
+
+.ul-gate { max-width: 1180px; margin: 0 auto; }
+
+/* ── locked state ───────────────────────────────────────────── */
+.ul-lock {
+  position: relative;
+  border-radius: 18px;
+  padding: 44px 44px 38px;
+  background: rgba(255, 255, 255, .06);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  backdrop-filter: blur(16px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, .14);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .34), inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+.ul-lock-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.ul-eb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+}
+
+.ul-h {
+  font-size: 27px; font-weight: 300; letter-spacing: -.6px;
+  color: #fff; line-height: 1.25; margin: 0 0 14px;
+}
+.ul-h .accent { color: var(--gold); }
+
+.ul-p { font-size: 15.5px; color: var(--text-2); line-height: 1.7; margin: 0 0 18px; }
+
+.ul-list { list-style: none; margin: 0; padding: 0; }
+.ul-list li {
+  position: relative; padding-left: 26px; margin-bottom: 11px;
+  font-size: 15px; color: var(--text-2); line-height: 1.55;
+}
+.ul-list li::before {
+  content: ''; position: absolute; left: 0; top: 7px;
+  width: 8px; height: 8px; border-radius: 50%;
+  border: 1.5px solid var(--teal);
+}
+.ul-list li b { color: #fff; font-weight: 500; }
+
+/* form */
+.ul-form { display: flex; flex-direction: column; gap: 11px; }
+.ul-form input {
+  width: 100%; box-sizing: border-box;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 9px; padding: 13px 15px;
+  color: var(--text); font-family: Inter, sans-serif; font-size: 15px;
+  transition: border-color .15s;
+}
+.ul-form input:focus { outline: none; border-color: var(--teal); }
+.ul-form input::placeholder { color: var(--text-3); }
+
+.ul-btn {
+  margin-top: 4px;
+  background: var(--teal); color: #fff;
+  border: none; border-radius: 9px;
+  padding: 14px 20px;
+  font-family: Inter, sans-serif; font-size: 15px; font-weight: 500;
+  cursor: pointer; transition: filter .15s, transform .15s;
+}
+.ul-btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.ul-btn:disabled { opacity: .55; cursor: default; transform: none; }
+
+.ul-msg { font-size: 13.5px; margin: 10px 0 0; min-height: 18px; color: var(--text-3); }
+.ul-msg.err { color: #f87171; }
+
+.ul-note { font-size: 12.5px; color: var(--text-3); line-height: 1.6; margin: 14px 0 0; }
+
+/* ── revealed state ─────────────────────────────────────────── */
+.ul-open { animation: ulIn .35s ease; }
+@keyframes ulIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.ul-hello {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #34d399; margin-bottom: 16px;
+}
+
+.ul-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.ul-card {
+  display: block; text-decoration: none;
+  border-radius: 16px; padding: 26px 24px 24px;
+  background: rgba(255, 255, 255, .06);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  backdrop-filter: blur(16px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, .14);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .34), inset 0 1px 0 rgba(255, 255, 255, .12);
+  transition: transform .18s, border-color .18s;
+}
+.ul-card:hover { transform: translateY(-3px); }
+.ul-card.a-green:hover { border-color: rgba(52, 211, 153, .55); }
+.ul-card.a-gold:hover  { border-color: rgba(232, 184, 0, .55); }
+.ul-card.a-teal:hover  { border-color: rgba(29, 106, 255, .55); }
+
+.ul-c-eb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 1.4px; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.a-green .ul-c-eb { color: #34d399; }
+.a-gold  .ul-c-eb { color: var(--gold); }
+.a-teal  .ul-c-eb { color: var(--teal-soft); }
+
+.ul-c-t { font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 8px; letter-spacing: -.3px; }
+.ul-c-d { font-size: 14px; color: var(--text-2); line-height: 1.6; margin: 0 0 14px; }
+
+.ul-c-links { list-style: none; margin: 0 0 14px; padding: 0; }
+.ul-c-links li { font-size: 13.5px; color: var(--text-2); line-height: 1.5; margin-bottom: 8px; }
+.ul-c-links a { color: var(--text-2); text-decoration: none; border-bottom: 1px solid var(--border-2); }
+.ul-c-links a:hover { color: #fff; border-bottom-color: var(--teal); }
+
+.ul-c-go { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .06em; }
+.a-green .ul-c-go { color: #34d399; }
+.a-gold  .ul-c-go { color: var(--gold); }
+.a-teal  .ul-c-go { color: var(--teal-soft); }
+
+.ul-price {
+  display: inline-block; margin-left: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 4px;
+  border: 1px solid rgba(232, 184, 0, .5); color: var(--gold);
+  background: rgba(232, 184, 0, .08);
+}
+
+/* ── light mode ─────────────────────────────────────────────── */
+html[data-theme="light"] .ul-sec {
+  background: radial-gradient(58% 50% at 50% 0%, rgba(29, 106, 255, .07), transparent 70%), var(--void);
+}
+html[data-theme="light"] .ul-lock,
+html[data-theme="light"] .ul-card {
+  background: rgba(255, 255, 255, .72);
+  border-color: rgba(0, 0, 0, .09);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .09), inset 0 1px 0 rgba(255, 255, 255, .6);
+}
+html[data-theme="light"] .ul-h,
+html[data-theme="light"] .ul-c-t,
+html[data-theme="light"] .ul-list li b { color: var(--text); }
+
+/* ── responsive ─────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .ul-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+  .ul-lock-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+@media (max-width: 640px) {
+  .ul-lock { padding: 30px 22px 26px; }
+  .ul-h { font-size: 23px; }
+}

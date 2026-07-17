@@ -665,7 +665,7 @@
   .hook-cast .hc-av img{width:100%;height:100%;object-fit:cover;display:block}
   .hook-cast .hc-name{font-size:13px;color:var(--text-2);font-weight:500}
   .hook-cast .hc-role{color:#8a96ab;font-weight:400}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;max-width:1180px;margin:0 auto}.ss-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;text-decoration:none;transition:border-color .2s,transform .2s}.ss-card:hover{border-color:var(--teal);transform:translateY(-2px)}.ss-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}.ss-av{width:88px;height:88px;border-radius:50%;overflow:hidden;border:1.5px solid var(--gold);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500;font-size:30px}.ss-av img{width:100%;height:100%;object-fit:cover;display:block}.ss-tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--text-3);text-transform:uppercase;line-height:1.6}.ss-name{display:block;font-size:13px;color:var(--text-2);font-family:Inter,sans-serif;letter-spacing:0;text-transform:none}.ss-story{font-size:15px;color:var(--text);line-height:1.65;font-style:italic;margin:0 0 12px}.ss-story .ss-em{color:var(--gold);font-style:italic}.ss-fix{font-size:13.5px;color:var(--text-2);line-height:1.55;margin:0}.ss-fix .ss-arrow{color:var(--teal);font-family:"JetBrains Mono",monospace;margin-right:6px}@media(max-width:640px){.ss-av{width:72px;height:72px;font-size:24px}}
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;max-width:1180px;margin:0 auto}.ss-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;text-decoration:none;transition:border-color .2s,transform .2s}.ss-card:hover{border-color:var(--teal);transform:translateY(-2px)}.ss-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}.ss-av{width:88px;height:88px;border-radius:50%;overflow:hidden;border:1.5px solid var(--gold);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:500;font-size:30px}.ss-av img{width:100%;height:100%;object-fit:cover;display:block}.ss-tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--text-3);text-transform:uppercase;line-height:1.6}.ss-name{display:block;font-size:13px;color:var(--text-2);font-family:Inter,sans-serif;letter-spacing:0;text-transform:none}.ss-story{font-size:15px;color:var(--text);line-height:1.65;font-style:italic;margin:0 0 12px}.ss-story .ss-em{color:var(--gold);font-style:italic}.ss-fix{font-size:13.5px;color:var(--text-2);line-height:1.55;margin:0}.ss-fix .ss-arrow{color:var(--teal);font-family:"JetBrains Mono",monospace;margin-right:6px}.ss-av.ss-you{font-family:"JetBrains Mono",monospace;font-size:15px;letter-spacing:.08em;border-color:var(--teal);color:var(--teal)}@media(max-width:640px){.ss-av{width:72px;height:72px;font-size:24px}.ss-av.ss-you{font-size:13px}}
 
 @media (max-width:768px){
   .hero::before{ background: linear-gradient(180deg, var(--void) 0%, var(--void) 40%, rgba(8,11,16,.80) 60%, rgba(8,11,16,.55) 100%) !important; }
@@ -860,7 +860,8 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
 </style>
   <link rel="stylesheet" href="/assets/readability.css">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/mobile.css?v=20">
+  <link rel="stylesheet" href="/assets/mobile.css?v=21">
+  <link rel="stylesheet" href="/assets/unlock.css?v=1">
 
 <style>
   .l2bar{ margin-top:64px; padding:18px 80px 0; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
@@ -923,6 +924,55 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
   .wb-foot-t{ font-size:16.5px; font-weight:600; color:#fff; margin-bottom:8px; letter-spacing:-.2px; }
   .wb-foot-p{ font-size:14.5px; color:var(--text-2); line-height:1.65; margin:0 0 18px; max-width:640px; }
   @media(max-width:900px){ .wb-foot{ padding:20px; } }
+
+  /* ═══ Recommendation / conclusion ═══ */
+  .rec{ position:relative; padding:86px 80px 96px;
+    background:
+      radial-gradient(60% 50% at 50% 0%, rgba(29,106,255,.12), transparent 70%),
+      var(--void); }
+  .rec-head{ text-align:center; max-width:820px; margin:0 auto 44px; }
+  .rec-head .section-eyebrow{ justify-content:center; }
+  .rec-head .section-h2{ font-size:clamp(30px,3.6vw,46px); }
+  .rec-lead{ font-size:16.5px; color:var(--text-2); line-height:1.7; margin:0; }
+  .rec-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1240px; margin:0 auto; }
+  .rec-card{ position:relative; display:block; text-decoration:none; border-radius:20px; overflow:hidden;
+    border:1.5px solid rgba(255,255,255,.14); min-height:520px;
+    box-shadow:0 14px 40px rgba(0,0,0,.42);
+    transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+  .rec-card:hover{ transform:translateY(-5px); box-shadow:0 22px 56px rgba(0,0,0,.55); }
+  .rec-card.a-gold:hover{ border-color:rgba(232,184,0,.6); }
+  .rec-card.a-green:hover{ border-color:rgba(52,211,153,.6); }
+  .rec-card.a-teal:hover{ border-color:rgba(29,106,255,.6); }
+  .rec-ph{ position:absolute; top:0; left:0; right:0; height:230px;
+    background-size:cover; background-repeat:no-repeat; transition:transform .5s ease; }
+  .rec-card:hover .rec-ph{ transform:scale(1.05); }
+  .rec-sc{ position:absolute; top:0; left:0; right:0; height:230px;
+    background:linear-gradient(180deg, rgba(8,11,16,.34) 0%, rgba(8,11,16,.05) 34%, rgba(8,11,16,.86) 84%, var(--void) 100%); }
+  .rec-body{ position:absolute; left:0; right:0; bottom:0; top:186px; padding:18px;
+    display:flex; flex-direction:column; }
+  .rec-body::before{ content:''; position:absolute; inset:0; border-radius:18px; margin:6px;
+    background:rgba(255,255,255,.07);
+    -webkit-backdrop-filter:blur(18px) saturate(140%); backdrop-filter:blur(18px) saturate(140%);
+    border:1px solid rgba(255,255,255,.16); box-shadow:inset 0 1px 0 rgba(255,255,255,.16); }
+  .rec-card:hover .rec-body::before{ background:rgba(255,255,255,.11); }
+  .rec-eb, .rec-quote, .rec-then{ position:relative; z-index:2; }
+  .rec-eb{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:1.5px;
+    text-transform:uppercase; margin:14px 16px 8px; }
+  .a-gold .rec-eb{ color:var(--gold); } .a-green .rec-eb{ color:#34d399; } .a-teal .rec-eb{ color:var(--teal-soft); }
+  .rec-quote{ font-size:16px; line-height:1.5; color:#fff; font-style:italic; font-weight:400;
+    margin:0 16px 16px; letter-spacing:-.2px; }
+  .rec-then{ margin:0 16px 16px; padding-top:14px; border-top:1px solid rgba(255,255,255,.14); }
+  .rec-t{ font-size:15px; font-weight:600; color:#fff; margin-bottom:7px; }
+  .rec-d{ font-size:13.5px; color:#cfd7e2; line-height:1.55; margin-bottom:12px; }
+  .rec-go{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; }
+  .a-gold .rec-go{ color:var(--gold); } .a-green .rec-go{ color:#34d399; } .a-teal .rec-go{ color:var(--teal-soft); }
+  html[data-theme="light"] .rec-body::before{ background:rgba(255,255,255,.72); border-color:rgba(0,0,0,.09); }
+  html[data-theme="light"] .rec-quote, html[data-theme="light"] .rec-t{ color:var(--text); }
+  html[data-theme="light"] .rec-d{ color:var(--text-2); }
+  @media(max-width:1100px){ .rec-grid{ grid-template-columns:1fr; max-width:520px; } .rec-card{ min-height:0; }
+    .rec-body{ position:relative; top:0; padding:0 0 8px; } .rec-ph, .rec-sc{ position:relative; height:180px; }
+    .rec-body::before{ margin:0 8px; } }
+  @media(max-width:900px){ .rec{ padding:60px 24px 70px; } .rec-head .section-h2{ font-size:27px; } }
 </style>
 </head>
 <body>
@@ -971,7 +1021,7 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
 <section id="start-here">
   <div class="section-eyebrow">Start Where You Are</div>
   <h2 class="section-h2">Where are you <span class="accent">right now?</span></h2>
-  <p class="section-lead">Pick your situation. Do not read everything. Start with the problem in front of you.</p>
+  <p class="section-lead">Ten situations. Pick the one closest to yours and start there. Every link below is free to read, no login and nothing to pay. Do not read everything &mdash; start with the problem in front of you this week.</p>
   <div class="ss-grid">
     <a class="ss-card" href="pillar-1-gbs-fundamentals.html">
       <div class="ss-top">
@@ -981,29 +1031,77 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
       <p class="ss-story">"I say yes to everything and still feel <span class="ss-em">invisible</span>. Nobody tells me what good looks like."</p>
       <p class="ss-fix"><span class="ss-arrow">&rarr;</span>Start with the map &mdash; how GBS works and how careers move.</p>
     </a>
-    <a class="ss-card" href="path-promotion-plateau.html">
+    <a class="ss-card" href="pillar-5-cluster-2-career-strategy.html">
       <div class="ss-top">
         <span class="ss-av"><img src="images/cast/klaudia-neutral.webp" alt="Klaudia" onerror="this.parentNode.textContent='K'"></span>
         <span class="ss-tag">Year 3 &middot; Plateaued<span class="ss-name">Klaudia</span></span>
       </div>
       <p class="ss-story">"Solid reviews every cycle. Same desk every year. I <span class="ss-em">stopped knowing</span> what to aim for."</p>
-      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>The plateau has a pattern &mdash; and four moves through it.</p>
+      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>The plateau has a pattern. Career strategy is the way out of it.</p>
     </a>
-    <a class="ss-card" href="path-teamlead.html">
+    <a class="ss-card" href="pillar-7-cluster-1-new-manager.html">
       <div class="ss-top">
         <span class="ss-av"><img src="images/cast/miguel-neutral.webp" alt="Miguel" onerror="this.parentNode.textContent='M'"></span>
         <span class="ss-tag">Week 6 &middot; First team<span class="ss-name">Miguel</span></span>
       </div>
       <p class="ss-story">"Friday I was one of them. Monday I ran the standup. <span class="ss-em">Nobody trained me</span> for this."</p>
-      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>The first 90 days are a playbook, not a test.</p>
+      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>The first 90 days as a lead are a playbook, not a test.</p>
     </a>
-    <a class="ss-card" href="path-sme.html">
+    <a class="ss-card" href="pillar-8-cluster-5-sme-participation.html">
       <div class="ss-top">
         <span class="ss-av"><img src="images/cast/priya-neutral.webp" alt="Priya" onerror="this.parentNode.textContent='P'"></span>
         <span class="ss-tag">BAU + Project<span class="ss-name">Priya</span></span>
       </div>
       <p class="ss-story">"The migration needs me and BAU needs me. Something is going to <span class="ss-em">slip</span>."</p>
-      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>Protect both &mdash; there is a method.</p>
+      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>Protect both. There is a method for SME (subject matter expert) work.</p>
+    </a>
+    <a class="ss-card" href="pillar-5-cluster-1-performance-loop.html">
+      <div class="ss-top">
+        <span class="ss-av"><img src="images/cast/peter-neutral.webp" alt="Peter" onerror="this.parentNode.textContent='P'"></span>
+        <span class="ss-tag">Year 2 &middot; Team lead<span class="ss-name">Peter</span></span>
+      </div>
+      <p class="ss-story">"My team hits every target. In the promotion round my name never comes up. I feel <span class="ss-em">overlooked</span>."</p>
+      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>Steady is invisible. The performance loop is how the name gets said.</p>
+    </a>
+    <a class="ss-card" href="pillar-2-cluster-3-continuous-improvement.html">
+      <div class="ss-top">
+        <span class="ss-av"><img src="images/cast/amara-neutral.webp" alt="Amara" onerror="this.parentNode.textContent='A'"></span>
+        <span class="ss-tag">Year 1 &middot; O2C quality<span class="ss-name">Amara</span></span>
+      </div>
+      <p class="ss-story">"Same errors every month. I fix them, they come back, and I am <span class="ss-em">tired</span> of firefighting."</p>
+      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>Stop fixing symptoms. Find the cause once and it stays fixed.</p>
+    </a>
+    <a class="ss-card" href="boss-credit-5-days.html">
+      <div class="ss-top">
+        <span class="ss-av ss-you">YOU</span>
+        <span class="ss-tag">The credit problem<span class="ss-name">Could be you</span></span>
+      </div>
+      <p class="ss-story">"I do the work. My manager presents it. The room thanks him and I <span class="ss-em">say nothing</span>."</p>
+      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>Five working days to make your work traceable to you.</p>
+    </a>
+    <a class="ss-card" href="confidence-meetings-5-days.html">
+      <div class="ss-top">
+        <span class="ss-av ss-you">YOU</span>
+        <span class="ss-tag">Calls and meetings<span class="ss-name">Could be you</span></span>
+      </div>
+      <p class="ss-story">"I know the answer. I rehearse it. The call moves on and I <span class="ss-em">never said it</span>."</p>
+      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>Five days to speak once per meeting, on purpose.</p>
+    </a>
+    <a class="ss-card" href="pillar-6-cluster-1-compensation-structure.html">
+      <div class="ss-top">
+        <span class="ss-av ss-you">YOU</span>
+        <span class="ss-tag">The money question<span class="ss-name">Could be you</span></span>
+      </div>
+      <p class="ss-story">"I think I am underpaid. I have <span class="ss-em">no idea</span> how to check without sounding greedy."</p>
+      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>How pay is built here: bands, variable pay, and the total package.</p>
+    </a>
+    <a class="ss-card" href="pillar-3-cluster-3-automation-ai.html">
+      <div class="ss-top">
+        <span class="ss-av ss-you">YOU</span>
+        <span class="ss-tag">The AI question<span class="ss-name">Could be you</span></span>
+      </div>
+      <p class="ss-story">"Half my day is copy, paste, VLOOKUP. I keep hearing a tool will do it. <span class="ss-em">Then what?</span>"</p>
+      <p class="ss-fix"><span class="ss-arrow">&rarr;</span>What automation and AI actually take, and what they hand back to you.</p>
     </a>
   </div>
 </section>
@@ -1028,14 +1126,133 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
     <a href="paid-tier.html" class="btn-ghost">See what is in a Career Playbook &rarr;</a>
   </div>
 </section>
-<div class="l2foot">
-  <div class="l2foot-h">Go somewhere else</div>
-  <div class="l2next">
-    <a href="who-is-this-for.html"><div class="t">Who is this for?</div><div class="d">Who It's For and the typical career progression in GBS.</div></a>
-    <a href="do-this-from-monday.html"><div class="t">Do this from Monday</div><div class="d">Fast Wins you can run in five working days, plus the channel.</div></a>
-    <a href="knowledgebase.html"><div class="t">Your own learning path</div><div class="d">The GBS Library: 10 pillars, topics, field guide and glossary.</div></a>
+<section id="deeper" class="ul-sec">
+  <div class="section-eyebrow">The next level</div>
+  <h2 class="section-h2">Everything above is free. <span class="accent">So is the next level.</span></h2>
+  <p class="section-lead">You have read one situation. The obvious next question is what to do with the rest of the year. Leave your first name and an email and the three doors below open on this page.</p>
+  <div class="ul-gate" data-gate>
+
+    <div class="ul-lock">
+      <div class="ul-lock-grid">
+        <div>
+          <div class="ul-eb">What opens</div>
+          <p class="ul-h">Three ways forward, <span class="accent">side by side.</span></p>
+          <ul class="ul-list">
+            <li><b>Keep going for free.</b> The five-day tracks, the AI Field Guide, 146 topics. Where to go next, in order, instead of guessing.</li>
+            <li><b>The Career Playbook for your role.</b> What is in it, what it costs, and whether it fits your situation.</li>
+            <li><b>Personal coaching.</b> How it works, and how to tell if it is for you.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="ul-eb">Name and email. That is all.</div>
+          <div class="ul-form">
+            <input data-ul-fn type="text" placeholder="First name" autocomplete="given-name">
+            <input data-ul-em type="email" placeholder="Email" autocomplete="email">
+            <button class="ul-btn" data-ul-btn>Open the next level &mdash; free</button>
+          </div>
+          <p class="ul-msg" data-ul-msg></p>
+          <p class="ul-note">No password. No approval. Nothing to pay, now or later. You get an email when a new video, track or playbook lands, and one click stops it. Nothing you have already read gets taken away.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ul-open" hidden>
+      <div class="ul-hello">You are in. Here are the three doors.</div>
+      <div class="ul-grid">
+
+        <a class="ul-card a-green" href="do-this-from-monday.html">
+          <div class="ul-c-eb">Door 1 &middot; Free</div>
+          <div class="ul-c-t">Keep going on your own</div>
+          <p class="ul-c-d">The order most people should read this in, once they know their situation.</p>
+          <ul class="ul-c-links">
+            <li>1. Fix one thing in five working days &mdash; <a href="do-this-from-monday.html">the Fast Win tracks</a></li>
+            <li>2. Learn how AI changes your day &mdash; <a href="guide.html">the AI Field Guide</a></li>
+            <li>3. Fill the gaps in your own order &mdash; <a href="knowledgebase.html">146 topics, 10 pillars</a></li>
+            <li>4. Learn the words on your own calls &mdash; <a href="glossary.html">the GBS glossary</a></li>
+          </ul>
+          <span class="ul-c-go">Start with a five-day track &rarr;</span>
+        </a>
+
+        <a class="ul-card a-gold" href="paid-tier.html">
+          <div class="ul-c-eb">Door 2 &middot; Career Playbooks<span class="ul-price">$45</span></div>
+          <div class="ul-c-t">Get the work done with you</div>
+          <p class="ul-c-d">One playbook per role. The templates, scripts and worked examples behind the eight career assets above. One payment, the same price everywhere in the world.</p>
+          <ul class="ul-c-links">
+            <li><a href="path-associate.html">Associate</a> &middot; <a href="path-teamlead.html">Team Lead</a> &middot; <a href="path-sme.html">Process SME</a></li>
+            <li><a href="path-projectlead.html">Project Lead</a> &middot; <a href="path-manager.html">Manager</a></li>
+            <li>Plus <a href="path-promotion-plateau.html">The Promotion Plateau</a>, <a href="path-sap.html">SAP for GBS</a> and <a href="path-social-media.html">Personal Brand</a></li>
+          </ul>
+          <span class="ul-c-go">See what is inside a playbook &rarr;</span>
+        </a>
+
+        <a class="ul-card a-teal" href="paid-tier.html#guarantee">
+          <div class="ul-c-eb">Door 3 &middot; One to one</div>
+          <div class="ul-c-t">Personal coaching with Julian</div>
+          <p class="ul-c-d">For when the problem is yours and not the average one. Your situation, your manager, your next move &mdash; talked through with someone who has run the rooms you are trying to get into.</p>
+          <ul class="ul-c-links">
+            <li>26 years in finance and Global Business Services</li>
+            <li>30 days to find out it is not a fit, and get your money back</li>
+          </ul>
+          <span class="ul-c-go">See how coaching works &rarr;</span>
+        </a>
+
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
+<section class="rec">
+  <div class="rec-head">
+    <div class="section-eyebrow">So, what now?</div>
+    <h2 class="section-h2">You found your situation. <span class="accent">Here is where people go from here.</span></h2>
+    <p class="rec-lead">The situation is only the diagnosis. What happens next depends on how much you want to take on this month. Pick the sentence below that sounds most like you today.</p>
+  </div>
+  <div class="rec-grid">
+
+    <a class="rec-card a-green" href="do-this-from-monday.html">
+      <div class="rec-ph" style="background-image:url('images/nav-monday.webp');background-position:42% 40%;"></div>
+      <div class="rec-sc"></div>
+      <div class="rec-body">
+        <div class="rec-eb">If this sounds like you</div>
+        <p class="rec-quote">&ldquo;That is me. I want to do something about it this week, not next quarter.&rdquo;</p>
+        <div class="rec-then">
+          <div class="rec-t">Go to: Do this from Monday</div>
+          <div class="rec-d">Pick one problem and fix it in five working days, around twenty minutes a day. No login and nothing to pay. By Friday you have something to show, which is the point.</div>
+          <span class="rec-go">Start Monday &rarr;</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="rec-card a-teal" href="knowledgebase.html">
+      <div class="rec-ph" style="background-image:url('images/nav-knowledgebase.webp');background-position:58% 46%;"></div>
+      <div class="rec-sc"></div>
+      <div class="rec-body">
+        <div class="rec-eb">If this sounds like you</div>
+        <p class="rec-quote">&ldquo;Half of that made sense. The other half used words I only half know.&rdquo;</p>
+        <div class="rec-then">
+          <div class="rec-t">Go to: Your own learning path</div>
+          <div class="rec-d">146 topics across 10 pillars, the AI Field Guide and a full glossary. No sequence and no deadline. Look up the thing that lost you and come back.</div>
+          <span class="rec-go">Open the library &rarr;</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="rec-card a-gold" href="who-is-this-for.html">
+      <div class="rec-ph" style="background-image:url('images/nav-qualify.webp');background-position:50% 38%;"></div>
+      <div class="rec-sc"></div>
+      <div class="rec-body">
+        <div class="rec-eb">If this sounds like you</div>
+        <p class="rec-quote">&ldquo;None of those ten situations is mine. I am not sure I am even in the right place.&rdquo;</p>
+        <div class="rec-then">
+          <div class="rec-t">Go to: Who is this for?</div>
+          <div class="rec-d">Two minutes to find out whether this site is built for your job, and where your role sits on the GBS career map. Better to know now than to read for an hour first.</div>
+          <span class="rec-go">Check in two minutes &rarr;</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
@@ -1052,7 +1269,8 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
   </div>
 </footer>
 
+<script defer src="/assets/unlock.js?v=1"></script>
 <script defer src="/assets/site.js"></script>
-<script src="/assets/mobile.js?v=20" defer></script>
+<script src="/assets/mobile.js?v=21" defer></script>
 </body>
 </html>
