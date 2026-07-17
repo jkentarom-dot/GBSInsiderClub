@@ -64,10 +64,58 @@
   .highlight-box p { font-size: 15px; color: var(--text-2); line-height: 1.8; margin: 0; }
   .ai-tech { border-left: 3px solid var(--teal); }
   .ai-tech .tech-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 8px; }
-  .path-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 26px; display: flex; flex-direction: column; transition: border-color 0.25s, transform 0.2s; }
-  .path-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+  .path-card {
+    position: relative; border-radius: 12px; padding: 26px; display: flex; flex-direction: column;
+    background: rgba(255,255,255,.06);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+    backdrop-filter: blur(16px) saturate(130%);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: 0 12px 34px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.12);
+    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+  }
+  .path-card:hover {
+    background: rgba(255,255,255,.095);
+    border-color: rgba(255,255,255,.3);
+    transform: translateY(-3px);
+  }
+  /* photo banner — full-bleed at the top of the card */
+  .path-card .pc-photo {
+    position: relative; margin: -26px -26px 18px; height: 168px; overflow: hidden;
+    border-radius: 12px 12px 0 0;
+  }
+  .path-card .pc-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: saturate(.92) contrast(1.02);
+    transition: transform .5s ease;
+  }
+  .path-card:hover .pc-photo img { transform: scale(1.04); }
+  .path-card .pc-photo::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(8,11,16,.12) 0%, rgba(8,11,16,.30) 52%, rgba(8,11,16,.86) 100%);
+  }
+  .path-card .pc-photo .pc-badge { position: absolute; left: 14px; bottom: 12px; z-index: 2; margin: 0; }
+  /* the section needs something behind the glass to refract */
+  #paths { position: relative;
+    background:
+      radial-gradient(58% 52% at 16% 4%, rgba(29,106,255,.14), transparent 66%),
+      radial-gradient(48% 44% at 86% 40%, rgba(232,184,0,.07), transparent 70%),
+      var(--void);
+  }
+  html[data-theme="light"] #paths {
+    background: radial-gradient(58% 52% at 16% 4%, rgba(29,106,255,.09), transparent 66%), var(--void);
+  }
+  html[data-theme="light"] .path-card {
+    background: rgba(255,255,255,.72);
+    border-color: rgba(0,0,0,.09);
+    box-shadow: 0 10px 26px rgba(0,0,0,.09), inset 0 1px 0 rgba(255,255,255,.6);
+  }
+  html[data-theme="light"] .path-card:hover { background: rgba(255,255,255,.86); border-color: rgba(0,0,0,.16); }
+  html[data-theme="light"] .path-card .pc-photo::after {
+    background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.14) 52%, rgba(0,0,0,.52) 100%);
+  }
+  @media (max-width: 640px) { .path-card .pc-photo { height: 140px; } }
   .path-card .pc-badge { align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid; border-radius: 3px; padding: 2px 8px; margin-bottom: 14px; }
-  .pc-green { color: var(--green); border-color: rgba(52,211,153,0.3); }
+  .pc-green { color: var(--green); border-color: rgba(52,211,153,0.45); background: rgba(8,11,16,0.62); }
   .pc-gold { color: var(--gold); border-color: rgba(232,184,0,0.3); }
   .pc-teal { color: var(--teal); border-color: rgba(29,106,255,0.3); }
   .pc-purple { color: var(--purple); border-color: rgba(167,139,250,0.3); }
@@ -398,7 +446,10 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
     <p class="section-intro">Pick the playbook that matches your role today. Each one applies the 5-Step Career Booster to the specific reality of that level — the scenarios, the politics, the skills that actually matter there.</p>
     <div class="grid-2">
       <div class="path-card">
-        <span class="pc-badge pc-green">Available First</span>
+        <div class="pc-photo">
+          <img src="images/people-analyst.webp" alt="A young GBS analyst working at a desk in an open-plan office" loading="lazy" decoding="async" width="900" height="600">
+  <span class="pc-badge pc-green">Available First</span>
+        </div>
         <h3>Associate Playbook</h3>
         <div class="pc-tagline">"Everything a great manager would teach you — in one structured path."</div>
         <ul>
@@ -411,7 +462,10 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
         <div class="pc-foot">Career Chessboard + 5 Steps + 90-Day Roadmap</div>
       </div>
       <div class="path-card">
-        <span class="pc-badge pc-green">Available</span>
+        <div class="pc-photo">
+          <img src="images/people-mentorship.webp" alt="A team lead coaching a colleague one to one at a desk" loading="lazy" decoding="async" width="900" height="600">
+  <span class="pc-badge pc-green">Available</span>
+        </div>
         <h3>Team Lead Playbook</h3>
         <div class="pc-tagline">"Yesterday you were one of them. Today you run the team."</div>
         <ul>
@@ -424,7 +478,10 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
         <div class="pc-foot">Career Chessboard + 5 Steps + 90-Day Leadership Roadmap</div>
       </div>
       <div class="path-card">
-        <span class="pc-badge pc-green">Available</span>
+        <div class="pc-photo">
+          <img src="images/manager-hero-townhall.webp" alt="A manager presenting to a room of colleagues at a service review" loading="lazy" decoding="async" width="900" height="600">
+  <span class="pc-badge pc-green">Available</span>
+        </div>
         <h3>Manager Playbook</h3>
         <div class="pc-tagline">"You run the function. Now run it like a business."</div>
         <ul>
@@ -437,7 +494,10 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
         <div class="pc-foot">Manager Career Chessboard + 5 Steps + 90-Day Manager Roadmap</div>
       </div>
       <div class="path-card">
-        <span class="pc-badge pc-green">Available</span>
+        <div class="pc-photo">
+          <img src="images/people-process-metrics.webp" alt="Two colleagues reviewing process metrics together on screen" loading="lazy" decoding="async" width="900" height="600">
+  <span class="pc-badge pc-green">Available</span>
+        </div>
         <h3>Project SME Playbook</h3>
         <div class="pc-tagline">"You got pulled onto a project. Use it to get promoted."</div>
         <ul>
@@ -450,7 +510,10 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
         <div class="pc-foot">6 weeks, alongside your project + 6 editable templates</div>
       </div>
       <div class="path-card">
-        <span class="pc-badge pc-green">Available</span>
+        <div class="pc-photo">
+          <img src="images/people-strategy-meeting.webp" alt="A project lead running a working session with a small team" loading="lazy" decoding="async" width="900" height="600">
+  <span class="pc-badge pc-green">Available</span>
+        </div>
         <h3>Project Leadership Playbook</h3>
         <div class="pc-tagline">"Lead the initiative. Turn it into career currency."</div>
         <ul>
