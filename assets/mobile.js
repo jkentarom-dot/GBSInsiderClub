@@ -203,15 +203,38 @@
     function closeSheet(){ scrim.classList.remove("show"); sheet.classList.remove("show"); search.value=""; searchMode=false; }
     scrim.addEventListener("click", closeSheet);
 
+
+    function openSiteNav(){
+      var cur=location.pathname.split("/").pop()||"index.html";
+      var links=[
+        {href:"who-is-this-for.html",label:"Who is this for?",ico:"\u2460"},
+        {href:"where-are-you-now.html",label:"Where are you right now?",ico:"\u2461"},
+        {href:"do-this-from-monday.html",label:"Do this from Monday",ico:"\u2462"},
+        {href:"knowledgebase.html",label:"Your own learning path",ico:"\u2463"},
+        {href:"guide.html",label:"AI Field Guide",ico:"\u2605"},
+        {href:"glossary.html",label:"Glossary",ico:"A\u2013Z"},
+        {href:"paid-tier.html",label:"Career Playbooks \u2014 $45",ico:"\u2606"},
+        {href:"join.html",label:"Join free",ico:"\u2192"}
+      ];
+      body.innerHTML='<div class="gbs-grouplbl">Navigate to</div>'+links.map(function(l){
+        return '<a class="gbs-nav-item'+(cur===l.href?' active':'')+'" href="'+l.href+'"><span class="gbs-num">'+l.ico+'</span>'+l.label+'</a>';
+      }).join('');
+      searchMode=false;
+      tabOn.classList.remove("on"); if(tabCl) tabCl.classList.remove("on");
+      search.value=""; search.placeholder="Filter\u2026";
+      scrim.classList.add("show"); sheet.classList.add("show");
+    }
     // bottom bar
     var bar = document.createElement("nav"); bar.className = "gbs-bottombar";
     var icContents = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg>';
     var icGrid = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>';
     var icSearch = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
     var icTop = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>';
+    var icNav = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>';
     bar.innerHTML =
       '<button class="gbs-bb-item cur" data-act="onpage">'+icContents+'Contents</button>' +
       (hasClusters ? '<button class="gbs-bb-item" data-act="clusters">'+icGrid+(/(cluster|pillar)/i.test(groupLabel())?'Clusters':'Sections')+'</button>' : '') +
+      '<button class="gbs-bb-item" data-act="navigate">'+icNav+'Navigate</button>' +
       '<button class="gbs-bb-item" data-act="search">'+icSearch+'Search</button>' +
       '<button class="gbs-bb-item" data-act="top">'+icTop+'Top</button>';
     document.body.appendChild(bar);
@@ -222,6 +245,7 @@
         var act = btn.getAttribute("data-act"); setCur(btn);
         if (act === "top") { window.scrollTo({top:0, behavior:"smooth"}); return; }
         if (act === "search") { openSearch(); return; }
+        if (act === "navigate") { openSiteNav(); return; }
         openSheet(act, false);
       });
     });
