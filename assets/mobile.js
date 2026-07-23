@@ -54,7 +54,7 @@
   }
   function vbWidth(svg){ var vb = (svg.getAttribute("viewBox")||"").split(/[ ,]+/).map(parseFloat); return vb[2] || 0; }
   function enhanceDiagrams(){
-    var badge = '<span class="gbs-zbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>Tap to zoom</span>';
+    var badge = '<span class="gbs-zbadge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>Tap to zoom</span>';
     Array.prototype.forEach.call(document.querySelectorAll("svg"), function(svg){
       if (svg.closest(".gbs-zoomable")) return;
       if (svg.closest("header,nav,.topbar,.sidebar,.gbs-theme-toggle,.gbs-zoomov,.gbs-sheet,.gbs-bottombar")) return;
