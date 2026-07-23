@@ -105,7 +105,10 @@
   function buildNav(){
     var onpage = collectOnpage();
     var clusters = collectClusters();
-    if (onpage.length < 2 && clusters.length < 2) return;   // not enough to be useful
+    // Any page carrying the L2 sidebar always deserves the mobile bar, even if it
+    // only has one section (knowledgebase.html) -- otherwise it gets no mobile nav at all.
+    var isL2 = !!document.querySelector(".l2-sidebar");
+    if (!isL2 && onpage.length < 2 && clusters.length < 2) return;   // not enough to be useful
 
     document.body.classList.add("gbs-nav-on");
     var hasClusters = clusters.length >= 2;
@@ -206,19 +209,48 @@
 
     function openSiteNav(){
       var cur=location.pathname.split("/").pop()||"index.html";
-      var links=[
-        {href:"who-is-this-for.html",label:"Who is this for?",ico:"\u2460"},
-        {href:"where-are-you-now.html",label:"Where are you right now?",ico:"\u2461"},
-        {href:"do-this-from-monday.html",label:"Do this from Monday",ico:"\u2462"},
-        {href:"knowledgebase.html",label:"Your own learning path",ico:"\u2463"},
+      // The four doors, each with the sections that sit underneath it.
+      // Sub-items are hidden for the door you are already on -- the "Contents"
+      // tab already owns the current page's sections, so showing them twice
+      // would put the same three links in two different sheets.
+      var doors=[
+        {href:"who-is-this-for.html",label:"Who is this for?",ico:"1",subs:[
+          {href:"who-is-this-for.html#who",label:"Who it is for"},
+          {href:"who-is-this-for.html#career-map",label:"Career map"}
+        ]},
+        {href:"where-are-you-now.html",label:"Where are you right now?",ico:"2",subs:[
+          {href:"where-are-you-now.html#start-here",label:"Ten situations"},
+          {href:"where-are-you-now.html#build",label:"Career assets"},
+          {href:"where-are-you-now.html#deeper",label:"The next level"}
+        ]},
+        {href:"do-this-from-monday.html",label:"Do this from Monday",ico:"3",subs:[
+          {href:"do-this-from-monday.html#free-track",label:"Five-day tracks"},
+          {href:"do-this-from-monday.html#watch",label:"Watch and learn"}
+        ]},
+        {href:"knowledgebase.html",label:"Your own learning path",ico:"4",subs:[
+          {href:"knowledgebase.html#inside",label:"Ten pillars"}
+        ]}
+      ];
+      var extras=[
         {href:"guide.html",label:"AI Field Guide",ico:"\u2605"},
         {href:"glossary.html",label:"Glossary",ico:"A\u2013Z"},
         {href:"paid-tier.html",label:"Career Playbooks \u2014 $45",ico:"\u2606"},
         {href:"join.html",label:"Join free",ico:"\u2192"}
       ];
-      body.innerHTML='<div class="gbs-grouplbl">Navigate to</div>'+links.map(function(l){
-        return '<a class="gbs-nav-item'+(cur===l.href?' active':'')+'" href="'+l.href+'"><span class="gbs-num">'+l.ico+'</span>'+l.label+'</a>';
-      }).join('');
+      function item(l,isSub,isActive){
+        return '<a class="gbs-nav-item'+(isSub?' gbs-nav-sub':'')+(isActive?' active':'')+'" href="'+l.href+'">'+
+               (isSub?'<span class="gbs-subdot"></span>':'<span class="gbs-num">'+l.ico+'</span>')+
+               l.label+'</a>';
+      }
+      var html='<div class="gbs-grouplbl">Navigate to</div>';
+      doors.forEach(function(d){
+        var onThisDoor = (cur===d.href);
+        html+=item(d,false,onThisDoor);
+        if(!onThisDoor){ d.subs.forEach(function(s){ html+=item(s,true,false); }); }
+      });
+      html+='<div class="gbs-grouplbl">Also on the site</div>';
+      extras.forEach(function(l){ html+=item(l,false,cur===l.href); });
+      body.innerHTML=html;
       searchMode=false;
       tabOn.classList.remove("on"); if(tabCl) tabCl.classList.remove("on");
       search.value=""; search.placeholder="Filter\u2026";

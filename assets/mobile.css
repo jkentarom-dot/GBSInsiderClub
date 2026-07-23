@@ -220,7 +220,12 @@ html[data-theme="light"] .gbs-zoomov svg{ background:#0e1219; border-color:#222c
 .gbs-bottombar, .gbs-scrim, .gbs-sheet{ display:none; }
 @media(max-width:1024px){
   body.gbs-nav-on{ padding-bottom:78px; }
-  .gbs-bottombar{ display:flex; position:fixed; left:0; right:0; bottom:0; z-index:55;
+  /* top/height/border-bottom are reset on purpose: the page stylesheets style the bare
+     element selector `nav {position:fixed; top:0; height:64px}` for the site header, and
+     mobile.js injects this bar as a <nav>, so it inherits those and lands at the top of
+     the screen behind the header. Keep these resets. */
+  .gbs-bottombar{ display:flex; position:fixed; left:0; right:0; bottom:0; top:auto;
+    height:auto; min-height:0; border-bottom:0; z-index:55;
     background:var(--surface); border-top:1px solid var(--border-2);
     padding:7px 6px calc(7px + env(safe-area-inset-bottom)); }
   .gbs-bb-item{ flex:1; background:none; border:0; color:var(--text-3);
@@ -260,6 +265,13 @@ html[data-theme="light"] .gbs-zoomov svg{ background:#0e1219; border-color:#222c
     flex-shrink:0; margin:0 8px 0 6px; }
   .gbs-nav-item.cur{ color:var(--text); }
   .gbs-nav-item.cur .gbs-dot{ background:var(--gold); }
+  /* second level inside the Navigate sheet */
+  .gbs-nav-item.gbs-nav-sub{ padding:8px 16px 8px 44px; font-size:13px; color:var(--text-3);
+    position:relative; }
+  .gbs-nav-item.gbs-nav-sub::before{ content:''; position:absolute; left:27px; top:0; bottom:0;
+    width:1px; background:var(--border); }
+  .gbs-nav-item.gbs-nav-sub .gbs-subdot{ width:4px; height:4px; border-radius:50%;
+    background:var(--text-3); opacity:.5; flex-shrink:0; }
 }
 
 
