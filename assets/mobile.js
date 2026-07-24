@@ -269,7 +269,9 @@
     var icSearch = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
     var icTop = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>';
     var icNav = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>';
+    var icBack = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     bar.innerHTML =
+      '<button class="gbs-bb-item" data-act="back">'+icBack+'Back</button>' +
       '<button class="gbs-bb-item cur" data-act="onpage">'+icContents+'Contents</button>' +
       (hasClusters ? '<button class="gbs-bb-item" data-act="clusters">'+icGrid+(/(cluster|pillar)/i.test(groupLabel())?'Clusters':'Sections')+'</button>' : '') +
       '<button class="gbs-bb-item" data-act="navigate">'+icNav+'Navigate</button>' +
@@ -281,6 +283,7 @@
     Array.prototype.forEach.call(bar.querySelectorAll(".gbs-bb-item"), function(btn){
       btn.addEventListener("click", function(){
         var act = btn.getAttribute("data-act"); setCur(btn);
+        if (act === "back") { history.back(); return; }
         if (act === "top") { window.scrollTo({top:0, behavior:"smooth"}); return; }
         if (act === "search") { openSearch(); return; }
         if (act === "navigate") { openSiteNav(); return; }
