@@ -228,6 +228,12 @@
           {href:"do-this-from-monday.html#watch",label:"Watch and learn"}
         ]},
         {href:"knowledgebase.html",label:"Your own learning path",ico:"4",subs:[
+          {href:"knowledgebase.html#study-path",label:"Study path"},
+          {href:"pack-1-start-here.html",label:"1 \u00b7 Start Here"},
+          {href:"pack-2-deliver-and-improve.html",label:"2 \u00b7 Deliver and Improve"},
+          {href:"pack-3-communicate-and-lead.html",label:"3 \u00b7 Communicate and Lead"},
+          {href:"pack-4-get-ahead.html",label:"4 \u00b7 Get Ahead"},
+          {href:"pack-5-drive-change.html",label:"5 \u00b7 Drive Change"},
           {href:"knowledgebase.html#inside",label:"Ten pillars"}
         ]}
       ];
