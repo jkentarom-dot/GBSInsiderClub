@@ -218,7 +218,7 @@
           {href:"who-is-this-for.html#who",label:"Who it is for"},
           {href:"who-is-this-for.html#career-map",label:"Career map"}
         ]},
-        {href:"where-are-you-now.html",label:"Where are you right now?",ico:"2",subs:[
+        {href:"where-are-you-now.html",label:"Find where I'm stuck",ico:"2",subs:[
           {href:"where-are-you-now.html#start-here",label:"Ten situations"},
           {href:"where-are-you-now.html#build",label:"Career assets"},
           {href:"where-are-you-now.html#deeper",label:"The next level"}
