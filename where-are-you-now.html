@@ -977,6 +977,16 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
   /* ═══ L2 sidebar nav (desktop) — compact glassmorphism list v3 ═══ */
   .l2-layout { display: flex; min-height: calc(100vh - 62px); }
   .l2-sidebar {
+    /* Explicit resets: the page header is styled via the bare `nav` element
+       selector, and this sidebar is also a <nav>, so it inherits display:flex
+       (row), align-items:center, border-bottom and z-index from it. Without
+       these resets every item lays out side-by-side in a 185px box and the
+       labels collapse into vertical letter-stacks. Do not tidy these away. */
+    display: block;
+    align-items: stretch;
+    border-bottom: 0;
+    left: auto; right: auto;
+    z-index: 5;
     width: 185px; flex-shrink: 0;
     position: sticky; top: 62px;
     height: calc(100vh - 62px);
@@ -1153,7 +1163,6 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
       <a class="l2s-door" href="who-is-this-for.html">
         <span class="l2s-num">1</span>
         <span class="l2s-title">Who is this for?</span>
-        <span class="l2s-tag l2s-tag-sky">Start</span>
         <svg class="l2s-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="l2s-subs">
@@ -1165,7 +1174,6 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
       <a class="l2s-door active" href="where-are-you-now.html">
         <span class="l2s-num">2</span>
         <span class="l2s-title">Find where I'm stuck</span>
-        <span class="l2s-tag l2s-tag-gold">Best</span>
         <svg class="l2s-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="l2s-subs">
@@ -1178,7 +1186,6 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
       <a class="l2s-door" href="do-this-from-monday.html">
         <span class="l2s-num">3</span>
         <span class="l2s-title">Do this from Monday</span>
-        <span class="l2s-tag l2s-tag-green">Fast</span>
         <svg class="l2s-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="l2s-subs">
@@ -1190,7 +1197,6 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
       <a class="l2s-door" href="knowledgebase.html">
         <span class="l2s-num">4</span>
         <span class="l2s-title">Your own path</span>
-        <span class="l2s-tag l2s-tag-teal">Free</span>
         <svg class="l2s-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="l2s-subs">
@@ -1214,7 +1220,7 @@ html[data-theme="light"] .nv-lead{ color:var(--text-2); }
   <div class="p2-ph" style="background-image:url('images/nav-role.webp');background-position:64% 38%;"></div>
   <div class="p2-sc"></div>
   <div class="p2-in">
-    <div class="p2-eb">3 &middot; For the ambitious!</div>
+    <div class="p2-eb">Recommended</div>
     <h1 class="p2-h1">Where are you right now?</h1>
     <p class="p2-lead">Find the situation closest to yours. You will see what holds people back at that stage, the way through it, and the career evidence you end up with.</p>
   </div>
