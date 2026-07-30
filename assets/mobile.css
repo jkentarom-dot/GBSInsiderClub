@@ -336,3 +336,31 @@ html.gbs-vip [data-vip-hide]{ display:none !important; }
 html.gbs-authed [data-authed-hide]{ display:none !important; }
 .vip-only{ display:none !important; }
 html.gbs-vip .vip-only{ display:block !important; }
+/* 3 -- DOC TOPBAR MOBILE COLLAPSE ---------------------------------------
+   The doc-style topbar (brand lockup + divider + long doc/pillar title +
+   edition stamp) is sized for desktop. On phones its children (brand 79px,
+   title 74px, edition 42px) are taller than the 62px bar, so they spill top
+   and bottom and collide, and the long title overflows horizontally. The
+   page stylesheets hide the sidebar under 1024px but never touch .topbar.
+   Collapse it here: drop the desktop-only title + edition + divider, keep
+   the brand lockup and tier badge, and let the bar hold a fixed compact
+   height so nothing overflows. Applies to every page that loads mobile.css. */
+@media (max-width: 720px){
+  .topbar{
+    height:52px !important;
+    min-height:52px !important;
+    padding-left:16px !important;
+    padding-right:96px !important; /* clear the fixed LIGHT toggle at top-right */
+    gap:10px !important;
+    overflow:hidden !important;
+  }
+  .topbar .topbar-title,
+  .topbar .topbar-edition,
+  .topbar .topbar-meta,
+  .topbar .tier-legend,
+  .topbar .topbar-divider{ display:none !important; }
+  .topbar .topbar-brand{ line-height:1.15 !important; }
+  .topbar .topbar-brand .brand-name{ font-size:12px !important; }
+  .topbar .topbar-brand .brand-sub{ font-size:10px !important; }
+  .topbar .tier-badge{ flex-shrink:0 !important; }
+}
