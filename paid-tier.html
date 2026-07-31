@@ -278,7 +278,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
 
     <div class="vp-cta" data-vip-hide style="margin-top:28px;">
       <a class="btn-primary" href="#pricing">One payment, one playbook, your role &rarr;</a>
-      <span class="vp-cta-note">$45 one-time. No subscription.</span>
+      <span class="vp-cta-note">$29 one-time. No subscription.</span>
     </div>
   </section>
 
@@ -511,8 +511,8 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
   <!-- ============ ROI CALCULATOR ============ -->
   <section class="section" id="roi">
     <span class="eyebrow eyebrow-gold">The Investment Case</span>
-    <h2>What does <span class="gbs-price-tok">$45</span> actually buy? Run your numbers.</h2>
-    <p class="section-intro">A salary increase compounds. Every future raise, bonus, and job offer builds on your new base. Pick your market, enter your salary, and see what even a modest increase is worth over five years against a one-time <span class="gbs-price-tok">$45</span>.</p>
+    <h2>What does <span class="gbs-price-tok">$29</span> actually buy? Run your numbers.</h2>
+    <p class="section-intro">A salary increase compounds. Every future raise, bonus, and job offer builds on your new base. Pick your market, enter your salary, and see what even a modest increase is worth over five years against a one-time <span class="gbs-price-tok">$29</span>.</p>
 
     <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:32px;">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:28px;">
@@ -552,7 +552,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
           <div id="roi-monthly" style="font-size:26px;font-weight:600;color:var(--text);">&mdash;</div>
         </div>
         <div style="background:var(--surface);border:1px solid rgba(232,184,0,0.35);border-radius:10px;padding:20px 22px;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Payback on <span class="gbs-price-tok">$45</span></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Payback on <span class="gbs-price-tok">$29</span></div>
           <div id="roi-payback" style="font-size:26px;font-weight:600;color:var(--gold);">&mdash;</div>
         </div>
         <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;">
@@ -691,7 +691,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
     <div class="price-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
       <div class="price-card featured">
         <div class="tier-name">Full Access</div>
-        <div class="price" id="price-display">$45</div>
+        <div class="price" id="price-display">$29</div>
         <div class="price-meta" id="price-meta">One-time / lifetime access</div>
         <ul>
           <li>All <strong style="color:var(--gold)">learning paths</strong> — current and future updates included</li>
@@ -699,7 +699,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
           <li>Career Chessboard with re-assessment tracking</li>
           <li>Every Julian's Take, every module</li>
         </ul>
-        <button id="checkout-btn" class="btn-primary" style="width:100%; justify-content:center; margin-top:16px; padding:14px 24px; font-size:15px; border:none; cursor:pointer;">Get Full Access — $45</button>
+        <button id="checkout-btn" class="btn-primary" style="width:100%; justify-content:center; margin-top:16px; padding:14px 24px; font-size:15px; border:none; cursor:pointer;">Get Full Access — $29</button>
       </div>
       <div class="price-card">
         <div class="tier-name">Personal Coaching</div>
@@ -863,19 +863,19 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
   const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   const checkoutBtn = document.getElementById('checkout-btn');
-  let BTN_DEFAULT = 'Get Full Access — $45';
+  let BTN_DEFAULT = 'Get Full Access — $29';
   let hasFullAccess = false;
 
   function setBtn(text, disabled) { checkoutBtn.textContent = text; checkoutBtn.disabled = !!disabled; }
 
   // ----- Regional (PPP) pricing: detect country, show the local price, pass tier to checkout -----
-  const TIER_PRICE = { t1: 45, t2: 45, t3: 45 };
+  const TIER_PRICE = { t1: 29, t2: 29, t3: 29 };
   const TIER_MAP = {
     t1: ['IN','PH','PK','BD','NG','EG','ID','VN'],
     t2: ['BR','MX','CO','ZA','PL','MY','TH','TR']
   };
-  let REGION = { tier: 't3', price: 45, country: '' };
-  window.GBS_PRICE = 45;
+  let REGION = { tier: 't3', price: 29, country: '' };
+  window.GBS_PRICE = 29;
 
   function countryToTier(cc) {
     if (TIER_MAP.t1.indexOf(cc) !== -1) return 't1';
@@ -883,7 +883,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
     return 't3';
   }
   function applyRegion() {
-    const p = TIER_PRICE[REGION.tier] || 45;
+    const p = TIER_PRICE[REGION.tier] || 29;
     REGION.price = p;
     window.GBS_PRICE = p;
     BTN_DEFAULT = 'Get Full Access — $' + p;
@@ -940,7 +940,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
         return;
       }
 
-      const resp = await fetch(SUPABASE_URL + '/functions/v1/create-checkout-session-v2', {
+      const resp = await fetch(SUPABASE_URL + '/functions/v1/create-checkout-session-v3', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY },
         body: JSON.stringify({
