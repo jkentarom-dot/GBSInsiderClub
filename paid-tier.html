@@ -190,6 +190,16 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
 .vp-cta-note{font-size:13px;color:var(--text-2)}
 @media(max-width:720px){.vp-cols{grid-template-columns:1fr}}
 
+/* === counted inventory grid (inv-) === */
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-bottom:28px}
+.inv-cell{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:18px 18px 16px;display:flex;flex-direction:column}
+.inv-cell.inv-hero{border-color:rgba(232,184,0,.45);background:rgba(232,184,0,.05)}
+.inv-n{font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:600;color:var(--teal);line-height:1}
+.inv-cell.inv-hero .inv-n{color:var(--gold)}
+.inv-l{font-size:14.5px;font-weight:500;color:var(--text);margin-top:8px}
+.inv-d{font-size:13px;color:var(--text-2);line-height:1.55;margin-top:5px}
+@media(max-width:600px){.inv-grid{grid-template-columns:1fr 1fr}.inv-n{font-size:26px}}
+
 /* === coaching guarantee (gr-) === */
 #guarantee{text-align:left}
 .gr-badge{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:8px 18px;margin-bottom:16px}
@@ -684,6 +694,25 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
     <span class="eyebrow">Pricing</span>
     <h2>One-time purchase. No subscription.</h2>
     <p class="section-intro">You buy it once, you keep it. No monthly fee, no "am I getting my money's worth this month" anxiety. The content is a complete program, not a feed.</p>
+
+    <h3 style="font-size:17px;font-weight:500;color:var(--text);margin:0 0 6px;">What you actually get</h3>
+    <p style="font-size:14.5px;color:var(--text-2);line-height:1.75;margin:0 0 20px;">Counted, not estimated. Every number below is a real asset waiting behind the login.</p>
+    <div class="inv-grid">
+      <div class="inv-cell"><span class="inv-n">8</span><span class="inv-l">Learning paths</span><span class="inv-d">One per role, plus focused topic paths</span></div>
+      <div class="inv-cell"><span class="inv-n">81</span><span class="inv-l">Modules</span><span class="inv-d">Each with the theory, the drill, and Julian's Take</span></div>
+      <div class="inv-cell inv-hero"><span class="inv-n">165</span><span class="inv-l">Daily micro-actions</span><span class="inv-d">Mon to Fri, five minutes each, told exactly what to do</span></div>
+      <div class="inv-cell"><span class="inv-n">33</span><span class="inv-l">Weekly action cards</span><span class="inv-d">One card per week — print it or pin it at your desk</span></div>
+      <div class="inv-cell"><span class="inv-n">56</span><span class="inv-l">AI exercises</span><span class="inv-d">With a manual alternative where AI is not allowed</span></div>
+      <div class="inv-cell"><span class="inv-n">19</span><span class="inv-l">Desk cards</span><span class="inv-d">One-page models you keep open during the real conversation</span></div>
+      <div class="inv-cell"><span class="inv-n">17</span><span class="inv-l">Templates</span><span class="inv-d">Excel and PowerPoint files you fill in and hand over</span></div>
+      <div class="inv-cell"><span class="inv-n">5</span><span class="inv-l">Proof of Work sheets</span><span class="inv-d">Where your wins get banked into promotion evidence</span></div>
+    </div>
+
+    <div class="highlight-box" style="margin-bottom:28px;">
+      <span class="label">If you want to be told exactly what to do</span>
+      <p>Some people want the framework and will figure out the rest. Others want the steps. The action cards are built for the second group: every week gives you five daily moves, one per working day, each sized to five minutes. Monday says <strong style="color:var(--gold)">audit</strong>. Tuesday says <strong style="color:var(--gold)">evidence</strong>. You tick a box, and the win banks itself into your Proof of Work sheet. No planning required — just open the card and do the line.</p>
+    </div>
+
     <div class="highlight-box" style="margin-bottom:28px;">
       <span class="label">The Math Is Simple</span>
       <p>Once you land a monthly increase, a promotion, or a better-paying role — your <strong style="color:var(--gold)">one-time investment</strong> in yourself pays for itself many times over. One payment, lifetime access — a career asset with compounding returns.</p>
