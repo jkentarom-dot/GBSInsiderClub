@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Brand — Sprint Plan (Action Cards)</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080b10;--surface:#0e1219;--surface-2:#141922;--surface-3:#1b2130;
+--teal:#1d6aff;--gold:#e8b800;--sky:#38bdf8;--green:#34d399;
+--text:#ffffff;--text-2:#c8d0de;--text-3:#7a8799;--border:#1e2636;--border-2:#2a3347;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#05070b;font-family:'Inter',system-ui,sans-serif;color:var(--text);padding:28px 16px;}
+.intro{max-width:210mm;margin:0 auto 26px;color:var(--text-2);font-size:14px;line-height:1.5;}
+.intro b{color:var(--text);}
+.intro .eg{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+.card{width:210mm;max-width:100%;margin:0 auto 34px;background:var(--void);border:1px solid var(--border);
+border-radius:12px;padding:38px 36px;position:relative;overflow:hidden;}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;
+background:linear-gradient(90deg,var(--teal) 0%,var(--teal) 70%,var(--gold) 70%,var(--gold) 100%);}
+.eyebrowrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
+.pathbadge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--text-2);border:1px solid var(--border-2);padding:4px 10px;border-radius:4px;}
+h1{font-size:31px;font-weight:300;line-height:1.12;margin-bottom:10px;color:var(--text);}
+h1 strong{font-weight:600;color:var(--teal);}
+.frame{font-size:14.5px;color:var(--text-2);max-width:66ch;margin-bottom:6px;line-height:1.45;}
+.stepline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.day{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);}
+.day:last-of-type{border-bottom:1px solid var(--border);}
+.check{flex:0 0 auto;width:26px;height:26px;border:2px solid var(--teal);border-radius:6px;margin-top:2px;}
+.daybody{flex:1;}
+.daylabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:4px;}
+.daylabel .verb{color:var(--text);font-weight:600;}
+.action{font-size:15px;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:4px;}
+.why{font-size:12.5px;color:var(--text-2);line-height:1.45;}
+.why b{color:var(--green);font-weight:600;}
+.footer{margin-top:22px;padding:15px 18px;background:var(--surface-3);border-radius:8px;border:1px solid var(--border-2);
+display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.footer-txt{font-size:13px;color:var(--text-2);line-height:1.45;}
+.footer-txt b{color:var(--text);font-weight:600;}
+.footer-cta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--void);background:var(--gold);padding:8px 14px;border-radius:6px;white-space:nowrap;font-weight:600;}
+.lockup{margin-top:16px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-2);}
+.brand b{color:var(--teal);font-weight:600;}
+.pin{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);}
+@media print{
+ @page{size:A4;margin:0;}
+ body{background:#fff;padding:0;color:#080b10;}
+ .intro{display:none;}
+ .card{background:#fff;border:none;border-radius:0;margin:0;padding:16mm 15mm;page-break-after:always;overflow:visible;}
+ .card::before{height:6px;}
+ .eyebrow{color:#1d6aff;}
+ .pathbadge{color:#5a6578;border-color:#d7dce6;}
+ h1{color:#080b10;} h1 strong{color:#1d6aff;}
+ .frame{color:#2a3347;}
+ .stepline{color:#9a7c08;}
+ .day{border-color:#e2e6ee;}
+ .check{border-color:#1d6aff;background:#fff;}
+ .daylabel{color:#1d6aff;} .daylabel .verb{color:#080b10;}
+ .action{color:#080b10;}
+ .why{color:#5a6578;} .why b{color:#13865a;}
+ .footer{background:#f4f6fa;border-color:#e2e6ee;}
+ .footer-txt{color:#2a3347;} .footer-txt b{color:#080b10;}
+ .footer-cta{color:#080b10;background:#e8b800;}
+ .brand{color:#5a6578;} .brand b{color:#1d6aff;} .pin{color:#5a6578;}
+}
+.site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:11px 24px;background:rgba(8,11,16,.94);backdrop-filter:blur(12px);border-bottom:1px solid #1e2636;font-family:'Inter',system-ui,sans-serif;}.sb-back{color:#1d6aff;text-decoration:none;font-size:13px;font-weight:500;}.sb-back:hover{text-decoration:underline;}.sb-sp{margin-left:auto;}.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}@media print{.site-bar{display:none;}}
+</style>  <link rel="stylesheet" href="/assets/mobile.css?v=31">
+</head><body>
+<div id="gmount"></div>
+<!-- VIP full_access gate (fail-closed; reuses path-page check) -->
+<style>#vipgate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(8,11,16,0.975);padding:24px;text-align:center;font-family:Inter,system-ui,sans-serif}#vipgate .vg-card{max-width:440px;background:#0e1219;border:1px solid #2a3347;border-radius:14px;padding:34px 28px}#vipgate h2{color:#fff;font-size:20px;margin:0 0 10px;font-weight:600}#vipgate p{color:#c8d0de;font-size:14px;line-height:1.6;margin:0 0 22px}#vipgate a.vg-btn{display:inline-block;background:#e8b800;color:#080b10;font-weight:600;text-decoration:none;padding:12px 22px;border-radius:8px;font-size:14px}#vipgate a.vg-back{display:block;margin-top:14px;color:#7a8799;font-size:12px;text-decoration:none}body.vip-unlocked #vipgate{display:none}</style><div id="vipgate"><div class="vg-card"><h2>Full Access required</h2><p>These tools open with Full Access &mdash; one payment, lifetime access to every path and toolkit.</p><a class="vg-btn" href="paid-tier.html#pricing">Get Full Access &mdash; $29 &rarr;</a><a class="vg-back" href="paid-tier.html">Back to the VIP overview</a></div></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+(function(){
+  var U="https://wgdcfgknnentriqlajqe.supabase.co", K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo", FN=U+"/functions/v1/get-gated-content", PAGE="action-cards-social-media";
+  function unlock(html){ var m=document.getElementById("gmount"); if(m) m.innerHTML=html; document.body.classList.add("vip-unlocked"); }
+  try{
+    var sb=supabase.createClient(U,K);
+    sb.auth.getSession().then(function(res){
+      var s=res.data?res.data.session:null;
+      if(!s) return;
+      fetch(FN,{method:"POST",headers:{"apikey":K,"Authorization":"Bearer "+s.access_token,"Content-Type":"application/json"},body:JSON.stringify({page:PAGE})})
+        .then(function(r){return r.ok?r.json():null;})
+        .then(function(j){ if(j&&j.html) unlock(j.html); })
+        .catch(function(){});
+    }).catch(function(){});
+  }catch(e){}
+})();
+</script>
+<script src="/assets/mobile.js?v=31" defer></script>
+</body></html>
