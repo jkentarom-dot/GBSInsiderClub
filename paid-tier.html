@@ -804,7 +804,9 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
   const STRIPE_PK = 'pk_live_51ThWti8XdaNq7YI5I9sfTVgIGfMfgIFL2ZBUCghl8rwbToGdMPdkMnYMkogEL8MquKCM2nxxTvBxdgPMHoPckn7Z000tpRs5Hk';
   const SUPABASE_URL = 'https://wgdcfgknnentriqlajqe.supabase.co';
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo';
-  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const sb = (typeof supabase !== 'undefined' && supabase && supabase.createClient)
+               ? supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+               : null;
 
   const checkoutBtn = document.getElementById('checkout-btn');
   let BTN_DEFAULT = 'Get Full Access — $29';
@@ -861,6 +863,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
 
   // If already full access, switch CTA to "go to your paths"
   async function checkTier() {
+    if (!sb) return;
     const { data: { session } } = await sb.auth.getSession();
     if (!session) return;
     const { data } = await sb.from('user_tiers').select('tier').eq('user_id', session.user.id).maybeSingle();
@@ -875,6 +878,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
 
   checkoutBtn.addEventListener('click', async function() {
     if (hasFullAccess) { window.location.href = '#paths'; return; }
+    if (!sb) { alert('Checkout is temporarily unavailable. Please refresh the page and try again.'); return; }
     setBtn('Loading...', true);
     try {
       const { data: { session } } = await sb.auth.getSession();
@@ -918,6 +922,7 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
   const params = new URLSearchParams(window.location.search);
   if (params.get('payment') === 'success' && params.get('session_id')) {
     (async function() {
+      if (!sb) { setBtn('Payment received \u2014 refresh to unlock', true); return; }
       setBtn('Verifying payment...', true);
       try {
         const { data: { session } } = await sb.auth.getSession();

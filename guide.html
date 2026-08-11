@@ -409,7 +409,11 @@
     .highlight-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 768px) {
-    .layout { grid-template-columns: 1fr; }
+    .layout { grid-template-columns: minmax(0, 1fr); }
+    /* Grid items default to min-width:auto (= min-content), so any wide child
+       (tables, pre, long strings) stretches the column past the viewport.
+       min-width:0 lets the column shrink to the screen. Do not remove. */
+    .main { min-width: 0; max-width: 100%; overflow-x: hidden; }
     .sidebar { display: none; }
     .main { padding: 28px 22px 60px; }
     .hero h1 { font-size: 28px; }
@@ -9894,7 +9898,18 @@ Diagnose:
   const SUPABASE_KEY  = 'sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp';
   // ────────────────────────────────────────────────
 
-  const sb      = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const sb      = (typeof supabase !== 'undefined' && supabase && supabase.createClient)
+                    ? supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+                    : null;
+  if (!sb) {
+    // supabase-js CDN did not load. The guide is free/ungated content, so fail OPEN:
+    // reveal the content and skip auth rather than throwing and killing downstream JS.
+    var _g = document.getElementById('auth-gate');
+    var _c = document.getElementById('app-content');
+    if (_g) _g.style.display = 'none';
+    if (_c) _c.style.display = '';
+    return;
+  }
   const gate    = document.getElementById('auth-gate');
   const content = document.getElementById('app-content');
   const errEl   = document.getElementById('auth-error');
