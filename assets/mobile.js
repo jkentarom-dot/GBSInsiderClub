@@ -240,7 +240,7 @@
       var extras=[
         {href:"guide.html",label:"AI Field Guide",ico:"\u2605"},
         {href:"glossary.html",label:"Glossary",ico:"A\u2013Z"},
-        {href:"paid-tier.html",label:"Career Playbooks \u2014 $45",ico:"\u2606"},
+        {href:"paid-tier.html",label:"Career Playbooks",ico:"\u2606"},
         {href:"join.html",label:"Join free",ico:"\u2192"}
       ];
       function item(l,isSub,isActive){

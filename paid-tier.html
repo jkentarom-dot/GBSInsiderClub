@@ -882,6 +882,84 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
   }
   checkTier();
 
+  // Inline register-and-pay. Access is keyed to an auth user_id, so an account
+  // must exist before Stripe — but the buyer never leaves this page to make one.
+  function showInlineAuth(msg) {
+    let box = document.getElementById('inline-auth');
+    if (!box) {
+      box = document.createElement('div');
+      box.id = 'inline-auth';
+      box.style.cssText = 'margin:18px auto 0;max-width:440px;text-align:left;background:var(--surface-2);border:1px solid var(--border-2);border-radius:12px;padding:20px;';
+      box.innerHTML =
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">One step, then payment</div>' +
+        '<p id="ia-msg" style="font-size:13.5px;color:var(--text-2);line-height:1.6;margin:0 0 14px;"></p>' +
+        '<input id="ia-email" type="email" autocomplete="email" placeholder="Your email" style="width:100%;padding:11px 13px;margin-bottom:9px;background:var(--void);border:1px solid var(--border-2);border-radius:8px;color:var(--text);font-size:14px;font-family:inherit;">' +
+        '<input id="ia-pass" type="password" autocomplete="new-password" placeholder="Choose a password (8+ characters)" style="width:100%;padding:11px 13px;margin-bottom:12px;background:var(--void);border:1px solid var(--border-2);border-radius:8px;color:var(--text);font-size:14px;font-family:inherit;">' +
+        '<button id="ia-go" type="button" style="width:100%;padding:12px;background:var(--teal);color:var(--void);font-weight:600;font-size:14px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">Continue to payment &rarr;</button>' +
+        '<p id="ia-err" style="font-size:12.5px;color:#e84560;margin:10px 0 0;min-height:1px;"></p>';
+      checkoutBtn.parentNode.insertBefore(box, checkoutBtn.nextSibling);
+      document.getElementById('ia-go').addEventListener('click', registerAndPay);
+      document.getElementById('ia-pass').addEventListener('keydown', function(e){ if(e.key==='Enter') registerAndPay(); });
+    }
+    document.getElementById('ia-msg').textContent = msg;
+    box.style.display = 'block';
+    document.getElementById('ia-email').focus();
+  }
+
+  async function registerAndPay() {
+    const email = (document.getElementById('ia-email').value || '').trim();
+    const pass  = document.getElementById('ia-pass').value || '';
+    const err   = document.getElementById('ia-err');
+    const go    = document.getElementById('ia-go');
+    err.textContent = '';
+    if (!email || email.indexOf('@') === -1) { err.textContent = 'Please enter a valid email address.'; return; }
+    if (pass.length < 8) { err.textContent = 'Password needs at least 8 characters.'; return; }
+    go.disabled = true; go.textContent = 'Setting up...';
+    try {
+      // Try to create the account. If the email already exists, sign in instead.
+      let { data, error } = await sb.auth.signUp({ email: email, password: pass });
+      if (error || !data.session) {
+        const si = await sb.auth.signInWithPassword({ email: email, password: pass });
+        if (si.error) {
+          err.textContent = (error && /already/i.test(error.message))
+            ? 'That email already has an account. Check the password, or reset it from the login page.'
+            : ((si.error.message || 'Could not sign you in.'));
+          go.disabled = false; go.textContent = 'Continue to payment \u2192';
+          return;
+        }
+      }
+      go.textContent = 'Opening checkout...';
+      await startCheckout();
+    } catch (e) {
+      err.textContent = 'Something went wrong. Please try again.';
+      go.disabled = false; go.textContent = 'Continue to payment \u2192';
+    }
+  }
+
+  async function startCheckout() {
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) { showInlineAuth('Create your account and we will take you straight to payment.'); setBtn(BTN_DEFAULT, false); return; }
+    const resp = await fetch(SUPABASE_URL + '/functions/v1/create-checkout-session-v3', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY },
+      body: JSON.stringify({
+        user_id: session.user.id,
+        email: session.user.email,
+        tier: REGION.tier,
+        success_url: window.location.origin + '/paid-tier.html?payment=success',
+        cancel_url: window.location.origin + '/paid-tier.html?payment=canceled'
+      })
+    });
+    const data = await resp.json();
+    if (resp.ok && data.url) { window.location.href = data.url; return; }
+    if (data.error === 'payment_not_configured') {
+      alert('Payment processing is being finalized \u2014 Full Access will be purchasable very soon.');
+    } else {
+      alert('Checkout could not be started: ' + (data.message || 'unknown error') + '. Please try again or contact us.');
+    }
+    setBtn(BTN_DEFAULT, false);
+  }
+
   checkoutBtn.addEventListener('click', async function() {
     if (hasFullAccess) { window.location.href = '#paths'; return; }
     if (!sb) { alert('Checkout is temporarily unavailable. Please refresh the page and try again.'); return; }
@@ -889,38 +967,15 @@ table.vp-cmp .vp-vipcol{background:rgba(232,184,0,.04)}
     try {
       const { data: { session } } = await sb.auth.getSession();
       if (!session) {
-        alert('Please create a free account first (it takes 60 seconds), then come back here to purchase.');
-        window.location.href = 'index.html#join';
+        setBtn(BTN_DEFAULT, false);
+        showInlineAuth('Your access is tied to an account so you can log back in on any device. Takes about fifteen seconds, then straight to payment.');
         return;
       }
-
-      const resp = await fetch(SUPABASE_URL + '/functions/v1/create-checkout-session-v3', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY },
-        body: JSON.stringify({
-          user_id: session.user.id,
-          email: session.user.email,
-          tier: REGION.tier,
-          success_url: window.location.origin + '/paid-tier.html?payment=success',
-          cancel_url: window.location.origin + '/paid-tier.html?payment=canceled'
-        })
-      });
-
-      const data = await resp.json();
-      if (resp.ok && data.url) {
-        window.location.href = data.url;  // Redirect to Stripe Checkout
-        return;
-      }
-      if (data.error === 'payment_not_configured') {
-        alert('Payment processing is being finalized — Full Access will be purchasable very soon. All content is currently open for preview.');
-      } else {
-        alert('Checkout could not be started: ' + (data.message || 'unknown error') + '. Please try again or contact us.');
-      }
+      await startCheckout();
     } catch (err) {
       console.error('Checkout error:', err);
       alert('Something went wrong starting checkout. Please try again.');
-    } finally {
-      if (!checkoutBtn.textContent.includes('Full Access') || checkoutBtn.textContent === 'Loading...') setBtn(BTN_DEFAULT, false);
+      setBtn(BTN_DEFAULT, false);
     }
   });
 
