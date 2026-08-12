@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Break into GBS Playbook — how GBS hiring actually works from the hiring manager side, and how to get in. ATS, CV evidence, referrals, and the interview, with templates.">
+<link rel="canonical" href="https://gbsinsiderclub.com/path-break-into-gbs.html">
+<title>Break into GBS Playbook — GBS Insider Club</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --void: #080b10; --surface: #0e1219; --surface-2: #141922; --surface-3: #1b2130;
+    --teal: #1d6aff; --gold: #e8b800; --sky: #38bdf8;
+    --text: #ffffff; --text-2: #c8d0de; --body-bright: #dde3ec; --text-3: #7a8799;
+    --border: #1e2636; --border-2: #2a3347;
+    --green: #34d399; --purple: #a78bfa;
+  }
+  body { background: var(--void); color: var(--text-2); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 56px; background: rgba(8,11,16,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .topbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand-mark { width: 28px; height: 28px; border: 1px solid rgba(29,106,255,0.3); border-radius: 4px; background: rgba(29,106,255,0.06); display: flex; align-items: center; justify-content: center; }
+  .brand-name { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+  .brand-name span:first-child { color: var(--teal); }
+  .brand-name span:last-child { color: var(--text-2); font-weight: 400; }
+  .topbar-nav { display: flex; align-items: center; gap: 20px; }
+  .topbar-nav a { color: var(--text-2); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .topbar-nav a:hover { color: var(--teal); }
+  .page { padding-top: 56px; }
+  .content-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.15em; text-transform: uppercase; }
+  .eyebrow-gold { color: var(--gold); }
+  .breadcrumb { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; }
+  .breadcrumb a { color: var(--text-2); text-decoration: none; } .breadcrumb a:hover { color: var(--teal); }
+  .breadcrumb .sep { margin: 0 8px; opacity: 0.4; }
+  .hero { padding: 64px 0 48px; position: relative; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: radial-gradient(ellipse at 80% 30%, rgba(29,106,255,0.05) 0%, transparent 70%); pointer-events: none; }
+  .hero h1 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--text); line-height: 1.1; margin: 14px 0 16px; }
+  .hero h1 strong { font-weight: 600; color: var(--teal); }
+  .hero-lead { font-size: 19px; color: var(--text); line-height: 1.7; margin-bottom: 18px; max-width: 1040px; }
+  .hero-body { font-size: 17px; color: var(--text-2); line-height: 1.85; max-width: 1040px; }
+  .section { padding: 72px 0; border-top: 1px solid var(--border); }
+  .section h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; color: var(--text); margin: 10px 0 14px; }
+  .section-intro { font-size: 17px; color: var(--text); line-height: 1.8; max-width: 1040px; margin-bottom: 36px; }
+  .svg-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin: 8px 0 28px; overflow-x: auto; }
+  .svg-frame svg { display: block; width: 100%; height: auto; min-width: 680px; max-width: 980px; margin: 0 auto; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
+  .card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+  .card p { font-size: 15px; color: var(--body-bright); line-height: 1.8; }
+  .data-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+  .data-table th, .data-table td { padding: 12px 16px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+  .data-table th { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); background: var(--surface-2); }
+  .data-table td { color: var(--text-2); }
+  .data-table td:first-child { color: var(--text); font-weight: 500; }
+  .step-header { display: flex; align-items: center; gap: 16px; margin: 0 0 8px; }
+  .step-num { width: 52px; height: 52px; border-radius: 10px; background: rgba(29,106,255,0.08); border: 1px solid rgba(29,106,255,0.3); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--teal); flex-shrink: 0; }
+  .step-num.gold { color: var(--gold); border-color: rgba(232,184,0,0.35); background: rgba(232,184,0,0.06); }
+  .step-kicker { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-2); letter-spacing: 0.12em; text-transform: uppercase; }
+  .module { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
+  .module summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 18px 22px; transition: background 0.2s; }
+  .module summary::-webkit-details-marker { display: none; }
+  .module summary:hover { background: var(--surface-3); }
+  .mod-code { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #4d8bff; letter-spacing: 0.06em; flex-shrink: 0; width: 50px; }
+  .mod-title { font-size: 15px; font-weight: 500; color: var(--text); flex: 1; }
+  .mod-arrow { color: var(--text-2); font-size: 14px; transition: transform 0.3s; }
+  .module[open] .mod-arrow { transform: rotate(180deg); color: var(--teal); }
+  .module[open] summary { border-bottom: 1px solid var(--border); }
+  .mod-body { padding: 8px 28px 30px; }
+  .mod-body p { font-size: 16px; color: var(--body-bright); line-height: 1.85; margin-bottom: 18px; max-width: 90ch; }
+  .mod-body ul { margin: 0 0 14px 18px; }
+  .mod-body li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 6px; }
+  .mod-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin: 18px 0 8px; }
+  .mod-label.gold { color: var(--gold); }
+  .mod-label.sky { color: var(--sky); }
+  .exercise-block { background: rgba(56,189,248,0.05); border-left: 3px solid var(--sky); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0; }
+  .exercise-block p { margin-bottom: 0; }
+  .ai-block { background: rgba(29,106,255,0.05); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0; }
+  .ai-block p { margin-bottom: 0; }
+  .checkpoint-block { background: var(--surface); border: 1px dashed var(--border-2); border-radius: 8px; padding: 14px 18px; margin-top: 16px; }
+  .checkpoint-block .cp-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--text-2); padding: 4px 0; line-height: 1.6; }
+  .checkpoint-block .cp-box { width: 14px; height: 14px; border: 1px solid var(--border-2); border-radius: 3px; flex-shrink: 0; margin-top: 3px; }
+  .jt-block { background: rgba(232,184,0,0.06); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; max-width: 1040px; }
+  .jt-block .jt-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+  .jt-block p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin: 0; }
+  .milestone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+  .milestone-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+  .milestone-card .ms-month { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+  .milestone-card h3 { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 14px; }
+  .tollgate { background: var(--surface-3); border: 1.5px solid var(--gold); border-radius: 10px; padding: 28px; margin-top: 24px; }
+  .tollgate h3 { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .tollgate .tg-sub { font-size: 14px; color: var(--text-2); margin-bottom: 16px; line-height: 1.7; }
+  .footer-nav { padding: 48px 0 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-nav a { color: var(--text-2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--teal); }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: var(--teal); color: var(--void); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-decoration: none; border-radius: 6px; transition: background 0.2s; }
+  .btn-primary:hover { background: #3d7eff; }
+  @media (max-width: 1024px) { .content-wrap { padding: 0 24px; } .topbar { padding: 0 24px; } }
+  @media (max-width: 600px) { .hero h1 { font-size: 32px; } .data-table th, .data-table td { padding: 9px 10px; font-size: 13px; } }
+
+  /* Polish pass: readability + spacing */
+  .mod-body table.data-table td { font-size: 14px; color: var(--body-bright); }
+  .mod-body table.data-table th { font-size: 13px; }
+  .mod-label { font-size: 13px; }
+  .module { margin-bottom: 18px; }
+  .step-header { margin-bottom: 14px; }
+  .jt-block, .ai-block, .exercise-block, .checkpoint-block { margin: 22px 0; }
+  .jt-block p, .ai-block p, .exercise-block p { font-size: 15px; line-height: 1.8; color: var(--body-bright); }
+  .checkpoint-block li { font-size: 14.5px; }
+  figure { margin: 28px 0 !important; }
+
+
+  /* Model recap nav strip */
+  .spine-section { border-top: none; padding-bottom: 12px; }
+  .spine-intro { font-size: 16px; color: var(--text-2); line-height: 1.7; margin: 4px 0 22px; max-width: 1040px; }
+  .spine-strip { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+  .spine-chip { display: flex; flex-direction: column; gap: 5px; flex: 1 1 150px; min-width: 140px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-decoration: none; transition: border-color 0.18s, transform 0.18s, background 0.18s; }
+  .spine-chip:hover { border-color: #4d8bff; transform: translateY(-3px); background: rgba(29,106,255,0.06); }
+  .spine-num { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #4d8bff; letter-spacing: 0.1em; }
+  .spine-label { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.35; }
+  .spine-arrow { display: flex; align-items: center; color: var(--text-2); font-size: 16px; flex: 0 0 auto; }
+  @media (max-width: 1040px) { .spine-arrow { display: none; } .spine-chip { flex-basis: calc(50% - 6px); } }
+
+
+  /* Inline knowledge check */
+  .kcheck { background: rgba(232,184,0,0.05); border: 1px solid rgba(232,184,0,0.3); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 22px 0; }
+  .kcheck-q { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; }
+  .kcheck-question { font-size: 15.5px; color: var(--text); font-weight: 500; line-height: 1.7; margin: 0 0 14px; }
+  .kcheck-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; padding: 8px 18px; border-radius: 7px; cursor: pointer; transition: background 0.18s, color 0.18s; }
+  .kcheck-btn:hover { background: var(--gold); color: var(--void); }
+  .kcheck-answer { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(232,184,0,0.25); font-size: 14.5px; color: var(--body-bright); line-height: 1.8; }
+  .kcheck.revealed .kcheck-answer { display: block; }
+  .kcheck.revealed .kcheck-btn { display: none; }
+
+
+  /* Session Recap blocks */
+  .checkpoint-block { background: var(--surface); border: 1px solid var(--border-2); border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 26px 0; }
+  .recap-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .recap-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+  .recap-why { font-size: 13.5px; color: var(--text-2); line-height: 1.6; margin: 0 0 14px; font-style: italic; }
+  .checkpoint-block .cp-list { margin: 0; padding: 0; list-style: none; }
+
+.mod-body .exercise-block,.mod-body .ai-block,.mod-body .jt-block,.mod-body .checkpoint-block,.mod-body .fieldskill{margin-top:32px;margin-bottom:32px;}
+
+/* visual layer v1: thin-line icons on block labels (CSS-only, color inherits label) */
+.exercise-block .mod-label::before,.ai-block .mod-label::before,.jt-block .jt-label::before,.fieldskill .fs-label::before,.checkpoint-block .recap-title::before{content:"";display:inline-block;width:15px;height:15px;margin-right:9px;vertical-align:-2px;background:currentColor;-webkit-mask:var(--ic) no-repeat center/contain;mask:var(--ic) no-repeat center/contain;}
+.exercise-block .mod-label::before{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M10%206h10M10%2012h10M10%2018h10%27%2F%3E%3Cpath%20d%3D%27M3.5%206l1.1%201.1L6.6%205M3.5%2012l1.1%201.1L6.6%2011M3.5%2018l1.1%201.1L6.6%2017%27%2F%3E%3C%2Fsvg%3E");}
+.ai-block .mod-label::before{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M12%203l1.9%205.4L19%2010.5l-5.1%202.1L12%2018l-1.9-5.4L5%2010.5l5.1-2.1z%27%2F%3E%3C%2Fsvg%3E");}
+.jt-block .jt-label::before{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M9.5%2018h5M10.5%2021h3%27%2F%3E%3Cpath%20d%3D%27M12%203a6%206%200%200%201%203.6%2010.8c-.6.5-1.1%201.2-1.1%202.2H9.5c0-1-.5-1.7-1.1-2.2A6%206%200%200%201%2012%203z%27%2F%3E%3C%2Fsvg%3E");}
+.fieldskill .fs-label::before{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%278%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%274%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%271%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3C%2Fsvg%3E");}
+.checkpoint-block .recap-title::before{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M20%206.5L9.2%2017.3%204%2012.1%27%2F%3E%3C%2Fsvg%3E");}
+
+/* visual layer v2: branded section dividers */
+.section{border-top:none;position:relative;}
+.section::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+ background:linear-gradient(90deg,var(--teal) 0,var(--teal) 64px,transparent 64px) left top/100% 2px no-repeat,
+ linear-gradient(90deg,transparent,var(--border-2) 20%,var(--border-2) 80%,transparent) left top/100% 1px no-repeat;}
+.spine-section::before{display:none;}
+/* right-aligned callouts (fill the right zone, text wraps left) */
+.callout-right{float:right;width:38%;min-width:250px;max-width:360px;margin:4px 0 18px 30px;
+ background:var(--surface-2);border:1px solid var(--border-2);border-left:3px solid var(--gold);
+ border-radius:0 10px 10px 0;padding:18px 20px;}
+.callout-right .co-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--gold);display:block;margin:0 0 8px;}
+.callout-right p{font-size:15px;color:var(--text);line-height:1.5;margin:0;max-width:none;}
+.mod-body .exercise-block,.mod-body .ai-block,.mod-body .jt-block,.mod-body .checkpoint-block,.mod-body .fieldskill{clear:right;}
+@media(max-width:760px){.callout-right{float:none;width:auto;max-width:none;margin:16px 0;}}
+.minifig{clear:both;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px 24px;margin:24px auto 30px;max-width:840px;overflow-x:auto;}.minifig svg{display:block;width:100%;height:auto;max-width:100%;margin:0 auto;}.callout-right:has(.minifig),.callout:has(.minifig){float:none;width:auto;max-width:100%;}.minifig .mf-cap{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-2);text-align:center;margin-top:12px;}
+.tier-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap;line-height:1;}.tier-vip{color:#e8b800;border-color:rgba(232,184,0,.5);background:rgba(232,184,0,.08);}.tier-free{color:#7a8799;border-color:#2a3347;background:transparent;}
+.hero{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;}@media(min-width:920px){.hero:not(.no-fig){grid-template-columns:1fr 320px;}}.hero.no-fig{grid-template-columns:1fr;}.hero-figure{display:flex;justify-content:center;}.hero.no-fig .hero-figure{display:none;}.hero-img{width:100%;max-width:320px;border-radius:14px;border:1px solid var(--border-2);box-shadow:0 14px 44px rgba(0,0,0,.45);object-fit:cover;aspect-ratio:4/5;}
+.toolkit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}@media(max-width:820px){.toolkit-grid{grid-template-columns:1fr;}}.toolkit-card{display:block;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:22px;text-decoration:none;transition:border-color .2s,transform .2s;}.toolkit-card:hover{border-color:var(--teal);transform:translateY(-2px);}.tk-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}.toolkit-card h3{font-size:18px;font-weight:500;color:var(--text);margin:6px 0 8px;}.toolkit-card p{font-size:14px;color:var(--text-2);line-height:1.55;margin-bottom:14px;max-width:none;}.tk-go{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);}
+.gq{display:flex;gap:16px;align-items:center;margin:0 0 30px;padding:16px 18px;background:var(--surface-2,#141922);border:1px solid var(--border,#1e2535);border-left:3px solid var(--gold,#e8b800);border-radius:8px}.gq-av{width:132px;height:132px;border-radius:50%;overflow:hidden;border:1.5px solid var(--gold,#e8b800);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold,#e8b800);font-weight:500;font-size:48px}.gq-av img{width:100%;height:100%;object-fit:cover;display:block;max-width:none}.gq-body{flex:1;min-width:0}.gq-ask{margin:0 0 7px;font-size:17px;font-weight:300;color:var(--text,#d4dbe8);line-height:1.5}.gq-name{color:var(--text-3,#4e5a6e);font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.gq-ask em{font-style:italic;color:var(--gold,#e8b800)}.gq-bridge{margin:0;font-size:14px;color:var(--text-2,#8a96ab);line-height:1.55}.gq-arrow{color:var(--teal,#1d6aff);font-family:"JetBrains Mono",monospace;margin-right:7px}@media(max-width:640px){.gq{flex-direction:column;align-items:flex-start;padding:16px 15px;gap:12px}.gq-av{width:120px;height:120px}.gq-ask{font-size:16px}}.pf{display:flex;align-items:center;gap:12px;margin:34px 0 10px;padding:14px 18px;background:var(--surface-2,#141922);border:1px solid var(--border,#1e2535);border-radius:8px;flex-wrap:wrap}.pf-q{font-size:14px;color:var(--text-2,#8a96ab)}.pf-btn{font-family:inherit;font-size:13px;color:var(--text,#d4dbe8);background:transparent;border:1px solid var(--border-2,#252e40);border-radius:6px;padding:7px 16px;cursor:pointer}.pf-btn:hover{border-color:var(--teal,#1d6aff)}.pf-done{font-size:13px;color:var(--green,#34d399)}
+</style>
+<style>
+  /* glassmorphism + dynamic tiles (applies to static and JS-rendered cards by class) */
+  .card, .spine-chip, .step-card, .mod-card { transition: transform .28s cubic-bezier(.16,.84,.44,1), border-color .28s, box-shadow .28s; }
+  .card, .step-card, .mod-card { background: rgba(20,25,34,0.55) !important; -webkit-backdrop-filter: blur(14px) saturate(120%); backdrop-filter: blur(14px) saturate(120%); }
+  .card:hover, .spine-chip:hover, .step-card:hover, .mod-card:hover { transform: translateY(-3px); border-color: rgba(232,184,0,0.42) !important; box-shadow: 0 14px 34px -18px rgba(0,0,0,.85); }
+  .card ul.tile-bullets { margin: 0; padding-left: 1.05em; list-style: none; }
+  .card ul.tile-bullets li { position: relative; margin: 0 0 7px; padding-left: 0.2em; font-size: 14.5px; color: var(--body-bright); line-height: 1.6; }
+  .card ul.tile-bullets li::before { content: ""; position: absolute; left: -0.85em; top: 0.6em; width: 5px; height: 5px; border-radius: 1px; background: var(--gold); transform: rotate(45deg); }
+  .card ul.tile-bullets strong { color: var(--gold); font-weight: 600; }
+  .data-table th, .data-table td { padding: 15px 20px; }
+  .data-table { margin: 24px 0 36px; }
+  .data-table + .data-table, p + .data-table { margin-top: 8px; }
+</style>
+<style>
+/* Readability + spacing pass v3 — decompression + bigger section headings + AI-note redesign + zoom affordance */
+.mod-body { padding: 30px 36px 46px; }
+.mod-body > p { max-width: 68ch; margin-bottom: 26px; line-height: 1.9; }
+.mod-body ul { margin: 4px 0 26px 20px; }
+.mod-body li { margin-bottom: 10px; line-height: 1.8; }
+.mod-body > .mod-label { font-size: 18px; letter-spacing: .05em; margin: 54px 0 18px; }
+.mod-body .data-table { margin: 18px 0 38px; }
+.mod-body .data-table th, .mod-body .data-table td { padding: 16px 20px; line-height: 1.7; }
+.mod-body .data-table th { font-size: 12px; }
+.mod-body .media-row { margin: 44px 0 46px; align-items: flex-start; gap: 32px; }
+.mod-body .jt-block { padding: 22px 26px; }
+.mod-body > .jt-block { margin: 44px 0; }
+.mod-body .jt-block p { line-height: 1.9; }
+.mod-body .ai-block, .mod-body .exercise-block { margin: 42px 0 8px; padding: 22px 26px; }
+.mod-body .ai-block p, .mod-body .exercise-block p { line-height: 1.85; }
+.module { margin-bottom: 44px; }
+.module summary { padding: 20px 26px; }
+.callout-right { margin: 4px 0 30px 40px; }
+.step-header { margin: 18px 0 26px; }
+/* AI Application — neutralise note as a bold, bulleted callout */
+.neutralise-note { margin-top: 20px; padding: 18px 22px; border: 1px solid var(--border-2); border-radius: 10px; background: rgba(232,184,0,0.07); }
+.neutralise-note .nn-head { display: flex; align-items: center; gap: 11px; color: var(--gold); font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; margin-bottom: 14px; }
+.neutralise-note .nn-ico { width: 24px; height: 24px; flex: 0 0 auto; }
+.neutralise-note .nn-list { margin: 0; padding: 0; list-style: none; }
+.neutralise-note .nn-list li { position: relative; padding-left: 26px; font-size: 15px; line-height: 1.6; color: var(--text); margin-bottom: 12px; max-width: none; }
+.neutralise-note .nn-list li:last-child { margin-bottom: 0; }
+.neutralise-note .nn-list li::before { content: ""; position: absolute; left: 4px; top: 8px; width: 9px; height: 9px; border-radius: 2px; background: var(--gold); }
+.neutralise-note strong { color: var(--gold); font-weight: 600; }
+/* Click-to-zoom affordance (lightbox wired in assets/zoom.js) */
+.side-visual svg, .svg-frame svg, .minifig svg, .mod-body figure svg { cursor: zoom-in; }
+.mod-body > .mod-label::before { content:""; display:inline-block; width:16px; height:16px; margin-right:11px; vertical-align:-3px; background:var(--teal); -webkit-mask:var(--ms-sec) no-repeat center/contain; mask:var(--ms-sec) no-repeat center/contain; }
+.mod-body > .mod-label { --ms-sec:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223.5%22%20y%3D%223.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2213.5%22%20y%3D%223.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%223.5%22%20y%3D%2213.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2213.5%22%20y%3D%2213.5%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3C%2Fsvg%3E"); }
+.mod-body .media-row .side-visual { flex: 0 0 320px; max-width: 320px; }
+@media (max-width: 760px){ .mod-body .media-row .side-visual { flex-basis: auto; max-width: 320px; margin: 6px auto 0; } }
+@media (max-width: 760px){ .mod-body { padding: 22px 22px 34px; } .mod-body .media-row { margin: 30px 0; } .mod-body > .mod-label { margin: 38px 0 14px; font-size: 16px; } .callout-right { margin: 8px 0 22px; } }
+</style>
+  <link rel="stylesheet" href="/assets/mobile.css?v=31">
+</head>
+<body>
+<nav class="topbar">
+  <a href="index.html" class="topbar-brand">
+    <div class="brand-mark"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 22 L16 8 L20 14 L26 8" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8 L26 8 L26 12" stroke="#1d6aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="brand-name"><span>GBS</span><span> INSIDER CLUB</span></div>
+  </a>
+  <span class="tier-badge tier-vip">VIP tier</span>
+  <div class="topbar-nav"><a href="paid-tier.html">All Paths</a><a href="index.html">Free Tier</a><a href="paid-tier.html#pricing" class="btn-primary" style="font-size:12px; padding:6px 16px;">Get Access</a></div>
+</nav>
+<div class="page"><div class="content-wrap">
+
+
+  <section class="hero">
+    <div class="hero-text">
+    <div class="breadcrumb"><a href="index.html">GBS Insider Club</a><span class="sep">/</span><a href="paid-tier.html">Career Playbooks</a><span class="sep">/</span><span style="color:var(--teal);">Break into GBS Playbook</span></div>
+    <span class="eyebrow">Career Path — Break into GBS</span>
+    <h1>Break into GBS <span class="gold-line">from the hiring side</span></h1>
+    <p class="hero-lead">You want to get into Global Business Services, Shared Services, or business process outsourcing, and nobody has told you how the hiring side actually works. This playbook is written from the other side of the table. It covers what happens to your CV before a human sees it, how a referral changes your route entirely, what a hiring manager is really deciding once you are on the shortlist, and how to run the whole search like a project instead of a hobby.</p>
+    <p class="hero-body">Getting hired is a skill nobody teaches at work, and most advice about it comes from people who have never sat on the other side of the table. This playbook is built from what a hiring manager actually does with your application: what the tracking system does to your CV before a human sees it, why a referral changes your route completely, and what is really being decided in the room once everyone on the shortlist can already do the job.</p>
+  </div>
+    <div class="hero-figure"><img class="hero-img" src="images/people-process-metrics.webp" alt="A GBS subject-matter expert working on a project" loading="lazy" onerror="this.closest('.hero').classList.add('no-fig')"></div>
+  </section>
+
+  <!-- ============ MODEL RECAP NAV ============ -->
+  <section class="section spine-section" style="padding-top:40px;">
+    <div class="gq"><div class="gq-av"><img src="images/cast/priya-neutral.webp" alt="Priya" onerror="this.parentNode.textContent='P'"></div><div class="gq-body"><p class="gq-ask"><span class="gq-name">Priya asks</span> &mdash; <em>"The migration needs me. So does BAU. Something has to give."</em></p><p class="gq-bridge"><span class="gq-arrow">&rarr;</span>Protect your delivery and your standing while the project runs through you.</p></div></div>
+
+    <span class="eyebrow eyebrow-gold">The Path at a Glance</span>
+    <p class="spine-intro">Two stages, from setting your expectations to handling the room. Click either to jump to it.</p>
+    <div class="spine-strip">
+      <a href="#week-1" class="spine-chip">
+        <span class="spine-num">STAGE 1</span>
+        <span class="spine-label">Know Your Difficulty</span>
+      </a><span class="spine-arrow" aria-hidden="true">&rarr;</span><a href="#week-2" class="spine-chip">
+        <span class="spine-num">STAGE 2</span>
+        <span class="spine-label">The Hiring Side</span>
+      </a>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <span class="eyebrow">Before You Start</span>
+    <h2>How this path works</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Built from the hiring side</h3><ul class="tile-bullets"><li>What a hiring manager <strong>actually does</strong> with your application</li><li>Written from real interviews, not job-board advice</li><li>Covers the parts nobody tells candidates</li></ul></div>
+      <div class="card"><h3>Preparation is what you control</h3><ul class="tile-bullets"><li>Your stage and the market set the <strong>difficulty</strong></li><li>Everything else is preparation, and almost nobody does it properly</li><li>Run the search <strong>as a project</strong>, not a hobby</li></ul></div>
+      <div class="card"><h3>Templates you actually use</h3><ul class="tile-bullets"><li>CV evidence builder, application tracker, interview prep sheet</li><li>Plus a <strong>brag sheet</strong> for day one of the new role</li><li>Built to be <strong>edited</strong>, ready for your real application</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="eyebrow">The Opportunity</span>
+    <h2>Why the door in is wider than it looks</h2>
+    <p class="section-intro">People waste months hunting for a way in that does not exist. The honest answer is simpler, and it makes the target concrete.</p>
+    <div class="grid-3">
+      <div class="card"><h3>The realistic first role</h3><p>Most new-joiner roles in Global Business Services are analyst or processor roles. That is the door. You are not hunting a rare opening, you are competing for a role that exists in volume, which means preparation is what separates you.</p></div>
+      <div class="card"><h3>Your other experience counts</h3><p>Coming from finance, operations, customer service, or business process outsourcing, your work already touches process, controls, stakeholders, and data. Described in those terms it reads as relevant rather than unrelated.</p></div>
+      <div class="card"><h3>The referral changes the route</h3><p>Everything else in this playbook is optimization. A referral is the one move that changes how you get there, because it walks past the tracking system and puts you in front of a person.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ YOUR TOOLKIT ============ -->
+  <section class="section" id="toolkit">
+    <span class="eyebrow eyebrow-gold">Your Toolkit</span>
+    <h2>Apply it at work — not just on the page</h2>
+    <p class="section-intro">Reading changes nothing on its own. These three tools turn each module into action: a weekly prompt, a desk reminder, and a place to bank the proof.</p>
+    <div class="toolkit-grid">
+      <a class="toolkit-card" href="action-cards-break-into-gbs.html"><span class="tk-eyebrow">Apply</span><h3>This Week on the Project</h3><p>6 weekly cards. Five actions each — applied on your real project alongside BAU.</p><span class="tk-go">Open the cards →</span></a>
+      <a class="toolkit-card" href="desk-cards.html"><span class="tk-eyebrow">Remember</span><h3>Desk Cards</h3><p>The core frameworks as printable reminders. Pin one at your desk until it is second nature.</p><span class="tk-go">Open the cards →</span></a>
+      <a class="toolkit-card" href="proof-of-work-associate.html"><span class="tk-eyebrow">Bank</span><h3>Proof of Work</h3><p>Track the 10 real deliverables you will build. By the end, it is your evidence file.</p><span class="tk-go">Open the tracker →</span></a><a class="toolkit-card" href="path-social-media.html"><span class="tk-eyebrow">Get known</span><h3>Personal Brand</h3><p>Build professional visibility on purpose — LinkedIn, a network that means something, and safe posting. A cross-path topic for every level.</p><span class="tk-go">Open the topic →</span></a><a class="toolkit-card" href="path-promotion-plateau.html"><span class="tk-eyebrow">Break through</span><h3>The Promotion Plateau</h3><p>When your strengths become your ceiling. The shift from individual output to scaling a team — and the moves that get you through it.</p><span class="tk-go">Open the topic →</span></a><a class="toolkit-card" href="path-sap.html"><span class="tk-eyebrow">System literacy</span><h3>SAP for GBS</h3><p>The system of record behind your day. What it is, the modules you touch, how to navigate, and why the data underneath matters.</p><span class="tk-go">Open the topic →</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="week-1">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div><span class="step-kicker">Break into GBS — Stage 1</span><h2 style="margin:2px 0 0;">Know Your Difficulty Before You Start</h2></div>
+    </div>
+    <p class="section-intro">Two things decide how hard this will be before you write a word, and neither is your fault. Getting them straight early is what stops you reading normal silence as personal failure.</p>
+
+    <details class="module" open>
+      <summary><span class="mod-code">1.1</span><span class="mod-title">Your Stage and Your Market Set the Game</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+          <div class="callout-right"><span class="co-label">Key principle</span><p>There is no single job-hunting process. There are four, and the market decides the speed.</p></div>
+        <p>People burn out because they expect one process for everybody. A total newcomer, someone with a few years, an advanced specialist, and a leader are playing four different games. What you lead with changes at every stage.</p>
+        <p>On top of that sits supply and demand. If you are an expert the market wants, the process is easy. Apply into a saturated market and the same effort takes far longer. That is the market, not a verdict on you.</p>
+        <p>Set your expectation from both, then put your energy where it actually pays, which is preparation.</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-code">1.2</span><span class="mod-title">Three Hurdles, Run in Parallel</span><span class="mod-arrow">&#9662;</span></summary>
+      <div class="mod-body">
+          <div class="callout-right"><span class="co-label">Key principle</span><p>Most people treat the application as one hurdle. It is three.</p></div>
+        <p>Before anyone judges whether you can do the job, you have to get in front of them. That happens across three separate hurdles, and the mistake almost everyone makes is running them one at a time.</p>
+        <p>First, pass the applicant tracking system, because software reads your CV before a human does. Second, make the CV genuinely worth reading, which is longer-term work. Third, find someone who will refer you, which walks you past the first hurdle entirely.</p>
+        <p>Work all three at once. Spending three months perfecting a CV before you speak to a single human is the slowest possible version of this.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="week-2">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div><span class="step-kicker">Break into GBS — Stage 2</span><h2 style="margin:2px 0 0;">Everything the Hiring Side Knows and You Do Not</h2></div>
+    </div>
+    <p class="section-intro">How to pass the tracking system honestly, build a CV that shows evidence, earn the referral that skips the queue, and handle the sixty minutes that decide the whole thing.</p>
+
+    <div id="gmount"><div class="preview-banner"><strong>Free preview:</strong> the first two modules are open. The full path opens with Full Access &mdash; <a href="paid-tier.html#pricing" style="color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);">see pricing</a>.</div><div class="gate-panel" id="gate-panel"><h3>The modules that move your career sit behind Full Access.</h3><p>What is left is the practical core — the hard conversations, the ready-to-use templates, the AI workflows, and the 90-day roadmap that turns all of it into a promotion case. One payment. Lifetime access. Every path, now and later — for $29.</p><a class="gate-btn" href="paid-tier.html#pricing">Get Full Access &mdash; $29 &rarr;</a></div></div>
+
+  </section>
+
+  <section class="section">
+    <h2>Templates &amp; tools</h2>
+    <p class="section-intro">Every template is built to be edited and used on your real application.</p>
+    <div class="grid-3">
+      <a class="card tpl-dl tpl-gated" href="#" data-file="CV_Evidence_Builder.xlsx"><h3>CV Evidence Builder</h3><p>Turn duty bullets into scope, action, and a measured result — with a truth check on every line.</p><span class="dl-go">Download .xlsx &rarr;</span></a>
+      <a class="card tpl-dl tpl-gated" href="#" data-file="Application_Tracker.xlsx"><h3>Application Tracker</h3><p>Every application, the exact CV version you sent, and whether a referral was behind it.</p><span class="dl-go">Download .xlsx &rarr;</span></a>
+      <a class="card tpl-dl tpl-gated" href="#" data-file="Interview_Prep_Sheet.xlsx"><h3>Interview Prep Sheet</h3><p>STAR stories in the first person, your three questions for them, and the hard parts you brace for.</p><span class="dl-go">Download .xlsx &rarr;</span></a>
+      <a class="card tpl-dl tpl-gated" href="#" data-file="Brag_Sheet.xlsx"><h3>Brag Sheet</h3><p>Start recording wins from day one of the new role. Unrecorded work disappears by review season.</p><span class="dl-go">Download .xlsx &rarr;</span></a>
+    </div>
+  </section>
+
+</div></div>
+
+<!-- progress-tracking -->
+<style>
+  .cp-item { cursor: pointer; user-select: none; transition: opacity 0.15s; }
+  .cp-item:hover .cp-box { border-color: var(--teal); }
+  .cp-item.done { opacity: 0.65; }
+  .cp-item.done .cp-box { background: var(--teal); border-color: var(--teal); position: relative; }
+  .cp-item.done .cp-box::after { content: ''; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px; border: solid var(--void); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .progress-bar-wrap { position: sticky; top: 56px; z-index: 90; background: rgba(8,11,16,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .progress-bar-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; gap: 16px; }
+  .progress-track { flex: 1; height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); border-radius: 3px; width: 0%; transition: width 0.3s ease; }
+  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-2); white-space: nowrap; letter-spacing: 0.04em; }
+  .progress-label strong { color: var(--gold); font-weight: 600; }
+  @media (max-width: 1024px) { .progress-bar-inner { padding: 0 24px; } }
+</style>
+<script>
+(function() {
+  var KEY = 'gbs-progress-sme';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) {}
+
+  var items = document.querySelectorAll('.cp-item');
+  var total = items.length;
+
+  // Progress bar UI
+  var page = document.querySelector('.page') || document.body;
+  var bar = document.createElement('div');
+  bar.className = 'progress-bar-wrap';
+  bar.innerHTML = '<div class="progress-bar-inner"><span class="progress-label">Your progress</span><div class="progress-track"><div class="progress-fill" id="pf"></div></div><span class="progress-label" id="pl"><strong>0</strong> / ' + total + '</span></div>';
+  page.insertBefore(bar, page.firstChild);
+
+  function render() {
+    var done = 0;
+    items.forEach(function(it, i) {
+      if (saved[i]) { it.classList.add('done'); done++; }
+      else { it.classList.remove('done'); }
+    });
+    document.getElementById('pf').style.width = (total ? Math.round(done / total * 100) : 0) + '%';
+    document.getElementById('pl').innerHTML = '<strong>' + done + '</strong> / ' + total + ' checkpoints';
+  }
+
+  items.forEach(function(it, i) {
+    it.addEventListener('click', function() {
+      saved[i] = !saved[i];
+      if (!saved[i]) delete saved[i];
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e) {}
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- tier-gating -->
+<style>
+  .module.locked .mod-body { display: none !important; }
+  .module.locked summary { opacity: 0.75; }
+  .module.locked .mod-arrow { display: none; }
+  .lock-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(232,184,0,0.35); border-radius: 3px; padding: 2px 7px; margin-left: auto; flex-shrink: 0; }
+  .gate-panel { background: linear-gradient(135deg, rgba(232,184,0,0.07), rgba(29,106,255,0.05)); border: 1px solid rgba(232,184,0,0.35); border-radius: 12px; padding: 32px 36px; margin: 28px 0; text-align: center; }
+  .gate-panel h3 { font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 10px; }
+  .gate-panel p { font-size: 14px; color: var(--text-2); line-height: 1.8; max-width: 640px; margin: 0 auto 20px; }
+  .gate-panel .gate-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: var(--void); font-size: 14px; font-weight: 600; padding: 12px 28px; border-radius: 8px; text-decoration: none; }
+  .preview-banner { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 14px 20px; margin: 16px 0 24px; font-size: 13px; color: var(--text-2); line-height: 1.7; }
+  .preview-banner strong { color: var(--gold); }
+.tpl-dl{text-decoration:none;display:block;transition:border-color .2s,transform .2s;}.tpl-dl:hover{border-color:var(--teal);transform:translateY(-2px);}.tpl-dl h3{color:var(--text);}.tpl-dl .dl-go{display:block;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);}</style>
+<script>
+(function(){
+  var U="https://wgdcfgknnentriqlajqe.supabase.co", K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo", FN=U+"/functions/v1/get-gated-content", PAGE="path-break-into-gbs";
+  function init(){
+    if(typeof supabase==="undefined") return;
+    var m=document.getElementById("gmount");
+    try{
+      var sb=supabase.createClient(U,K);
+      sb.auth.getSession().then(function(res){
+        var s=res.data?res.data.session:null;
+        if(!s) return;
+        fetch(FN,{method:"POST",headers:{"apikey":K,"Authorization":"Bearer "+s.access_token,"Content-Type":"application/json"},body:JSON.stringify({page:PAGE})})
+          .then(function(r){return r.ok?r.json():null;})
+          .then(function(j){ if(j&&j.html&&m){ m.innerHTML=j.html; } })
+          .catch(function(){});
+      }).catch(function(){});
+    }catch(e){}
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+})();
+</script>
+
+
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    if (e.target.classList && e.target.classList.contains('kcheck-btn')) {
+      var box = e.target.closest('.kcheck');
+      if (box) box.classList.add('revealed');
+    }
+  });
+})();
+</script>
+
+<script>(function(){var U="https://wgdcfgknnentriqlajqe.supabase.co",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZGNmZ2tubmVudHJpcWxhanFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NzQ0MzgsImV4cCI6MjA5NDM1MDQzOH0.kc1VHPV_CXUREYW5txiAJmZHWLFjH-2wZiEZBBbpsXo",DT=U+"/functions/v1/download-template";function go(file,el){if(typeof supabase==="undefined"){location.href="paid-tier.html#pricing";return;}var sb=supabase.createClient(U,K);if(el)el.classList.add("dl-loading");sb.auth.getSession().then(function(res){var s=res&&res.data&&res.data.session;if(!s){location.href="paid-tier.html#pricing";return;}fetch(DT,{method:"POST",headers:{"apikey":K,"Authorization":"Bearer "+s.access_token,"Content-Type":"application/json"},body:JSON.stringify({file:file})}).then(function(r){if(r.status===200)return r.json();if(r.status===401||r.status===403){location.href="paid-tier.html#pricing";}throw 0;}).then(function(d){if(d&&d.url){var a=document.createElement("a");a.href=d.url;a.download=file;document.body.appendChild(a);a.click();a.remove();}}).catch(function(){}).finally(function(){if(el)el.classList.remove("dl-loading");});});}document.addEventListener("click",function(e){var el=e.target.closest&&e.target.closest(".tpl-gated");if(!el)return;e.preventDefault();go(el.getAttribute("data-file"),el);});})();</script>
+<script src="/assets/mobile.js?v=31" defer></script>
+<div class="pc" data-page="path-break-into-gbs"><div class="pc-head">Leave a comment</div><input class="pc-name" type="text" maxlength="80" placeholder="Your name" aria-label="Your name"><textarea class="pc-body" maxlength="2000" rows="3" placeholder="Share a thought or question..." aria-label="Your comment"></textarea><div><button class="pc-submit" type="button">Post comment</button><span class="pc-msg"></span></div><button class="pc-toggle" type="button" aria-expanded="false">Comments <span class="pc-count"></span></button><div class="pc-list" hidden></div></div>
+<script>
+(function(){var U='https://wgdcfgknnentriqlajqe.supabase.co/rest/v1/page_feedback',K='sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp';
+function done(w){w.innerHTML='<span class="pf-done">Thanks — noted.</span>';}
+document.addEventListener('click',function(e){var b=e.target.closest('.pf-btn');if(!b)return;var w=b.closest('.pf'),p=w.getAttribute('data-page');
+try{if(localStorage.getItem('pf_'+p)){done(w);return;}}catch(_){}
+fetch(U,{method:'POST',headers:{'apikey':K,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({page_id:p,vote:b.getAttribute('data-v')})}).catch(function(){});
+try{localStorage.setItem('pf_'+p,'1');}catch(_){}
+done(w);});})();
+</script>
+</body>
