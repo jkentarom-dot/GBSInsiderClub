@@ -301,7 +301,7 @@
 /* ---- COMMENTS module (page_comments): submit -> moderation, expand -> approved ---- */
 (function(){
   var U="https://wgdcfgknnentriqlajqe.supabase.co/rest/v1/page_comments";
-  var K="sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp";
+  var K="sb_publishable_CCTet76nH9bl-eAj6mYZ8g_Q5OD82_Y";
   function esc(s){return (s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
   function fmt(d){try{return new Date(d).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});}catch(e){return "";}}
   function init(pc){
@@ -363,7 +363,7 @@
 (function(){
   try{
     var U="https://wgdcfgknnentriqlajqe.supabase.co/rest/v1/page_views";
-    var K="sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp";
+    var K="sb_publishable_CCTet76nH9bl-eAj6mYZ8g_Q5OD82_Y";
     var sid;
     try{ sid=localStorage.getItem("gbs_sid"); if(!sid){ sid=(Date.now().toString(36)+Math.random().toString(36).slice(2,10)); localStorage.setItem("gbs_sid",sid); } }catch(e){ sid="anon"; }
     var page=location.pathname.replace(/\/+$/,"")||"/";

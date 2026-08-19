@@ -16,7 +16,7 @@
    ───────────────────────────────────────────────────────────── */
 (function () {
   var URL_ = "https://wgdcfgknnentriqlajqe.supabase.co/rest/v1/waitlist",
-      KEY  = "sb_publishable_gBrOyef2GLzjPnjfmF_4gQ_hPEKuarp",
+      KEY  = "sb_publishable_CCTet76nH9bl-eAj6mYZ8g_Q5OD82_Y",
       FLAG = "gbs_joined";
 
   function joined() {
