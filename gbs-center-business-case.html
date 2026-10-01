@@ -121,7 +121,7 @@ ul.t{margin:0;padding-left:18px}ul.t li{margin:4px 0}
   add('Current state (source)', 'srcHcOverride', 'Source headcount override (0 = auto from FTE)', 'HC', 0, 0, 0, 'If you know the real headcount, enter it. FTE-to-HC uses contract factor otherwise.', 'High');
   add('Current state (source)', 'srcTenure', 'Average tenure of released staff', 'years', 9, 6, 12, 'Drives severance.', 'Med');
   add('Current state (source)', 'retainedPct', 'Retained organization at source (SPOC, governance)', '% of FTE', 4, 2, 8, 'Stays on source payroll; workload moved is reduced by this share.', 'Med');
-  add('Current state (source)', 'redeployPct', 'Released staff redeployed (no severance)', '% of HC', 5, 0, 15, 'Includes retirement and internal moves.', 'Med');
+  add('Current state (source)', 'redeployPct', 'Released staff redeployed (no severance)', '% of HC', 5, 0, 30, 'Includes retirement and internal moves.', 'Med');
   add('Current state (source)', 'redeployCredit', 'Cost credit for redeployed staff', '%', 50, 0, 100, 'Share of their cost counted as saved (e.g. fills vacancies).', 'Low');
   add('Current state (source)', 'srcSeatCost', 'Source office cost per head', 'EUR / month', 450, 300, 600, 'Rent + facilities per head at source.', 'Low');
   add('Current state (source)', 'srcExitPct', 'Source space actually released', '%', 25, 0, 50, 'Share of freed space that can be sublet/exited.', 'Low');
@@ -149,10 +149,10 @@ ul.t{margin:0;padding-left:18px}ul.t li{margin:4px 0}
   add('Efficiency', 'effScale', 'Efficiency realization', '%', 100, 50, 130, 'Scales the efficiency curve.', 'Med');
   add('Efficiency', 'autoScale', 'Automation realization', '%', 100, 0, 150, 'Scales automation effort released and adoption.', 'Low');
 
-  add('Severance & people', 'sevUplift', 'Severance above statutory / formula', '%', 20, 0, 60, 'Negotiated or social-plan uplift.', 'Med');
+  add('Severance & people', 'sevUplift', 'Severance above statutory / formula', '%', 10, 0, 60, 'Negotiated or social-plan uplift.', 'Med');
   add('Severance & people', 'legalPerHead', 'Legal, works council, outplacement per head', 'EUR', 2500, 1000, 5000, '', 'Low');
-  add('Severance & people', 'retentionShare', 'Staff receiving stay bonus', '%', 60, 30, 100, '', 'Med');
-  add('Severance & people', 'retentionPct', 'Stay bonus', '% of annual gross', 15, 8, 25, '', 'Med');
+  add('Severance & people', 'retentionShare', 'Staff receiving stay bonus', '%', 40, 20, 100, '', 'Med');
+  add('Severance & people', 'retentionPct', 'Stay bonus', '% of annual gross', 10, 5, 25, '', 'Med');
   add('Severance & people', 'annLag', 'Notice given after wave start', 'months', 0, 0, 2, 'Delay between kickoff and notice.', 'High');
 
   add('Knowledge transfer', 'ktTravel', 'New hires learning by travel to source', '%', 30, 10, 60, 'Rest is split into train-the-trainer and remote.', 'Med');
@@ -190,10 +190,10 @@ ul.t{margin:0;padding-left:18px}ul.t li{margin:4px 0}
   add('Overheads & program', 'onboardingPerHire', 'Onboarding cost per hire (material, trainers)', 'EUR', 2500, 1500, 4000, '', 'Med');
   add('Overheads & program', 'leaderRecrPct', 'Leader recruiting fee', '% of gross', 25, 18, 30, '', 'Med');
   add('Overheads & program', 'travelPerHc', 'Ongoing travel and governance visits', 'EUR / HC / yr', 500, 250, 900, '', 'Low');
-  add('Overheads & program', 'pmoFte', 'Program office size', 'FTE', 3, 2, 5, '', 'Med');
-  add('Overheads & program', 'pmoCost', 'Program office cost per FTE-month', 'EUR', 12000, 9000, 15000, '', 'Med');
-  add('Overheads & program', 'consulting', 'Consulting and advisory (one-time)', 'EUR', 250000, 150000, 450000, 'Spread until last go-live.', 'Low');
-  add('Overheads & program', 'contingencyPct', 'Contingency on one-time costs', '%', 12, 8, 25, '', 'Med');
+  add('Overheads & program', 'pmoFte', 'Program office size', 'FTE', 2, 1, 5, '', 'Med');
+  add('Overheads & program', 'pmoCost', 'Program office cost per FTE-month', 'EUR', 10000, 8000, 15000, '', 'Med');
+  add('Overheads & program', 'consulting', 'Consulting and advisory (one-time)', 'EUR', 150000, 75000, 450000, 'Spread until last go-live.', 'Low');
+  add('Overheads & program', 'contingencyPct', 'Contingency on one-time costs', '%', 10, 5, 25, '', 'Med');
   add('Overheads & program', 'tpMarkup', 'Transfer pricing cost-plus markup', '%', 5, 0, 10, 'Only tax cost counted, never a tax benefit.', 'Low');
   add('Overheads & program', 'subsScale', 'Subsidy realization', '%', 100, 0, 100, 'Scales all active subsidies. Sensitivity driver.', 'Low');
 
@@ -239,7 +239,7 @@ ul.t{margin:0;padding-left:18px}ul.t li{margin:4px 0}
 
   var AUTOMODES = {
     off: { name: 'Off', effort: 0, cost: 0, delay: 0 },
-    conservative: { name: 'Conservative', effort: 0.5, cost: 1.0, delay: 6 },
+    conservative: { name: 'Conservative', effort: 0.5, cost: 0.6, delay: 6 },
     ambition: { name: 'Ambition', effort: 1.0, cost: 1.0, delay: 0 }
   };
 
@@ -1498,7 +1498,7 @@ function renderData() {
   h += '<div class="card"><h3>Learning curve after go-live</h3><label class="f">Productivity % by month after go-live (comma separated)</label><input type="text" id="rampTxt" value="' + M.ramp.join(', ') + '"><div class="muted" style="font-size:12px;margin-top:8px">After the last value, productivity is 100%. The gap to 100% is covered by extra support at the coverage % on the assumption sheet.</div></div></div>';
 
   // pipeline
-  h += '<h2>Automation pipeline</h2><p class="muted">Modes: Off (none), Conservative (50% of the effort released, 6 months later), Ambition (full effort, on plan). Effort is the share of total workload each initiative removes at full adoption.</p><div class="card scroll"><table><thead><tr><th>Initiative</th><th class="r">Effort released %</th><th class="r">Start month</th><th class="r">Ramp, months</th><th class="r">Build cost EUR</th><th class="r">Run cost % of build</th><th class="r">Adoption %</th></tr></thead><tbody>';
+  h += '<h2>Automation pipeline</h2><p class="muted">Modes: Off (none), Conservative (50% of the effort released, 6 months later, 60% of the build cost), Ambition (full effort, on plan). Effort is the share of total workload each initiative removes at full adoption.</p><div class="card scroll"><table><thead><tr><th>Initiative</th><th class="r">Effort released %</th><th class="r">Start month</th><th class="r">Ramp, months</th><th class="r">Build cost EUR</th><th class="r">Run cost % of build</th><th class="r">Adoption %</th></tr></thead><tbody>';
   M.pipeline.forEach(function (it, i) { var p = 'pipeline.' + i; h += '<tr><td style="min-width:260px">' + ti(p + '.name', it.name) + '</td><td>' + ni(p + '.effort', it.effort) + '</td><td>' + ni(p + '.start', it.start) + '</td><td>' + ni(p + '.ramp', it.ramp) + '</td><td>' + ni(p + '.build', it.build) + '</td><td>' + ni(p + '.runPct', it.runPct) + '</td><td>' + ni(p + '.adoption', it.adoption) + '</td></tr>'; });
   h += '</tbody></table></div>';
   return h;
