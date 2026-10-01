@@ -208,20 +208,20 @@ ul.t{margin:0;padding-left:18px}ul.t li{margin:4px 0}
     { k: 'dir', name: 'Director / site head', bonus: 25, spread: 0.25, srcMix: 2, tgtMix: 0, lead: true }
   ];
 
-  // ---------- COUNTRY CLUSTERS (PLACEHOLDER DATA: verify before use) ----------
+  // ---------- COUNTRY CLUSTERS (salaries and wage growth: research Oct 2026, see bench.js; other fields placeholder) ----------
   // sal: annual gross full-time midpoint per grade, EUR. sev: severance model. wg: wage growth % pa. rg: rent growth % pa.
   var CL = [
-    { id: 'DACH', name: 'DACH (DE / AT)', sal: [18000, 46000, 56000, 68000, 76000, 98000, 145000], onCost: 21, cf: 0.92, notice: 3, sev: { m: 'months', base: 0, py: 0.5, cap: 12 }, wg: 3.5, rg: 2.5, attr: 8, cit: 30, rent: 380, fit: 5000, lead: 4, onb: 1.0, recr: 18, fx: 0 },
-    { id: 'FRBE', name: 'France / Benelux', sal: [16000, 38000, 47000, 58000, 66000, 88000, 130000], onCost: 42, cf: 0.96, notice: 3, sev: { m: 'months', base: 0, py: 0.35, cap: 18 }, wg: 3.0, rg: 2.5, attr: 8, cit: 25, rent: 340, fit: 4500, lead: 4, onb: 1.0, recr: 18, fx: 0 },
-    { id: 'SOUTH', name: 'Southern Europe (ES / IT / PT)', sal: [12000, 27000, 34000, 43000, 50000, 68000, 105000], onCost: 32, cf: 0.97, notice: 2, sev: { m: 'months', base: 0, py: 0.9, cap: 16 }, wg: 3.0, rg: 2.5, attr: 7, cit: 26, rent: 260, fit: 3500, lead: 3, onb: 1.0, recr: 16, fx: 0 },
-    { id: 'NORD', name: 'Nordics', sal: [20000, 46000, 55000, 66000, 76000, 100000, 150000], onCost: 30, cf: 0.93, notice: 4, sev: { m: 'months', base: 3, py: 0.25, cap: 12 }, wg: 3.5, rg: 2.5, attr: 8, cit: 21, rent: 360, fit: 5000, lead: 4, onb: 1.0, recr: 18, fx: 0 },
-    { id: 'UKIE', name: 'UK / Ireland', sal: [18000, 36000, 45000, 56000, 64000, 88000, 135000], onCost: 15, cf: 0.94, notice: 3, sev: { m: 'weeks', base: 0, py: 1.5, cap: 30 }, wg: 3.5, rg: 2.5, attr: 15, cit: 25, rent: 420, fit: 5000, lead: 3, onb: 1.0, recr: 18, fx: 0 },
-    { id: 'CEE', name: 'CEE North (PL / CZ / SK / HU)', sal: [8000, 20000, 27000, 35000, 42000, 58000, 90000], onCost: 20, cf: 0.99, notice: 2, sev: { m: 'tiers', tiers: [[2, 1], [8, 2], [99, 3]] }, wg: 7.0, rg: 3.0, attr: 16, cit: 19, rent: 200, fit: 2800, lead: 3, onb: 1.0, recr: 15, fx: 0 },
-    { id: 'SEE', name: 'South-East Europe (RO / BG)', sal: [6000, 15000, 21000, 28000, 34000, 48000, 78000], onCost: 4, cf: 0.99, notice: 2, sev: { m: 'months', base: 2, py: 0.3, cap: 8 }, wg: 7.0, rg: 3.0, attr: 15, cit: 16, rent: 150, fit: 2200, lead: 2, onb: 1.1, recr: 15, fx: 0 },
-    { id: 'US', name: 'US / Canada', sal: [24000, 52000, 64000, 78000, 88000, 120000, 180000], onCost: 20, cf: 0.97, notice: 1, sev: { m: 'weeks', base: 2, py: 2.0, cap: 26 }, wg: 3.5, rg: 3.0, attr: 18, cit: 26, rent: 450, fit: 6500, lead: 2, onb: 1.0, recr: 20, fx: 0 },
-    { id: 'IN', name: 'India', sal: [2500, 6500, 9000, 13000, 17000, 27000, 50000], onCost: 14, cf: 1.0, notice: 2, sev: { m: 'weeks', base: 0, py: 2.1, cap: 60 }, wg: 9.0, rg: 5.0, attr: 22, cit: 25, rent: 120, fit: 1800, lead: 2, onb: 1.2, recr: 10, fx: 0 },
-    { id: 'PH', name: 'Philippines', sal: [3000, 8000, 11000, 15000, 19000, 30000, 55000], onCost: 14, cf: 1.0, notice: 1, sev: { m: 'weeks', base: 0, py: 2.2, cap: 60 }, wg: 5.5, rg: 4.0, attr: 25, cit: 25, rent: 130, fit: 1800, lead: 2, onb: 1.2, recr: 10, fx: 0 },
-    { id: 'LATAM', name: 'Latin America (MX / CO / CR)', sal: [4000, 11000, 15000, 21000, 27000, 40000, 70000], onCost: 28, cf: 0.99, notice: 1, sev: { m: 'months', base: 3, py: 0.7, cap: 24 }, wg: 7.0, rg: 4.0, attr: 20, cit: 30, rent: 180, fit: 2500, lead: 2, onb: 1.1, recr: 12, fx: 0 }
+    { id: 'DACH', name: 'DACH (DE / AT)', sal: [28500, 44500, 54000, 64000, 71000, 93500, 138000], onCost: 21, cf: 0.92, notice: 3, sev: { m: 'months', base: 0, py: 0.5, cap: 12 }, wg: 3.2, rg: 2.5, attr: 8, cit: 30, rent: 380, fit: 5000, lead: 4, onb: 1.0, recr: 18, fx: 0 },
+    { id: 'FRBE', name: 'France / Benelux', sal: [22000, 36000, 45500, 54500, 61000, 81500, 126500], onCost: 42, cf: 0.96, notice: 3, sev: { m: 'months', base: 0, py: 0.35, cap: 18 }, wg: 3.0, rg: 2.5, attr: 8, cit: 25, rent: 340, fit: 4500, lead: 4, onb: 1.0, recr: 18, fx: 0 },
+    { id: 'SOUTH', name: 'Southern Europe (ES / IT / PT)', sal: [16500, 23500, 31000, 39500, 44500, 61500, 108000], onCost: 32, cf: 0.97, notice: 2, sev: { m: 'months', base: 0, py: 0.9, cap: 16 }, wg: 3.0, rg: 2.5, attr: 7, cit: 26, rent: 260, fit: 3500, lead: 3, onb: 1.0, recr: 16, fx: 0 },
+    { id: 'NORD', name: 'Nordics', sal: [31500, 42500, 51000, 59000, 66000, 84500, 124500], onCost: 30, cf: 0.93, notice: 4, sev: { m: 'months', base: 3, py: 0.25, cap: 12 }, wg: 3.0, rg: 2.5, attr: 8, cit: 21, rent: 360, fit: 5000, lead: 4, onb: 1.0, recr: 18, fx: 0 },
+    { id: 'UKIE', name: 'UK / Ireland', sal: [27000, 31500, 39000, 48500, 55000, 76500, 121000], onCost: 15, cf: 0.94, notice: 3, sev: { m: 'weeks', base: 0, py: 1.5, cap: 30 }, wg: 3.5, rg: 2.5, attr: 15, cit: 25, rent: 420, fit: 5000, lead: 3, onb: 1.0, recr: 18, fx: 0 },
+    { id: 'CEE', name: 'CEE North (PL / CZ / SK / HU)', sal: [14500, 22000, 32000, 39000, 46500, 71500, 103000], onCost: 20, cf: 0.99, notice: 2, sev: { m: 'tiers', tiers: [[2, 1], [8, 2], [99, 3]] }, wg: 6.0, rg: 3.0, attr: 16, cit: 19, rent: 200, fit: 2800, lead: 3, onb: 1.0, recr: 15, fx: 0 },
+    { id: 'SEE', name: 'South-East Europe (RO / BG)', sal: [11000, 17500, 26500, 32500, 39500, 55000, 89000], onCost: 4, cf: 0.99, notice: 2, sev: { m: 'months', base: 2, py: 0.3, cap: 8 }, wg: 6.5, rg: 3.0, attr: 15, cit: 16, rent: 150, fit: 2200, lead: 2, onb: 1.1, recr: 15, fx: 0 },
+    { id: 'US', name: 'US / Canada', sal: [38500, 47000, 58500, 73000, 78500, 106500, 165000], onCost: 20, cf: 0.97, notice: 1, sev: { m: 'weeks', base: 2, py: 2.0, cap: 26 }, wg: 3.5, rg: 3.0, attr: 18, cit: 26, rent: 450, fit: 6500, lead: 2, onb: 1.0, recr: 20, fx: 0 },
+    { id: 'IN', name: 'India', sal: [3000, 5000, 8000, 12500, 16500, 31000, 72000], onCost: 14, cf: 1.0, notice: 2, sev: { m: 'weeks', base: 0, py: 2.1, cap: 60 }, wg: 9.0, rg: 5.0, attr: 22, cit: 25, rent: 120, fit: 1800, lead: 2, onb: 1.2, recr: 10, fx: 0 },
+    { id: 'PH', name: 'Philippines', sal: [4000, 5500, 8000, 11000, 13000, 28500, 53000], onCost: 14, cf: 1.0, notice: 1, sev: { m: 'weeks', base: 0, py: 2.2, cap: 60 }, wg: 5.5, rg: 4.0, attr: 25, cit: 25, rent: 130, fit: 1800, lead: 2, onb: 1.2, recr: 10, fx: 0 },
+    { id: 'LATAM', name: 'Latin America (MX / CO / CR)', sal: [6000, 11500, 17000, 23000, 27500, 54000, 109000], onCost: 28, cf: 0.99, notice: 1, sev: { m: 'months', base: 3, py: 0.7, cap: 24 }, wg: 5.5, rg: 4.0, attr: 20, cit: 30, rent: 180, fit: 2500, lead: 2, onb: 1.1, recr: 12, fx: 0 }
   ];
 
   var TEAMS = {
@@ -255,6 +255,7 @@ ul.t{margin:0;padding-left:18px}ul.t li{margin:4px 0}
       ramp: [40, 55, 70, 80, 90, 95, 100],
       pipeline: JSON.parse(JSON.stringify(PIPELINE)),
       src: [{ c: 'DACH', share: 100 }],
+      salVer: 2,
       scenarios: []
     };
     var waves = function (s) {
@@ -294,6 +295,87 @@ ul.t{margin:0;padding-left:18px}ul.t li{margin:4px 0}
   GBS.CLUSTERS = CL;
   GBS.AUTOMODES = AUTOMODES;
   GBS.defaultModel = defaultModel;
+})(typeof window !== 'undefined' ? window : globalThis);
+// ---------- SALARY BENCHMARKS (research Oct 2026) ----------
+// Annual gross base, EUR, employee gross before employer on-costs, no bonus. Midpoint of band.
+// Grades: intern (FTE), associate, senior associate, process expert, team lead, manager, director.
+// e = list of grade indexes that are estimates (no direct source for that grade).
+(function (root) {
+  var GBS = root.GBS = root.GBS || {};
+  GBS.BENCH_ASOF = 'October 2026';
+  GBS.BENCH_CL = {
+    DACH: { sal: [28500, 44500, 54000, 64000, 71000, 93500, 138000], wg: 3.2, conf: 70, mix: 'DE 85 / AT 15' },
+    FRBE: { sal: [22000, 36000, 45500, 54500, 61000, 81500, 126500], wg: 3.0, conf: 55, mix: 'FR 40 / NL 35 / BE 25' },
+    SOUTH: { sal: [16500, 23500, 31000, 39500, 44500, 61500, 108000], wg: 3.0, conf: 55, mix: 'ES 45 / PT 35 / IT 20' },
+    NORD: { sal: [31500, 42500, 51000, 59000, 66000, 84500, 124500], wg: 3.0, conf: 45, mix: 'SE 35 / DK 25 / FI 20 / NO 20' },
+    UKIE: { sal: [27000, 31500, 39000, 48500, 55000, 76500, 121000], wg: 3.5, conf: 65, mix: 'UK 70 / IE 30' },
+    CEE: { sal: [14500, 22000, 32000, 39000, 46500, 71500, 103000], wg: 6.0, conf: 65, mix: 'PL 60 / CZ 15 / HU 15 / SK 10' },
+    SEE: { sal: [11000, 17500, 26500, 32500, 39500, 55000, 89000], wg: 6.5, conf: 55, mix: 'RO 75 / BG 25' },
+    US: { sal: [38500, 47000, 58500, 73000, 78500, 106500, 165000], wg: 3.5, conf: 70, mix: 'US 80 / CA 20, lower-cost SSC cities' },
+    IN: { sal: [3000, 5000, 8000, 12500, 16500, 31000, 72000], wg: 9.0, conf: 60, mix: 'Bengaluru, Hyderabad, Pune, Chennai' },
+    PH: { sal: [4000, 5500, 8000, 11000, 13000, 28500, 53000], wg: 5.5, conf: 60, mix: 'Manila, Cebu' },
+    LATAM: { sal: [6000, 11500, 17000, 23000, 27500, 54000, 109000], wg: 5.5, conf: 45, mix: 'MX 60 / CO 25 / CR 15' }
+  };
+  // per country, kEUR
+  GBS.BENCH = [
+    ['DACH', 'Germany', [29, 45, 55, 65, 72, 95, 140], [0, 4, 5, 6]],
+    ['DACH', 'Austria', [24, 40, 49, 58, 65, 85, 125], [0, 1, 2, 3, 4, 5, 6]],
+    ['FRBE', 'France', [21.5, 32, 40, 48, 52, 70, 115], [0, 3, 4, 6]],
+    ['FRBE', 'Netherlands', [29, 40, 49, 58, 63, 85, 130], [0, 3, 4, 5, 6]],
+    ['FRBE', 'Belgium', [25, 36, 50, 60, 72, 94, 140], [0]],
+    ['SOUTH', 'Spain', [16.5, 25, 32, 40, 45, 65, 105], [0, 3, 4, 5, 6]],
+    ['SOUTH', 'Portugal', [13, 19, 28, 38, 42, 55, 110], [0]],
+    ['SOUTH', 'Italy', [18, 29, 35, 42, 48, 65, 110], [0, 1, 2, 3, 4, 5, 6]],
+    ['NORD', 'Sweden', [28, 40, 48, 56, 62, 80, 115], [0, 3, 4, 5, 6]],
+    ['NORD', 'Denmark', [35, 46, 57, 66, 75, 95, 140], [0, 3, 4, 5, 6]],
+    ['NORD', 'Finland', [27, 34, 41, 48, 54, 72, 110], [0, 3, 4, 5, 6]],
+    ['NORD', 'Norway', [38, 52, 59, 66, 73, 92, 135], [0, 2, 3, 4, 5, 6]],
+    ['UKIE', 'UK (regional)', [25.5, 30.5, 37.5, 47, 52.5, 72.5, 117], [0, 3, 6]],
+    ['UKIE', 'Ireland', [30, 34, 42, 52, 60, 85, 130], [0, 1, 2, 3, 6]],
+    ['CEE', 'Poland', [15.5, 24, 36.7, 45.2, 52.2, 83.3, 112.9], [0, 3]],
+    ['CEE', 'Czechia', [14.4, 20.2, 26.4, 32.6, 40.8, 60, 96], [0, 1, 2, 3, 4, 5, 6]],
+    ['CEE', 'Hungary', [10.5, 18, 24.5, 28.5, 36, 48, 84], [0, 6]],
+    ['CEE', 'Slovakia', [14, 19.7, 24.2, 28.6, 38.2, 54.1, 82.7], [0, 6]],
+    ['SEE', 'Romania', [10.7, 17.8, 27.3, 33.3, 40.4, 54.7, 90.3], [0, 3, 6]],
+    ['SEE', 'Bulgaria', [11, 16.9, 24.5, 29.4, 36.8, 55.2, 85.9], [0, 1, 2, 3, 4, 5, 6]],
+    ['US', 'United States', [39.7, 50, 61.8, 77.3, 83.6, 113.6, 177.3], [0, 4, 6]],
+    ['US', 'Canada', [32.9, 36.2, 44.7, 55.9, 59.2, 78.9, 115.1], [0, 1, 2, 4, 6]],
+    ['IN', 'India', [3.1, 5.2, 8.2, 12.4, 16.5, 30.9, 72.2], [0, 6]],
+    ['PH', 'Philippines', [4.1, 5.7, 8.1, 11.2, 13.2, 28.4, 52.8], [0]],
+    ['LATAM', 'Mexico', [6, 11.1, 16.1, 21.7, 26, 52.6, 111.4], [0, 2, 3, 4, 5, 6]],
+    ['LATAM', 'Colombia', [4.5, 7.7, 11.6, 16.6, 20.7, 44.3, 89.4], [0, 1, 2, 3, 4, 5, 6]],
+    ['LATAM', 'Costa Rica', [9.2, 19.8, 28.6, 37.5, 46.3, 74.9, 132.2], [0, 3]]
+  ];
+  GBS.BENCH_NOTES = [
+    'Romania: employees pay almost all social contributions out of gross pay, the employer adds about 2%. Compare total employer cost, not gross pay.',
+    'India: fixed pay, not total CTC. Philippines, Mexico, Costa Rica, Colombia: 13th month included. Spain, Portugal, Italy: 14 salaries included.',
+    'Interns are shown as full-time equivalent (minimum wage or above), not the stipend.',
+    'Director pay spreads widely, about plus or minus 30 percent. Treat grade 7 as indicative.',
+    'Recruiter guides (Robert Half, Robert Walters) often run 5 to 10 percent above what shared service centers pay. Values were adjusted down where noted in the sources.'
+  ];
+  GBS.BENCH_SRC = [
+    ['Goldman Recruitment 2025, SSC salaries Poland', 'https://www.karierawfinansach.pl/artykul/raporty/tyle-zarabia-sie-w-centrach-uslug-wspolnych-prognozy-wynagrodzen-dla-bankierow-i-ksiegowych'],
+    ['Hays Poland salary report 2026', 'https://pracodawcydlazdrowia.pl/wp-content/uploads/2026/01/Hays-Poland_Raport-placowy-2026.pdf'],
+    ['Hays Hungary salary guide 2025', 'https://cdn.penzcentrum.hu/files/h/hu-hays-salary-guide-2025-2.pdf'],
+    ['SARIO, SSC/BPO centers in Slovakia 2025', 'https://www.sario.sk/sites/default/files/sario-ssc-bpo-centers-in-slovakia-2025-02-28.pdf'],
+    ['Hays Romania salary guide 2025', 'https://i0.1616.ro/media/2/2621/33243/21962471/7/hays-romania-salary-guide-2025.pdf'],
+    ['Robert Half Germany 2026, finance and accounting', 'https://www.roberthalf.com/de/de/insights/gehaltsuebersicht/finanzwesen-rechnungswesen'],
+    ['Kienbaum salary forecast 2026', 'https://www.kienbaum.com/presse/gehaltsentwicklungsprognose-2026/'],
+    ['Robert Walters Belgium 2026, accounting', 'https://www.robertwalters.be/insights/career-advice/blog/Benchmark-your-salary-in-accounting.html'],
+    ['Michael Page Portugal, SSC remuneration study', 'https://www.michaelpage.pt/sites/michaelpage.pt/files/Estudos-de-Remunera%C3%A7%C3%A3o-ssc.pdf'],
+    ['Hays Spain 2026 salary outlook', 'https://www.hays.es/sala-de-prensa/notas-de-prensa/content/empresas-preven-subir-salarios-en-2026-por-sectores'],
+    ['Robert Walters UK salary survey 2026', 'https://www.robertwalters.co.uk/content/dam/robert-walters-redesign/country/united-kingdom/files/salary-survey/UK-Robert-Walters-Salary-Survey.pdf'],
+    ['Morgan McKinley Ireland 2026', 'https://www.morganmckinley.com/ie/salary-guide/data/gl-manager/ireland'],
+    ['Statistics Norway 2025, accounting clerks', 'https://lonnsstatistikk.no/yrke/regnskapsmedarbeidere'],
+    ['Robert Half US 2026, accounting', 'https://www.roberthalf.com/us/en/insights/career-development/the-rise-of-the-accountant-salary-and-10-top-accounting-jobs'],
+    ['Robert Half Canada, finance and accounting', 'https://www.roberthalf.com/ca/en/insights/salary-guide/finance-and-accounting'],
+    ['Aon India salary increase survey 2026', 'https://www.aon.com/apac/in-the-press/asia-newsroom/2026/aon-survey-projects-slight-uptick-in-salaries-in-india-2026'],
+    ['GCC ERA, GCC salary report 2026 (India)', 'https://gccera.com/blog/gcc-salary-report-2026'],
+    ['WTW Philippines salary increase 2026', 'https://www.wtwco.com/en-ph/news/2025/07/salary-increases-in-philippines-expected-to-remain-stable-amidst-global-uncertainties-at-5-point-5'],
+    ['Employsome, Philippines salaries 2026', 'https://employsome.com/hire/philippines/average-salary-philippines/'],
+    ['Employsome, Costa Rica salaries 2026', 'https://employsome.com/blog/average-salary-costa-rica/'],
+    ['Mercer US salary budget 2026', 'https://worldatwork.org/publications/workspan-daily/mercer-forecasts-3-5-total-salary-increase-budgets-for-2026']
+  ];
 })(typeof window !== 'undefined' ? window : globalThis);
 (function (g) {
   var GBS = g.GBS = g.GBS || {};
@@ -462,7 +544,7 @@ ul.t{margin:0;padding-left:18px}ul.t li{margin:4px 0}
       return gross(cluster, g, P.tgtPos / 100) * (1 + GR[g].bonus / 100) * (1 + cluster.onCost / 100) * P.tgtSalIdx / 100 * (noPrem ? 1 : (1 + P.tgtPrem / 100));
     }
     function grossTgt(cluster, g) { return gross(cluster, g, P.tgtPos / 100) * P.tgtSalIdx / 100; }
-    function costIdx(cluster) { return 0.4 + 0.6 * (cluster.sal[1] / 46000); }
+    function costIdx(cluster) { return 0.4 + 0.6 * (cluster.sal[1] / 44500); }
 
     // merit steps
     var steps = [0], n = 0;
@@ -1078,11 +1160,14 @@ function getPath(o, p) { var a = String(p).split('.'); for (var i = 0; i < a.len
 function setPath(o, p, v) { var a = String(p).split('.'); for (var i = 0; i < a.length - 1; i++) o = o[a[i]]; o[a[a.length - 1]] = v; }
 
 function recompute() { RS = M.scenarios.map(function (sc) { return G.run(M, sc); }); }
+var OLDSAL = { DACH: '18000,46000,56000,68000,76000,98000,145000', FRBE: '16000,38000,47000,58000,66000,88000,130000', SOUTH: '12000,27000,34000,43000,50000,68000,105000', NORD: '20000,46000,55000,66000,76000,100000,150000', UKIE: '18000,36000,45000,56000,64000,88000,135000', CEE: '8000,20000,27000,35000,42000,58000,90000', SEE: '6000,15000,21000,28000,34000,48000,78000', US: '24000,52000,64000,78000,88000,120000,180000', IN: '2500,6500,9000,13000,17000,27000,50000', PH: '3000,8000,11000,15000,19000,30000,55000', LATAM: '4000,11000,15000,21000,27000,40000,70000' };
+// replace only untouched placeholder salaries; user-edited values stay
+function migrateSal(m) { if (m.salVer >= 2) return; m.clusters.forEach(function (c) { var b = G.BENCH_CL[c.id]; if (b && OLDSAL[c.id] === c.sal.join(',')) { c.sal = b.sal.slice(); c.wg = b.wg; } }); m.salVer = 2; }
 function save() { try { localStorage.setItem(LSKEY, JSON.stringify(M)); } catch (e) { } }
 function load() {
   try {
     var s = localStorage.getItem(LSKEY);
-    if (s) { var m = JSON.parse(s); if (m && m.P && m.scenarios && m.scenarios.length === 3 && m.clusters) { var d = G.defaultModel(); Object.keys(d.P).forEach(function (k) { if (m.P[k] === undefined) m.P[k] = d.P[k]; }); return m; } }
+    if (s) { var m = JSON.parse(s); if (m && m.P && m.scenarios && m.scenarios.length === 3 && m.clusters) { var d = G.defaultModel(); Object.keys(d.P).forEach(function (k) { if (m.P[k] === undefined) m.P[k] = d.P[k]; }); migrateSal(m); return m; } }
   } catch (e) { }
   return G.defaultModel();
 }
@@ -1380,7 +1465,7 @@ function updateHints() {
 var TIPS2 = {"notice": "Months of notice before a person can leave. Can set the go-live date.", "onCost": "Employer social charges and benefits on top of gross pay.", "cf": "Average FTE per person. Below 1 means part-time work.", "wg": "Expected yearly wage growth in this country.", "rg": "Expected yearly rent growth.", "attr": "Share of people who leave each year and must be replaced.", "cit": "Corporate income tax rate. Used for the transfer pricing effect.", "rent": "Market rent per desk per month.", "fit": "One-time cost to fit out one desk in a new lease.", "lead": "Months needed to hire people in this country.", "onb": "Multiplies onboarding weeks. 1.2 = 20% longer.", "recr": "Agency fee as a share of gross pay.", "fx": "Expected yearly currency drift against the euro. Negative means costs fall in euro terms."};
 function renderData() {
   var h = '<div class="eyebrow">Country data</div><h1>Countries, grades, teams and <em>automation</em></h1>';
-  h += '<div class="callout">Placeholder data. Salaries, severance rules, notice periods and incentives are rough planning values by country cluster. Validate each with local HR, tax and legal advisers.</div>';
+  h += '<div class="callout">Salaries and wage growth come from public 2025 and 2026 salary guides (as of ' + G.BENCH_ASOF + '), see the benchmark table below. Severance rules, notice periods, rents and incentives are still rough planning values. Validate all of them with local HR, tax and legal advisers before a decision.</div>';
   // source structure
   h += '<h2>Current state (source)</h2><p class="muted">Where the work sits today and how your people are spread across levels. Source mix must describe your real structure, all seven levels.</p><div class="grid2"><div class="card"><h3>Where the workload sits today</h3><table><thead><tr><th>Country cluster</th><th class="r">Share %</th><th></th></tr></thead><tbody>';
   M.src.forEach(function (s, i) { h += '<tr><td>' + sl('src.' + i + '.c', clusterOpts(), s.c) + '</td><td style="width:90px">' + ni('src.' + i + '.share', s.share) + '</td><td>' + (M.src.length > 1 ? '<button class="btn sec sm danger" data-act="del-src" data-j="' + i + '">x</button>' : '') + '</td></tr>'; });
@@ -1404,6 +1489,8 @@ function renderData() {
   });
   h += '</tbody></table></div><div class="muted" style="font-size:12px">Contract factor: average FTE per head (part-time share). Severance in months or weeks is counted per year of tenure, up to the cap. Notice pay is covered by salary during the notice period.</div>';
 
+  h += renderBench();
+
   // teams
   h += '<h2>Process types: onboarding and knowledge transfer</h2><div class="grid2"><div class="card"><table><thead><tr><th>Type</th><th class="r">Onboarding, weeks</th><th class="r">KT, months</th><th class="r">Parallel run, months</th></tr></thead><tbody>';
   Object.keys(M.teams).forEach(function (k) { var t = M.teams[k]; h += '<tr><td style="color:var(--text)">' + esc(t.name) + '</td><td>' + ni('teams.' + k + '.onbWeeks', t.onbWeeks) + '</td><td>' + ni('teams.' + k + '.ktMonths', t.ktMonths) + '</td><td>' + ni('teams.' + k + '.parallel', t.parallel) + '</td></tr>'; });
@@ -1414,6 +1501,27 @@ function renderData() {
   h += '<h2>Automation pipeline</h2><p class="muted">Modes: Off (none), Conservative (50% of the effort released, 6 months later), Ambition (full effort, on plan). Effort is the share of total workload each initiative removes at full adoption.</p><div class="card scroll"><table><thead><tr><th>Initiative</th><th class="r">Effort released %</th><th class="r">Start month</th><th class="r">Ramp, months</th><th class="r">Build cost EUR</th><th class="r">Run cost % of build</th><th class="r">Adoption %</th></tr></thead><tbody>';
   M.pipeline.forEach(function (it, i) { var p = 'pipeline.' + i; h += '<tr><td style="min-width:260px">' + ti(p + '.name', it.name) + '</td><td>' + ni(p + '.effort', it.effort) + '</td><td>' + ni(p + '.start', it.start) + '</td><td>' + ni(p + '.ramp', it.ramp) + '</td><td>' + ni(p + '.build', it.build) + '</td><td>' + ni(p + '.runPct', it.runPct) + '</td><td>' + ni(p + '.adoption', it.adoption) + '</td></tr>'; });
   h += '</tbody></table></div>';
+  return h;
+}
+
+function renderBench() {
+  var GN = ['Intern (FTE)', 'Associate', 'Senior associate', 'Process expert', 'Team lead', 'Manager', 'Director'];
+  var h = '<h2>Salary benchmarks by country and grade</h2><p class="muted">Average annual gross base salary in shared service and GBS finance operations, thousand euro, middle of the band. No bonus, no employer on-costs. Grey italic values are estimates where no source covers that grade. Cluster values above are a weighted mix of these countries.</p>';
+  h += '<div class="card scroll"><table><thead><tr><th>Country</th><th>Cluster</th>' + GN.map(function (g) { return '<th class="r">' + g + '</th>'; }).join('') + '</tr></thead><tbody>';
+  var last = '';
+  G.BENCH.forEach(function (r) {
+    var b = G.BENCH_CL[r[0]];
+    if (r[0] !== last) {
+      var cl = M.clusters.filter(function (c) { return c.id === r[0]; })[0];
+      var same = cl && cl.sal.join(',') === b.sal.join(',');
+      h += '<tr class="sec"><td colspan="2" style="color:var(--text)"><b>' + esc(cl ? cl.name : r[0]) + '</b> <span class="muted" style="font-size:12px;text-transform:none;letter-spacing:0;font-family:Inter,system-ui,sans-serif">' + esc(b.mix) + ', confidence ' + b.conf + '%, wage growth ' + b.wg + '% pa</span>' + (same ? '' : ' <button class="btn sec sm" data-act="use-bench" data-c="' + r[0] + '">Use benchmark</button>') + '</td>' + b.sal.map(function (v) { return '<td class="r mono" style="color:var(--text)"><b>' + (v / 1000).toFixed(1) + '</b></td>'; }).join('') + '</tr>';
+      last = r[0];
+    }
+    h += '<tr><td>' + esc(r[1]) + '</td><td class="muted">' + r[0] + '</td>' + r[2].map(function (v, k) { var e = r[3].indexOf(k) >= 0; return '<td class="r mono"' + (e ? ' style="color:var(--text-3);font-style:italic" title="Estimate"' : '') + '>' + v.toFixed(1) + '</td>'; }).join('') + '</tr>';
+  });
+  h += '</tbody></table></div>';
+  h += '<div class="grid2"><div class="card"><h3>How to read these numbers</h3><ul style="margin:0;padding-left:18px">' + G.BENCH_NOTES.map(function (n) { return '<li style="margin-bottom:6px">' + esc(n) + '</li>'; }).join('') + '</ul></div>';
+  h += '<div class="card"><h3>Sources</h3><ul style="margin:0;padding-left:18px;font-size:12px">' + G.BENCH_SRC.map(function (x) { return '<li><a href="' + x[1] + '" target="_blank" rel="noopener">' + esc(x[0]) + '</a></li>'; }).join('') + '</ul></div></div>';
   return h;
 }
 
@@ -1538,9 +1646,9 @@ function renderAbout() {
 function renderStart() {
   var P = M.P, cl0 = M.clusters.filter(function (c) { return c.id === M.src[0].c; })[0];
   var h = '<div class="eyebrow">Start here</div><h1>Plan a GBS center in <em>five steps</em></h1>';
-  h += '<p class="lead">This tool compares up to three setups of a shared service center. It calculates cost, savings, timing and payback over five years. You do not need to fill in everything. The defaults are placeholders, so the tool works from the first click.</p>';
+  h += '<p class="lead">This tool compares up to three setups of a shared service center. It calculates cost, savings, timing and payback over five years. You do not need to fill in everything. Salaries by country and grade come from 2025 and 2026 salary guides. Other defaults are example values, so the tool works from the first click.</p>';
   var steps = [
-    ['1', 'Describe today', 'Where the work sits now, and what it costs. Replace the placeholder cost level with your real payroll.', 'data', 'Open Country data'],
+    ['1', 'Describe today', 'Where the work sits now, and what it costs. Check the salary benchmarks, then set your real payroll cost level.', 'data', 'Open Country data'],
     ['2', 'Design the scenarios', 'Choose sites, waves, the grade mix and the automation level for scenarios A, B and C.', 'scenarios', 'Open Scenarios'],
     ['3', 'Check the essentials', '25 inputs that matter most. Each one says what it is and what it changes.', 'assumptions', 'Open Assumptions'],
     ['4', 'Read the results', 'NPV, payback, cash need, and where the savings come from, in plain words.', 'results', 'Open Results'],
@@ -1590,7 +1698,7 @@ function renderAssumptions() {
   var all = G.REG.length, ess = G.ESS.length;
   var h = '<div class="eyebrow">Assumptions</div><h1>What you can change, and <em>what it does</em></h1><p class="lead">Every line says what the input is and what it changes. Start with the Essentials. Change a value in Base to affect all scenarios, or in A, B or C to affect one scenario only.</p>';
   h += '<div class="card"><div class="grid2"><ul class="t" style="margin:0"><li><b style="color:var(--text)">Base:</b> the value all scenarios use.</li><li><b style="color:var(--text)">A, B, C:</b> optional value for one scenario. Gold means an override is set. Empty means Base is used.</li></ul><ul class="t" style="margin:0"><li><b style="color:var(--text)">Importance:</b> how much NPV moves between the Low and High value. Calculated live for the scenario you pick.</li><li><b style="color:var(--text)">Direction:</b> whether a higher value helps or hurts the result.</li></ul></div></div>';
-  h += '<div class="callout">All defaults are placeholders. Replace them with your own payroll, lease and legal data before you decide anything.</div>';
+  h += '<div class="callout">Salaries are market benchmarks. All other defaults are example values. Replace them with your own payroll, lease and legal data before you decide anything.</div>';
   h += '<div class="ctrl"><div><label class="f">Show</label><div style="display:flex;gap:6px"><button class="btn sm ' + (asMode === 'ess' ? '' : 'sec') + '" data-act="as-ess">Essentials (' + ess + ')</button><button class="btn sm ' + (asMode === 'all' ? '' : 'sec') + '" data-act="as-all">All inputs (' + all + ')</button></div></div>' +
     '<div><label class="f">Importance for scenario</label><select data-sel="selSc">' + M.scenarios.map(function (s, i) { return '<option value="' + i + '"' + (i === selSc ? ' selected' : '') + '>' + LBL[i] + ': ' + esc(s.name.replace(/^[A-C]:\s*/, '')) + '</option>'; }).join('') + '</select></div>' +
     '<div style="min-width:240px"><label class="f">Filter</label><input type="text" id="asFilter" placeholder="Type to filter, e.g. severance"></div><div><button class="btn sec sm" data-act="clear-all-ov">Clear all overrides</button></div></div>';
@@ -1644,7 +1752,7 @@ function scheduleImpact() { clearTimeout(impTimer); impTimer = setTimeout(fillIm
 
 var ver = 0;
 tab = 'start';
-var TABS = [['start', 'Start here'], ['results', 'Results'], ['scenarios', 'Scenarios'], ['assumptions', 'Assumptions'], ['phasing', 'Timeline and people'], ['reverse', 'Reverse plan'], ['sens', 'What matters most'], ['data', 'Country data (advanced)'], ['about', 'Method (advanced)']];
+var TABS = [['start', 'Start here'], ['results', 'Results'], ['scenarios', 'Scenarios'], ['assumptions', 'Assumptions'], ['phasing', 'Timeline and people'], ['reverse', 'Reverse plan'], ['sens', 'What matters most'], ['data', 'Countries and salaries'], ['about', 'Method (advanced)']];
 var RENDER = { start: renderStart, results: renderResults, scenarios: renderScenarios, assumptions: renderAssumptions, data: renderData, phasing: renderPhasing, reverse: renderReverse, sens: renderSens, about: renderAbout };
 
 function render() {
@@ -1722,7 +1830,7 @@ document.addEventListener('change', function (e) {
   else if (el.id === 'gMax') { GOAL.max = Math.max(50, Math.min(1500, parseFloat(el.value) || 400)); render(); }
   else if (el.id === 'file') {
     var f = el.files[0]; if (!f) return; var rd = new FileReader();
-    rd.onload = function () { try { var m = JSON.parse(rd.result); if (!m.P || !m.scenarios || m.scenarios.length !== 3) throw 0; var d = G.defaultModel(); Object.keys(d.P).forEach(function (k) { if (m.P[k] === undefined) m.P[k] = d.P[k]; }); M = m; applyRng(); commit(true); } catch (x) { alert('This file is not a valid scenario export.'); } };
+    rd.onload = function () { try { var m = JSON.parse(rd.result); if (!m.P || !m.scenarios || m.scenarios.length !== 3) throw 0; var d = G.defaultModel(); Object.keys(d.P).forEach(function (k) { if (m.P[k] === undefined) m.P[k] = d.P[k]; }); migrateSal(m); M = m; applyRng(); commit(true); } catch (x) { alert('This file is not a valid scenario export.'); } };
     rd.readAsText(f); el.value = '';
   }
 });
@@ -1741,6 +1849,7 @@ document.addEventListener('click', function (e) {
   else if (a === 'add-src') { M.src.push({ c: 'FRBE', share: 20 }); commit(true); }
   else if (a === 'del-src') { M.src.splice(j, 1); commit(true); }
   else if (a === 'copy') { var f = +$('#cpFrom').value, t = +$('#cpTo').value; if (f !== t) { var c = G.clone(M.scenarios[f]); c.name = LBL[t] + ': ' + c.name.replace(/^[A-C]:\s*/, '') + ' (copy)'; M.scenarios[t] = c; commit(true); } }
+  else if (a === 'use-bench') { var cid = b.getAttribute('data-c'), bb = G.BENCH_CL[cid]; M.clusters.forEach(function (c) { if (c.id === cid) { c.sal = bb.sal.slice(); c.wg = bb.wg; } }); commit(true); }
   else if (a === 'solve') { RV = null; render(); }
   else if (a === 'as-ess') { asMode = 'ess'; render(); }
   else if (a === 'as-all') { asMode = 'all'; render(); }
