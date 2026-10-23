@@ -114,6 +114,7 @@ td.est{color:var(--text-3);font-style:italic}table.bench{min-width:1180px}table.
 <div class="sum" id="teamsum"></div>
 <p class="note"><label for="today">Your real cost per FTE, per year (optional)</label> <input type="number" id="today" min="0" step="any" class="md"> If you know it from payroll, enter it here. It replaces the calculated value.</p>
 <p class="note"><label for="wgFrom">Wage growth today, % per year (optional)</label> <input type="number" id="wgFrom" min="0" step="any" class="md"> How fast pay rises in your countries if nothing changes. Empty = country values.</p>
+<p class="note"><label for="officeSave">Office cost today that goes away, %</label> <input type="number" id="officeSave" min="0" max="100" step="any" class="md"> <label for="officeSale">One-time sale of owned offices, EUR</label> <input type="number" id="officeSale" min="0" step="any" class="md"> Both 0 by default: small offices often stay for other teams. Enter a value only if offices are really closed or sold.</p>
 
 <h2>2. Three options for the new center</h2>
 <p class="note">Pick a GBS site for each option. The cost comes from service center pay at that site.</p>
@@ -134,7 +135,8 @@ td.est{color:var(--text-3);font-style:italic}table.bench{min-width:1180px}table.
 <li><b>Cost if nothing changes.</b> For each country and role: number of jobs times average pay, plus bonus, employer charges, office and IT. It grows each year with wages in those countries.</li>
 <li><b>Old locations.</b> During the move, work leaves in equal monthly steps. You pay the old locations for the work that has not moved yet.</li>
 <li><b>New center.</b> New people start before they take over the work (the double-cost months). In the first year you carry extra people. After that you need fewer people each year. Cost grows with wages at the new site. Wage growth matters: a site that is 5 percent cheaper today but grows 2 to 3 points faster per year is more expensive by year 4.</li>
-<li><b>One-time cost.</b> Severance is paid when each job leaves. All other one-time cost is spread over preparation and move.</li>
+<li><b>One-time cost.</b> Severance is paid when each job leaves. Office fit-out or remodel is paid during preparation. All other one-time cost is spread over preparation and move. Money from selling owned offices comes in when the move is done.</li>
+<li><b>Offices.</b> The new center pays market rent for a new rented office, only the running cost for a building you already own, or a higher price per desk for coworking. At today's locations the office cost stays unless you say it goes away.</li>
 <li><b>Net effect.</b> Line 1 minus lines 2, 3 and 4, month by month for 60 months.</li>
 <li><b>Results.</b> Payback is the first month the running total is above zero. NPV is the 5-year total with later money counted less. IRR is the yearly return on the money you put in.</li>
 </ol>
@@ -240,6 +242,10 @@ var DEFAULTS = {
   sevMonths: null,  // severance, months of pay per person (null = country value)
   sevShare: 85,     // % of today's people who get severance
   setup: null,      // other one-time cost per FTE (null = rule of thumb)
+  office: 'lease',  // new center office: 'lease' (new rented office), 'owned' (existing building you own), 'cowork'
+  fitout: null,     // one-time fit-out or remodel per desk (null = default for the office type)
+  officeSave: 0,    // % of today's office cost that goes away after the move (offices sold or closed)
+  officeSale: 0,    // one-time money from selling owned offices, EUR, received when the move is done
   wgFrom: null,     // wage growth % per year today (null = from your countries)
   wgTo: null,       // wage growth % per year in the new center (null = site value)
   disc: 8           // discount rate % per year
@@ -251,9 +257,15 @@ var ROLES = ['Intern', 'Associate', 'Senior', 'Expert', 'Team lead', 'Manager', 
 var CFG;
 function setConfig(ov) {
   ov = ov || {};
-  CFG = { today: JSON.parse(JSON.stringify(TODAY)), sites: JSON.parse(JSON.stringify(SITES)), bonus: BONUS.slice(), typical: TYPICAL.slice(), target: TARGET.slice(), setupFix: 12000, setupPct: 20, langShare: 40 };
+  CFG = { today: JSON.parse(JSON.stringify(TODAY)), sites: JSON.parse(JSON.stringify(SITES)), bonus: BONUS.slice(), typical: TYPICAL.slice(), target: TARGET.slice(), setupFix: 9000, setupPct: 20, langShare: 40,
+    it: 3000,          // IT and workplace services per FTE per year; the rest of 'work' in the data is rent
+    desks: 1,          // desks per FTE in the new center (0.8 = hybrid work)
+    ownedPct: 35,      // running cost of an owned building, % of market rent (service, energy, cleaning, upkeep)
+    coworkPct: 150,    // coworking or serviced office, % of market rent
+    fitLease: 4000, fitOwned: 2500, fitCowork: 0 }; // one-time fit-out or remodel per desk
   ['today', 'sites'].forEach(function (tab) { var oc = ov[tab] || {}; CFG[tab].forEach(function (c) { var o = oc[c.n]; if (!o) return; ['on', 'work', 'sev', 'wg', 'lang'].forEach(function (k) { if (o[k] != null) c[k] = +o[k]; }); if (o.sal) o.sal.forEach(function (v, g) { if (v != null) c.sal[g] = +v / 1000; }); }); });
   ['bonus', 'typical', 'target'].forEach(function (k) { if (ov[k]) ov[k].forEach(function (v, g) { if (v != null) CFG[k][g] = k === 'bonus' ? +v / 100 : +v; }); });
+  ['it', 'desks', 'ownedPct', 'coworkPct', 'fitLease', 'fitOwned', 'fitCowork'].forEach(function (k) { if (ov[k] != null) CFG[k] = +ov[k]; });
   if (ov.setupFix != null) CFG.setupFix = +ov.setupFix; if (ov.setupPct != null) CFG.setupPct = +ov.setupPct; if (ov.langShare != null) CFG.langShare = +ov.langShare;
 }
 setConfig();
@@ -264,7 +276,10 @@ function country(name) { return find(CFG.today, name); }  // regular in-country 
 function site(name) { return find(CFG.sites, name); }     // GBS site, for the new center
 // cost per FTE in a new center at this site: new-center split by role x cost per role
 // Language bonus: a share of the jobs (langShare) gets extra pay (lang %) for a second foreign language.
-function futureCost(c) { var p = shares(CFG.target), s = 0, lb = 1 + (c.lang || 0) / 100 * CFG.langShare / 100; for (var g = 0; g < 7; g++) s += p[g] * ((roleCost(c, g) - c.work) * lb + c.work); return Math.round(s / 100) * 100; }
+function officeFactor(mode) { return mode === 'owned' ? CFG.ownedPct / 100 : mode === 'cowork' ? CFG.coworkPct / 100 : 1; }
+// Office per FTE: IT, plus rent per desk x desks per FTE x factor for the office type.
+function officeCost(c, mode) { return CFG.it + Math.max(0, c.work - CFG.it) * CFG.desks * officeFactor(mode); }
+function futureCost(c, mode) { var p = shares(CFG.target), s = 0, lb = 1 + (c.lang || 0) / 100 * CFG.langShare / 100; for (var g = 0; g < 7; g++) s += p[g] * (roleCost(c, g) - c.work) * lb; return Math.round((s + officeCost(c, mode)) / 100) * 100; }
 function clamp01(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
 // FTE per role for one country row: the entered numbers, or the typical split of the total
 function rolesOf(row) { if (row.roles) return row.roles.map(function (v) { return Math.max(0, +v || 0); }); return shares(CFG.typical).map(function (p) { return (Math.max(0, +row.fte || 0)) * p; }); }
@@ -278,6 +293,7 @@ function teamStats(team) {
     var c = country(row.c), r = rolesOf(row), f = 0, cost = 0, pay = 0;
     for (var g = 0; g < 7; g++) { f += r[g]; cost += r[g] * roleCost(c, g); pay += r[g] * c.sal[g] * 1000; }
     T.confW = (T.confW || 0) + f * c.conf;
+    T.work = (T.work || 0) + f * c.work;
     T.fte += f; T.cost += cost; T.pay += pay; T.sevPay += pay * c.sev; T.wgCost += cost * c.wg;
     T.rows.push({ fte: f, cost: cost, perFte: f ? cost / f : 0, roles: r });
   });
@@ -294,13 +310,17 @@ function resolve(inp) {
   var a = {}, k; for (k in DEFAULTS) a[k] = (inp[k] === undefined || inp[k] === '') ? DEFAULTS[k] : inp[k];
   var F = teamStats(a.team && a.team.length ? a.team : [{ c: a.from, fte: a.fte }]), T = site(a.to);
   a.fte = F.fte; a.team = F;
-  a.todayAuto = Math.round(F.today / 100) * 100; a.futureAuto = futureCost(T); a.sevAuto = Math.round(F.sev * 10) / 10;
+  a.todayAuto = Math.round(F.today / 100) * 100; a.futureAuto = futureCost(T, a.office); a.sevAuto = Math.round(F.sev * 10) / 10;
   a.today = a.today == null ? a.todayAuto : +a.today;
   a.future = a.future == null ? a.futureAuto : +a.future;
   a.sevMonths = a.sevMonths == null ? a.sevAuto : +a.sevMonths;
   // rule of thumb: recruiting, training, travel, project team, site setup
   a.setupAuto = Math.round((CFG.setupFix + CFG.setupPct / 100 * a.future) / 500) * 500;
   a.setup = a.setup == null ? a.setupAuto : +a.setup;
+  a.fitoutAuto = a.office === 'owned' ? CFG.fitOwned : a.office === 'cowork' ? CFG.fitCowork : CFG.fitLease;
+  a.fitout = a.fitout == null ? a.fitoutAuto : +a.fitout;
+  a.officeShare = F.cost ? F.work / F.cost : 0;     // share of today's cost that is office and IT
+  a.officeSave = +a.officeSave || 0; a.officeSale = +a.officeSale || 0;
   a.wgFromAuto = Math.round(F.wg * 10) / 10; a.wgToAuto = T.wg;
   a.wgFrom = a.wgFrom == null ? F.wg : +a.wgFrom; a.wgTo = a.wgTo == null ? T.wg : +a.wgTo;
   a.confSite = T.conf; a.confToday = F.conf;
@@ -315,6 +335,8 @@ function calc(inp) {
   var D = Math.max(1, a.move), end = a.prep + D;         // month the last team is live
   var sevTotal = a.fte * a.sevShare / 100 * a.sevMonths * a.payPerMonth;
   var setupTotal = a.fte * a.setup;
+  var fitTotal = a.fte * CFG.desks * a.fitout;          // paid during preparation, before the first team moves in
+  var prepM = Math.max(1, a.prep);
   for (t = 1; t <= H; t++) {
     y = Math.floor((t - 1) / 12);
     var infS = Math.pow(1 + a.wgFrom / 100, y), infT = Math.pow(1 + a.wgTo / 100, y);
@@ -325,10 +347,11 @@ function calc(inp) {
     var yrsAfter = Math.max(0, (t - end) / 12);
     var need = (t <= end + 12 ? 1 + a.extra / 100 : 1) * Math.pow(1 - a.eff / 100, yrsAfter);
     base[t] = a.fte * a.today / 12 * infS;
-    src[t] = base[t] * (1 - live);
+    // old locations: work not yet moved, plus the office cost that stays after the move
+    src[t] = base[t] * (1 - live) + base[t] * live * a.officeShare * (1 - a.officeSave / 100);
     tgt[t] = a.fte * hired * need * a.future / 12 * infT;
     var sevNow = sevTotal * (live - livePrev) * infS; sevPaid += sevNow;   // severance grows with pay
-    one[t] = sevNow + (t <= end ? setupTotal / end : 0);
+    one[t] = sevNow + (t <= end ? setupTotal / end : 0) + (t <= prepM ? fitTotal / prepM : 0) - (t === end ? a.officeSale : 0);
     cf[t] = base[t] - src[t] - tgt[t] - one[t];
     run += cf[t]; cum[t] = run;
   }
@@ -341,7 +364,7 @@ function calc(inp) {
   }
   var y5 = 0, b5 = 0; for (t = 49; t <= 60; t++) { y5 += base[t] - src[t] - tgt[t]; b5 += base[t]; }
   var yearly = []; for (y = 0; y < 5; y++) { var r = { base: 0, src: 0, tgt: 0, one: 0, cf: 0 }; for (t = y * 12 + 1; t <= y * 12 + 12; t++) { r.base += base[t]; r.src += src[t]; r.tgt += tgt[t]; r.one += one[t]; r.cf += cf[t]; } yearly.push(r); }
-  return { a: a, cf: cf, cum: cum, yearly: yearly, npv: npv, irr: irr(cf), payback: payback, future5: a.future * Math.pow(1 + a.wgTo / 100, 4), oneTime: oneTotal, sev: sevPaid, setup: setupTotal,
+  return { a: a, cf: cf, cum: cum, yearly: yearly, npv: npv, irr: irr(cf), payback: payback, future5: a.future * Math.pow(1 + a.wgTo / 100, 4), oneTime: oneTotal, sev: sevPaid, setup: setupTotal, fit: fitTotal, sale: a.officeSale,
     saving: y5, savingPct: y5 / b5, peak: -low, total5: cum[H] };
 }
 
@@ -361,7 +384,8 @@ var S = load(); if (!S.ov) S.ov = {}; setConfig(S.ov);
 var ROWS = [
   { h: 'The new center' },
   { k: 'to', l: 'GBS site', d: 'Sets the future cost and wage growth. Pay comes from the GBS site table below.', sel: 1 },
-  { k: 'future', l: 'Cost per job, per year', d: 'Pay, bonus, employer charges, office and IT, with a more junior team and fewer leaders. Includes a language bonus for 40% of the jobs where the site has one. Empty = site average.', auto: 'futureAuto', min: 0 },
+  { k: 'office', l: 'Office', d: 'New rented office pays market rent. An existing building you own costs only its running cost (service, energy, cleaning, upkeep). Coworking costs more per desk but needs no fit-out.', opts: [['lease', 'New rented office'], ['owned', 'Existing building you own'], ['cowork', 'Coworking or serviced office']] },
+  { k: 'future', l: 'Cost per job, per year', d: 'Pay, bonus, employer charges, office and IT, with a more junior team and fewer leaders. Includes office cost for the office type above and a language bonus for 40% of the jobs where the site has one. Empty = calculated.', auto: 'futureAuto', min: 0 },
   { k: 'wgTo', l: 'Wage growth, % per year', d: 'How fast pay rises at this site. A cheap site with fast wage growth can lose its lead within 4 years. Empty = site value.', auto: 'wgToAuto', min: 0, dec: 1 },
   { h: 'Timing, in months' },
   { k: 'prep', l: 'Preparation', d: 'From decision until the first team works in the new center.', min: 0 },
@@ -373,15 +397,16 @@ var ROWS = [
   { h: 'One-time cost' },
   { k: 'sevMonths', l: 'Severance, months of pay', d: 'Per person who leaves. Empty = country rules at 9 years of service, weighted by your team.', auto: 'sevAuto', min: 0 },
   { k: 'sevShare', l: 'People who get severance, %', d: 'The rest retire, move to another job inside the company, or resign.', min: 0 },
+  { k: 'fitout', l: 'Office fit-out or remodel, per desk', d: 'One-time, paid during preparation. Default: new office 4,000, existing building 2,500, coworking 0. Replace with your quote.', auto: 'fitoutAuto', min: 0 },
   { k: 'setup', l: 'Other one-time cost per FTE', d: 'Recruiting, training, travel, project team and site setup. Empty = rule of thumb.', auto: 'setupAuto', min: 0 }
 ];
 
 function defaults() { return { disc: 8, team: [{ c: 'Germany', fte: 90, roles: null }], sc: [{ to: 'Krakow (Poland)' }, { to: 'Bangalore (India)' }, { to: 'Lisbon (Portugal)' }] }; }
 function load() { try { var s = JSON.parse(localStorage.getItem(LS)); if (s && s.sc && s.sc.length === 3 && s.team && s.team.length) return s; } catch (e) { } return defaults(); }
 function save() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) { } }
-function inputs(i) { var o = {}, s = S.sc[i], k; for (k in s) if (s[k] !== '' && s[k] != null) o[k] = s[k]; o.disc = S.disc; o.team = S.team; if (S.today !== undefined && S.today !== '') o.today = S.today; if (S.wgFrom !== undefined && S.wgFrom !== '') o.wgFrom = S.wgFrom; return o; }
+function inputs(i) { var o = {}, s = S.sc[i], k; for (k in s) if (s[k] !== '' && s[k] != null) o[k] = s[k]; o.disc = S.disc; o.team = S.team; if (S.today !== undefined && S.today !== '') o.today = S.today; if (S.wgFrom !== undefined && S.wgFrom !== '') o.wgFrom = S.wgFrom; o.officeSave = +S.officeSave || 0; o.officeSale = +S.officeSale || 0; return o; }
 function confTag(c) { return '<span class="conf ' + (c >= 70 ? 'hi' : c >= 50 ? 'mid' : 'lo') + '">' + c + '%</span>'; }
-function title(i) { return LBL[i] + ': move to ' + resolve(inputs(i)).to; }
+function title(i) { var a = resolve(inputs(i)); return LBL[i] + ': move to ' + a.to + (a.office === 'owned' ? ', own building' : a.office === 'cowork' ? ', coworking' : ''); }
 
 function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 function eur(v) { var a = Math.abs(v), s = v < 0 ? '−' : ''; if (a >= 1e6) return s + '€' + (a / 1e6).toFixed(a >= 1e7 ? 1 : 2) + 'M'; if (a >= 1e3) return s + '€' + Math.round(a / 1e3) + 'k'; return s + '€' + Math.round(a); }
@@ -407,6 +432,7 @@ function renderTeam() {
   document.getElementById('team').innerHTML = h;
   document.getElementById('today').value = S.today === undefined ? '' : S.today;
   document.getElementById('wgFrom').value = S.wgFrom === undefined ? '' : S.wgFrom;
+  document.getElementById('officeSave').value = S.officeSave || 0; document.getElementById('officeSale').value = S.officeSale || 0;
   refreshTeam();
 }
 // numbers that depend on the team: row totals, summary, pay labels
@@ -432,7 +458,8 @@ function renderInputs() {
     h += '<tr><td class="lab"><b>' + r.l + '</b><span>' + r.d + '</span></td>';
     S.sc.forEach(function (s, i) {
       var a = resolve(inputs(i)), id = r.k + i;
-      if (r.sel) h += '<td><select id="' + id + '" data-k="' + r.k + '" data-i="' + i + '">' + countryOpts(a[r.k], SITES) + '</select></td>';
+      if (r.opts) h += '<td><select id="' + id + '" data-k="' + r.k + '" data-i="' + i + '">' + r.opts.map(function (o) { return '<option value="' + o[0] + '"' + (o[0] === a[r.k] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></td>';
+      else if (r.sel) h += '<td><select id="' + id + '" data-k="' + r.k + '" data-i="' + i + '">' + countryOpts(a[r.k], SITES) + '</select></td>';
       else if (r.auto) { var set = s[r.k] !== undefined && s[r.k] !== ''; h += '<td><input type="number" id="' + id + '" min="' + r.min + '" step="any" data-k="' + r.k + '" data-i="' + i + '" value="' + (set ? s[r.k] : '') + '" placeholder="' + num(a[r.auto]) + '"><i class="auto" id="hint' + id + '"></i></td>'; }
       else h += '<td><input type="number" id="' + id + '" min="' + r.min + '" step="any" data-k="' + r.k + '" data-i="' + i + '" value="' + a[r.k] + '"></td>';
     });
@@ -456,7 +483,7 @@ function renderResults() {
     h += '<div class="res" style="--c:' + COL[i] + '"><div class="rh"><span class="dot" style="background:' + COL[i] + '"></span>' + esc(title(i)) + (i === best && r.npv > 0 ? '<em>best value</em>' : '') + '</div>';
     h += '<div class="big ' + (r.npv >= 0 ? 'pos' : 'neg') + '">' + eur(r.npv) + '</div><div class="sub">value over 5 years, in today\'s money (NPV)</div>';
     h += '<p class="say">' + (r.payback !== null ? 'Pays back in month <b>' + r.payback + '</b>.' : '<b>Does not pay back</b> within 5 years.') + ' From year 5 it ' + (r.saving >= 0 ? 'saves' : 'costs') + ' <b>' + eur(Math.abs(r.saving)) + '</b> per year (' + Math.round(Math.abs(r.savingPct) * 100) + '% of today\'s cost). You need <b>' + eur(r.peak) + '</b> of funding before it turns positive.</p>';
-    h += '<dl><dt>Cost per FTE today</dt><dd>' + eur(r.a.today) + '</dd><dt>Cost per FTE, new center</dt><dd>' + eur(r.a.future) + '</dd><dt class="in2">in year 5, at ' + n1(r.a.wgTo) + '% wage growth</dt><dd>' + eur(r.future5) + '</dd><dt>One-time cost</dt><dd>' + eur(r.oneTime) + '</dd><dt class="in2">of which severance</dt><dd>' + eur(r.sev) + '</dd><dt class="in2">of which setup</dt><dd>' + eur(r.setup) + '</dd><dt>Return per year (IRR)</dt><dd>' + (r.irr === null ? 'negative' : Math.round(r.irr * 100) + '%') + '</dd><dt>Data confidence, site / today</dt><dd>' + confTag(r.a.confSite) + ' / ' + confTag(r.a.confToday) + '</dd></dl></div>';
+    h += '<dl><dt>Cost per FTE today</dt><dd>' + eur(r.a.today) + '</dd><dt>Cost per FTE, new center</dt><dd>' + eur(r.a.future) + '</dd><dt class="in2">in year 5, at ' + n1(r.a.wgTo) + '% wage growth</dt><dd>' + eur(r.future5) + '</dd><dt>One-time cost</dt><dd>' + eur(r.oneTime) + '</dd><dt class="in2">of which severance</dt><dd>' + eur(r.sev) + '</dd><dt class="in2">of which office fit-out</dt><dd>' + eur(r.fit) + '</dd><dt class="in2">of which other setup</dt><dd>' + eur(r.setup) + '</dd>' + (r.sale > 0 ? '<dt class="in2">minus sale of offices</dt><dd>' + eur(-r.sale) + '</dd>' : '') + '<dt>Return per year (IRR)</dt><dd>' + (r.irr === null ? 'negative' : Math.round(r.irr * 100) + '%') + '</dd><dt>Data confidence, site / today</dt><dd>' + confTag(r.a.confSite) + ' / ' + confTag(r.a.confToday) + '</dd></dl></div>';
   });
   document.getElementById('results').innerHTML = h;
   document.getElementById('chart').innerHTML = chart(R);
@@ -509,7 +536,8 @@ function renderAdv() {
   h += '<h3>Roles</h3><p class="note">Bonus is a share of pay. The two splits say how a team is built: your team today (used when you do not enter jobs by role) and the new center. Splits are scaled to 100%.</p><div class="scroll"><table class="adv"><thead><tr><th></th>' + ROLES.map(function (r) { return '<th>' + r + '</th>'; }).join('') + '</tr></thead><tbody>';
   [['bonus', 'Bonus, % of pay', BONUS.map(function (b) { return Math.round(b * 100); })], ['typical', 'Team today, %', TYPICAL], ['target', 'New center team, %', TARGET]].forEach(function (r) { h += '<tr><td class="cn">' + r[1] + '</td>' + r[2].map(function (d, g) { return cell([r[0], g], d, r[1] + ' ' + ROLES[g]); }).join('') + '</tr>'; });
   h += '</tbody></table></div>';
-  h += '<h3>Other one-time cost per FTE</h3><p class="note">Rule of thumb = a fixed amount plus a share of the yearly cost per FTE in the new center.</p><table class="adv two"><tbody><tr><td class="cn">Fixed amount, EUR</td>' + cell(['setupFix'], 12000, 'Fixed amount') + '<td class="cn">Plus % of new-center cost</td>' + cell(['setupPct'], 20, 'Share of new-center cost') + '</tr></tbody></table>';
+  h += '<h3>Offices</h3><p class="note">Office cost per FTE = IT + market rent per desk x desks per FTE x factor for the office type. Market rent per desk is in the site table above (office and IT minus IT).</p><table class="adv two"><tbody><tr><td class="cn">IT per FTE per year, EUR</td>' + cell(['it'], 3000, 'IT per FTE') + '<td class="cn">Desks per FTE (0.8 = hybrid)</td>' + cell(['desks'], 1, 'Desks per FTE') + '</tr><tr><td class="cn">Owned building running cost, % of rent</td>' + cell(['ownedPct'], 35, 'Owned running cost') + '<td class="cn">Coworking, % of rent</td>' + cell(['coworkPct'], 150, 'Coworking') + '</tr><tr><td class="cn">Fit-out new office, per desk</td>' + cell(['fitLease'], 4000, 'Fit-out new office') + '<td class="cn">Remodel existing building, per desk</td>' + cell(['fitOwned'], 2500, 'Remodel existing') + '</tr><tr><td class="cn">Coworking set-up, per desk</td>' + cell(['fitCowork'], 0, 'Coworking set-up') + '<td></td><td></td></tr></tbody></table>';
+  h += '<h3>Other one-time cost per FTE</h3><p class="note">Rule of thumb = a fixed amount plus a share of the yearly cost per FTE in the new center.</p><table class="adv two"><tbody><tr><td class="cn">Fixed amount, EUR</td>' + cell(['setupFix'], 9000, 'Fixed amount') + '<td class="cn">Plus % of new-center cost</td>' + cell(['setupPct'], 20, 'Share of new-center cost') + '</tr></tbody></table>';
   h += '<h3>Language bonus in the new center</h3><p class="note">Jobs that need a second foreign language, for example German or French, are paid more. The bonus per country is in the table above.</p><table class="adv two"><tbody><tr><td class="cn">Jobs with a language bonus, %</td>' + cell(['langShare'], 40, 'Jobs with a language bonus') + '</tr></tbody></table>';
   h += '<p><button class="btn" id="ovreset">Reset all values in this section</button></p>';
   document.getElementById('adv').innerHTML = h; advCount();
@@ -536,6 +564,8 @@ document.addEventListener('input', function (e) {
   else if (el.hasAttribute('data-tc')) S.team[+el.getAttribute('data-tc')].c = el.value;
   else if (el.hasAttribute('data-tf')) S.team[+el.getAttribute('data-tf')].fte = el.value === '' ? 0 : Math.max(0, +el.value);
   else if (el.hasAttribute('data-tr')) { q = el.getAttribute('data-tr').split(':'); S.team[+q[0]].roles[+q[1]] = el.value === '' ? 0 : Math.max(0, +el.value); }
+  else if (el.id === 'officeSave') S.officeSave = el.value === '' ? 0 : Math.min(100, Math.max(0, +el.value));
+  else if (el.id === 'officeSale') S.officeSale = el.value === '' ? 0 : Math.max(0, +el.value);
   else if (el.id === 'wgFrom') { if (el.value === '') delete S.wgFrom; else S.wgFrom = Math.max(0, +el.value); }
   else if (el.id === 'today') { if (el.value === '') delete S.today; else S.today = Math.max(0, +el.value); }
   else if (el.id === 'disc') S.disc = el.value === '' ? 8 : Math.max(0, +el.value);
