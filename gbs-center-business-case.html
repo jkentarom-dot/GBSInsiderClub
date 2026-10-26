@@ -100,6 +100,14 @@ input.ov.set{border-color:var(--gold);color:var(--gold)}
 td.est{color:var(--text-3);font-style:italic}table.bench{min-width:1180px}table.bench th.src,table.bench td.src{text-align:left;font-size:12px;color:var(--text-3);min-width:220px;white-space:normal}table.bench th{white-space:normal;vertical-align:bottom}table.bench td:first-child{white-space:nowrap;color:var(--text)}
 .conf{display:inline-block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;border-radius:20px;padding:0 7px;border:1px solid}.conf.hi{color:var(--green);border-color:var(--green)}.conf.mid{color:var(--gold);border-color:var(--gold)}.conf.lo{color:var(--red);border-color:var(--red)}.sum b .conf{font-size:14px}
 .sum{grid-template-columns:repeat(6,minmax(0,1fr))}@media(max-width:820px){.sum{grid-template-columns:repeat(2,minmax(0,1fr))}}
+tr.tog td{padding:4px 0;border-top:none}
+.togb{background:transparent;border:1px dashed var(--border-2);border-radius:6px;color:var(--sa);font:inherit;font-size:13px;padding:6px 10px;cursor:pointer;width:100%;text-align:left;display:flex;gap:8px;align-items:baseline}
+.togb:hover,.togb:focus-visible{border-color:var(--sa)}
+.togb i{font-style:normal;color:var(--text-3);font-size:12px}
+.togb .car{font-family:'JetBrains Mono',ui-monospace,monospace;width:12px;display:inline-block}
+tr.det td{background:var(--surface-2)}tr.det td.lab{padding-left:10px}
+td.na{color:var(--text-3);font-size:12px;vertical-align:middle}
+details.more{margin-top:8px}details.more summary i{font-style:normal;font-size:12px;color:var(--text-3);margin-left:6px}details.more .note{margin:10px 0 0}
 
 </style></head><body>
 <header><div class="wrap hd"><a class="brand" href="/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg><span>GBS Insider Club</span></a><button id="reset" class="btn">Reset</button></div></header>
@@ -112,12 +120,15 @@ td.est{color:var(--text-3);font-style:italic}table.bench{min-width:1180px}table.
 <p class="note">Add each country where the work sits now and the number of jobs. The cost comes from the regular average pay per role in that country (not GBS pay). If you know your roles, enter them. The cost then follows your real team.</p>
 <div class="card" id="team"></div>
 <div class="sum" id="teamsum"></div>
+<details class="more card"><summary>More options for today's cost <i>real cost per FTE, wage growth, offices today</i></summary>
 <p class="note"><label for="today">Your real cost per FTE, per year (optional)</label> <input type="number" id="today" min="0" step="any" class="md"> If you know it from payroll, enter it here. It replaces the calculated value.</p>
 <p class="note"><label for="wgFrom">Wage growth today, % per year (optional)</label> <input type="number" id="wgFrom" min="0" step="any" class="md"> How fast pay rises in your countries if nothing changes. Empty = country values.</p>
-<p class="note"><label for="officeSave">Office cost today that goes away, %</label> <input type="number" id="officeSave" min="0" max="100" step="any" class="md"> <label for="officeSale">One-time sale of owned offices, EUR</label> <input type="number" id="officeSale" min="0" step="any" class="md"> Both 0 by default: small offices often stay for other teams. Enter a value only if offices are really closed or sold.</p>
+<p class="note"><label for="officeSave">Office cost today that goes away, %</label> <input type="number" id="officeSave" min="0" max="100" step="any" class="md"> <label for="officeSale">One-time sale of owned offices, EUR</label> <input type="number" id="officeSale" min="0" step="any" class="md"> Both 0 by default: small offices often stay for other teams. Enter a value only if offices are really closed or sold. IT cost is not part of this: it moves with the job and is the same before and after.</p>
+
+</details>
 
 <h2>2. Three options for the new center</h2>
-<p class="note">Pick a GBS site for each option. The cost comes from service center pay at that site.</p>
+<p class="note">Pick a GBS site and an office type for each option. Lines marked with + open more detail. The defaults work without them, and each line says why the default is what it is.</p>
 <div class="card scroll" id="inputs"></div>
 <p class="note"><label for="disc">Discount rate, % per year</label> <input type="number" id="disc" min="0" step="any" class="sm"> Money in later years counts less. Most companies use 7 to 10.</p>
 
@@ -245,6 +256,9 @@ var DEFAULTS = {
   office: 'lease',  // new center office: 'lease' (new rented office), 'owned' (existing building you own), 'cowork'
   fitout: null,     // one-time fit-out or remodel per desk (null = default for the office type)
   deskCost: null,   // office cost per desk per year without IT: your actual rent or running cost (null = market rent x factor for the office type)
+  ownVar: null,     // own building: extra running cost per desk per year for cleaning, desk energy, kitchen (null = default)
+  ownFixed: null,   // own building: fixed cost per desk per year for heating, water, maintenance, security, tax (null = default)
+  ownExtra: null,   // own building: % of the fixed cost that is really extra because of the center (null = default 0)
   oppCost: 0,       // lost rent or sale income per desk per year when you use your own building (opportunity cost, 0 = not counted)
   officeSave: 0,    // % of today's office cost that goes away after the move (offices sold or closed)
   officeSale: 0,    // one-time money from selling owned offices, EUR, received when the move is done
@@ -262,12 +276,14 @@ function setConfig(ov) {
   CFG = { today: JSON.parse(JSON.stringify(TODAY)), sites: JSON.parse(JSON.stringify(SITES)), bonus: BONUS.slice(), typical: TYPICAL.slice(), target: TARGET.slice(), setupFix: 9000, setupPct: 20, langShare: 40,
     it: 3000,          // IT and workplace services per FTE per year; the rest of 'work' in the data is rent
     desks: 1,          // desks per FTE in the new center (0.8 = hybrid work)
-    ownedPct: 35,      // running cost of an owned building, % of market rent (service, energy, cleaning, upkeep)
+    ownVar: 500,       // own building: extra cost per desk per year that comes with each person (cleaning, desk energy, kitchen)
+    ownFixed: 900,     // own building: fixed cost per desk per year (heating, water, maintenance, security, tax), about 35% of market rent
+    ownExtra: 0,       // % of that fixed cost that is extra: 0 when the building is kept and heated anyway (used 15% today)
     coworkPct: 150,    // coworking or serviced office, % of market rent
     fitLease: 4000, fitOwned: 2500, fitCowork: 0 }; // one-time fit-out or remodel per desk
   ['today', 'sites'].forEach(function (tab) { var oc = ov[tab] || {}; CFG[tab].forEach(function (c) { var o = oc[c.n]; if (!o) return; ['on', 'work', 'sev', 'wg', 'lang'].forEach(function (k) { if (o[k] != null) c[k] = +o[k]; }); if (o.sal) o.sal.forEach(function (v, g) { if (v != null) c.sal[g] = +v / 1000; }); }); });
   ['bonus', 'typical', 'target'].forEach(function (k) { if (ov[k]) ov[k].forEach(function (v, g) { if (v != null) CFG[k][g] = k === 'bonus' ? +v / 100 : +v; }); });
-  ['it', 'desks', 'ownedPct', 'coworkPct', 'fitLease', 'fitOwned', 'fitCowork'].forEach(function (k) { if (ov[k] != null) CFG[k] = +ov[k]; });
+  ['it', 'desks', 'ownVar', 'ownFixed', 'ownExtra', 'coworkPct', 'fitLease', 'fitOwned', 'fitCowork'].forEach(function (k) { if (ov[k] != null) CFG[k] = +ov[k]; });
   if (ov.setupFix != null) CFG.setupFix = +ov.setupFix; if (ov.setupPct != null) CFG.setupPct = +ov.setupPct; if (ov.langShare != null) CFG.langShare = +ov.langShare;
 }
 setConfig();
@@ -278,18 +294,22 @@ function country(name) { return find(CFG.today, name); }  // regular in-country 
 function site(name) { return find(CFG.sites, name); }     // GBS site, for the new center
 // cost per FTE in a new center at this site: new-center split by role x cost per role
 // Language bonus: a share of the jobs (langShare) gets extra pay (lang %) for a second foreign language.
-function officeFactor(mode) { return mode === 'owned' ? CFG.ownedPct / 100 : mode === 'cowork' ? CFG.coworkPct / 100 : 1; }
+function officeFactor(mode) { return mode === 'cowork' ? CFG.coworkPct / 100 : 1; }
+// The data's 'work' = market rent per desk + 3,000 IT. IT is the same before and after the move, at any location.
+var DATA_IT = 3000;
+function workOf(c) { return c.work - DATA_IT + CFG.it; }
 // Office per FTE: IT, plus rent per desk x desks per FTE x factor for the office type.
-function marketRent(c) { return Math.max(0, c.work - CFG.it); }   // market rent per desk per year at this site
-function deskCostAuto(c, mode) { return Math.round(marketRent(c) * officeFactor(mode) / 10) * 10; }
+function marketRent(c) { return Math.max(0, c.work - DATA_IT); }   // market rent per desk per year at this site
+// own building: extra running cost + the part of the fixed cost that is really extra. Rented or coworking: market rent x factor.
+function deskCostAuto(c, mode, own) { if (mode === 'owned') return Math.round(own.v + own.f * own.x / 100); return Math.round(marketRent(c) * officeFactor(mode) / 10) * 10; }
 // Office per FTE: IT + (cost per desk + opportunity cost per desk) x desks per FTE.
 function officeCost(c, mode, desk, opp) { return CFG.it + ((desk == null ? deskCostAuto(c, mode) : desk) + (opp || 0)) * CFG.desks; }
-function futureCost(c, mode, desk, opp) { var p = shares(CFG.target), s = 0, lb = 1 + (c.lang || 0) / 100 * CFG.langShare / 100; for (var g = 0; g < 7; g++) s += p[g] * (roleCost(c, g) - c.work) * lb; return Math.round((s + officeCost(c, mode, desk, opp)) / 100) * 100; }
+function futureCost(c, mode, desk, opp) { var p = shares(CFG.target), s = 0, lb = 1 + (c.lang || 0) / 100 * CFG.langShare / 100; for (var g = 0; g < 7; g++) s += p[g] * (roleCost(c, g) - workOf(c)) * lb; return Math.round((s + officeCost(c, mode, desk, opp)) / 100) * 100; }
 function clamp01(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
 // FTE per role for one country row: the entered numbers, or the typical split of the total
 function rolesOf(row) { if (row.roles) return row.roles.map(function (v) { return Math.max(0, +v || 0); }); return shares(CFG.typical).map(function (p) { return (Math.max(0, +row.fte || 0)) * p; }); }
 // yearly cost of one FTE in a role: pay + bonus + employer charges + office and IT
-function roleCost(c, g) { return c.sal[g] * 1000 * (1 + CFG.bonus[g]) * (1 + c.on / 100) + c.work; }
+function roleCost(c, g) { return c.sal[g] * 1000 * (1 + CFG.bonus[g]) * (1 + c.on / 100) + workOf(c); }
 
 // Today's cost base, built from the team: FTE per country and role x country average per role.
 function teamStats(team) {
@@ -298,7 +318,7 @@ function teamStats(team) {
     var c = country(row.c), r = rolesOf(row), f = 0, cost = 0, pay = 0;
     for (var g = 0; g < 7; g++) { f += r[g]; cost += r[g] * roleCost(c, g); pay += r[g] * c.sal[g] * 1000; }
     T.confW = (T.confW || 0) + f * c.conf;
-    T.work = (T.work || 0) + f * c.work;
+    T.work = (T.work || 0) + f * (workOf(c) - CFG.it);   // office cost today without IT
     T.fte += f; T.cost += cost; T.pay += pay; T.sevPay += pay * c.sev; T.wgCost += cost * c.wg;
     T.rows.push({ fte: f, cost: cost, perFte: f ? cost / f : 0, roles: r });
   });
@@ -315,7 +335,8 @@ function resolve(inp) {
   var a = {}, k; for (k in DEFAULTS) a[k] = (inp[k] === undefined || inp[k] === '') ? DEFAULTS[k] : inp[k];
   var F = teamStats(a.team && a.team.length ? a.team : [{ c: a.from, fte: a.fte }]), T = site(a.to);
   a.fte = F.fte; a.team = F;
-  a.todayAuto = Math.round(F.today / 100) * 100; a.deskCostAuto = deskCostAuto(T, a.office); a.marketRent = marketRent(T);
+  a.todayAuto = Math.round(F.today / 100) * 100; a.ownVar = a.ownVar == null ? CFG.ownVar : +a.ownVar; a.ownFixed = a.ownFixed == null ? CFG.ownFixed : +a.ownFixed; a.ownExtra = a.ownExtra == null ? CFG.ownExtra : +a.ownExtra;
+  a.deskCostAuto = deskCostAuto(T, a.office, { v: a.ownVar, f: a.ownFixed, x: a.ownExtra }); a.marketRent = marketRent(T);
   a.deskCost = a.deskCost == null ? a.deskCostAuto : +a.deskCost; a.oppCost = +a.oppCost || 0;
   a.futureAuto = futureCost(T, a.office, a.deskCost, a.oppCost); a.sevAuto = Math.round(F.sev * 10) / 10;
   a.today = a.today == null ? a.todayAuto : +a.today;
@@ -326,7 +347,7 @@ function resolve(inp) {
   a.setup = a.setup == null ? a.setupAuto : +a.setup;
   a.fitoutAuto = a.office === 'owned' ? CFG.fitOwned : a.office === 'cowork' ? CFG.fitCowork : CFG.fitLease;
   a.fitout = a.fitout == null ? a.fitoutAuto : +a.fitout;
-  a.officeShare = F.cost ? F.work / F.cost : 0;     // share of today's cost that is office and IT
+  a.officeShare = F.cost ? F.work / F.cost : 0;     // share of today's cost that is office rent (IT moves with the job)
   a.officeSave = +a.officeSave || 0; a.officeSale = +a.officeSale || 0;
   a.wgFromAuto = Math.round(F.wg * 10) / 10; a.wgToAuto = T.wg;
   a.wgFrom = a.wgFrom == null ? F.wg : +a.wgFrom; a.wgTo = a.wgTo == null ? T.wg : +a.wgTo;
@@ -388,27 +409,37 @@ var LS = 'gbs_simple_v3', COL = ['var(--sa)', 'var(--sb)', 'var(--sc)'], DASH = 
 var S = load(); if (!S.ov) S.ov = {}; setConfig(S.ov);
 
 // One row per option input. auto = name of the calculated value shown when the field is empty.
+// Rows with g belong to a detail group that is closed until the user opens it (t = the group's toggle row).
 var ROWS = [
   { h: 'The new center' },
-  { k: 'to', l: 'GBS site', d: 'Sets the future cost and wage growth. Pay comes from the GBS site table below.', sel: 1 },
-  { k: 'office', l: 'Office', d: 'New rented office pays market rent. An existing building you own costs only its running cost (service, energy, cleaning, upkeep). Coworking costs more per desk but needs no fit-out.', opts: [['lease', 'New rented office'], ['owned', 'Existing building you own'], ['cowork', 'Coworking or serviced office']] },
-  { k: 'deskCost', l: 'Office cost per desk, per year', d: 'Rent, or running cost for your own building, without IT. Calculated from the market rent at the site and the office type. Enter your actual figure if you have it.', auto: 'deskCostAuto', min: 0, hint: 1 },
-  { k: 'oppCost', l: 'Lost income from own building, per desk per year', d: 'Opportunity cost: rent or sale income you give up because the center uses your own space. 0 = not counted. Market rent at the site is shown as a guide.', min: 0, hint: 2 },
-  { k: 'future', l: 'Cost per job, per year', d: 'Pay, bonus, employer charges, office and IT, with a more junior team and fewer leaders. Includes office cost for the office type above and a language bonus for 40% of the jobs where the site has one. Empty = calculated.', auto: 'futureAuto', min: 0 },
+  { k: 'to', l: 'GBS site', d: 'Sets pay, rent and wage growth. Pay comes from the GBS site table below.', sel: 1 },
+  { k: 'office', l: 'Office', d: 'New rented office pays market rent. Your own building costs only what the center adds. Coworking costs more per desk but needs no fit-out.', opts: [['lease', 'New rented office'], ['owned', 'Existing building you own'], ['cowork', 'Coworking or serviced office']] },
+  { k: 'future', l: 'Cost per job, per year', d: 'Pay, bonus, employer charges, office and IT, with a more junior team and fewer leaders. Empty = calculated.', auto: 'futureAuto', min: 0 },
+  { t: 'office', l: 'Office details', d: 'Cost per desk, own building, lost income' },
+  { g: 'office', k: 'deskCost', l: 'Office cost per desk, per year', d: 'Without IT. Calculated from the details below. Enter your actual figure to replace everything below.', auto: 'deskCostAuto', min: 0, hint: 1 },
+  { g: 'office', k: 'ownVar', l: 'Own building: extra running cost per desk, per year', d: 'Cleaning, electricity at the desk, kitchen and supplies that come with each person. Default 500 = about 40 per month (estimate).', auto: 'ownVarD', min: 0, own: 1 },
+  { g: 'office', k: 'ownFixed', l: 'Own building: fixed cost per desk, per year', d: 'Heating, water, maintenance, security and property tax, per desk. Default 900 = about 35% of market rent (estimate).', auto: 'ownFixedD', min: 0, own: 1 },
+  { g: 'office', k: 'ownExtra', l: 'Own building: share of fixed cost that is extra, %', d: 'Default 0: the building is used about 15% today, and heating, water and maintenance run at almost full level anyway. Use 100 if the space would otherwise be closed.', auto: 'ownExtraD', min: 0, own: 1 },
+  { g: 'office', k: 'oppCost', l: 'Own building: lost income per desk, per year', d: 'Opportunity cost: rent or sale income you give up because the center uses the space. Default 0 = you would not sell or rent it out. Market rent is shown as a guide.', min: 0, hint: 2, own: 1 },
   { k: 'wgTo', l: 'Wage growth, % per year', d: 'How fast pay rises at this site. A cheap site with fast wage growth can lose its lead within 4 years. Empty = site value.', auto: 'wgToAuto', min: 0, dec: 1 },
   { h: 'Timing, in months' },
   { k: 'prep', l: 'Preparation', d: 'From decision until the first team works in the new center.', min: 0 },
   { k: 'move', l: 'Move duration', d: 'From the first team to the last team going live.', min: 1 },
-  { k: 'overlap', l: 'Double cost', d: 'How long you pay both the old and the new person for the same job: training, handover, safety period.', min: 0 },
+  { t: 'timing', l: 'Timing details', d: 'Double cost' },
+  { g: 'timing', k: 'overlap', l: 'Double cost', d: 'How long you pay both the old and the new person for the same job: training, handover, safety period. Default 5 months (onboarding 1, knowledge transfer 2 to 3, parallel run 1 to 2).', min: 0 },
   { h: 'People' },
-  { k: 'extra', l: 'Extra people in year 1, %', d: 'New teams are slower at first. This adds people for the first 12 months.', min: 0 },
-  { k: 'eff', l: 'Fewer people per year, %', d: 'Yearly gain from standard processes and automation, after the move.', min: 0 },
+  { k: 'eff', l: 'Fewer people per year, %', d: 'Yearly gain from standard processes and automation, after the move. Default 3%.', min: 0 },
+  { t: 'people', l: 'People details', d: 'Extra people in year 1' },
+  { g: 'people', k: 'extra', l: 'Extra people in year 1, %', d: 'New teams are slower at first. Default 10% more people for the first 12 months after go-live.', min: 0 },
   { h: 'One-time cost' },
-  { k: 'sevMonths', l: 'Severance, months of pay', d: 'Per person who leaves. Empty = country rules at 9 years of service, weighted by your team.', auto: 'sevAuto', min: 0 },
-  { k: 'sevShare', l: 'People who get severance, %', d: 'The rest retire, move to another job inside the company, or resign.', min: 0 },
-  { k: 'fitout', l: 'Office fit-out or remodel, per desk', d: 'One-time, paid during preparation. Default: new office 4,000, existing building 2,500, coworking 0. Replace with your quote.', auto: 'fitoutAuto', min: 0 },
-  { k: 'setup', l: 'Other one-time cost per FTE', d: 'Recruiting, training, travel, project team and site setup. Empty = rule of thumb.', auto: 'setupAuto', min: 0 }
+  { k: 'sevMonths', l: 'Severance, months of pay', d: 'Per person who leaves. Empty = country rules at 9 years of service, weighted by your team.', auto: 'sevAuto', min: 0, dec: 1 },
+  { k: 'fitout', l: 'Office fit-out or remodel, per desk', d: 'Paid during preparation. Default: new office 4,000, own building 2,500, coworking 0. Light refresh 500 to 1,500; standard fit-out 3,000 to 6,000; empty shell 6,000 to 10,000 (estimates).', auto: 'fitoutAuto', min: 0 },
+  { t: 'one', l: 'One-time details', d: 'Share with severance, other setup' },
+  { g: 'one', k: 'sevShare', l: 'People who get severance, %', d: 'Default 85%. The rest retire, move to another job inside the company, or resign.', min: 0 },
+  { g: 'one', k: 'setup', l: 'Other one-time cost per FTE', d: 'Recruiting, training, travel, project team and site setup. Default = 9,000 + 20% of the yearly cost per job in the new center.', auto: 'setupAuto', min: 0 }
 ];
+function isSet(s, k) { return s[k] !== undefined && s[k] !== ''; }
+function groupCount(g) { var n = 0; ROWS.forEach(function (r) { if (r.g === g && r.k) S.sc.forEach(function (s) { if (isSet(s, r.k) && !(r.k === 'oppCost' && !+s[r.k])) n++; }); }); return n; }
 
 function defaults() { return { disc: 8, team: [{ c: 'Germany', fte: 90, roles: null }], sc: [{ to: 'Krakow (Poland)' }, { to: 'Bangalore (India)' }, { to: 'Lisbon (Portugal)' }] }; }
 function load() { try { var s = JSON.parse(localStorage.getItem(LS)); if (s && s.sc && s.sc.length === 3 && s.team && s.team.length) return s; } catch (e) { } return defaults(); }
@@ -421,7 +452,7 @@ function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&
 function eur(v) { var a = Math.abs(v), s = v < 0 ? '−' : ''; if (a >= 1e6) return s + '€' + (a / 1e6).toFixed(a >= 1e7 ? 1 : 2) + 'M'; if (a >= 1e3) return s + '€' + Math.round(a / 1e3) + 'k'; return s + '€' + Math.round(a); }
 function num(v) { return Math.round(v).toLocaleString('en-US'); }
 function n1(v) { return (Math.round(v * 10) / 10).toString(); }
-function countryOpts(sel, list) { return (list || TODAY).map(function (c) { return '<option value="' + c.n + '"' + (c.n === sel ? ' selected' : '') + '>' + c.n + ' (data ' + c.conf + '%)</option>'; }).join(''); }
+function countryOpts(sel, list) { return (list || TODAY).map(function (c) { return '<option value="' + c.n + '"' + (c.n === sel ? ' selected' : '') + '>' + c.n + (list === SITES ? '' : ' (data ' + c.conf + '%)') + '</option>'; }).join(''); }
 
 // ---------- 1. today's team ----------
 function renderTeam() {
@@ -461,15 +492,19 @@ function refreshTeam() {
 
 // ---------- 2. options ----------
 function renderInputs() {
+  S.open = S.open || {};
   var h = '<table class="in"><thead><tr><th></th>' + S.sc.map(function (s, i) { return '<th><span class="dot" style="background:' + COL[i] + '"></span>Option ' + LBL[i] + '</th>'; }).join('') + '</tr></thead><tbody>';
   ROWS.forEach(function (r) {
     if (r.h) { h += '<tr class="grp"><td colspan="4">' + r.h + '</td></tr>'; return; }
-    h += '<tr><td class="lab"><b>' + r.l + '</b><span>' + r.d + '</span></td>';
+    if (r.t) { var op = !!S.open[r.t], n = groupCount(r.t); h += '<tr class="tog"><td colspan="4"><button class="togb" data-tog="' + r.t + '" aria-expanded="' + op + '"><span class="car">' + (op ? '−' : '+') + '</span>' + r.l + ' <i>' + r.d + (n ? ' · ' + n + ' changed' : '') + '</i></button></td></tr>'; return; }
+    if (r.g && !S.open[r.g]) return;
+    h += '<tr' + (r.g ? ' class="det"' : '') + '><td class="lab"><b>' + r.l + '</b><span>' + r.d + '</span></td>';
     S.sc.forEach(function (s, i) {
       var a = resolve(inputs(i)), id = r.k + i;
+      if (r.own && a.office !== 'owned') { h += '<td class="na">only for own building</td>'; return; }
       if (r.opts) h += '<td><select id="' + id + '" data-k="' + r.k + '" data-i="' + i + '">' + r.opts.map(function (o) { return '<option value="' + o[0] + '"' + (o[0] === a[r.k] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></td>';
       else if (r.sel) h += '<td><select id="' + id + '" data-k="' + r.k + '" data-i="' + i + '">' + countryOpts(a[r.k], SITES) + '</select></td>';
-      else if (r.auto) { var set = s[r.k] !== undefined && s[r.k] !== ''; h += '<td><input type="number" id="' + id + '" min="' + r.min + '" step="any" data-k="' + r.k + '" data-i="' + i + '" value="' + (set ? s[r.k] : '') + '" placeholder="' + num(a[r.auto]) + '"><i class="auto" id="hint' + id + '"></i></td>'; }
+      else if (r.auto) h += '<td><input type="number" id="' + id + '" min="' + r.min + '" step="any" data-k="' + r.k + '" data-i="' + i + '" value="' + (isSet(s, r.k) ? s[r.k] : '') + '" placeholder=""><i class="auto" id="hint' + id + '"></i></td>';
       else h += '<td><input type="number" id="' + id + '" min="' + r.min + '" step="any" data-k="' + r.k + '" data-i="' + i + '" value="' + a[r.k] + '">' + (r.hint ? '<i class="auto" id="hint' + id + '"></i>' : '') + '</td>';
     });
     h += '</tr>';
@@ -480,12 +515,20 @@ function renderInputs() {
 }
 // calculated values in the empty fields follow the team and the country
 function refreshAuto() {
-  S.sc.forEach(function (s, i) { var a = resolve(inputs(i)), h1 = document.getElementById('hintdeskCost' + i), h2 = document.getElementById('hintoppCost' + i);
-    var lbl = { lease: 'market rent', owned: CFG.ownedPct + '% of market rent', cowork: CFG.coworkPct + '% of market rent' }[a.office];
-    document.getElementById('deskCost' + i).placeholder = num(a.deskCostAuto);
-    if (h1) h1.textContent = (s.deskCost !== undefined && s.deskCost !== '' ? 'your value' : 'calculated: ' + lbl) + (a.office === 'lease' ? '' : ' (market rent ' + num(a.marketRent) + ')');
-    if (h2) h2.textContent = a.office === 'owned' ? 'guide: market rent ' + num(a.marketRent) : 'only for your own building'; });
-  ROWS.forEach(function (r) { if (!r.auto || r.hint) return;  S.sc.forEach(function (s, i) { var a = resolve(inputs(i)), set = s[r.k] !== undefined && s[r.k] !== ''; document.getElementById(r.k + i).placeholder = (r.k === 'sevMonths' || r.dec) ? n1(a[r.auto]) : num(a[r.auto]); document.getElementById('hint' + r.k + i).textContent = set ? 'your value' : 'calculated'; }); });
+  S.sc.forEach(function (s, i) {
+    var a = resolve(inputs(i));
+    a.ownVarD = CFG.ownVar; a.ownFixedD = CFG.ownFixed; a.ownExtraD = CFG.ownExtra;
+    ROWS.forEach(function (r) {
+      if (!r.k || (r.g && !S.open[r.g])) return;
+      var el = document.getElementById(r.k + i), hi = document.getElementById('hint' + r.k + i);
+      if (!el) return;
+      if (r.auto) el.placeholder = (r.dec ? n1(a[r.auto]) : num(a[r.auto]));
+      if (!hi) return;
+      if (r.k === 'deskCost') hi.textContent = isSet(s, 'deskCost') ? 'your value' : a.office === 'owned' ? 'calculated: ' + num(a.ownVar) + ' + ' + num(a.ownExtra) + '% of ' + num(a.ownFixed) : a.office === 'cowork' ? 'calculated: ' + CFG.coworkPct + '% of market rent ' + num(a.marketRent) : 'calculated: market rent';
+      else if (r.k === 'oppCost') hi.textContent = 'guide: market rent ' + num(a.marketRent);
+      else hi.textContent = isSet(s, r.k) ? 'your value' : 'calculated';
+    });
+  });
 }
 
 // ---------- 3. results ----------
@@ -550,7 +593,7 @@ function renderAdv() {
   h += '<h3>Roles</h3><p class="note">Bonus is a share of pay. The two splits say how a team is built: your team today (used when you do not enter jobs by role) and the new center. Splits are scaled to 100%.</p><div class="scroll"><table class="adv"><thead><tr><th></th>' + ROLES.map(function (r) { return '<th>' + r + '</th>'; }).join('') + '</tr></thead><tbody>';
   [['bonus', 'Bonus, % of pay', BONUS.map(function (b) { return Math.round(b * 100); })], ['typical', 'Team today, %', TYPICAL], ['target', 'New center team, %', TARGET]].forEach(function (r) { h += '<tr><td class="cn">' + r[1] + '</td>' + r[2].map(function (d, g) { return cell([r[0], g], d, r[1] + ' ' + ROLES[g]); }).join('') + '</tr>'; });
   h += '</tbody></table></div>';
-  h += '<h3>Offices</h3><p class="note">Office cost per FTE = IT + market rent per desk x desks per FTE x factor for the office type. Market rent per desk is in the site table above (office and IT minus IT).</p><table class="adv two"><tbody><tr><td class="cn">IT per FTE per year, EUR</td>' + cell(['it'], 3000, 'IT per FTE') + '<td class="cn">Desks per FTE (0.8 = hybrid)</td>' + cell(['desks'], 1, 'Desks per FTE') + '</tr><tr><td class="cn">Owned building running cost, % of rent</td>' + cell(['ownedPct'], 35, 'Owned running cost') + '<td class="cn">Coworking, % of rent</td>' + cell(['coworkPct'], 150, 'Coworking') + '</tr><tr><td class="cn">Fit-out new office, per desk</td>' + cell(['fitLease'], 4000, 'Fit-out new office') + '<td class="cn">Remodel existing building, per desk</td>' + cell(['fitOwned'], 2500, 'Remodel existing') + '</tr><tr><td class="cn">Coworking set-up, per desk</td>' + cell(['fitCowork'], 0, 'Coworking set-up') + '<td></td><td></td></tr></tbody></table>';
+  h += '<h3>Offices</h3><p class="note">These are the defaults for all options. Office cost per FTE = IT + cost per desk x desks per FTE. Rented office: market rent. Coworking: market rent x the coworking %. Own building: extra cost + the share of fixed cost that is extra. IT is the same before and after the move, so it does not change the saving.</p><table class="adv two"><tbody><tr><td class="cn">IT per FTE per year, EUR</td>' + cell(['it'], 3000, 'IT per FTE') + '<td class="cn">Desks per FTE (0.8 = hybrid)</td>' + cell(['desks'], 1, 'Desks per FTE') + '</tr><tr><td class="cn">Own building: extra cost per desk</td>' + cell(['ownVar'], 500, 'Own building extra cost') + '<td class="cn">Own building: fixed cost per desk</td>' + cell(['ownFixed'], 900, 'Own building fixed cost') + '</tr><tr><td class="cn">Own building: fixed cost that is extra, %</td>' + cell(['ownExtra'], 0, 'Own building fixed extra') + '<td class="cn">Coworking, % of rent</td>' + cell(['coworkPct'], 150, 'Coworking') + '</tr><tr><td class="cn">Fit-out new office, per desk</td>' + cell(['fitLease'], 4000, 'Fit-out new office') + '<td class="cn">Remodel existing building, per desk</td>' + cell(['fitOwned'], 2500, 'Remodel existing') + '</tr><tr><td class="cn">Coworking set-up, per desk</td>' + cell(['fitCowork'], 0, 'Coworking set-up') + '<td></td><td></td></tr></tbody></table>';
   h += '<h3>Other one-time cost per FTE</h3><p class="note">Rule of thumb = a fixed amount plus a share of the yearly cost per FTE in the new center.</p><table class="adv two"><tbody><tr><td class="cn">Fixed amount, EUR</td>' + cell(['setupFix'], 9000, 'Fixed amount') + '<td class="cn">Plus % of new-center cost</td>' + cell(['setupPct'], 20, 'Share of new-center cost') + '</tr></tbody></table>';
   h += '<h3>Language bonus in the new center</h3><p class="note">Jobs that need a second foreign language, for example German or French, are paid more. The bonus per country is in the table above.</p><table class="adv two"><tbody><tr><td class="cn">Jobs with a language bonus, %</td>' + cell(['langShare'], 40, 'Jobs with a language bonus') + '</tr></tbody></table>';
   h += '<p><button class="btn" id="ovreset">Reset all values in this section</button></p>';
@@ -571,7 +614,8 @@ function benchTable(list, kind) {
 function renderBench() { document.getElementById('bsites').innerHTML = benchTable(SITES, 'site'); document.getElementById('btoday').innerHTML = benchTable(TODAY, 'today'); }
 
 // ---------- events ----------
-function after() { save(); refreshTeam(); refreshAuto(); renderResults(); advCount(); if (!document.getElementById('adv').contains(document.activeElement)) renderAdv(); }
+function togCounts() { ROWS.forEach(function (r) { if (!r.t) return; var b = document.querySelector('[data-tog="' + r.t + '"] i'), n = groupCount(r.t); if (b) b.textContent = r.d + (n ? ' \u00b7 ' + n + ' changed' : ''); }); }
+function after() { save(); togCounts(); refreshTeam(); refreshAuto(); renderResults(); advCount(); if (!document.getElementById('adv').contains(document.activeElement)) renderAdv(); }
 document.addEventListener('input', function (e) {
   var el = e.target, q;
   if (el.hasAttribute('data-ov')) { ovSet(JSON.parse(el.getAttribute('data-ov')), el.value === '' ? null : Math.max(0, +el.value)); el.classList.toggle('set', el.value !== ''); setConfig(S.ov); }
@@ -583,7 +627,7 @@ document.addEventListener('input', function (e) {
   else if (el.id === 'wgFrom') { if (el.value === '') delete S.wgFrom; else S.wgFrom = Math.max(0, +el.value); }
   else if (el.id === 'today') { if (el.value === '') delete S.today; else S.today = Math.max(0, +el.value); }
   else if (el.id === 'disc') S.disc = el.value === '' ? 8 : Math.max(0, +el.value);
-  else if (el.hasAttribute('data-k')) { var k = el.getAttribute('data-k'), s = S.sc[+el.getAttribute('data-i')]; if (el.tagName === 'SELECT') s[k] = el.value; else if (el.value === '') delete s[k]; else s[k] = Math.max(0, +el.value); }
+  else if (el.hasAttribute('data-k')) { var k = el.getAttribute('data-k'), s = S.sc[+el.getAttribute('data-i')]; if (el.tagName === 'SELECT') { s[k] = el.value; if (k === 'office') setTimeout(renderInputs, 0); } else if (el.value === '') delete s[k]; else s[k] = Math.max(0, +el.value); }
   else return;
   after();
 });
@@ -592,6 +636,7 @@ document.addEventListener('click', function (e) {
   if (b.hasAttribute('data-addc')) { var used = S.team.map(function (m) { return m.c; }); S.team.push({ c: TODAY.filter(function (c) { return used.indexOf(c.n) < 0 && c.n.indexOf('average') < 0; })[0].n, fte: 10, roles: null }); }
   else if (b.hasAttribute('data-del')) S.team.splice(+b.getAttribute('data-del'), 1);
   else if (b.hasAttribute('data-split')) { j = +b.getAttribute('data-split'); var row = S.team[j]; if (row.roles) { row.fte = Math.round(rolesOf(row).reduce(function (a, v) { return a + v; }, 0) * 10) / 10; row.roles = null; } else row.roles = rolesOf(row).map(function (v) { return Math.round(v * 10) / 10; }); }
+  else if (b.closest && b.closest('[data-tog]')) { var g = b.closest('[data-tog]').getAttribute('data-tog'); S.open = S.open || {}; S.open[g] = !S.open[g]; save(); renderInputs(); return; }
   else if (b.id === 'reset') { S = defaults(); S.ov = {}; setConfig(S.ov); renderInputs(); }
   else if (b.id === 'ovreset') { S.ov = {}; setConfig(S.ov); document.activeElement.blur(); }
   else return;
