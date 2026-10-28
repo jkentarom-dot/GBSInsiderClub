@@ -140,65 +140,82 @@ dl.bridge dt.tt,dl.bridge dd.tt{color:var(--text);font-weight:600;border-top:1px
 table.risk td:first-child{color:var(--text-2)}
 #years{margin-top:14px}
 tr.blk .togb{border:none;padding:2px 0;width:auto}
+.jump{margin:10px 0 0;font-size:14px}.jump a{color:var(--sa);font-weight:600}.jump span{color:var(--text-3);font-size:13px;margin-left:8px}
+.scope h3{margin-bottom:4px}.scope input.md{margin:0 6px}
+p.warn{color:var(--sb)}p.warn:empty{display:none}
+details.pos{border-top:1px solid var(--border);padding:7px 0}
+details.pos>summary{display:flex;gap:10px;align-items:baseline;list-style:none;font-weight:400;color:var(--text-2)}
+details.pos>summary::-webkit-details-marker{display:none}
+details.pos>summary::before{content:'+';color:var(--sa);width:10px;flex:none}
+details.pos[open]>summary::before{content:'\2212'}
+details.pos .no{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--text-3);width:28px;flex:none}
+details.pos .pn{flex:1;min-width:0}
+details.pos>summary b{font-family:'JetBrains Mono',ui-monospace,monospace;color:var(--text);font-weight:500;font-variant-numeric:tabular-nums}
+details.pos>ul,details.pos>p{margin:6px 0 2px 48px;max-width:520px}
+details.pos.head>summary{color:var(--text);font-weight:500}
+.postot{display:flex;justify-content:space-between;border-top:2px solid var(--text-3);padding:8px 0 4px 48px;color:var(--text);font-weight:600}
+.postot b{font-family:'JetBrains Mono',ui-monospace,monospace}
 
 </style></head><body>
 <header><div class="wrap hd"><a class="brand" href="/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg><span>GBS Insider Club</span></a><button id="reset" class="btn">Reset</button></div></header>
 <main class="wrap">
 <p class="eyebrow">Free tool</p>
 <h1>Does a shared service center <em>pay off</em>?</h1>
-<p class="lead">Compare three locations side by side. The answer is on top. Below it, each section adds up one part of the case: what goes away today, what the new center costs to run, and what the move costs once. Open a block only if you want the detail behind it.</p>
+<p class="lead">Fill in your case from top to bottom and compare three locations side by side. Every number changes the result at once. Empty fields are calculated for you.</p>
+<p class="jump"><a href="#result">Jump to the result</a> <span>Section 5: Value over 5 years, payback, funding needed</span></p>
 
-<div class="rhead"><h2>The answer</h2><button class="btn" id="xlsx">Download as Excel</button></div>
-<p class="note" id="advflag"></p>
-<div class="grid" id="results"></div>
-<details class="card lvl"><summary>When is the money back? Chart and year by year <i>for finance and controlling</i></summary>
-<div id="chart"></div><div class="scroll" id="years"></div></details>
-
-<h2>1. Cost today: what goes away</h2>
-<p class="note">Add each country where the work sits now and the number of jobs. The cost comes from regular average pay per role in that country (not GBS pay). If you know your roles, enter them.</p>
+<h2>1. Cost savings</h2>
+<p class="note">What the work in scope costs you today. When the move is done, this cost goes away: The jobs leave the old locations, either to the new center, or because the role ends, or because automation takes it over. Start with your full as-is team.</p>
 <div class="card" id="team"></div>
+<div class="card scope">
+<h3>Scope of the move</h3>
+<p class="note"><label for="elim">Jobs that end at the move, %</label> <input type="number" id="elim" min="0" max="100" step="any" class="md"> Roles that are not needed in the new set-up: Duplicate work, a wider span of control (fewer team leads). Default 0. These jobs leave, but no one is hired for them.</p>
+<p class="note"><label for="auto">Jobs replaced by automation from the start, %</label> <input type="number" id="auto" min="0" max="100" step="any" class="md"> Default 0. Automation costs <input type="number" id="autoBuild" min="0" step="any" class="md" aria-label="Automation build per job"> per job once (3.C.6) and <input type="number" id="autoRun" min="0" step="any" class="md" aria-label="Automation running cost per job"> per job and year to run (2.4). Defaults 30,000 and 8,000 (estimates).</p>
+<p class="note warn" id="scopewarn"></p>
+<p class="note"><label for="officeSave">Office cost today that goes away, %</label> <input type="number" id="officeSave" min="0" max="100" step="any" class="md"> Default 0: Small offices often stay for other teams. Enter a value only if offices are really closed.</p>
+<p class="note"><label for="otherSave">Other savings per year, EUR</label> <input type="number" id="otherSave" min="0" step="any" class="md"> Fewer temporary staff and less overtime, fewer system licenses after harmonizing. Default 0: Count it only if you can name it.</p>
+<p class="note"><label for="officeSale">One-time sale of owned offices, EUR</label> <input type="number" id="officeSale" min="0" step="any" class="md"> <label for="cashFree">One-time cash freed, EUR</label> <input type="number" id="cashFree" min="0" step="any" class="md"> For example working capital from faster collection. Both default 0. They count in 3.D when the move is done.</p>
+</div>
 <div class="sum" id="teamsum"></div>
-<p class="note" id="todayparts"></p>
-<div class="bridge card" id="awaysum"></div>
-<details class="more card lvl"><summary>Costs that stay and other savings <i>retained team, offices, other savings</i></summary>
-<p class="note"><label for="retain">Retained team at home, % of jobs</label> <input type="number" id="retain" min="0" max="100" step="any" class="md"> These jobs do not move: governance, business partners, local tax and legal contacts. Default 4% (usual range 3 to 5%, estimate). Their cost stays.</p>
-<p class="note"><label for="officeSave">Office cost today that goes away, %</label> <input type="number" id="officeSave" min="0" max="100" step="any" class="md"> Default 0: small offices often stay for other teams. IT is not part of this: it moves with the job.</p>
-<p class="note"><label for="officeSale">One-time sale of owned offices, EUR</label> <input type="number" id="officeSale" min="0" step="any" class="md"> Default 0. Counted as one-time income when the move is done.</p>
-<p class="note"><label for="otherSave">Other savings per year, EUR</label> <input type="number" id="otherSave" min="0" step="any" class="md"> Fewer temporary staff and less overtime at home, fewer system licenses after harmonizing. Default 0: count it only if you can name it. Grows step by step as work moves.</p>
-<p class="note"><label for="cashFree">One-time cash freed, EUR</label> <input type="number" id="cashFree" min="0" step="any" class="md"> For example working capital from faster collection in order-to-cash. Default 0: boards often ask for it, but it is hard to prove. Counted when the move is done.</p>
-</details>
+<div class="card" id="savesum"></div>
 <details class="more card lvl"><summary>Your own cost data <i>real cost per FTE, wage growth today</i></summary>
 <p class="note"><label for="today">Your real cost per FTE, per year</label> <input type="number" id="today" min="0" step="any" class="md"> If you know it from payroll, enter it. It replaces the calculated value.</p>
 <p class="note"><label for="wgFrom">Wage growth today, % per year</label> <input type="number" id="wgFrom" min="0" step="any" class="md"> How fast pay rises in your countries if nothing changes. Empty = country values.</p>
 </details>
 
-<h2>2. Cost in the new center: what comes</h2>
-<p class="note">Pick a GBS site, your presence there, and an office type. The three blocks show their total per year. Click a block to see and change what is behind it.</p>
+<h2>2. Ongoing operating costs</h2>
+<p class="note">What the new center costs every year once it runs: People, site, office and IT, and automation. These costs replace the savings in section 1. Pick a GBS site, your presence there and an office type. Each position shows its total per year. Click it to see and change what is behind it.</p>
 <div class="card scroll" id="in2"></div>
 
-<h2>3. One-time cost of the move</h2>
-<p class="note">A is for HR and the works council, B for facilities and IT, C for the program office. Each block opens to its drivers.</p>
+<h2>3. One-time impacts of the move</h2>
+<p class="note">Costs that come once (A people, B site, C transition), and money that comes back once or for a limited time (D incentives and income). A is for HR and the works council, B for facilities and IT, C for the program office, D for tax and finance.</p>
 <div class="card scroll" id="in3"></div>
 
-<h2>4. Plan</h2>
+<h2>4. Timeline</h2>
+<p class="note">The timeline has no cost line of its own. It sets the calendar for everything above: When savings start (1), when operating costs start (2), and when one-time costs are paid (3). A later go-live means savings come later, so the 5-year value goes down. The double cost of new and old people working in parallel is position 3.C.1.</p>
 <div class="card scroll" id="in4"></div>
 <p class="note"><label for="disc">Discount rate, % per year</label> <input type="number" id="disc" min="0" step="any" class="sm"> Money in later years counts less. Most companies use 7 to 10.</p>
 
-<h2>5. Risks and data quality</h2>
+<div class="rhead" id="result"><h2>5. Result</h2><button class="btn" id="xlsx">Download as Excel</button></div>
+<p class="note" id="advflag"></p>
+<div class="grid" id="results"></div>
+<details class="card lvl"><summary>When is the money back? Chart and year by year <i>for finance and controlling</i></summary>
+<div id="chart"></div><div class="scroll" id="years"></div></details>
+
+<h2>6. Risks and data quality</h2>
 <div class="card scroll" id="risk"></div>
 
 <h2>How the calculator works</h2>
 <details class="card prose lvl"><summary>Method, what is included and what is not</summary>
 <ol>
-<li><b>Cost today.</b> For each country and role: jobs times average pay, plus bonus, employer charges, office and IT. It grows each year with wages in those countries. The retained team and the offices that are kept stay; the rest goes away step by step as work moves.</li>
-<li><b>Run cost of the new center.</b> Jobs that do the work times the cost per job (pay, bonus, employer charges, language bonus, office and IT), plus the fixed site running cost, plus the turnover difference to today. After the move you need fewer people each year (efficiency). Cost grows with wages at the site: a site that is 5 percent cheaper today but grows 2 to 3 points faster per year is more expensive by year 4.</li>
-<li><b>One-time cost, in three blocks.</b> A, people leaving: severance, outplacement and retention bonuses are paid when each job leaves; works council and legal advice during preparation. B, site: site set-up and office fit-out during preparation, IT equipment when people are hired. A fit-out lasts about 10 years, so the 5-year view gives back the value of the later years. C, transition: new people paid before they take over the work (double cost), extra people for the first 12 months after each team goes live, recruiting and travel when people are hired, and the project team from decision to the last go-live.</li>
-<li><b>One-time income.</b> Sale of offices and cash freed come in when the move is done.</li>
+<li><b>Cost today.</b> For each country and role: Jobs times average pay, plus bonus, employer charges, office and IT. It grows each year with wages in those countries. Jobs leave in equal monthly steps during the move: They move to the new center, end, or are replaced by automation. Offices that are kept stay in the cost.</li>
+<li><b>Run cost of the new center.</b> Jobs that do the work times the cost per job (pay, bonus, employer charges, language bonus, office and IT), plus the fixed site running cost, plus the turnover difference to today, plus the running cost of automation. After the move you need fewer people each year (efficiency). Cost grows with wages at the site: A site that is 5 percent cheaper today but grows 2 to 3 points faster per year is more expensive by year 4.</li>
+<li><b>One-time cost, in three blocks.</b> A, people leaving: Severance, outplacement and retention bonuses are paid when each job leaves; Works council and legal advice during preparation. B, site: Site set-up and office fit-out during preparation, IT equipment when people are hired. A fit-out lasts about 10 years, so the 5-year view gives back the value of the later years. C, transition: New people paid before they take over the work (double cost), extra people for the first 12 months after each team goes live, recruiting and travel when people are hired, the project team from decision to the last go-live, and the automation build during preparation. D, incentives and income: Grants and office sale come in when the move is done, tax relief each month after go-live.</li>
 <li><b>Net effect.</b> Cost today minus what is still paid at the old locations, minus run cost of the new center, plus other savings, minus one-time cost. Month by month for 60 months.</li>
-<li><b>Results.</b> Payback is the first month the running total is above zero. NPV is the 5-year total with later money counted less. IRR is the yearly return on the money you put in. This is a cash view: severance is booked as a provision when the move is announced, and fit-out is capex written off over its life. Your P&amp;L shows these at other times than the cash does.</li>
+<li><b>Results.</b> Payback is the first month the running total is above zero. NPV is the 5-year total with later money counted less. IRR is the yearly return on the money you put in. This is a cash view: Severance is booked as a provision when the move is announced, and fit-out is capex written off over its life. Your P&amp;L shows these at other times than the cash does.</li>
 </ol>
 <p><b>Not included:</b> tax and incentives, transfer pricing between your companies, exchange rates, several new sites in one option, and different speeds for different teams. These usually move the result by 10 to 20 percent.</p>
-<p><b>Data confidence.</b> Every country and site has a confidence score: green 70 percent and above (recent salary guides), amber 50 to 69 percent (partly estimated), red below 50 percent (mostly estimates). The result cards show the score for the site and for your countries. Where the score is low, replace the averages with your own numbers in the detail settings.</p>
+<p><b>Data confidence.</b> Every country and site has a confidence score: Green 70 percent and above (recent salary guides), amber 50 to 69 percent (partly estimated), red below 50 percent (mostly estimates). The result cards show the score for the site and for your countries. Where the score is low, replace the averages with your own numbers in the detail settings.</p>
 <p><b>How exact is it?</b> We checked it against a detailed month-by-month model with the same cost levels. The difference was about 4 percent of the 5-year cost, and payback differed by 0 to 5 months. Your real cost per job matters much more than that difference. Enter your roles per country, or your own payroll cost per FTE.</p>
 </details>
 
@@ -208,10 +225,10 @@ tr.blk .togb{border:none;padding:2px 0;width:auto}
 
 <h2>Benchmark tables</h2>
 <p class="note">Average yearly gross base pay per role. Grey italic numbers are estimates, because no source covers that role. "Cost per FTE" adds bonus, employer charges, office and IT, and uses the team split of a new center (sites) or of a typical existing team (countries). All values are planning numbers. Check them with local HR and legal advisers before a decision.</p>
-<details class="card" open><summary>GBS sites: pay per role in shared service centers (as of <span id="asof"></span>)</summary>
+<details class="card" open><summary>GBS sites: Pay per role in shared service centers (as of <span id="asof"></span>)</summary>
 <p class="note">Used for the new center. The language bonus is extra pay for jobs that need a second foreign language. The cost per FTE assumes 40 percent of the jobs get it.</p>
 <div class="scroll" id="bsites"></div></details>
-<details class="card"><summary>Countries today: regular pay per role, not GBS (as of <span id="asof2"></span>)</summary>
+<details class="card"><summary>Countries today: Regular pay per role, not GBS (as of <span id="asof2"></span>)</summary>
 <p class="note">Used for the cost base today. These are market averages for finance and accounting teams inside local companies. They are higher than service center pay in the same country. Severance assumes 9 years of service.</p>
 <div class="scroll" id="btoday"></div></details>
 <p class="note foot">GBS Insider Club. Planning tool, not financial or legal advice.</p>
@@ -299,7 +316,13 @@ var DEFAULTS = {
   eff: 3,           // % fewer people needed each year after the move
   sevMonths: null,  // severance, months of pay per person (null = country value)
   sevShare: 85,     // % of today's people who get severance
-  retain: 4,        // % of today's jobs that stay at home as the retained team (governance, business partners); not moved
+  elim: 0,          // % of today's jobs that end at the move: redundant roles, wider span of control (not moved, not replaced)
+  auto: 0,          // % of today's jobs replaced by automation from the start (not moved)
+  autoBuild: 30000, // one-time automation build per job replaced: design, bots or tools, testing (EUR)
+  autoRun: 8000,    // yearly running cost per job replaced by automation: licenses, bot support (EUR)
+  grant: 0,         // D: investment grant or subsidy, one-time, received when the move is done (EUR)
+  jobGrant: 0,      // D: job-creation grant per new job in the center (EUR)
+  taxRelief: 0,     // D: tax relief per year from go-live, e.g. special economic zone (EUR)
   otherSave: 0,     // other savings per year at full run, today's prices: fewer temps and overtime, fewer licenses (EUR)
   cashFree: 0,      // one-time cash freed when the move is done, e.g. working capital from faster collection (EUR)
   outplace: 4000,   // A: outplacement support per person who gets severance (EUR)
@@ -417,8 +440,8 @@ function resolve(inp) {
   a.today = a.today == null ? a.todayAuto : +a.today;
   a.future = a.future == null ? a.futureAuto : +a.future;
   a.sevMonths = a.sevMonths == null ? a.sevAuto : +a.sevMonths;
-  ['retain', 'otherSave', 'cashFree', 'outplace', 'retShare', 'retMonths', 'legal', 'equip', 'recruit', 'travel', 'pmo'].forEach(function (k) { a[k] = Math.max(0, +a[k] || 0); });
-  a.retain = Math.min(100, a.retain);
+  ['elim', 'auto', 'autoBuild', 'autoRun', 'grant', 'jobGrant', 'taxRelief', 'otherSave', 'cashFree', 'outplace', 'retShare', 'retMonths', 'legal', 'equip', 'recruit', 'travel', 'pmo'].forEach(function (k) { a[k] = Math.max(0, +a[k] || 0); });
+  if (a.elim + a.auto > 100) { a.auto = Math.max(0, 100 - a.elim); }
   a.fitoutAuto = a.office === 'owned' ? CFG.fitOwned : a.office === 'cowork' ? CFG.fitCowork : CFG.fitLease;
   a.fitout = a.fitout == null ? a.fitoutAuto : +a.fitout;
   a.fitLife = a.fitLife == null ? CFG.fitLife : Math.max(1, +a.fitLife);
@@ -443,30 +466,30 @@ function calc(inp) {
   var a = resolve(inp), t, y;
   var base = [], src = [], run = [], oth = [], one = [], cf = [], cum = [], tot = 0;
   var D = Math.max(1, a.move), end = a.prep + D, prepM = Math.max(1, a.prep);
-  var mv = a.fte * (1 - a.retain / 100);                  // jobs that move; the retained team stays at home
+  var elimN = a.fte * a.elim / 100, autoN = a.fte * a.auto / 100;
+  var mv = a.fte - elimN - autoN;                         // jobs that move to the new center
   var hires = mv * (1 + a.extra / 100);                   // people hired in the new center, incl. the first-year extra
   var basePay = (a.futureParts.pay + a.futureParts.lang) * (a.futureAuto ? a.future / a.futureAuto : 1); // yearly base pay per new job
   var turnF = (a.turn - a.turnToday) / 100 * a.leaverCost / 100; // extra (or saved) turnover cost, share of a year's cost per job
   var fitTotal = mv * CFG.desks * a.fitout, fitLeft = fitTotal * Math.max(0, 1 - 5 / a.fitLife);
-  var leavers = mv * a.sevShare / 100;
-  var P = { sev: 0, outpl: 0, reten: 0, legal: 0, site: 0, fit: 0, equip: 0, dbl: 0, extra: 0, recruit: 0, travel: 0, pmo: 0, sale: 0, cash: 0, fitLeft: 0, siteRun: 0, turn: 0 };
+  var leavers = a.fte * a.sevShare / 100;                 // all of today's jobs leave the old locations: moved, ended or automated
+  var P = { sev: 0, outpl: 0, reten: 0, legal: 0, site: 0, fit: 0, fitLeft: 0, equip: 0, dbl: 0, extra: 0, recruit: 0, travel: 0, pmo: 0, autoBuild: 0, grant: 0, jobGrant: 0, tax: 0, sale: 0, cash: 0, siteRun: 0, turn: 0, autoRun: 0 };
   for (t = 1; t <= H; t++) {
     y = Math.floor((t - 1) / 12);
     var infS = Math.pow(1 + a.wgFrom / 100, y), infT = Math.pow(1 + a.wgTo / 100, y);
-    var live = clamp01((t - a.prep) / D), livePrev = clamp01((t - 1 - a.prep) / D);   // share of work done in the new center
-    var hired = clamp01((t - a.prep + a.overlap) / D), hiredPrev = clamp01((t - 1 - a.prep + a.overlap) / D); // share of new people on the payroll
-    var yrsAfter = Math.max(0, (t - end) / 12), effF = Math.pow(1 - a.eff / 100, yrsAfter);
+    var live = clamp01((t - a.prep) / D), livePrev = clamp01((t - 1 - a.prep) / D);   // share of work done in the new way
     var live12 = clamp01((t - 12 - a.prep) / D);           // work that went live more than 12 months ago
+    var hired = clamp01((t - a.prep + a.overlap) / D), hiredPrev = clamp01((t - 1 - a.prep + a.overlap) / D); // share of new people on the payroll
+    var effF = Math.pow(1 - a.eff / 100, Math.max(0, (t - end) / 12));
     var job = a.future / 12 * infT;                       // cost of one job this month in the new center
     base[t] = a.fte * a.today / 12 * infS;
-    // 1. old locations: work not yet moved, the retained team, and the office cost that stays
-    src[t] = base[t] * (1 - live * (1 - a.retain / 100)) + base[t] * live * (1 - a.retain / 100) * a.officeShare * (1 - a.officeSave / 100);
+    // 1. old locations: work not yet moved, plus the office cost that stays
+    src[t] = base[t] * (1 - live) + base[t] * live * a.officeShare * (1 - a.officeSave / 100);
     oth[t] = a.otherSave / 12 * live * infS;
-    // 2. run cost of the new center: jobs that do the work, site running cost, turnover
-    var jobsRun = mv * live * effF * job, siteNow = t > a.prep ? a.siteRun / 12 * infT : 0, turnNow = jobsRun * turnF;
-    run[t] = jobsRun + siteNow + turnNow; P.siteRun += siteNow; P.turn += turnNow;
-    // 3. one-time cost. C: people paid before they take over the work (double cost) and the first-year extra people
-    var dbl = mv * (hired - live) * job, ext = mv * (live - live12) * a.extra / 100 * effF * job; // extra people for 12 months after each team goes live
+    // 2. operating cost: jobs that do the work, site running cost, turnover, automation running cost
+    var jobsRun = mv * live * effF * job, siteNow = t > a.prep ? a.siteRun / 12 * infT : 0, turnNow = jobsRun * turnF, autoNow = autoN * a.autoRun / 12 * live;
+    run[t] = jobsRun + siteNow + turnNow + autoNow; P.siteRun += siteNow; P.turn += turnNow; P.autoRun += autoNow;
+    // 3. one-time impacts
     var newHires = hires * (hired - hiredPrev), leftNow = live - livePrev;
     var o = {
       sev: leavers * a.sevMonths * a.payPerMonth * infS * leftNow,
@@ -475,13 +498,18 @@ function calc(inp) {
       legal: t <= prepM ? a.legal / prepM : 0,
       site: t <= prepM ? a.siteSetup / prepM : 0,
       fit: t <= prepM ? fitTotal / prepM : 0,
+      fitLeft: t === H ? -fitLeft : 0,
       equip: newHires * a.equip,
-      dbl: dbl, extra: ext,
+      dbl: mv * (hired - live) * job,                      // new people paid before they take over the work
+      extra: mv * (live - live12) * a.extra / 100 * effF * job, // extra people for 12 months after each team goes live
       recruit: newHires * a.recruit / 100 * basePay * infT,
       travel: mv * (hired - hiredPrev) * a.travel,
       pmo: t <= end ? a.pmo / end : 0,
-      sale: t === end ? -a.officeSale : 0, cash: t === end ? -a.cashFree : 0,
-      fitLeft: t === H ? -fitLeft : 0
+      autoBuild: t <= prepM ? autoN * a.autoBuild / prepM : 0,
+      grant: t === end ? -a.grant : 0,
+      jobGrant: t === end ? -a.jobGrant * mv : 0,
+      tax: -a.taxRelief / 12 * live,
+      sale: t === end ? -a.officeSale : 0, cash: t === end ? -a.cashFree : 0
     };
     one[t] = 0; for (var k in o) { P[k] += o[k]; one[t] += o[k]; }
     cf[t] = base[t] - src[t] - run[t] + oth[t] - one[t];
@@ -496,14 +524,18 @@ function calc(inp) {
   }
   var y5 = 0, b5 = 0; for (t = 49; t <= 60; t++) { y5 += base[t] - src[t] - run[t] + oth[t]; b5 += base[t]; }
   var yearly = []; for (y = 0; y < 5; y++) { var r = { base: 0, src: 0, run: 0, oth: 0, one: 0, cf: 0 }; for (t = y * 12 + 1; t <= y * 12 + 12; t++) { r.base += base[t]; r.src += src[t]; r.run += run[t]; r.oth += oth[t]; r.one += one[t]; r.cf += cf[t]; } yearly.push(r); }
-  var A = P.sev + P.outpl + P.reten + P.legal, B = P.site + P.fit + P.equip + P.fitLeft, C = P.dbl + P.extra + P.recruit + P.travel + P.pmo, I = -(P.sale + P.cash);
-  var baseYear = a.fte * a.today, stayJobs = a.fte * a.retain / 100 * a.today, stayOffice = mv * a.today * a.officeShare * (1 - a.officeSave / 100);
-  var awayYear = baseYear - stayJobs - stayOffice, runYear = mv * a.future * (1 + turnF) + a.siteRun;
-  return { a: a, mv: mv, hires: hires, P: P, A: A, B: B, C: C, income: I,
-    baseYear: baseYear, stayJobs: stayJobs, stayOffice: stayOffice, awayYear: awayYear, runYear: runYear, fullSave: awayYear + a.otherSave - runYear,
-    turnYear: mv * a.future * turnF, one: one, cf: cf, cum: cum, yearly: yearly, npv: npv, irr: irr(cf), payback: payback,
+  var A = P.sev + P.outpl + P.reten + P.legal, B = P.site + P.fit + P.fitLeft + P.equip, C = P.dbl + P.extra + P.recruit + P.travel + P.pmo + P.autoBuild;
+  var Dv = -(P.grant + P.jobGrant + P.tax + P.sale + P.cash);   // offsets, shown as a positive number
+  // section 1 at today's prices: what today's work costs, by part
+  var k1 = a.team.today ? a.today / a.team.today : 1, TP = a.todayParts;
+  var labor = a.fte * (TP.pay + TP.bonus + TP.charges) * k1, office = a.fte * TP.office * k1, it = a.fte * TP.it * k1;
+  var baseYear = a.fte * a.today, stayOffice = office * (1 - a.officeSave / 100);
+  var awayYear = baseYear - stayOffice, runYear = mv * a.future * (1 + turnF) + a.siteRun + autoN * a.autoRun;
+  return { a: a, mv: mv, elimN: elimN, autoN: autoN, hires: hires, P: P, A: A, B: B, C: C, D: Dv,
+    baseYear: baseYear, labor: labor, office: office, it: it, stayOffice: stayOffice, awayYear: awayYear, runYear: runYear, fullSave: awayYear + a.otherSave - runYear,
+    turnYear: mv * a.future * turnF, autoYear: autoN * a.autoRun, one: one, cf: cf, cum: cum, yearly: yearly, npv: npv, irr: irr(cf), payback: payback,
     future5: a.future * Math.pow(1 + a.wgTo / 100, 4), officeYear: mv * CFG.desks * (a.deskCost + a.oppCost), officeVsLease: mv * CFG.desks * (a.marketRent - a.deskCost - a.oppCost),
-    oneTime: oneTotal, sev: P.sev, fit: P.fit, fitLeft: -P.fitLeft, sale: a.officeSale, siteRunPaid: P.siteRun, turnPaid: P.turn,
+    oneTime: oneTotal, oneCost: A + B + C, sev: P.sev, fit: P.fit, fitLeft: -P.fitLeft, sale: a.officeSale, siteRunPaid: P.siteRun, turnPaid: P.turn,
     saving: y5, savingPct: y5 / b5, peak: -low, total5: cum[H] };
 }
 
@@ -528,71 +560,82 @@ var ROWS = [
   { sec: 2, top: 1, k: 'siteType', l: 'Your presence at this site', d: 'An existing site already has a site lead, HR and facility team. A new country also needs a legal entity, payroll, local finance and audit.', opts: [['existing', 'Existing site'], ['newsite', 'New site, same country'], ['newcountry', 'New country']] },
   { sec: 2, top: 1, k: 'office', l: 'Office type', d: 'New rented office pays market rent. Your own building costs only what the center adds. Coworking costs more per desk but needs no fit-out.', opts: [['lease', 'New rented office'], ['owned', 'Existing building you own'], ['cowork', 'Coworking or serviced office']] },
 
-  { sec: 2, b: 'pay', l: '2a Pay', d: 'Pay, bonus, employer charges and language bonus of the people who do the work. For HR and reward.', tot: 'pay' },
+  { sec: 2, b: 'pay', l: '2.1 Labor', d: 'Pay, bonus, employer charges and language bonus of the people who do the work. For HR and reward.', tot: 'pay' },
   { sec: 2, b: 'pay', k: 'wgTo', l: 'Wage growth, % per year', d: 'How fast pay rises at this site. A cheap site with fast wage growth can lose its lead within 4 years. Empty = site value.', auto: 'wgToAuto', min: 0, dec: 1 },
-  { sec: 2, b: 'pay', k: 'future', l: 'Cost per job, all-in, per year (optional)', d: 'Pay plus office and IT (2b). Empty = calculated from the site table. Enter your own figure only if you have a quote or payroll data: it replaces the calculation.', auto: 'futureAuto', min: 0 },
+  { sec: 2, b: 'pay', k: 'future', l: 'Cost per job, all-in, per year (optional)', d: 'Labor plus office and IT (2.2). Empty = calculated from the site table. Enter your own figure only if you have a quote or payroll data: It replaces the calculation.', auto: 'futureAuto', min: 0 },
   { sec: 2, b: 'pay', s: 'pay' },
 
-  { sec: 2, b: 'site', l: '2b Site and office', d: 'Fixed site running cost, office and IT. For facilities and IT.', tot: 'site' },
-  { sec: 2, b: 'site', k: 'siteRun', l: 'Site running cost, per year', d: 'Fixed cost that does not depend on the number of jobs: site lead, HR, facility, site IT support; in a new country also local finance, legal and audit. Default: existing 0, new site 200,000, new country 300,000 (estimates). Starts at go-live and grows with pay.', auto: 'siteRunAuto', min: 0 },
+  { sec: 2, b: 'site', l: '2.2 Site, office and IT', d: 'Fixed site running cost, office and IT. For facilities and IT.', tot: 'site' },
+  { sec: 2, b: 'site', k: 'siteRun', l: 'Site running cost, per year', d: 'Fixed cost that does not depend on the number of jobs: Site lead, HR, facility, site IT support; In a new country also local finance, legal and audit. Default: Existing 0, new site 200,000, new country 300,000 (estimates). Starts at go-live and grows with pay.', auto: 'siteRunAuto', min: 0 },
   { sec: 2, b: 'site', k: 'deskCost', l: 'Office cost per desk, per year', d: 'Without IT. Calculated from the office type. Enter your actual rent or running cost to replace it.', auto: 'deskCostAuto', min: 0, hint: 1 },
   { sec: 2, b: 'site', t: 'own', l: 'Own building details', d: 'Running cost, fixed cost, lost income' },
   { sec: 2, b: 'site', g: 'own', k: 'ownVar', l: OWN + 'extra running cost per desk, per year', d: 'Cleaning, electricity at the desk, kitchen and supplies that come with each person. Default 500 = about 40 per month (estimate).', auto: 'ownVarD', min: 0, own: 1 },
   { sec: 2, b: 'site', g: 'own', k: 'ownFixed', l: OWN + 'fixed cost per desk, per year', d: 'Heating, water, maintenance, security and property tax, per desk. Default 900 = about 35% of market rent (estimate).', auto: 'ownFixedD', min: 0, own: 1 },
-  { sec: 2, b: 'site', g: 'own', k: 'ownExtra', l: OWN + 'share of fixed cost that is extra, %', d: 'Default 0: if the building is kept and heated anyway, the center adds no fixed cost. Use 100 if the space would otherwise be closed.', auto: 'ownExtraD', min: 0, own: 1 },
-  { sec: 2, b: 'site', g: 'own', k: 'oppCost', l: OWN + 'lost income per desk, per year', d: 'Opportunity cost: rent or sale income you give up because the center uses the space. Default 0 = you could not sell or rent it out. Market rent is shown as a guide.', min: 0, hint: 2, own: 1 },
+  { sec: 2, b: 'site', g: 'own', k: 'ownExtra', l: OWN + 'share of fixed cost that is extra, %', d: 'Default 0: If the building is kept and heated anyway, the center adds no fixed cost. Use 100 if the space would otherwise be closed.', auto: 'ownExtraD', min: 0, own: 1 },
+  { sec: 2, b: 'site', g: 'own', k: 'oppCost', l: OWN + 'lost income per desk, per year', d: 'Opportunity cost: Rent or sale income you give up because the center uses the space. Default 0 = you could not sell or rent it out. Market rent is shown as a guide.', min: 0, hint: 2, own: 1 },
   { sec: 2, b: 'site', s: 'site' },
 
-  { sec: 2, b: 'team', l: '2c Team: efficiency and turnover', d: 'Fewer people over time, and the cost of staff who leave. For operations leads.', tot: 'team' },
-  { sec: 2, b: 'team', k: 'eff', l: 'Fewer people per year, %', d: 'Yearly gain from standard processes and automation, after the move. Default 3%.', min: 0 },
+  { sec: 2, b: 'team', l: '2.3 Staff turnover', d: 'Cost of staff who leave, compared with today. Efficiency after the move lowers 2.1 over time. For operations leads.', tot: 'team' },
   { sec: 2, b: 'team', k: 'turn', l: 'Staff turnover at the site, % per year', d: 'Share of people who leave each year. Only the difference to today counts. Site values are estimates (Poland 14, Romania 18, India 25). Empty = site value.', auto: 'turnAuto', min: 0, dec: 1 },
+  { sec: 2, b: 'team', k: 'eff', l: 'Fewer people per year after the move, %', d: 'Yearly gain from standard processes and automation once the move is done. Default 3%. Lowers 2.1 step by step.', min: 0 },
   { sec: 2, b: 'team', t: 'turnd', l: 'Turnover details', d: 'Turnover today, cost per leaver' },
   { sec: 2, b: 'team', g: 'turnd', k: 'turnToday', l: 'Staff turnover today, % per year', d: 'In your countries today. Default 8% (estimate for in-house finance teams in Western Europe).', min: 0 },
-  { sec: 2, b: 'team', g: 'turnd', k: 'leaverCost', l: 'Cost per leaver, % of a year\'s cost per job', d: 'Recruiting, training and lower output for the first months. Default 40% (estimate; common range 30 to 50%).', min: 0 },
+  { sec: 2, b: 'team', g: 'turnd', k: 'leaverCost', l: 'Cost per leaver, % of a year\'s cost per job', d: 'Recruiting, training and lower output for the first months. Default 40% (estimate; Common range 30 to 50%).', min: 0 },
   { sec: 2, b: 'team', s: 'team' },
 
-  { sec: 2, total: 'run', l: 'Run cost per year, new center', d: '2a + 2b + 2c at full run, today\'s prices, before efficiency gains.' },
-  { sec: 2, total: 'away', l: 'Cost today that goes away, per year', d: 'From section 1, plus other savings.' },
-  { sec: 2, total: 'save', l: 'Saving per year at full run', d: 'Today\'s prices. The answer at the top shows year 5, with wage growth and efficiency.', strong: 1 },
+  { sec: 2, b: 'autoc', l: '2.4 Automation running cost', d: 'Licenses and bot support for the jobs replaced by automation. Set in section 1, scope of the move.', tot: 'autoc' },
+  { sec: 2, b: 'autoc', s: 'autoc' },
 
-  { sec: 3, b: 'A', l: 'A People leaving', d: 'Severance, outplacement, retention bonuses, works council and legal advice. For HR.', tot: 'A' },
-  { sec: 3, b: 'A', k: 'sevMonths', l: 'Severance, months of pay', d: 'Per person who leaves. Empty = country rules at 9 years of service, weighted by your team.', auto: 'sevAuto', min: 0, dec: 1 },
+  { sec: 2, total: 'run', l: 'Operating cost per year (2.1 to 2.4)', d: 'At full run, today\'s prices, before efficiency gains.' },
+  { sec: 2, total: 'away', l: 'Cost savings per year (section 1)', d: 'Cost that goes away plus other savings.' },
+  { sec: 2, total: 'save', l: 'Net saving per year at full run', d: 'Today\'s prices. The result in section 5 shows year 5, with wage growth and efficiency.', strong: 1 },
+
+  { sec: 3, b: 'A', l: '3.A People leaving', d: 'Severance, outplacement, retention bonuses, works council and legal advice. For HR.', tot: 'A' },
+  { sec: 3, b: 'A', k: 'sevMonths', l: 'Severance, months of pay', d: 'Per person who leaves, also for jobs that end or are automated. Empty = country rules at 9 years of service, weighted by your team.', auto: 'sevAuto', min: 0, dec: 1 },
   { sec: 3, b: 'A', k: 'sevShare', l: 'People who get severance, %', d: 'Default 85%. The rest retire, move to another job inside the company, or resign.', min: 0 },
-  { sec: 3, b: 'A', k: 'outplace', l: 'Outplacement per person with severance, EUR', d: 'Career coaching and job search support. Default 4,000 (estimate; range 3,000 to 5,000).', min: 0 },
-  { sec: 3, b: 'A', k: 'retShare', l: 'Retention bonus: people who get it, %', d: 'Key people who must stay until handover. Default 25% (estimate; range 20 to 30%).', min: 0 },
-  { sec: 3, b: 'A', k: 'retMonths', l: 'Retention bonus, months of pay', d: 'Paid when the job has moved. Default 2.5 months (estimate; range 2 to 3).', min: 0, dec: 1 },
-  { sec: 3, b: 'A', k: 'legal', l: 'Works council and legal advice, EUR', d: 'Negotiating the social plan and the agreement on how the change is done, labor lawyers. Default 150,000 (estimate; more with several countries).', min: 0 },
+  { sec: 3, b: 'A', k: 'outplace', l: 'Outplacement per person with severance, EUR', d: 'Career coaching and job search support. Default 4,000 (estimate; Range 3,000 to 5,000).', min: 0 },
+  { sec: 3, b: 'A', k: 'retShare', l: 'Retention bonus: People who get it, %', d: 'Key people who must stay until handover, share of the jobs that move. Default 25% (estimate; Range 20 to 30%).', min: 0 },
+  { sec: 3, b: 'A', k: 'retMonths', l: 'Retention bonus, months of pay', d: 'Paid when the job has moved. Default 2.5 months (estimate; Range 2 to 3).', min: 0, dec: 1 },
+  { sec: 3, b: 'A', k: 'legal', l: 'Works council and legal advice, EUR', d: 'Negotiating the social plan and the agreement on how the change is done, labor lawyers. Default 150,000 (estimate; More with several countries).', min: 0 },
   { sec: 3, b: 'A', s: 'A' },
 
-  { sec: 3, b: 'B', l: 'B Site', d: 'Site set-up, office fit-out or remodel, IT equipment. For facilities and IT.', tot: 'B' },
-  { sec: 3, b: 'B', k: 'siteSetup', l: 'Site set-up', d: 'Site-level only: office search, legal and tax advice; in a new country also company set-up, payroll provider and bank. Default: existing 0, new site 100,000, new country 400,000 (estimates).', auto: 'siteSetupAuto', min: 0 },
-  { sec: 3, b: 'B', k: 'fitout', l: 'Office fit-out or remodel, per desk', d: 'Paid during preparation. Default: new office 4,000, own building 2,500, coworking 0. Light refresh 500 to 1,500; standard 3,000 to 6,000; empty shell 6,000 to 10,000 (estimates).', auto: 'fitoutAuto', min: 0 },
-  { sec: 3, b: 'B', k: 'fitLife', l: 'Fit-out lasts, years', d: 'Default 10. The 5-year view counts 5 of these years; the rest is value left after year 5.', auto: 'fitLifeD', min: 1 },
+  { sec: 3, b: 'B', l: '3.B Site', d: 'Site set-up, office fit-out or remodel, IT equipment. For facilities and IT.', tot: 'B' },
+  { sec: 3, b: 'B', k: 'siteSetup', l: 'Site set-up', d: 'Site-level only: Office search, legal and tax advice; In a new country also company set-up, payroll provider and bank. Default: Existing 0, new site 100,000, new country 400,000 (estimates).', auto: 'siteSetupAuto', min: 0 },
+  { sec: 3, b: 'B', k: 'fitout', l: 'Office fit-out or remodel, per desk', d: 'Paid during preparation. Default: New office 4,000, own building 2,500, coworking 0. Light refresh 500 to 1,500; Standard 3,000 to 6,000; Empty shell 6,000 to 10,000 (estimates).', auto: 'fitoutAuto', min: 0 },
+  { sec: 3, b: 'B', k: 'fitLife', l: 'Fit-out lasts, years', d: 'Default 10. The 5-year view counts 5 of these years; The rest is value left after year 5.', auto: 'fitLifeD', min: 1 },
   { sec: 3, b: 'B', k: 'equip', l: 'IT equipment per new hire, EUR', d: 'Laptop, screens, headset. Default 1,500 (estimate). Equipment at home is not reused.', min: 0 },
   { sec: 3, b: 'B', s: 'B' },
 
-  { sec: 3, b: 'C', l: 'C Transition', d: 'Double cost, extra people in year 1, recruiting, travel, project team. For the program office.', tot: 'C' },
-  { sec: 3, b: 'C', k: 'overlap', l: 'Double cost, months', d: 'How long you pay both the old and the new person for the same job: onboarding 1, knowledge transfer 2 to 3, parallel run 1 to 2. Default 5.', min: 0 },
+  { sec: 3, b: 'C', l: '3.C Transition', d: 'Double cost, extra people in year 1, recruiting, travel, project team, automation build. For the program office.', tot: 'C' },
+  { sec: 3, b: 'C', k: 'overlap', l: 'Double cost, months', d: 'How long you pay both the old and the new person for the same job: Onboarding 1, knowledge transfer 2 to 3, parallel run 1 to 2. Default 5.', min: 0 },
   { sec: 3, b: 'C', k: 'extra', l: 'Extra people in the first year, %', d: 'New teams are slower at first. Default 10% more people for 12 months after each team goes live.', min: 0 },
-  { sec: 3, b: 'C', k: 'recruit', l: 'Recruiting per hire, % of yearly base pay', d: 'Agency fees for part of the hires and internal recruiting effort. Default 15% (estimate; agencies charge 15 to 25%).', min: 0 },
+  { sec: 3, b: 'C', k: 'recruit', l: 'Recruiting per hire, % of yearly base pay', d: 'Agency fees for part of the hires and internal recruiting effort. Default 15% (estimate; Agencies charge 15 to 25%).', min: 0 },
   { sec: 3, b: 'C', k: 'travel', l: 'Knowledge-transfer travel per moved job, EUR', d: 'Trips of new staff to the old locations and of experts to the new center. Default 2,500 (estimate).', min: 0 },
   { sec: 3, b: 'C', k: 'pmo', l: 'Project team, whole move, EUR', d: 'Program lead, transition managers and some outside help, from decision to the last go-live. Default 400,000 (estimate for 50 to 150 jobs).', min: 0 },
   { sec: 3, b: 'C', s: 'C' },
 
-  { sec: 3, total: 'inc', l: 'One-time income', d: 'Sale of offices and cash freed, from section 1.' },
-  { sec: 3, total: 'net', l: 'One-time cost, net', d: 'A + B + C minus income.', strong: 1 },
+  { sec: 3, b: 'D', l: '3.D Incentives and income', d: 'Grants, tax relief, office sale, cash freed. These lower the one-time cost. Each country is different: Default 0, enter only what you have confirmed. For tax and finance.', tot: 'D' },
+  { sec: 3, b: 'D', k: 'grant', l: 'Investment grant or subsidy, EUR', d: 'One-time, received when the move is done. Example: Regional investment aid in the EU. Default 0.', min: 0 },
+  { sec: 3, b: 'D', k: 'jobGrant', l: 'Job-creation grant per new job, EUR', d: 'One-time per job created in the center, received when the move is done. Default 0.', min: 0 },
+  { sec: 3, b: 'D', k: 'taxRelief', l: 'Tax relief per year, EUR', d: 'For example a corporate income tax exemption in a special economic zone. Counted from go-live until year 5. Default 0.', min: 0 },
+  { sec: 3, b: 'D', s: 'D' },
 
-  { sec: 4, top: 1, k: 'prep', l: 'Preparation, months', d: 'From decision to the first team working in the new center. No running cost changes here, but every month here pushes all savings one month later.', min: 0 },
-  { sec: 4, top: 1, k: 'move', l: 'Move duration, months', d: 'From the first team to the last team going live. Jobs move in equal steps. A longer move does not add double cost, but savings build up more slowly.', min: 1 },
-  { sec: 4, total: 'plan', l: 'Go-live', d: 'First and last team.' }
+  { sec: 3, total: 'cost', l: 'One-time cost (3.A + 3.B + 3.C)', d: 'Before incentives and income.' },
+  { sec: 3, total: 'net', l: 'One-time impact, net (3.A + 3.B + 3.C - 3.D)', d: 'What the move costs once, after incentives and income.', strong: 1 },
+
+  { sec: 4, top: 1, k: 'prep', l: '4.1 Preparation, months', d: 'From decision to the first team working in the new center. Fit-out, site set-up, legal advice and automation build are paid in this time. Savings have not started yet.', min: 0 },
+  { sec: 4, top: 1, k: 'move', l: '4.2 Move duration, months', d: 'From the first team to the last team going live. Jobs move in equal steps, so savings (1) and operating costs (2) build up over this time. A longer move does not add double cost, but savings come later.', min: 1 },
+  { sec: 4, total: 'plan', l: 'Go-live', d: 'First and last team.' },
+  { sec: 4, total: 'month', l: 'Value of one month', d: 'How much the 5-year value changes if preparation is one month longer.' }
 ];
 function isSet(s, k) { return s[k] !== undefined && s[k] !== ''; }
 function blockCount(b) { var n = 0; ROWS.forEach(function (r) { if ((r.b === b || r.g === b) && r.k) S.sc.forEach(function (s) { if (isSet(s, r.k) && !(r.k === 'oppCost' && !+s[r.k])) n++; }); }); return n; }
 
-function defaults() { return { disc: 8, retain: 4, team: [{ c: 'Germany', fte: 90, roles: null }], sc: [{ to: 'Krakow (Poland)' }, { to: 'Bangalore (India)' }, { to: 'Lisbon (Portugal)' }] }; }
+function defaults() { return { disc: 8, team: [{ c: 'Germany', fte: 90, roles: null }], sc: [{ to: 'Krakow (Poland)' }, { to: 'Bangalore (India)' }, { to: 'Lisbon (Portugal)' }] }; }
 function load() { try { var s = JSON.parse(localStorage.getItem(LS)); if (s && s.sc && s.sc.length === 3 && s.team && s.team.length) return s; } catch (e) { } return defaults(); }
 function save() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) { } }
-var GLOBAL = ['today', 'wgFrom', 'retain', 'officeSave', 'officeSale', 'otherSave', 'cashFree'];
+var GLOBAL = ['today', 'wgFrom', 'elim', 'auto', 'autoBuild', 'autoRun', 'officeSave', 'officeSale', 'otherSave', 'cashFree'];
+var PH = { autoBuild: '30000', autoRun: '8000' };
 function inputs(i) { var o = {}, s = S.sc[i], k; for (k in s) if (s[k] !== '' && s[k] != null) o[k] = s[k]; o.disc = S.disc; o.team = S.team; GLOBAL.forEach(function (g) { if (S[g] !== undefined && S[g] !== '') o[g] = S[g]; }); return o; }
 function confTag(c) { return '<span class="conf ' + (c >= 70 ? 'hi' : c >= 50 ? 'mid' : 'lo') + '">' + c + '%</span>'; }
 function title(i) { var a = resolve(inputs(i)); return LBL[i] + ': move to ' + a.to + (a.office === 'owned' ? ', own building' : a.office === 'cowork' ? ', coworking' : ''); }
@@ -624,7 +667,7 @@ function renderTeam() {
   });
   if (S.team.length < 6) h += '<button class="add" data-addc="1">+ add country</button>';
   document.getElementById('team').innerHTML = h;
-  GLOBAL.forEach(function (g) { var el = document.getElementById(g); if (el) { el.value = S[g] === undefined ? '' : S[g]; if (g !== 'today' && g !== 'wgFrom') el.placeholder = g === 'retain' ? '4' : '0'; } });
+  GLOBAL.forEach(function (g) { var el = document.getElementById(g); if (el) { el.value = S[g] === undefined ? '' : S[g]; if (g !== 'today' && g !== 'wgFrom') el.placeholder = PH[g] || '0'; } });
   refreshTeam();
 }
 function refreshTeam() {
@@ -638,11 +681,21 @@ function refreshTeam() {
   var own = S.today !== undefined && S.today !== '', wgOwn = S.wgFrom !== undefined && S.wgFrom !== '';
   document.getElementById('teamsum').innerHTML = '<div><span>Jobs today</span><b>' + n1(T.fte) + ' FTE</b></div><div><span>Cost per FTE</span><b>' + eur(own ? +S.today : T.today) + '</b><i>' + (own ? 'your value, calculated: ' + eur(T.today) : 'calculated from roles') + '</i></div><div><span>Severance</span><b>' + n1(T.sev) + ' months</b></div><div><span>Wage growth</span><b>' + n1(wgOwn ? +S.wgFrom : T.wg) + '% per year</b><i>' + (wgOwn ? 'your value' : 'from your countries') + '</i></div><div><span>Data confidence</span><b>' + confTag(T.conf) + '</b><i>pay data for your countries</i></div>';
   var TP = T.parts;
-  document.getElementById('todayparts').innerHTML = '<b>Cost per FTE today, calculated:</b> pay ' + eurk(TP.pay) + ' + bonus ' + eurk(TP.bonus) + ' + employer charges ' + eurk(TP.charges) + ' + office ' + eurk(TP.office) + ' + IT ' + eurk(TP.it) + ' = <b>' + eurk(TP.total) + '</b>' + (own ? '. Your value ' + eur(+S.today) + ' is used instead.' : '');
   document.getElementById('today').placeholder = num(Math.round(T.today / 100) * 100);
   document.getElementById('wgFrom').placeholder = n1(T.wg);
-  var r = calc(inputs(0));
-  document.getElementById('awaysum').innerHTML = '<ul class="parts wide">' + li('Cost today, per year', eur(r.baseYear)) + li('minus retained team at home (' + n1(r.a.retain) + '% of jobs)', eur(-r.stayJobs), 'in2') + li('minus office cost that stays', eur(-r.stayOffice), 'in2') + li('Cost that goes away, per year', eur(r.awayYear), 'tot') + (r.a.otherSave ? li('plus other savings, per year', eur(r.a.otherSave), 'in2') : '') + (r.a.officeSale + r.a.cashFree ? li('One-time income: office sale and cash freed', eur(r.a.officeSale + r.a.cashFree), 'in2') : '') + '</ul>';
+  var r = calc(inputs(0)), k1 = T.today ? r.a.today / T.today : 1, f = r.a.fte;
+  function pos(no, name, val, body, cls) { return '<details class="pos' + (cls ? ' ' + cls : '') + '"><summary><span class="no">' + no + '</span><span class="pn">' + name + '</span><b>' + val + '</b></summary>' + body + '</details>'; }
+  var h = '<h3>Cost savings per year, today\'s prices</h3><p class="note">Click a position to see its parts.</p>';
+  h += pos('', 'As-is cost of the work in scope (' + n1(f) + ' jobs)', eur(r.baseYear), ul([li('Cost per job today', eur0(r.a.today)), li('Jobs in scope', n1(f))]), 'head');
+  h += pos('1.1', 'Labor: Pay, bonus, employer charges', eur(r.labor), ul([li('Pay', eur(f * TP.pay * k1)), li('Bonus', eur(f * TP.bonus * k1)), li('Employer charges', eur(f * TP.charges * k1))]));
+  h += pos('1.2', 'Office, share per job that goes away', eur(r.office - r.stayOffice), ul([li('Office cost of these jobs today', eur(r.office)), li('Stays (' + n1(100 - r.a.officeSave) + '%): Offices are kept for other teams', eur(-r.stayOffice), 'in2')]));
+  h += pos('1.3', 'IT (moves with the job)', eur(r.it), '<p class="note">IT moves with the job: The new center pays the same IT cost (2.2).</p>');
+  h += pos('1.4', 'Other savings', eur(r.a.otherSave), '<p class="note">Fewer temporary staff, less overtime, fewer licenses. Set in scope of the move.</p>');
+  h += '<div class="postot"><span>Cost savings per year (1.1 to 1.4)</span><b>' + eur(r.awayYear + r.a.otherSave) + '</b></div>';
+  h += '<p class="note">Where the ' + n1(f) + ' jobs go: <b>' + n1(r.mv) + '</b> move to the new center, <b>' + n1(r.elimN) + '</b> end at the move, <b>' + n1(r.autoN) + '</b> are replaced by automation.</p>';
+  document.getElementById('savesum').innerHTML = h;
+  var cut = r.a.elim + r.a.auto;
+  document.getElementById('scopewarn').innerHTML = cut > 10 ? '<b>Check this:</b> ' + n1(cut) + '% of the jobs are not replaced. The new team must absorb this work from day one. Above about 10% this is a real risk for service levels. Make sure each cut is backed by a named process change.' : '';
 }
 
 // ---------- 2-4. option tables ----------
@@ -677,36 +730,41 @@ function renderInputs() { [2, 3, 4].forEach(renderSec); document.getElementById(
 // totals and breakdowns
 function totals(i) {
   var r = calc(inputs(i)), a = r.a, wp = wpJob(a), pay = a.future - wp, end = a.prep + a.move, P = r.P;
+  var m1 = calc(Object.assign(inputs(i), { prep: a.prep + 1 })).npv - r.npv;
   var tot = {
     pay: '<b>' + eur(r.mv * pay) + '</b> per year<i>' + eur(pay) + ' per job, ' + n1(r.mv) + ' jobs</i>',
     site: '<b>' + eur(r.mv * wp + a.siteRun) + '</b> per year<i>office and IT ' + eur(wp) + ' per job' + (a.siteRun ? ', site ' + eur(a.siteRun) : '') + '</i>',
-    team: '<b>' + eur(r.turnYear) + '</b> per year<i>turnover vs today; then ' + n1(a.eff) + '% fewer people per year</i>',
+    team: '<b>' + eur(r.turnYear) + '</b> per year<i>turnover ' + n1(a.turn) + '% vs ' + n1(a.turnToday) + '% today</i>',
+    autoc: '<b>' + eur(r.autoYear) + '</b> per year<i>' + n1(r.autoN) + ' jobs automated</i>',
     run: '<b>' + eur(r.runYear) + '</b>',
     away: '<b>' + eur(r.awayYear + a.otherSave) + '</b>',
-    save: '<b class="' + (r.fullSave >= 0 ? 'pos' : 'neg') + '">' + eur(r.fullSave) + '</b><i>' + Math.round(r.fullSave / (r.awayYear + a.otherSave || 1) * 100) + '% of the cost that goes away</i>',
-    A: '<b>' + eur(r.A) + '</b>', B: '<b>' + eur(r.B) + '</b>', C: '<b>' + eur(r.C) + '</b>',
-    inc: '<b>' + eur(-r.income) + '</b>', net: '<b>' + eur(r.oneTime) + '</b>',
-    plan: 'month <b>' + a.prep + '</b> to <b>' + end + '</b>'
+    save: '<b class="' + (r.fullSave >= 0 ? 'pos' : 'neg') + '">' + eur(r.fullSave) + '</b><i>' + Math.round(r.fullSave / (r.awayYear + a.otherSave || 1) * 100) + '% of the cost savings</i>',
+    A: '<b>' + eur(r.A) + '</b>', B: '<b>' + eur(r.B) + '</b>', C: '<b>' + eur(r.C) + '</b>', D: '<b>' + eur(-r.D) + '</b>',
+    cost: '<b>' + eur(r.oneCost) + '</b>', net: '<b>' + eur(r.oneTime) + '</b>',
+    plan: 'month <b>' + a.prep + '</b> to <b>' + end + '</b>',
+    month: '<b class="neg">' + eur(m1) + '</b><i>per month of delay</i>'
   };
   var own = isSet(S.sc[i], 'future');
   var F = a.futureParts, k = own && a.futureAuto ? a.future / a.futureAuto : 1;
   var sum = {
-    pay: ul([li('Pay', eurk(F.pay * k)), li('Bonus', eurk(F.bonus * k)), li('Employer charges', eurk(F.charges * k))].concat(F.lang > 0.5 ? [li('Language bonus', eurk(F.lang * k))] : []).concat([li('Pay per job, per year', eurk(pay), 'tot'), li('in year 5, at ' + n1(a.wgTo) + '% wage growth', eurk(pay * Math.pow(1 + a.wgTo / 100, 4)), 'in2')])) + (own ? '<i class="auto">your all-in value, split in the same shares</i>' : ''),
+    pay: ul([li('2.1.1 Pay', eurk(F.pay * k)), li('2.1.2 Bonus', eurk(F.bonus * k)), li('2.1.3 Employer charges', eurk(F.charges * k))].concat(F.lang > 0.5 ? [li('2.1.4 Language bonus', eurk(F.lang * k))] : []).concat([li('Labor per job, per year', eurk(pay), 'tot'), li('in year 5, at ' + n1(a.wgTo) + '% wage growth', eurk(pay * Math.pow(1 + a.wgTo / 100, 4)), 'in2'), li('jobs needed by month 60 (' + n1(a.eff) + '% fewer per year)', n1(r.mv * Math.pow(1 - a.eff / 100, Math.max(0, (60 - end) / 12))), 'in2')])) + (own ? '<i class="auto">your all-in value, split in the same shares</i>' : ''),
     site: officeList(r),
-    team: n1(r.mv) + ' jobs move. ' + n1(r.mv * Math.pow(1 - a.eff / 100, Math.max(0, (60 - end) / 12))) + ' needed by month 60. Turnover <b>' + n1(a.turn) + '%</b> vs <b>' + n1(a.turnToday) + '%</b> today: ' + (r.turnYear >= 0 ? 'extra cost' : 'saving') + ' <b>' + eur(Math.abs(r.turnYear)) + '</b> per year.',
-    A: ul([li('Severance (' + n1(a.sevMonths) + ' months, ' + a.sevShare + '% of people)', eur(P.sev)), li('Outplacement', eur(P.outpl)), li('Retention bonuses', eur(P.reten)), li('Works council and legal advice', eur(P.legal)), li('Total A', eur(r.A), 'tot')]),
-    B: ul([li('Site set-up', eur(P.site)), li('Fit-out or remodel', eur(P.fit)), li('minus value left after year 5', eur(P.fitLeft), 'in2'), li('IT equipment, ' + n1(r.hires) + ' hires', eur(P.equip)), li('Total B', eur(r.B), 'tot')]),
-    C: ul([li('Double cost (' + a.overlap + ' months)', eur(P.dbl)), li('Extra people, first year', eur(P.extra)), li('Recruiting', eur(P.recruit)), li('Knowledge-transfer travel', eur(P.travel)), li('Project team', eur(P.pmo)), li('Total C', eur(r.C), 'tot')])
+    team: ul([li('Extra leavers per year vs today', n1(r.mv * (a.turn - a.turnToday) / 100)), li('Cost per leaver (' + a.leaverCost + '% of a year)', eur0(a.future * a.leaverCost / 100)), li('2.3 Turnover cost per year', eur(r.turnYear), 'tot')]),
+    autoc: ul([li('Jobs replaced by automation', n1(r.autoN)), li('Running cost per job', eur0(a.autoRun)), li('2.4 Automation running cost per year', eur(r.autoYear), 'tot')]),
+    A: ul([li('3.A.1 Severance (' + n1(a.sevMonths) + ' months, ' + a.sevShare + '% of ' + n1(a.fte) + ' people)', eur(P.sev)), li('3.A.2 Outplacement', eur(P.outpl)), li('3.A.3 Retention bonuses', eur(P.reten)), li('3.A.4 Works council and legal advice', eur(P.legal)), li('Total 3.A', eur(r.A), 'tot')]),
+    B: ul([li('3.B.1 Site set-up', eur(P.site)), li('3.B.2 Fit-out or remodel', eur(P.fit)), li('3.B.3 Minus value left after year 5', eur(P.fitLeft)), li('3.B.4 IT equipment, ' + n1(r.hires) + ' hires', eur(P.equip)), li('Total 3.B', eur(r.B), 'tot')]),
+    C: ul([li('3.C.1 Double cost (' + a.overlap + ' months)', eur(P.dbl)), li('3.C.2 Extra people, first year', eur(P.extra)), li('3.C.3 Recruiting', eur(P.recruit)), li('3.C.4 Knowledge-transfer travel', eur(P.travel)), li('3.C.5 Project team', eur(P.pmo)), li('3.C.6 Automation build', eur(P.autoBuild)), li('Total 3.C', eur(r.C), 'tot')]),
+    D: ul([li('3.D.1 Investment grant', eur(-P.grant)), li('3.D.2 Job-creation grants', eur(-P.jobGrant)), li('3.D.3 Tax relief until year 5', eur(-P.tax)), li('3.D.4 Sale of offices (section 1)', eur(-P.sale)), li('3.D.5 Cash freed (section 1)', eur(-P.cash)), li('Total 3.D', eur(r.D), 'tot')])
   };
   return { tot: tot, sum: sum };
 }
 function officeList(r) {
   var a = r.a, d = CFG.desks, L = [], s = S.sc[0];
-  if (a.siteRun) L.push(li('Site running cost, per year', eur0(a.siteRun)));
+  L.push(li('2.2.1 Site running cost, per year', eur0(a.siteRun)));
   if (a.office === 'owned' && a.deskCost === a.deskCostAuto) { L.push(li('Extra running cost per desk', eur0(a.ownVar))); L.push(li('Fixed cost that is extra (' + a.ownExtra + '% of ' + num(a.ownFixed) + ')', eur0(a.ownFixed * a.ownExtra / 100))); }
   else L.push(li(a.deskCost !== a.deskCostAuto ? 'Cost per desk (your value)' : a.office === 'cowork' ? 'Coworking (' + CFG.coworkPct + '% of market rent ' + num(a.marketRent) + ')' : 'Market rent per desk', eur0(a.deskCost)));
   if (a.oppCost > 0) L.push(li('Lost income per desk', eur0(a.oppCost)));
-  L.push(li('x desks per job', n1(d)), li('Office per job', eur0((a.deskCost + a.oppCost) * d), 'sub'), li('IT per job (same as today)', eur0(CFG.it), 'sub'), li('Office and IT per job, per year', eur0(wpJob(a)), 'tot'));
+  L.push(li('x desks per job', n1(d)), li('2.2.2 Office per job', eur0((a.deskCost + a.oppCost) * d), 'sub'), li('2.2.3 IT per job (same as today, 1.3)', eur0(CFG.it), 'sub'), li('Office and IT per job, per year', eur0(wpJob(a)), 'tot'), li('Total 2.2 for ' + n1(r.mv) + ' jobs', eur(r.mv * wpJob(a) + a.siteRun), 'tot'));
   if (a.office !== 'lease') L.push(li((r.officeVsLease >= 0 ? 'Saved' : 'Extra') + ' vs new rented office, per year', eur0(Math.abs(r.officeVsLease)), 'in2'));
   return ul(L);
 }
@@ -723,8 +781,8 @@ function refreshAuto() {
       if (!el) return;
       if (r.auto) el.placeholder = (r.dec ? n1(a[r.auto]) : num(a[r.auto]));
       if (!hi) return;
-      if (r.k === 'deskCost') hi.textContent = isSet(s, 'deskCost') ? 'your value' : a.office === 'owned' ? 'calculated: ' + num(a.ownVar) + ' + ' + num(a.ownExtra) + '% of ' + num(a.ownFixed) : a.office === 'cowork' ? 'calculated: ' + CFG.coworkPct + '% of market rent ' + num(a.marketRent) : 'calculated: market rent';
-      else if (r.k === 'oppCost') hi.textContent = 'guide: market rent ' + num(a.marketRent);
+      if (r.k === 'deskCost') hi.textContent = isSet(s, 'deskCost') ? 'your value' : a.office === 'owned' ? 'calculated: ' + num(a.ownVar) + ' + ' + num(a.ownExtra) + '% of ' + num(a.ownFixed) : a.office === 'cowork' ? 'calculated: ' + CFG.coworkPct + '% of market rent ' + num(a.marketRent) : 'calculated: Market rent';
+      else if (r.k === 'oppCost') hi.textContent = 'guide: Market rent ' + num(a.marketRent);
       else hi.textContent = isSet(s, r.k) ? 'your value' : 'calculated';
     });
   });
@@ -738,13 +796,13 @@ function renderResults() {
   R.forEach(function (r, i) {
     h += '<div class="res" style="--c:' + COL[i] + '"><div class="rh"><span class="dot" style="background:' + COL[i] + '"></span>' + esc(title(i)) + (i === best && r.npv > 0 ? '<em>best value</em>' : '') + '</div>';
     h += '<div class="big ' + (r.npv >= 0 ? 'pos' : 'neg') + '">' + eur(r.npv) + '</div><div class="sub">value over 5 years, in today\'s money (NPV)</div>';
-    h += '<dl class="kpi"><dt>Payback</dt><dd>' + (r.payback !== null ? 'month ' + r.payback : 'not in 5 years') + '</dd><dt>Saving per year, year 5</dt><dd>' + eur(r.saving) + ' <small>' + Math.round(r.savingPct * 100) + '%</small></dd><dt>One-time cost, net</dt><dd>' + eur(r.oneTime) + '</dd><dt>Funding needed</dt><dd>' + eur(r.peak) + '</dd><dt>Return per year (IRR)</dt><dd>' + (r.irr === null ? 'negative' : Math.round(r.irr * 100) + '%') + '</dd><dt>Data confidence, site / today</dt><dd>' + confTag(r.a.confSite) + ' ' + confTag(r.a.confToday) + '</dd></dl>';
-    h += '<dl class="bridge"><dt>1. Cost that goes away, per year</dt><dd>' + eur(r.awayYear + r.a.otherSave) + '</dd><dt>2. Run cost, new center, per year</dt><dd>' + eur(-r.runYear) + '</dd><dt class="tt">Saving at full run, today\'s prices</dt><dd class="tt">' + eur(r.fullSave) + '</dd><dt>3. One-time cost: A people</dt><dd>' + eur(r.A) + '</dd><dt class="in2">B site</dt><dd>' + eur(r.B) + '</dd><dt class="in2">C transition</dt><dd>' + eur(r.C) + '</dd>' + (r.income ? '<dt class="in2">minus income</dt><dd>' + eur(-r.income) + '</dd>' : '') + '</dl></div>';
+    h += '<dl class="kpi"><dt>Payback</dt><dd>' + (r.payback !== null ? 'month ' + r.payback : 'not in 5 years') + '</dd><dt>Saving per year, year 5</dt><dd>' + eur(r.saving) + ' <small>' + Math.round(r.savingPct * 100) + '%</small></dd><dt>One-time impact, net</dt><dd>' + eur(r.oneTime) + '</dd><dt>Funding needed</dt><dd>' + eur(r.peak) + '</dd><dt>Return per year (IRR)</dt><dd>' + (r.irr === null ? 'negative' : Math.round(r.irr * 100) + '%') + '</dd><dt>Data confidence, site / today</dt><dd>' + confTag(r.a.confSite) + ' ' + confTag(r.a.confToday) + '</dd></dl>';
+    h += '<dl class="bridge"><dt>1. Cost savings per year</dt><dd>' + eur(r.awayYear + r.a.otherSave) + '</dd><dt>2. Operating cost per year</dt><dd>' + eur(-r.runYear) + '</dd><dt class="tt">Net saving at full run, today\'s prices</dt><dd class="tt">' + eur(r.fullSave) + '</dd><dt>3.A People leaving</dt><dd>' + eur(r.A) + '</dd><dt>3.B Site</dt><dd>' + eur(r.B) + '</dd><dt>3.C Transition</dt><dd>' + eur(r.C) + '</dd>' + (r.D ? '<dt>3.D Incentives and income</dt><dd>' + eur(-r.D) + '</dd>' : '') + '</dl></div>';
   });
   document.getElementById('results').innerHTML = h;
   document.getElementById('chart').innerHTML = chart(R);
   var anyOth = R.some(function (r) { return r.a.otherSave > 0; });
-  var lines = [['base', 'Cost if nothing changes'], ['src', 'Old locations and retained team, still paid'], ['run', 'New center, run cost']].concat(anyOth ? [['oth', 'Other savings']] : []).concat([['one', 'One-time cost, net (A+B+C)'], ['cf', 'Net effect']]);
+  var lines = [['base', 'Cost if nothing changes'], ['src', 'Old locations, still paid'], ['run', 'New center, operating cost']].concat(anyOth ? [['oth', 'Other savings']] : []).concat([['one', 'One-time impact, net (3.A to 3.D)'], ['cf', 'Net effect']]);
   var t = '<table class="yr"><thead><tr><th>Option</th><th></th>' + [1, 2, 3, 4, 5].map(function (y) { return '<th>Year ' + y + '</th>'; }).join('') + '<th>5 years</th></tr></thead><tbody>';
   R.forEach(function (r, i) {
     lines.forEach(function (ln, j) {
@@ -764,6 +822,7 @@ function renderRisk(R) {
     ['Double cost 2 months longer', function (a) { return { overlap: a.overlap + 2 }; }],
     ['Preparation 3 months longer', function (a) { return { prep: a.prep + 3 }; }],
     ['Staff turnover at the site +5 points', function (a) { return { turn: a.turn + 5 }; }],
+    ['Jobs that end or are automated stay (no upfront cuts)', function (a) { return { elim: 0, auto: 0 }; }],
     ['One-time cost 20% higher', null]
   ];
   var h = '<p class="note">How much the 5-year value (NPV) changes if one assumption is wrong. Use it to see which numbers need the best data.</p><table class="yr risk"><thead><tr><th>If this happens</th>' + R.map(function (r, i) { return '<th><span class="dot" style="background:' + COL[i] + '"></span>Option ' + LBL[i] + '</th>'; }).join('') + '</tr></thead><tbody>';
@@ -775,8 +834,8 @@ function renderRisk(R) {
       return '<td class="n' + (d < 0 ? ' neg' : '') + '">' + eur(d) + '</td>';
     }).join('') + '</tr>';
   });
-  h += '<tr class="net"><td>Data confidence: site / your countries</td>' + R.map(function (r) { return '<td class="n">' + confTag(r.a.confSite) + ' ' + confTag(r.a.confToday) + '</td>'; }).join('') + '</tr></tbody></table>';
-  h += '<p class="note">Not in the numbers: tax and incentives, transfer pricing between your companies, exchange rates (PLN, RON, HUF, CZK, INR, PHP against EUR), and the risk of not finding enough people with the right languages.</p>';
+  h += '<tr class="net"><td>Data confidence: Site / your countries</td>' + R.map(function (r) { return '<td class="n">' + confTag(r.a.confSite) + ' ' + confTag(r.a.confToday) + '</td>'; }).join('') + '</tr></tbody></table>';
+  h += '<p class="note">Not in the numbers unless you enter them in 3.D: Tax and incentives. Not in the numbers at all: Transfer pricing between your companies, exchange rates (PLN, RON, HUF, CZK, INR, PHP against EUR), and the risk of not finding enough people with the right languages.</p>';
   document.getElementById('risk').innerHTML = h;
 }
 
@@ -816,10 +875,10 @@ function renderAdv() {
   var h = '<p class="note">Yearly gross base pay per role in EUR. Type a number to replace the average. Empty the field to go back. Only the countries and sites you use above are listed.</p>';
   h += '<h3>Your countries today (regular pay, not GBS)</h3><div class="scroll"><table class="adv">' + head + '</tr></thead><tbody>' + rows('today', TODAY, usedToday(), 0) + '</tbody></table></div>';
   h += '<h3>Your GBS sites</h3><div class="scroll"><table class="adv">' + head + '<th>Language bonus, %</th><th>Staff turnover, %</th></tr></thead><tbody>' + rows('sites', SITES, usedSites(), 1) + '</tbody></table></div>';
-  h += '<h3>Roles</h3><p class="note">Bonus is a share of pay. The two splits say how a team is built: your team today (used when you do not enter jobs by role) and the new center. Splits are scaled to 100%.</p><div class="scroll"><table class="adv"><thead><tr><th></th>' + ROLES.map(function (r) { return '<th>' + r + '</th>'; }).join('') + '</tr></thead><tbody>';
+  h += '<h3>Roles</h3><p class="note">Bonus is a share of pay. The two splits say how a team is built: Your team today (used when you do not enter jobs by role) and the new center. Splits are scaled to 100%.</p><div class="scroll"><table class="adv"><thead><tr><th></th>' + ROLES.map(function (r) { return '<th>' + r + '</th>'; }).join('') + '</tr></thead><tbody>';
   [['bonus', 'Bonus, % of pay', BONUS.map(function (b) { return Math.round(b * 100); })], ['typical', 'Team today, %', TYPICAL], ['target', 'New center team, %', TARGET]].forEach(function (r) { h += '<tr><td class="cn">' + r[1] + '</td>' + r[2].map(function (d, g) { return cell([r[0], g], d, r[1] + ' ' + ROLES[g]); }).join('') + '</tr>'; });
   h += '</tbody></table></div>';
-  h += '<h3>Offices</h3><p class="note">These are the defaults for all options. Office cost per FTE = IT + cost per desk x desks per FTE. Rented office: market rent. Coworking: market rent x the coworking %. Own building: extra cost + the share of fixed cost that is extra. IT is the same before and after the move, so it does not change the saving.</p><table class="adv two"><tbody><tr><td class="cn">IT per FTE per year, EUR</td>' + cell(['it'], 3000, 'IT per FTE') + '<td class="cn">Desks per FTE (0.8 = hybrid)</td>' + cell(['desks'], 1, 'Desks per FTE') + '</tr><tr><td class="cn">Own building: extra cost per desk</td>' + cell(['ownVar'], 500, 'Own building extra cost') + '<td class="cn">Own building: fixed cost per desk</td>' + cell(['ownFixed'], 900, 'Own building fixed cost') + '</tr><tr><td class="cn">Own building: fixed cost that is extra, %</td>' + cell(['ownExtra'], 0, 'Own building fixed extra') + '<td class="cn">Coworking, % of rent</td>' + cell(['coworkPct'], 150, 'Coworking') + '</tr><tr><td class="cn">Fit-out new office, per desk</td>' + cell(['fitLease'], 4000, 'Fit-out new office') + '<td class="cn">Remodel existing building, per desk</td>' + cell(['fitOwned'], 2500, 'Remodel existing') + '</tr><tr><td class="cn">Coworking set-up, per desk</td>' + cell(['fitCowork'], 0, 'Coworking set-up') + '<td></td><td></td></tr></tbody></table>';
+  h += '<h3>Offices</h3><p class="note">These are the defaults for all options. Office cost per FTE = IT + cost per desk x desks per FTE. Rented office: Market rent. Coworking: Market rent x the coworking %. Own building: Extra cost + the share of fixed cost that is extra. IT is the same before and after the move, so it does not change the saving.</p><table class="adv two"><tbody><tr><td class="cn">IT per FTE per year, EUR</td>' + cell(['it'], 3000, 'IT per FTE') + '<td class="cn">Desks per FTE (0.8 = hybrid)</td>' + cell(['desks'], 1, 'Desks per FTE') + '</tr><tr><td class="cn">Own building: Extra cost per desk</td>' + cell(['ownVar'], 500, 'Own building extra cost') + '<td class="cn">Own building: Fixed cost per desk</td>' + cell(['ownFixed'], 900, 'Own building fixed cost') + '</tr><tr><td class="cn">Own building: Fixed cost that is extra, %</td>' + cell(['ownExtra'], 0, 'Own building fixed extra') + '<td class="cn">Coworking, % of rent</td>' + cell(['coworkPct'], 150, 'Coworking') + '</tr><tr><td class="cn">Fit-out new office, per desk</td>' + cell(['fitLease'], 4000, 'Fit-out new office') + '<td class="cn">Remodel existing building, per desk</td>' + cell(['fitOwned'], 2500, 'Remodel existing') + '</tr><tr><td class="cn">Coworking set-up, per desk</td>' + cell(['fitCowork'], 0, 'Coworking set-up') + '<td></td><td></td></tr></tbody></table>';
   h += '<h3>Language bonus in the new center</h3><p class="note">Jobs that need a second foreign language, for example German or French, are paid more. The bonus per country is in the table above.</p><table class="adv two"><tbody><tr><td class="cn">Jobs with a language bonus, %</td>' + cell(['langShare'], 40, 'Jobs with a language bonus') + '</tr></tbody></table>';
   h += '<p><button class="btn" id="ovreset">Reset all values in this section</button></p>';
   document.getElementById('adv').innerHTML = h; advCount();
@@ -847,7 +906,7 @@ document.addEventListener('input', function (e) {
   else if (el.hasAttribute('data-tc')) S.team[+el.getAttribute('data-tc')].c = el.value;
   else if (el.hasAttribute('data-tf')) S.team[+el.getAttribute('data-tf')].fte = el.value === '' ? 0 : Math.max(0, +el.value);
   else if (el.hasAttribute('data-tr')) { q = el.getAttribute('data-tr').split(':'); S.team[+q[0]].roles[+q[1]] = el.value === '' ? 0 : Math.max(0, +el.value); }
-  else if (GLOBAL.indexOf(el.id) >= 0) { if (el.value === '') delete S[el.id]; else S[el.id] = Math.max(0, +el.value); if (el.id === 'retain' || el.id === 'officeSave') { if (S[el.id] > 100) S[el.id] = 100; } }
+  else if (GLOBAL.indexOf(el.id) >= 0) { if (el.value === '') delete S[el.id]; else S[el.id] = Math.max(0, +el.value); if (['elim', 'auto', 'officeSave'].indexOf(el.id) >= 0 && S[el.id] > 100) S[el.id] = 100; }
   else if (el.id === 'disc') S.disc = el.value === '' ? 8 : Math.max(0, +el.value);
   else if (el.hasAttribute('data-k')) { var k = el.getAttribute('data-k'), s = S.sc[+el.getAttribute('data-i')]; if (el.tagName === 'SELECT') { s[k] = el.value; if (k === 'office' || k === 'to' || k === 'siteType') setTimeout(renderInputs, 0); } else if (el.value === '') delete s[k]; else s[k] = Math.max(0, +el.value); }
   else return;
@@ -920,48 +979,52 @@ function buildWorkbook() {
   L('Payback, month', function (r) { return r.payback || 'not within 5 years'; });
   L('Saving per year in year 5', EURr(function (r) { return r.saving; }), EUR);
   L('Saving in % of today\'s cost', function (r) { return r.savingPct; }, PCT);
-  L('One-time cost, net', EURr(function (r) { return r.oneTime; }), EUR);
+  L('One-time impact, net', EURr(function (r) { return r.oneTime; }), EUR);
   L('Funding needed before it turns positive', EURr(function (r) { return r.peak; }), EUR);
   L('Return per year (IRR)', function (r) { return r.irr === null ? 'negative' : r.irr; }, PCT);
   L('Data confidence, site', function (r) { return r.a.confSite / 100; }, '0%');
   L('Data confidence, your countries', function (r) { return r.a.confToday / 100; }, '0%');
-  section(ws, '1. Cost today: what goes away (per year, today\'s prices)', 4);
-  L('Jobs today (FTE)', function (r) { return r.a.fte; }, NUM1);
-  L('Cost per FTE today (used)', EURr(function (r) { return r.a.today; }), EUR);
-  L('Cost today', EURr(function (r) { return r.baseYear; }), EUR, { bold: true });
-  L('minus retained team at home', EURr(function (r) { return -r.stayJobs; }), EUR, { indent: 1 });
-  L('minus office cost that stays', EURr(function (r) { return -r.stayOffice; }), EUR, { indent: 1 });
-  L('Cost that goes away', EURr(function (r) { return r.awayYear; }), EUR, { bold: true });
-  L('Other savings', EURr(function (r) { return r.a.otherSave; }), EUR, { indent: 1 });
-  L('Retained team, % of jobs', function (r) { return r.a.retain / 100; }, PCT);
+  section(ws, '1. Cost savings (per year, today\'s prices)', 4);
+  L('Jobs in scope today (FTE)', function (r) { return r.a.fte; }, NUM1);
+  L('Cost per job today (used)', EURr(function (r) { return r.a.today; }), EUR);
+  L('As-is cost of the work in scope', EURr(function (r) { return r.baseYear; }), EUR, { bold: true });
+  L('1.1 Labor: Pay, bonus, employer charges', EURr(function (r) { return r.labor; }), EUR, { indent: 1 });
+  L('1.2 Office that goes away', EURr(function (r) { return r.office - r.stayOffice; }), EUR, { indent: 1 });
+  L('1.3 IT', EURr(function (r) { return r.it; }), EUR, { indent: 1 });
+  L('1.4 Other savings', EURr(function (r) { return r.a.otherSave; }), EUR, { indent: 1 });
+  L('Cost savings per year (1.1 to 1.4)', EURr(function (r) { return r.awayYear + r.a.otherSave; }), EUR, { bold: true });
+  L('Jobs that move', function (r) { return r.mv; }, NUM1);
+  L('Jobs that end at the move', function (r) { return r.elimN; }, NUM1);
+  L('Jobs replaced by automation', function (r) { return r.autoN; }, NUM1);
   L('Wage growth today', function (r) { return r.a.wgFrom / 100; }, PCT);
-  section(ws, '2. Cost in the new center: what comes (per year, full run, today\'s prices)', 4);
+  section(ws, '2. Ongoing operating costs (per year, full run, today\'s prices)', 4);
   L('GBS site', function (r) { return r.a.to; });
   L('Presence at the site', function (r) { return { existing: 'Existing site', newsite: 'New site, same country', newcountry: 'New country' }[r.a.siteType]; });
   L('Office type', function (r) { return off[r.a.office]; });
-  L('Jobs that move', function (r) { return r.mv; }, NUM1);
-  L('2a Pay', EURr(function (r) { return r.mv * (r.a.future - (r.a.deskCost + r.a.oppCost) * CFG.desks - CFG.it); }), EUR, { bold: true });
+  L('2.1 Labor', EURr(function (r) { return r.mv * (r.a.future - (r.a.deskCost + r.a.oppCost) * CFG.desks - CFG.it); }), EUR, { bold: true });
   [['Pay per job', 'pay'], ['Bonus per job', 'bonus'], ['Employer charges per job', 'charges'], ['Language bonus per job', 'lang']].forEach(function (p) { L(p[0], EURr(function (r) { return r.a.futureParts[p[1]]; }), EUR, { indent: 1 }); });
   L('Wage growth at the site', function (r) { return r.a.wgTo / 100; }, PCT, { indent: 1 });
-  L('2b Site and office', EURr(function (r) { return r.mv * ((r.a.deskCost + r.a.oppCost) * CFG.desks + CFG.it) + r.a.siteRun; }), EUR, { bold: true });
+  L('2.2 Site, office and IT', EURr(function (r) { return r.mv * ((r.a.deskCost + r.a.oppCost) * CFG.desks + CFG.it) + r.a.siteRun; }), EUR, { bold: true });
   L('Site running cost', EURr(function (r) { return r.a.siteRun; }), EUR, { indent: 1 });
   L('Office cost per desk (without IT)', EURr(function (r) { return r.a.deskCost; }), EUR, { indent: 1 });
   L('Lost income from own building, per desk', EURr(function (r) { return r.a.oppCost; }), EUR, { indent: 1 });
   L('IT per job', function () { return CFG.it; }, EUR, { indent: 1 });
-  L('2c Team: turnover vs today', EURr(function (r) { return r.turnYear; }), EUR, { bold: true });
+  L('2.3 Staff turnover vs today', EURr(function (r) { return r.turnYear; }), EUR, { bold: true });
   L('Staff turnover at the site / today', function (r) { return n1(r.a.turn) + '% / ' + n1(r.a.turnToday) + '%'; }, 'General', { indent: 1 });
   L('Fewer people per year after the move', function (r) { return r.a.eff / 100; }, PCT, { indent: 1 });
-  L('Run cost, new center', EURr(function (r) { return r.runYear; }), EUR, { bold: true });
-  L('Saving per year at full run', EURr(function (r) { return r.fullSave; }), EUR, { bold: true });
-  section(ws, '3. One-time cost', 4);
-  L('A People leaving', EURr(function (r) { return r.A; }), EUR, { bold: true });
-  [['Severance', 'sev'], ['Outplacement', 'outpl'], ['Retention bonuses', 'reten'], ['Works council and legal advice', 'legal']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
-  L('B Site', EURr(function (r) { return r.B; }), EUR, { bold: true });
-  [['Site set-up', 'site'], ['Fit-out or remodel', 'fit'], ['minus value left after year 5', 'fitLeft'], ['IT equipment', 'equip']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
-  L('C Transition', EURr(function (r) { return r.C; }), EUR, { bold: true });
-  [['Double cost', 'dbl'], ['Extra people, first year', 'extra'], ['Recruiting', 'recruit'], ['Knowledge-transfer travel', 'travel'], ['Project team', 'pmo']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
-  L('One-time income (office sale, cash freed)', EURr(function (r) { return -r.income; }), EUR);
-  L('One-time cost, net', EURr(function (r) { return r.oneTime; }), EUR, { bold: true });
+  L('2.4 Automation running cost', EURr(function (r) { return r.autoYear; }), EUR, { bold: true });
+  L('Operating cost per year (2.1 to 2.4)', EURr(function (r) { return r.runYear; }), EUR, { bold: true });
+  L('Net saving per year at full run', EURr(function (r) { return r.fullSave; }), EUR, { bold: true });
+  section(ws, '3. One-time impacts of the move', 4);
+  L('3.A People leaving', EURr(function (r) { return r.A; }), EUR, { bold: true });
+  [['3.A.1 Severance', 'sev'], ['3.A.2 Outplacement', 'outpl'], ['3.A.3 Retention bonuses', 'reten'], ['3.A.4 Works council and legal advice', 'legal']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
+  L('3.B Site', EURr(function (r) { return r.B; }), EUR, { bold: true });
+  [['3.B.1 Site set-up', 'site'], ['3.B.2 Fit-out or remodel', 'fit'], ['3.B.3 Minus value left after year 5', 'fitLeft'], ['3.B.4 IT equipment', 'equip']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
+  L('3.C Transition', EURr(function (r) { return r.C; }), EUR, { bold: true });
+  [['3.C.1 Double cost', 'dbl'], ['3.C.2 Extra people, first year', 'extra'], ['3.C.3 Recruiting', 'recruit'], ['3.C.4 Knowledge-transfer travel', 'travel'], ['3.C.5 Project team', 'pmo'], ['3.C.6 Automation build', 'autoBuild']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
+  L('3.D Incentives and income', EURr(function (r) { return -r.D; }), EUR, { bold: true });
+  [['3.D.1 Investment grant', 'grant'], ['3.D.2 Job-creation grants', 'jobGrant'], ['3.D.3 Tax relief until year 5', 'tax'], ['3.D.4 Sale of offices', 'sale'], ['3.D.5 Cash freed', 'cash']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
+  L('One-time impact, net', EURr(function (r) { return r.oneTime; }), EUR, { bold: true });
   section(ws, 'Drivers of the one-time cost', 4);
   L('Severance, months of pay', function (r) { return r.a.sevMonths; }, NUM1);
   L('People who get severance', function (r) { return r.a.sevShare / 100; }, PCT);
@@ -973,7 +1036,7 @@ function buildWorkbook() {
   L('Extra people in the first year', function (r) { return r.a.extra / 100; }, PCT);
   L('Recruiting, % of yearly base pay', function (r) { return r.a.recruit / 100; }, PCT);
   L('Travel per moved job', function (r) { return r.a.travel; }, EUR);
-  section(ws, '4. Plan', 4);
+  section(ws, '4. Timeline', 4);
   L('Preparation, months', function (r) { return r.a.prep; });
   L('Move duration, months', function (r) { return r.a.move; });
   L('Discount rate', function (r) { return r.a.disc / 100; }, PCT);
@@ -983,7 +1046,7 @@ function buildWorkbook() {
   var wy = wb.addWorksheet('Year by year', { views: [{ state: 'frozen', ySplit: 4, xSplit: 2 }], pageSetup: { orientation: 'landscape', fitToPage: true, fitToWidth: 1, fitToHeight: 0 } });
   title(wy, 'Year by year', sub); wy.addRow([]);
   head(wy.addRow(['Option', 'Line', 'Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5', '5 years']));
-  var LN = [['base', 'Cost if nothing changes'], ['src', 'Old locations and retained team'], ['run', 'New center, run cost'], ['oth', 'Other savings'], ['one', 'One-time cost, net (A+B+C)'], ['cf', 'Net effect']];
+  var LN = [['base', 'Cost if nothing changes'], ['src', 'Old locations, still paid'], ['run', 'New center, operating cost'], ['oth', 'Other savings'], ['one', 'One-time impact, net (3.A to 3.D)'], ['cf', 'Net effect']];
   R.forEach(function (r, i) {
     LN.forEach(function (ln, j) {
       var vals = r.yearly.map(function (y) { return Math.round(y[ln[0]]); }), tot = vals.reduce(function (a, b) { return a + b; }, 0);
