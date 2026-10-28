@@ -174,6 +174,14 @@ table.dt td:last-child{color:var(--text-3);font-size:12.5px}
 i.auto.warn{color:var(--sb)}
 @media (max-width:700px){table.dt td:last-child{display:none}table.dt th:last-child{display:none}table.dt td:nth-child(3){width:120px}}
 
+details.pos[open]>summary::before,details.pos>summary::before{content:none!important}
+details.pos>summary b.c1,details.pos>summary b.c2,.poshead .c1,.poshead .c2,.postot b{width:110px;text-align:right;flex:none}
+details.pos>summary b.c1{color:var(--text-2)}
+.poshead{display:flex;gap:10px;font-size:12px;color:var(--text-3);padding:4px 0;border-bottom:1px solid var(--border-2)}
+.poshead .pn{flex:1}.postot .pn{flex:1}
+.postot{gap:10px;padding:8px 0 4px 38px}
+details.pos>ul,details.pos>p{margin:6px 0 2px 38px}
+
 </style></head><body>
 <header><div class="wrap hd"><a class="brand" href="/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1d6aff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg><span>GBS Insider Club</span></a><button id="reset" class="btn">Reset</button></div></header>
 <main class="wrap">
@@ -702,13 +710,14 @@ function refreshTeam() {
   document.getElementById('today').placeholder = num(Math.round(T.today / 100) * 100);
   document.getElementById('wgFrom').placeholder = n1(T.wg);
   var r = calc(inputs(0)), k1 = T.today ? r.a.today / T.today : 1, f = r.a.fte, om = S.officeMode || 'neutral';
-  function pos(no, name, val, body, cls) { return '<details class="pos' + (cls ? ' ' + cls : '') + '"><summary><span class="no">' + no + '</span><span class="pn">' + name + ' <span class="car"></span></span><b>' + val + '</b></summary>' + body + '</details>'; }
-  var h = '<h3>Cost savings per year, today\'s prices</h3>';
-  h += pos('', 'As-is cost of the GBS scope: ' + n1(f) + ' jobs at ' + eur(r.a.today) + (own ? ' (your value)' : '') + ' per job', eur(r.baseYear), ul([li('Wage growth if nothing changes', n1(r.a.wgFrom) + '% per year'), li('Severance at 9 years of service', n1(T.sev) + ' months'), li('Data confidence, pay', confTag(T.conf))]), 'head');
-  h += pos('1.1', 'Labor: Pay, bonus, employer charges', eur(r.labor), ul([li('Pay', eur(f * TP.pay * k1)), li('Bonus', eur(f * TP.bonus * k1)), li('Employer charges', eur(f * TP.charges * k1))]));
-  h += pos('1.2', 'Office space', eur(r.office - r.stayOffice), ul([li('Office cost of these jobs today', eur(r.office)), li(om === 'neutral' ? 'Kept for others: No saving (1.e)' : om === 'rent' ? 'Rented out: Saved (1.e)' : 'Sold: Saved, sale price in 3.D.4 (1.e)', eur(r.office - r.stayOffice), 'in2')]));
-  h += '<div class="postot"><span>Cost savings per year (1.1 + 1.2)</span><b>' + eur(r.awayYear) + '</b></div>';
-  h += '<p class="note">Where the ' + n1(f) + ' jobs go: <b>' + n1(r.mv) + '</b> move to the new center' + (r.autoN ? ', <b>' + n1(r.autoN) + '</b> are automated before the move' : '') + (r.elimN ? ', <b>' + n1(r.elimN) + '</b> end at the move' : '') + '.</p>';
+  function pos(no, name, v1, v2, body, cls) { return '<details class="pos' + (cls ? ' ' + cls : '') + '"><summary><span class="no">' + no + '</span><span class="pn">' + name + (body ? ' <span class="car"></span>' : '') + '</span><b class="c1">' + v1 + '</b><b class="c2">' + v2 + '</b></summary>' + body + '</details>'; }
+  var off = om === 'neutral' ? 'Kept for others: No saving' : om === 'rent' ? 'Rented out: Saved' : 'Sold: Saved, sale price in 3.D.4';
+  var h = '<h3>Cost savings per year, today\'s prices</h3><p class="note">' + n1(f) + ' jobs in scope at ' + eur(r.a.today) + ' per job' + (own ? ' (your value)' : '') + '. Wage growth if nothing changes ' + n1(r.a.wgFrom) + '% per year. Data confidence ' + confTag(T.conf) + '</p>';
+  h += '<div class="poshead"><span class="no">No.</span><span class="pn">Position</span><span class="c1">Cost today</span><span class="c2">Saving</span></div>';
+  h += pos('1.1', 'Labor: Pay, bonus, employer charges', eur(r.labor), eur(r.labor), ul([li('Pay', eur(f * TP.pay * k1)), li('Bonus', eur(f * TP.bonus * k1)), li('Employer charges', eur(f * TP.charges * k1)), li('All of it goes away when the jobs leave', eur(r.labor), 'tot')]));
+  h += pos('1.2', 'Office space (1.e)', eur(r.office), eur(r.office - r.stayOffice), ul([li('Office cost of these jobs today', eur(r.office)), li(off, eur(r.office - r.stayOffice), 'tot')]));
+  h += '<div class="postot"><span class="pn">Total</span><b class="c1">' + eur(r.baseYear) + '</b><b class="c2">' + eur(r.awayYear) + '</b></div>';
+  h += '<p class="note">Cost savings per year = 1.1 + 1.2 saving. ' + (r.stayOffice > 0.5 ? 'The difference to the cost today (' + eur(r.stayOffice) + ') is office space that is kept for others. ' : '') + 'Where the ' + n1(f) + ' jobs go: <b>' + n1(r.mv) + '</b> move to the new center' + (r.autoN ? ', <b>' + n1(r.autoN) + '</b> are automated before the move' : '') + (r.elimN ? ', <b>' + n1(r.elimN) + '</b> end at the move' : '') + '.</p>';
   document.getElementById('savesum').innerHTML = h;
   var cut = r.a.elim + r.a.auto;
   document.getElementById('scopewarn').innerHTML = cut > 10 ? '<b>Check this:</b> ' + n1(cut) + '% of the jobs are not replaced. The new team must absorb this work from day one. Above about 10% this is a real risk for service levels. Back each cut with a named process change.' : '';
@@ -944,6 +953,7 @@ document.addEventListener('click', function (e) {
 document.getElementById('asof').textContent = DATA_ASOF; document.getElementById('asof2').textContent = DATA_ASOF;
 renderTeam(); renderInputs(); renderResults(); renderAdv(); renderBench();
 // Excel download. Loads ExcelJS only when the button is clicked (site copy first, CDN as backup).
+// The workbook is a live model: inputs are values (blue), everything else is a formula with the result filled in.
 function loadExcelJS(cb) {
   if (window.ExcelJS) return cb();
   var srcs = ['/assets/vendor/exceljs.min.js', 'https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js'], k = 0;
@@ -956,155 +966,383 @@ function loadExcelJS(cb) {
 function exportExcel() {
   var btn = document.getElementById('xlsx'); btn.disabled = true; btn.textContent = 'Preparing Excel...';
   loadExcelJS(function () {
-    try { buildWorkbook(); } catch (e) { console.error(e); alert('The Excel file could not be created.'); }
+    try {
+      var date = new Date().toISOString().slice(0, 10);
+      var wb = buildWorkbook(window.ExcelJS, S.sc.map(function (s, i) { return calc(inputs(i)); }), teamStats(S.team), S.team, date);
+      wb.xlsx.writeBuffer().then(function (buf) {
+        var blob = new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }), url = URL.createObjectURL(blob), a = document.createElement('a');
+        a.href = url; a.download = 'gbs-business-case-' + date + '.xlsx'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      });
+    } catch (e) { console.error(e); alert('The Excel file could not be created.'); }
     btn.disabled = false; btn.textContent = 'Download as Excel';
   });
 }
 
-function buildWorkbook() {
+function buildWorkbook(ExcelJS, R, T, team, date) {
   var wb = new ExcelJS.Workbook(); wb.creator = 'GBS Insider Club'; wb.created = new Date();
-  var R = S.sc.map(function (s, i) { return calc(inputs(i)); }), T = teamStats(S.team);
-  var BLUE = 'FF1D6AFF', INK = 'FF0E1219', GREY = 'FFF1F3F7', LINE = 'FFD5DAE3';
-  var EUR = '"€"#,##0', EUR1 = '"€"#,##0.0,"k"', PCT = '0.0%', NUM1 = '0.0';
-  var COLS = ['FF4D8DFF', 'FFE8B800', 'FF34D399'];
-  function title(ws, text, sub) {
-    ws.getCell('A1').value = text; ws.getCell('A1').font = { bold: true, size: 16, color: { argb: INK } };
-    ws.getCell('A2').value = sub; ws.getCell('A2').font = { size: 10, color: { argb: 'FF5B6577' } };
+  wb.calcProperties = { fullCalcOnLoad: true };
+  var INK = 'FF0E1219', NAVY = 'FF14213D', GREY = 'FFF2F4F8', LINE = 'FFD5DAE3', MUTED = 'FF5B6577', BLUE_IN = 'FF0000CC', IN_FILL = 'FFFFF8DC';
+  var OPT = ['FF4D8DFF', 'FFE8B800', 'FF34D399'], OPTL = ['FFE6EFFF', 'FFFFF6D6', 'FFE3F8EF'];
+  var EUR = '"€"#,##0;[Red]-"€"#,##0', EURK = '"€"#,##0.0,"k";[Red]-"€"#,##0.0,"k"', PCT = '0.0%', PCT0 = '0%', NUM1 = '#,##0.0', NUM = '#,##0', F6 = '0.0000';
+  var COLS = ['B', 'C', 'D'], N = R.length;
+  var LB = ['A', 'B', 'C'];
+  function F(o) { var f = { name: 'Arial', size: 10, color: { argb: INK } }; for (var k in o || {}) f[k] = o[k]; return f; }
+  function fill(c, argb) { c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: argb } }; }
+  function arial(ws) { ws.eachRow({ includeEmpty: false }, function (row) { row.eachCell({ includeEmpty: false }, function (c) { if (!c.font || c.font.name !== 'Arial') c.font = F(c.font ? { bold: c.font.bold, color: c.font.color, size: c.font.size, italic: c.font.italic } : {}); }); }); }
+  var sub = 'Exported ' + date + ' from gbsinsiderclub.com/gbs-center-business-case.html. Planning values, not financial or legal advice.';
+  function title(ws, text, ncol) {
+    var r1 = ws.getRow(1); r1.getCell(1).value = text; r1.getCell(1).font = F({ bold: true, size: 15, color: { argb: 'FFFFFFFF' } }); r1.height = 26;
+    for (var c = 1; c <= ncol; c++) fill(r1.getCell(c), NAVY);
+    var r2 = ws.getRow(2); r2.getCell(1).value = sub; r2.getCell(1).font = F({ size: 9, italic: true, color: { argb: MUTED } });
   }
-  function head(row, fill) { row.eachCell(function (c) { c.font = { bold: true, color: { argb: 'FFFFFFFF' } }; c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: fill || BLUE } }; c.alignment = { vertical: 'middle', wrapText: true }; }); row.height = 22; }
-  function section(ws, text, ncol) { var r = ws.addRow([text]); r.font = { bold: true, color: { argb: INK } }; for (var c = 1; c <= ncol; c++) r.getCell(c).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: GREY } }; return r; }
-  function line(ws, label, vals, fmt, opt) {
-    var r = ws.addRow([label].concat(vals)); opt = opt || {};
-    for (var c = 2; c <= vals.length + 1; c++) { r.getCell(c).numFmt = fmt || 'General'; r.getCell(c).alignment = { horizontal: 'right' }; }
-    if (opt.indent) r.getCell(1).alignment = { indent: 1 };
-    if (opt.bold) r.font = { bold: true };
-    r.eachCell(function (c) { c.border = { bottom: { style: 'hair', color: { argb: LINE } } }; });
-    return r;
+  function optName(r, i) { return LB[i] + ': ' + r.a.to; }
+  function optHead(ws, rowNo, first, ncolAfter) {
+    var row = ws.getRow(rowNo); row.getCell(1).value = first || ''; row.getCell(1).font = F({ bold: true, color: { argb: 'FFFFFFFF' } }); fill(row.getCell(1), NAVY);
+    R.forEach(function (r, i) {
+      var c = row.getCell(i + 2); c.value = optName(r, i); c.font = F({ bold: true }); fill(c, OPT[i]); c.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+    });
+    for (var k = 0; k < (ncolAfter || 0); k++) { var cc = row.getCell(N + 2 + k); fill(cc, NAVY); }
+    row.height = 30;
   }
-  var date = new Date().toISOString().slice(0, 10), sub = 'Exported ' + date + ' from gbsinsiderclub.com/gbs-center-business-case.html. Planning values, not financial or legal advice.';
+  function band(ws, text, ncol) {
+    var row = ws.addRow([text]); row.height = 20;
+    for (var c = 1; c <= ncol; c++) { fill(row.getCell(c), GREY); row.getCell(c).border = { top: { style: 'thin', color: { argb: LINE } } }; }
+    row.getCell(1).font = F({ bold: true, size: 11, color: { argb: NAVY } });
+    return row;
+  }
+
+  var VIEW = function (y, x) { return { views: [{ state: 'frozen', ySplit: y, xSplit: x, showGridLines: false }] }; };
+  ['Summary', 'Inputs', 'Year by year'].concat(R.map(function (r, i) { return 'Calc ' + LB[i]; }), ['Team today', 'Benchmarks']).forEach(function (n) { wb.addWorksheet(n, n === 'Year by year' ? VIEW(4, 2) : n.indexOf('Calc') === 0 ? VIEW(5, 1) : n === 'Team today' || n === 'Benchmarks' ? VIEW(4, 0) : VIEW(4, 1)); });
+  // ---------- Inputs ----------
+  var wi = wb.getWorksheet('Inputs');
+  title(wi, 'Inputs: Blue cells are values you can change. Black cells are formulas.', N + 2);
+  optHead(wi, 4, 'Input', 1); wi.getRow(4).getCell(N + 2).value = 'Meaning'; wi.getRow(4).getCell(N + 2).font = F({ bold: true, color: { argb: 'FFFFFFFF' } });
+  var REF = {}, VAL = R.map(function () { return {}; });
+  function kfOf(r) { var P = r.a.futureParts; var tot = P.pay + P.bonus + P.charges + P.lang + P.office + P.it; return tot ? r.a.future / tot : 1; }
+  function k1Of(r) { return r.a.team.today ? r.a.today / r.a.team.today : 1; }
+  // [key, label, value(r) or formula(i) , format, meaning, kind] kind: 'in' value, 'f' formula, 't' text
+  var IN = [
+    ['#', '1. Cost savings: Today'],
+    ['fte', 'Jobs in scope (FTE)', function (r) { return r.a.fte; }, NUM1, 'GBS scope as it is today'],
+    ['payT', 'Pay per job today', function (r) { return r.a.todayParts.pay * k1Of(r); }, EUR, 'Yearly gross base pay, average of your team'],
+    ['bonT', 'Bonus per job today', function (r) { return r.a.todayParts.bonus * k1Of(r); }, EUR, ''],
+    ['chgT', 'Employer charges per job today', function (r) { return r.a.todayParts.charges * k1Of(r); }, EUR, ''],
+    ['offT', 'Office per job today', function (r) { return r.a.todayParts.office * k1Of(r); }, EUR, 'IT is left out: It moves with the job'],
+    ['todayC', 'Cost per job today', 'f:payT+bonT+chgT+offT', EUR, 'Sum of the four lines above'],
+    ['wgFrom', 'Wage growth today, per year', function (r) { return r.a.wgFrom / 100; }, PCT, ''],
+    ['officeSave', 'Office space today: Share that becomes a saving', function (r) { return r.a.officeSave / 100; }, PCT0, '0% = kept for others, 100% = rented out or sold (1.e)'],
+    ['officeSale', 'Sale price of the office space', function (r) { return r.a.officeSale; }, EUR, 'One-time, when the move is done (3.D.4)'],
+    ['auto', 'Jobs automated before the move', function (r) { return r.a.auto / 100; }, PCT, '1.a'],
+    ['autoBuild', 'Automation build per job', function (r) { return r.a.autoBuild; }, EUR, '1.b, one-time (3.C.6)'],
+    ['autoRun', 'Automation running cost per job and year', function (r) { return r.a.autoRun; }, EUR, '1.c (2.3)'],
+    ['elim', 'Jobs that end at the move', function (r) { return r.a.elim / 100; }, PCT, '1.d'],
+    ['#', '2. Ongoing operating costs: New center'],
+    ['site', 'GBS site', function (r) { return r.a.to; }, null, '', 't'],
+    ['presence', 'Your presence at this site', function (r) { return { existing: 'Existing site', newsite: 'New site, same country', newcountry: 'New country' }[r.a.siteType]; }, null, '', 't'],
+    ['officeType', 'Office type', function (r) { return { lease: 'New rented office', owned: 'Existing building you own', cowork: 'Coworking' }[r.a.office]; }, null, '', 't'],
+    ['payF', 'Pay per job', function (r) { return r.a.futureParts.pay * kfOf(r); }, EUR, '2.1.1'],
+    ['bonF', 'Bonus per job', function (r) { return r.a.futureParts.bonus * kfOf(r); }, EUR, '2.1.2'],
+    ['chgF', 'Employer charges per job', function (r) { return r.a.futureParts.charges * kfOf(r); }, EUR, '2.1.3'],
+    ['langF', 'Language bonus per job', function (r) { return r.a.futureParts.lang * kfOf(r); }, EUR, '2.1.4'],
+    ['offF', 'Office per job', function (r) { return r.a.futureParts.office * kfOf(r); }, EUR, '2.2.2: Cost per desk x desks per job'],
+    ['futC', 'Cost per job, all-in', 'f:payF+bonF+chgF+langF+offF', EUR, 'Sum of the five lines above'],
+    ['wgTo', 'Wage growth at the site, per year', function (r) { return r.a.wgTo / 100; }, PCT, '2.1.a'],
+    ['eff', 'Fewer people per year after the move', function (r) { return r.a.eff / 100; }, PCT, '2.1.b'],
+    ['turn', 'Staff turnover at the site', function (r) { return r.a.turn / 100; }, PCT, '2.1.c'],
+    ['turnToday', 'Staff turnover today', function (r) { return r.a.turnToday / 100; }, PCT, '2.1.d'],
+    ['leaverCost', 'Cost per leaver, share of a year\'s cost per job', function (r) { return r.a.leaverCost / 100; }, PCT0, '2.1.e'],
+    ['siteRun', 'Site running cost per year', function (r) { return r.a.siteRun; }, EUR, '2.2.1'],
+    ['#', '3. One-time impacts'],
+    ['sevMonths', 'Severance, months of pay', function (r) { return r.a.sevMonths; }, NUM1, '3.A.1'],
+    ['sevShare', 'People who get severance', function (r) { return r.a.sevShare / 100; }, PCT0, '3.A.1'],
+    ['outplace', 'Outplacement per person with severance', function (r) { return r.a.outplace; }, EUR, '3.A.2'],
+    ['retShare', 'Retention bonus: Share of moved jobs', function (r) { return r.a.retShare / 100; }, PCT0, '3.A.3'],
+    ['retMonths', 'Retention bonus, months of pay', function (r) { return r.a.retMonths; }, NUM1, '3.A.3'],
+    ['legal', 'Works council and legal advice', function (r) { return r.a.legal; }, EUR, '3.A.4'],
+    ['siteSetup', 'Site set-up', function (r) { return r.a.siteSetup; }, EUR, '3.B.1'],
+    ['fitout', 'Fit-out or remodel per desk', function (r) { return r.a.fitout; }, EUR, '3.B.2'],
+    ['desks', 'Desks per job', function () { return CFG.desks; }, '0.00', ''],
+    ['fitLife', 'Fit-out lasts, years', function (r) { return r.a.fitLife; }, NUM, '3.B.3: Value after year 5 comes back'],
+    ['equip', 'IT equipment per new hire', function (r) { return r.a.equip; }, EUR, '3.B.4'],
+    ['overlap', 'Double cost, months', function (r) { return r.a.overlap; }, NUM, '3.C.1'],
+    ['extra', 'Extra people in the first year', function (r) { return r.a.extra / 100; }, PCT0, '3.C.2: For 12 months after each team goes live'],
+    ['recruit', 'Recruiting per hire, share of yearly base pay', function (r) { return r.a.recruit / 100; }, PCT0, '3.C.3'],
+    ['travel', 'Knowledge-transfer travel per moved job', function (r) { return r.a.travel; }, EUR, '3.C.4'],
+    ['pmo', 'Project team, whole move', function (r) { return r.a.pmo; }, EUR, '3.C.5'],
+    ['grant', 'Investment grant', function (r) { return r.a.grant; }, EUR, '3.D.1'],
+    ['jobGrant', 'Job-creation grant per new job', function (r) { return r.a.jobGrant; }, EUR, '3.D.2'],
+    ['taxRelief', 'Tax relief per year from go-live', function (r) { return r.a.taxRelief; }, EUR, '3.D.3'],
+    ['#', '4. Timeline and money'],
+    ['prep', 'Preparation, months', function (r) { return r.a.prep; }, NUM, '4.1'],
+    ['move', 'Move duration, months', function (r) { return r.a.move; }, NUM, '4.2'],
+    ['disc', 'Discount rate per year', function (r) { return r.a.disc / 100; }, PCT, 'For NPV'],
+    ['confSite', 'Data confidence, site', function (r) { return r.a.confSite / 100; }, PCT0, ''],
+    ['confToday', 'Data confidence, your countries', function (r) { return r.a.confToday / 100; }, PCT0, ''],
+    ['#', 'Calculated helpers (formulas)'],
+    ['mv', 'Jobs that move', 'f:fte*(1-auto-elim)', NUM1, ''],
+    ['autoN', 'Jobs automated', 'f:fte*auto', NUM1, ''],
+    ['elimN', 'Jobs that end', 'f:fte*elim', NUM1, ''],
+    ['hires', 'People hired, incl. first-year extra', 'f:mv*(1+extra)', NUM1, ''],
+    ['leavers', 'People who get severance', 'f:fte*sevShare', NUM1, 'All jobs leave the old locations'],
+    ['payPM', 'Pay per month today, per job', 'f:payT/12', EUR, 'Base for severance and retention'],
+    ['basePay', 'Base pay per new job (for recruiting)', 'f:payF+langF', EUR, ''],
+    ['turnF', 'Extra turnover cost, share of a year\'s cost per job', 'f:(turn-turnToday)*leaverCost', F6, ''],
+    ['offShare', 'Office share of today\'s cost', 'f:IF(todayC=0,0,offT/todayC)', F6, ''],
+    ['D', 'Move duration used, months', 'f:MAX(1,move)', NUM, ''],
+    ['end', 'Last team live, month', 'f:prep+D', NUM, ''],
+    ['prepM', 'Months to spread preparation cost', 'f:MAX(1,prep)', NUM, ''],
+    ['fitTotal', 'Fit-out, total', 'f:mv*desks*fitout', EUR, '']
+  ];
+  // pass 1: rows and references
+  var rowNo = 5;
+  IN.forEach(function (d) { d.row = rowNo++; if (d[0] !== '#') REF[d[0]] = d.row; });
+  function ref(key, i, sheet) { if (!REF[key]) throw new Error('no ref ' + key); return (sheet ? sheet + '!' : 'Inputs!') + '$' + COLS[i] + '$' + REF[key]; }
+  function expr(s, i, sheet) { return s.replace(/[A-Za-z][A-Za-z0-9]*/g, function (w) { return REF[w] ? ref(w, i, sheet) : w; }); }
+  var JSF = {
+    todayC: function (V) { return V.payT + V.bonT + V.chgT + V.offT; }, futC: function (V) { return V.payF + V.bonF + V.chgF + V.langF + V.offF; },
+    mv: function (V) { return V.fte * (1 - V.auto - V.elim); }, autoN: function (V) { return V.fte * V.auto; }, elimN: function (V) { return V.fte * V.elim; },
+    hires: function (V) { return V.mv * (1 + V.extra); }, leavers: function (V) { return V.fte * V.sevShare; }, payPM: function (V) { return V.payT / 12; },
+    basePay: function (V) { return V.payF + V.langF; }, turnF: function (V) { return (V.turn - V.turnToday) * V.leaverCost; }, offShare: function (V) { return V.todayC === 0 ? 0 : V.offT / V.todayC; },
+    D: function (V) { return Math.max(1, V.move); }, end: function (V) { return V.prep + V.D; }, prepM: function (V) { return Math.max(1, V.prep); }, fitTotal: function (V) { return V.mv * V.desks * V.fitout; }
+  };
+  IN.forEach(function (d) {
+    var row = wi.getRow(d.row);
+    if (d[0] === '#') { row.getCell(1).value = d[1]; row.getCell(1).font = F({ bold: true, size: 11, color: { argb: NAVY } }); for (var c = 1; c <= N + 2; c++) fill(row.getCell(c), GREY); row.height = 20; return; }
+    row.getCell(1).value = d[1]; row.getCell(N + 2).value = d[4] || ''; row.getCell(N + 2).font = F({ size: 9, color: { argb: MUTED } }); row.getCell(N + 2).alignment = { indent: 1 };
+    R.forEach(function (r, i) {
+      var c = row.getCell(i + 2), v;
+      if (typeof d[2] === 'string') {
+        var f = d[2].slice(2); v = JSF[d[0]](VAL[i]);
+        c.value = { formula: expr(f, i, null).replace(/Inputs!/g, ''), result: v }; c.font = F();
+      } else {
+        v = d[2](r); c.value = v;
+        if (d[5] !== 't') { c.font = F({ color: { argb: BLUE_IN } }); fill(c, IN_FILL); }
+        else c.font = F({ bold: true });
+      }
+      VAL[i][d[0]] = v;
+      if (d[3]) c.numFmt = d[3];
+      c.alignment = { horizontal: d[5] === 't' ? 'center' : 'right' };
+      c.border = { bottom: { style: 'hair', color: { argb: LINE } } };
+    });
+    row.getCell(1).border = { bottom: { style: 'hair', color: { argb: LINE } } };
+  });
+  wi.getColumn(1).width = 48; COLS.forEach(function (c, i) { wi.getColumn(i + 2).width = 24; }); wi.getColumn(N + 2).width = 46;
+
+  // ---------- Calc sheets: one per option, 60 months, all formulas ----------
+  var CC = [
+    ['t', 'Month'], ['yr', 'Year', 'INT((t-1)/12)+1', function (c) { return Math.floor((c.t - 1) / 12) + 1; }, NUM],
+    ['infS', 'Wage index today', '(1+wgFrom)^(yr-1)', function (c, V) { return Math.pow(1 + V.wgFrom, c.yr - 1); }, F6],
+    ['infT', 'Wage index site', '(1+wgTo)^(yr-1)', function (c, V) { return Math.pow(1 + V.wgTo, c.yr - 1); }, F6],
+    ['live', 'Work moved, share', 'MIN(1,MAX(0,(t-prep)/D))', function (c, V) { return cl((c.t - V.prep) / V.D); }, F6],
+    ['liveP', 'Work moved last month', 'MIN(1,MAX(0,(t-1-prep)/D))', function (c, V) { return cl((c.t - 1 - V.prep) / V.D); }, F6],
+    ['live12', 'Work moved 12 months ago', 'MIN(1,MAX(0,(t-12-prep)/D))', function (c, V) { return cl((c.t - 12 - V.prep) / V.D); }, F6],
+    ['hired', 'New people on payroll, share', 'MIN(1,MAX(0,(t-prep+overlap)/D))', function (c, V) { return cl((c.t - V.prep + V.overlap) / V.D); }, F6],
+    ['hiredP', 'On payroll last month', 'MIN(1,MAX(0,(t-1-prep+overlap)/D))', function (c, V) { return cl((c.t - 1 - V.prep + V.overlap) / V.D); }, F6],
+    ['effF', 'Efficiency factor', '(1-eff)^MAX(0,(t-end)/12)', function (c, V) { return Math.pow(1 - V.eff, Math.max(0, (c.t - V.end) / 12)); }, F6],
+    ['job', 'Cost per job this month', 'futC/12*infT', function (c, V) { return V.futC / 12 * c.infT; }, EUR],
+    ['base', 'Cost if nothing changes', 'fte*todayC/12*infS', function (c, V) { return V.fte * V.todayC / 12 * c.infS; }, EUR],
+    ['src', 'Old locations, still paid', 'base*(1-live)+base*live*offShare*(1-officeSave)', function (c, V) { return c.base * (1 - c.live) + c.base * c.live * V.offShare * (1 - V.officeSave); }, EUR],
+    ['jobsRun', '2.1 Jobs doing the work', 'mv*live*effF*job', function (c, V) { return V.mv * c.live * c.effF * c.job; }, EUR],
+    ['siteR', '2.2.1 Site running cost', 'IF(t>prep,siteRun/12*infT,0)', function (c, V) { return c.t > V.prep ? V.siteRun / 12 * c.infT : 0; }, EUR],
+    ['turnC', '2.1.5 Staff turnover', 'jobsRun*turnF', function (c, V) { return c.jobsRun * V.turnF; }, EUR],
+    ['autoR', '2.3 Automation running cost', 'autoN*autoRun/12*live', function (c, V) { return V.autoN * V.autoRun / 12 * c.live; }, EUR],
+    ['run', 'Operating cost, new center', 'jobsRun+siteR+turnC+autoR', function (c) { return c.jobsRun + c.siteR + c.turnC + c.autoR; }, EUR],
+    ['sev', '3.A.1 Severance', 'leavers*sevMonths*payPM*infS*(live-liveP)', function (c, V) { return V.leavers * V.sevMonths * V.payPM * c.infS * (c.live - c.liveP); }, EUR],
+    ['outpl', '3.A.2 Outplacement', 'leavers*outplace*(live-liveP)', function (c, V) { return V.leavers * V.outplace * (c.live - c.liveP); }, EUR],
+    ['reten', '3.A.3 Retention bonuses', 'mv*retShare*retMonths*payPM*infS*(live-liveP)', function (c, V) { return V.mv * V.retShare * V.retMonths * V.payPM * c.infS * (c.live - c.liveP); }, EUR],
+    ['legalC', '3.A.4 Works council and legal', 'IF(t<=prepM,legal/prepM,0)', function (c, V) { return c.t <= V.prepM ? V.legal / V.prepM : 0; }, EUR],
+    ['siteS', '3.B.1 Site set-up', 'IF(t<=prepM,siteSetup/prepM,0)', function (c, V) { return c.t <= V.prepM ? V.siteSetup / V.prepM : 0; }, EUR],
+    ['fit', '3.B.2 Fit-out or remodel', 'IF(t<=prepM,fitTotal/prepM,0)', function (c, V) { return c.t <= V.prepM ? V.fitTotal / V.prepM : 0; }, EUR],
+    ['fitL', '3.B.3 Fit-out value left after year 5', 'IF(t=60,-fitTotal*MAX(0,1-5/fitLife),0)', function (c, V) { return c.t === 60 ? -V.fitTotal * Math.max(0, 1 - 5 / V.fitLife) : 0; }, EUR],
+    ['equipC', '3.B.4 IT equipment', 'hires*(hired-hiredP)*equip', function (c, V) { return V.hires * (c.hired - c.hiredP) * V.equip; }, EUR],
+    ['dbl', '3.C.1 Double cost', 'mv*(hired-live)*job', function (c, V) { return V.mv * (c.hired - c.live) * c.job; }, EUR],
+    ['extraC', '3.C.2 Extra people, first year', 'mv*(live-live12)*extra*effF*job', function (c, V) { return V.mv * (c.live - c.live12) * V.extra * c.effF * c.job; }, EUR],
+    ['recr', '3.C.3 Recruiting', 'hires*(hired-hiredP)*recruit*basePay*infT', function (c, V) { return V.hires * (c.hired - c.hiredP) * V.recruit * V.basePay * c.infT; }, EUR],
+    ['trav', '3.C.4 Knowledge-transfer travel', 'mv*(hired-hiredP)*travel', function (c, V) { return V.mv * (c.hired - c.hiredP) * V.travel; }, EUR],
+    ['pmoC', '3.C.5 Project team', 'IF(t<=end,pmo/end,0)', function (c, V) { return c.t <= V.end ? V.pmo / V.end : 0; }, EUR],
+    ['autoB', '3.C.6 Automation build', 'IF(t<=prepM,autoN*autoBuild/prepM,0)', function (c, V) { return c.t <= V.prepM ? V.autoN * V.autoBuild / V.prepM : 0; }, EUR],
+    ['grantC', '3.D.1 Investment grant', 'IF(t=end,-grant,0)', function (c, V) { return c.t === V.end ? -V.grant : 0; }, EUR],
+    ['jobG', '3.D.2 Job-creation grants', 'IF(t=end,-jobGrant*mv,0)', function (c, V) { return c.t === V.end ? -V.jobGrant * V.mv : 0; }, EUR],
+    ['tax', '3.D.3 Tax relief', '-taxRelief/12*live', function (c, V) { return -V.taxRelief / 12 * c.live; }, EUR],
+    ['sale', '3.D.4 Sale of office space', 'IF(t=end,-officeSale,0)', function (c, V) { return c.t === V.end ? -V.officeSale : 0; }, EUR],
+    ['one', 'One-time impact, net', 'SUM(sev:sale)', null, EUR],
+    ['cf', 'Net effect', 'base-src-run-one', function (c) { return c.base - c.src - c.run - c.one; }, EUR],
+    ['cum', 'Running total', 'cumPrev+cf', null, EUR],
+    ['df', 'Discount factor', '1/(1+disc)^(t/12)', function (c, V) { return 1 / Math.pow(1 + V.disc, c.t / 12); }, F6],
+    ['pv', 'Net effect, today\'s money', 'cf*df', function (c) { return c.cf * c.df; }, EUR]
+  ];
+  function cl(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function colL(n) { var s = ''; n++; while (n > 0) { var m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = Math.floor((n - 1) / 26); } return s; }
+  var CIDX = {}; CC.forEach(function (d, k) { CIDX[d[0]] = colL(k); });
+  var FIRST = 6, LAST = 65, TOT = 66, CALC = [];
+  R.forEach(function (r, i) {
+    var name = 'Calc ' + LB[i], qn = "'" + name + "'", V = VAL[i];
+    var ws = wb.getWorksheet(name);
+    title(ws, 'Month by month: ' + optName(r, i) + '. All cells are formulas from the Inputs sheet.', CC.length);
+    var hr = ws.getRow(5); hr.height = 42;
+    CC.forEach(function (d, k) { var c = hr.getCell(k + 1); c.value = d[1]; c.font = F({ bold: true, color: { argb: 'FFFFFFFF' }, size: 9 }); fill(c, NAVY); c.alignment = { wrapText: true, vertical: 'middle', horizontal: 'center' }; });
+    var rows = [], cum = 0;
+    for (var t = 1; t <= 60; t++) {
+      var ctx = { t: t }, rn = FIRST + t - 1, row = ws.getRow(rn);
+      CC.forEach(function (d, k) {
+        var key = d[0], c = row.getCell(k + 1), v, f;
+        if (key === 't') { c.value = t; ctx.t = t; c.font = F({ bold: true }); return; }
+        if (key === 'one') { v = 0; for (var q = CC.findIndex(function (x) { return x[0] === 'sev'; }); CC[q][0] !== 'one'; q++) v += ctx[CC[q][0]]; f = 'SUM(' + CIDX.sev + rn + ':' + CIDX.sale + rn + ')'; }
+        else if (key === 'cum') { cum += ctx.cf; v = cum; f = t === 1 ? CIDX.cf + rn : CIDX.cum + (rn - 1) + '+' + CIDX.cf + rn; }
+        else {
+          v = d[3](ctx, V);
+          f = d[2].replace(/[A-Za-z][A-Za-z0-9]*/g, function (w) { if (CIDX[w] && w !== 'end' && w !== 'D') return CIDX[w] + rn; if (REF[w]) return ref(w, i); return w; });
+        }
+        ctx[key] = v; c.value = { formula: f, result: v }; c.numFmt = d[4]; c.font = F({ size: 9 });
+      });
+      if (t % 12 === 0) row.eachCell(function (c) { c.border = { bottom: { style: 'thin', color: { argb: LINE } } }; });
+      rows.push(ctx);
+    }
+    var tr = ws.getRow(TOT); tr.getCell(1).value = 'Total'; tr.getCell(1).font = F({ bold: true });
+    CC.forEach(function (d, k) {
+      if (d[4] !== EUR || d[0] === 'job' || d[0] === 'cum') return;
+      var s = 0; rows.forEach(function (x) { s += x[d[0]]; });
+      var c = tr.getCell(k + 1); c.value = { formula: 'SUM(' + CIDX[d[0]] + FIRST + ':' + CIDX[d[0]] + LAST + ')', result: s }; c.numFmt = EUR; c.font = F({ bold: true, size: 9 }); fill(c, GREY);
+    });
+    ws.getColumn(1).width = 8; for (var k = 2; k <= CC.length; k++) ws.getColumn(k).width = 13;
+    CALC.push({ q: qn, rows: rows });
+  });
+  function csum(i, key) { var s = 0; CALC[i].rows.forEach(function (x) { s += x[key]; }); return { f: CALC[i].q + '!' + CIDX[key] + TOT, v: s }; }
 
   // ---------- Summary ----------
-  var ws = wb.addWorksheet('Summary', { views: [{ state: 'frozen', ySplit: 4, xSplit: 1 }], pageSetup: { orientation: 'landscape', fitToPage: true, fitToWidth: 1, fitToHeight: 0 } });
-  title(ws, 'GBS Business Case Calculator', sub); ws.addRow([]);
-  var hr = ws.addRow(['', 'Option A', 'Option B', 'Option C']); head(hr);
-  R.forEach(function (r, i) { hr.getCell(i + 2).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: COLS[i] } }; hr.getCell(i + 2).font = { bold: true, color: { argb: INK } }; });
-  var off = { lease: 'New rented office', owned: 'Existing building you own', cowork: 'Coworking or serviced office' };
-  function L(label, f, fmt, opt) { return line(ws, label, R.map(f), fmt, opt); }
-  var EURr = function (f) { return function (r) { return Math.round(f(r)); }; };
-  section(ws, 'The answer', 4);
-  L('Value over 5 years (NPV)', EURr(function (r) { return r.npv; }), EUR, { bold: true });
-  L('Payback, month', function (r) { return r.payback || 'not within 5 years'; });
-  L('Saving per year in year 5', EURr(function (r) { return r.saving; }), EUR);
-  L('Saving in % of today\'s cost', function (r) { return r.savingPct; }, PCT);
-  L('One-time impact, net', EURr(function (r) { return r.oneTime; }), EUR);
-  L('Funding needed before it turns positive', EURr(function (r) { return r.peak; }), EUR);
-  L('Return per year (IRR)', function (r) { return r.irr === null ? 'negative' : r.irr; }, PCT);
-  L('Data confidence, site', function (r) { return r.a.confSite / 100; }, '0%');
-  L('Data confidence, your countries', function (r) { return r.a.confToday / 100; }, '0%');
-  section(ws, '1. Cost savings (per year, today\'s prices)', 4);
-  L('Jobs in scope today (FTE)', function (r) { return r.a.fte; }, NUM1);
-  L('Cost per job today (used)', EURr(function (r) { return r.a.today; }), EUR);
-  L('As-is cost of the work in scope', EURr(function (r) { return r.baseYear; }), EUR, { bold: true });
-  L('1.1 Labor: Pay, bonus, employer charges', EURr(function (r) { return r.labor; }), EUR, { indent: 1 });
-  L('1.2 Office space', EURr(function (r) { return r.office - r.stayOffice; }), EUR, { indent: 1 });
-  L('Cost savings per year (1.1 + 1.2)', EURr(function (r) { return r.awayYear; }), EUR, { bold: true });
-  L('Jobs that move', function (r) { return r.mv; }, NUM1);
-  L('Jobs that end at the move', function (r) { return r.elimN; }, NUM1);
-  L('Jobs replaced by automation', function (r) { return r.autoN; }, NUM1);
-  L('Wage growth today', function (r) { return r.a.wgFrom / 100; }, PCT);
-  section(ws, '2. Ongoing operating costs (per year, full run, today\'s prices)', 4);
-  L('GBS site', function (r) { return r.a.to; });
-  L('Presence at the site', function (r) { return { existing: 'Existing site', newsite: 'New site, same country', newcountry: 'New country' }[r.a.siteType]; });
-  L('Office type', function (r) { return off[r.a.office]; });
-  L('2.1 Labor', EURr(function (r) { return r.mv * (r.a.future - (r.a.deskCost + r.a.oppCost) * CFG.desks - CFG.it) + r.turnYear; }), EUR, { bold: true });
-  [['Pay per job', 'pay'], ['Bonus per job', 'bonus'], ['Employer charges per job', 'charges'], ['Language bonus per job', 'lang']].forEach(function (p) { L(p[0], EURr(function (r) { return r.a.futureParts[p[1]]; }), EUR, { indent: 1 }); });
-  L('Wage growth at the site', function (r) { return r.a.wgTo / 100; }, PCT, { indent: 1 });
-  L('2.1.5 Staff turnover vs today', EURr(function (r) { return r.turnYear; }), EUR, { indent: 1 });
-  L('Staff turnover at the site / today', function (r) { return n1(r.a.turn) + '% / ' + n1(r.a.turnToday) + '%'; }, 'General', { indent: 1 });
-  L('Fewer people per year after the move', function (r) { return r.a.eff / 100; }, PCT, { indent: 1 });
-  L('2.2 Site and office', EURr(function (r) { return r.mv * ((r.a.deskCost + r.a.oppCost) * CFG.desks + CFG.it) + r.a.siteRun; }), EUR, { bold: true });
-  L('Site running cost', EURr(function (r) { return r.a.siteRun; }), EUR, { indent: 1 });
-  L('Office cost per desk (without IT)', EURr(function (r) { return r.a.deskCost; }), EUR, { indent: 1 });
-  L('Lost income from own building, per desk', EURr(function (r) { return r.a.oppCost; }), EUR, { indent: 1 });
-  L('2.3 Automation running cost', EURr(function (r) { return r.autoYear; }), EUR, { bold: true });
-  L('Operating cost per year (2.1 to 2.3)', EURr(function (r) { return r.runYear; }), EUR, { bold: true });
-  L('Net saving per year at full run', EURr(function (r) { return r.fullSave; }), EUR, { bold: true });
-  section(ws, '3. One-time impacts of the move', 4);
-  L('3.A People leaving', EURr(function (r) { return r.A; }), EUR, { bold: true });
-  [['3.A.1 Severance', 'sev'], ['3.A.2 Outplacement', 'outpl'], ['3.A.3 Retention bonuses', 'reten'], ['3.A.4 Works council and legal advice', 'legal']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
-  L('3.B Site', EURr(function (r) { return r.B; }), EUR, { bold: true });
-  [['3.B.1 Site set-up', 'site'], ['3.B.2 Fit-out or remodel', 'fit'], ['3.B.3 Minus value left after year 5', 'fitLeft'], ['3.B.4 IT equipment', 'equip']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
-  L('3.C Transition', EURr(function (r) { return r.C; }), EUR, { bold: true });
-  [['3.C.1 Double cost', 'dbl'], ['3.C.2 Extra people, first year', 'extra'], ['3.C.3 Recruiting', 'recruit'], ['3.C.4 Knowledge-transfer travel', 'travel'], ['3.C.5 Project team', 'pmo'], ['3.C.6 Automation build', 'autoBuild']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
-  L('3.D Incentives and income', EURr(function (r) { return -r.D; }), EUR, { bold: true });
-  [['3.D.1 Investment grant', 'grant'], ['3.D.2 Job-creation grants', 'jobGrant'], ['3.D.3 Tax relief until year 5', 'tax'], ['3.D.4 Sale of offices', 'sale']].forEach(function (p) { L(p[0], EURr(function (r) { return r.P[p[1]]; }), EUR, { indent: 1 }); });
-  L('One-time impact, net', EURr(function (r) { return r.oneTime; }), EUR, { bold: true });
-  section(ws, 'Drivers of the one-time cost', 4);
-  L('Severance, months of pay', function (r) { return r.a.sevMonths; }, NUM1);
-  L('People who get severance', function (r) { return r.a.sevShare / 100; }, PCT);
-  L('Outplacement per person', function (r) { return r.a.outplace; }, EUR);
-  L('Retention bonus: people / months of pay', function (r) { return r.a.retShare + '% / ' + r.a.retMonths; });
-  L('Fit-out per desk / lasts, years', function (r) { return num(r.a.fitout) + ' / ' + r.a.fitLife; });
-  L('IT equipment per hire', function (r) { return r.a.equip; }, EUR);
-  L('Double cost, months', function (r) { return r.a.overlap; });
-  L('Extra people in the first year', function (r) { return r.a.extra / 100; }, PCT);
-  L('Recruiting, % of yearly base pay', function (r) { return r.a.recruit / 100; }, PCT);
-  L('Travel per moved job', function (r) { return r.a.travel; }, EUR);
-  section(ws, '4. Timeline', 4);
-  L('Preparation, months', function (r) { return r.a.prep; });
-  L('Move duration, months', function (r) { return r.a.move; });
-  L('Discount rate', function (r) { return r.a.disc / 100; }, PCT);
-  ws.getColumn(1).width = 52; [2, 3, 4].forEach(function (c) { ws.getColumn(c).width = 26; });
+  var ws = wb.getWorksheet('Summary'); ws.pageSetup = { orientation: 'portrait', fitToPage: true, fitToWidth: 1, fitToHeight: 0 };
+  title(ws, 'GBS Business Case: Summary', N + 2);
+  optHead(ws, 4, 'EUR per year unless stated', 1); ws.getRow(4).getCell(N + 2).value = 'How it is calculated'; ws.getRow(4).getCell(N + 2).font = F({ bold: true, color: { argb: 'FFFFFFFF' } });
+  var SR = {};
+  function line(key, label, fn, fmt, opt) {
+    opt = opt || {};
+    var row = ws.addRow([label]); SR[key] = row.number;
+    R.forEach(function (r, i) { var x = fn(i), c = row.getCell(i + 2); c.value = x.f ? { formula: x.f, result: x.v } : x.v; c.numFmt = fmt || EUR; c.alignment = { horizontal: 'right' }; c.font = F({ bold: !!opt.bold, size: opt.big ? 12 : 10 }); if (opt.bold) fill(c, OPTL[i]); });
+    row.getCell(1).font = F({ bold: !!opt.bold, size: opt.big ? 12 : 10, color: { argb: opt.muted ? MUTED : INK } });
+    if (opt.indent) row.getCell(1).alignment = { indent: 2 };
+    row.getCell(N + 2).value = opt.note || ''; row.getCell(N + 2).font = F({ size: 9, color: { argb: MUTED } }); row.getCell(N + 2).alignment = { indent: 1 };
+    row.eachCell({ includeEmpty: true }, function (c, k) { if (k <= N + 2) c.border = opt.bold ? { top: { style: 'thin', color: { argb: INK } }, bottom: { style: 'thin', color: { argb: LINE } } } : { bottom: { style: 'hair', color: { argb: LINE } } }; });
+    if (opt.big) row.height = 22;
+    return row;
+  }
+  function I(key, i) { return ref(key, i); }
+  function S_(key, i) { return '$' + COLS[i] + '$' + SR[key]; }
+  function fx(f, v) { return function (i) { return { f: f(i), v: v(i) }; }; }
+  band(ws, '1. Cost savings', N + 2);
+  line('asis', 'As-is cost of the GBS scope', fx(function (i) { return I('fte', i) + '*' + I('todayC', i); }, function (i) { return VAL[i].fte * VAL[i].todayC; }), EUR, { note: 'Jobs x cost per job today' });
+  line('s11', '1.1 Labor: Pay, bonus, employer charges', fx(function (i) { return I('fte', i) + '*(' + I('payT', i) + '+' + I('bonT', i) + '+' + I('chgT', i) + ')'; }, function (i) { var V = VAL[i]; return V.fte * (V.payT + V.bonT + V.chgT); }), EUR, { indent: 1, note: 'All of it goes away when the jobs leave' });
+  line('s12t', '1.2 Office space, cost today', fx(function (i) { return I('fte', i) + '*' + I('offT', i); }, function (i) { return VAL[i].fte * VAL[i].offT; }), EUR, { indent: 1, muted: 1 });
+  line('s12', '1.2 Office space, saving', fx(function (i) { return S_('s12t', i) + '*' + I('officeSave', i); }, function (i) { return VAL[i].fte * VAL[i].offT * VAL[i].officeSave; }), EUR, { indent: 1, note: 'Only if rented out or sold (1.e)' });
+  line('save1', 'Cost savings per year (1.1 + 1.2)', fx(function (i) { return S_('s11', i) + '+' + S_('s12', i); }, function (i) { return R[i].awayYear; }), EUR, { bold: 1 });
+  line('jm', 'Jobs that move', fx(function (i) { return I('mv', i); }, function (i) { return VAL[i].mv; }), NUM1, { muted: 1 });
+  line('ja', 'Jobs automated before the move', fx(function (i) { return I('autoN', i); }, function (i) { return VAL[i].autoN; }), NUM1, { muted: 1 });
+  line('je', 'Jobs that end at the move', fx(function (i) { return I('elimN', i); }, function (i) { return VAL[i].elimN; }), NUM1, { muted: 1 });
+
+  band(ws, '2. Ongoing operating costs (full run, today\'s prices)', N + 2);
+  line('p211', '2.1.1 Pay per job', fx(function (i) { return I('payF', i); }, function (i) { return VAL[i].payF; }), EUR, { indent: 1, muted: 1 });
+  line('p212', '2.1.2 Bonus per job', fx(function (i) { return I('bonF', i); }, function (i) { return VAL[i].bonF; }), EUR, { indent: 1, muted: 1 });
+  line('p213', '2.1.3 Employer charges per job', fx(function (i) { return I('chgF', i); }, function (i) { return VAL[i].chgF; }), EUR, { indent: 1, muted: 1 });
+  line('p214', '2.1.4 Language bonus per job', fx(function (i) { return I('langF', i); }, function (i) { return VAL[i].langF; }), EUR, { indent: 1, muted: 1 });
+  line('p215', '2.1.5 Staff turnover vs today', fx(function (i) { return I('mv', i) + '*' + I('futC', i) + '*' + I('turnF', i); }, function (i) { return R[i].turnYear; }), EUR, { indent: 1, note: 'Recruiting, training and 3 to 6 months until full speed' });
+  line('o21', '2.1 Labor', fx(function (i) { return I('mv', i) + '*(' + S_('p211', i) + '+' + S_('p212', i) + '+' + S_('p213', i) + '+' + S_('p214', i) + ')+' + S_('p215', i); }, function (i) { var V = VAL[i]; return V.mv * (V.payF + V.bonF + V.chgF + V.langF) + R[i].turnYear; }), EUR, { note: 'Jobs that move x labor per job + turnover' });
+  line('o22', '2.2 Site and office', fx(function (i) { return I('mv', i) + '*' + I('offF', i) + '+' + I('siteRun', i); }, function (i) { return VAL[i].mv * VAL[i].offF + VAL[i].siteRun; }), EUR, { note: 'Office per job x jobs + site running cost' });
+  line('o23', '2.3 Automation running cost', fx(function (i) { return I('autoN', i) + '*' + I('autoRun', i); }, function (i) { return VAL[i].autoN * VAL[i].autoRun; }), EUR);
+  line('run', 'Operating cost per year (2.1 to 2.3)', fx(function (i) { return S_('o21', i) + '+' + S_('o22', i) + '+' + S_('o23', i); }, function (i) { return R[i].runYear; }), EUR, { bold: 1 });
+  line('net', 'Net saving per year at full run', fx(function (i) { return S_('save1', i) + '-' + S_('run', i); }, function (i) { return R[i].fullSave; }), EUR, { bold: 1, big: 1, note: 'Cost savings minus operating cost, today\'s prices' });
+
+  band(ws, '3. One-time impacts of the move (5 years, with timing and wage growth)', N + 2);
+  function comp(key, cKey, label) { line(key, label, function (i) { var x = csum(i, cKey); return { f: x.f, v: x.v }; }, EUR, { indent: 1 }); }
+  comp('a1', 'sev', '3.A.1 Severance'); comp('a2', 'outpl', '3.A.2 Outplacement'); comp('a3', 'reten', '3.A.3 Retention bonuses'); comp('a4', 'legalC', '3.A.4 Works council and legal advice');
+  line('A', '3.A People leaving', fx(function (i) { return 'SUM(' + S_('a1', i) + ':' + S_('a4', i) + ')'; }, function (i) { return R[i].A; }), EUR, { bold: 1 });
+  comp('b1', 'siteS', '3.B.1 Site set-up'); comp('b2', 'fit', '3.B.2 Fit-out or remodel'); comp('b3', 'fitL', '3.B.3 Minus value left after year 5'); comp('b4', 'equipC', '3.B.4 IT equipment');
+  line('B', '3.B Site', fx(function (i) { return 'SUM(' + S_('b1', i) + ':' + S_('b4', i) + ')'; }, function (i) { return R[i].B; }), EUR, { bold: 1 });
+  comp('c1', 'dbl', '3.C.1 Double cost'); comp('c2', 'extraC', '3.C.2 Extra people, first year'); comp('c3', 'recr', '3.C.3 Recruiting'); comp('c4', 'trav', '3.C.4 Knowledge-transfer travel'); comp('c5', 'pmoC', '3.C.5 Project team'); comp('c6', 'autoB', '3.C.6 Automation build');
+  line('C', '3.C Transition', fx(function (i) { return 'SUM(' + S_('c1', i) + ':' + S_('c6', i) + ')'; }, function (i) { return R[i].C; }), EUR, { bold: 1 });
+  comp('d1', 'grantC', '3.D.1 Investment grant'); comp('d2', 'jobG', '3.D.2 Job-creation grants'); comp('d3', 'tax', '3.D.3 Tax relief until year 5'); comp('d4', 'sale', '3.D.4 Sale of office space');
+  line('Dd', '3.D Incentives and income', fx(function (i) { return 'SUM(' + S_('d1', i) + ':' + S_('d4', i) + ')'; }, function (i) { return -R[i].D; }), EUR, { bold: 1, note: 'Negative = money back' });
+  line('oneC', 'One-time cost (3.A + 3.B + 3.C)', fx(function (i) { return S_('A', i) + '+' + S_('B', i) + '+' + S_('C', i); }, function (i) { return R[i].oneCost; }), EUR);
+  line('oneN', 'One-time impact, net (3.A to 3.D)', fx(function (i) { return S_('oneC', i) + '+' + S_('Dd', i); }, function (i) { return R[i].oneTime; }), EUR, { bold: 1, big: 1 });
+
+  band(ws, '4. Timeline', N + 2);
+  line('t1', '4.1 Preparation, months', fx(function (i) { return I('prep', i); }, function (i) { return VAL[i].prep; }), NUM);
+  line('t2', '4.2 Move duration, months', fx(function (i) { return I('move', i); }, function (i) { return VAL[i].move; }), NUM);
+  line('t3', 'Last team live, month', fx(function (i) { return I('end', i); }, function (i) { return VAL[i].end; }), NUM);
+
+  band(ws, '5. Result', N + 2);
+  function rng(i, key) { return CALC[i].q + '!' + CIDX[key] + FIRST + ':' + CIDX[key] + LAST; }
+  function rngY5(i, key) { return 'SUM(' + CALC[i].q + '!' + CIDX[key] + (FIRST + 48) + ':' + CIDX[key] + LAST + ')'; }
+  line('npv', 'Value over 5 years, today\'s money (NPV)', fx(function (i) { return 'SUM(' + rng(i, 'pv') + ')'; }, function (i) { return R[i].npv; }), EUR, { bold: 1, big: 1 });
+  line('pb', 'Payback, month', fx(function (i) { return 'IF(MINIFS(' + rng(i, 't') + ',' + rng(i, 'cum') + ',">=0",' + rng(i, 't') + ',">"&' + I('prep', i) + ')=0,"not in 5 years",MINIFS(' + rng(i, 't') + ',' + rng(i, 'cum') + ',">=0",' + rng(i, 't') + ',">"&' + I('prep', i) + '))'; }, function (i) { return R[i].payback || 'not in 5 years'; }), NUM);
+  line('y5', 'Saving per year in year 5', fx(function (i) { return rngY5(i, 'base') + '-' + rngY5(i, 'src') + '-' + rngY5(i, 'run'); }, function (i) { return R[i].saving; }), EUR, { note: 'With wage growth and efficiency' });
+  line('y5p', 'Saving in year 5, % of cost if nothing changes', fx(function (i) { return S_('y5', i) + '/' + rngY5(i, 'base'); }, function (i) { return R[i].savingPct; }), PCT0);
+  line('n1', 'One-time impact, net', fx(function (i) { return S_('oneN', i); }, function (i) { return R[i].oneTime; }), EUR);
+  line('fund', 'Funding needed before it turns positive', fx(function (i) { return '-MIN(0,MIN(' + rng(i, 'cum') + '))'; }, function (i) { return R[i].peak; }), EUR);
+  line('irr', 'Return per year (IRR)', fx(function (i) { return 'IFERROR((1+IRR(' + rng(i, 'cf') + ',0.02))^12-1,"negative")'; }, function (i) { return R[i].irr === null ? 'negative' : R[i].irr; }), PCT0);
+  line('cs', 'Data confidence: Site', fx(function (i) { return I('confSite', i); }, function (i) { return VAL[i].confSite; }), PCT0, { muted: 1 });
+  line('ct', 'Data confidence: Your countries', fx(function (i) { return I('confToday', i); }, function (i) { return VAL[i].confToday; }), PCT0, { muted: 1 });
+  ws.getColumn(1).width = 50; COLS.forEach(function (c, i) { ws.getColumn(i + 2).width = 22; }); ws.getColumn(N + 2).width = 44;
 
   // ---------- Year by year ----------
-  var wy = wb.addWorksheet('Year by year', { views: [{ state: 'frozen', ySplit: 4, xSplit: 2 }], pageSetup: { orientation: 'landscape', fitToPage: true, fitToWidth: 1, fitToHeight: 0 } });
-  title(wy, 'Year by year', sub); wy.addRow([]);
-  head(wy.addRow(['Option', 'Line', 'Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5', '5 years']));
-  var LN = [['base', 'Cost if nothing changes'], ['src', 'Old locations, still paid'], ['run', 'New center, operating cost'], ['oth', 'Other savings'], ['one', 'One-time impact, net (3.A to 3.D)'], ['cf', 'Net effect']];
+  var wy = wb.getWorksheet('Year by year');
+  title(wy, 'Year by year', 8);
+  var yh = wy.getRow(4); ['Option', 'Line', 'Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5', '5 years'].forEach(function (h, k) { var c = yh.getCell(k + 1); c.value = h; c.font = F({ bold: true, color: { argb: 'FFFFFFFF' } }); fill(c, NAVY); c.alignment = { horizontal: k > 1 ? 'right' : 'left' }; });
+  var LN = [['base', 'Cost if nothing changes'], ['src', 'Old locations, still paid'], ['run', 'New center, operating cost'], ['one', 'One-time impact, net'], ['cf', 'Net effect']];
+  var yr = 5;
   R.forEach(function (r, i) {
     LN.forEach(function (ln, j) {
-      var vals = r.yearly.map(function (y) { return Math.round(y[ln[0]]); }), tot = vals.reduce(function (a, b) { return a + b; }, 0);
-      var row = wy.addRow([j === 0 ? LBL[i] + ': ' + r.a.to : '', ln[1]].concat(vals, [tot]));
-      for (var c = 3; c <= 8; c++) row.getCell(c).numFmt = EUR;
-      if (ln[0] === 'cf') { row.font = { bold: true }; row.eachCell(function (c) { c.border = { bottom: { style: 'thin', color: { argb: INK } } }; }); }
+      var row = wy.getRow(yr++), tot = 0;
+      row.getCell(1).value = j === 0 ? optName(r, i) : ''; if (j === 0) { row.getCell(1).font = F({ bold: true }); fill(row.getCell(1), OPTL[i]); }
+      row.getCell(2).value = ln[1];
+      for (var y = 1; y <= 5; y++) {
+        var v = 0; CALC[i].rows.forEach(function (x) { if (x.yr === y) v += x[ln[0]]; }); tot += v;
+        var c = row.getCell(y + 2); c.value = { formula: 'SUMIF(' + rng(i, 'yr') + ',' + y + ',' + rng(i, ln[0]) + ')', result: v }; c.numFmt = EUR;
+      }
+      var ct = row.getCell(8); ct.value = { formula: 'SUM(C' + row.number + ':G' + row.number + ')', result: tot }; ct.numFmt = EUR; ct.font = F({ bold: true });
+      if (ln[0] === 'cf') row.eachCell(function (c, k) { if (k > 1) { c.font = F({ bold: true }); c.border = { top: { style: 'thin', color: { argb: INK } } }; } });
     });
-    wy.addRow([]);
+    yr++;
   });
-  wy.getColumn(1).width = 30; wy.getColumn(2).width = 28; for (var c = 3; c <= 8; c++) wy.getColumn(c).width = 15;
-
-  // ---------- Monthly ----------
-  var wm = wb.addWorksheet('Monthly cash flow', { views: [{ state: 'frozen', ySplit: 4 }] });
-  title(wm, 'Monthly cash flow (net effect and running total)', sub); wm.addRow([]);
-  var mh = ['Month']; R.forEach(function (r, i) { mh.push(LBL[i] + ': net', LBL[i] + ': running total'); }); head(wm.addRow(mh));
-  for (var t = 1; t <= 60; t++) { var row = [t]; R.forEach(function (r) { row.push(Math.round(r.cf[t]), Math.round(r.cum[t])); }); var rr = wm.addRow(row); for (var c2 = 2; c2 <= 7; c2++) rr.getCell(c2).numFmt = EUR; }
-  wm.getColumn(1).width = 8; for (var c3 = 2; c3 <= 7; c3++) wm.getColumn(c3).width = 20;
+  wy.getColumn(1).width = 30; wy.getColumn(2).width = 30; for (var c = 3; c <= 8; c++) wy.getColumn(c).width = 15;
 
   // ---------- Team today ----------
-  var wt = wb.addWorksheet('Team today', { views: [{ state: 'frozen', ySplit: 4 }] });
-  title(wt, 'Your team today', sub); wt.addRow([]);
-  head(wt.addRow(['Country'].concat(ROLES, ['Jobs (FTE)', 'Cost per FTE', 'Cost per year'])));
-  S.team.forEach(function (row, j) { var tr = T.rows[j]; var r2 = wt.addRow([row.c].concat(tr.roles.map(function (v) { return Math.round(v * 10) / 10; }), [Math.round(tr.fte * 10) / 10, Math.round(tr.perFte), Math.round(tr.cost)])); r2.getCell(10).numFmt = EUR; r2.getCell(11).numFmt = EUR; });
-  var tt = wt.addRow(['Total'].concat(ROLES.map(function () { return ''; }), [Math.round(T.fte * 10) / 10, Math.round(T.today), Math.round(T.cost)])); tt.font = { bold: true }; tt.getCell(10).numFmt = EUR; tt.getCell(11).numFmt = EUR;
+  var wt = wb.getWorksheet('Team today');
+  title(wt, 'Your GBS scope today', 11);
+  var th = wt.getRow(4); ['Country'].concat(ROLES, ['Jobs (FTE)', 'Cost per FTE', 'Cost per year']).forEach(function (h, k) { var c = th.getCell(k + 1); c.value = h; c.font = F({ bold: true, color: { argb: 'FFFFFFFF' } }); fill(c, NAVY); c.alignment = { horizontal: k ? 'right' : 'left', wrapText: true }; });
+  var tr0 = 5;
+  team.forEach(function (row, j) {
+    var t = T.rows[j], rr = wt.getRow(tr0 + j);
+    rr.getCell(1).value = row.c;
+    t.roles.forEach(function (v, g) { var c = rr.getCell(g + 2); c.value = Math.round(v * 10) / 10; c.numFmt = NUM1; c.font = F({ color: { argb: BLUE_IN } }); });
+    var n = rr.number; rr.getCell(9).value = { formula: 'SUM(B' + n + ':H' + n + ')', result: t.fte }; rr.getCell(9).numFmt = NUM1;
+    rr.getCell(10).value = Math.round(t.perFte); rr.getCell(10).numFmt = EUR; rr.getCell(10).font = F({ color: { argb: BLUE_IN } });
+    rr.getCell(11).value = { formula: 'I' + n + '*J' + n, result: t.fte * Math.round(t.perFte) }; rr.getCell(11).numFmt = EUR;
+  });
+  var tl = wt.getRow(tr0 + team.length), last = tl.number - 1; tl.getCell(1).value = 'Total';
+  for (var g = 2; g <= 9; g++) { tl.getCell(g).value = { formula: 'SUM(' + colL(g - 1) + tr0 + ':' + colL(g - 1) + last + ')', result: g === 9 ? T.fte : T.rows.reduce(function (s, x) { return s + x.roles[g - 2]; }, 0) }; tl.getCell(g).numFmt = NUM1; }
+  tl.getCell(11).value = { formula: 'SUM(K' + tr0 + ':K' + last + ')', result: T.cost }; tl.getCell(11).numFmt = EUR;
+  tl.getCell(10).value = { formula: 'IF(I' + tl.number + '=0,0,K' + tl.number + '/I' + tl.number + ')', result: T.today }; tl.getCell(10).numFmt = EUR;
+  tl.eachCell(function (c) { c.font = F({ bold: true }); c.border = { top: { style: 'thin', color: { argb: INK } } }; });
   wt.getColumn(1).width = 28; for (var c4 = 2; c4 <= 11; c4++) wt.getColumn(c4).width = 13;
 
-  // ---------- Assumptions ----------
-  var wa = wb.addWorksheet('Assumptions');
-  title(wa, 'Assumptions and benchmark data used', sub + ' Pay is yearly gross base pay in EUR.'); wa.addRow([]);
-  head(wa.addRow(['Benchmark row', 'Table'].concat(ROLES, ['Employer charges', 'Office rent + 3,000 IT per FTE (data)', 'Severance, months', 'Wage growth', 'Language bonus', 'Confidence', 'Source'])));
-  function bench(c, tab) { var r3 = wa.addRow([c.n, tab].concat(c.sal.map(function (v) { return v * 1000; }), [c.on / 100, c.work - DATA_IT + CFG.it, c.sev, c.wg / 100, (c.lang || 0) / 100, c.conf / 100, c.src])); for (var k = 3; k <= 9; k++) r3.getCell(k).numFmt = EUR; r3.getCell(10).numFmt = '0%'; r3.getCell(11).numFmt = EUR; r3.getCell(13).numFmt = PCT; r3.getCell(14).numFmt = '0%'; r3.getCell(15).numFmt = '0%'; }
-  usedToday().forEach(function (n) { bench(country(n), 'Today (regular pay)'); });
-  usedSites().forEach(function (n) { bench(site(n), 'GBS site'); });
-  wa.addRow([]);
-  section(wa, 'Model settings', 3);
-  [['IT per FTE per year', CFG.it, EUR], ['Desks per FTE', CFG.desks, '0.00'], ['Own building: extra running cost per desk', CFG.ownVar, EUR], ['Own building: fixed cost per desk', CFG.ownFixed, EUR], ['Own building: share of fixed cost that is extra', CFG.ownExtra / 100, '0%'], ['Coworking, % of market rent', CFG.coworkPct / 100, '0%'],
-   ['Fit-out new office, per desk', CFG.fitLease, EUR], ['Remodel own building, per desk', CFG.fitOwned, EUR], ['Fit-out lasts, years', CFG.fitLife, '0'], ['Jobs with a language bonus', CFG.langShare / 100, '0%']].forEach(function (x) { var r4 = wa.addRow([x[0], x[1]]); r4.getCell(2).numFmt = x[2]; });
-  wa.getColumn(1).width = 44; wa.getColumn(2).width = 20; for (var c5 = 3; c5 <= 15; c5++) wa.getColumn(c5).width = 13; wa.getColumn(16).width = 60;
+  // ---------- Benchmarks ----------
+  var wa = wb.getWorksheet('Benchmarks');
+  title(wa, 'Benchmark data used: Yearly gross base pay per role, EUR', 15);
+  var bh = wa.getRow(4); ['Benchmark row', 'Table'].concat(ROLES, ['Employer charges', 'Office per FTE', 'Severance, months', 'Wage growth', 'Language bonus', 'Confidence', 'Source']).forEach(function (h, k) { var c = bh.getCell(k + 1); c.value = h; c.font = F({ bold: true, color: { argb: 'FFFFFFFF' } }); fill(c, NAVY); c.alignment = { wrapText: true, vertical: 'middle' }; });
+  bh.height = 30;
+  var used = [];
+  team.forEach(function (row) { if (used.indexOf('T' + row.c) < 0) { used.push('T' + row.c); bench(country(row.c), 'Today, regular pay'); } });
+  R.forEach(function (r) { if (used.indexOf('S' + r.a.to) < 0) { used.push('S' + r.a.to); bench(site(r.a.to), 'GBS site'); } });
+  function bench(c, tab) {
+    var r3 = wa.addRow([c.n, tab].concat(c.sal.map(function (v) { return v * 1000; }), [c.on / 100, workOf(c), c.sev, c.wg / 100, (c.lang || 0) / 100, c.conf / 100, c.src]));
+    for (var k = 3; k <= 9; k++) r3.getCell(k).numFmt = EUR; r3.getCell(10).numFmt = PCT0; r3.getCell(11).numFmt = EUR; r3.getCell(13).numFmt = PCT; r3.getCell(14).numFmt = PCT0; r3.getCell(15).numFmt = PCT0;
+  }
+  wa.getColumn(1).width = 26; wa.getColumn(2).width = 18; for (var c5 = 3; c5 <= 15; c5++) wa.getColumn(c5).width = 12; wa.getColumn(16).width = 60;
 
-  wb.xlsx.writeBuffer().then(function (buf) {
-    var blob = new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }), url = URL.createObjectURL(blob), a = document.createElement('a');
-    a.href = url; a.download = 'gbs-business-case-' + date + '.xlsx'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-  });
+  wb.worksheets.forEach(function (w) { arial(w); });
+  wb.views = [{ activeTab: 0 }];
+  return wb;
 }
+if (typeof module !== 'undefined') module.exports = { buildWorkbook: buildWorkbook };
 
 })();
 </script></body></html>
