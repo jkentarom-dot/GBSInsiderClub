@@ -751,7 +751,8 @@ var ROWS = [
   { sec: 2, b: 'autoc', s: 'autoc' },
 
   { sec: 2, total: 'run', l: 'Operating cost per year (2.1 to 2.3)', d: 'Full run, today\'s prices.' },
-  { sec: 2, total: 'away', l: 'Cost savings per year (section 1)', d: '' },
+  { sec: 2, total: 'away', l: 'Cost savings per year (section 1.1 and 1.2)', d: '' },
+  { sec: 2, total: 'nl', l: 'Other savings per year (section 1.3)', d: 'Items 1.g to 1.k. Where they count is set in 1.l.' },
   { sec: 2, total: 'save', l: 'Net saving per year at full run', d: 'Section 5 shows the last year of the chosen view, with wage growth and efficiency.', strong: 1 },
 
   { sec: 3, b: 'A', l: '3.A People leaving', d: 'Severance, outplacement, retention bonuses, works council and legal advice. For HR.', tot: 'A' },
@@ -864,8 +865,16 @@ function refreshTeam() {
   h += '<div class="poshead"><span class="no">No.</span><span class="pn">Position</span><span class="c1">Cost today</span><span class="c2">Saving</span></div>';
   h += pos('1.1', 'Labor: Pay, bonus, employer charges', eur(r.labor), eur(r.labor), ul([li('Pay', eur(f * TP.pay * k1)), li('Bonus', eur(f * TP.bonus * k1)), li('Employer charges', eur(f * TP.charges * k1)), li('All of it goes away when the jobs leave', eur(r.labor), 'tot')]));
   h += pos('1.2', 'Office space (1.e)', eur(r.office), eur(r.office - r.stayOffice), ul([li('Office cost of these jobs today', eur(r.office)), li(off, eur(r.office - r.stayOffice), 'tot')]));
-  h += '<div class="postot"><span class="pn">Total</span><b class="c1">' + eur(r.baseYear) + '</b><b class="c2">' + eur(r.awayYear) + '</b></div>';
-  h += '<p class="note">Cost savings per year = 1.1 + 1.2 saving. ' + (r.stayOffice > 0.5 ? 'The difference to the cost today (' + eur(r.stayOffice) + ') is office space that is kept for others. ' : '') + 'Where the ' + n1(f) + ' jobs go: <b>' + n1(r.mv) + '</b> move to the new center' + (r.autoN ? ', <b>' + n1(r.autoN) + '</b> are automated before the move' : '') + (r.elimN ? ', <b>' + n1(r.elimN) + '</b> end at the move' : '') + '.</p>';
+  h += '<div class="postot"><span class="pn">Total 1.1 + 1.2</span><b class="c1">' + eur(r.baseYear) + '</b><b class="c2">' + eur(r.awayYear) + '</b></div>';
+  var lm = f ? r.labor * (r.mv / f) : 0, NLT = [['nlTemps', '1.g Temps and overtime'], ['nlLic', '1.h Licenses and tools'], ['nlAudit', '1.i Audit and statutory fees'], ['nlExt', '1.j Outside services and contracts']], nlRows = [];
+  NLT.forEach(function (x) { if (r.a[x[0] + 'On'] && r.a[x[0]] > 0) nlRows.push(li(x[1] + ' (' + n1(r.a[x[0]]) + '% of labor cost of the moved jobs)', eur(lm * r.a[x[0]] / 100))); });
+  if (r.a.nlOwnOn && r.a.nlOwn > 0) nlRows.push(li('1.k Your own item', eur(r.a.nlOwn)));
+  if (r.nlYear > 0) {
+    nlRows.push(li(r.a.nlIn ? 'Counted in the net effect, NPV and payback' : 'Shown next to the result. Not in NPV and payback (switch in 1.l)', eur(r.nlYear), 'tot'));
+    h += pos('1.3', 'Other savings (1.g to 1.k)', eur(0), eur(r.nlYear), ul(nlRows), 'oth');
+    h += '<div class="postot"><span class="pn">Total with other savings 1.1 + 1.2 + 1.3</span><b class="c1">' + eur(r.baseYear) + '</b><b class="c2">' + eur(r.awayYear + r.nlYear) + '</b></div>';
+  }
+  h += '<p class="note">Cost savings per year = 1.1 + 1.2 saving' + (r.nlYear > 0 ? ' (+ 1.3 other savings)' : '') + '. ' + (r.stayOffice > 0.5 ? 'The difference to the cost today (' + eur(r.stayOffice) + ') is office space that is kept for others. ' : '') + 'Where the ' + n1(f) + ' jobs go: <b>' + n1(r.mv) + '</b> move to the new center' + (r.autoN ? ', <b>' + n1(r.autoN) + '</b> are automated before the move' : '') + (r.elimN ? ', <b>' + n1(r.elimN) + '</b> end at the move' : '') + '.</p>';
   document.getElementById('savesum').innerHTML = h;
   var cut = r.a.elim + r.a.auto;
   document.getElementById('scopewarn').innerHTML = cut > 10 ? '<b>Check this:</b> ' + n1(cut) + '% of the jobs are not replaced. The new team must absorb this work from day one. Above about 10% this is a real risk for service levels. Back each cut with a named process change.' : '';
@@ -920,6 +929,7 @@ function totals(i) {
     autoc: '<b>' + eur(r.autoYear) + '</b> per year<i>' + n1(r.autoN) + ' jobs automated</i>',
     run: '<b>' + eur(r.runYear) + '</b>',
     away: '<b>' + eur(r.awayYear) + '</b>',
+    nl: '<b>' + eur(r.nlYear) + '</b><i>' + (r.nlYear ? (a.nlIn ? 'counted in the net effect' : 'next to the result, not in NPV') : 'all switched off') + '</i>',
     save: '<b class="' + (r.fullSave >= 0 ? 'pos' : 'neg') + '">' + eur(r.fullSave) + '</b><i>' + Math.round(r.fullSave / (r.awayYear || 1) * 100) + '% of the cost savings</i>',
     A: '<b>' + eur(r.A) + '</b>', B: '<b>' + eur(r.B) + '</b>', C: '<b>' + eur(r.C) + '</b>', D: '<b>' + eur(-r.D) + '</b>',
     cost: '<b>' + eur(r.oneCost) + '</b>', net: '<b>' + eur(r.oneTime) + '</b>',
@@ -1672,6 +1682,8 @@ function buildWorkbook(ExcelJS, R, T, team, date, mlabel, startTxt) {
   line('s12t', '1.2 Office space, cost today', fx(function (i) { return I('fte', i) + '*' + I('offT', i); }, function (i) { return VAL[i].fte * VAL[i].offT; }), EUR, { indent: 1, muted: 1 });
   line('s12', '1.2 Office space, saving', fx(function (i) { return S_('s12t', i) + '*' + I('officeSave', i); }, function (i) { return VAL[i].fte * VAL[i].offT * VAL[i].officeSave; }), EUR, { indent: 1, note: 'Only if rented out or sold (1.e)' });
   line('save1', 'Cost savings per year (1.1 + 1.2)', fx(function (i) { return S_('s11', i) + '+' + S_('s12', i); }, function (i) { return R[i].awayYear; }), EUR, { sub: 1 });
+  line('s13', '1.3 Other savings per year (1.g to 1.k)', fx(function (i) { return I('nlY', i); }, function (i) { return R[i].nlYear; }), EUR, { note: 'Switch items on or off on the Inputs sheet. Counted in NPV only if 1.l = In the net effect' });
+  line('save1b', 'Cost savings per year with other savings (1.1 + 1.2 + 1.3)', fx(function (i) { return S_('save1', i) + '+' + S_('s13', i); }, function (i) { return R[i].awayYear + R[i].nlYear; }), EUR, { sub: 1 });
   line('jm', 'Jobs that move', fx(function (i) { return I('mv', i); }, function (i) { return VAL[i].mv; }), NUM1, { muted: 1 });
   line('ja', 'Jobs automated before the move', fx(function (i) { return I('autoN', i); }, function (i) { return VAL[i].autoN; }), NUM1, { muted: 1 });
   line('je', 'Jobs that end at the move', fx(function (i) { return I('elimN', i); }, function (i) { return VAL[i].elimN; }), NUM1, { muted: 1 });
