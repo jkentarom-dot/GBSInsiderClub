@@ -235,7 +235,7 @@ table.qt th{vertical-align:bottom}table.qt th:nth-child(n+3){text-align:right}
 <tr><td class="no">1.i</td><td><input type="checkbox" id="nlAuditOn" aria-label="Audit and statutory fees on"></td><td>Audit and statutory fees, % of labor cost</td><td><input type="number" id="nlAudit" min="0" step="any"></td><td>0.3 (estimate). Fewer entities and one process for audit requests. About 3 in 10 shared service centers report lower audit fees (ScottMadden 2024).</td></tr>
 <tr><td class="no">1.j</td><td><input type="checkbox" id="nlExtOn" aria-label="Outside services on"></td><td>Outside services and contracts, % of labor cost</td><td><input type="number" id="nlExt" min="0" step="any"></td><td>0.2 (estimate). Legal, advisory and vendor contracts bundled and renegotiated.</td></tr>
 <tr><td class="no">1.k</td><td><input type="checkbox" id="nlOwnOn" aria-label="Your own item on"></td><td>Your own item, EUR per year at full run</td><td><input type="number" id="nlOwn" min="0" step="any"></td><td>0. Any saving you can name and defend, for example a contract you can end. Today's prices, not grown with wages.</td></tr>
-<tr><td class="no">1.l</td><td></td><td>Where they count</td><td><select id="nlIn"><option value="0">Next to the result</option><option value="1">In the net effect</option></select></td><td>Next to the result (default): Shown as extra lines, the core case stays clean. In the net effect: Counted in NPV, payback and the quarter table.</td></tr>
+<tr><td class="no">1.l</td><td></td><td>Where they count</td><td><select id="nlIn"><option value="0">Next to the result</option><option value="1">In the net effect</option></select></td><td>In the net effect (default): Counted in NPV, payback and the quarter table. All items above start switched off, so nothing is counted until you switch an item on. Next to the result: Shown as extra lines only.</td></tr>
 </tbody></table>
 <p class="note">Items 1.g to 1.j are a share of the labor cost of the jobs that move. They start with each go-live and grow with wages. Recruiting and training are not here: They are in staff turnover (2.1.c). Payment discounts and working capital are not here either. Confidence in the defaults: About 30 percent. Cross-check: ScottMadden (2024) reports median non-labor savings of USD 593,000 per USD 1 billion revenue, including payment discounts and working capital.</p>
 </details>
@@ -275,7 +275,7 @@ table.qt th{vertical-align:bottom}table.qt th:nth-child(n+3){text-align:right}
 <li><b>Two sites in one option.</b> You split the jobs by share over two sites. Cost per job, rent and data confidence are blended by share of jobs. Wage growth and turnover are blended by cost. Each site pays its own running cost and set-up. Two things are added: A cross-site coordination cost each year, and a larger project team. Both are estimates; Replace them with your own numbers. The blend uses one wage growth rate for the whole center, a small simplification: The two sites do not drift apart over the view.</li>
 <li><b>One-time cost, in three blocks.</b> A, people leaving: Severance, outplacement and retention bonuses are paid when each job leaves; Works council and legal advice in the months before the first team is live. B, site: Site set-up and office fit-out in the same months, IT equipment when people are hired. A fit-out lasts about 10 years: Unused value at the end of a view comes back as money, and a worn-out fit-out is paid again. C, transition: New people paid before they take over the work (double cost), extra people for the first 12 months after each team goes live, recruiting and travel when people are hired, the project team from month 1 to the last go-live, and the automation build in the months before the first team is live. D, incentives and income: Grants and office sale come in when the move is done, tax relief each month after go-live. In time, the one-time cost falls in five phases, shown in section 6: Set-up (month 1 until the first team is live), hiring and training (from each hire), people leaving (at each go-live), project team, and grants and income. Each wave is hired over its months to move, and each person is trained for the double-cost months before the old job ends.</li>
 <li><b>Net effect.</b> Cost today minus what is still paid at the old locations, minus run cost of the new center, plus other savings, minus one-time cost. Month by month from month 1 to the end of the chosen view (5 years by default). Set-up and the move period are inside the view. Costs before month 1, for example the decision phase, are not counted.</li>
-<li><b>Other savings.</b> Temps and overtime, licenses, audit fees and outside services, as a share of the labor cost of the moved jobs. Each item can be changed or switched off, and you can add one item of your own. By default they are shown next to the result and are not part of the net effect or the payback. You can choose to count them in.</li>
+<li><b>Other savings.</b> Temps and overtime, licenses, audit fees and outside services, as a share of the labor cost of the moved jobs. Each item can be changed or switched off, and you can add one item of your own. All items start switched off. Each item you switch on is counted in the net effect, the NPV and the payback. You can choose to show them next to the result instead (1.l).</li>
 <li><b>Results.</b> Payback is the first month the running total is above zero. NPV is the total from month 1 to the end of the view, with later money counted less. Longer views carry more risk: Wages, volumes and the efficiency gain are forecasts. The efficiency gain stops after the years set in 2.1.g. Read it as a direction, not as a promise. IRR is the yearly return on the money you put in. This is a cash view: Severance is booked as a provision when the move is announced, and fit-out is capex written off over its life. Your P&amp;L shows these at other times than the cash does.</li>
 </ol>
 <p><b>Not included:</b> tax and incentives, transfer pricing between your companies, exchange rates, more than two sites in one option, different go-live dates for the two sites, and a different wave plan for each option. These usually move the result by 10 to 20 percent.</p>
@@ -398,8 +398,8 @@ var DEFAULTS = {
   nlAudit: 0.3,     // lower audit and statutory fees, % of that labor cost
   nlExt: 0.2,       // fewer outside services, contracts consolidated, % of that labor cost
   nlOwn: 0,         // your own item: EUR per year at full run (today's prices, not grown with wages)
-  nlTempsOn: 1, nlLicOn: 1, nlAuditOn: 1, nlExtOn: 1, nlOwnOn: 1,   // 1 = counted, 0 = switched off
-  nlIn: 0,          // 0 = other savings are shown next to the result; 1 = counted in the net effect, NPV and payback
+  nlTempsOn: 0, nlLicOn: 0, nlAuditOn: 0, nlExtOn: 0, nlOwnOn: 0,   // 1 = counted, 0 = switched off (default: all off, the user switches on what applies)
+  nlIn: 1,          // 1 = other savings are counted in the net effect, NPV and payback (default; items are off until switched on); 0 = shown next to the result
   cashFree: 0,      // one-time cash freed when the move is done, e.g. working capital from faster collection (EUR)
   outplace: 4000,   // A: outplacement support per person who gets severance (EUR)
   retShare: 25,     // A: % of moved jobs that get a retention bonus to stay until handover
@@ -843,7 +843,7 @@ function renderTeam() {
   });
   if (S.team.length < 6) h += '<button class="add" data-addc="1">+ add country</button>';
   document.getElementById('team').innerHTML = h;
-  GLOBAL.forEach(function (g) { var el = document.getElementById(g); if (!el) return; if (el.type === 'checkbox') { el.checked = S[g] === undefined ? true : !!+S[g]; return; } el.value = S[g] === undefined ? '' : S[g]; if (el.tagName !== 'SELECT' && g !== 'today' && g !== 'wgFrom') el.placeholder = PH[g] || '0'; if (g === 'officeMode') el.value = S.officeMode || 'neutral'; if (g === 'nlIn') el.value = S.nlIn ? '1' : '0'; });
+  GLOBAL.forEach(function (g) { var el = document.getElementById(g); if (!el) return; if (el.type === 'checkbox') { el.checked = S[g] === undefined ? !!DEFAULTS[g] : !!+S[g]; return; } el.value = S[g] === undefined ? '' : S[g]; if (el.tagName !== 'SELECT' && g !== 'today' && g !== 'wgFrom') el.placeholder = PH[g] || '0'; if (g === 'officeMode') el.value = S.officeMode || 'neutral'; if (g === 'nlIn') el.value = (S.nlIn === undefined ? DEFAULTS.nlIn : +S.nlIn) ? '1' : '0'; });
   refreshTeam();
 }
 function refreshTeam() {
@@ -869,11 +869,10 @@ function refreshTeam() {
   var lm = f ? r.labor * (r.mv / f) : 0, NLT = [['nlTemps', '1.g Temps and overtime'], ['nlLic', '1.h Licenses and tools'], ['nlAudit', '1.i Audit and statutory fees'], ['nlExt', '1.j Outside services and contracts']], nlRows = [];
   NLT.forEach(function (x) { if (r.a[x[0] + 'On'] && r.a[x[0]] > 0) nlRows.push(li(x[1] + ' (' + n1(r.a[x[0]]) + '% of labor cost of the moved jobs)', eur(lm * r.a[x[0]] / 100))); });
   if (r.a.nlOwnOn && r.a.nlOwn > 0) nlRows.push(li('1.k Your own item', eur(r.a.nlOwn)));
-  if (r.nlYear > 0) {
-    nlRows.push(li(r.a.nlIn ? 'Counted in the net effect, NPV and payback' : 'Shown next to the result. Not in NPV and payback (switch in 1.l)', eur(r.nlYear), 'tot'));
-    h += pos('1.3', 'Other savings (1.g to 1.k)', eur(0), eur(r.nlYear), ul(nlRows), 'oth');
-    h += '<div class="postot"><span class="pn">Total with other savings 1.1 + 1.2 + 1.3</span><b class="c1">' + eur(r.baseYear) + '</b><b class="c2">' + eur(r.awayYear + r.nlYear) + '</b></div>';
-  }
+  if (!nlRows.length) nlRows.push(li('All items are switched off. Switch them on in 1.g to 1.k', eur(0)));
+  nlRows.push(li(r.a.nlIn ? 'Counted in the net effect, NPV and payback' : 'Shown next to the result. Not in NPV and payback (switch in 1.l)', eur(r.nlYear), 'tot'));
+  h += pos('1.3', 'Other savings (1.g to 1.k)', eur(0), eur(r.nlYear), ul(nlRows), 'oth');
+  h += '<div class="postot"><span class="pn">Total with other savings 1.1 + 1.2 + 1.3</span><b class="c1">' + eur(r.baseYear) + '</b><b class="c2">' + eur(r.awayYear + r.nlYear) + '</b></div>';
   h += '<p class="note">Cost savings per year = 1.1 + 1.2 saving' + (r.nlYear > 0 ? ' (+ 1.3 other savings)' : '') + '. ' + (r.stayOffice > 0.5 ? 'The difference to the cost today (' + eur(r.stayOffice) + ') is office space that is kept for others. ' : '') + 'Where the ' + n1(f) + ' jobs go: <b>' + n1(r.mv) + '</b> move to the new center' + (r.autoN ? ', <b>' + n1(r.autoN) + '</b> are automated before the move' : '') + (r.elimN ? ', <b>' + n1(r.elimN) + '</b> end at the move' : '') + '.</p>';
   document.getElementById('savesum').innerHTML = h;
   var cut = r.a.elim + r.a.auto;
