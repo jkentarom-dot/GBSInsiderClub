@@ -1714,7 +1714,7 @@ function buildWorkbook(ExcelJS, R, T, team, date, mlabel, startTxt, ovr) {
         v = d[2](r, i);
         var isOv = o.ovk && ovr[i] && ovr[i][o.ovk] !== undefined && ovr[i][o.ovk] !== '' && ovr[i][o.ovk] !== null;
         if (o.f && !isOv) fC(c, expr(o.f, i, null).replace(/Inputs!/g, ''), v, d[3], text);
-        else if (same && i > 0) fC(c, '$B$' + d.row, v, d[3], text);
+        else if (same && i > 0) fC(c, 'IF($B$' + d.row + '="","",$B$' + d.row + ')', v, d[3], text);   // Excel turns a link to an empty cell into 0, so keep empty as empty
         else { inC(c, v, d[3], text); if (o.list) dvList(c, ADDR[o.list]); }
       }
       VAL[i][d[0]] = v;
